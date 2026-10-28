@@ -32,6 +32,12 @@ Windows 原生 bootstrap 用例、最终 Windows 预设生命周期、4 组加�
 MS10 额外 Boot 检查曾发现并在原始 HEAD 复现既有失败，该组没有计为通过。
 这些数字分别属于各报告的测试范围，不累加为跨系统统一覆盖率。
 
+提交复核另外固定了升级测试的历史起点 `a7c5b1e7a855edcbac21ed25e46515e540fc4fae`，
+避免提交新版后把当前 HEAD 当成旧版 20 技能预设。修正后 6 项分发测试通过；
+传入既有 `KAI_DESKTOP_PWSH`、`KAI_DESKTOP_BASH32` 工具配置后，全量再次通过
+127 项、跳过 17 项。配套 zsetup-scripts 完整检查和 Reasonix 相关加载、路由及
+目标选择测试通过。提交前同时规范化了生成卸载脚本的末尾空行，并通过受管卸载回归。
+
 证据入口：
 
 - [里程碑状态及最新桌面状态](multisystem-status.json)

@@ -12,6 +12,8 @@ ROOT=Path(__file__).resolve().parents[2]
 COMMON={'kai-software','kai-dev-environment','kai-project-dependencies',
         'kai-download-acceleration','kai-storage-files','kai-tool-bootstrap'}
 SCOPE=json.loads((ROOT/'tests/multisystem/scope.json').read_text())
+# Keep the pre-migration fixture stable after the new implementation is committed.
+LEGACY_PRESET_COMMIT='a7c5b1e7a855edcbac21ed25e46515e540fc4fae'
 ALIASES={row['oldId']:row['newId'] for row in SCOPE['migration'] if row['decision']=='extract-with-platform-adapter'}
 
 
@@ -60,7 +62,7 @@ class DistributionTests(unittest.TestCase):
         self.assertEqual((protected/'keep').read_text(),'keep')
 
     def test_committed_legacy_preset_upgrade_removes_retired_skills_and_preserves_user_content(self):
-        archive=subprocess.check_output(['git','archive','HEAD','platforms/istoreos/on-device'],cwd=ROOT)
+        archive=subprocess.check_output(['git','archive',LEGACY_PRESET_COMMIT,'platforms/istoreos/on-device'],cwd=ROOT)
         legacy=self.work/'old-checkout';legacy.mkdir()
         with tarfile.open(fileobj=io.BytesIO(archive)) as source:source.extractall(legacy,filter='data')
         old=legacy/'platforms/istoreos/on-device/install.sh'
