@@ -21,7 +21,7 @@ catalog="$(${AWK:-awk} '
     if (!manual && name != "") print name " — " description
     nextfile
   }
-' "$pack"/skills/*/SKILL.md)"
+' "$pack"/skills/*/SKILL.md "$root/components/system-packs/common"/skills/*/SKILL.md)"
 catalog_bytes="$(printf '%s' "$catalog" | wc -c | tr -d ' ')"
 [ "$catalog_bytes" -le 3072 ] || fail "catalog is $catalog_bytes bytes; budget is 3072"
 

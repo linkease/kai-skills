@@ -12,6 +12,9 @@ sh "$root/tools/verify-generated.sh" >/dev/null
 source_commit="${SOURCE_COMMIT:-$(git -C "$root" rev-parse HEAD)}"
 case "$source_commit" in *[!0-9a-f]*|'') echo "failed: invalid source commit" >&2; exit 1 ;; esac
 
+source_state=committed
+[ -z "$(git -C "$root" status --porcelain --untracked-files=all)" ] || source_state=worktree
+
 tmp="$(mktemp -d "${TMPDIR:-/tmp}/linkease-release.XXXXXX")"
 trap 'rm -rf "$tmp"' EXIT HUP INT TERM
 artifacts="$tmp/artifacts"
@@ -34,8 +37,8 @@ while IFS= read -r preset_id; do
   cp -R "$preset"/. "$stage"/
   jq -n \
     --arg presetId "$preset_id" --arg version "$version" --arg sourceCommit "$source_commit" \
-    --arg treeDigest "$tree_digest" --arg sourceDigest "$source_digest" \
-    '{schemaVersion:1,presetId:$presetId,version:$version,sourceCommit:$sourceCommit,treeDigest:$treeDigest,sourceDigest:$sourceDigest}' \
+    --arg treeDigest "$tree_digest" --arg sourceDigest "$source_digest" --arg sourceState "$source_state" \
+    '{schemaVersion:1,presetId:$presetId,version:$version,sourceCommit:$sourceCommit,sourceState:$sourceState,treeDigest:$treeDigest,sourceDigest:$sourceDigest}' \
     >"$stage/SOURCE.json"
   find "$tmp/stage-$preset_id" -exec touch -t 198001010000 {} +
 
@@ -54,7 +57,7 @@ while IFS= read -r preset_id; do
 done
 
 artifacts_json="$(jq -Rn '[inputs | split("\t") | {presetId:.[0],platform:.[1],mode:.[2],version:.[3],format:.[4],path:.[5],sha256:.[6],treeDigest:.[7]}]' <"$records")"
-jq -n --arg sourceCommit "$source_commit" --argjson artifacts "$artifacts_json" \
-  '{schemaVersion:1,sourceCommit:$sourceCommit,artifacts:$artifacts}' >"$artifacts/release-manifest.json"
+jq -n --arg sourceCommit "$source_commit" --arg sourceState "$source_state" --argjson artifacts "$artifacts_json" \
+  '{schemaVersion:1,sourceCommit:$sourceCommit,sourceState:$sourceState,artifacts:$artifacts}' >"$artifacts/release-manifest.json"
 cp "$artifacts"/* "$output"/
 echo "ok: built $(jq '.artifacts | length' "$output/release-manifest.json") release artifacts in $output"

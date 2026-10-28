@@ -10,7 +10,11 @@ need_file() {
   }
 }
 
+common="$root/../common"
+[ -d "$common/skills" ] || common="$root/../../system-packs/common"
+[ -d "$common/skills" ] || common="$root"
 need_skill() {
+  if [ -f "$common/skills/$1/SKILL.md" ]; then return; fi
   need_file "skills/$1/SKILL.md"
 }
 
@@ -32,19 +36,21 @@ need_file "tests/test_store_catalog_search.sh"
 need_file "tests/test_safety_boundaries.sh"
 need_file "tests/test_unknown_observer.sh"
 
+need_skill "kai-project-dependencies"
+need_skill "kai-tool-bootstrap"
 need_skill "istoreos-system-task-router"
-need_skill "istoreos-download-acceleration"
+need_skill "kai-download-acceleration"
 need_skill "istoreos-docker-acceleration-istoreenhance"
 need_skill "istoreos-kspeeder-domainfold-fetch"
 need_skill "istoreos-docker-basics"
-need_skill "istoreos-package-manager"
-need_skill "istoreos-storage-path"
+need_skill "kai-software"
+need_skill "kai-storage-files"
 need_skill "istoreos-service-manager"
 need_skill "istoreos-logs-and-diagnostics"
 need_skill "istoreos-backup-restore"
 need_skill "istoreos-luci-recovery"
 need_skill "istoreos-systools"
-need_skill "istoreos-mise-runtime"
+need_skill "kai-dev-environment"
 need_skill "istoreos-network-quality"
 need_skill "istoreos-app-diagnostics"
 

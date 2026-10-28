@@ -3,9 +3,9 @@ name: istoreos-system-task-router
 description: iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。
 owner: system-pack/istoreos
 systems: istoreos
-triggers: iStoreOS, 路由器问题, 系统问题, 帮我检查, 帮我修复, 不知道怎么办, 不确定, 报错, 异常
+triggers: iStoreOS, 路由器问题, 系统问题, 帮我检查, 帮我修复, 不知道怎么办, 不确定, 报错, 异常, 执行这个 .run 文件
 auto-use: suggest
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: low
 ---
@@ -17,19 +17,19 @@ Identify the actual target System Pack first. Ubuntu is not iStoreOS: do not app
 
 ## Select One Primary Skill
 
-1. "安装/卸载/升级/找软件/应用商店/opkg/apk/mise 插件" -> `istoreos-package-manager`; detect the actual database/tool before choosing commands.
-2. "Docker/容器/dockerd/compose" -> `istoreos-docker-basics`; pull/download failures -> `istoreos-download-acceleration`.
-3. "GitHub/GitLab/HuggingFace/下载链接/git clone/文件下载慢" -> `istoreos-download-acceleration`.
-4. "磁盘满/overlay 满/数据目录/装到硬盘/迁移目录" -> `istoreos-storage-path`; Docker data-root migration routes to `istoreos-docker-data-root-migrate`.
+1. "安装/卸载/升级/找软件/应用商店/opkg/apk/mise 插件" -> `kai-software`; detect the actual database/tool before choosing commands.
+2. "Docker/容器/dockerd/compose" -> `istoreos-docker-basics`; pull/download failures -> `kai-download-acceleration`.
+3. "GitHub/GitLab/HuggingFace/下载链接/git clone/文件下载慢" -> `kai-download-acceleration`.
+4. "磁盘满/overlay 满/数据目录/装到硬盘/迁移目录" -> `kai-storage-files`; Docker data-root migration routes to `istoreos-docker-data-root-migrate`.
 5. "服务打不开/端口不通/启动失败/开机自启" -> `istoreos-service-manager`.
 6. "LuCI/网页管理/登录循环/500/空白页" -> `istoreos-luci-recovery`.
 7. "不知道配置字段/不确定脚本行为/要改配置" -> internal helper `istoreos-source-introspect` first.
 8. "恢复/重置/升级/危险修改/迁移前" -> `istoreos-backup-restore` first.
-9. "网速慢/测速/延迟或抖动/NAT 类型/IPv6 是否可用/局域网测速" -> `istoreos-network-quality`; a specific slow download remains with `istoreos-download-acceleration`.
+9. "网速慢/测速/延迟或抖动/NAT 类型/IPv6 是否可用/局域网测速" -> `istoreos-network-quality`; a specific slow download remains with `kai-download-acceleration`.
 10. "修改 IPv6 PD/relay/NAT 模式/硬盘不休眠/iStore 商店损坏/升级后内核模块异常" -> `istoreos-systools`.
-11. "安装 Python/Node.js/Go SDK/选择运行时版本/python-build/预编译/解释器异常" -> `istoreos-mise-runtime`; system facts use check.sh, installed SDK checks use probe.sh, installations use install.sh. These dedicated helpers establish integration for each call and report scoped results.
+11. "安装 Python/Node.js/Go SDK/选择运行时版本/python-build/预编译/解释器异常" -> `kai-dev-environment`; system facts use check.sh, installed SDK checks use probe.sh, installations use install.sh. These dedicated helpers establish integration for each call and report scoped results.
 12. ".run 文件/未知可执行安装包" -> `istoreos-run-executable`.
-13. "pip install/npm install/npm ci/go mod/依赖下载或安装失败" -> `istoreos-download-acceleration`; an absent runtime or inactive venv loads mise-runtime as needed. Go SDK and Go modules are separate tasks. System feed packages still use package-manager.
+13. "pip install/npm install/npm ci/go mod/依赖下载或安装失败" -> `kai-download-acceleration`; an absent runtime or inactive venv loads mise-runtime as needed. Go SDK and Go modules are separate tasks. System feed packages still use package-manager.
 
 ## Loading Budget
 

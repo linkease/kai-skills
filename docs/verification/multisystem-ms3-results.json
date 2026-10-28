@@ -1,0 +1,700 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS3",
+  "status": "passed",
+  "optimizationRounds": 2,
+  "reports": [
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T01:14:46.412377+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS3-contract",
+          "milestone": "MS3",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.264,
+          "logSha256": "f71a0f4a9d111a9e2fe62d7b3d2eca59976fc5339580df277ddd746100a2ffb5",
+          "expected": "bootstrap positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS3-lab-ubuntu",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 63.802,
+          "logSha256": "7e314cddd52d09e29caf4a84cf682424e312f067d942c6f4420bd5262f36289f",
+          "expected": "bootstrap real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS3-lab-debian",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 5.03,
+          "logSha256": "69d368596f6a0c838f20a32662fccf7b44e9c15a293ab3ba621f3b96b471a719",
+          "expected": "bootstrap real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS3-lab-istoreos",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 10.948,
+          "logSha256": "43a9ec47406c7b9db2af1ddda42cafed594722d4095e4b9dba2daef31d95b380",
+          "expected": "bootstrap real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T01:16:06.463968+00:00",
+      "attempt": "initial"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T01:18:14.154245+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS3-contract",
+          "milestone": "MS3",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.97,
+          "logSha256": "4f84c353cd972d70902708bf73fb1d8b5dbe4668d06404d3031d89abc6b36d89",
+          "expected": "bootstrap positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS3-lab-ubuntu",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 43.233,
+          "logSha256": "b41017469d2fe8427c4207201f0d1a68b703e46cf320cadbddd68eb18e08db75",
+          "expected": "bootstrap real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS3-lab-debian",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 40.977,
+          "logSha256": "11be72b62e4bc00b3e3a8d48ad093ae949cf018bc97187d8b886ac6f4621ed4c",
+          "expected": "bootstrap real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS3-lab-istoreos",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 10.192,
+          "logSha256": "6a73be5ceb31debc675ba0af417bf22af1e4271cffade4a311b00add4a96a6b4",
+          "expected": "bootstrap real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T01:19:49.533510+00:00",
+      "attempt": "optimization-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T01:21:22.919991+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS3-contract",
+          "milestone": "MS3",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.916,
+          "logSha256": "7e0fc8e5d53d45ae5c6ec2ff992a1f10acbccc2b1ecd9a428fc06ca4aa4f284d",
+          "expected": "bootstrap positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS3-lab-ubuntu",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 58.129,
+          "logSha256": "4aee08812b232052bb5f0c21ea615ffc3e2120c7b9cb9b7994cbd82f81f02202",
+          "expected": "bootstrap real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS3-lab-debian",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 57.179,
+          "logSha256": "4e74048a69a79456c95efe3d1032c74a77cbda08d474b16bcc887e19c7236753",
+          "expected": "bootstrap real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS3-lab-istoreos",
+          "milestone": "MS3",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 10.001,
+          "logSha256": "370ebd61b6111272aebff19ecb7a534d952737589a03cbe8a54b01df3ebbb83b",
+          "expected": "bootstrap real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T01:23:29.149059+00:00",
+      "attempt": "optimization-2"
+    }
+  ],
+  "targets": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "milestone": "MS3",
+      "target": "ubuntu",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "tools": {
+        "bash": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "bash",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/usr/bin/bash",
+            "version": "5.2.21",
+            "minimumVersion": "3.2.0",
+            "owner": "apt",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "bash",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/usr/bin/bash",
+            "version": "5.2.21",
+            "minimumVersion": "3.2.0",
+            "owner": "apt",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "zsetup": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "ubuntu",
+            "status": "installed",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "bash",
+                "/workspace/canonical/common/skills/kai-tool-bootstrap/scripts/bootstrap-core.sh"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "ks-cli": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "ks-cli",
+            "platform": "ubuntu",
+            "status": "installed",
+            "path": "/root/.local/bin/ks-cli",
+            "version": "0.8.5",
+            "minimumVersion": "0.8.5",
+            "owner": "zsetup",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "zsetup",
+                "install",
+                "ks-cli",
+                "--foreground"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "ks-cli",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/root/.local/bin/ks-cli",
+            "version": "0.8.5",
+            "minimumVersion": "0.8.5",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "mise": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "mise",
+            "platform": "ubuntu",
+            "status": "installed",
+            "path": "/root/.local/bin/mise",
+            "version": "2026.8.14",
+            "minimumVersion": "2025.1.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "bash",
+                "/workspace/canonical/common/skills/kai-tool-bootstrap/scripts/install-mise.sh"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "mise",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/root/.local/bin/mise",
+            "version": "2026.8.14",
+            "minimumVersion": "2025.1.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        }
+      },
+      "nativeIntegration": null,
+      "serviceFilesUnchanged": true,
+      "gatewayNotStarted": true,
+      "cleanup": "passed"
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "milestone": "MS3",
+      "target": "debian",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "tools": {
+        "bash": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "bash",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/usr/bin/bash",
+            "version": "5.2.15",
+            "minimumVersion": "3.2.0",
+            "owner": "apt",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "bash",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/usr/bin/bash",
+            "version": "5.2.15",
+            "minimumVersion": "3.2.0",
+            "owner": "apt",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "zsetup": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "debian",
+            "status": "installed",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "bash",
+                "/workspace/canonical/common/skills/kai-tool-bootstrap/scripts/bootstrap-core.sh"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "ks-cli": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "ks-cli",
+            "platform": "debian",
+            "status": "installed",
+            "path": "/root/.local/bin/ks-cli",
+            "version": "0.8.5",
+            "minimumVersion": "0.8.5",
+            "owner": "zsetup",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "zsetup",
+                "install",
+                "ks-cli",
+                "--foreground"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "ks-cli",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/root/.local/bin/ks-cli",
+            "version": "0.8.5",
+            "minimumVersion": "0.8.5",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "mise": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "mise",
+            "platform": "debian",
+            "status": "installed",
+            "path": "/root/.local/bin/mise",
+            "version": "2026.8.14",
+            "minimumVersion": "2025.1.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "bash",
+                "/workspace/canonical/common/skills/kai-tool-bootstrap/scripts/install-mise.sh"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "mise",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/root/.local/bin/mise",
+            "version": "2026.8.14",
+            "minimumVersion": "2025.1.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        }
+      },
+      "nativeIntegration": null,
+      "serviceFilesUnchanged": true,
+      "gatewayNotStarted": true,
+      "cleanup": "passed"
+    },
+    "istoreos": {
+      "schemaVersion": 1,
+      "milestone": "MS3",
+      "target": "istoreos",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "istoreos",
+        "image": "kai-skills-lab/istoreos:20261026-ms01",
+        "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+        "source": {
+          "type": "immutable-istoreos-rom",
+          "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "sanitization": [
+            "factory SSH host keys",
+            "root authorized keys"
+          ],
+          "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+        },
+        "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+        "contextSha256": {
+          "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+          "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+        },
+        "buildNetwork": "host-package-download-only"
+      },
+      "tools": {
+        "bash": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "bash",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/bin/bash",
+            "version": "5.2.37",
+            "minimumVersion": "3.2.0",
+            "owner": "opkg",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "bash",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/bin/bash",
+            "version": "5.2.37",
+            "minimumVersion": "3.2.0",
+            "owner": "opkg",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "mise": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "mise",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/usr/bin/mise",
+            "version": "2026.8.14",
+            "minimumVersion": "2025.1.0",
+            "owner": "opkg",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "mise",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/usr/bin/mise",
+            "version": "2026.8.14",
+            "minimumVersion": "2025.1.0",
+            "owner": "opkg",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        },
+        "ks-cli": {
+          "first": {
+            "schemaVersion": 1,
+            "tool": "ks-cli",
+            "platform": "istoreos",
+            "status": "installed",
+            "path": "/usr/bin/ks-cli",
+            "version": "0.8.5",
+            "minimumVersion": "0.8.5",
+            "owner": "opkg",
+            "reason": "",
+            "nextStep": "",
+            "commands": [
+              [
+                "is-opkg",
+                "install",
+                "ks-cli"
+              ]
+            ],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "repeat": {
+            "schemaVersion": 1,
+            "tool": "ks-cli",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/usr/bin/ks-cli",
+            "version": "0.8.5",
+            "minimumVersion": "0.8.5",
+            "owner": "opkg",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          }
+        }
+      },
+      "nativeIntegration": "Package: mise\nVersion: 2026.8.14-25\nDepends: libc\nStatus: install user installed\nArchitecture: x86_64\nConffiles:\n /etc/config/mise b3bcc120d3acd361969aca518362270c2de19172c898af603230ef79f4968b28\nInstalled-Time: 1793062269\n\nPackage: ks-cli\nVersion: 0.8.5-1\nDepends: libc\nStatus: install user installed\nArchitecture: x86_64\nInstalled-Time: 1793064206\n\nruntime_dir=/workspace/runtime",
+      "serviceFilesUnchanged": true,
+      "gatewayNotStarted": true,
+      "cleanup": "passed"
+    }
+  },
+  "hostSystemCurl": {
+    "before": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf",
+    "after": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf",
+    "unchanged": true
+  },
+  "nativeDesktopStatus": "pending",
+  "powershellParser": "unavailable in the controller; native Windows not connected",
+  "finalContractReport": {
+    "schemaVersion": 1,
+    "startedAt": "2026-10-27T01:49:03.750516+00:00",
+    "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+    "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+    "cases": [
+      {
+        "id": "MS3-contract",
+        "milestone": "MS3",
+        "suite": "contract",
+        "platform": "all",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedSeconds": 1.066,
+        "logSha256": "60016110e94165151f0f09cc7a653cd3a2b101c47a8df876b8d32803d800e7e2",
+        "expected": "bootstrap positive and negative public-interface contracts pass",
+        "evidence": "behavior assertions"
+      }
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-27T01:49:04.818486+00:00"
+  },
+  "offlinePublicBehaviorTests": 12,
+  "scopeNotes": [
+    "Native container evidence predates desktop-only ownership/hash portability refinements; those refinements pass the final offline contract.",
+    "macOS first install supports its standard shasum; an existing compatible macOS/Windows zsetup 0.4.0 remains reusable.",
+    "PowerShell parser unavailable and desktop native gates remain pending."
+  ]
+}

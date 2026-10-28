@@ -1,0 +1,9 @@
+{
+  "schemaVersion": 1,
+  "firmware": "iStoreOS 24.10.1 x86_64 immutable ROM default",
+  "originalSha256": "39543707097e57d618dd8ad2a99a3f382422b542fa060b071cb0bd0f655d8974",
+  "inactiveLegacySha256": "44772f93dd6faec414b8921b1da7ef5337086dc123a48d5bed6e2b9e4552ce6e",
+  "pythonSha256": "1893e57bfe6bfe7a8e90c0b3bcdbc139659574b13e76eb9a4fe7abad84130611",
+  "replacement": "# Empty firmware ENGINE initialization omitted for the bundled Python OpenSSL.",
+  "policy": "Only a process-local copy; original bytes and nonempty provider/engine extension policy must be preserved."
+}

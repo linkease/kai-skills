@@ -6,7 +6,7 @@ systems: istoreos
 triggers: 服务没启动, 服务启动失败, 服务状态, 开机自启, 端口没监听, 安装后没生效, init.d
 negative-triggers: LuCI 打不开, LuCI 500, Docker 数据目录
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: medium
 ---

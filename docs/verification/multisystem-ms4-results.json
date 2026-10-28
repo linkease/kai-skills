@@ -1,0 +1,812 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS4",
+  "status": "passed",
+  "optimizationRounds": 2,
+  "reason": "Approved owner removal implemented and real three-system lifecycle passed.",
+  "reports": [
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T01:35:16.975753+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS4-contract",
+          "milestone": "MS4",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.314,
+          "logSha256": "1c7e220879caa90810cc9ea5e7edce79d45e574308b90bc40f52c8e9fc07cf42",
+          "expected": "software positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS4-lab-ubuntu",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 19.467,
+          "logSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "expected": "software real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-debian",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 8.439,
+          "logSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "expected": "software real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-istoreos",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 10.794,
+          "logSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+          "expected": "software real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T01:35:55.994338+00:00",
+      "attempt": "initial"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T01:36:45.346487+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS4-contract",
+          "milestone": "MS4",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "35a45a4b2a0c0867401d2f2b5f5978dfa3747ffa8a0f60b8a60a8e61ef0c1995",
+          "expected": "software positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS4-lab-ubuntu",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 66.511,
+          "logSha256": "06a65a60f1dae69407c8dd239e9535bf318a53aa907e76538ee71610a5ca4286",
+          "expected": "software real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-debian",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 62.188,
+          "logSha256": "9fed7eaaec19b47d544f2509289dd4682f750faed90f79a0ff20b4908aa6146a",
+          "expected": "software real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-istoreos",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 16.771,
+          "logSha256": "c16baeb90e9befe5b538f88aabfcce39b5316ac50bc54f2a5b5bfff122edbd2a",
+          "expected": "software real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T01:39:11.036088+00:00",
+      "attempt": "optimization-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T01:40:53.811407+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS4-contract",
+          "milestone": "MS4",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.314,
+          "logSha256": "b157c3ece19577fbdc4a59aefc9fc3343140d0375ee4afae6bba63ad07231790",
+          "expected": "software positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS4-lab-ubuntu",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 66.498,
+          "logSha256": "be22ce2707dbee1e280087cd947d5df250acd18a7ac9dc3b8d8508296f64a10b",
+          "expected": "software real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-debian",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 90.674,
+          "logSha256": "1a07c567993e4c8180a34e89fc5dabdc6cb99e0da04a6b1fe3bd9e521acfb238",
+          "expected": "software real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-istoreos",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 32.156,
+          "logSha256": "1227af9508591499ba6c87d3a431a85a63b29ed1a074557cc7f2982560642920",
+          "expected": "software real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T01:44:03.463610+00:00",
+      "attempt": "optimization-2"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T02:24:15.524544+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS4-contract",
+          "milestone": "MS4",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.314,
+          "logSha256": "a0f8d4b855ce1f25fe026f91b3c6fd8fe8fde1b0ea124a97fecc4fe7ad542b84",
+          "expected": "software positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS4-lab-ubuntu",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 97.178,
+          "logSha256": "932523cc0866bff352ee3bfb11023efc62ccb554b2ba9fb530c70a314f98231c",
+          "expected": "software real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-debian",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 168.255,
+          "logSha256": "649bd373fcd6fe22d8fb5cd81dbc2b381067d66f1e8e8db3dfe522c76a81b05e",
+          "expected": "software real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS4-lab-istoreos",
+          "milestone": "MS4",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 57.51,
+          "logSha256": "bd8c924d9c1d0ea1c8e9382c979e0f02b1f5ecf0de89725efaa6f02b5a8bba8e",
+          "expected": "software real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T02:29:38.787008+00:00",
+      "attempt": "approved-removal-implementation"
+    }
+  ],
+  "hostSystemCurl": {
+    "before": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf",
+    "after": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf",
+    "unchanged": true
+  },
+  "decision": "../architecture/internal-software-removal-decision.md",
+  "scopeNotes": [
+    "Owner candidate removal, not a public zsetup subcommand or deployment.",
+    "Windows/macOS native validation remains pending; full distribution is MS10."
+  ],
+  "historicalTargets": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "milestone": "MS4",
+      "target": "ubuntu",
+      "status": "blocked",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "systemPackage": {
+          "id": "apt:tree",
+          "version": "2.1.1-2ubuntu3.24.04.2",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "apt:tree",
+              "name": "tree",
+              "type": "system-package",
+              "source": "apt",
+              "manager": "apt",
+              "platform": "ubuntu",
+              "compatible": true,
+              "availableVersion": "2.1.1-2ubuntu3.24.04.2",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T01:41:04Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "functional": "/workspace/ms4-sample\n`-- known-file.txt\n\n1 directory, 1 file",
+          "queryIndexesUnchanged": true,
+          "repeatInstall": "passed",
+          "remove": "passed",
+          "projectPreserved": true
+        },
+        "internalSoftware": {
+          "id": "zsetup:linkspace",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "zsetup:linkspace",
+              "name": "linkspace",
+              "type": "internal-software",
+              "source": "zsetup",
+              "manager": "zsetup",
+              "platform": "ubuntu",
+              "compatible": true,
+              "availableVersion": "provider-resolved",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T01:41:28Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "version": "{\n  \"schemaVersion\": 1,\n  \"version\": \"v0.1.0\"\n}",
+          "functional": {
+            "operation": "linkspace capabilities --json",
+            "validJson": true,
+            "outputSha256": "3f06601c43bf33a694cc3893c1d72caf261dcef4f54222660061a6e931cbd41f"
+          },
+          "remove": "blocked",
+          "removalReceipt": {
+            "schemaVersion": 1,
+            "status": "failed",
+            "category": "owner-capability-missing",
+            "reason": "published zsetup installers provide install/rollback but no uninstall protocol; decide removal scope and the owner interface before implementing deletion",
+            "exitCode": 18
+          }
+        }
+      },
+      "missingCapabilities": [
+        "zsetup-owned internal software uninstall protocol/scope"
+      ],
+      "cleanup": "passed"
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "milestone": "MS4",
+      "target": "debian",
+      "status": "blocked",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "systemPackage": {
+          "id": "apt:tree",
+          "version": "2.1.0-1",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "apt:tree",
+              "name": "tree",
+              "type": "system-package",
+              "source": "apt",
+              "manager": "apt",
+              "platform": "debian",
+              "compatible": true,
+              "availableVersion": "2.1.0-1",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T01:42:41Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "functional": "/workspace/ms4-sample\n`-- known-file.txt\n\n1 directory, 1 file",
+          "queryIndexesUnchanged": true,
+          "repeatInstall": "passed",
+          "remove": "passed",
+          "projectPreserved": true
+        },
+        "internalSoftware": {
+          "id": "zsetup:linkspace",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "zsetup:linkspace",
+              "name": "linkspace",
+              "type": "internal-software",
+              "source": "zsetup",
+              "manager": "zsetup",
+              "platform": "debian",
+              "compatible": true,
+              "availableVersion": "provider-resolved",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T01:43:00Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "version": "{\n  \"schemaVersion\": 1,\n  \"version\": \"v0.1.0\"\n}",
+          "functional": {
+            "operation": "linkspace capabilities --json",
+            "validJson": true,
+            "outputSha256": "1e565986a25acd73019057659d7649b16e4216e3ea29f769cf854f56ead1c02d"
+          },
+          "remove": "blocked",
+          "removalReceipt": {
+            "schemaVersion": 1,
+            "status": "failed",
+            "category": "owner-capability-missing",
+            "reason": "published zsetup installers provide install/rollback but no uninstall protocol; decide removal scope and the owner interface before implementing deletion",
+            "exitCode": 18
+          }
+        }
+      },
+      "missingCapabilities": [
+        "zsetup-owned internal software uninstall protocol/scope"
+      ],
+      "cleanup": "passed"
+    },
+    "istoreos": {
+      "schemaVersion": 1,
+      "milestone": "MS4",
+      "target": "istoreos",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "istoreos",
+        "image": "kai-skills-lab/istoreos:20261026-ms01",
+        "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+        "source": {
+          "type": "immutable-istoreos-rom",
+          "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "sanitization": [
+            "factory SSH host keys",
+            "root authorized keys"
+          ],
+          "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+        },
+        "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+        "contextSha256": {
+          "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+          "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+        },
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "systemPackage": {
+          "id": "opkg:tree",
+          "version": "2.2.1-r1",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "opkg:tree",
+              "name": "tree",
+              "type": "system-package",
+              "source": "opkg",
+              "manager": "opkg",
+              "platform": "istoreos",
+              "compatible": true,
+              "availableVersion": "2.2.1-r1",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T01:43:44Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "functional": "/workspace/ms4-sample\n\u2514\u2500\u2500 known-file.txt\n\n1 directory, 1 file",
+          "queryIndexesUnchanged": true,
+          "repeatInstall": "passed",
+          "remove": "passed",
+          "projectPreserved": true
+        },
+        "internalSoftware": {
+          "id": "istore:ks-cli",
+          "version": "0.8.5-1",
+          "functional": "Usage: ks-cli [--json] [--strict] [--verbose] [--explain] <command> [options]\n\nAccelerated workflows:\n  ks-cli docker <docker arguments...>\n  ks-cli download [options] URL\n  ks-cli npm <npm arguments...>\n  ks-cli go <go arguments...>\n  ks-cli pip <pip arguments...>\n  ks-cli uv <uv arguments...>\n  ks-cli brew <brew arguments...>\n  ks-cli mise <mise arguments...>\n  ks-cli git <git arguments...>\n\nManagement:\n  ks-cli status [--json]\n  ks-cli doctor [<tool> [--json] | --fix]\n  ks-cli service install --mode auto|native|docker\n  ks-cli service upgrade [--yes] [--version-url URL]\n  ks-cli service uninstall [--purge-data]\n  ks-cli service status|start|stop|restart\n  ks-cli cache clean\n  ks-cli auth status|login|logout\n  ks-cli admin\n  ks-cli version\n\nAI discovery: ks-cli help --json; ks-cli help <command...> [--json]\nUse --explain --json only for commands that declare supports_explain=true. JSON errors are written to stderr.",
+          "remove": "passed"
+        }
+      },
+      "missingCapabilities": [],
+      "cleanup": "passed"
+    }
+  },
+  "targets": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "milestone": "MS4",
+      "target": "ubuntu",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "systemPackage": {
+          "id": "apt:tree",
+          "version": "2.1.1-2ubuntu3.24.04.2",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "apt:tree",
+              "name": "tree",
+              "type": "system-package",
+              "source": "apt",
+              "manager": "apt",
+              "platform": "ubuntu",
+              "compatible": true,
+              "availableVersion": "2.1.1-2ubuntu3.24.04.2",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T02:24:57Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "queryIndexesUnchanged": true,
+          "repeatInstall": "passed",
+          "remove": "passed",
+          "projectPreserved": true,
+          "functionalOutputSha256": "981ced5526c6d985e023946685592f893cb56c982e6966f2c79a056ee1a6079a"
+        },
+        "internalSoftware": {
+          "id": "zsetup:linkspace",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "zsetup:linkspace",
+              "name": "linkspace",
+              "type": "internal-software",
+              "source": "zsetup",
+              "manager": "zsetup",
+              "platform": "ubuntu",
+              "compatible": true,
+              "availableVersion": null,
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T02:25:20Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "version": "{\n  \"schemaVersion\": 1,\n  \"version\": \"v0.1.0\"\n}",
+          "remove": "passed",
+          "removalReceipt": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "remove",
+            "id": "zsetup:linkspace",
+            "preserved": [
+              "config",
+              "data",
+              "cache"
+            ],
+            "exitCode": 0
+          },
+          "repeatRemove": "passed",
+          "configAndCachePreserved": true,
+          "functionalOutputSha256": "0348972f9284ac19d36104a726dd151c52bb94605daa3058d7a6f65defcf9965"
+        }
+      },
+      "missingCapabilities": [],
+      "cleanup": "passed"
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "milestone": "MS4",
+      "target": "debian",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "systemPackage": {
+          "id": "apt:tree",
+          "version": "2.1.0-1",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "apt:tree",
+              "name": "tree",
+              "type": "system-package",
+              "source": "apt",
+              "manager": "apt",
+              "platform": "debian",
+              "compatible": true,
+              "availableVersion": "2.1.0-1",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T02:27:39Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "queryIndexesUnchanged": true,
+          "repeatInstall": "passed",
+          "remove": "passed",
+          "projectPreserved": true,
+          "functionalOutputSha256": "981ced5526c6d985e023946685592f893cb56c982e6966f2c79a056ee1a6079a"
+        },
+        "internalSoftware": {
+          "id": "zsetup:linkspace",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "zsetup:linkspace",
+              "name": "linkspace",
+              "type": "internal-software",
+              "source": "zsetup",
+              "manager": "zsetup",
+              "platform": "debian",
+              "compatible": true,
+              "availableVersion": null,
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T02:28:01Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "version": "{\n  \"schemaVersion\": 1,\n  \"version\": \"v0.1.0\"\n}",
+          "remove": "passed",
+          "removalReceipt": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "remove",
+            "id": "zsetup:linkspace",
+            "preserved": [
+              "config",
+              "data",
+              "cache"
+            ],
+            "exitCode": 0
+          },
+          "repeatRemove": "passed",
+          "configAndCachePreserved": true,
+          "functionalOutputSha256": "9fae245eaf38b3e037894a64838f30643211d2a95566e757d78796afb75a7ed9"
+        }
+      },
+      "missingCapabilities": [],
+      "cleanup": "passed"
+    },
+    "istoreos": {
+      "schemaVersion": 1,
+      "milestone": "MS4",
+      "target": "istoreos",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "istoreos",
+        "image": "kai-skills-lab/istoreos:20261026-ms01",
+        "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+        "source": {
+          "type": "immutable-istoreos-rom",
+          "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "sanitization": [
+            "factory SSH host keys",
+            "root authorized keys"
+          ],
+          "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+        },
+        "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+        "contextSha256": {
+          "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+          "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+        },
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "systemPackage": {
+          "id": "opkg:tree",
+          "version": "2.2.1-r1",
+          "search": [
+            {
+              "schemaVersion": 1,
+              "id": "opkg:tree",
+              "name": "tree",
+              "type": "system-package",
+              "source": "opkg",
+              "manager": "opkg",
+              "platform": "istoreos",
+              "compatible": true,
+              "availableVersion": "2.2.1-r1",
+              "installedVersion": "",
+              "installed": false,
+              "entrypoint": "",
+              "evidenceTime": "2026-10-27T02:28:58Z",
+              "matchReason": "matched in the selected provider catalog"
+            }
+          ],
+          "queryIndexesUnchanged": true,
+          "repeatInstall": "passed",
+          "remove": "passed",
+          "projectPreserved": true,
+          "functionalOutputSha256": "a0f04d639566814b7aec6d170f756b6c003f6a4b19633cffab3c193bbe9e558e"
+        },
+        "internalSoftware": {
+          "id": "istore:ks-cli",
+          "version": "0.8.5-1",
+          "remove": "passed",
+          "functionalOutputSha256": "da122be46c58e07451d91b534c523aad280a54209ae137ebed7d63b1e6f14fa4"
+        }
+      },
+      "missingCapabilities": [],
+      "cleanup": "passed"
+    }
+  },
+  "ownerValidation": {
+    "managedRemovalTests": 5,
+    "status": "passed",
+    "fullCheckExitCode": 0,
+    "command": "sh scripts/check.sh ZSETUP_RUST_ROOT RUST_RELEASE_PACKAGE",
+    "release": "Linux 0.5.1 existing canonical release",
+    "ownerResource": {
+      "schemaVersion": 1,
+      "owner": "zsetup-scripts",
+      "path": "scripts/remove-managed.sh",
+      "sourceCommit": "a8e179dd8be65ca3e1e8ea471e3a5e3559b35442",
+      "sourceState": "local-candidate",
+      "sha256": "0819940b28ca3a8e7c45b96c20f44056208c37de2d5d1eb31f4607949ec84605",
+      "size": 16082,
+      "protocol": "managed-binary-remove-v1",
+      "applications": [
+        "linkspace",
+        "ks-cli",
+        "kspeeder"
+      ]
+    },
+    "publicDeployment": false
+  },
+  "historicalFinalContractReport": {
+    "schemaVersion": 1,
+    "startedAt": "2026-10-27T01:46:19.635648+00:00",
+    "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+    "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+    "cases": [
+      {
+        "id": "MS4-contract",
+        "milestone": "MS4",
+        "suite": "contract",
+        "platform": "all",
+        "status": "passed",
+        "exitCode": 0,
+        "elapsedSeconds": 0.365,
+        "logSha256": "e1990b38b01902ee476915419c53d331f213b502ea6f184e625310fde56f38c9",
+        "expected": "software positive and negative public-interface contracts pass",
+        "evidence": "behavior assertions"
+      }
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-27T01:46:20.001949+00:00"
+  },
+  "finalContractReport": {
+    "schemaVersion": 1,
+    "startedAt": "2026-10-27T03:12:28.671790+00:00",
+    "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+    "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+    "cases": [
+      {
+        "id": "MS4-contract",
+        "milestone": "MS4",
+        "suite": "contract",
+        "platform": "all",
+        "status": "passed",
+        "exitCode": 0,
+        "sourceTreeDigest": "a5ef9f971791699d110c95b2418aa6f88f00116a5e2df64a3ac1edc6486618f8",
+        "elapsedSeconds": 0.386,
+        "logSha256": "8e6056c575b51b08b1fce113098592f021adde4e75a00c08383d916aba4b5a90",
+        "expected": "software positive and negative public-interface contracts pass",
+        "evidence": "behavior assertions"
+      }
+    ],
+    "status": "passed",
+    "finishedAt": "2026-10-27T03:12:29.059919+00:00"
+  },
+  "additionalContractTests": 9
+}

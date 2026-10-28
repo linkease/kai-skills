@@ -1,0 +1,76 @@
+{
+  "diagnosticOverrides": {
+    "MISE_HTTP_TIMEOUT": "25s",
+    "nativeCommandLimitSeconds": 210
+  },
+  "files": {
+    "node.headers": "041ea1d395cce82f45656de1852d0afbc70a45aa96718edf9807d5c7b3ac4e13",
+    "gateway.log": "1155baa5669d01edb56b5ad6b48f67c430592a860c1c813e2b68e9fd9fd75090",
+    "uv-code": "6b86b273ff34fce19d6b804eff5a3f5747ada4eaa22f1d49c01e52ddb7875b4b",
+    "uv-debug.log": "279c11cc4af6c2041c580a00e4f55229d3a3b121aedf1d532ff04556fbc9e163"
+  },
+  "uvBrowserGetObserved": true,
+  "node": {
+    "bytes": 55537378,
+    "sha256": "6b50f327fd5053b5e4ba67de4bf93aa23653d8a9de39bd6f905f839069c7933d",
+    "gzipValidation": "passed"
+  },
+  "nodeIntermittentTruncationRootCauseConfirmed": false,
+  "optimization1": {
+    "status": "failed",
+    "uvNativeExitCode": 0,
+    "uvArchiveBytes": 21291955,
+    "uvVerification": "Native Mise GitHub API digest checksum, extraction and installation passed",
+    "node": {
+      "httpStatus": 200,
+      "curlExitCode": 0,
+      "gzipExitCode": 1,
+      "bytes": 43241472,
+      "actualSha256": "4623961897e7319379955c432d96c2783474cd5e30f2fd22257666ff163eac4c",
+      "rawArchiveRetained": false
+    },
+    "files": {
+      "node.headers": "6ddc20dcb68a2639239ceb266768e168c5121975fdc7733f7ee7bef611301a0a",
+      "gateway.log": "e72b66e42bc94c94805815a1ea604d5d893a6335508752cf65806af4d92560f7",
+      "uv-code": "5feceb66ffc86f38d952786c6d696c79c2dbc239dd4e91b46729d73a27fb57e9",
+      "uv-debug.log": "34da745341b00741e7dcf1097725fe85bcc717c270492ae7932a0b788a09bc01"
+    }
+  },
+  "optimization2": {
+    "status": "failed",
+    "nativeGoPathhubRegression": "failed before fix, passed after fix; full pathhub tests passed",
+    "realWorkerdRegression": "failed before and after Go fix: unknown-length raw JS stream error reached HTTP as successful EOF",
+    "workersSdkUnchanged": true,
+    "publicDeployment": false
+  },
+  "optimization3": {
+    "status": "passed",
+    "scope": "Bounded Node full gzip archive staging, original downstream SHA/signature verification preserved",
+    "sourceCommit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea",
+    "candidateSha256": "e5d3e24bfb8d3b83d2168aeb780c48cdf857a50a602636d90d5c7d27063a9a4d",
+    "downloadcmdTests": "passed",
+    "cmdMultiTargetedTests": "passed",
+    "nativeMatrix": {
+      "ubuntu": {
+        "status": "passed",
+        "elapsedSeconds": 466.29
+      },
+      "debian": {
+        "status": "passed",
+        "elapsedSeconds": 581.395
+      },
+      "istoreos": {
+        "status": "passed",
+        "elapsedSeconds": 601.898
+      }
+    },
+    "cleanup": {
+      "status": "passed",
+      "ownedContainers": 0,
+      "ownedNetworks": 0,
+      "hostProtectedUnchanged": true,
+      "freeBytes": 22128664576
+    }
+  },
+  "status": "passed-MS6-supported-gateway-boundary"
+}

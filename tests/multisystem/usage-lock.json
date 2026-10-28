@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "policy": "Frozen published MS8 acceptance identities; no bundled product binaries",
+  "linkspace": {
+    "version": "v0.1.0",
+    "metadataUrl": "https://fw.koolcenter.com/binary/linkspace/version.txt",
+    "metadataSha256": "e0b6b899263d5963a314b8e7e3c2097f4bc60877b3a2d028181febe781a83a86",
+    "platform": "linux",
+    "artifacts": {
+      "x64": {
+        "url": "https://fw.koolcenter.com/binary/linkspace/v0.1.0/linkspace-linux-amd64",
+        "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67",
+        "bytes": 18280632
+      },
+      "arm64": {
+        "url": "https://fw.koolcenter.com/binary/linkspace/v0.1.0/linkspace-linux-arm64",
+        "sha256": "75676b377544b18d857d771106f6c5cac4c504e976200a87555cae3410ef25e2",
+        "bytes": 16777400
+      },
+      "armv7": {
+        "url": "https://fw.koolcenter.com/binary/linkspace/v0.1.0/linkspace-linux-armv7",
+        "sha256": "08679b01e6790b87ebd9722df5b762275168aa77c70e1c367d00ebd1d87a3a0f",
+        "bytes": 17105080
+      }
+    }
+  },
+  "developerCLI": {
+    "name": "uv",
+    "version": "0.8.22",
+    "actualSubcommand": [
+      "cache",
+      "dir"
+    ]
+  }
+}

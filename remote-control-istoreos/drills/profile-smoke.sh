@@ -42,11 +42,11 @@ done
 tmp="$(mktemp -d "${TMPDIR:-/tmp}/linkease-remote-smoke.XXXXXX")"
 trap 'rm -rf "$tmp"' EXIT HUP INT TERM
 sh "$root/install.sh" --target "$tmp" --copy >/dev/null
-[ "$(find "$tmp" -mindepth 1 -maxdepth 1 -type d | wc -l | tr -d ' ')" -eq 22 ] || {
-  echo "failed: remote preset did not install 20 system + 2 transport skills" >&2
+[ "$(find "$tmp" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')" -eq 24 ] || {
+  echo "failed: remote preset did not install 22 system + 2 transport skills" >&2
   exit 1
 }
-cmp "$repo_root/istoreos/skills/istoreos-package-manager/SKILL.md" \
-  "$tmp/istoreos-package-manager/SKILL.md"
+cmp "$repo_root/components/system-packs/common/skills/kai-software/SKILL.md" \
+  "$tmp/kai-software/SKILL.md"
 
 echo "ok: remote-control-istoreos profile smoke passed"

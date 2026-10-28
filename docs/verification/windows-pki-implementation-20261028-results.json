@@ -1,0 +1,611 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "partial-three-round-limit",
+  "previousEvidence": "windows-pki-20261028-results.json",
+  "objective": "Implement explicit Windows PKI auxiliary preparation/check/repair/restore and pass original native WinGet download/hash/execution without changing default proxies or trusted roots",
+  "componentAcceptance": "passed-native-public-cli",
+  "overallAcceptance": "not-passed",
+  "optimizationRounds": 3,
+  "maxOptimizationRounds": 3,
+  "rounds": [
+    {
+      "round": 1,
+      "component": "public contracts and fifteen-context repair passed",
+      "nativeResult": "source cancelled with zero exit; query preflight failure"
+    },
+    {
+      "round": 2,
+      "component": "current-user native chain healthy for all three hosts",
+      "nativeResult": "cached query passed; installer download 0x80072f19"
+    },
+    {
+      "round": 3,
+      "component": "final seven native CLI tests passed; restore complete",
+      "nativeResult": "same observed leaf; native WinINet 12057; CAPI2 online PKI retrieval resets"
+    }
+  ],
+  "stopReason": "Native WinINet still fails online CRL/OCSP retrieval after all three rounds; do not expand into machine-store or default-proxy changes",
+  "cases": [
+    {
+      "id": "public-red",
+      "status": "harness-syntax-error",
+      "meaning": "Initial test syntax corrected; not a product verdict",
+      "exitCode": 1,
+      "seconds": 2.55,
+      "rawEvidenceSha256": "e9b64a0cf0b28d4837f130f29eb630a51381d798ed6e86e3b626b567ba15d278",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "8d6c8319e82dd6fad44cfee294936bb312c80ddc49e58db285dc206da89f808f",
+      "connectMetrics": []
+    },
+    {
+      "id": "public-red-corrected",
+      "status": "expected-red",
+      "meaning": "Public CLI lacked the implementation and JSON contract",
+      "exitCode": 1,
+      "seconds": 2.649,
+      "rawEvidenceSha256": "da4fca056e7f03d44952fb38b89c7dd4877a6f0b54b1aea34f1711883ea9ffa8",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "10ddd3fca36ef0e7b5c3b6f853387e1bde25ee6e023df600ba58a60cab3f4b27",
+      "connectMetrics": []
+    },
+    {
+      "id": "e2e-plan-fresh",
+      "status": "passed",
+      "meaning": "Fresh three-host bundle validates fifteen materials",
+      "exitCode": 0,
+      "seconds": 3.975,
+      "rawEvidenceSha256": "02a1e77981291a8ee847f7037b81bc5961f6140f07a737fcd75f53e2d58c7206",
+      "stdoutSha256": "d49f7bc57d6594f5cd09658d2ef01cdc1f787cdffb83660822dad97ae6457a91",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": []
+    },
+    {
+      "id": "e2e-repair-fresh",
+      "status": "passed",
+      "meaning": "Fifteen new contexts imported with ownership",
+      "exitCode": 0,
+      "seconds": 6.155,
+      "rawEvidenceSha256": "818d6c8f235164990ec5d195ac37f1247b6e527a38c4c623f51fb0adff72af91",
+      "stdoutSha256": "d6279c3b2db45fa063db4be5f075e573f13e351120db52f4d1983766bb4937be",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": []
+    },
+    {
+      "id": "e2e-source-update",
+      "status": "failed-cancelled-despite-zero-exit",
+      "meaning": "Native output says Cancelled; source refresh not passed",
+      "exitCode": 0,
+      "seconds": 36.129,
+      "rawEvidenceSha256": "6e43df771544b9a0bf0f1c2742d19c7a9f5022802ebac6933f0a5403370d5b5c",
+      "stdoutSha256": "ccae5079b841456b929c0cdfb64e6fb58463be0c7a9fa007d97dc4e8e3f4d9e0",
+      "stderrSha256": "3ca753e551272fda795f253244810179fc35466c49dba8a31db9f55e4ea163ed",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "e2e-show",
+      "status": "failed-before-child",
+      "meaning": "CONNECT preflight timeout before WinGet",
+      "exitCode": 1,
+      "seconds": 12.115,
+      "rawEvidenceSha256": "70c2e4d2d2f594b9754d86680c03e1643bb53403cd41c6f745f1d1be6f37c647",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "bdd0c0200cca32e5e8c1000e20b8a987ad2d5535305ef8bb577f9e5a8d8a71df",
+      "connectMetrics": []
+    },
+    {
+      "id": "relay-preflight-recheck",
+      "status": "passed",
+      "meaning": "Same endpoint authentication recheck",
+      "exitCode": 0,
+      "seconds": 2.255,
+      "rawEvidenceSha256": "c350c070ed3e5bed26f76f1d585d288fc71b188d237fa24d2d19df7908ba4b93",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "3ca753e551272fda795f253244810179fc35466c49dba8a31db9f55e4ea163ed",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "e2e-show-round2",
+      "status": "passed-cached-query",
+      "meaning": "Native query returns zero; zero business data tunnels",
+      "exitCode": 0,
+      "seconds": 31.755,
+      "rawEvidenceSha256": "1eae82b496960581a11624e425ca3af06a526207d5375a9e2dcb141bef7545ce",
+      "stdoutSha256": "5a7a05bd47a6fc500e07db140db05b277b9288170f9cc01b1d0f269c8cf05525",
+      "stderrSha256": "3ca753e551272fda795f253244810179fc35466c49dba8a31db9f55e4ea163ed",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "e2e-download-round2",
+      "status": "failed-native-revocation",
+      "meaning": "Native HRESULT 0x80072f19",
+      "exitCode": 25,
+      "seconds": 79.593,
+      "rawEvidenceSha256": "fc897bfa10bffcc1b8c5026b9841fd866adfa8c48b725ede4f24d95df7b1b91d",
+      "stdoutSha256": "181d910cffa922da016aaf3f8de283763fcbbb04f8d7fca1043ea7a7f3ec3bbc",
+      "stderrSha256": "7c4f981263d54fae5988bcf16bd5e031860352d011fbf480a197f7f537e43e0a",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 354,
+          "downloadBytes": 5876
+        }
+      ]
+    },
+    {
+      "id": "check-current-stores",
+      "status": "passed-current-user-context-only",
+      "meaning": "Native chain and SSL hostname policies pass all three hosts",
+      "exitCode": 0,
+      "seconds": 3.867,
+      "rawEvidenceSha256": "2ff2e40486426f1da320bfdac333cef236d0aa3500eced73879af6b37463be81",
+      "stdoutSha256": "183ebc11480f2dca61ac7ce7e75a88f6790870ce72c4ac6cd330b23ebb65e36b",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": []
+    },
+    {
+      "id": "observed-download",
+      "status": "failed-native-revocation",
+      "meaning": "Same actual GitHub leaf seen through opaque TLS relay",
+      "exitCode": 25,
+      "seconds": 113.035,
+      "rawEvidenceSha256": "71e01eb0a00c75aa04a825e05a8dca9f368dd024abffcea1f7249a7a3590ed30",
+      "stdoutSha256": "181d910cffa922da016aaf3f8de283763fcbbb04f8d7fca1043ea7a7f3ec3bbc",
+      "stderrSha256": "7f2ec7a80cf93a23fef94dd88528c0b0edc60b279141b1d757d41ca8298b9ecc",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 354,
+          "downloadBytes": 5875
+        }
+      ]
+    },
+    {
+      "id": "capi-probe",
+      "status": "confirmed-native-wininet-failure",
+      "meaning": "WinINet 12057 and eighteen own-process CAPI2 events",
+      "exitCode": 0,
+      "seconds": 41.518,
+      "rawEvidenceSha256": "a4e50906f5602fb584b81fac1b947ece074e4b8569e081d626456d39c6746a9f",
+      "stdoutSha256": "8317868bc792dd4d765f79d88b4f659f81488edd8ca0ffc7c0b0ab2e2bdfc65d",
+      "stderrSha256": "c710b40597d8eb6a670e663cc547d7fa0fd621a08b9a8892e05fecf4b52d50c2",
+      "connectMetrics": [
+        {
+          "dataTunnels": 1,
+          "uploadBytes": 177,
+          "downloadBytes": 2939
+        }
+      ]
+    },
+    {
+      "id": "restore-active",
+      "status": "passed",
+      "meaning": "Fifteen owned additions removed",
+      "exitCode": 0,
+      "seconds": 4.176,
+      "rawEvidenceSha256": "68ea35ac3c3053d7be31c1ac471bbc71873802c2c7c970d4017bcea126694380",
+      "stdoutSha256": "b2bd6e7e93de09829aeddc5159511d029c9d5965d57495a9e23fd4e1122b3b06",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": []
+    },
+    {
+      "id": "final-source-and-plan",
+      "status": "passed",
+      "meaning": "Final native helper hashes equal canonical and final prepared bundle validates",
+      "exitCode": 0,
+      "seconds": 4.092,
+      "rawEvidenceSha256": "3d9ecc0d18e79ef817528f69ee6b39c646b2fd809fcd3afea5cf9567dbdfa68c",
+      "stdoutSha256": "80122c7eb4f293deb6521207188d4843c02c5ece0dd16cbe41c32e6700222453",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": []
+    },
+    {
+      "id": "final-native-public-tests",
+      "status": "passed",
+      "tests": 7,
+      "seconds": 29.525,
+      "exitCode": 0,
+      "rawEvidenceSha256": "8b98d2ce143dd39cde5bfc1f97715382e24140fe8b768f7a1dfa6a368b6999f1",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "e6469c1f05452fc5268da83a08a1189506e32074bec3f7d66d4bf0c3bd8b54b9"
+    }
+  ],
+  "preparation": {
+    "finalPublicCli": "passed",
+    "hosts": [
+      "cdn.winget.microsoft.com",
+      "github.com",
+      "release-assets.githubusercontent.com"
+    ],
+    "certificates": 6,
+    "crls": 9,
+    "bundleSha256": "725da6e9b0c54ed034b5c2b3dbbcd13b9d13e32b415518f8098f7cc297b6ee45",
+    "signedMaterialShippedInSkillsArchive": false,
+    "additionalRsaExploration": "failed to acquire complete CRLs; not included in delivered path"
+  },
+  "implementation": {
+    "actions": [
+      "Roots",
+      "Check",
+      "Plan",
+      "Repair",
+      "Restore"
+    ],
+    "scope": "CurrentUser\\CA auxiliary certificates and CRLs",
+    "minimumPowerShell": "7.4",
+    "defaultRemainingValiditySeconds": 300,
+    "nativeValidationScope": "current-user-capi-chain",
+    "nativeDownloaderValidated": false,
+    "newRootImport": false,
+    "machineCaWrites": false,
+    "automaticInvocationByKsCli": false,
+    "ownership": "native context property plus exact SHA256 and durable journal",
+    "lock": "exclusive file handle with persistent owned marker; unowned files preserved",
+    "canonicalHashes": {
+      "scripts/windows-pki.ps1": "9429c4a7fdab0c980c5ab6b5305b2dc4edbee58541cd0837d571476d2eebd7f2",
+      "scripts/prepare-windows-pki.py": "300db15c288c177b8efee0621babb900f64d221f4205d962c2fad9de6a0a1c37",
+      "resources/windows-pki.cs": "1fdd0f85b12270931651648aadbf0911586752d7f921069438ae5fbf451debf0"
+    },
+    "nativeHashesMatchCanonical": true
+  },
+  "capiDiagnostic": {
+    "wininetCode": 12057,
+    "ownProcessEventCount": 18,
+    "domains": [
+      "crl.sectigo.com",
+      "crl.usertrust.com",
+      "ocsp.sectigo.com",
+      "ocsp.usertrust.com"
+    ],
+    "observedStatusCodes": [
+      "2EFE",
+      "80092013"
+    ],
+    "sameActualLeafAsPrepared": true,
+    "originTlsTerminated": false,
+    "capiLogOriginallyEnabled": false,
+    "capiLogFinalEnabled": false
+  },
+  "nativeInstaller": {
+    "query": "passed-cached",
+    "sourceRefresh": "failed-cancelled",
+    "download": "failed",
+    "frozenArtifactVerification": "not-executed",
+    "executionSmoke": "not-executed",
+    "applicationInstallRemove": "not-executed"
+  },
+  "checks": {
+    "localUnittest": {
+      "discovered": 134,
+      "passed": 123,
+      "nativeOnlySkipped": 11,
+      "exitCode": 0,
+      "seconds": 55.919,
+      "evidenceType": "observed exec result"
+    },
+    "nativePublicTests": {
+      "tests": 7,
+      "passed": 7,
+      "exitCode": 0
+    },
+    "shellSuites": [
+      {
+        "check": "tests/architecture/m0-baseline.sh",
+        "exitCode": 0,
+        "seconds": 6.23
+      },
+      {
+        "check": "tests/architecture/test-catalog.sh",
+        "exitCode": 0,
+        "seconds": 0.06
+      },
+      {
+        "check": "tests/architecture/test-istoreos-home-prompts.sh",
+        "exitCode": 0,
+        "seconds": 0.05
+      },
+      {
+        "check": "tests/architecture/test-m2-canonical.sh",
+        "exitCode": 0,
+        "seconds": 8.82
+      },
+      {
+        "check": "tests/architecture/test-m4-generated.sh",
+        "exitCode": 0,
+        "seconds": 2.59
+      },
+      {
+        "check": "tests/architecture/test-recommendations.sh",
+        "exitCode": 0,
+        "seconds": 0.05
+      },
+      {
+        "check": "tests/architecture/test-runtime-release-gate.sh",
+        "exitCode": 0,
+        "seconds": 1.53
+      },
+      {
+        "check": "tests/install/test-agent-bundle-export.sh",
+        "exitCode": 0,
+        "seconds": 1.43
+      },
+      {
+        "check": "tests/install/test-m10-lifecycle.sh",
+        "exitCode": 0,
+        "seconds": 1.15
+      },
+      {
+        "check": "tests/install/test-m10-release.sh",
+        "exitCode": 0,
+        "seconds": 10.19
+      },
+      {
+        "check": "tests/install/test-m5-discovery.sh",
+        "exitCode": 0,
+        "seconds": 2.06
+      },
+      {
+        "check": "tests/install/test-reasonix-consumer.sh",
+        "exitCode": 0,
+        "seconds": 1.51
+      },
+      {
+        "check": "tests/context-budget/test-m7-istoreos.sh",
+        "exitCode": 0,
+        "seconds": 11.38
+      },
+      {
+        "check": "tests/contracts/test-m3-transports.sh",
+        "exitCode": 0,
+        "seconds": 13.14
+      },
+      {
+        "check": "tests/contracts/test-m8-windows.sh",
+        "exitCode": 0,
+        "seconds": 1.17
+      },
+      {
+        "check": "tests/contracts/test-m9-macos.sh",
+        "exitCode": 0,
+        "seconds": 1.25
+      }
+    ],
+    "generatedPresets": 10,
+    "consumerCanonicalLayers": 8,
+    "generatedConsistency": "passed",
+    "consumerConsistency": "passed",
+    "diffCheck": "passed",
+    "genericSkillValidator": "incompatible with pre-existing repository-specific frontmatter; repository contracts and actual loader passed",
+    "cancelledBroadInvocation": {
+      "status": "cancelled-not-acceptance",
+      "cases": [
+        {
+          "id": "MS0-manifest",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-00",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-01",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-02",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-03",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-04",
+          "status": "failed"
+        },
+        {
+          "id": "MS0-baseline-05",
+          "status": "failed"
+        },
+        {
+          "id": "MS0-baseline-06",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-07",
+          "status": "failed"
+        },
+        {
+          "id": "MS0-baseline-08",
+          "status": "failed"
+        },
+        {
+          "id": "MS0-baseline-09",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-10",
+          "status": "failed"
+        },
+        {
+          "id": "MS0-baseline-11",
+          "status": "failed"
+        },
+        {
+          "id": "MS0-baseline-12",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-13",
+          "status": "passed"
+        },
+        {
+          "id": "MS0-baseline-14",
+          "status": "passed"
+        },
+        {
+          "id": "MS1-contract",
+          "status": "passed"
+        },
+        {
+          "id": "MS1-lab-ubuntu",
+          "status": "failed"
+        },
+        {
+          "id": "MS1-lab-debian",
+          "status": "failed"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "status": "failed"
+        },
+        {
+          "id": "MS2-contract",
+          "status": "passed"
+        },
+        {
+          "id": "MS3-contract",
+          "status": "passed"
+        },
+        {
+          "id": "MS3-lab-ubuntu",
+          "status": "failed"
+        },
+        {
+          "id": "MS3-lab-debian",
+          "status": "failed"
+        },
+        {
+          "id": "MS3-lab-istoreos",
+          "status": "failed"
+        },
+        {
+          "id": "MS4-contract",
+          "status": "passed"
+        },
+        {
+          "id": "MS4-lab-ubuntu",
+          "status": "failed"
+        },
+        {
+          "id": "MS4-lab-debian",
+          "status": "failed"
+        },
+        {
+          "id": "MS4-lab-istoreos",
+          "status": "failed"
+        },
+        {
+          "id": "MS5-contract",
+          "status": "passed"
+        },
+        {
+          "id": "MS5-lab-ubuntu",
+          "status": "failed"
+        },
+        {
+          "id": "MS5-lab-debian",
+          "status": "failed"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "status": "failed"
+        }
+      ],
+      "labCasesAttempted": 12,
+      "labConfigMissing": true,
+      "resourcesCreated": false,
+      "labConfigurationRejectedCount": 12
+    }
+  },
+  "preservation": {
+    "certificateCollectionsUnchanged": true,
+    "certificateStores": [
+      {
+        "location": "CurrentUser",
+        "name": "Root",
+        "count": 82
+      },
+      {
+        "location": "CurrentUser",
+        "name": "CA",
+        "count": 59
+      },
+      {
+        "location": "LocalMachine",
+        "name": "Root",
+        "count": 81
+      },
+      {
+        "location": "LocalMachine",
+        "name": "CA",
+        "count": 26
+      }
+    ],
+    "defaultProxyUnchanged": true,
+    "proxyRegistryValues": 20,
+    "proxyEnabled": false,
+    "winGetExplicitProxyEnabled": true,
+    "configurationFiles": {
+      "macos": {
+        "checked": 5,
+        "changedCount": 0,
+        "ownedProcessCount": 0
+      },
+      "windows": {
+        "checked": 9,
+        "changedCount": 0,
+        "ownedProcessCount": 0
+      }
+    },
+    "ownedPersistentContextsRestored": 15,
+    "persistentState": "restored",
+    "existingApplicationsModified": false
+  },
+  "cleanup": {
+    "controllerGateway": {
+      "controllerGatewayProcesses": 0,
+      "controllerForwards": 0,
+      "originValidationPreserved": true,
+      "gatewayLogSha256": "3063e3c1f20c26ebd9804ee84e3239065adcb80dd43d2d7e9c5ed634dc321894"
+    },
+    "diagnosticRelayAndForwardStopped": true,
+    "activeTemporaryProcesses": 0,
+    "dockerResourcesCreated": false,
+    "targetDataRetained": true
+  },
+  "candidate": {
+    "path": "release/windows-pki-20261028-candidate",
+    "manifestSha256": "1d46bb2d6cf2caf3e5b7ef03658d133d2f1cdaa424cb0358d398ed3373f67f7f",
+    "artifacts": 20,
+    "sourceState": "worktree",
+    "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae"
+  },
+  "clientBuild": {
+    "sourceCommit": "32cbbaa8aa0f3fce35b32c3d9497236e136678f5",
+    "sha256": "0da8285aea907ffd1c224acc6032b10693676334ee85348e6825573a323f9e47",
+    "candidateVersion": "0.8.5-winget-candidate",
+    "unchangedAndVerified": true
+  },
+  "nextScope": "Locate the endpoint/network policy resetting official PKI HTTP CRL/OCSP requests and prepare device-scoped network remediation without changing default proxy or root trust",
+  "publiclyActivated": false,
+  "allDesktopReleaseGatesPassed": false
+}

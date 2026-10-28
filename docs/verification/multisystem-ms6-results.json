@@ -1,0 +1,4212 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS6",
+  "status": "passed",
+  "optimizationRounds": 3,
+  "reports": [
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T05:52:46.426687+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "428c4a984b850683e615932a0f9254b9da8f1d5ea141ea0c9ad963d36a2ef4a0",
+          "elapsedSeconds": 4.044,
+          "logSha256": "f8e8971e99a77f9bfb6d4fdb2ca473b50758b15e9754a146007ffb0e96e34de0",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-ubuntu",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "428c4a984b850683e615932a0f9254b9da8f1d5ea141ea0c9ad963d36a2ef4a0",
+          "elapsedSeconds": 852.145,
+          "logSha256": "61603fa0fa1f2df4e3cf9a3c96a40b5be7211498315beb0b31ebf9f79fc6043e",
+          "expected": "dependencies real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "stopped-for-optimization",
+      "stopReason": "Stop obsolete input after real Ubuntu UV failure; Debian interrupted with graceful cleanup, iStoreOS not run. Optimization1 will repeat the complete required target matrix.",
+      "attempt": "initial"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T06:11:03.555590+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "4c94ae032e6c01c6d3ea37b5b5420d26085d38cdf1cfeb6eaf2f6c533fc238f3",
+          "elapsedSeconds": 6.249,
+          "logSha256": "82f9dfae67d859e53de8a0da328fecca57c005413755e6d108129fffc8e0bfaf",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-ubuntu",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "4c94ae032e6c01c6d3ea37b5b5420d26085d38cdf1cfeb6eaf2f6c533fc238f3",
+          "elapsedSeconds": 1137.676,
+          "logSha256": "4ebe37acf9ae2a63790ea1c55b1a5fd78e216a071b4e21a6eb9471d7c25398e4",
+          "expected": "dependencies real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-debian",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "4c94ae032e6c01c6d3ea37b5b5420d26085d38cdf1cfeb6eaf2f6c533fc238f3",
+          "elapsedSeconds": 521.464,
+          "logSha256": "481e2a69892b3546549315492ea86c4102b1eea69b8d770323e4e1ae5b1cea73",
+          "expected": "dependencies real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-istoreos",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "4c94ae032e6c01c6d3ea37b5b5420d26085d38cdf1cfeb6eaf2f6c533fc238f3",
+          "elapsedSeconds": 213.047,
+          "logSha256": "66e2cae6321a8f567dc2cd24a6fa88686f8e3b388ae14c1907e8546ed18d7cf1",
+          "expected": "dependencies real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T06:42:21.998882+00:00",
+      "attempt": "optimization1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T06:58:08.865554+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "af93714fdd9abe7d807ae2747ee361392537eaf89a1c1596d6b1913b989b2d15",
+          "elapsedSeconds": 8.154,
+          "logSha256": "57a4ac497490701636cbf798d8a0c04e668704470a2261aa90002ecd5bc7e8ff",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-ubuntu",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "af93714fdd9abe7d807ae2747ee361392537eaf89a1c1596d6b1913b989b2d15",
+          "elapsedSeconds": 345.07,
+          "logSha256": "f24c6b5454e8549d64e596dc11213b8f9341aac58307bc7938e2aa016dc847f8",
+          "expected": "dependencies real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-debian",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "af93714fdd9abe7d807ae2747ee361392537eaf89a1c1596d6b1913b989b2d15",
+          "elapsedSeconds": 931.622,
+          "logSha256": "42341d911725679037a4efac8e968791cebca00fe068fea65a76e4c4718a9993",
+          "expected": "dependencies real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-istoreos",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "af93714fdd9abe7d807ae2747ee361392537eaf89a1c1596d6b1913b989b2d15",
+          "elapsedSeconds": 286.926,
+          "logSha256": "7b3e6ad6fd45e2f30c888bf3363b218f402be6c682cf6d9392ed2bb8d759dcaf",
+          "expected": "dependencies real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T07:24:20.644790+00:00",
+      "attempt": "optimization2"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T07:53:27.969271+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "5048c4c2be0ac6d6871e9faafdefaf8bea08e64f3c5471a2edeed3b456bf9703",
+          "elapsedSeconds": 6.399,
+          "logSha256": "fdfedf57b2b48b2b287d952953ef2325500f9934f8c71f0e73bb4cb95c17039c",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-ubuntu",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "5048c4c2be0ac6d6871e9faafdefaf8bea08e64f3c5471a2edeed3b456bf9703",
+          "elapsedSeconds": 817.699,
+          "logSha256": "bf3ec62e7fa7a5e7c8eeb1f55cc02c602b6b19ef5d0b2d3effc56de49dbbf6c5",
+          "expected": "dependencies real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-debian",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "5048c4c2be0ac6d6871e9faafdefaf8bea08e64f3c5471a2edeed3b456bf9703",
+          "elapsedSeconds": 1298.778,
+          "logSha256": "3258f744c73024a3121bb5095f18410e88f8fbdfb4854f42381b3fa4fdb5a113",
+          "expected": "dependencies real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-istoreos",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "253cde7b70ab45515d5a6275066d77ea2b577578ee2fa95b05d7c85424b37b6b",
+          "elapsedSeconds": 256.415,
+          "logSha256": "38c738d76ef14c1311ab2e9de74d3ccdfcd28c45faa420f809bb8ebf5786f311",
+          "expected": "dependencies real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T08:33:07.265301+00:00",
+      "attempt": "optimization3"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T12:19:43.190655+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "098632b92214301d0b225118da0c2d82b8f04f21078394f5937653fa9b80050b",
+          "elapsedSeconds": 7.612,
+          "logSha256": "ec3b6ebe2c4a5fafa37b6517c7148b20782e5fad2e358bf8e8c12d597cfdb8dd",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-ubuntu",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "098632b92214301d0b225118da0c2d82b8f04f21078394f5937653fa9b80050b",
+          "elapsedSeconds": 953.64,
+          "logSha256": "3ef18a9cd0ae50e62f67ee08c3a00311bc276a556f14abbfbd4db2fc60d667eb",
+          "expected": "dependencies real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-debian",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "8af735e6bfe87c1312b1f107512383c0b1fb160f840c6dbfcc4ec3e884fcce69",
+          "elapsedSeconds": 856.357,
+          "logSha256": "d4df33df1862ec63ca7216ac53f1b8cda7d140af6afc24f85b771e1d67e4eb54",
+          "expected": "dependencies real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS6-lab-istoreos",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "8af735e6bfe87c1312b1f107512383c0b1fb160f840c6dbfcc4ec3e884fcce69",
+          "elapsedSeconds": 0.188,
+          "logSha256": "103e12ce9569793fb39c160bc06d6995ad438cc578fda2b244f3e2485c4358e4",
+          "expected": "dependencies real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T12:50:01.008108+00:00",
+      "attempt": "jq-repair1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T12:52:32.649581+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-lab-istoreos",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "7523a713a4a8b31025d064f6cef26fed091a4965363d779f09d839313ad14e81",
+          "elapsedSeconds": 259.773,
+          "logSha256": "add64606fc17e413096121e53ddfb3b4861ce4642a94db8fbf045ba4856f9ed4",
+          "expected": "dependencies real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T12:56:52.424960+00:00",
+      "attempt": "jq-repair1-host-guard-correction"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T14:58:51.886426+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "658e7f8fa15019f5f5fe3b838061781c2f191463a46b5450431efbc0bf8c9cb4",
+          "elapsedSeconds": 6.657,
+          "logSha256": "a9673ab073ad7d776eb83f2f1271b6851d633021444275b358d3b703d3fb94ad",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-istoreos",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "658e7f8fa15019f5f5fe3b838061781c2f191463a46b5450431efbc0bf8c9cb4",
+          "elapsedSeconds": 601.898,
+          "logSha256": "96ae441508978a3133713a66d6513d2a0ef554fa021d72840634d422f9516276",
+          "expected": "dependencies real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T15:09:00.444678+00:00",
+      "attempt": "download-focus-3-istoreos"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T15:09:08.856468+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "091a3bf468e0c0f7b2a655ed457f2ccac75aeeff137d10fd2fc17e8548db9f73",
+          "elapsedSeconds": 6.75,
+          "logSha256": "fe93b61f221b7b531e44347a4a65de4e774608e19508a6db3440be11adda6cab",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-ubuntu",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "091a3bf468e0c0f7b2a655ed457f2ccac75aeeff137d10fd2fc17e8548db9f73",
+          "elapsedSeconds": 466.29,
+          "logSha256": "c8ade5a7e0ee5186eaf0a6f3c6bd45acab0023f36c6fc20757c962ef873fb040",
+          "expected": "dependencies real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T15:17:01.900119+00:00",
+      "attempt": "download-focus-3-ubuntu"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T15:17:01.934778+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "c2dde29081cbe2df2a6c2fa87df71cc8a79711063b2c7b15aaee6a37fdd97296",
+          "elapsedSeconds": 6.6,
+          "logSha256": "faa81cc7851cbd560f27068ead22b7d763d63e0220092e0011abcb93a83bd362",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-lab-debian",
+          "milestone": "MS6",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "c2dde29081cbe2df2a6c2fa87df71cc8a79711063b2c7b15aaee6a37fdd97296",
+          "elapsedSeconds": 581.395,
+          "logSha256": "602f531a5dcdba20bff4d83bc45ff78cd1ee278013af5b4e6a9ac2b4d0b55581",
+          "expected": "dependencies real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T15:26:49.934848+00:00",
+      "attempt": "download-focus-3-debian"
+    }
+  ],
+  "initialTargets": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "milestone": "MS6",
+      "target": "ubuntu",
+      "status": "failed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "positive": [
+          {
+            "manager": "npm",
+            "cycle": "cold",
+            "project": "/workspace/ms6/npm-cold 中文",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "manager": "npm",
+              "runtimeVersion": "22.14.0",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "functionalValidation": "not-run",
+              "exitCode": 0
+            },
+            "functional": "is-number:7.0.0:42",
+            "locksUnchanged": true,
+            "clientLogSha256": "20b004716e266a89832d6256d0d25c01c7a5a75ce86d74d117234764f8ff3273",
+            "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+            "sourceInspection": {
+              "schemaVersion": 1,
+              "accelerationValidation": "not-tested",
+              "privateRegistryPolicy": "requires-separate-review",
+              "sources": [
+                {
+                  "name": "is-number",
+                  "type": "registry"
+                }
+              ]
+            }
+          },
+          {
+            "manager": "npm",
+            "cycle": "repeat",
+            "project": "/workspace/ms6/npm-repeat 中文",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "manager": "npm",
+              "runtimeVersion": "22.14.0",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "functionalValidation": "not-run",
+              "exitCode": 0
+            },
+            "functional": "is-number:7.0.0:42",
+            "locksUnchanged": true,
+            "clientLogSha256": "a91e73cf8ca47f52938c7c829f0bb0e27071d8752fcc27388818f74dcca7bf61",
+            "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+            "sourceInspection": {
+              "schemaVersion": 1,
+              "accelerationValidation": "not-tested",
+              "privateRegistryPolicy": "requires-separate-review",
+              "sources": [
+                {
+                  "name": "is-number",
+                  "type": "registry"
+                }
+              ]
+            }
+          },
+          {
+            "manager": "pip",
+            "cycle": "cold",
+            "project": "/workspace/ms6/pip-cold 中文",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "manager": "pip",
+              "runtimeVersion": "3.13.7",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "functionalValidation": "not-run",
+              "exitCode": 0
+            },
+            "functional": "idna:3.10:venv-functional",
+            "locksUnchanged": true,
+            "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+            "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+            "sourceInspection": {
+              "schemaVersion": 1,
+              "requiresSourceReview": true,
+              "accelerationValidation": "not-tested",
+              "sources": [
+                {
+                  "name": "requirements.txt:1",
+                  "type": "registry"
+                }
+              ]
+            }
+          },
+          {
+            "manager": "pip",
+            "cycle": "repeat",
+            "project": "/workspace/ms6/pip-repeat 中文",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "manager": "pip",
+              "runtimeVersion": "3.13.7",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "functionalValidation": "not-run",
+              "exitCode": 0
+            },
+            "functional": "idna:3.10:venv-functional",
+            "locksUnchanged": true,
+            "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+            "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+            "sourceInspection": {
+              "schemaVersion": 1,
+              "requiresSourceReview": true,
+              "accelerationValidation": "not-tested",
+              "sources": [
+                {
+                  "name": "requirements.txt:1",
+                  "type": "registry"
+                }
+              ]
+            }
+          }
+        ],
+        "negative": []
+      },
+      "gateway": {
+        "version": "0.8.5",
+        "capabilities": {
+          "schema_version": 1,
+          "service": {
+            "version": "0.8.5",
+            "commit": "",
+            "build_number": ""
+          },
+          "capabilities": [
+            "alias.node-unofficial.v1",
+            "download-gateway.v1",
+            "download-response-status.v1",
+            "route.github-release.v1",
+            "route.git-github.v1",
+            "route.go-sdk.v1",
+            "route.golang.v1",
+            "route.homebrew-api.v1",
+            "route.nodejs-org.v1",
+            "route.npm.v1",
+            "route.pypi.v1"
+          ]
+        },
+        "logSha256": "8f72dd07c3b1c4fa722ba598288f410a3b68424ae4cb9df0ada1edbbbd984bdc"
+      },
+      "clientCacheScope": "fresh per project and repeat directory",
+      "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+      "accelerationValidation": "pending-MS7-channel-evidence",
+      "cleanup": "passed"
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "milestone": "MS6",
+      "target": "debian",
+      "status": "failed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "outcomes": {
+        "positive": [],
+        "negative": []
+      },
+      "gateway": {
+        "version": "0.8.5",
+        "capabilities": {
+          "schema_version": 1,
+          "service": {
+            "version": "0.8.5",
+            "commit": "",
+            "build_number": ""
+          },
+          "capabilities": [
+            "alias.node-unofficial.v1",
+            "download-gateway.v1",
+            "download-response-status.v1",
+            "route.github-release.v1",
+            "route.git-github.v1",
+            "route.go-sdk.v1",
+            "route.golang.v1",
+            "route.homebrew-api.v1",
+            "route.nodejs-org.v1",
+            "route.npm.v1",
+            "route.pypi.v1"
+          ]
+        },
+        "logSha256": "cee9078f65eaac5448c0fe48da681551818ed487cb1c9c0bcd3b6d82d49ecd5c"
+      },
+      "clientCacheScope": "fresh per project and repeat directory",
+      "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+      "accelerationValidation": "pending-MS7-channel-evidence",
+      "cleanup": "passed"
+    }
+  },
+  "optimization1": {
+    "status": "failed",
+    "rootCause": "mise exec uv alone deactivates the selected Python; the next helper has no Python on PATH. A protocol regression reproduced exit44 before the fix.",
+    "fix": "Select python@VERSION and uv@VERSION together in a single mise exec.",
+    "additionalFinding": "npm source inspection passed a large lock as one --argjson argument and exceeded ARG_MAX; a 200KB public CLI regression reproduced it. Read JSON files directly with jq -s.",
+    "contractTests": 13,
+    "stoppedObsoleteRun": {
+      "debian": "graceful cancellation before positive dependency cases",
+      "istoreos": "not started",
+      "ownedContainers": 0,
+      "ownedNetworks": 0
+    },
+    "targets": {
+      "ubuntu": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "ubuntu",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "ubuntu",
+          "image": "kai-skills-lab/ubuntu:20261026-ms01",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "source": {
+            "type": "registry",
+            "reference": "ubuntu:24.04",
+            "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+            "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+          },
+          "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": []
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "38cfa1851620754d968748dd002db3db6d9e1905baf37198371d0c73350b8c52"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "debian": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "debian",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "debian",
+          "image": "kai-skills-lab/debian:20261026-ms01",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "source": {
+            "type": "registry",
+            "reference": "debian:12",
+            "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+            "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+          },
+          "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "05aaf7714a383f2382e199f8b11d7b098e64f615884d475421bef846d50f7a8b",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "579ee08cda21f005e26d93771450a25af0b3ca54ef70f8a38adcb43294076326",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "ad97ea1a313271954e243aef6776673dd057fea1ee27acece8b1209cf15d1921",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "9ae65d2c6140eea83faf869293013e6ef854b1f7ca3d7e3e1c2a404e276d60ba",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            }
+          ],
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "a52d692d2f1a24db6b3b342a95f4bd27b5fdce18a90398387993dcf892b7806a"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "istoreos",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": []
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "358efd7cc63e0fa3d0d7caf7d5eb7fc6de3a48027b293100ff69e404f0ee1371"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      }
+    }
+  },
+  "optimization2": {
+    "status": "failed",
+    "testInputFix": "Use existing is-number6.0.0 versus lock7.0.0 to isolate lock mismatch, instead of nonexistent999.0.0 that npm rejects with ETARGET. Collect all independent negative results.",
+    "diagnostics": "Keep SDK/uv stderr on success, failure and timeout; inspect failed Node gzip data with byte/decompression bounds when still available.",
+    "integrityIncident": {
+      "target": "istoreos",
+      "expectedSha256": "6b50f327fd5053b5e4ba67de4bf93aa23653d8a9de39bd6f905f839069c7933d",
+      "actualSha256": "12bb782c79a3bdd0ed26f0ba68daf488a1d9ce4c32142ecededa9068629ab643",
+      "failedGatewayBytes": 28266496,
+      "previousSuccessfulGatewayBytes": 55537378,
+      "checksumSource": "https://unofficial-builds.nodejs.org/download/release/v22.14.0/SHASUMS256.txt",
+      "checksumDocumentSha256": "d654305b1d723f54fdb040928d9d36cb7312412e70cdc42bda61bc0ccc376ea7",
+      "inference": "Evidence suggests an incomplete transfer; exact responsible component is not established. SDK integrity rejection was retained.",
+      "ownerRegression": {
+        "sourceCommit": "d3f62f8",
+        "command": "go test ./downloadcmd -run 'TestGateway.*Interrupted|TestGatewayInterruptedBodyIsNotSuccessfulArchive' -count=1",
+        "result": "passed",
+        "sourceChanged": false
+      }
+    },
+    "retry": "Fresh sandbox and gateway; original version, expected hash, signature and TLS policy retained.",
+    "targets": {
+      "ubuntu": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "ubuntu",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "ubuntu",
+          "image": "kai-skills-lab/ubuntu:20261026-ms01",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "source": {
+            "type": "registry",
+            "reference": "ubuntu:24.04",
+            "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+            "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+          },
+          "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": [],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "75c4a402b66503d647df6eaa16596e98bb8a3a9c9a6dae79ee039fa398036db6"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "a3d0e3da49f47d92ca0f8b0d21468aa475c586ee6f6ae127bb8789edbe160a7e"
+            },
+            "go": {
+              "exitCode": 1,
+              "logSha256": "3a54237affb062e310209cbdaf1433d06b710575b25cc6b2666b2bfe94caeeb0"
+            }
+          },
+          "prerequisiteLogs": {
+            "prerequisite-node.log": "a3d0e3da49f47d92ca0f8b0d21468aa475c586ee6f6ae127bb8789edbe160a7e",
+            "prerequisite-python.log": "75c4a402b66503d647df6eaa16596e98bb8a3a9c9a6dae79ee039fa398036db6",
+            "prerequisite-go.log": "3a54237affb062e310209cbdaf1433d06b710575b25cc6b2666b2bfe94caeeb0"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "1814c6e87d45e2f9b3640b2928812d76534c44aeb1a99228d76409d88b21f60d"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "debian": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "debian",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "debian",
+          "image": "kai-skills-lab/debian:20261026-ms01",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "source": {
+            "type": "registry",
+            "reference": "debian:12",
+            "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+            "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+          },
+          "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "ec7832b5ddb53859c7127f8204e26cf3bd56ad2db903f7b96ed0e43185740f64",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "ec7832b5ddb53859c7127f8204e26cf3bd56ad2db903f7b96ed0e43185740f64",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "56a22dbe1ef4e82bf8281ca73f279eee2957f16984658c69266516aa01c8b5e3",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "8b208bb0c80cbd7ee24259c97edf0e98497224b76b3fed1c6e1e66cdccba9866",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "status": "passed",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            },
+            {
+              "case": "lock-mismatch",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "67b1e095428fd6265d0a03cec03f023bf791036a8c56d544545d295a7436db25",
+              "stderrTail": "rror Invalid: lock file's is-number@7.0.0 does not satisfy is-number@6.0.0\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /workspace/ms6/mismatched-lock 中文/.cache/npm/_logs/2026-10-27T07_19_13_765Z-debug-0.log\nks-cli: TOOL_EXECUTION_FAILED: cannot run npm: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-dependency",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3e921e568ee93b02e42fadef7df2719144c91ba5a2b2e800693ca0a73823cd7a",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nLooking in indexes: https://dl-pypi.linkease.net:5443/simple/\nERROR: Could not find a version that satisfies the requirement idna==0.0.0 (from versions: 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19, 3.20)\nERROR: No matching distribution found for idna==0.0.0\nks-cli: TOOL_EXECUTION_FAILED: cannot run pip: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "network-failure",
+              "exitCode": 1,
+              "status": "failed",
+              "logSha256": "15973bf868cd770ae8d7a8d703014fc41a7db196adefd54101855a56c6ad8b78",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nERROR: Could not find a version that satisfies the requirement idna==3.10 (from versions: none)\nERROR: No matching distribution found for idna==3.10\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-native-library",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "247d915ded867b53dac959721abdf1c1effaed40e5ad872e64d608ed8405ce32",
+              "stderrTail": "ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/pyzbar.py\", line 7, in <module>\n    from .wrapper import (\n    ...<9 lines>...\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 151, in <module>\n    zbar_version = zbar_function(\n        'zbar_version',\n    ...<2 lines>...\n        c_uint_p,    # minor\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 148, in zbar_function\n    return prototype((fname, load_libzbar()))\n                             ~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 127, in load_libzbar\n    libzbar, dependencies = zbar_library.load()\n                            ~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/zbar_library.py\", line 65, in load\n    raise ImportError('Unable to find zbar shared library')\nImportError: Unable to find zbar shared library\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            }
+          ],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "5a9652c05878808fbf3fefc5854b0e0f9b26dde032c291b4d617244651a95eb6"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "a8bc34eec32cbbeff7c76eb273759c4d7abb2f304006b6187b15a4b044ad4b5d"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "4a2d7c69d381e4faa1670a56304bf18136ea956c7ae03bf733701233c96cb0e7"
+            },
+            "uv": {
+              "exitCode": 0,
+              "logSha256": "7586061fa33e066c6296d8f1adfa954939a8eb352e6dc2f38507ddf8fae1faea"
+            }
+          },
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          },
+          "globalConfigurationUnchanged": true,
+          "systemPythonUnchanged": true,
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "7586061fa33e066c6296d8f1adfa954939a8eb352e6dc2f38507ddf8fae1faea",
+            "prerequisite-node.log": "a8bc34eec32cbbeff7c76eb273759c4d7abb2f304006b6187b15a4b044ad4b5d",
+            "prerequisite-python.log": "5a9652c05878808fbf3fefc5854b0e0f9b26dde032c291b4d617244651a95eb6",
+            "prerequisite-go.log": "4a2d7c69d381e4faa1670a56304bf18136ea956c7ae03bf733701233c96cb0e7"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "b0cf9d768704a9a5f40e9f3ff89e925603eabe72fa981bcb4a47f06b8858d4f9"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "istoreos",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": [],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "3c05e5feae87c51a37d98d3b52d21deae6f8622cca535001ba4ae860583944a6"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "4d8968ffbf0d606e2114575824834963f77bfa97257db36ce3db986e86b8f81f"
+            },
+            "go": {
+              "exitCode": 1,
+              "logSha256": "1cae92f6b2a9a8f004a016a0c28872c304bc6619be7c683e929ed70bb8753079"
+            }
+          },
+          "prerequisiteLogs": {
+            "prerequisite-node.log": "4d8968ffbf0d606e2114575824834963f77bfa97257db36ce3db986e86b8f81f",
+            "prerequisite-python.log": "3c05e5feae87c51a37d98d3b52d21deae6f8622cca535001ba4ae860583944a6",
+            "prerequisite-go.log": "1cae92f6b2a9a8f004a016a0c28872c304bc6619be7c683e929ed70bb8753079"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "8fa511592183f12369c95bc9e6f3a3647ad5660648b707b067f43255daaf215a"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      }
+    }
+  },
+  "optimization3": {
+    "status": "failed",
+    "fixes": [
+      "Verbose pip transport evidence for the refused-loopback negative case; do not confuse its final no-candidate summary with a missing version.",
+      "Native iStoreOS Git plus HTTPS transport, using refreshed signed indexes and package-effect preflight; reject any existing/protected package upgrade.",
+      "Opt-in public Go Git-catalog routing from ks-cli Doctor/Explain environment, scoped to the installer process; no global Git config edits."
+    ],
+    "gitPrerequisiteProbe": {
+      "version": "git version 2.50.1",
+      "packages": "Package: git\nVersion: 2.50.1-r1\nDepends: libc, libopenssl3, libpthread, librt, zlib\nStatus: install user installed\nArchitecture: x86_64\nInstalled-Time: 1793086971",
+      "transportExitCode": 128,
+      "transportStderr": "fatal: unable to access 'https://127.0.0.1:9/no-repository/': Failed to connect to 127.0.0.1 port 9 after 0 ms: Could not connect to server\n",
+      "protectedFilesUnchanged": true,
+      "status": "passed"
+    },
+    "offlineTests": 63,
+    "sdkFixtureCapture": {
+      "schemaVersion": 1,
+      "family": "gnu",
+      "fingerprint": "f7bd1c48b5bd1f000010db473f0eb4e9b8f7bc3dd2395bdcb662e5f89ea06656",
+      "sourceTarget": "ubuntu",
+      "sourceImageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+      "sdkVersions": {
+        "schemaVersion": 1,
+        "selection": "Frozen acceptance versions; not a latest-version policy",
+        "python": "3.13.7",
+        "node": "22.14.0",
+        "go": "1.24.1"
+      },
+      "uvVersion": "0.8.22",
+      "verification": {
+        "python": {
+          "schemaVersion": 1,
+          "status": "passed",
+          "operation": "verify",
+          "spec": "python@3.13.7",
+          "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+          "scope": "none",
+          "runtimeValidation": "passed",
+          "details": {
+            "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+            "version": "3.13.7",
+            "modules": "passed",
+            "loadedCaCount": 0,
+            "defaultVerifyPaths": {
+              "cafile": null,
+              "capath": "/etc/ssl/certs",
+              "openssl_cafile_env": "SSL_CERT_FILE",
+              "openssl_cafile": "/etc/ssl/cert.pem",
+              "openssl_capath_env": "SSL_CERT_DIR",
+              "openssl_capath": "/etc/ssl/certs"
+            },
+            "trustHandshake": "not-tested"
+          },
+          "exitCode": 0
+        },
+        "node": {
+          "schemaVersion": 1,
+          "status": "passed",
+          "operation": "verify",
+          "spec": "node@22.14.0",
+          "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+          "scope": "none",
+          "runtimeValidation": "passed",
+          "details": {
+            "executable": "/root/.local/share/mise/installs/node/22.14.0/bin/node",
+            "version": "22.14.0",
+            "script": "passed"
+          },
+          "exitCode": 0
+        },
+        "go": {
+          "schemaVersion": 1,
+          "status": "passed",
+          "operation": "verify",
+          "spec": "go@1.24.1",
+          "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+          "scope": "none",
+          "runtimeValidation": "passed",
+          "details": {
+            "GOROOT": "/root/.local/share/mise/installs/go/1.24.1",
+            "GOVERSION": "go1.24.1"
+          },
+          "exitCode": 0
+        }
+      },
+      "uvVersionOutput": "uv 0.8.22",
+      "excludedRuntimeCaches": [
+        "__pycache__",
+        "*.pyc"
+      ],
+      "dependenciesAndConfigurationCopied": false,
+      "sha256": "8feaca978aa40b3423f8104b352682282d86a6f535ba8d4516474b665dae2b16",
+      "bytes": 609259520,
+      "reusedByCurrentMatrix": false,
+      "location": "Private lab state outside the repository; archive is not published."
+    },
+    "previousResults": "Debian all8 functional dependency runs, explicit npm add, UV lock and global/system Python preservation passed; four negative cases passed. Network negative retained code1 but needed verbose transport evidence. Ubuntu Go SDK returned502; iStoreOS Go version API failed and fallback Git was absent.",
+    "targets": {
+      "ubuntu": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "ubuntu",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "ubuntu",
+          "image": "kai-skills-lab/ubuntu:20261026-ms01",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "source": {
+            "type": "registry",
+            "reference": "ubuntu:24.04",
+            "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+            "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+          },
+          "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "579ee08cda21f005e26d93771450a25af0b3ca54ef70f8a38adcb43294076326",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "9edffd3ea814994184b517b10ea2eceb043b368605a92bfb89c04f3efa918cf2",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "89bd8e093fa4d81a4a6e439b00cb2923e0b12ca08218c365a354ea987bf32968",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "59378eb0bcd477677c6e5a3a814481e232b91a8802819cd1ce8586825af2a2b3",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "status": "passed",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            },
+            {
+              "case": "lock-mismatch",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "850e91ba50d3c2c2b83679a027b408819e70a29fd65f76c0a4b74574c3d620a6",
+              "stderrTail": "rror Invalid: lock file's is-number@7.0.0 does not satisfy is-number@6.0.0\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /workspace/ms6/mismatched-lock 中文/.cache/npm/_logs/2026-10-27T08_06_48_282Z-debug-0.log\nks-cli: TOOL_EXECUTION_FAILED: cannot run npm: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-dependency",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3e921e568ee93b02e42fadef7df2719144c91ba5a2b2e800693ca0a73823cd7a",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nLooking in indexes: https://dl-pypi.linkease.net:5443/simple/\nERROR: Could not find a version that satisfies the requirement idna==0.0.0 (from versions: 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19, 3.20)\nERROR: No matching distribution found for idna==0.0.0\nks-cli: TOOL_EXECUTION_FAILED: cannot run pip: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "network-failure",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "15973bf868cd770ae8d7a8d703014fc41a7db196adefd54101855a56c6ad8b78",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nERROR: Could not find a version that satisfies the requirement idna==3.10 (from versions: none)\nERROR: No matching distribution found for idna==3.10\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-native-library",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "247d915ded867b53dac959721abdf1c1effaed40e5ad872e64d608ed8405ce32",
+              "stderrTail": "ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/pyzbar.py\", line 7, in <module>\n    from .wrapper import (\n    ...<9 lines>...\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 151, in <module>\n    zbar_version = zbar_function(\n        'zbar_version',\n    ...<2 lines>...\n        c_uint_p,    # minor\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 148, in zbar_function\n    return prototype((fname, load_libzbar()))\n                             ~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 127, in load_libzbar\n    libzbar, dependencies = zbar_library.load()\n                            ~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/zbar_library.py\", line 65, in load\n    raise ImportError('Unable to find zbar shared library')\nImportError: Unable to find zbar shared library\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            }
+          ],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "fd09f0d42cdd579bac11c1dd525b832114b6d6117f2096f137cd5c4ec137092a"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "844020189e9189042fd50685f11eb6646a350d2296200657631bed545afd62c7"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "9ac0474939bc753cc0ceba6c867381d0414a0a6a3286b5b424c28976b12bf69f"
+            },
+            "uv": {
+              "exitCode": 0,
+              "logSha256": "0f485c628137e358f93863b4dbfbd060a9480c73320e2fcac3125dc30728e004"
+            }
+          },
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          },
+          "globalConfigurationUnchanged": true,
+          "systemPythonUnchanged": true,
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "0f485c628137e358f93863b4dbfbd060a9480c73320e2fcac3125dc30728e004",
+            "prerequisite-node.log": "844020189e9189042fd50685f11eb6646a350d2296200657631bed545afd62c7",
+            "prerequisite-python.log": "fd09f0d42cdd579bac11c1dd525b832114b6d6117f2096f137cd5c4ec137092a",
+            "prerequisite-go.log": "9ac0474939bc753cc0ceba6c867381d0414a0a6a3286b5b424c28976b12bf69f"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "89b87c2f70baebc1a476041036bad9b5070cd34192a1ab8480c15374d7e1521f"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "debian": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "debian",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "debian",
+          "image": "kai-skills-lab/debian:20261026-ms01",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "source": {
+            "type": "registry",
+            "reference": "debian:12",
+            "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+            "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+          },
+          "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "579ee08cda21f005e26d93771450a25af0b3ca54ef70f8a38adcb43294076326",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "579ee08cda21f005e26d93771450a25af0b3ca54ef70f8a38adcb43294076326",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "28b71ecb343dfee939d53210d56d5c829f64c890ef06838b230ee3f51ab265d0",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "98703b4abe1fb526a112f82264b3ae9ddcef15785c24d6609c60a594cda3b95a",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "status": "passed",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            },
+            {
+              "case": "lock-mismatch",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "a301042d3819856f38e72fb7f4fbe7215fd7725c12820823d0480a103d07a799",
+              "stderrTail": "rror Invalid: lock file's is-number@7.0.0 does not satisfy is-number@6.0.0\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /workspace/ms6/mismatched-lock 中文/.cache/npm/_logs/2026-10-27T08_28_33_218Z-debug-0.log\nks-cli: TOOL_EXECUTION_FAILED: cannot run npm: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-dependency",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3e921e568ee93b02e42fadef7df2719144c91ba5a2b2e800693ca0a73823cd7a",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nLooking in indexes: https://dl-pypi.linkease.net:5443/simple/\nERROR: Could not find a version that satisfies the requirement idna==0.0.0 (from versions: 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19, 3.20)\nERROR: No matching distribution found for idna==0.0.0\nks-cli: TOOL_EXECUTION_FAILED: cannot run pip: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "network-failure",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "15973bf868cd770ae8d7a8d703014fc41a7db196adefd54101855a56c6ad8b78",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nERROR: Could not find a version that satisfies the requirement idna==3.10 (from versions: none)\nERROR: No matching distribution found for idna==3.10\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-native-library",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "247d915ded867b53dac959721abdf1c1effaed40e5ad872e64d608ed8405ce32",
+              "stderrTail": "ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/pyzbar.py\", line 7, in <module>\n    from .wrapper import (\n    ...<9 lines>...\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 151, in <module>\n    zbar_version = zbar_function(\n        'zbar_version',\n    ...<2 lines>...\n        c_uint_p,    # minor\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 148, in zbar_function\n    return prototype((fname, load_libzbar()))\n                             ~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 127, in load_libzbar\n    libzbar, dependencies = zbar_library.load()\n                            ~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/zbar_library.py\", line 65, in load\n    raise ImportError('Unable to find zbar shared library')\nImportError: Unable to find zbar shared library\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            }
+          ],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "51a2a321bd38214b51ba67e646ec191c52753fbd42425be08b9b875d0db3f87d"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "24754f57f7c74d0f06a980134bdbce56f61e07a37011252657f5dcd77c172fb0"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "aa0139404f8fb09e3ef5bd1b210ce78ba80f6c721094d74e3cb33388a7d7b6ac"
+            },
+            "uv": {
+              "exitCode": 0,
+              "logSha256": "ead58044b588273e6b8288ef7d057e2b1cdde522cb8d8b7f57d640bc64717c23"
+            }
+          },
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          },
+          "globalConfigurationUnchanged": true,
+          "systemPythonUnchanged": true,
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "ead58044b588273e6b8288ef7d057e2b1cdde522cb8d8b7f57d640bc64717c23",
+            "prerequisite-node.log": "24754f57f7c74d0f06a980134bdbce56f61e07a37011252657f5dcd77c172fb0",
+            "prerequisite-python.log": "51a2a321bd38214b51ba67e646ec191c52753fbd42425be08b9b875d0db3f87d",
+            "prerequisite-go.log": "aa0139404f8fb09e3ef5bd1b210ce78ba80f6c721094d74e3cb33388a7d7b6ac"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "9e2d534ce3fedc7fbe7e68ceb2c1bf5a15102ee895c3f4e8856c751020b37df1"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "istoreos",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": [],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "df0a7d979e8b93e2f0dbc6fa4b656dd036977637637f5b7a8d462d34f130f4c1"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "28b3af6962fd4c7f8fd0fd23e655869bf842d8557ab6897641d7f474a56e8c4c"
+            },
+            "go": {
+              "exitCode": 4,
+              "logSha256": "d9654ad49d1b9c3418eb827f5b892a6531b9186206d1b5ca6bb49af98d7b2534"
+            }
+          },
+          "gitPrerequisite": {
+            "version": "git version 2.50.1",
+            "manager": "opkg",
+            "protectedSystemFilesUnchanged": true
+          },
+          "prerequisiteLogs": {
+            "prerequisite-node.log": "28b3af6962fd4c7f8fd0fd23e655869bf842d8557ab6897641d7f474a56e8c4c",
+            "prerequisite-python.log": "df0a7d979e8b93e2f0dbc6fa4b656dd036977637637f5b7a8d462d34f130f4c1",
+            "prerequisite-go.log": "d9654ad49d1b9c3418eb827f5b892a6531b9186206d1b5ca6bb49af98d7b2534"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "95a00171cec9b97b18f8e42b6be07d20d82c44e00bf1647fcc7f0db6841eb297"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      }
+    },
+    "rootCause": "The factory iStoreOS jq has no ONIGURUMA regex support. The new Go Git environment validator invokes jq test(), which aborts before installing Go with exitCode 4. Native Python and Node prerequisites passed.",
+    "compatibilityInventory": [
+      {
+        "file": "components/system-packs/common/skills/kai-dev-environment/scripts/runtime.sh",
+        "use": "Git environment count and key validation uses jq test(); native failure observed."
+      },
+      {
+        "file": "components/system-packs/common/skills/kai-project-dependencies/scripts/dependencies.sh",
+        "use": "npm source classification uses jq test(); same feature dependency found by inspection, not reached in this native scenario."
+      },
+      {
+        "file": "components/system-packs/common/skills/kai-tool-bootstrap/scripts/install-mise.sh",
+        "use": "Mirror URL newline validation uses jq test(); feature dependency found by inspection, not this iStoreOS native bootstrap path."
+      }
+    ]
+  },
+  "cleanup": {
+    "ownedContainers": 0,
+    "ownedNetworks": 0,
+    "hostProtectedFilesUnchanged": true,
+    "hostJqAbsentBeforeAndAfter": true,
+    "hostBeforeSha256": "bd6d3bd514a2fcde0c803d0e7ec7f38b8423cef33ef47148fcb52209522fa6a1",
+    "hostAfterSha256": "bd6d3bd514a2fcde0c803d0e7ec7f38b8423cef33ef47148fcb52209522fa6a1",
+    "availableGiB": 20.61,
+    "retained": "Pinned base images, private evidence and the SDK-only GNU fixture; no running lab containers or networks."
+  },
+  "jqRepair": {
+    "round": 1,
+    "status": "failed-overall-jq-passed",
+    "offlineTests": 68,
+    "ownerTests": 9,
+    "initialDirectSourceProbe": {
+      "ubuntu": "passed real jq installation/functional checks/repeat",
+      "debian": "native download timed out with exit15; cleanup passed; no digest bypass",
+      "istoreos": "not run after Debian ended this probe batch"
+    },
+    "gatewayProbe": {
+      "debian": {
+        "status": "passed",
+        "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f",
+        "aliasResolvedToLoopback": true
+      },
+      "istoreos": {
+        "status": "passed",
+        "first": {
+          "schemaVersion": 1,
+          "tool": "jq",
+          "status": "installed",
+          "path": "/root/.local/bin/jq",
+          "version": "jq-1.8.2",
+          "serviceOperations": false,
+          "sourceState": "local-candidate",
+          "exitCode": 0
+        },
+        "repeat": {
+          "schemaVersion": 1,
+          "tool": "jq",
+          "status": "reused",
+          "path": "/root/.local/bin/jq",
+          "version": "jq-1.8.2",
+          "serviceOperations": false,
+          "sourceState": "local-candidate",
+          "exitCode": 0
+        },
+        "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f",
+        "systemProtectedFilesUnchanged": true,
+        "sourceRemap": {
+          "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+          "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+          "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+        }
+      }
+    },
+    "sources": "Official pinned release or an explicitly authorized existing-gateway HTTPS remap; two public mirror candidates returned403 and were not registered.",
+    "packaging": "Owner full check passed, including all existing app regressions and reproducible multi-entry jq packaging. No public activation.",
+    "fullMatrix": "failed: Ubuntu and Debian UV prerequisite timeout600s; initial iStoreOS host guard invalid; corrected iStoreOS stopped at Node checksum mismatch. No project dependency body ran in these current cohorts.",
+    "jqImplementationPassed": true,
+    "ownerFullCheck": {
+      "status": "passed",
+      "command": "sh scripts/check.sh ZSETUP_RUST_ROOT CANONICAL_LINUX_0_5_1_PACKAGE",
+      "logSha256": "38f1813f0b109e94ea91ff5777fd623e47db7f9664cd044deb81c65a88231760",
+      "ownerJqTests": 9,
+      "published": false
+    },
+    "targets": {
+      "ubuntu": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "ubuntu",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "ubuntu",
+          "image": "kai-skills-lab/ubuntu:20261026-ms01",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "source": {
+            "type": "registry",
+            "reference": "ubuntu:24.04",
+            "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+            "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+          },
+          "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": [],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "71f50c6d2221bf979a1eb7ee2118e7b3d6a8d90025ac4dbe4682f4b844aee512"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "785b789acc56216e59ada15463ee2a4d194a9215118531f9004027f865226fa9"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "3f0374cc101018eaa61057f3321145bca4158dfb210cf6c6b1a37b508b38a18d"
+            }
+          },
+          "jqPrerequisite": {
+            "exitCode": 0,
+            "logSha256": "0c0c577ba182c701bb953c1c1b0131e0b1249a3d5893d3055d5342070bb808ba",
+            "sourceRemap": {
+              "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+            },
+            "receipt": {
+              "schemaVersion": 1,
+              "tool": "jq",
+              "status": "reused",
+              "path": "/root/.local/bin/jq",
+              "version": "jq-1.8.2",
+              "serviceOperations": false,
+              "sourceState": "local-candidate",
+              "exitCode": 0
+            },
+            "firmwareOrSystemJqUnchanged": true,
+            "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f"
+          },
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "3721d17fae56ffb4322a4ad4cf1b6b71fffe595f7bce45b01b3a45fe496342d3",
+            "prerequisite-node.log": "785b789acc56216e59ada15463ee2a4d194a9215118531f9004027f865226fa9",
+            "prerequisite-python.log": "71f50c6d2221bf979a1eb7ee2118e7b3d6a8d90025ac4dbe4682f4b844aee512",
+            "prerequisite-jq.log": "0c0c577ba182c701bb953c1c1b0131e0b1249a3d5893d3055d5342070bb808ba",
+            "prerequisite-go.log": "3f0374cc101018eaa61057f3321145bca4158dfb210cf6c6b1a37b508b38a18d"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "5a35c3cec46b51eb643ea8f1bc0b559b40a1b58f59cc42213f4ce564b63e7da5"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "debian": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "debian",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "debian",
+          "image": "kai-skills-lab/debian:20261026-ms01",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "source": {
+            "type": "registry",
+            "reference": "debian:12",
+            "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+            "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+          },
+          "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": [],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "b03623d8ab3afa58954fa80a031c4dcfb3cf63c0edc4236c33efc94c509d6fcb"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "a1737c2980f09756fb241c6c0dbbb3981e5156a9baf0f2ca96448b68ba94f4f6"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "b9b3c9a87a28b84963b4f04da1f390aa5cdf9dfa5872c4634f33c9e3e1b02ece"
+            }
+          },
+          "jqPrerequisite": {
+            "exitCode": 0,
+            "logSha256": "dfc2f1ada1fe257cb338ea600ce33fec7c3512998f3e15d15983c528e66516a0",
+            "sourceRemap": {
+              "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+            },
+            "receipt": {
+              "schemaVersion": 1,
+              "tool": "jq",
+              "status": "reused",
+              "path": "/root/.local/bin/jq",
+              "version": "jq-1.8.2",
+              "serviceOperations": false,
+              "sourceState": "local-candidate",
+              "exitCode": 0
+            },
+            "firmwareOrSystemJqUnchanged": true,
+            "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f"
+          },
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "b88a5cdd405db8017192b34c223f388c3ea9651d215ed61e0d43a4bf1afdaad6",
+            "prerequisite-node.log": "a1737c2980f09756fb241c6c0dbbb3981e5156a9baf0f2ca96448b68ba94f4f6",
+            "prerequisite-python.log": "b03623d8ab3afa58954fa80a031c4dcfb3cf63c0edc4236c33efc94c509d6fcb",
+            "prerequisite-jq.log": "dfc2f1ada1fe257cb338ea600ce33fec7c3512998f3e15d15983c528e66516a0",
+            "prerequisite-go.log": "b9b3c9a87a28b84963b4f04da1f390aa5cdf9dfa5872c4634f33c9e3e1b02ece"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "830b22bcc79e393d0e3441a5cfae590b69e178ef7394452144451a54ced04146"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "istoreos",
+        "status": "failed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [],
+          "negative": [],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "18f851b16aff0000116cb559c0207c2d2ae845af05997fecdf3b29a551193fdd"
+            },
+            "node": {
+              "exitCode": 1,
+              "logSha256": "9ff1f670b70eb22ce3191ef24cb56f066da49aa5f6c25c35b5bdf28f81f38ffc",
+              "failedArchiveDiagnostic": []
+            }
+          },
+          "jqPrerequisite": {
+            "exitCode": 0,
+            "logSha256": "ace64de54e09a51357c6db0122cc325cd1c0fd7818a7c2ea1988b120bcde357a",
+            "sourceRemap": {
+              "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+            },
+            "receipt": {
+              "schemaVersion": 1,
+              "tool": "jq",
+              "status": "reused",
+              "path": "/root/.local/bin/jq",
+              "version": "jq-1.8.2",
+              "serviceOperations": false,
+              "sourceState": "local-candidate",
+              "exitCode": 0
+            },
+            "firmwareOrSystemJqUnchanged": true,
+            "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f"
+          },
+          "gitPrerequisite": {
+            "version": "git version 2.50.1",
+            "manager": "opkg",
+            "protectedSystemFilesUnchanged": true
+          },
+          "prerequisiteLogs": {
+            "prerequisite-node.log": "9ff1f670b70eb22ce3191ef24cb56f066da49aa5f6c25c35b5bdf28f81f38ffc",
+            "prerequisite-python.log": "18f851b16aff0000116cb559c0207c2d2ae845af05997fecdf3b29a551193fdd",
+            "prerequisite-jq.log": "ace64de54e09a51357c6db0122cc325cd1c0fd7818a7c2ea1988b120bcde357a"
+          }
+        },
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "808d448c29080d8b02f2c02d3e46779c84d5aa2ede852f3805fb69859b5598c9"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      }
+    },
+    "hostGuardCorrection": {
+      "status": "corrected-and-tested",
+      "originalFailure": "The host has no jq; the new snapshot incorrectly hashed an empty command path before creating a target container.",
+      "change": "Record presence/hash or absence and compare identical snapshots; no host jq installation.",
+      "regression": "Public Lab CLI through external SSH/shell fixtures: red then green; Lab contracts5, full offline68 passed.",
+      "retest": "Only iStoreOS was rerun after the guard correction. Product helpers were unchanged; Node SHA verification then rejected the received archive."
+    },
+    "uvDiagnosis": {
+      "miseVersion": "2026.8.14 linux-x64 (2026-08-26)",
+      "nativeExplainSchemaVersion": 1,
+      "miseReplacementOrigins": [
+        "regex:^https://nodejs\\.org/dist/(.+)$",
+        "regex:^https://unofficial-builds\\.nodejs\\.org/download/release/(.+)$",
+        "regex:^https://github\\.com/(.+/.+/releases/download/.+)$"
+      ],
+      "githubApiExplicitlyRewritten": false,
+      "observed": "UV browser-asset HEAD returns502; no successful UV prerequisite receipt before Ubuntu600-second timeout.",
+      "candidateInference": "Pinned upstream Aqua code falls back from failed browser HEAD to an API asset URL. An instrumented reproduction is still needed to prove this is the actual pending request in this binary.",
+      "upstreamSources": [
+        "https://github.com/jdx/mise/blob/v2026.8.14/src/backend/aqua.rs",
+        "https://github.com/jdx/mise/blob/v2026.8.14/src/github.rs"
+      ],
+      "changedSource": false,
+      "rootCauseConfirmed": false
+    },
+    "integrityIncident": {
+      "target": "istoreos",
+      "runtime": "node@22.14.0",
+      "nativeExitCode": 1,
+      "expectedSha256": "6b50f327fd5053b5e4ba67de4bf93aa23653d8a9de39bd6f905f839069c7933d",
+      "actualSha256": "d69c88c2ac21c65809f6b3aa6e9167257a84bb1eb806aa5ed096c230fcab85e1",
+      "gatewayBytes": 38985752,
+      "priorSuccessfulBytes": 55537378,
+      "gatewaySelected": "admin_proxy",
+      "clientTransferMessage": "received complete; mise may still verify/extract: 38985752 bytes, total unknown",
+      "interpretation": "Smaller than the prior verified archive; incomplete-transfer hypothesis remains unconfirmed at the responsible component. The failed archive was no longer available for gzip analysis. Expected SHA was not changed.",
+      "nativeGpgNote": "The existing backend reported an unavailable optional .sig and skipped that signature. No new GPG/TLS/hash-disable option was set; locked SHA validation rejected the payload."
+    },
+    "desktopValidation": {
+      "macos": "Portable installer branch exercised on Linux with protocol fixtures; native pending.",
+      "windows": "Portable .exe layout/install/remove branch exercised on Linux with protocol fixtures; PowerShell parser unavailable and PE/kernel behavior pending; no Windows connection."
+    }
+  },
+  "historicalJqStopReason": "Original MS6 three optimization rounds and the one user-authorized managed-jq focused round are complete. Required SDK preparation still fails at UV download timeout and Node archive integrity. Stop further download-chain changes and MS7 advancement pending renewed scope authorization.",
+  "downloadRepair": {
+    "status": "passed-MS6-supported-gateway-boundary",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "summary": "multisystem-download-repair.json",
+    "targets": {
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "istoreos",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "ee4ba3b6fec1eb03525c3bf1c8d2cf7e3d1e453b23f0ce76067052526de5d1a2",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "1e019d97b58103e094e33df1147b4cb024b8247d535ba14f347a962513ff5ae5",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "109ac61370e58e6cd32a0cf1a020699223aae3dc9bdf616dcccf5d9ad2a1e3bf",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "537f1eaced2df8f792e8f24e98be569eeac927531afd10518b3953fa579b64d1",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "status": "passed",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            },
+            {
+              "case": "lock-mismatch",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "a14f664b3f52bf84c3e757668eee38e625ddddbeb5240df537c78a0eb115a78b",
+              "stderrTail": "rror Invalid: lock file's is-number@7.0.0 does not satisfy is-number@6.0.0\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /workspace/ms6/mismatched-lock 中文/.cache/npm/_logs/2026-10-27T15_08_27_462Z-debug-0.log\nks-cli: TOOL_EXECUTION_FAILED: cannot run npm: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-dependency",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3e921e568ee93b02e42fadef7df2719144c91ba5a2b2e800693ca0a73823cd7a",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nLooking in indexes: https://dl-pypi.linkease.net:5443/simple/\nERROR: Could not find a version that satisfies the requirement idna==0.0.0 (from versions: 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19, 3.20)\nERROR: No matching distribution found for idna==0.0.0\nks-cli: TOOL_EXECUTION_FAILED: cannot run pip: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "network-failure",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "15973bf868cd770ae8d7a8d703014fc41a7db196adefd54101855a56c6ad8b78",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nERROR: Could not find a version that satisfies the requirement idna==3.10 (from versions: none)\nERROR: No matching distribution found for idna==3.10\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-native-library",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "247d915ded867b53dac959721abdf1c1effaed40e5ad872e64d608ed8405ce32",
+              "stderrTail": "ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/pyzbar.py\", line 7, in <module>\n    from .wrapper import (\n    ...<9 lines>...\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 151, in <module>\n    zbar_version = zbar_function(\n        'zbar_version',\n    ...<2 lines>...\n        c_uint_p,    # minor\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 148, in zbar_function\n    return prototype((fname, load_libzbar()))\n                             ~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 127, in load_libzbar\n    libzbar, dependencies = zbar_library.load()\n                            ~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/zbar_library.py\", line 65, in load\n    raise ImportError('Unable to find zbar shared library')\nImportError: Unable to find zbar shared library\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            }
+          ],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "b4be2b9a801c3a400846bbbfa02e9a71005538c6ea0f1053d2848a0e457e488e"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "ab68df13bf7fcddf6969bf44edeef0f24fe1bc7bb0b70c06fdaffa77a0ccd30f"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "f87c1335f70672bc9052842723cde0ae38236befaa267dfbb54aacc08ea82b8b"
+            },
+            "uv": {
+              "exitCode": 0,
+              "logSha256": "49e3914b31bcbe45c87d52190cc51f4d32dbc187bdcdba9ec7d17a42944878cd"
+            }
+          },
+          "jqPrerequisite": {
+            "exitCode": 0,
+            "logSha256": "ba6e1a932ae3c2014a93aae5fbda54835ecd031a223c734fca0da3a2dfcd39c3",
+            "sourceRemap": {
+              "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+            },
+            "receipt": {
+              "schemaVersion": 1,
+              "tool": "jq",
+              "status": "reused",
+              "path": "/root/.local/bin/jq",
+              "version": "jq-1.8.2",
+              "serviceOperations": false,
+              "sourceState": "local-candidate",
+              "exitCode": 0
+            },
+            "firmwareOrSystemJqUnchanged": true,
+            "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f"
+          },
+          "gitPrerequisite": {
+            "version": "git version 2.50.1",
+            "manager": "opkg",
+            "protectedSystemFilesUnchanged": true
+          },
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          },
+          "globalConfigurationUnchanged": true,
+          "systemPythonUnchanged": true,
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "49e3914b31bcbe45c87d52190cc51f4d32dbc187bdcdba9ec7d17a42944878cd",
+            "prerequisite-node.log": "ab68df13bf7fcddf6969bf44edeef0f24fe1bc7bb0b70c06fdaffa77a0ccd30f",
+            "prerequisite-python.log": "b4be2b9a801c3a400846bbbfa02e9a71005538c6ea0f1053d2848a0e457e488e",
+            "prerequisite-jq.log": "ba6e1a932ae3c2014a93aae5fbda54835ecd031a223c734fca0da3a2dfcd39c3",
+            "prerequisite-go.log": "f87c1335f70672bc9052842723cde0ae38236befaa267dfbb54aacc08ea82b8b"
+          }
+        },
+        "gateway": {
+          "version": "0.7.16 commit=e7d3bbf6bbf2180780d2594d9707ae49afaa8bea build-number=kai-download-focus-3",
+          "candidate": {
+            "sha256": "e5d3e24bfb8d3b83d2168aeb780c48cdf857a50a602636d90d5c7d27063a9a4d",
+            "sourceCommit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea"
+          },
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea",
+              "build_number": "kai-download-focus-3"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "73304ecaf788b83a93eef38ddf03411bada7f22ddbf671d571d989f093e1ac47"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "ubuntu": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "ubuntu",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "ubuntu",
+          "image": "kai-skills-lab/ubuntu:20261026-ms01",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "source": {
+            "type": "registry",
+            "reference": "ubuntu:24.04",
+            "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+            "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+          },
+          "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "579ee08cda21f005e26d93771450a25af0b3ca54ef70f8a38adcb43294076326",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "579ee08cda21f005e26d93771450a25af0b3ca54ef70f8a38adcb43294076326",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "d4896401850d210153c4cf88ab9fd8b2093f5b8ba66a0bd8d434679020331774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "d7cfdf419eeb813e92e11dc1bdbe1382415803483b27b8301f348b7ede8c5d57",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "94a98e186eb6d52b9107e726ba2b4db852809378d3c3d60ca8e386bf4434fd30",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "status": "passed",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            },
+            {
+              "case": "lock-mismatch",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "f61ae955b27e4b053aed82d3d582352d72310058adda08002a7a554f4283f6df",
+              "stderrTail": "rror Invalid: lock file's is-number@7.0.0 does not satisfy is-number@6.0.0\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /workspace/ms6/mismatched-lock 中文/.cache/npm/_logs/2026-10-27T15_16_23_805Z-debug-0.log\nks-cli: TOOL_EXECUTION_FAILED: cannot run npm: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-dependency",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3e921e568ee93b02e42fadef7df2719144c91ba5a2b2e800693ca0a73823cd7a",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nLooking in indexes: https://dl-pypi.linkease.net:5443/simple/\nERROR: Could not find a version that satisfies the requirement idna==0.0.0 (from versions: 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19, 3.20)\nERROR: No matching distribution found for idna==0.0.0\nks-cli: TOOL_EXECUTION_FAILED: cannot run pip: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "network-failure",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "15973bf868cd770ae8d7a8d703014fc41a7db196adefd54101855a56c6ad8b78",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nERROR: Could not find a version that satisfies the requirement idna==3.10 (from versions: none)\nERROR: No matching distribution found for idna==3.10\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-native-library",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "247d915ded867b53dac959721abdf1c1effaed40e5ad872e64d608ed8405ce32",
+              "stderrTail": "ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/pyzbar.py\", line 7, in <module>\n    from .wrapper import (\n    ...<9 lines>...\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 151, in <module>\n    zbar_version = zbar_function(\n        'zbar_version',\n    ...<2 lines>...\n        c_uint_p,    # minor\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 148, in zbar_function\n    return prototype((fname, load_libzbar()))\n                             ~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 127, in load_libzbar\n    libzbar, dependencies = zbar_library.load()\n                            ~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/zbar_library.py\", line 65, in load\n    raise ImportError('Unable to find zbar shared library')\nImportError: Unable to find zbar shared library\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            }
+          ],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "a36ce57b7292bfcbe05c4472781ca32b7140f9abfb8c8a48322622efd6479b69"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "47e3d6773be590ccf9c69b0f2afef5eb01ec9dc59203511b64a1064372703182"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "6d43049fac09cd3e3cdc56baabb9c5441ad25272555a45e0e4abf26d6d93abeb"
+            },
+            "uv": {
+              "exitCode": 0,
+              "logSha256": "18744b8d59dd72390e6631291de144c5d39abc254025dbf6d046076c22b4e9a1"
+            }
+          },
+          "jqPrerequisite": {
+            "exitCode": 0,
+            "logSha256": "5562995db458df79b0c3b36c6866ee9af9d3f5aebee7f7510e5842e155d023fe",
+            "sourceRemap": {
+              "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+            },
+            "receipt": {
+              "schemaVersion": 1,
+              "tool": "jq",
+              "status": "reused",
+              "path": "/root/.local/bin/jq",
+              "version": "jq-1.8.2",
+              "serviceOperations": false,
+              "sourceState": "local-candidate",
+              "exitCode": 0
+            },
+            "firmwareOrSystemJqUnchanged": true,
+            "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f"
+          },
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          },
+          "globalConfigurationUnchanged": true,
+          "systemPythonUnchanged": true,
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "18744b8d59dd72390e6631291de144c5d39abc254025dbf6d046076c22b4e9a1",
+            "prerequisite-node.log": "47e3d6773be590ccf9c69b0f2afef5eb01ec9dc59203511b64a1064372703182",
+            "prerequisite-python.log": "a36ce57b7292bfcbe05c4472781ca32b7140f9abfb8c8a48322622efd6479b69",
+            "prerequisite-jq.log": "5562995db458df79b0c3b36c6866ee9af9d3f5aebee7f7510e5842e155d023fe",
+            "prerequisite-go.log": "6d43049fac09cd3e3cdc56baabb9c5441ad25272555a45e0e4abf26d6d93abeb"
+          }
+        },
+        "gateway": {
+          "version": "0.7.16 commit=e7d3bbf6bbf2180780d2594d9707ae49afaa8bea build-number=kai-download-focus-3",
+          "candidate": {
+            "sha256": "e5d3e24bfb8d3b83d2168aeb780c48cdf857a50a602636d90d5c7d27063a9a4d",
+            "sourceCommit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea"
+          },
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea",
+              "build_number": "kai-download-focus-3"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "c020d76c66efe2f83ad7aa9f3c9275b8f4755273397d5bff5fef97ca205b6385"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "debian": {
+        "schemaVersion": 1,
+        "milestone": "MS6",
+        "target": "debian",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "debian",
+          "image": "kai-skills-lab/debian:20261026-ms01",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "source": {
+            "type": "registry",
+            "reference": "debian:12",
+            "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+            "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+          },
+          "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+          "buildNetwork": "host-package-download-only"
+        },
+        "outcomes": {
+          "positive": [
+            {
+              "manager": "npm",
+              "cycle": "cold",
+              "project": "/workspace/ms6/npm-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "ec7832b5ddb53859c7127f8204e26cf3bd56ad2db903f7b96ed0e43185740f64",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "npm",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/npm-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "npm",
+                "runtimeVersion": "22.14.0",
+                "project": "/workspace/ms6/npm-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "is-number:7.0.0:42",
+              "locksUnchanged": true,
+              "clientLogSha256": "ec7832b5ddb53859c7127f8204e26cf3bd56ad2db903f7b96ed0e43185740f64",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "accelerationValidation": "not-tested",
+                "privateRegistryPolicy": "requires-separate-review",
+                "sources": [
+                  {
+                    "name": "is-number",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "cold",
+              "project": "/workspace/ms6/pip-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c4e3bdf24f569c71fd4f6501cd9bb940f5f11fe8b11be979ef7d1e961765dd7f",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "pip",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/pip-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "pip",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/pip-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "cold",
+              "project": "/workspace/ms6/uv-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "89fae949c7fadd1f3f3db1152877a3db7ccfa1bd6d115d72f8df6145831c6a9a",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "uv",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/uv-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "uv",
+                "runtimeVersion": "3.13.7",
+                "project": "/workspace/ms6/uv-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "idna:3.10:venv-functional",
+              "locksUnchanged": true,
+              "clientLogSha256": "2b08bbe11205fcd4aaf02d30381799112eac02efba96a892b65698619038d48f",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "requirements.txt:1",
+                    "type": "registry"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "cold",
+              "project": "/workspace/ms6/go-cold 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-cold 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            },
+            {
+              "manager": "go",
+              "cycle": "repeat",
+              "project": "/workspace/ms6/go-repeat 中文",
+              "installation": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "manager": "go",
+                "runtimeVersion": "1.24.1",
+                "project": "/workspace/ms6/go-repeat 中文",
+                "functionalValidation": "not-run",
+                "exitCode": 0
+              },
+              "functional": "123e4567-e89b-12d3-a456-426614174000",
+              "locksUnchanged": true,
+              "clientLogSha256": "e408331ff0b68806704e3f8d32b6b356d34ca16a6adf9d0a08f55aea82bf2f61",
+              "functionalLogSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "sourceInspection": {
+                "schemaVersion": 1,
+                "requiresSourceReview": true,
+                "accelerationValidation": "not-tested",
+                "sources": [
+                  {
+                    "name": "go.mod:5",
+                    "type": "module-proxy"
+                  }
+                ]
+              }
+            }
+          ],
+          "negative": [
+            {
+              "case": "missing-runtime",
+              "exitCode": 4,
+              "status": "passed",
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "stderrTail": ""
+            },
+            {
+              "case": "lock-mismatch",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3c86080c9c57297b487088478c06a017b24f2d6ea751182d69a42a7ca488924d",
+              "stderrTail": "rror Invalid: lock file's is-number@7.0.0 does not satisfy is-number@6.0.0\nnpm error\nnpm error Clean install a project\nnpm error\nnpm error Usage:\nnpm error npm ci\nnpm error\nnpm error Options:\nnpm error [--install-strategy <hoisted|nested|shallow|linked>] [--legacy-bundling]\nnpm error [--global-style] [--omit <dev|optional|peer> [--omit <dev|optional|peer> ...]]\nnpm error [--include <prod|dev|optional|peer> [--include <prod|dev|optional|peer> ...]]\nnpm error [--strict-peer-deps] [--foreground-scripts] [--ignore-scripts] [--no-audit]\nnpm error [--no-bin-links] [--no-fund] [--dry-run]\nnpm error [-w|--workspace <workspace-name> [-w|--workspace <workspace-name> ...]]\nnpm error [-ws|--workspaces] [--include-workspace-root] [--install-links]\nnpm error\nnpm error aliases: clean-install, ic, install-clean, isntall-clean\nnpm error\nnpm error Run \"npm help ci\" for more info\nnpm error A complete log of this run can be found in: /workspace/ms6/mismatched-lock 中文/.cache/npm/_logs/2026-10-27T15_26_21_096Z-debug-0.log\nks-cli: TOOL_EXECUTION_FAILED: cannot run npm: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-dependency",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "3e921e568ee93b02e42fadef7df2719144c91ba5a2b2e800693ca0a73823cd7a",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nLooking in indexes: https://dl-pypi.linkease.net:5443/simple/\nERROR: Could not find a version that satisfies the requirement idna==0.0.0 (from versions: 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0, 1.1, 2.0, 2.1, 2.2, 2.3, 2.4, 2.5, 2.6, 2.7, 2.8, 2.9, 2.10, 3.0, 3.1, 3.2, 3.3, 3.4, 3.5, 3.6, 3.7, 3.8, 3.9, 3.10, 3.11, 3.12, 3.13, 3.14, 3.15, 3.16, 3.17, 3.18, 3.19, 3.20)\nERROR: No matching distribution found for idna==0.0.0\nks-cli: TOOL_EXECUTION_FAILED: cannot run pip: exit status 1\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "network-failure",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "15973bf868cd770ae8d7a8d703014fc41a7db196adefd54101855a56c6ad8b78",
+              "stderrTail": "[ks-cli] observing mise downloads; original verification remains enabled\nERROR: Could not find a version that satisfies the requirement idna==3.10 (from versions: none)\nERROR: No matching distribution found for idna==3.10\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            },
+            {
+              "case": "missing-native-library",
+              "exitCode": 1,
+              "status": "passed",
+              "logSha256": "247d915ded867b53dac959721abdf1c1effaed40e5ad872e64d608ed8405ce32",
+              "stderrTail": "ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/pyzbar.py\", line 7, in <module>\n    from .wrapper import (\n    ...<9 lines>...\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 151, in <module>\n    zbar_version = zbar_function(\n        'zbar_version',\n    ...<2 lines>...\n        c_uint_p,    # minor\n    )\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 148, in zbar_function\n    return prototype((fname, load_libzbar()))\n                             ~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/wrapper.py\", line 127, in load_libzbar\n    libzbar, dependencies = zbar_library.load()\n                            ~~~~~~~~~~~~~~~~~^^\n  File \"/workspace/ms6/missing-native-library 中文/.venv/lib/python3.13/site-packages/pyzbar/zbar_library.py\", line 65, in load\n    raise ImportError('Unable to find zbar shared library')\nImportError: Unable to find zbar shared library\n[ks-cli] mise command failed; original exit status preserved\nks-cli: TOOL_EXECUTION_FAILED: cannot run mise: exit status 1\n"
+            }
+          ],
+          "prerequisites": {
+            "python": {
+              "exitCode": 0,
+              "logSha256": "4f7941478c84f7822b53e3b5d48693fa98fbbb1e064d647681311b8ccdd01089"
+            },
+            "node": {
+              "exitCode": 0,
+              "logSha256": "af949d4876214225ee2c3ac3f78dda3205b3cf021060cc445e74c6292574fbb3"
+            },
+            "go": {
+              "exitCode": 0,
+              "logSha256": "d7f1d11fa21fa99bb7382fc236211ad50cd99528f94fd781ef3a6b22703a6cac"
+            },
+            "uv": {
+              "exitCode": 0,
+              "logSha256": "a3ef6c8377f8a9dd739e214cdc297d51ffe9a13fa7e616a60198e0a0ebe8cbb2"
+            }
+          },
+          "jqPrerequisite": {
+            "exitCode": 0,
+            "logSha256": "853dd48d6d6f9a97a031592ff469d2b3d3efd3ae68da6e28fa9333cb1cbe7055",
+            "sourceRemap": {
+              "input": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "output": "https://gh.linkease.net:5443/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+              "admin_path": "/gh/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64"
+            },
+            "receipt": {
+              "schemaVersion": 1,
+              "tool": "jq",
+              "status": "reused",
+              "path": "/root/.local/bin/jq",
+              "version": "jq-1.8.2",
+              "serviceOperations": false,
+              "sourceState": "local-candidate",
+              "exitCode": 0
+            },
+            "firmwareOrSystemJqUnchanged": true,
+            "binarySha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f"
+          },
+          "uvProjectLock": {
+            "toolVersion": "uv 0.8.22",
+            "explicitGeneration": "passed",
+            "frozenSync": "passed",
+            "lockAndManifestUnchanged": true,
+            "functional": "passed"
+          },
+          "explicitAdd": {
+            "manager": "npm",
+            "version": "6.0.0",
+            "manifestAndLockUpdated": true,
+            "functional": "passed"
+          },
+          "globalConfigurationUnchanged": true,
+          "systemPythonUnchanged": true,
+          "prerequisiteLogs": {
+            "prerequisite-uv.log": "a3ef6c8377f8a9dd739e214cdc297d51ffe9a13fa7e616a60198e0a0ebe8cbb2",
+            "prerequisite-node.log": "af949d4876214225ee2c3ac3f78dda3205b3cf021060cc445e74c6292574fbb3",
+            "prerequisite-python.log": "4f7941478c84f7822b53e3b5d48693fa98fbbb1e064d647681311b8ccdd01089",
+            "prerequisite-jq.log": "853dd48d6d6f9a97a031592ff469d2b3d3efd3ae68da6e28fa9333cb1cbe7055",
+            "prerequisite-go.log": "d7f1d11fa21fa99bb7382fc236211ad50cd99528f94fd781ef3a6b22703a6cac"
+          }
+        },
+        "gateway": {
+          "version": "0.7.16 commit=e7d3bbf6bbf2180780d2594d9707ae49afaa8bea build-number=kai-download-focus-3",
+          "candidate": {
+            "sha256": "e5d3e24bfb8d3b83d2168aeb780c48cdf857a50a602636d90d5c7d27063a9a4d",
+            "sourceCommit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea"
+          },
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea",
+              "build_number": "kai-download-focus-3"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "ce2b0d6f37b37e529103b27085aae5a16832671b866aa86fc20a7716ada626d0"
+        },
+        "clientCacheScope": "fresh per project and repeat directory",
+        "gatewayCacheScope": "shared within this target scenario; not acceleration evidence",
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      }
+    },
+    "offlineTests": 69,
+    "knownLimitations": [
+      "Real workerd unknown-length raw JS stream errors can still appear as normal EOF to HTTP clients; this diagnostic remains failed. Supported Node full gzip downloads are protected at the downstream gateway boundary. No public Worker deployment."
+    ],
+    "cleanup": {
+      "status": "passed",
+      "ownedContainers": 0,
+      "ownedNetworks": 0,
+      "hostProtectedUnchanged": true,
+      "freeBytes": 22128664576
+    }
+  }
+}

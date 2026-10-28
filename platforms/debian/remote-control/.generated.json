@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "debian-remote-control",
+  "title": "Control debian",
+  "platform": "debian",
+  "mode": "remote-control",
+  "aliases": [
+    "debian remote-control"
+  ],
+  "path": ".",
+  "skillsRoot": "skills",
+  "generated": true,
+  "generatedFrom": [
+    "common",
+    "linux",
+    "debian",
+    "transport.ssh"
+  ],
+  "componentVersions": {
+    "common": "1.0.0",
+    "linux": "1.0.0",
+    "debian": "1.0.0",
+    "transport.ssh": "1.1.0"
+  },
+  "sourceDigest": "sha256:65f5d762dbc6f485a4ced03ff7c4c2f1e67b490067bdc4d89966e1c2d8ce5794",
+  "treeDigest": "sha256:daa86315f5e40d1b78eec9a1d1a9b50b133b9f449b6838bfa6c80a6bb25f409e",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
+}

@@ -1,0 +1,422 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "native-pki-proof-passed-repair-plan-ready",
+  "previousEvidence": "winget-cli-20261028-results.json",
+  "scope": "Read-only diagnosis plus memory-only native certificate proof; persistent repair and WinGet download retest not executed",
+  "hypotheses": [
+    {
+      "rank": 1,
+      "prediction": "Existing roots plus valid intermediates and revocation material pass native SSL policy",
+      "result": "confirmed-in-memory"
+    },
+    {
+      "rank": 2,
+      "prediction": "Failure is specific to WinHTTP rather than shared direct HTTP access",
+      "result": "ruled-out-by-native-curl"
+    },
+    {
+      "rank": 3,
+      "prediction": "A new trusted root is required for these two chains",
+      "result": "ruled-out-existing-native-roots-suffice"
+    }
+  ],
+  "cases": [
+    {
+      "id": "direct-http",
+      "exitCode": 0,
+      "seconds": 12.483,
+      "rawEvidenceSha256": "7176883dd4e7678a3fb66f5fed846a1dce904d17897b6eeb839b30043ff53a55",
+      "stdoutSha256": "56ea10b2ff08c7f17a115564163517cb989ae661b2433a420558e091d15462b5",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "status": "confirmed-direct-http-failure",
+      "results": [
+        {
+          "error": "The connection with the server was terminated abnormally\r\n",
+          "url": "http://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004.crt",
+          "hresult": -2147012866
+        },
+        {
+          "error": "The connection with the server was terminated abnormally\r\n",
+          "url": "http://www.microsoft.com/pkiops/crl/partition/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004_Partition00099.crl",
+          "hresult": -2147012866
+        },
+        {
+          "error": "The connection with the server was terminated abnormally\r\n",
+          "url": "http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crt",
+          "hresult": -2147012866
+        }
+      ]
+    },
+    {
+      "id": "winhttp-proxy",
+      "exitCode": 0,
+      "seconds": 2.167,
+      "rawEvidenceSha256": "03bfa0196828de22e0dfb6b72d2ccb5be0a80e687692e3c6aa9e5a8aa678cdec",
+      "stdoutSha256": "9037d87e66deb2737479ff5d4883848dfc9dd355b4dd7115fc947cf70ddee4d7",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "status": "read-only-config-diagnostic",
+      "directAccessReported": true
+    },
+    {
+      "id": "curl-probe",
+      "exitCode": 1,
+      "seconds": 6.025,
+      "rawEvidenceSha256": "80dff2150748a906c7f038a33a4d210d5013df2e989ad7f15c68b8a71fb45e6f",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "21dad92524385838a3ddd5ff23efcca1e4cd8a2657ec3fa4fda6cb1a4756bd1c",
+      "status": "harness-error-handling-failure"
+    },
+    {
+      "id": "curl-probe-final",
+      "exitCode": 56,
+      "seconds": 9.998,
+      "rawEvidenceSha256": "d6a3bca14e83756918abf048be69b7b41ccbc02443d2dd88494b435ee1c95b85",
+      "stdoutSha256": "7322dd160dd39dd52ea55ed119184522731a5577cd351f630c12f8c3273ba4c9",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "status": "confirmed-direct-http-failure",
+      "results": [
+        {
+          "exitCode": 56,
+          "url": "http://caissuers.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004.crt",
+          "stats": "000 0"
+        },
+        {
+          "exitCode": 56,
+          "url": "http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crt",
+          "stats": "000 0"
+        }
+      ]
+    },
+    {
+      "id": "memory-chain",
+      "exitCode": 124,
+      "seconds": 80.026,
+      "rawEvidenceSha256": "d7686771d26617327d5dd0b712c4ea20cdb41b1f91adad6ac9aa00637208e34a",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135",
+      "status": "harness-timeout-not-validation-result"
+    },
+    {
+      "id": "memory-chain-instrumented",
+      "exitCode": 124,
+      "seconds": 105.026,
+      "rawEvidenceSha256": "5dc7782aceae3ab232cc276f1939d9e2936207aaeac1ecb99e3acfa6295db87f",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135",
+      "status": "harness-timeout-not-validation-result"
+    },
+    {
+      "id": "memory-chain-scp",
+      "exitCode": 0,
+      "seconds": 3.528,
+      "rawEvidenceSha256": "5ff74e9a9d4865e3a254c5bbdfd390fb4d061be4ed7885b2334fce67f98425a7",
+      "stdoutSha256": "eff0aecc361829f128d906e5bd87260ec39ea3950ff834a41d9967b3dae9ec86",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "status": "passed-native-matrix",
+      "results": [
+        {
+          "sslPolicyError": "0x800b0109",
+          "chainError": "0x01010040",
+          "mode": "baseline",
+          "passed": false,
+          "host": "cdn.winget.microsoft.com"
+        },
+        {
+          "sslPolicyError": "0x80092013",
+          "chainError": "0x01000040",
+          "mode": "intermediates",
+          "passed": false,
+          "host": "cdn.winget.microsoft.com"
+        },
+        {
+          "sslPolicyError": "0x00000000",
+          "chainError": "0x00000000",
+          "mode": "intermediates-and-crls",
+          "passed": true,
+          "host": "cdn.winget.microsoft.com"
+        },
+        {
+          "sslPolicyError": "0x800b0109",
+          "chainError": "0x01010040",
+          "mode": "baseline",
+          "passed": false,
+          "host": "github.com"
+        },
+        {
+          "sslPolicyError": "0x80092013",
+          "chainError": "0x01000040",
+          "mode": "intermediates",
+          "passed": false,
+          "host": "github.com"
+        },
+        {
+          "sslPolicyError": "0x00000000",
+          "chainError": "0x00000000",
+          "mode": "intermediates-and-crls",
+          "passed": true,
+          "host": "github.com"
+        }
+      ]
+    },
+    {
+      "id": "memory-negative",
+      "exitCode": 0,
+      "seconds": 3.457,
+      "rawEvidenceSha256": "9d657aa5d97413e1234e26d88f89e55422d616de4582f7a869506823cbf48256",
+      "stdoutSha256": "dca9c31e0751ff39d0c976acf3eac4a64ca7d5f21a3016a03b38b583e8c09d31",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "status": "passed-signature-rejection",
+      "results": [
+        {
+          "passed": false,
+          "mode": "tampered-crl",
+          "sslPolicyError": "0x80092013",
+          "host": "cdn.winget.microsoft.com",
+          "chainError": "0x01000040"
+        },
+        {
+          "passed": false,
+          "mode": "tampered-crl",
+          "sslPolicyError": "0x80092013",
+          "host": "github.com",
+          "chainError": "0x01000040"
+        }
+      ]
+    }
+  ],
+  "pkiArtifacts": {
+    "intermediates": [
+      {
+        "kind": "intermediate",
+        "subject": "CN=Microsoft TLS G2 RSA CA OCSP 04,O=Microsoft Corporation,C=US",
+        "issuer": "CN=Microsoft TLS RSA Root G2,O=Microsoft Corporation,C=US",
+        "url": "https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004.crt",
+        "originalUrl": "http://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004.crt",
+        "file": "ac8ea9f2874fd368a3e778b1a0b165ee898db9b9687c17edcdc76908ab58c82c.crt",
+        "sha256": "ac8ea9f2874fd368a3e778b1a0b165ee898db9b9687c17edcdc76908ab58c82c",
+        "bytes": 1980
+      },
+      {
+        "kind": "intermediate",
+        "subject": "CN=Microsoft TLS RSA Root G2,O=Microsoft Corporation,C=US",
+        "issuer": "CN=DigiCert Global Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+        "url": "https://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20RSA%20Root%20G2%20-%20xsign.crt",
+        "originalUrl": "http://www.microsoft.com/pkiops/certs/Microsoft%20TLS%20RSA%20Root%20G2%20-%20xsign.crt",
+        "file": "ddcd1e8a20638d4aaff7201bb1d56452acd2c759f1686bdc38f73dd15732bdc2.crt",
+        "sha256": "ddcd1e8a20638d4aaff7201bb1d56452acd2c759f1686bdc38f73dd15732bdc2",
+        "bytes": 1421
+      },
+      {
+        "kind": "intermediate",
+        "subject": "CN=Sectigo Public Server Authentication CA DV E36,O=Sectigo Limited,C=GB",
+        "issuer": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+        "url": "http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crt",
+        "originalUrl": "http://crt.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crt",
+        "file": "873f0ba80e3ac222656dfd04158cc15c2927d42d5d05f01dee4a47eb43a916df.crt",
+        "sha256": "873f0ba80e3ac222656dfd04158cc15c2927d42d5d05f01dee4a47eb43a916df",
+        "bytes": 867
+      },
+      {
+        "kind": "intermediate",
+        "subject": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+        "issuer": "CN=USERTrust ECC Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+        "url": "http://crt.sectigo.com/SectigoPublicServerAuthenticationRootE46.p7c",
+        "originalUrl": "http://crt.sectigo.com/SectigoPublicServerAuthenticationRootE46.p7c",
+        "file": "ea6b89ed6907a209ff9188676fb164e7aced894b8996dfbe5ce5bbcc22de4ddd.crt",
+        "sha256": "ea6b89ed6907a209ff9188676fb164e7aced894b8996dfbe5ce5bbcc22de4ddd",
+        "bytes": 842
+      }
+    ],
+    "staticChainProofs": [
+      {
+        "kind": "chain-proof",
+        "host": "cdn.winget.microsoft.com",
+        "exitCode": 0,
+        "message": "PRIVATE/cdn.winget.microsoft.com.pem: OK\n",
+        "chainSubjects": [
+          "CN=Microsoft TLS G2 RSA CA OCSP 04,O=Microsoft Corporation,C=US",
+          "CN=Microsoft TLS RSA Root G2,O=Microsoft Corporation,C=US"
+        ]
+      },
+      {
+        "kind": "chain-proof",
+        "host": "github.com",
+        "exitCode": 0,
+        "message": "PRIVATE/github.com.pem: OK\n",
+        "chainSubjects": [
+          "CN=Sectigo Public Server Authentication CA DV E36,O=Sectigo Limited,C=GB",
+          "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB"
+        ]
+      }
+    ],
+    "crls": [
+      {
+        "status": "signature-and-time-valid",
+        "subject": "CN=cdn.winget.microsoft.com,O=Microsoft Corporation,L=Redmond,ST=WA,C=US",
+        "issuer": "CN=Microsoft TLS G2 RSA CA OCSP 04,O=Microsoft Corporation,C=US",
+        "url": "https://www.microsoft.com/pkiops/crl/partition/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004_Partition00099.crl",
+        "originalUrl": "http://www.microsoft.com/pkiops/crl/partition/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004_Partition00099.crl",
+        "file": "a43351bc13d0aba7b4449b6bedf209ae6fb65ad2e061bda3a66a17fe3714230b.crl",
+        "sha256": "a43351bc13d0aba7b4449b6bedf209ae6fb65ad2e061bda3a66a17fe3714230b",
+        "bytes": 34248,
+        "thisUpdate": "2026-10-28T10:13:08Z",
+        "nextUpdate": "2026-11-05T10:33:08Z"
+      },
+      {
+        "status": "signature-and-time-valid",
+        "subject": "CN=github.com",
+        "issuer": "CN=Sectigo Public Server Authentication CA DV E36,O=Sectigo Limited,C=GB",
+        "url": "http://crl.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crl",
+        "originalUrl": "http://crl.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crl",
+        "file": "187981f72877d545279889017930e88b42276aa730ef7c0561c5e8347c619b87.crl",
+        "sha256": "187981f72877d545279889017930e88b42276aa730ef7c0561c5e8347c619b87",
+        "bytes": 152552,
+        "thisUpdate": "2026-10-28T08:52:39Z",
+        "nextUpdate": "2026-11-04T08:52:39Z"
+      },
+      {
+        "status": "signature-and-time-valid",
+        "subject": "CN=Microsoft TLS G2 RSA CA OCSP 04,O=Microsoft Corporation,C=US",
+        "issuer": "CN=Microsoft TLS RSA Root G2,O=Microsoft Corporation,C=US",
+        "url": "https://www.microsoft.com/pkiops/crl/Microsoft%20TLS%20RSA%20Root%20G2.crl",
+        "originalUrl": "http://www.microsoft.com/pkiops/crl/Microsoft%20TLS%20RSA%20Root%20G2.crl",
+        "file": "a809a98b205f19e3732fdc4365b739e2648ac4bb6972899c05578727329f4836.crl",
+        "sha256": "a809a98b205f19e3732fdc4365b739e2648ac4bb6972899c05578727329f4836",
+        "bytes": 1032,
+        "thisUpdate": "2026-10-01T18:37:33Z",
+        "nextUpdate": "2026-12-31T06:57:33Z"
+      },
+      {
+        "status": "signature-and-time-valid",
+        "subject": "CN=Microsoft TLS RSA Root G2,O=Microsoft Corporation,C=US",
+        "issuer": "CN=DigiCert Global Root G2,OU=www.digicert.com,O=DigiCert Inc,C=US",
+        "url": "http://crl3.digicert.com/DigiCertGlobalRootG2.crl",
+        "originalUrl": "http://crl3.digicert.com/DigiCertGlobalRootG2.crl",
+        "file": "2c108e92658d9d39ef44d840c8cf33c170d18c9d350c817616f611b8b98b26dc.crl",
+        "sha256": "2c108e92658d9d39ef44d840c8cf33c170d18c9d350c817616f611b8b98b26dc",
+        "bytes": 2102,
+        "thisUpdate": "2026-10-23T17:42:07Z",
+        "nextUpdate": "2026-11-13T17:42:07Z"
+      },
+      {
+        "status": "signature-and-time-valid",
+        "subject": "CN=Sectigo Public Server Authentication CA DV E36,O=Sectigo Limited,C=GB",
+        "issuer": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+        "url": "http://crl.sectigo.com/SectigoPublicServerAuthenticationRootE46.crl",
+        "originalUrl": "http://crl.sectigo.com/SectigoPublicServerAuthenticationRootE46.crl",
+        "file": "89a8cb5c8f85f14ebb006e7e4c6b472fa15c7297718273dd16d599a5ecde359c.crl",
+        "sha256": "89a8cb5c8f85f14ebb006e7e4c6b472fa15c7297718273dd16d599a5ecde359c",
+        "bytes": 369,
+        "thisUpdate": "2026-10-28T05:39:56Z",
+        "nextUpdate": "2026-11-04T05:39:56Z"
+      },
+      {
+        "status": "signature-and-time-valid",
+        "subject": "CN=Sectigo Public Server Authentication Root E46,O=Sectigo Limited,C=GB",
+        "issuer": "CN=USERTrust ECC Certification Authority,O=The USERTRUST Network,L=Jersey City,ST=New Jersey,C=US",
+        "url": "http://crl.usertrust.com/USERTrustECCCertificationAuthority.crl",
+        "originalUrl": "http://crl.usertrust.com/USERTrustECCCertificationAuthority.crl",
+        "file": "03a4ab2168e7866a36163520b127d6dcae3cdfcf2bac7ce64323f64933c5d535.crl",
+        "sha256": "03a4ab2168e7866a36163520b127d6dcae3cdfcf2bac7ce64323f64933c5d535",
+        "bytes": 907,
+        "thisUpdate": "2026-10-28T05:39:56Z",
+        "nextUpdate": "2026-11-04T05:39:56Z"
+      }
+    ],
+    "expiryPolicy": "Current signed CRLs must be fetched and verified again before expiry; do not ship permanent frozen copies as runtime trust material"
+  },
+  "nativeProof": {
+    "api": [
+      "CertGetCertificateChain",
+      "CertVerifyCertificateChainPolicy(CERT_CHAIN_POLICY_SSL)"
+    ],
+    "additionalStore": "CERT_STORE_PROV_MEMORY",
+    "revocation": "entire chain excluding trusted root",
+    "retrieval": "cache-only; AIA and automatic root update disabled",
+    "sslHostnameChecked": true,
+    "positiveHostsPassed": 2,
+    "tamperedCrlSignaturesRejected": 2,
+    "trustAnchors": "unchanged native Windows roots",
+    "fullNativeWinGetDownloadRetested": false
+  },
+  "proposedRepair": {
+    "owner": "Windows System Pack bootstrap",
+    "mode": "separate explicit PKI check/repair; ks-cli remains command-scoped transport",
+    "destination": "CurrentUser\\CA auxiliary certificates and CRLs",
+    "newTrustAnchorsAllowed": false,
+    "windowsDefaultProxyChanged": false,
+    "applyExecuted": false,
+    "restoreExecuted": false,
+    "steps": [
+      "Read-only Plan discovers certificate paths, actual missing material and expiration",
+      "Fetch bounded original PKI material through trusted transport and validate all signatures and times using existing trust anchors",
+      "Require native complete chain, revocation and SSL hostname verification before additive cache writes",
+      "Track exact newly added certificate/CRL bytes; preserve original objects; idempotence and scoped Restore",
+      "Refresh expiring CRLs; fail if valid material unavailable",
+      "Retest native show/source-refresh/download and frozen jq artifact before scoped install/remove acceptance"
+    ],
+    "outOfScope": [
+      "Root-store changes",
+      "Disable certificate, revocation or installer hash checks",
+      "Change Windows default proxy or per-user proxy",
+      "Claim that all system network traffic is repaired"
+    ]
+  },
+  "preservation": {
+    "certificateCollectionsUnchanged": true,
+    "stores": [
+      {
+        "location": "CurrentUser",
+        "name": "Root",
+        "count": 82,
+        "collectionSha256": "a063724cfeb606ad554d68e1e4c85fba39aa9419fe63256bceab8e791b83a0ae"
+      },
+      {
+        "location": "CurrentUser",
+        "name": "CA",
+        "count": 59,
+        "collectionSha256": "14f30a49cea288bc8d76b63c9673e65e3afaa70e5f73e692783f0278b1c4912b"
+      },
+      {
+        "location": "LocalMachine",
+        "name": "Root",
+        "count": 81,
+        "collectionSha256": "eb85b091f77e38ec03bc05477f599ef7c2bdb1b30c99f708a31e42f306620c7f"
+      },
+      {
+        "location": "LocalMachine",
+        "name": "CA",
+        "count": 26,
+        "collectionSha256": "3f281f8d0dfc971be81c3e3a8a8c048c4954d0458ea0881f276ab8871474a395"
+      }
+    ],
+    "proxyRegistry": {
+      "values": 20,
+      "sha256": "463d691e576f8a4e1ff64586c550eb1ccf154ffb33e9b49f26060b00eb404087",
+      "unchanged": true,
+      "proxyEnabled": false
+    },
+    "winHttpDefault": "direct access; unchanged",
+    "configurationFiles": {
+      "macos": {
+        "checked": 5,
+        "changedCount": 0,
+        "ownedProcessCount": 0
+      },
+      "windows": {
+        "checked": 9,
+        "changedCount": 0,
+        "ownedProcessCount": 0
+      }
+    }
+  },
+  "publiclyActivated": false,
+  "allDesktopReleaseGatesPassed": false,
+  "checks": {
+    "jsonValidation": "passed",
+    "diffCheck": "passed",
+    "runtimeImplementationChanged": false,
+    "noRuntimeRegressionSuiteRequiredForDocumentationOnlyChange": true
+  }
+}

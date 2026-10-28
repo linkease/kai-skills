@@ -6,7 +6,7 @@ systems: istoreos
 triggers: IPv6 模式, IPv6 PD, IPv6 relay, IPv6 NAT, 硬盘不休眠, 硬盘唤醒, 应用商店损坏, iStore 修复, 升级后异常, 内核模块不兼容
 negative-triggers: 网络测速, 网速慢, NAT 类型, 局域网测速, 普通软件安装, Docker 镜像下载, overlay 空间不足
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: low
 ---

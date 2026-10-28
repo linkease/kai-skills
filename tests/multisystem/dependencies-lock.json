@@ -1,0 +1,59 @@
+{
+  "schemaVersion": 1,
+  "policy": "Frozen acceptance fixtures; not latest-version recommendations",
+  "packages": {
+    "npm": {
+      "name": "is-number",
+      "version": "7.0.0",
+      "integrity": "sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==",
+      "url": "https://registry.npmjs.org/is-number/-/is-number-7.0.0.tgz"
+    },
+    "python": {
+      "name": "idna",
+      "version": "3.10",
+      "file": "idna-3.10-py3-none-any.whl",
+      "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+      "url": "https://files.pythonhosted.org/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl"
+    },
+    "go": {
+      "module": "github.com/google/uuid",
+      "version": "v1.6.0",
+      "sums": [
+        "github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=",
+        "github.com/google/uuid v1.6.0/go.mod h1:TIyPZe4MgqvfeYDBFedMoGGpEw/LqOeaOT+nhxU+yHo="
+      ]
+    },
+    "uv": {
+      "version": "0.8.22"
+    },
+    "nativeNegative": {
+      "name": "pyzbar",
+      "version": "0.1.9",
+      "file": "pyzbar-0.1.9-py2.py3-none-any.whl",
+      "sha256": "4559628b8192feb25766d954b36a3753baaf5c97c03135aec7e4a026036b475d",
+      "url": "https://files.pythonhosted.org/packages/6d/24/81ebe6a1c00760471a3028a23cbe0b94e5fa2926e5ba47adc895920887bc/pyzbar-0.1.9-py2.py3-none-any.whl"
+    }
+  },
+  "sources": {
+    "npm": {
+      "source": "https://registry.npmjs.org/is-number/7.0.0",
+      "bodySha256": "42288c4971286c252ea16450b0777e67a710a698446faa99e2d8d2344a087c25"
+    },
+    "pip": {
+      "source": "https://pypi.org/pypi/idna/3.10/json",
+      "bodySha256": "f15071fb9e391d76f70954e75f61df172c2e6656a3199c9ddf1d39d9705b597e"
+    },
+    "go": {
+      "source": "https://sum.golang.org/lookup/github.com/google/uuid@v1.6.0",
+      "bodySha256": "f926c7f8d9d6599d356e0c0f76c355801a972f5540734cc7388d263d9ec3bd0e"
+    },
+    "uv": {
+      "source": "https://api.github.com/repos/astral-sh/uv/releases/tags/0.8.22",
+      "bodySha256": "a0f2efe51beafdee7ad9ecb30cc3f440fab46df9a8cf2b51bbab1358fdb3f96e"
+    },
+    "native-negative": {
+      "source": "https://pypi.org/pypi/pyzbar/0.1.9/json",
+      "bodySha256": "ed0753b9252871035fc03f409eb99cfab818a136fb89a80f6a283e3f19cb7432"
+    }
+  }
+}

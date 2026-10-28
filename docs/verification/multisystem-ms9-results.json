@@ -1,0 +1,91 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS9",
+  "status": "passed",
+  "optimizationRounds": 1,
+  "initial": {
+    "status": "failed-overall",
+    "desktopContract": {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T19:46:03.789378+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS9-contract",
+          "milestone": "MS9",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "ab3c8c5ac742b3e69526a23e399b210abfbf7a0cec19d708f01b9b254f6fea67",
+          "elapsedSeconds": 12.165,
+          "log": "/tmp/kai-ms9-initial/MS9-contract.log",
+          "logSha256": "83872769601b3f95d2255d3ada0ccf954bc9e46b249c02a6bab9a0b7caf20b30",
+          "expected": "desktop positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T19:46:15.956466+00:00"
+    },
+    "fullOffline": {
+      "count": 111,
+      "passed": 110,
+      "failed": 1,
+      "log": "/tmp/kai-ms9-initial/full-offline.log",
+      "failure": "merged-/usr ownership fixture discovered the task-built Bash from PATH instead of the system /usr/bin/bash"
+    }
+  },
+  "optimization1": {
+    "status": "passed",
+    "scope": "Make the ownership fixture select the system program independently of compatibility-tool PATH; document completed desktop behavior.",
+    "report": {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T19:48:47.729443+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS9-contract",
+          "milestone": "MS9",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "6b94ce5961449ab6b7ae0c3bf8879c88a14213603879c2f75283484546c34a82",
+          "elapsedSeconds": 12.166,
+          "log": "/tmp/kai-ms9-opt1/MS9-contract.log",
+          "logSha256": "d300bf9a8b7bca76e7a89c92558d57d28633250054b8ae8c6ea5605eb53b9315",
+          "expected": "desktop positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T19:48:59.896990+00:00"
+    },
+    "fullOffline": {
+      "status": "passed",
+      "count": 111,
+      "elapsedSeconds": 29.236,
+      "log": "/tmp/kai-ms9-opt1/full-offline.log",
+      "logSha256": "9949bf738dfdcf3027d3e8813a08810f8716620e54326b7c9b20c692c480553b"
+    }
+  },
+  "nativeDesktop": {
+    "macos": "pending; no native runner",
+    "windows": "pending; explicitly not connected",
+    "windowsPowerShell51": "pending; actual parser used is Linux PowerShell 7.4.21"
+  },
+  "completion": "adapters implemented and offline contracts passed; native desktop validation pending",
+  "offlineCount": 111,
+  "desktopContractCount": 18,
+  "toolsLock": "../../tests/multisystem/desktop-tools.lock.json",
+  "validationMatrix": {
+    "macos-x64-arm64": "offline facts/Homebrew/HOME/PATH/launchd passed",
+    "windows-x64": "offline native/batch/Git Bash/bootstrap/path/venv/npm/argv/MSYS/executor contracts passed",
+    "PowerShell-7.4.21-linux": "actual parser and external module/command execution passed",
+    "Bash-3.2.57-linux": "118 canonical shell syntax checks and common behavior passed",
+    "publishedDesktopClientArtifacts": "missing verified registrations explicitly unavailable; existing trusted paths exercised"
+  }
+}

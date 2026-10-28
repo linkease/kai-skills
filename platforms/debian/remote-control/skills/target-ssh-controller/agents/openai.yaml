@@ -1,0 +1,4 @@
+interface:
+  display_name: "SSH Target Controller"
+  short_description: "Run a selected system skill on a bound SSH target"
+  default_prompt: "Use $target-ssh-controller to bind one verified SSH target and execute the selected system skill's script on that target."

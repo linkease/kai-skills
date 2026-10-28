@@ -58,7 +58,7 @@ elif [ "$correlation" = exact ]; then
       outcome=package_install_failed
       code=OPKG_FAILED
       confidence=medium
-      next_skill=istoreos-package-manager
+      next_skill=kai-software
       summary='安装任务非零退出，但紧凑规则库未识别出更具体原因。'
       while IFS="$(printf '\t')" read -r rule_code rule_outcome rule_skill pattern; do
         case "$rule_code" in ''|'#'*) continue ;; esac
@@ -104,7 +104,7 @@ if [ -n "$state_input" ] && [ "$correlation" = exact ] && [ "$state" = finished 
     outcome=package_install_failed
     code=APP_NOT_INSTALLED
     confidence=high
-    next_skill=istoreos-package-manager
+    next_skill=kai-software
     summary='任务退出成功，但设备当前未安装目标 meta 包。'
   elif [ "$autoconf_requested" = true ] && [ "$autoconf_present" = false ]; then
     outcome=autoconf_failed
@@ -116,7 +116,7 @@ if [ -n "$state_input" ] && [ "$correlation" = exact ] && [ "$state" = finished 
     outcome=autoconf_failed
     code=TARGET_PATH_UNAVAILABLE
     confidence=high
-    next_skill=istoreos-storage-path
+    next_skill=kai-storage-files
     summary='自动配置使用的目标路径当前不可用。'
   elif [ "$enable_requested" = 0 ] && {
     { [ "$init_script_present" = true ] && [ -n "$service_state" ] && ! printf '%s\n' "$service_state" | grep -Eiq '(^|[^a-z])(running|active|up)([^a-z]|$)'; } ||

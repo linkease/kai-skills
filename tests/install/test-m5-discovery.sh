@@ -12,8 +12,8 @@ fail() {
 
 sh -n "$root/install.sh"
 list="$(sh "$root/install.sh" --list)"
-[ "$(printf '%s\n' "$list" | wc -l | tr -d ' ')" -eq 6 ] || fail "text list must contain six presets"
-sh "$root/install.sh" --list --json | jq -e 'length == 6' >/dev/null
+[ "$(printf '%s\n' "$list" | wc -l | tr -d ' ')" -eq 10 ] || fail "text list must contain ten presets"
+sh "$root/install.sh" --list --json | jq -e 'length == 10' >/dev/null
 sh "$root/install.sh" --describe istoreos-remote-control |
   jq -e '.platform == "istoreos" and .mode == "remote-control"' >/dev/null
 
@@ -34,11 +34,11 @@ dry_output="$(sh "$root/install.sh" --platform istoreos --mode remote-control \
   --consumer generic --target-skills "$dry_target" --dry-run)"
 [ ! -e "$dry_target" ] || fail "dry-run changed the filesystem"
 printf '%s\n' "$dry_output" | grep -Fx 'preset=istoreos-remote-control' >/dev/null
-[ "$(printf '%s\n' "$dry_output" | grep -c '^skill=')" -eq 22 ] || fail "remote dry-run did not list 22 skills"
+[ "$(printf '%s\n' "$dry_output" | grep -c '^skill=')" -eq 24 ] || fail "remote dry-run did not list 24 skills"
 
 sh "$root/install.sh" --platform istoreos --mode on-device --consumer generic \
   --target-skills "$tmp/generic" >/dev/null
-[ "$(find "$tmp/generic" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')" -eq 20 ] ||
+[ "$(find "$tmp/generic" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')" -eq 22 ] ||
   fail "generic on-device install count is wrong"
 
 CODEX_HOME="$tmp/codex" sh "$root/install.sh" --platform istoreos \
@@ -47,7 +47,7 @@ CODEX_HOME="$tmp/codex" sh "$root/install.sh" --platform istoreos \
 
 XDG_CONFIG_HOME="$tmp/config" sh "$root/install.sh" --platform istoreos \
   --mode on-device --consumer opencode >/dev/null
-[ -f "$tmp/config/opencode/skills/istoreos-package-manager/SKILL.md" ] ||
+[ -f "$tmp/config/opencode/skills/kai-software/SKILL.md" ] ||
   fail "OpenCode target resolution failed"
 
 legacy="$(sh "$root/install.sh" --profile remote-control-istoreos \

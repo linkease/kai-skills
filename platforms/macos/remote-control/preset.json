@@ -4,7 +4,11 @@
   "title": "Control a macOS device remotely",
   "platform": "macos",
   "mode": "remote-control",
-  "aliases": [],
+  "aliases": [
+    "remote control macOS",
+    "远程控制 macOS",
+    "SSH 控制 Mac"
+  ],
   "path": ".",
   "skillsRoot": "skills",
   "generated": true,
@@ -18,6 +22,13 @@
     "macos": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:b6e87d47b348585ef1aa31e878b7471ca49c98e95a5f83bae14ccbb39539efba",
-  "treeDigest": "sha256:38a8212847aa84c4d0ea0831c7061ba9a1c9833a225a0bd5ae505ad38ca68898"
+  "sourceDigest": "sha256:237bd9f7509d731ef2eabf4e9d364b5c1b89418c3a809098dc2bc660d4c8b12b",
+  "treeDigest": "sha256:d2c790f6940c3fc25d4268947786de91a3f4b77675bee73aac13d5bd91666931",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
 }

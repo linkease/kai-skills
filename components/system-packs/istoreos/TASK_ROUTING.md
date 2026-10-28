@@ -4,10 +4,12 @@ Select one primary skill; load at most one evidence-required helper. Other targe
 
 | User task | Primary | Helper if needed |
 | --- | --- | --- |
-| 应用/系统包、opkg/apk、mise 插件 | `istoreos-package-manager` | app-search, app-diagnostics, service-manager |
-| Docker 拉取、文件、公开 Git、pip/npm/Go modules 下载或安装失败 | `istoreos-download-acceleration` | mise-runtime, docker-basics, docker-acceleration-istoreenhance, kspeeder-domainfold-fetch |
-| Python/Node/Go SDK 安装、版本/预编译/解释器异常 | `istoreos-mise-runtime` | package-manager, download-acceleration |
-| 磁盘/overlay/持久化目录 | `istoreos-storage-path` | docker-data-root-migrate, backup-restore |
+| 应用/系统包、opkg/apk、mise 插件 | `kai-software` | app-search, app-diagnostics, service-manager |
+| Docker 拉取、文件、公开 Git 下载失败 | `kai-download-acceleration` | mise-runtime, docker-basics, docker-acceleration-istoreenhance, kspeeder-domainfold-fetch |
+| pip/npm/uv/Go 项目依赖 | `kai-project-dependencies` | download-acceleration |
+| Bash/jq/mise/ks-cli 引导 | `kai-tool-bootstrap` | package-manager |
+| Python/Node/Go SDK 安装、版本/预编译/解释器异常 | `kai-dev-environment` | package-manager, download-acceleration |
+| 磁盘/overlay/持久化目录 | `kai-storage-files` | docker-data-root-migrate, backup-restore |
 | 服务/端口/开机启动 | `istoreos-service-manager` | logs-and-diagnostics, source-introspect |
 | LuCI 网页异常 | `istoreos-luci-recovery` | backup-restore |
 | 测速、延迟、NAT、IPv6/LAN | `istoreos-network-quality` | logs-and-diagnostics |

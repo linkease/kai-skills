@@ -5,7 +5,7 @@ owner: system-pack/istoreos
 systems: istoreos
 triggers: LuCI 打不开, LuCI 500, LuCI 空白, LuCI 登录循环, 管理页面打不开, Web 管理异常
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: medium
 ---

@@ -209,7 +209,9 @@ copy_file() {
 
 mkdir -p "$destination"
 for skill in "$skills_root"/*; do
-  [ -f "$skill/SKILL.md" ] || continue
+  if [ ! -f "$skill/SKILL.md" ]; then
+    [ -f "$preset_dir/preset.json" ] && jq -e --arg name "$(basename "$skill")" '(.resources // []) | index($name) != null' "$preset_dir/preset.json" >/dev/null || continue
+  fi
   copy_or_link_dir "$skill" "$destination/$(basename "$skill")"
 done
 

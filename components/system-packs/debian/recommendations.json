@@ -1,0 +1,70 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "1.0.0",
+  "recommendations": [
+    {
+      "id": "debian-health-check",
+      "title": "一键体检",
+      "description": "只检查，不修改任何内容，适合第一次体验。",
+      "prompt": "请给当前 Debian 做一次只读体检，检查系统版本、资源、磁盘、网络、关键 systemd 服务、apt 状态和最近错误，用普通用户能理解的话总结，不执行修改、安装或重启。",
+      "category": "common",
+      "priority": 1,
+      "risk": "low",
+      "executionIntent": "read_only",
+      "workspaceRequirement": "none",
+      "systems": ["debian"],
+      "features": ["systemctl", "apt-get"],
+      "skill": "debian-system-diagnostics"
+    },
+    {
+      "id": "debian-service-failure",
+      "title": "服务启动失败",
+      "description": "先查看状态和限长日志。",
+      "prompt": "帮我诊断当前 Debian 上异常的 systemd 服务。先只读检查状态、依赖和限长日志；启动、停止、重启或修改配置前必须让我确认。",
+      "category": "common",
+      "priority": 10,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["debian"],
+      "features": ["systemctl"]
+    },
+    {
+      "id": "debian-package-update",
+      "title": "软件安装或更新失败",
+      "description": "检查 apt、软件源、签名、依赖和锁。",
+      "prompt": "帮我诊断当前 Debian 的 apt 安装或更新问题。先只读检查软件源、网络、签名、依赖和锁；安装、删除、升级软件或修改软件源前必须让我确认。",
+      "category": "apps",
+      "priority": 20,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["debian"],
+      "features": ["apt-get"]
+    },
+    {
+      "id": "debian-network-access",
+      "title": "网站或端口访问不了",
+      "description": "检查监听、路由、DNS 和防火墙。",
+      "prompt": "帮我诊断当前 Debian 上网站或端口访问不了的问题。先只读检查进程、监听地址、路由、DNS、防火墙和相关日志；开放端口、修改防火墙或重启服务前必须让我确认。",
+      "category": "network",
+      "priority": 30,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["debian"]
+    },
+    {
+      "id": "debian-storage-low",
+      "title": "磁盘空间不够",
+      "description": "先找出占用来源，删除前会确认。",
+      "prompt": "帮我检查当前 Debian 的磁盘空间和 inode，找出大目录、日志、包缓存和容器数据占用，先列出风险和预计收益；删除或迁移任何内容前必须让我确认。",
+      "category": "storage",
+      "priority": 40,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["debian"]
+    }
+  ]
+}

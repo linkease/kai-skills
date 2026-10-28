@@ -1,0 +1,1506 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS5",
+  "status": "passed",
+  "optimizationRounds": 3,
+  "reports": [
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T02:30:41.947977+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.114,
+          "logSha256": "0f40ff8f52499628ea6f0f59e75b43e13de6b7ef770873fd29d1e625a27308a5",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-ubuntu",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 81.429,
+          "logSha256": "f45c44b352c388c17899109161b0e52d526ece7dc3f092303c0a55cd83391f79",
+          "expected": "runtime real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS5-lab-debian",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 26.015,
+          "logSha256": "34b098858bf5d5b4e1498989f850a5aacb02fd6299747d906d6b062102665a9d",
+          "expected": "runtime real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 102.405,
+          "logSha256": "aacf228fe430a4d3aa8bcf066960ce75c1c092c8e7c110756e0d43282dba0c40",
+          "expected": "runtime real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T02:34:11.913452+00:00",
+      "attempt": "initial"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T02:53:53.656046+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "e917ead995b8995c106513527285fb98c4044e8cc340c20b6d55f829c7649c98",
+          "elapsedSeconds": 0.186,
+          "logSha256": "e15c8b4b447fecbf8a2073c25f5107c20863c6e1b4d2925f6f9e65a50543aa8b",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-ubuntu",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "e917ead995b8995c106513527285fb98c4044e8cc340c20b6d55f829c7649c98",
+          "elapsedSeconds": 292.314,
+          "logSha256": "74784938d9db03110d2a4bc929715055cc64f3b0222d7a4cdc70f216cfbbb695",
+          "expected": "runtime real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS5-lab-debian",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "145b836aa35639337636c021bee2dfab1e8e1e6ec1d093ab2c6c2f0673338288",
+          "elapsedSeconds": 309.257,
+          "logSha256": "f8e30caf59e82991078160b33b5610c62dfb337a8f24672f8c471d4ede65b527",
+          "expected": "runtime real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "a081080ebb1aff990af4f2ff049f352af43de6b8c337ba821d98c5436346889d",
+          "elapsedSeconds": 62.065,
+          "logSha256": "733880afcb76d1993f03a79c124dc17473a0f41eeec8ea59076163be1e59f965",
+          "expected": "runtime real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T03:04:57.485514+00:00",
+      "attempt": "optimization-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T03:06:41.982886+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "691a3d315c3b58b6232231ed7872626c5bc59266ecc6f622cb9e51cd06069d2f",
+          "elapsedSeconds": 0.238,
+          "logSha256": "c86951a7f822abdb8c2f7cd8badfb662adaf9c24db9ee6c8f723d92e90c7135b",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "691a3d315c3b58b6232231ed7872626c5bc59266ecc6f622cb9e51cd06069d2f",
+          "elapsedSeconds": 273.043,
+          "logSha256": "3ca70200f360840c8f5e41d25bc5aaf44844592c57426e195d1e3db3d7cca276",
+          "expected": "runtime real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T03:11:15.289685+00:00",
+      "attempt": "optimization-2"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T03:22:34.441239+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "e96988ea87eb0fac326897523a1ee98dd6016399c528e3a0c9c73231b968527c",
+          "elapsedSeconds": 0.337,
+          "logSha256": "df146a7a5bdc36393c7e593d769b061df414cb8dec3bcd64b6520b3d19183620",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "e96988ea87eb0fac326897523a1ee98dd6016399c528e3a0c9c73231b968527c",
+          "elapsedSeconds": 58.996,
+          "logSha256": "121250d88be94cc6a36c0578a93a9f6ae9e8f0f9799f42f305021e9615f0dee4",
+          "expected": "runtime real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T03:23:33.776452+00:00",
+      "attempt": "optimization-3"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T03:53:06.635649+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "c25ca325f4ac941e4118f554b3e8246e436383ff0007cbe5dd15cbbf2d87e928",
+          "elapsedSeconds": 0.637,
+          "logSha256": "08c9c398ef8144eaa7053d4677ce8b1b567a0c88418cfe10f190b240efe48523",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "c25ca325f4ac941e4118f554b3e8246e436383ff0007cbe5dd15cbbf2d87e928",
+          "elapsedSeconds": 364.129,
+          "logSha256": "400a2a16bdaddbec6eb9f07de9972d497efbe21dff09b12300e16443a9900966",
+          "expected": "runtime real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T03:59:11.406664+00:00",
+      "attempt": "focused-python-openssl-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T03:59:24.333492+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "c25ca325f4ac941e4118f554b3e8246e436383ff0007cbe5dd15cbbf2d87e928",
+          "elapsedSeconds": 0.587,
+          "logSha256": "400fcc1ad64c10aa9187b7a88288f29434af71b07f2eab406d2def37d93196c4",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-ubuntu",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "c25ca325f4ac941e4118f554b3e8246e436383ff0007cbe5dd15cbbf2d87e928",
+          "elapsedSeconds": 236.301,
+          "logSha256": "6cb2c46dd9aef8ba0c8bea154ac2580a998d560ab816fcd09aeacaf59bdb8fe8",
+          "expected": "runtime real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T04:03:21.224215+00:00",
+      "attempt": "focused-python-openssl-1-linux-regression"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T05:03:48.119622+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "7f329645507035c8dc34b6572698f58ba35933c11a448966b637ce635b50a533",
+          "elapsedSeconds": 0.438,
+          "logSha256": "8f4d9b10ed546d9514699cdcc9214d00b6600be1f046ac09b028cda200a68c15",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-ubuntu",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "failed",
+          "exitCode": 1,
+          "sourceTreeDigest": "7f329645507035c8dc34b6572698f58ba35933c11a448966b637ce635b50a533",
+          "elapsedSeconds": 291.164,
+          "logSha256": "dd01e539737b5c0bd72b449861d9fecb50640925ac73cc35ad7764a92d70e24e",
+          "expected": "runtime real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS5-lab-debian",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "7f329645507035c8dc34b6572698f58ba35933c11a448966b637ce635b50a533",
+          "elapsedSeconds": 418.449,
+          "logSha256": "3e62d4e2af665a73d9e3bf1f1c02bf6f7829d8806340e9f7d225564a2117daf3",
+          "expected": "runtime real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS5-lab-istoreos",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "7f329645507035c8dc34b6572698f58ba35933c11a448966b637ce635b50a533",
+          "elapsedSeconds": 374.053,
+          "logSha256": "16a184d440bdca6a9b96cc3a7cd34e78c34cbab2da4c44e66a31e2e4d90ae7ed",
+          "expected": "runtime real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T05:21:52.226858+00:00",
+      "attempt": "ca-validation-repair-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T05:23:27.457030+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "7f329645507035c8dc34b6572698f58ba35933c11a448966b637ce635b50a533",
+          "elapsedSeconds": 0.536,
+          "logSha256": "35d173988e633fc645f418fb955177511d143ea5b6ae5e90a1ab14d5663cb775",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-lab-ubuntu",
+          "milestone": "MS5",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "7f329645507035c8dc34b6572698f58ba35933c11a448966b637ce635b50a533",
+          "elapsedSeconds": 283.962,
+          "logSha256": "259e8a79b70e914acfffa8b36559c9fd0be3a142d9c03fc158fa9fe8926b5978",
+          "expected": "runtime real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T05:28:11.957941+00:00",
+      "attempt": "ca-validation-repair-1-ubuntu-unchanged-code-retest"
+    }
+  ],
+  "diagnosis": "GitHub Release connections time out from the lab host; API, Node and Go endpoints respond. Isolated KSpeeder route investigation is in progress.",
+  "contractTests": 13,
+  "optimization1": {
+    "state": "failed-istore-config",
+    "bootstrap": "Canonical zsetup races official archive and two existing KSpeeder upstreams, with unchanged frozen official size and SHA256.",
+    "sdk": "Existing ks-cli mise client and a dedicated Ubuntu gateway sidecar sharing only the isolated target network namespace; process HTTP timeout 180s.",
+    "diagnostic": "A real Python 3.13.7 downloaded and installed. Gateway selected origin; runtime success is not acceleration acceptance."
+  },
+  "partialTargets": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "milestone": "MS5",
+      "target": "ubuntu",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "runtimes": {
+        "python": {
+          "version": "3.13.7",
+          "installation": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "install",
+            "spec": "python@3.13.7",
+            "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+            "scope": "none",
+            "runtimeValidation": "passed",
+            "details": {
+              "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+              "version": "3.13.7",
+              "modules": "passed"
+            },
+            "exitCode": 0
+          },
+          "probe": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "probe",
+            "spec": "python@3.13.7",
+            "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+            "scope": "none",
+            "runtimeValidation": "not-run",
+            "details": {},
+            "exitCode": 0
+          },
+          "functional": "pip 25.2 from /workspace/project 中文/.venv/lib/python3.13/site-packages/pip (python 3.13)"
+        },
+        "node": {
+          "version": "22.14.0",
+          "installation": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "install",
+            "spec": "node@22.14.0",
+            "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+            "scope": "none",
+            "runtimeValidation": "passed",
+            "details": {
+              "executable": "/root/.local/share/mise/installs/node/22.14.0/bin/node",
+              "version": "22.14.0",
+              "script": "passed"
+            },
+            "exitCode": 0
+          },
+          "probe": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "probe",
+            "spec": "node@22.14.0",
+            "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+            "scope": "none",
+            "runtimeValidation": "not-run",
+            "details": {},
+            "exitCode": 0
+          },
+          "functional": "node-functional-42"
+        },
+        "go": {
+          "version": "1.24.1",
+          "installation": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "install",
+            "spec": "go@1.24.1",
+            "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+            "scope": "none",
+            "runtimeValidation": "passed",
+            "details": {
+              "GOROOT": "/root/.local/share/mise/installs/go/1.24.1",
+              "GOVERSION": "go1.24.1"
+            },
+            "exitCode": 0
+          },
+          "probe": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "probe",
+            "spec": "go@1.24.1",
+            "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+            "scope": "none",
+            "runtimeValidation": "not-run",
+            "details": {},
+            "exitCode": 0
+          },
+          "functional": "go-functional-42"
+        }
+      },
+      "scopes": [
+        "none",
+        "project",
+        "exec",
+        "global"
+      ],
+      "gateway": {
+        "version": "0.8.5",
+        "capabilities": {
+          "schema_version": 1,
+          "service": {
+            "version": "0.8.5",
+            "commit": "",
+            "build_number": ""
+          },
+          "capabilities": [
+            "alias.node-unofficial.v1",
+            "download-gateway.v1",
+            "download-response-status.v1",
+            "route.github-release.v1",
+            "route.git-github.v1",
+            "route.go-sdk.v1",
+            "route.golang.v1",
+            "route.homebrew-api.v1",
+            "route.nodejs-org.v1",
+            "route.npm.v1",
+            "route.pypi.v1"
+          ]
+        },
+        "logSha256": "cf628772aa7e8ccc1b7a68d5fded633ca95714bd70003e715a0f3d2d9c0b607e"
+      },
+      "accelerationValidation": "pending-MS7-channel-evidence",
+      "cleanup": "passed"
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "milestone": "MS5",
+      "target": "debian",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "runtimes": {
+        "python": {
+          "version": "3.13.7",
+          "installation": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "install",
+            "spec": "python@3.13.7",
+            "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+            "scope": "none",
+            "runtimeValidation": "passed",
+            "details": {
+              "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+              "version": "3.13.7",
+              "modules": "passed"
+            },
+            "exitCode": 0
+          },
+          "probe": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "probe",
+            "spec": "python@3.13.7",
+            "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+            "scope": "none",
+            "runtimeValidation": "not-run",
+            "details": {},
+            "exitCode": 0
+          },
+          "functional": "pip 25.2 from /workspace/project 中文/.venv/lib/python3.13/site-packages/pip (python 3.13)"
+        },
+        "node": {
+          "version": "22.14.0",
+          "installation": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "install",
+            "spec": "node@22.14.0",
+            "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+            "scope": "none",
+            "runtimeValidation": "passed",
+            "details": {
+              "executable": "/root/.local/share/mise/installs/node/22.14.0/bin/node",
+              "version": "22.14.0",
+              "script": "passed"
+            },
+            "exitCode": 0
+          },
+          "probe": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "probe",
+            "spec": "node@22.14.0",
+            "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+            "scope": "none",
+            "runtimeValidation": "not-run",
+            "details": {},
+            "exitCode": 0
+          },
+          "functional": "node-functional-42"
+        },
+        "go": {
+          "version": "1.24.1",
+          "installation": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "install",
+            "spec": "go@1.24.1",
+            "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+            "scope": "none",
+            "runtimeValidation": "passed",
+            "details": {
+              "GOROOT": "/root/.local/share/mise/installs/go/1.24.1",
+              "GOVERSION": "go1.24.1"
+            },
+            "exitCode": 0
+          },
+          "probe": {
+            "schemaVersion": 1,
+            "status": "passed",
+            "operation": "probe",
+            "spec": "go@1.24.1",
+            "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+            "scope": "none",
+            "runtimeValidation": "not-run",
+            "details": {},
+            "exitCode": 0
+          },
+          "functional": "go-functional-42"
+        }
+      },
+      "scopes": [
+        "none",
+        "project",
+        "exec",
+        "global"
+      ],
+      "gateway": {
+        "version": "0.8.5",
+        "capabilities": {
+          "schema_version": 1,
+          "service": {
+            "version": "0.8.5",
+            "commit": "",
+            "build_number": ""
+          },
+          "capabilities": [
+            "alias.node-unofficial.v1",
+            "download-gateway.v1",
+            "download-response-status.v1",
+            "route.github-release.v1",
+            "route.git-github.v1",
+            "route.go-sdk.v1",
+            "route.golang.v1",
+            "route.homebrew-api.v1",
+            "route.nodejs-org.v1",
+            "route.npm.v1",
+            "route.pypi.v1"
+          ]
+        },
+        "logSha256": "f241fb1b4d0a2b5ce089c0a784b75da3693cecd67e824884ccb8183737665aa6"
+      },
+      "accelerationValidation": "pending-MS7-channel-evidence",
+      "cleanup": "passed"
+    }
+  },
+  "optimization2": {
+    "state": "failed-python-openssl-config",
+    "change": "Declare the already running isolated gateway ports in the disposable iStoreOS client UCI configuration; do not enable a native service."
+  },
+  "optimization3": {
+    "state": "failed-conservative-extension-guard",
+    "change": "Known default firmware configuration only: process-scoped SHA-locked Python copy omits the empty ENGINE initializer, preserves all other bytes, refuses custom crypto extensions; actual certificate and hostname TLS rejection tests added.",
+    "systemMutation": false
+  },
+  "reason": "All three native targets passed the current CA behavior validation and all nine SDKs; the initial Ubuntu network timeout was preserved and an unchanged-code retest passed.",
+  "diagnosisDetails": {
+    "observedBaseExtension": "/etc/ssl/modules.cnf.d/legacy.cnf",
+    "observedSection": "legacy_sect",
+    "guardBehavior": "Treats any non-comment extension content as active policy; the current guard does not distinguish a section declaration from an enabled provider reference.",
+    "remainingWork": "Trace effective provider/ENGINE references and validate a Python-only compatible configuration with unchanged system files. No fourth optimization is authorized by the current round limit."
+  },
+  "hostSystemCurlAndOpenSSL": {
+    "before": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf\n39543707097e57d618dd8ad2a99a3f382422b542fa060b071cb0bd0f655d8974  /etc/ssl/openssl.cnf",
+    "after": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf\n39543707097e57d618dd8ad2a99a3f382422b542fa060b071cb0bd0f655d8974  /etc/ssl/openssl.cnf",
+    "unchanged": true,
+    "focusedRepairUnchanged": true
+  },
+  "scopeNotes": [
+    "No required SDK pass was substituted by a negative test.",
+    "Current iStoreOS Python compatibility helper is unaccepted; native TLS tests did not run there.",
+    "macOS/Windows native remain pending. MS6-MS10 have not started.",
+    "Default presets and public installers were not published or activated."
+  ],
+  "cleanupAudit": {
+    "ownedContainers": 0,
+    "ownedNetworks": 0,
+    "hostSystemUnchanged": true
+  },
+  "finalOfflineRegression": {
+    "tests": 49,
+    "status": "passed"
+  },
+  "ownerRemovalRegression": {
+    "status": "passed",
+    "testCount": 5,
+    "exitCode": 0
+  },
+  "focusedRepair": {
+    "round": 1,
+    "status": "failed-overall-istoreos-passed",
+    "rootCause": "The guard treated the exact unreferenced factory legacy_sect declaration as active crypto policy.",
+    "defaultLegacySha256": "44772f93dd6faec414b8921b1da7ef5337086dc123a48d5bed6e2b9e4552ce6e",
+    "policy": "Accept only the exact inactive factory declaration with otherwise absent/comment-only extensions; active provider/engine references remain conflicts; explicit OPENSSL_CONF is preserved.",
+    "targets": {
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS5",
+        "target": "istoreos",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "runtimes": {
+          "python": {
+            "version": "3.13.7",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "python@3.13.7",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/workspace/runtime/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                "version": "3.13.7",
+                "modules": "passed"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "python@3.13.7",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "pip 25.2 from /workspace/project 中文/.venv/lib/python3.13/site-packages/pip (python 3.13)",
+            "tls": {
+              "untrustedRejected": true,
+              "hostnameMismatchRejected": true,
+              "trustedHandshake": "passed",
+              "openssl": "OpenSSL 3.5.3 16 Sep 2025"
+            }
+          },
+          "node": {
+            "version": "22.14.0",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "node@22.14.0",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/workspace/runtime/.local/share/mise/installs/node/22.14.0/bin/node",
+                "version": "22.14.0",
+                "script": "passed"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "node@22.14.0",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "node-functional-42"
+          },
+          "go": {
+            "version": "1.24.1",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "go@1.24.1",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "GOROOT": "/workspace/runtime/.local/share/mise/installs/go/1.24.1",
+                "GOVERSION": "go1.24.1"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "go@1.24.1",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "go-functional-42"
+          }
+        },
+        "scopes": [
+          "none",
+          "project",
+          "exec",
+          "global"
+        ],
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "e38785b080242924caf13b3bbef82b5b2cf19af80eea5e5b63d0a4a00ef19c99"
+        },
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "ubuntu": {
+        "status": "failed",
+        "phase": "Python SDK validation after successful archive attestation and install",
+        "helperExitCode": 11,
+        "failure": "assert context.get_ca_certs(): the SDK must discover system CA roots",
+        "priorSDKAcceptance": "Preserved in partialTargets; not a current stronger-validator pass."
+      },
+      "debian": {
+        "status": "not-rerun",
+        "reason": "Current-validator Ubuntu regression failed; no further code optimization authorized."
+      }
+    },
+    "offlineTests": 48,
+    "capathDiagnostic": {
+      "loadedCaBeforeHandshake": 0,
+      "trustedHandshake": "TLS_OK",
+      "loadedCaAfterHandshake": 1,
+      "verifyModeRequired": true,
+      "checkHostname": true,
+      "protocol": "TLSv1.3",
+      "conclusion": "An initially empty get_ca_certs list does not establish missing trust roots; capath loads lazily."
+    },
+    "documentation": "https://docs.python.org/3/library/ssl.html#ssl.SSLContext.get_ca_certs",
+    "inference": "The eager nonempty get_ca_certs assertion is invalid for capath-only trust. The frozen GNU SDK default paths and actual trust handshake still require native confirmation; missing trust roots are not established by the failed assertion.",
+    "nextRepair": "Replace the eager CA-list assertions in check-python.py and check-tls.py with real trust behavior including capath-only coverage; rerun all three native targets without weakening certificate/hostname verification or changing system files."
+  },
+  "caValidationRepair": {
+    "round": 1,
+    "status": "passed",
+    "offlineTests": 49,
+    "implementation": "Removed eager CA enumeration assertions; module diagnostics remain distinct from actual trust handshakes. Added actual capath TLS and explicitly requested unchanged system-store HTTPS verification.",
+    "targets": {
+      "debian": {
+        "schemaVersion": 1,
+        "milestone": "MS5",
+        "target": "debian",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "debian",
+          "image": "kai-skills-lab/debian:20261026-ms01",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "source": {
+            "type": "registry",
+            "reference": "debian:12",
+            "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+            "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+          },
+          "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+          "buildNetwork": "host-package-download-only"
+        },
+        "runtimes": {
+          "python": {
+            "version": "3.13.7",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "python@3.13.7",
+              "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                "version": "3.13.7",
+                "modules": "passed",
+                "loadedCaCount": 0,
+                "defaultVerifyPaths": {
+                  "cafile": null,
+                  "capath": "/etc/ssl/certs",
+                  "openssl_cafile_env": "SSL_CERT_FILE",
+                  "openssl_cafile": "/etc/ssl/cert.pem",
+                  "openssl_capath_env": "SSL_CERT_DIR",
+                  "openssl_capath": "/etc/ssl/certs"
+                },
+                "trustHandshake": "not-tested"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "python@3.13.7",
+              "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "pip 25.2 from /workspace/project 中文/.venv/lib/python3.13/site-packages/pip (python 3.13)",
+            "tls": {
+              "untrustedRejected": true,
+              "hostnameMismatchRejected": true,
+              "trustedHandshake": "passed",
+              "capath": {
+                "trustedHandshake": "passed",
+                "loadedBefore": 0,
+                "loadedAfter": 1
+              },
+              "systemTrust": {
+                "status": "passed",
+                "host": "pypi.org",
+                "protocol": "TLSv1.3",
+                "loadedAfter": 1,
+                "defaultVerifyPaths": {
+                  "cafile": null,
+                  "capath": "/etc/ssl/certs",
+                  "openssl_cafile_env": "SSL_CERT_FILE",
+                  "openssl_cafile": "/etc/ssl/cert.pem",
+                  "openssl_capath_env": "SSL_CERT_DIR",
+                  "openssl_capath": "/etc/ssl/certs"
+                }
+              },
+              "openssl": "OpenSSL 3.5.3 16 Sep 2025"
+            }
+          },
+          "node": {
+            "version": "22.14.0",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "node@22.14.0",
+              "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/root/.local/share/mise/installs/node/22.14.0/bin/node",
+                "version": "22.14.0",
+                "script": "passed"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "node@22.14.0",
+              "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "node-functional-42"
+          },
+          "go": {
+            "version": "1.24.1",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "go@1.24.1",
+              "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "GOROOT": "/root/.local/share/mise/installs/go/1.24.1",
+                "GOVERSION": "go1.24.1"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "go@1.24.1",
+              "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "go-functional-42"
+          }
+        },
+        "scopes": [
+          "none",
+          "project",
+          "exec",
+          "global"
+        ],
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "e6884f66ddc7e8f8aad5e454197d94bd8782306145c86dcbb45a5968b900ddcf"
+        },
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "istoreos": {
+        "schemaVersion": 1,
+        "milestone": "MS5",
+        "target": "istoreos",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "istoreos",
+          "image": "kai-skills-lab/istoreos:20261026-ms01",
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "source": {
+            "type": "immutable-istoreos-rom",
+            "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+            "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+            "sanitization": [
+              "factory SSH host keys",
+              "root authorized keys"
+            ],
+            "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+          },
+          "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+          "contextSha256": {
+            "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+            "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+          },
+          "buildNetwork": "host-package-download-only"
+        },
+        "runtimes": {
+          "python": {
+            "version": "3.13.7",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "python@3.13.7",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/workspace/runtime/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                "version": "3.13.7",
+                "modules": "passed",
+                "loadedCaCount": 152,
+                "defaultVerifyPaths": {
+                  "cafile": "/etc/ssl/cert.pem",
+                  "capath": "/etc/ssl/certs",
+                  "openssl_cafile_env": "SSL_CERT_FILE",
+                  "openssl_cafile": "/etc/ssl/cert.pem",
+                  "openssl_capath_env": "SSL_CERT_DIR",
+                  "openssl_capath": "/etc/ssl/certs"
+                },
+                "trustHandshake": "not-tested"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "python@3.13.7",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "pip 25.2 from /workspace/project 中文/.venv/lib/python3.13/site-packages/pip (python 3.13)",
+            "tls": {
+              "untrustedRejected": true,
+              "hostnameMismatchRejected": true,
+              "trustedHandshake": "passed",
+              "capath": {
+                "trustedHandshake": "passed",
+                "loadedBefore": 0,
+                "loadedAfter": 1
+              },
+              "systemTrust": {
+                "status": "passed",
+                "host": "pypi.org",
+                "protocol": "TLSv1.3",
+                "loadedAfter": 152,
+                "defaultVerifyPaths": {
+                  "cafile": "/etc/ssl/cert.pem",
+                  "capath": "/etc/ssl/certs",
+                  "openssl_cafile_env": "SSL_CERT_FILE",
+                  "openssl_cafile": "/etc/ssl/cert.pem",
+                  "openssl_capath_env": "SSL_CERT_DIR",
+                  "openssl_capath": "/etc/ssl/certs"
+                }
+              },
+              "openssl": "OpenSSL 3.5.3 16 Sep 2025"
+            }
+          },
+          "node": {
+            "version": "22.14.0",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "node@22.14.0",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/workspace/runtime/.local/share/mise/installs/node/22.14.0/bin/node",
+                "version": "22.14.0",
+                "script": "passed"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "node@22.14.0",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "node-functional-42"
+          },
+          "go": {
+            "version": "1.24.1",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "go@1.24.1",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "GOROOT": "/workspace/runtime/.local/share/mise/installs/go/1.24.1",
+                "GOVERSION": "go1.24.1"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "go@1.24.1",
+              "installRoot": "/workspace/runtime/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "go-functional-42"
+          }
+        },
+        "scopes": [
+          "none",
+          "project",
+          "exec",
+          "global"
+        ],
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "b07172f8e6dd2287b7a041e78b5a9a587032a1e8a7e8cfc8e21c1d67fe446e51"
+        },
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      },
+      "ubuntu": {
+        "schemaVersion": 1,
+        "milestone": "MS5",
+        "target": "ubuntu",
+        "status": "passed",
+        "imageLock": {
+          "schemaVersion": 1,
+          "target": "ubuntu",
+          "image": "kai-skills-lab/ubuntu:20261026-ms01",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "source": {
+            "type": "registry",
+            "reference": "ubuntu:24.04",
+            "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+            "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+          },
+          "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+          "buildNetwork": "host-package-download-only"
+        },
+        "runtimes": {
+          "python": {
+            "version": "3.13.7",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "python@3.13.7",
+              "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                "version": "3.13.7",
+                "modules": "passed",
+                "loadedCaCount": 0,
+                "defaultVerifyPaths": {
+                  "cafile": null,
+                  "capath": "/etc/ssl/certs",
+                  "openssl_cafile_env": "SSL_CERT_FILE",
+                  "openssl_cafile": "/etc/ssl/cert.pem",
+                  "openssl_capath_env": "SSL_CERT_DIR",
+                  "openssl_capath": "/etc/ssl/certs"
+                },
+                "trustHandshake": "not-tested"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "python@3.13.7",
+              "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "pip 25.2 from /workspace/project 中文/.venv/lib/python3.13/site-packages/pip (python 3.13)",
+            "tls": {
+              "untrustedRejected": true,
+              "hostnameMismatchRejected": true,
+              "trustedHandshake": "passed",
+              "capath": {
+                "trustedHandshake": "passed",
+                "loadedBefore": 0,
+                "loadedAfter": 1
+              },
+              "systemTrust": {
+                "status": "passed",
+                "host": "pypi.org",
+                "protocol": "TLSv1.3",
+                "loadedAfter": 1,
+                "defaultVerifyPaths": {
+                  "cafile": null,
+                  "capath": "/etc/ssl/certs",
+                  "openssl_cafile_env": "SSL_CERT_FILE",
+                  "openssl_cafile": "/etc/ssl/cert.pem",
+                  "openssl_capath_env": "SSL_CERT_DIR",
+                  "openssl_capath": "/etc/ssl/certs"
+                }
+              },
+              "openssl": "OpenSSL 3.5.3 16 Sep 2025"
+            }
+          },
+          "node": {
+            "version": "22.14.0",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "node@22.14.0",
+              "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "executable": "/root/.local/share/mise/installs/node/22.14.0/bin/node",
+                "version": "22.14.0",
+                "script": "passed"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "node@22.14.0",
+              "installRoot": "/root/.local/share/mise/installs/node/22.14.0",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "node-functional-42"
+          },
+          "go": {
+            "version": "1.24.1",
+            "installation": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "install",
+              "spec": "go@1.24.1",
+              "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "passed",
+              "details": {
+                "GOROOT": "/root/.local/share/mise/installs/go/1.24.1",
+                "GOVERSION": "go1.24.1"
+              },
+              "exitCode": 0
+            },
+            "probe": {
+              "schemaVersion": 1,
+              "status": "passed",
+              "operation": "probe",
+              "spec": "go@1.24.1",
+              "installRoot": "/root/.local/share/mise/installs/go/1.24.1",
+              "scope": "none",
+              "runtimeValidation": "not-run",
+              "details": {},
+              "exitCode": 0
+            },
+            "functional": "go-functional-42"
+          }
+        },
+        "scopes": [
+          "none",
+          "project",
+          "exec",
+          "global"
+        ],
+        "gateway": {
+          "version": "0.8.5",
+          "capabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.8.5",
+              "commit": "",
+              "build_number": ""
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "logSha256": "aa7f6b543df369520764fb9d66a710cb264082ea355390e90ed2e744e5f023e1"
+        },
+        "accelerationValidation": "pending-MS7-channel-evidence",
+        "cleanup": "passed"
+      }
+    },
+    "ubuntuInitialFailure": "Selected Python TLS acceptance command exceeded the 60-second bound. No integrity failure or certificate-rejection error was established.",
+    "sameContainerNetworkDiagnostic": {
+      "pypi.org": "curl IPv4 SSL connection timeout; IPv6 connection failed",
+      "api.github.com": "curl HTTPS 200"
+    },
+    "selectedGnuPythonDiagnostic": {
+      "target": "debian",
+      "diagnosticOnly": true,
+      "onlyChangedArgument": "system-trust-host pypi.org -> api.github.com",
+      "elapsedSeconds": 0.521,
+      "result": {
+        "untrustedRejected": true,
+        "hostnameMismatchRejected": true,
+        "trustedHandshake": "passed",
+        "capath": {
+          "trustedHandshake": "passed",
+          "loadedBefore": 0,
+          "loadedAfter": 1
+        },
+        "systemTrust": {
+          "status": "passed",
+          "host": "api.github.com",
+          "protocol": "TLSv1.3",
+          "loadedAfter": 1,
+          "defaultVerifyPaths": {
+            "cafile": null,
+            "capath": "/etc/ssl/certs",
+            "openssl_cafile_env": "SSL_CERT_FILE",
+            "openssl_cafile": "/etc/ssl/cert.pem",
+            "openssl_capath_env": "SSL_CERT_DIR",
+            "openssl_capath": "/etc/ssl/certs"
+          }
+        },
+        "openssl": "OpenSSL 3.5.3 16 Sep 2025"
+      }
+    },
+    "retestPolicy": "One unchanged-source Ubuntu verification retry after the same required scenario passed Debian and iStoreOS. This is not an additional implementation optimization.",
+    "cleanupAudit": {
+      "ownedContainers": 0,
+      "ownedNetworks": 0,
+      "hostSystemUnchanged": true
+    }
+  },
+  "historicalStopReason": "The single renewed Python/OpenSSL repair passed iStoreOS, but current Ubuntu validation failed the eager CA enumeration assertion. The user-defined extra-round limit is exhausted; MS6 is not started.",
+  "acceptedEvidence": "caValidationRepair.targets"
+}

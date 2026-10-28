@@ -1,0 +1,2110 @@
+{
+  "schemaVersion": 1,
+  "milestones": [
+    {
+      "id": "MS0",
+      "name": "范围与基线",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS0.A1",
+          "expected": "每个能力列出正向测试、至少一个失败测试，以及适用平台、实现归属和证据等级；不存在只有“支持”二字的条目。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS0-manifest",
+            "MS0-baseline-00",
+            "MS0-baseline-01",
+            "MS0-baseline-02",
+            "MS0-baseline-03",
+            "MS0-baseline-04",
+            "MS0-baseline-05",
+            "MS0-baseline-06",
+            "MS0-baseline-07",
+            "MS0-baseline-08",
+            "MS0-baseline-09",
+            "MS0-baseline-10",
+            "MS0-baseline-11",
+            "MS0-baseline-12",
+            "MS0-baseline-13",
+            "MS0-baseline-14"
+          ]
+        },
+        {
+          "id": "MS0.A2",
+          "expected": "确认 ks-cli 已有普通 Linux 安装入口，OpenWrt 使用对应包管理路径；macOS/Windows 按当前实际产物与摘要登记，不猜测安装地址。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS0-manifest",
+            "MS0-baseline-00",
+            "MS0-baseline-01",
+            "MS0-baseline-02",
+            "MS0-baseline-03",
+            "MS0-baseline-04",
+            "MS0-baseline-05",
+            "MS0-baseline-06",
+            "MS0-baseline-07",
+            "MS0-baseline-08",
+            "MS0-baseline-09",
+            "MS0-baseline-10",
+            "MS0-baseline-11",
+            "MS0-baseline-12",
+            "MS0-baseline-13",
+            "MS0-baseline-14"
+          ]
+        },
+        {
+          "id": "MS0.A3",
+          "expected": "收录现有 catalog、canonical、generated、Transport、安装生命周期、Reasonix 和 iStoreOS runtime 相关测试；基线全绿，或对每个既有失败记录复现命令、原因与修复归属。基线失败不能混入后续成功结论。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS0-manifest",
+            "MS0-baseline-00",
+            "MS0-baseline-01",
+            "MS0-baseline-02",
+            "MS0-baseline-03",
+            "MS0-baseline-04",
+            "MS0-baseline-05",
+            "MS0-baseline-06",
+            "MS0-baseline-07",
+            "MS0-baseline-08",
+            "MS0-baseline-09",
+            "MS0-baseline-10",
+            "MS0-baseline-11",
+            "MS0-baseline-12",
+            "MS0-baseline-13",
+            "MS0-baseline-14"
+          ]
+        },
+        {
+          "id": "MS0.A4",
+          "expected": "旧 Skill ID 逐一标记保留、提取或过渡映射；迁移后不得出现两份人工维护的实现。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS0-manifest",
+            "MS0-baseline-00",
+            "MS0-baseline-01",
+            "MS0-baseline-02",
+            "MS0-baseline-03",
+            "MS0-baseline-04",
+            "MS0-baseline-05",
+            "MS0-baseline-06",
+            "MS0-baseline-07",
+            "MS0-baseline-08",
+            "MS0-baseline-09",
+            "MS0-baseline-10",
+            "MS0-baseline-11",
+            "MS0-baseline-12",
+            "MS0-baseline-13",
+            "MS0-baseline-14"
+          ]
+        },
+        {
+          "id": "MS0.A5",
+          "expected": "至少 30 条路由用例覆盖软件、运行时、项目依赖、下载、存储、系统专属任务；“安装 Python”和“pip install”必须走不同主流程，Ubuntu 不选择 iStore 环境。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS0-manifest",
+            "MS0-baseline-00",
+            "MS0-baseline-01",
+            "MS0-baseline-02",
+            "MS0-baseline-03",
+            "MS0-baseline-04",
+            "MS0-baseline-05",
+            "MS0-baseline-06",
+            "MS0-baseline-07",
+            "MS0-baseline-08",
+            "MS0-baseline-09",
+            "MS0-baseline-10",
+            "MS0-baseline-11",
+            "MS0-baseline-12",
+            "MS0-baseline-13",
+            "MS0-baseline-14"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS1",
+      "name": "隔离实验室",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS1.A1",
+          "expected": "Ubuntu、Debian 使用锁定 digest 的真实镜像。iStoreOS 使用来源、版本、架构、摘要明确的 rootfs，实际检测 `/etc/os-release`、包数据库、包管理程序、libc、iStore/mise integration 文件。改名字或复制几个配置文件不能通过。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A2",
+          "expected": "iStoreOS 镜像所需的 iStore/mise 包及其依赖有真实来源和摘要，缺任一必需产物时阶段 blocked，不能退回 fixture 后宣称完成。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A3",
+          "expected": "每个目标可运行 on-device 测试，也可通过实验室专属 SSH 入口运行 remote-control 测试。端口动态分配，目标脚本中的标记文件只出现在容器内。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A4",
+          "expected": "默认单目标运行。开始前估算镜像展开、构建层、SDK、缓存和证据空间；试验采用至少 1 GiB 磁盘余量的初始预算，并配置容器内存/进程限额。预算不足返回明确失败，不清理其他工作负载。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A5",
+          "expected": "取消、超时和注入失败后，只清理本 run 的资源；重复创建、执行、清理两轮成功。宿主保护路径的测试标记及非本次资源清单保持一致。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A6",
+          "expected": "不挂载宿主根目录或 Docker socket 到普通测试容器。Docker pull 场景使用专用 daemon/data-root；若独立 daemon 需要额外权限，执行器明确记录并限定到该专属容器，不改宿主 daemon 配置。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A7",
+          "expected": "加速服务使用实验室专属实例、配置、端口和日志。测试容器的 localhost 不是宿主；必须验证实际网关路径。若工具目前只能访问同网络命名空间服务，采用明确配置的 sidecar/同 namespace 方案，不能因访问不到而关闭校验。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-ubuntu",
+            "MS1-lab-debian",
+            "MS1-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS1.A8",
+          "expected": "iStoreOS 实验室准备复用固件 curl，不安装或升级 curl/libcurl，不修改 opkg 下载策略；构建前后 curl、libcurl、libzstd、包元数据及 opkg 配置摘要和 curl 版本不变，宿主机对应文件不变。",
+          "evidence": "container before/after SHA-256 and version assertions; host before/after receipt",
+          "caseIds": [
+            "MS1-contract",
+            "MS1-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS2",
+      "name": "执行与平台接口",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS2.A1",
+          "expected": "Linux、macOS、iStoreOS、Windows fixture 返回正确的系统、架构、Shell、包管理器、用户目录和执行环境；未知值保持 unknown。PATH 上有 opkg 不足以识别 OpenWrt。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS2-contract"
+          ]
+        },
+        {
+          "id": "MS2.A2",
+          "expected": "参数中含空格、中文、引号、空字符串、`$()`、分号和反引号时，测试程序接收完全相同的 argv，不发生额外命令执行。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS2-contract"
+          ]
+        },
+        {
+          "id": "MS2.A3",
+          "expected": "cwd、stdin、环境增量正确传递；连续两次独立调用不会依赖上一次 shell 的 source。当前项目和当前目标不会被其他会话环境覆盖。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS2-contract"
+          ]
+        },
+        {
+          "id": "MS2.A4",
+          "expected": "超时与取消停止测试启动的进程树，记录可区分结果；传输失败不能被解释成业务安装失败，原生工具非零退出码得到保留。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS2-contract"
+          ]
+        },
+        {
+          "id": "MS2.A5",
+          "expected": "Windows 适配区分 Git Bash/MSYS、PowerShell、Windows 原生程序和 WSL；Git Bash 不被识别为 Linux，WSL 不使用 Windows 的 SDK 路径。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS2-contract"
+          ]
+        },
+        {
+          "id": "MS2.A6",
+          "expected": "接口和执行器测试跨真实调用边界验证实际参数与副作用；不得只用 grep 检查源码里是否出现某个字符串。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS2-contract"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS3",
+      "name": "工具引导",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS3.A1",
+          "expected": "“干净环境、兼容版本、版本过旧、外部来源冲突、平台未发布”五类场景给出准确命令计划和结果；兼容工具再次检查不重新下载安装。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS3-contract",
+            "MS3-lab-ubuntu",
+            "MS3-lab-debian",
+            "MS3-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS3.A2",
+          "expected": "普通 Linux 实际复用 `zsetup install ks-cli --foreground`，验证命令路径与版本；其安装不启动或安装 KSpeeder 服务。已存在外部命令时保留它并报告冲突。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS3-contract",
+            "MS3-lab-ubuntu",
+            "MS3-lab-debian",
+            "MS3-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS3.A3",
+          "expected": "iStoreOS 使用真实 feed 中的包，验证 mise-exec、mise、integration 文件、runtime_dir 和 ks-cli 可用性；不能套用普通 Linux 安装器。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS3-contract",
+            "MS3-lab-ubuntu",
+            "MS3-lab-debian",
+            "MS3-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS3.A4",
+          "expected": "macOS/Windows 缺产物或摘要时，返回工具/平台/原因/下一步；已有受信任工具的路径仍能继续执行任务。不拿 Linux 二进制代替。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS3-contract",
+            "MS3-lab-ubuntu",
+            "MS3-lab-debian",
+            "MS3-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS3.A5",
+          "expected": "Windows 首次 Bash 引导可以从 PowerShell 或原生入口进入，不要求先有 Bash。路径发现测试排除 WSL 启动器并验证含空格的绝对路径。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS3-contract",
+            "MS3-lab-ubuntu",
+            "MS3-lab-debian",
+            "MS3-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS3.A6",
+          "expected": "下载损坏、版本不匹配、空间不足和取消测试均保留原有可用工具；复用 zsetup 的校验与事务，不复制下载实现。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS3-contract",
+            "MS3-lab-ubuntu",
+            "MS3-lab-debian",
+            "MS3-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS4",
+      "name": "软件生命周期",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS4.A1",
+          "expected": "Ubuntu、Debian 查询真实 apt 索引和已安装数据库；iStoreOS 查询真实包数据库，并覆盖 iStore 目录、普通系统包和内部 zsetup 软件的区别。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS4-contract",
+            "MS4-lab-ubuntu",
+            "MS4-lab-debian",
+            "MS4-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS4.A2",
+          "expected": "同名软件来自多个来源时，结果不混成一个安装 ID；功能搜索返回有限候选及匹配理由，具体包名不触发无意义的重复选择。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS4-contract",
+            "MS4-lab-ubuntu",
+            "MS4-lab-debian",
+            "MS4-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS4.A3",
+          "expected": "每个真实目标选一个冻结版本或快照仓库中的轻量软件，完成搜索、信息查询、安装、命令功能检查、文件归属查询和卸载；操作只发生在容器内。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS4-contract",
+            "MS4-lab-ubuntu",
+            "MS4-lab-debian",
+            "MS4-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS4.A4",
+          "expected": "每个平台各验证一个系统包和一个适用的内部软件/iStore 应用路径。内部产品不存在时，该正向能力保持 blocked，不用负向测试替代。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS4-contract",
+            "MS4-lab-ubuntu",
+            "MS4-lab-debian",
+            "MS4-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS4.A5",
+          "expected": "不隐式刷新索引；显式 refresh 的写入可见，源不可用、无候选、权限不足、冲突和安装失败均保留原始错误。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS4-contract",
+            "MS4-lab-ubuntu",
+            "MS4-lab-debian",
+            "MS4-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS4.A6",
+          "expected": "重复安装幂等，卸载不误删项目文件；用户修改的配置和外部来源文件不被强制覆盖。需要服务或 Docker 的软件仍由其管理者处理生命周期。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS4-contract",
+            "MS4-lab-ubuntu",
+            "MS4-lab-debian",
+            "MS4-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS5",
+      "name": "mise 运行时",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS5.A1",
+          "expected": "Ubuntu、Debian、iStoreOS 各完成 Python、Node、Go 的一个确切版本安装，共九个 SDK 正向用例。版本在环境锁中记录，不把历史 workaround 写成永久 latest。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS5.A2",
+          "expected": "可执行文件来自所选 mise SDK，版本完全一致；仅观察系统 PATH 上的 Python/Node/Go 不能通过。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS5.A3",
+          "expected": "Python 实际验证 ssl、sqlite3、bz2、lzma、ctypes、venv 和 pip；Node 执行脚本；Go 编译并运行小程序。编译产物与缓存写到试验所有的持久路径。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS5.A4",
+          "expected": "覆盖仅安装、项目选择、临时 exec 三种作用域；全局选择作为显式独立用例。默认任务不修改全局版本。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS5.A5",
+          "expected": "只读 probe 不隐式安装缺失 SDK；iStoreOS 正确处理 mise-exec 不转发参数的接口，不修改普通系统的 HOME。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS5.A6",
+          "expected": "musl/架构没有匹配的预编译产物时明确失败，不静默安装编译器或转源码编译。候选版本不满足正向用例时重新冻结有可用产物的版本，仍无法满足则 blocked。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS5.A7",
+          "expected": "验证失败、下载失败、完整性失败、环境未激活与版本解析错误分别报告，TLS、校验与签名不关闭。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS5-contract",
+            "MS5-lab-ubuntu",
+            "MS5-lab-debian",
+            "MS5-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS6",
+      "name": "项目依赖",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS6.A1",
+          "expected": "Ubuntu、Debian、iStoreOS 各运行 Node/npm、Python/venv/pip、Python/uv、Go modules 四个样例，共十二个正向用例。每个样例有冻结版本与实际依赖导入/执行断言。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS6-contract",
+            "MS6-lab-ubuntu",
+            "MS6-lab-debian",
+            "MS6-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS6.A2",
+          "expected": "npm 对既有 lock 使用 ci 并验证依赖；Python 用指定解释器创建 venv 并确认实际 pip/uv 作用域；Go 样例包含真实 require/import，不能仅运行空项目命令。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS6-contract",
+            "MS6-lab-ubuntu",
+            "MS6-lab-debian",
+            "MS6-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS6.A3",
+          "expected": "已有锁文件场景前后摘要不变；明确新增依赖的场景只产生预期的 manifest/lock 变化。系统 Python、全局 npmrc/pip 配置和 go env 不被改写。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS6-contract",
+            "MS6-lab-ubuntu",
+            "MS6-lab-debian",
+            "MS6-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS6.A4",
+          "expected": "先验证冷缓存下载，再在另一目录验证重复运行。缺运行时、锁不匹配、依赖不存在、原生扩展缺系统库、网络失败和项目路径含空格都有断言。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS6-contract",
+            "MS6-lab-ubuntu",
+            "MS6-lab-debian",
+            "MS6-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS6.A5",
+          "expected": "原生依赖工具失败保留原退出码。Git/私有仓库/非 registry 依赖识别为单独下载来源，不假设被普通 registry 加速覆盖。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS6-contract",
+            "MS6-lab-ubuntu",
+            "MS6-lab-debian",
+            "MS6-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS6.A6",
+          "expected": "样例安装后实际运行并校验输出；仅安装日志包含 success 不算完成。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS6-contract",
+            "MS6-lab-ubuntu",
+            "MS6-lab-debian",
+            "MS6-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS7",
+      "name": "下载加速",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS7.A1",
+          "expected": "每个真实目标验证 Python/Node/Go SDK 与 npm/PyPI/Go modules 的实际下载；uv 按已支持的 PyPI 通道验证。每条通道记录确切客户端、实际源和服务能力。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS7.A2",
+          "expected": "文件下载核对内容摘要；公开 Git clone 核对冻结 commit；Docker 在专用 daemon 中拉取固定 digest 镜像并检查结果。不能改宿主 Docker 镜像配置来完成测试。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS7.A3",
+          "expected": "Doctor、Explain 是只读检查，不能隐式安装/启动服务；执行期如需启动实验室专属服务，由试验范围覆盖并在结果中记录。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS7.A4",
+          "expected": "冷缓存请求同时保留客户端与同一服务实例、同一时间窗的网关证据，证明相应 metadata/index 与 artifact 请求经过网关。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS7.A5",
+          "expected": "仅客户端成功记为 client passed、acceleration pending；缓存命中、客户端直连、网关内部回源分别分类，不能一概写为加速成功。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS7.A6",
+          "expected": "服务缺失、能力缺失、端口错误、DNS/TLS 失败、摘要不匹配、客户端直连和错误日志窗口都有负向用例。任何失败都不能通过 insecure、关闭证书/校验或污染全局配置恢复。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS7.A7",
+          "expected": "准备一个连续的用户流程：安装 SDK、安装项目依赖、运行项目。结果同时给出运行时、依赖功能、加速路径三类结论。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS7-contract",
+            "MS7-lab-ubuntu",
+            "MS7-lab-debian",
+            "MS7-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS8",
+      "name": "软件实际使用",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS8.A1",
+          "expected": "在试验目录构造文件树，包含大小已知的普通文件、中文和空格路径、符号链接、无权限目录与外部保护标记。空间分析结果能定位预设大文件，文件搜索返回预设目标。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS8-contract",
+            "MS8-lab-ubuntu",
+            "MS8-lab-debian",
+            "MS8-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS8.A2",
+          "expected": "支持 linkspace 的平台实际调用其已发布程序；不支持的平台使用明确登记的原生方案，结果标注实际工具。不能把原生 fallback 的通过写为 linkspace 本体通过。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS8-contract",
+            "MS8-lab-ubuntu",
+            "MS8-lab-debian",
+            "MS8-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS8.A3",
+          "expected": "默认查询有路径范围、输出数量与超时限制；不会为了查空间扫描整个宿主或自动删除文件。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS8-contract",
+            "MS8-lab-ubuntu",
+            "MS8-lab-debian",
+            "MS8-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS8.A4",
+          "expected": "选择安装目录时返回实际挂载、容量与持久性证据；overlay、tmpfs、未知挂载都有预期结论，不能仅凭可用字节推断持久性。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS8-contract",
+            "MS8-lab-ubuntu",
+            "MS8-lab-debian",
+            "MS8-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS8.A5",
+          "expected": "通过 mise 管理至少一个首轮支持的开发 CLI，验证确切版本、help/版本入口和一个真实子命令；项目运行时不混入系统中的同名程序。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS8-contract",
+            "MS8-lab-ubuntu",
+            "MS8-lab-debian",
+            "MS8-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS8.A6",
+          "expected": "报告包含安装位置、实际使用命令、结果和下一步；无需用户自行理解内部 helper 的组合。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS8-contract",
+            "MS8-lab-ubuntu",
+            "MS8-lab-debian",
+            "MS8-lab-istoreos"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS9",
+      "name": "桌面适配",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS9.A1",
+          "expected": "macOS x86_64/arm64 fixture 验证架构选择、HOME/PATH、Bash 兼容性、Homebrew 与内部安装来源选择；服务使用 launchd 策略，不生成 systemctl/UCI 命令。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS9-contract"
+          ]
+        },
+        {
+          "id": "MS9.A2",
+          "expected": "Windows x64 验证 Git Bash 选择、首次引导、原生程序启动、`.cmd` 桥接、Python Scripts/venv、盘符、反斜杠、空格和中文路径。额外覆盖 MSYS 参数转换和 Docker 参数中的 POSIX 路径，不能全局禁用转换来掩盖问题。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS9-contract"
+          ]
+        },
+        {
+          "id": "MS9.A3",
+          "expected": "Windows 的命令计划、脚本传输与错误处理在 mock executor 上执行契约测试；可用的 PowerShell 解析器执行语法/解析测试。解析器不可用时明确记录，不能用文本匹配替代执行测试。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS9-contract"
+          ]
+        },
+        {
+          "id": "MS9.A4",
+          "expected": "Bash 脚本在相应最低支持版本语法检查；共用逻辑执行行为测试；需要 Windows 内核的进程/路径行为保留待原生验证。引入编译程序时才增加对应平台交叉编译，交叉编译不等于运行验收。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS9-contract"
+          ]
+        },
+        {
+          "id": "MS9.A5",
+          "expected": "无真实 macOS runner 时，macOS offline gate 可以通过，native gate 保持 pending；Windows native gate 本轮按范围保持 pending，不连接 Windows。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS9-contract"
+          ]
+        },
+        {
+          "id": "MS9.A6",
+          "expected": "缺客户端发布物时正向安装显示 unavailable，已安装客户端的合法执行路径仍完成离线验证；没有产品摘要时不生成可执行下载计划。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS9-contract"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "MS10",
+      "name": "分发与综合验收",
+      "status": "planned",
+      "optimizationLimit": 3,
+      "acceptance": [
+        {
+          "id": "MS10.A1",
+          "expected": "catalog 中每组 platform/mode 恰好匹配一个预设；通用技能只装一次；iStoreOS 专属技能不出现在 Ubuntu/Windows 预设中，Bash 未安装不阻止 bootstrap 技能被发现。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A2",
+          "expected": "生成器从声明驱动组合，不增加每平台一套人工维护 Skill；`tools/verify-generated.sh` 通过，打包后离开源码仓库仍能运行，不依赖 sibling checkout。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A3",
+          "expected": "Codex、OpenCode、Reasonix 的发现与路由测试覆盖新 ID、触发词、脚本路径和旧 ID 过渡映射；旧映射只转向唯一实现，不额外激活旧新两个主 Skill。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A4",
+          "expected": "在临时目录执行 dry-run、安装、升级和卸载；不修改开发者当前 Agent 目录。用户修改的文件能触发保留/冲突机制，无关 Skill 不变。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A5",
+          "expected": "Kai 在其源码所有者处完成 canonical 快照、来源锁、路由、路径和测试同步；测试不把 Ubuntu 控制端误判为 iStoreOS 目标，不叠加第三方 remote-control Transport。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A6",
+          "expected": "Ubuntu、Debian、iStoreOS 各从干净实验室执行 on-device 与 remote-control 的三条完整用户旅程：找软件并实际使用、安装 SDK 并运行依赖项目、分析空间并搜索文件，共十八条 required 旅程；MS7 各通道的加速证据同时关联到本轮结果。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A7",
+          "expected": "对每个 required 镜像至少再用全新容器、HOME、项目目录和客户端缓存复跑关键旅程一次，避免依赖上次安装状态。网关冷缓存测试使用独立实例或明确可证实的未缓存输入，不能只清客户端缓存。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A8",
+          "expected": "本计划要求的 fixture/container 用例无 failed、blocked 或 skipped，既有回归无新增失败；macOS/Windows native、未覆盖架构及真实内核/服务范围保持显式 pending，不计入通过项。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        },
+        {
+          "id": "MS10.A9",
+          "expected": "同一源码两次构建候选包的摘要一致，manifest/source digest/解包内容一致。构建可审查的候选制品即可完成本阶段；本计划不包含公网发布或生产部署。",
+          "evidence": "contract assertions and/or platform receipts",
+          "caseIds": [
+            "MS10-contract",
+            "MS10-lab-ubuntu",
+            "MS10-lab-debian",
+            "MS10-lab-istoreos"
+          ]
+        }
+      ]
+    }
+  ],
+  "platforms": [
+    {
+      "id": "ubuntu",
+      "architecture": "x86_64",
+      "containerValidation": "required",
+      "nativeValidation": "container-only"
+    },
+    {
+      "id": "debian",
+      "architecture": "x86_64",
+      "containerValidation": "required",
+      "nativeValidation": "container-only"
+    },
+    {
+      "id": "istoreos",
+      "architecture": "x86_64",
+      "containerValidation": "required",
+      "nativeValidation": "container-only"
+    },
+    {
+      "id": "macos",
+      "architecture": "x86_64/arm64",
+      "containerValidation": "not-applicable",
+      "nativeValidation": "pending"
+    },
+    {
+      "id": "windows",
+      "architecture": "x64",
+      "containerValidation": "not-applicable",
+      "nativeValidation": "pending"
+    }
+  ],
+  "toolSources": {
+    "ks-cli": {
+      "linux": "zsetup install ks-cli --foreground",
+      "istoreos": "detected-package-feed",
+      "macos": "verified-installed-or-unavailable",
+      "windows": "verified-installed-or-unavailable"
+    },
+    "mise": {
+      "linux": "trusted-platform-installer",
+      "istoreos": "integrated-feed-package",
+      "macos": "trusted-platform-installer",
+      "windows": "winget-or-verified-existing"
+    }
+  },
+  "cases": [
+    {
+      "id": "MS0-manifest",
+      "milestone": "MS0",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_manifest.py"
+      ],
+      "expected": "11 milestone declarations, >=30 routes, complete acceptance inventory",
+      "evidence": "public runner JSON",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS0-baseline-00",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/architecture/m0-baseline.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-01",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/architecture/test-catalog.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-02",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/architecture/test-m2-canonical.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-03",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/contracts/test-m3-transports.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-04",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/architecture/test-m4-generated.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-05",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/install/test-m5-discovery.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-06",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/context-budget/test-m7-istoreos.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-07",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/contracts/test-m8-windows.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-08",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/contracts/test-m9-macos.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-09",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/install/test-m10-lifecycle.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-10",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/install/test-m10-release.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-11",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/install/test-agent-bundle-export.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-12",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/architecture/test-recommendations.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-13",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/architecture/test-runtime-release-gate.sh"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS0-baseline-14",
+      "milestone": "MS0",
+      "suite": "baseline",
+      "platform": "all",
+      "argv": [
+        "sh",
+        "tests/install/test-reasonix-consumer.sh",
+        "{reasonix}"
+      ],
+      "expected": "existing public contract exits 0",
+      "evidence": "stdout/stderr and exit status",
+      "required": true,
+      "timeoutSeconds": 300
+    },
+    {
+      "id": "MS1-contract",
+      "milestone": "MS1",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_lab.py"
+      ],
+      "expected": "lab positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS1-lab-ubuntu",
+      "milestone": "MS1",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS1",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "lab real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS1-lab-debian",
+      "milestone": "MS1",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS1",
+        "--target",
+        "debian"
+      ],
+      "expected": "lab real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS1-lab-istoreos",
+      "milestone": "MS1",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS1",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "lab real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS2-contract",
+      "milestone": "MS2",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_execution.py"
+      ],
+      "expected": "execution positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS3-contract",
+      "milestone": "MS3",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_bootstrap.py"
+      ],
+      "expected": "bootstrap positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS3-lab-ubuntu",
+      "milestone": "MS3",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS3",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "bootstrap real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS3-lab-debian",
+      "milestone": "MS3",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS3",
+        "--target",
+        "debian"
+      ],
+      "expected": "bootstrap real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS3-lab-istoreos",
+      "milestone": "MS3",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS3",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "bootstrap real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS4-contract",
+      "milestone": "MS4",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_software.py"
+      ],
+      "expected": "software positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS4-lab-ubuntu",
+      "milestone": "MS4",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS4",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "software real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS4-lab-debian",
+      "milestone": "MS4",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS4",
+        "--target",
+        "debian"
+      ],
+      "expected": "software real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS4-lab-istoreos",
+      "milestone": "MS4",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS4",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "software real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS5-contract",
+      "milestone": "MS5",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_runtime.py"
+      ],
+      "expected": "runtime positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS5-lab-ubuntu",
+      "milestone": "MS5",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS5",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "runtime real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS5-lab-debian",
+      "milestone": "MS5",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS5",
+        "--target",
+        "debian"
+      ],
+      "expected": "runtime real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS5-lab-istoreos",
+      "milestone": "MS5",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS5",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "runtime real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS6-contract",
+      "milestone": "MS6",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_dependencies.py"
+      ],
+      "expected": "dependencies positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS6-lab-ubuntu",
+      "milestone": "MS6",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS6",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "dependencies real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS6-lab-debian",
+      "milestone": "MS6",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS6",
+        "--target",
+        "debian"
+      ],
+      "expected": "dependencies real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS6-lab-istoreos",
+      "milestone": "MS6",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS6",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "dependencies real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS7-contract",
+      "milestone": "MS7",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_acceleration.py"
+      ],
+      "expected": "acceleration positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS7-lab-ubuntu",
+      "milestone": "MS7",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS7",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "acceleration real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS7-lab-debian",
+      "milestone": "MS7",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS7",
+        "--target",
+        "debian"
+      ],
+      "expected": "acceleration real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS7-lab-istoreos",
+      "milestone": "MS7",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS7",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "acceleration real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS8-contract",
+      "milestone": "MS8",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_storage.py"
+      ],
+      "expected": "storage positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS8-lab-ubuntu",
+      "milestone": "MS8",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS8",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "storage real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS8-lab-debian",
+      "milestone": "MS8",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS8",
+        "--target",
+        "debian"
+      ],
+      "expected": "storage real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS8-lab-istoreos",
+      "milestone": "MS8",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS8",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "storage real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS9-contract",
+      "milestone": "MS9",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_desktop.py"
+      ],
+      "expected": "desktop positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS10-contract",
+      "milestone": "MS10",
+      "suite": "contract",
+      "platform": "all",
+      "argv": [
+        "python3",
+        "tests/multisystem/test_distribution.py"
+      ],
+      "expected": "distribution positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions",
+      "required": true,
+      "timeoutSeconds": 180
+    },
+    {
+      "id": "MS10-lab-ubuntu",
+      "milestone": "MS10",
+      "suite": "lab",
+      "platform": "ubuntu",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS10",
+        "--target",
+        "ubuntu"
+      ],
+      "expected": "distribution real ubuntu acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS10-lab-debian",
+      "milestone": "MS10",
+      "suite": "lab",
+      "platform": "debian",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS10",
+        "--target",
+        "debian"
+      ],
+      "expected": "distribution real debian acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    },
+    {
+      "id": "MS10-lab-istoreos",
+      "milestone": "MS10",
+      "suite": "lab",
+      "platform": "istoreos",
+      "argv": [
+        "python3",
+        "tools/multisystem/lab.py",
+        "scenario",
+        "--milestone",
+        "MS10",
+        "--target",
+        "istoreos"
+      ],
+      "expected": "distribution real istoreos acceptance passes",
+      "evidence": "image/rootfs digest, target receipts and actual commands",
+      "required": true,
+      "timeoutSeconds": 1800
+    }
+  ],
+  "routingCases": [
+    {
+      "id": "route-00-ubuntu",
+      "platform": "ubuntu",
+      "task": "安装 Python",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-00-istoreos",
+      "platform": "istoreos",
+      "task": "安装 Python",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-01-ubuntu",
+      "platform": "ubuntu",
+      "task": "安装 Node.js",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-01-istoreos",
+      "platform": "istoreos",
+      "task": "安装 Node.js",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-02-ubuntu",
+      "platform": "ubuntu",
+      "task": "安装 Go",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-02-istoreos",
+      "platform": "istoreos",
+      "task": "安装 Go",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-03-ubuntu",
+      "platform": "ubuntu",
+      "task": "pip install requests",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-03-istoreos",
+      "platform": "istoreos",
+      "task": "pip install requests",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-04-ubuntu",
+      "platform": "ubuntu",
+      "task": "npm ci",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-04-istoreos",
+      "platform": "istoreos",
+      "task": "npm ci",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-05-ubuntu",
+      "platform": "ubuntu",
+      "task": "go mod download",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-05-istoreos",
+      "platform": "istoreos",
+      "task": "go mod download",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-06-ubuntu",
+      "platform": "ubuntu",
+      "task": "uv sync",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-06-istoreos",
+      "platform": "istoreos",
+      "task": "uv sync",
+      "skill": "kai-project-dependencies"
+    },
+    {
+      "id": "route-07-ubuntu",
+      "platform": "ubuntu",
+      "task": "找文件管理软件",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-07-istoreos",
+      "platform": "istoreos",
+      "task": "找文件管理软件",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-08-ubuntu",
+      "platform": "ubuntu",
+      "task": "查询已安装软件",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-08-istoreos",
+      "platform": "istoreos",
+      "task": "查询已安装软件",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-09-ubuntu",
+      "platform": "ubuntu",
+      "task": "升级系统软件包",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-09-istoreos",
+      "platform": "istoreos",
+      "task": "升级系统软件包",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-10-ubuntu",
+      "platform": "ubuntu",
+      "task": "GitHub 文件下载慢",
+      "skill": "kai-download-acceleration"
+    },
+    {
+      "id": "route-10-istoreos",
+      "platform": "istoreos",
+      "task": "GitHub 文件下载慢",
+      "skill": "kai-download-acceleration"
+    },
+    {
+      "id": "route-11-ubuntu",
+      "platform": "ubuntu",
+      "task": "docker pull 失败",
+      "skill": "kai-download-acceleration"
+    },
+    {
+      "id": "route-11-istoreos",
+      "platform": "istoreos",
+      "task": "docker pull 失败",
+      "skill": "kai-download-acceleration"
+    },
+    {
+      "id": "route-12-ubuntu",
+      "platform": "ubuntu",
+      "task": "查大文件",
+      "skill": "kai-storage-files"
+    },
+    {
+      "id": "route-12-istoreos",
+      "platform": "istoreos",
+      "task": "查大文件",
+      "skill": "kai-storage-files"
+    },
+    {
+      "id": "route-13-ubuntu",
+      "platform": "ubuntu",
+      "task": "搜索文件名",
+      "skill": "kai-storage-files"
+    },
+    {
+      "id": "route-13-istoreos",
+      "platform": "istoreos",
+      "task": "搜索文件名",
+      "skill": "kai-storage-files"
+    },
+    {
+      "id": "route-14-ubuntu",
+      "platform": "ubuntu",
+      "task": "安装开发 CLI",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-14-istoreos",
+      "platform": "istoreos",
+      "task": "安装开发 CLI",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-15-ubuntu",
+      "platform": "ubuntu",
+      "task": "找软件安装到硬盘",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-15-istoreos",
+      "platform": "istoreos",
+      "task": "找软件安装到硬盘",
+      "skill": "kai-software"
+    },
+    {
+      "id": "route-runtime-debian",
+      "platform": "debian",
+      "task": "安装 Python",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-runtime-macos",
+      "platform": "macos",
+      "task": "安装 Python",
+      "skill": "kai-dev-environment"
+    },
+    {
+      "id": "route-runtime-windows",
+      "platform": "windows",
+      "task": "安装 Python",
+      "skill": "kai-dev-environment"
+    }
+  ],
+  "migration": [
+    {
+      "oldId": "istoreos-app-diagnostics",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics"
+    },
+    {
+      "oldId": "istoreos-app-search",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search"
+    },
+    {
+      "oldId": "istoreos-backup-restore",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore"
+    },
+    {
+      "oldId": "istoreos-docker-acceleration-istoreenhance",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-docker-acceleration-istoreenhance",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance"
+    },
+    {
+      "oldId": "istoreos-docker-basics",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics"
+    },
+    {
+      "oldId": "istoreos-docker-data-root-migrate",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate"
+    },
+    {
+      "oldId": "istoreos-download-acceleration",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration"
+    },
+    {
+      "oldId": "istoreos-kspeeder-domainfold-fetch",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch"
+    },
+    {
+      "oldId": "istoreos-logs-and-diagnostics",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-logs-and-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics"
+    },
+    {
+      "oldId": "istoreos-luci-recovery",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery"
+    },
+    {
+      "oldId": "istoreos-mise-runtime",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime"
+    },
+    {
+      "oldId": "istoreos-network-quality",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality"
+    },
+    {
+      "oldId": "istoreos-package-manager",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-software",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager"
+    },
+    {
+      "oldId": "istoreos-quickstart-api",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api"
+    },
+    {
+      "oldId": "istoreos-run-executable",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable"
+    },
+    {
+      "oldId": "istoreos-service-manager",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager"
+    },
+    {
+      "oldId": "istoreos-source-introspect",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-source-introspect",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect"
+    },
+    {
+      "oldId": "istoreos-storage-path",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-storage-files",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path"
+    },
+    {
+      "oldId": "istoreos-system-task-router",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router"
+    },
+    {
+      "oldId": "istoreos-systools",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools"
+    }
+  ]
+}

@@ -4,7 +4,11 @@
   "title": "Use an agent on an iStoreOS device",
   "platform": "istoreos",
   "mode": "on-device",
-  "aliases": [],
+  "aliases": [
+    "iStoreOS on device",
+    "在 iStoreOS 上使用",
+    "安装到 iStoreOS"
+  ],
   "path": ".",
   "skillsRoot": "skills",
   "generated": true,
@@ -20,6 +24,18 @@
     "openwrt": "1.0.0",
     "istoreos": "2.0.0"
   },
-  "sourceDigest": "sha256:5100195ddf7a0ca437db245408b5524c261f1054684890a002570ca62a193877",
-  "treeDigest": "sha256:ed3af57c6367e1e2879eaeae7a7b021662473aeda3a2ce335d93965ff4201908"
+  "sourceDigest": "sha256:713a266da9c844e6e40e820cfc652e6dbcfd0a81e74fed58a6947aed7859833e",
+  "treeDigest": "sha256:658cf913f6683fd752fc68cd6da6547bb3594d4a91c2f2a5dd687c037fa43a5b",
+  "resources": [
+    "istoreos-download-acceleration",
+    "istoreos-mise-runtime",
+    "istoreos-package-manager",
+    "istoreos-storage-path"
+  ],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
 }

@@ -11,7 +11,7 @@ cost: medium
 
 # KSpeeder / DomainFold Fetch
 
-只在 `istoreos-download-acceleration` 已判断目标属于外部文件、公开 Git 仓库或受支持运行时源时使用。它不是网络测速、Docker registry 或通用代理能力。
+只在 `kai-download-acceleration` 已判断目标属于外部文件、公开 Git 仓库或受支持运行时源时使用。它不是网络测速、Docker registry 或通用代理能力。
 
 ## 先判断模式
 

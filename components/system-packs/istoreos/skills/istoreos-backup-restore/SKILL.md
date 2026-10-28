@@ -5,7 +5,7 @@ owner: system-pack/istoreos
 systems: istoreos
 triggers: 备份, 恢复, 回滚, 还原, 重置前, 迁移前, overlay 备份
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: medium
 ---

@@ -1,0 +1,504 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "partial",
+  "previousEvidence": "desktop-optimization-20261028-results.json",
+  "scope": "Two desktop residual issues; no production release",
+  "rounds": [
+    {
+      "id": 1,
+      "work": "Public PS5 red loop, STA/MTA comparison; test-only commits"
+    },
+    {
+      "id": 2,
+      "work": "Direct native argv fix; null/blank catalog red-green; native network failure localized"
+    },
+    {
+      "id": 3,
+      "work": "Final generated preset, native regressions, full checks and preservation"
+    }
+  ],
+  "resolved": [
+    "jq owner PowerShell 5.1 Bash/native argv quoting",
+    "WinGet null/blank versions misclassified as source-mismatch"
+  ],
+  "remaining": [
+    {
+      "id": "winget-online-catalog",
+      "status": "blocked",
+      "reason": "Official CDN source and version-data requests reset connections (0x80072EFF). No valid catalog success proved.",
+      "nextStep": "Restore trusted official CDN egress or decide a separate WinGet proxy integration. Public module has no per-call proxy parameter; no system proxy changes made."
+    }
+  ],
+  "ownerCommit": "748e92eb0641d6e3d20b8a394ff3a1a65d0c9a86",
+  "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+  "sourceState": "worktree",
+  "artifactManifestSha256": "d72e5124377681a43052f93b337d591650e3933fe7a9321d6646202d0225e331",
+  "artifacts": [
+    {
+      "presetId": "istoreos-on-device",
+      "platform": "istoreos",
+      "mode": "on-device",
+      "version": "2.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-istoreos-on-device-v2.0.0.tar.gz",
+      "sha256": "sha256:9a8dc81c3702d07e8e0dbc7fa250563b6dd81260fc7204f2256ddbb14704e9a7",
+      "treeDigest": "sha256:ad466ee23fbed1f626049f06a7f2311bfb278d92e42e7c569c087af5a9ea9d67"
+    },
+    {
+      "presetId": "istoreos-on-device",
+      "platform": "istoreos",
+      "mode": "on-device",
+      "version": "2.0.0",
+      "format": "zip",
+      "path": "linkease-skills-istoreos-on-device-v2.0.0.zip",
+      "sha256": "sha256:aaa91a30eabc8ff03dc41c963a1ac8a81033a635efb7d9727907919bc6a3e762",
+      "treeDigest": "sha256:ad466ee23fbed1f626049f06a7f2311bfb278d92e42e7c569c087af5a9ea9d67"
+    },
+    {
+      "presetId": "istoreos-remote-control",
+      "platform": "istoreos",
+      "mode": "remote-control",
+      "version": "2.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-istoreos-remote-control-v2.0.0.tar.gz",
+      "sha256": "sha256:fb3bf8e8b2f0254ed28901cd4d4e37409453c8f551cb9b6109f40e708e637603",
+      "treeDigest": "sha256:7fa998541d6e62a81ef5c2a9b9c8dd960055d553ea0315253e0199047f6b4419"
+    },
+    {
+      "presetId": "istoreos-remote-control",
+      "platform": "istoreos",
+      "mode": "remote-control",
+      "version": "2.0.0",
+      "format": "zip",
+      "path": "linkease-skills-istoreos-remote-control-v2.0.0.zip",
+      "sha256": "sha256:7e2681468adcd16605d92d1c247abb510aeb43e1741e5f45b6efc4f43f0ee89b",
+      "treeDigest": "sha256:7fa998541d6e62a81ef5c2a9b9c8dd960055d553ea0315253e0199047f6b4419"
+    },
+    {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:7831d97c2816855206063efe1b619e69b174f28781e53ce23078edf5c9431e06",
+      "treeDigest": "sha256:956a3f0ce1c0019e59f972d7f890289150e1611c76b9b3e57be2e22925d8c069"
+    },
+    {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-windows-on-device-v1.0.0.zip",
+      "sha256": "sha256:c3eb7591757ef5d07e1d9952ac46843aadedd5a27b8d3a701cc66a32c23e9f3d",
+      "treeDigest": "sha256:956a3f0ce1c0019e59f972d7f890289150e1611c76b9b3e57be2e22925d8c069"
+    },
+    {
+      "presetId": "windows-remote-control",
+      "platform": "windows",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:568350b9c95db3a0606ce5aae99c678bd51a00e54aa29ce9403ff3b80908a805",
+      "treeDigest": "sha256:7c04eeda003f0fb14bd608acbc9e73bd8c9086d36b68d83ee60983f3dd9c8fc4"
+    },
+    {
+      "presetId": "windows-remote-control",
+      "platform": "windows",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-windows-remote-control-v1.0.0.zip",
+      "sha256": "sha256:60450f46b0503461af93d3f2f763ffcf3f56e07d7ec172a98bd3a7d0ea29292e",
+      "treeDigest": "sha256:7c04eeda003f0fb14bd608acbc9e73bd8c9086d36b68d83ee60983f3dd9c8fc4"
+    },
+    {
+      "presetId": "macos-on-device",
+      "platform": "macos",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-macos-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:6b8887439e01b9a3666ed63898b28985fe69e977679710f636a24c47a1eb2692",
+      "treeDigest": "sha256:074e56ea3f8dd9a6cd2a494d3a0520efa7b36529eec3ded6ec0168aaf1e61e11"
+    },
+    {
+      "presetId": "macos-on-device",
+      "platform": "macos",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-macos-on-device-v1.0.0.zip",
+      "sha256": "sha256:b38833856dab21e5993356431e06eaaac076fda86aebcd9ccefae1f6a428895a",
+      "treeDigest": "sha256:074e56ea3f8dd9a6cd2a494d3a0520efa7b36529eec3ded6ec0168aaf1e61e11"
+    },
+    {
+      "presetId": "macos-remote-control",
+      "platform": "macos",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-macos-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:efbac01097f0d4a8a6015ea1fd26f90c96d6fb68ea73956f2874e624d4536de9",
+      "treeDigest": "sha256:26785ff096a326f0df49a2053494c9ebe79e13e718c200931ef3ed59aa225dfc"
+    },
+    {
+      "presetId": "macos-remote-control",
+      "platform": "macos",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-macos-remote-control-v1.0.0.zip",
+      "sha256": "sha256:55733503e3925f49e0bcdbd0b9d3d76a91ad59f16645a04bee0f7a6e9e374095",
+      "treeDigest": "sha256:26785ff096a326f0df49a2053494c9ebe79e13e718c200931ef3ed59aa225dfc"
+    },
+    {
+      "presetId": "ubuntu-on-device",
+      "platform": "ubuntu",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-ubuntu-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:f6717454c42f810663d1008d0dafa29cbb0ce3c3cb5f5900a0b44a6c3e1b7778",
+      "treeDigest": "sha256:1f23bd581c3aa9320ec41e86932ade008bed1c97defb3fececadcfebfdb8ffd0"
+    },
+    {
+      "presetId": "ubuntu-on-device",
+      "platform": "ubuntu",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-ubuntu-on-device-v1.0.0.zip",
+      "sha256": "sha256:cf547a746ecf7849d830056e1ae3d333e162d0b279a1da79e0d2fb338bd509fb",
+      "treeDigest": "sha256:1f23bd581c3aa9320ec41e86932ade008bed1c97defb3fececadcfebfdb8ffd0"
+    },
+    {
+      "presetId": "ubuntu-remote-control",
+      "platform": "ubuntu",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-ubuntu-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:66f2feafd2b351a922ef461896d109dcc54d5c2d3bdb5eff12fbfe7ba13572d4",
+      "treeDigest": "sha256:9077ff30b8aa2d24deae9fa378ffcf9a22519c98163b62479af91f20668e9bbf"
+    },
+    {
+      "presetId": "ubuntu-remote-control",
+      "platform": "ubuntu",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-ubuntu-remote-control-v1.0.0.zip",
+      "sha256": "sha256:455a84d8c706ba84235b9026e1cd4298cefa33151a5f21cc01eb72618f67523e",
+      "treeDigest": "sha256:9077ff30b8aa2d24deae9fa378ffcf9a22519c98163b62479af91f20668e9bbf"
+    },
+    {
+      "presetId": "debian-on-device",
+      "platform": "debian",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-debian-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:3256316c6d2b5f970ba96f36cdb82a72d8b8c7aa54870fe58e4898ef46d53a8f",
+      "treeDigest": "sha256:7efc108d900d412b011b09b0dba96aa88601c9992c3b183b1a0ca85568872e74"
+    },
+    {
+      "presetId": "debian-on-device",
+      "platform": "debian",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-debian-on-device-v1.0.0.zip",
+      "sha256": "sha256:c342cb29f533bf686eddf02215fa421c99970333ad386eb6cdc5ef59de4363dc",
+      "treeDigest": "sha256:7efc108d900d412b011b09b0dba96aa88601c9992c3b183b1a0ca85568872e74"
+    },
+    {
+      "presetId": "debian-remote-control",
+      "platform": "debian",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-debian-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:c155e823a79c2c89ba64eb0364764686486fd0cfcfaa0a25ad23fca40093efbc",
+      "treeDigest": "sha256:f5ab5a6b2e461ed3a13ce65d8abad390bcc468f130f660d889b602ea3e05d58e"
+    },
+    {
+      "presetId": "debian-remote-control",
+      "platform": "debian",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-debian-remote-control-v1.0.0.zip",
+      "sha256": "sha256:9a6c90d6cece77bfd60616ec4b1a17e3782c01f500a6356ade0229680cdc7c42",
+      "treeDigest": "sha256:f5ab5a6b2e461ed3a13ce65d8abad390bcc468f130f660d889b602ea3e05d58e"
+    }
+  ],
+  "cases": [
+    {
+      "id": "fix2-jq-green3-powershell.exe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Owner public help/plan, empty/literal argv, exit 37",
+      "exitCode": 0,
+      "seconds": 4.967,
+      "rawEvidenceSha256": "2c7c338810729a8d7eba0bc6e7e47741076e47dd3fb131a48e03df2adb22315a",
+      "stdoutSha256": "b209197583a81c212761f0f727c571a6e2bed56e05eede065f8f24fbef4aabc3",
+      "stderrSha256": "abd05d46fae7c95b4c6c95d7afa7990b1abbd6123c44bc8fbf762f0a911fa796"
+    },
+    {
+      "id": "fix2-final-jq-powershell.exe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final preset owner entry regression",
+      "exitCode": 0,
+      "seconds": 5.044,
+      "rawEvidenceSha256": "783c70fc0d67fac7758d2b1ddea6a3a658a6f0d73ebb70ea0570a0d1b04d39b8",
+      "stdoutSha256": "b209197583a81c212761f0f727c571a6e2bed56e05eede065f8f24fbef4aabc3",
+      "stderrSha256": "abd05d46fae7c95b4c6c95d7afa7990b1abbd6123c44bc8fbf762f0a911fa796"
+    },
+    {
+      "id": "fix2-jq-green3-pwsh.exe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Owner public help/plan, empty/literal argv, exit 37",
+      "exitCode": 0,
+      "seconds": 5.926,
+      "rawEvidenceSha256": "42474e61b46781d62bb2ce97bc81897cf8645a147575044fde020d926df6c486",
+      "stdoutSha256": "b209197583a81c212761f0f727c571a6e2bed56e05eede065f8f24fbef4aabc3",
+      "stderrSha256": "abd05d46fae7c95b4c6c95d7afa7990b1abbd6123c44bc8fbf762f0a911fa796"
+    },
+    {
+      "id": "fix2-final-jq-pwsh.exe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final preset owner entry regression",
+      "exitCode": 0,
+      "seconds": 5.836,
+      "rawEvidenceSha256": "2f2bc91598107b055e8a49c7de2a726164712434a9abaf7c70a39fe541bac0c4",
+      "stdoutSha256": "b209197583a81c212761f0f727c571a6e2bed56e05eede065f8f24fbef4aabc3",
+      "stderrSha256": "abd05d46fae7c95b4c6c95d7afa7990b1abbd6123c44bc8fbf762f0a911fa796"
+    },
+    {
+      "id": "fix2-jq-red2-powershell.exe",
+      "platform": "windows",
+      "status": "expected-red",
+      "meaning": "Unmodified public PS5 entry fails Bash quoting",
+      "exitCode": 1,
+      "seconds": 3.072,
+      "rawEvidenceSha256": "710a92780aa831adb60d23f2f0ddb37435d314e179d73cd9b2fdfafb735f27c4",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "c2c311e59e37c63704db1c206fef3d199584297397ee7bc5f0b6a8497dab11cf"
+    },
+    {
+      "id": "fix2-jq-ps5-lifecycle",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Official pinned artifact staged locally; actual install/reuse/remove using native core 0.4.0",
+      "exitCode": 0,
+      "seconds": 6.082,
+      "rawEvidenceSha256": "2b464e63af1b2b97d18e8fd5efa84b9f574fbbca4bace243194a09a06c7795f5",
+      "stdoutSha256": "3f9218c759422cd08f39617064551736c02eb177e9bb6605e3cc27d13e1c57d9",
+      "stderrSha256": "7c1bb8abe726e01bfeb2a5a6060023aac1dc321af54b52c0d76067216e30af93"
+    },
+    {
+      "id": "fix2-final-native-lifecycle",
+      "platform": "macos",
+      "status": "passed",
+      "meaning": "Final preset install/upgrade/uninstall and APFS storage",
+      "exitCode": 0,
+      "seconds": 1.551,
+      "rawEvidenceSha256": "d31a75252632a6d435e5be994c8e950fb94146322c4e4fa46d250bc74207b17e",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "6e3f59984da26e1c0735638f7b6a7a75674cc4c8b06f7acd7efc5a3a84f887e1"
+    },
+    {
+      "id": "fix2-final-native-lifecycle",
+      "platform": "windows",
+      "status": "harness-prerequisite-failed",
+      "meaning": "Test PATH omitted existing fixture jq; no implementation change",
+      "exitCode": 1,
+      "seconds": 2.706,
+      "rawEvidenceSha256": "5c9d756775ab1bd40ce26c737b845eccbd0bef02e63a5e60fa29a11f3f89f028",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "ea2728312d9394bae7055ffd2d010e9702196e07c494ade4f8f97bb9d1bbbe4e"
+    },
+    {
+      "id": "fix2-final-native-lifecycle-with-fixture-path",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final preset install/upgrade/uninstall with declared jq prerequisite",
+      "exitCode": 0,
+      "seconds": 33.548,
+      "rawEvidenceSha256": "cfc94b377acd8b0274f27920a5143856908b1312e9140c827a52f7cd3f52e065",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "27ba3c2c03c570d5d8dc457f83bfd682faaac0dbaad2a61adf44e948a68f0c73"
+    },
+    {
+      "id": "fix2-final-winget-public",
+      "platform": "windows",
+      "status": "expected-provider-failure",
+      "meaning": "Exit 11 catalog-unavailable; successful catalog query remains blocked",
+      "exitCode": 11,
+      "seconds": 44.088,
+      "rawEvidenceSha256": "ca59cb8946fb97e7cee6ba297576f4229975a111151cf2b7cc097e71999d1495",
+      "stdoutSha256": "12c4d9b8e79109683dcf264ebb7ed775bed4a0b7d1acbc19185c7758392be7bb",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "fix2-winget-network-policy",
+      "platform": "windows",
+      "status": "diagnostic",
+      "meaning": "Official CDN HEAD failed; system proxy disabled; configuration unchanged",
+      "exitCode": 0,
+      "seconds": 14.156,
+      "rawEvidenceSha256": "68f94b5ce413df4c5256cedeae41f60b1a07c56cba54e80c301be0517136073b",
+      "stdoutSha256": "0060657e24f7c010223ee912952205ab1dcb11b3f55dc7c30f46118333b0e85f",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "fix2-winget-logs",
+      "platform": "windows",
+      "status": "diagnostic",
+      "meaning": "Native InternetOpenUrl and source update report 0x80072EFF",
+      "exitCode": 0,
+      "seconds": 2.155,
+      "rawEvidenceSha256": "ed2145d6e51157c3c342f5fd339a9f9ec4e054326d34fec580a68add79e129ac",
+      "stdoutSha256": "127350ed8751801016eb9111198b5688448c217dce31c7726982b4a7ae32b7a0",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "fix2-serial-powershell.exe-STA",
+      "platform": "windows",
+      "status": "diagnostic-timeout",
+      "meaning": "Serial native PS5 returns ID and empty versions/source; no successful query",
+      "exitCode": 124,
+      "seconds": 41.833,
+      "rawEvidenceSha256": "20293d7a69cd06d34fe524e71ca139d19b56d4705f9faf57bb564906a5eca66f",
+      "stdoutSha256": "0659e07068968e6b1bf7b5a134680205208a774a396ddcb6be66180a8022dd62",
+      "stderrSha256": "05bd00a896670660925ebbe8684030549a648dd6c86b3e5a53edb61070312808"
+    }
+  ],
+  "preservation": {
+    "macos": {
+      "checked": 5,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    },
+    "windows": {
+      "checked": 9,
+      "changedCount": 0,
+      "ownedProcessCount": 0,
+      "userJqAbsent": true
+    }
+  },
+  "checks": {
+    "multisystem": {
+      "discovered": 124,
+      "passed": 122,
+      "nativeOnlySkipped": 2,
+      "exitCode": 0
+    },
+    "shellSuites": [
+      {
+        "check": "tests/architecture/m0-baseline.sh",
+        "exitCode": 0,
+        "seconds": 5.99
+      },
+      {
+        "check": "tests/architecture/test-catalog.sh",
+        "exitCode": 0,
+        "seconds": 0.02
+      },
+      {
+        "check": "tests/architecture/test-istoreos-home-prompts.sh",
+        "exitCode": 0,
+        "seconds": 0.01
+      },
+      {
+        "check": "tests/architecture/test-m2-canonical.sh",
+        "exitCode": 0,
+        "seconds": 7.33
+      },
+      {
+        "check": "tests/architecture/test-m4-generated.sh",
+        "exitCode": 0,
+        "seconds": 3.89
+      },
+      {
+        "check": "tests/architecture/test-recommendations.sh",
+        "exitCode": 0,
+        "seconds": 0.02
+      },
+      {
+        "check": "tests/architecture/test-runtime-release-gate.sh",
+        "exitCode": 0,
+        "seconds": 2.57
+      },
+      {
+        "check": "tests/install/test-agent-bundle-export.sh",
+        "exitCode": 0,
+        "seconds": 1.9
+      },
+      {
+        "check": "tests/install/test-m10-lifecycle.sh",
+        "exitCode": 0,
+        "seconds": 1.51
+      },
+      {
+        "check": "tests/install/test-m10-release.sh",
+        "exitCode": 0,
+        "seconds": 11.12
+      },
+      {
+        "check": "tests/install/test-m5-discovery.sh",
+        "exitCode": 0,
+        "seconds": 1.58
+      },
+      {
+        "check": "tests/install/test-reasonix-consumer.sh",
+        "exitCode": 0,
+        "seconds": 1.28
+      },
+      {
+        "check": "tests/context-budget/test-m7-istoreos.sh",
+        "exitCode": 0,
+        "seconds": 6.16
+      },
+      {
+        "check": "tests/contracts/test-m3-transports.sh",
+        "exitCode": 0,
+        "seconds": 6.89
+      },
+      {
+        "check": "tests/contracts/test-m8-windows.sh",
+        "exitCode": 0,
+        "seconds": 1.08
+      },
+      {
+        "check": "tests/contracts/test-m9-macos.sh",
+        "exitCode": 0,
+        "seconds": 1.04
+      }
+    ],
+    "ownerFullCheck": {
+      "exitCode": 0,
+      "canonicalCorePackage": "storage-m7-final-platform-package",
+      "coreVersion": "0.5.0",
+      "nativeDesktopCoreVersion": "0.4.0",
+      "observation": "Completed check.sh process and final package validation; tool execution output retained in conversation"
+    },
+    "generatedPresets": 10,
+    "releaseArtifacts": 20,
+    "canonicalConsumerLayers": 8,
+    "ownerSourceLock": "passed",
+    "diffCheck": "passed"
+  },
+  "newDockerResourcesCreated": false,
+  "publiclyActivated": false,
+  "allDesktopReleaseGatesPassed": false,
+  "passedNativeExecutionGroups": 7,
+  "expectedProviderFailureGroups": 1
+}

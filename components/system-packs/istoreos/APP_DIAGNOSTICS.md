@@ -1,6 +1,6 @@
 # iStore application diagnostics
 
-`istoreos-app-diagnostics` diagnoses the most recent iStore installation without changing iStore or taskd. It is a manual helper reached from `istoreos-package-manager`, so its instructions and app index do not occupy every-turn context.
+`istoreos-app-diagnostics` diagnoses the most recent iStore installation without changing iStore or taskd. It is a manual helper reached from `kai-software`, so its instructions and app index do not occupy every-turn context.
 
 ## Runtime contract
 

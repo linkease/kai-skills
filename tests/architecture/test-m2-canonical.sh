@@ -34,17 +34,23 @@ done
 
 sh "$root/remote-control-istoreos/install.sh" --target "$tmp/direct" --copy >/dev/null
 direct_count="$(find "$tmp/direct" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')"
-[ "$direct_count" -eq 22 ] || fail "direct preset install expected 22 skills, got $direct_count"
+[ "$direct_count" -eq 24 ] || fail "direct preset install expected 24 skills, got $direct_count"
 
 sh "$root/install.sh" --profile remote-control-istoreos \
   --target-skills "$tmp/root" --copy >/dev/null
 root_count="$(find "$tmp/root" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')"
-[ "$root_count" -eq 22 ] || fail "root installer expected 22 skills, got $root_count"
+[ "$root_count" -eq 24 ] || fail "root installer expected 24 skills, got $root_count"
 
 for installed in "$tmp/direct"/istoreos-*; do
+  [ -f "$installed/SKILL.md" ] || continue
   name="$(basename "$installed")"
   cmp "$root/istoreos/skills/$name/SKILL.md" "$installed/SKILL.md" >/dev/null ||
     fail "installed skill is not canonical: $name"
+done
+
+for installed in "$tmp/direct"/kai-*; do
+  name="$(basename "$installed")"
+  cmp "$root/components/system-packs/common/skills/$name/SKILL.md" "$installed/SKILL.md"
 done
 
 sh "$root/istoreos/drills/profile-smoke.sh"

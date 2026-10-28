@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "catalogVersion": "1.0.0",
+  "recommendations": [
+    {
+      "id": "ubuntu-health-check",
+      "title": "一键体检",
+      "description": "只检查，不修改任何内容，适合第一次体验。",
+      "prompt": "请给当前 Ubuntu 做一次只读体检，检查系统版本、CPU 和内存、磁盘空间、网络、关键 systemd 服务、软件更新状态和最近错误，用普通用户能理解的话总结，不执行修改、安装或重启。",
+      "category": "common",
+      "priority": 1,
+      "risk": "low",
+      "executionIntent": "read_only",
+      "workspaceRequirement": "none",
+      "systems": ["ubuntu"],
+      "features": ["systemctl", "apt-get"],
+      "skill": "ubuntu-release-diagnostics"
+    },
+    {
+      "id": "ubuntu-service-failure",
+      "title": "服务启动失败",
+      "description": "先查状态和日志，重启或修改前会确认。",
+      "prompt": "帮我诊断当前 Ubuntu 上启动失败或异常的 systemd 服务。先只读检查服务状态、依赖和限长日志，再解释原因；启动、停止、重启或修改配置前必须让我确认。",
+      "category": "common",
+      "priority": 10,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["ubuntu"],
+      "features": ["systemctl"]
+    },
+    {
+      "id": "ubuntu-package-update",
+      "title": "软件安装或更新失败",
+      "description": "检查 apt、软件源、依赖和锁，不会直接升级。",
+      "prompt": "帮我诊断当前 Ubuntu 的 apt 安装或更新问题。先只读检查软件源、网络、签名、依赖、锁和 phased updates；安装、删除、升级软件或修改软件源前必须让我确认。",
+      "category": "apps",
+      "priority": 20,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["ubuntu"],
+      "features": ["apt-get"]
+    },
+    {
+      "id": "ubuntu-network-access",
+      "title": "网站或端口访问不了",
+      "description": "检查监听、路由、DNS 和防火墙。",
+      "prompt": "帮我诊断当前 Ubuntu 上网站或端口访问不了的问题。先只读检查进程、监听地址、路由、DNS、防火墙和相关服务日志；开放端口、修改防火墙或重启服务前必须让我确认。",
+      "category": "network",
+      "priority": 30,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["ubuntu"]
+    },
+    {
+      "id": "ubuntu-storage-low",
+      "title": "磁盘空间不够",
+      "description": "先找出占用来源，删除或迁移前会确认。",
+      "prompt": "帮我检查当前 Ubuntu 的磁盘空间和 inode 使用情况，找出大目录、日志、包缓存和容器数据占用，先列出风险和预计收益；删除或迁移任何内容前必须让我确认。",
+      "category": "storage",
+      "priority": 40,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["ubuntu"]
+    },
+    {
+      "id": "ubuntu-docker",
+      "title": "Docker 或容器异常",
+      "description": "检查服务、容器、端口、日志和存储。",
+      "prompt": "帮我诊断当前 Ubuntu 的 Docker 或容器异常。先只读检查 Docker 服务、容器状态、端口、限长日志、镜像下载和磁盘空间；重启、删除或修改 Docker 配置前必须让我确认。",
+      "category": "apps",
+      "priority": 50,
+      "risk": "medium",
+      "executionIntent": "may_modify",
+      "workspaceRequirement": "none",
+      "systems": ["ubuntu"],
+      "features": ["docker"]
+    },
+    {
+      "id": "ubuntu-backup",
+      "title": "备份重要配置",
+      "description": "先确认内容、保存位置和所需空间。",
+      "prompt": "帮我规划并备份当前 Ubuntu 的重要系统、服务和应用配置。先只读列出范围、敏感信息风险、保存位置和预计空间，开始写入前必须让我确认。",
+      "category": "storage",
+      "priority": 60,
+      "risk": "medium",
+      "executionIntent": "heavy_write",
+      "workspaceRequirement": "durable",
+      "estimatedWriteBytes": 2147483648,
+      "locatorFeatures": ["large_artifacts"],
+      "systems": ["ubuntu"]
+    },
+    {
+      "id": "ubuntu-runtime",
+      "title": "安装开发环境",
+      "description": "规划 Python、Node.js 或 Go 的版本和位置。",
+      "prompt": "帮我在当前 Ubuntu 准备 Python、Node.js 或 Go 开发环境。先询问语言和版本，检查现有命令、架构、网络、可用空间和安装位置，列出影响并让我确认后再安装，最后验证版本和命令路径。",
+      "category": "advanced",
+      "priority": 70,
+      "risk": "medium",
+      "executionIntent": "heavy_write",
+      "workspaceRequirement": "durable",
+      "estimatedWriteBytes": 2147483648,
+      "locatorFeatures": ["build", "large_artifacts"],
+      "systems": ["ubuntu"]
+    }
+  ]
+}

@@ -26,4 +26,4 @@ cost: low
 
 - 安装失败：优先确认是 iStore meta 还是 opkg 包，再决定用 `app-meta-<name>` 还是 `opkg install`
 - docker pull 失败：先确认 daemon 通，再检查 `registry_mirrors`，必要时转 `istoreos-docker-acceleration-istoreenhance`
-- 磁盘满：先定位哪个挂载点满（df），再决定清理/迁移（转 `istoreos-storage-path`）
+- 磁盘满：先定位哪个挂载点满（df），再决定清理/迁移（转 `kai-storage-files`）

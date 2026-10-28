@@ -1,0 +1,409 @@
+{
+  "schemaVersion": 1,
+  "milestones": [
+    {
+      "id": "MS0",
+      "status": "passed",
+      "optimizationRounds": 0,
+      "evidence": "multisystem-ms0-baseline.json"
+    },
+    {
+      "id": "MS1",
+      "status": "passed",
+      "optimizationRounds": 1,
+      "evidence": "multisystem-ms1-results.json",
+      "previousRunOptimizationRounds": 3
+    },
+    {
+      "id": "MS2",
+      "status": "passed",
+      "optimizationRounds": 0,
+      "evidence": "multisystem-ms2-results.json"
+    },
+    {
+      "id": "MS3",
+      "status": "passed",
+      "optimizationRounds": 2,
+      "evidence": "multisystem-ms3-results.json"
+    },
+    {
+      "id": "MS4",
+      "status": "passed",
+      "optimizationRounds": 2,
+      "evidence": "multisystem-ms4-results.json",
+      "productDecision": "Approved managed-program removal; preserve configuration, data, cache and conflicts; zsetup-scripts owns policy.",
+      "historicalFailure": "Published Linux internal-software installers lack an uninstall protocol; removal scope is awaiting the user decision."
+    },
+    {
+      "id": "MS5",
+      "status": "passed",
+      "optimizationRounds": 3,
+      "evidence": "multisystem-ms5-results.json",
+      "focusedRepair": {
+        "round": 1,
+        "authorization": "User approved one additional Python/OpenSSL focused repair after the original three optimization rounds.",
+        "status": "failed-overall-istoreos-passed",
+        "scope": "Recognize the exact unreferenced factory legacy.cnf; preserve active/custom crypto policy; native SDK and TLS validation.",
+        "lastFailure": "Ubuntu current Python validator assumes get_ca_certs must be nonempty before a handshake; capath-only loading makes this assertion invalid."
+      },
+      "caRepair": {
+        "round": 1,
+        "status": "passed",
+        "authorization": "User approved one additional CA acceptance repair round after focused Python/OpenSSL repair 1.",
+        "scope": "Replace eager CA enumeration assertions with verified TLS handshakes, including capath and unchanged system trust.",
+        "unchangedCodeNetworkRetests": 1
+      },
+      "historicalLastFailure": "Ubuntu current Python validator assumes get_ca_certs must be nonempty before a handshake; capath-only loading makes this assertion invalid.",
+      "historicalStopReason": "The one additional user-authorized focused repair round has been completed. No further optimization or MS6 advancement without renewed authorization."
+    },
+    {
+      "id": "MS6",
+      "status": "passed",
+      "optimizationRounds": 3,
+      "evidence": "multisystem-ms6-results.json",
+      "historicalLastFailure": "Optimization2: Go prerequisite source timeout/API fallback missing Git; Debian only network-negative log assertion failed after all functional/scope/lock/native-library checks passed.",
+      "jqRepair": {
+        "round": 1,
+        "status": "failed-overall-jq-passed",
+        "authorization": "User approved managed complete jq through zsetup after the three-round MS6 limit.",
+        "scope": "Owner installer and platform artifact locks; per-process Kai selection; offline contracts and real three-system acceptance; preserve system jq/curl and libraries.",
+        "jqImplementationPassed": true,
+        "offlineTests": 68,
+        "ownerTests": 9,
+        "verificationCorrections": 1
+      },
+      "preJqFailure": "The factory iStoreOS jq has no ONIGURUMA regex support. The new Go Git environment validator invokes jq test(), which aborts before installing Go with exitCode 4. Native Python and Node prerequisites passed.",
+      "historicalStopReason": "The initial implementation and all three permitted optimization rounds have completed; optimization3 still fails a required iStoreOS case. No fourth optimization or MS7 advancement without renewed user authorization.",
+      "historicalJqStopReason": "Original MS6 three optimization rounds and the one user-authorized managed-jq focused round are complete. Required SDK preparation still fails at UV download timeout and Node archive integrity. Stop further download-chain changes and MS7 advancement pending renewed scope authorization.",
+      "downloadRepair": {
+        "authorization": "User approved continuing the download-chain stability and integrity focus, with at most three optimization rounds.",
+        "status": "passed-MS6-supported-gateway-boundary",
+        "optimizationRounds": 3,
+        "maxOptimizationRounds": 3,
+        "scope": "Reproduce UV HEAD/API fallback and Node archive truncation; preserve frozen SHA, TLS and native system curl; rerun MS6 before MS7.",
+        "sourceCommit": "e7d3bbf6bbf2180780d2594d9707ae49afaa8bea",
+        "candidateSha256": "e5d3e24bfb8d3b83d2168aeb780c48cdf857a50a602636d90d5c7d27063a9a4d"
+      },
+      "historicalDownloadFailure": "Ubuntu/Debian UV prerequisite timed out after600s. Corrected iStoreOS host absence guard; Node received38985752 bytes and failed the frozen SHA check. Managed jq passed on all three systems."
+    },
+    {
+      "id": "MS7",
+      "status": "passed",
+      "optimizationRounds": 3,
+      "evidence": "multisystem-ms7-results.json"
+    },
+    {
+      "id": "MS8",
+      "status": "passed",
+      "optimizationRounds": 3,
+      "evidence": "multisystem-ms8-results.json"
+    },
+    {
+      "id": "MS9",
+      "status": "passed",
+      "optimizationRounds": 1,
+      "evidence": "multisystem-ms9-results.json"
+    },
+    {
+      "id": "MS10",
+      "status": "passed",
+      "optimizationRounds": 3,
+      "evidence": "multisystem-ms10-results.json"
+    }
+  ],
+  "desktopNativeFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "windows-mise-acceleration-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "windows-mise-acceleration-20261028-results.json",
+    "latestReport": "windows-mise-acceleration-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 8,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "remainingOriginalGates": 0,
+    "passedNativeCasesScope": "Latest evidence contains prototype, native regression, exploratory failure and acceptance cases separately",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "passed-via-kspeeder-sdk",
+    "nativeCliQuery": "passed-with-source-update-warning",
+    "wingetInstallerDownload": "not-passed",
+    "explicitProxyOption": "enabled-user-authorized",
+    "stopReason": "All three permitted optimization rounds completed with scoped download and usage acceptance passed; retain user-deferred WinGet, npm audit POST and broader desktop release gates.",
+    "resolvedProductDecision": {
+      "setting": "ProxyCommandLineOptions",
+      "userApproved": true,
+      "executed": true,
+      "command": [
+        "winget",
+        "settings",
+        "--enable",
+        "ProxyCommandLineOptions"
+      ],
+      "before": false,
+      "after": true,
+      "otherAdminSettingsUnchanged": true,
+      "wingetDefaultProxyUnchanged": true,
+      "scope": "Permit explicit per-command WinGet proxy; no Windows default proxy change"
+    },
+    "windowsPkiProof": "passed-current-user-context",
+    "windowsPkiRepair": "implemented-passed-and-restored",
+    "latestWorkScope": "Automatic ks-cli routing for Windows mise bootstrap, Node SDK and npm actual usage",
+    "windowsMiseBootstrap": "passed-via-ks-cli-auto",
+    "windowsMiseDirectOrigin": "not-passed-tls",
+    "macosArm64FunctionalScope": "passed-with-historical-native-evidence",
+    "deferredIssues": [
+      {
+        "id": "winget-online-revocation",
+        "status": "deferred-by-user",
+        "evidence": "windows-pki-implementation-20261028-results.json",
+        "resolutionClaimed": false
+      }
+    ],
+    "windowsMiseAutoDownload": "passed-admin-proxy",
+    "nodeViaNewMise": "passed",
+    "npmViaKsCliPlan": "passed-download-and-use",
+    "npmAuditPost": "not-passed-http-405"
+  },
+  "historicalDesktopNativeFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "desktop-native-20261028-results.json",
+    "historicalMilestonesPreserved": true
+  },
+  "previousDesktopOptimizationFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "desktop-optimization-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "desktop-optimization-20261028-results.json",
+    "latestReport": "desktop-optimization-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 7,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "passedNativeCases": 28,
+    "remainingOriginalGates": 1
+  },
+  "previousDesktopResidualFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "desktop-followup-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "desktop-followup-20261028-results.json",
+    "latestReport": "desktop-followup-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 7,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "passedNativeCases": 7,
+    "remainingOriginalGates": 1,
+    "passedNativeCasesScope": "Current passed execution groups; macOS group includes lifecycle and APFS",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "blocked"
+  },
+  "previousWingetAccelerationFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "winget-acceleration-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "winget-acceleration-20261028-results.json",
+    "latestReport": "winget-acceleration-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 8,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "remainingOriginalGates": 0,
+    "passedNativeCasesScope": "Latest evidence contains prototype, native regression, exploratory failure and acceptance cases separately",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "passed-via-kspeeder-sdk",
+    "pendingProductDecision": "Enable native WinGet ProxyCommandLineOptions for CLI download/install acceleration"
+  },
+  "previousWingetCliFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "winget-cli-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "winget-cli-20261028-results.json",
+    "latestReport": "winget-cli-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 8,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "remainingOriginalGates": 0,
+    "passedNativeCasesScope": "Latest evidence contains prototype, native regression, exploratory failure and acceptance cases separately",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "passed-via-kspeeder-sdk",
+    "nativeCliQuery": "passed-with-source-update-warning",
+    "wingetInstallerDownload": "not-passed",
+    "explicitProxyOption": "enabled-user-authorized",
+    "stopReason": "Final native WinGet download remains 0x80072f19 after three focused attempts; certificate retrieval reports offline revocation and incomplete chain. No fourth optimization in this scope.",
+    "resolvedProductDecision": {
+      "setting": "ProxyCommandLineOptions",
+      "userApproved": true,
+      "executed": true,
+      "command": [
+        "winget",
+        "settings",
+        "--enable",
+        "ProxyCommandLineOptions"
+      ],
+      "before": false,
+      "after": true,
+      "otherAdminSettingsUnchanged": true,
+      "wingetDefaultProxyUnchanged": true,
+      "scope": "Permit explicit per-command WinGet proxy; no Windows default proxy change"
+    }
+  },
+  "previousWindowsPkiDiagnosisFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "windows-pki-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "windows-pki-20261028-results.json",
+    "latestReport": "windows-pki-20261028.md",
+    "optimizationRounds": 0,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 8,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "remainingOriginalGates": 0,
+    "passedNativeCasesScope": "Latest evidence contains prototype, native regression, exploratory failure and acceptance cases separately",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "passed-via-kspeeder-sdk",
+    "nativeCliQuery": "passed-with-source-update-warning",
+    "wingetInstallerDownload": "not-passed",
+    "explicitProxyOption": "enabled-user-authorized",
+    "stopReason": "Diagnosis requested by user completed; additive current-user CA repair and native download acceptance are the next implementation scope",
+    "resolvedProductDecision": {
+      "setting": "ProxyCommandLineOptions",
+      "userApproved": true,
+      "executed": true,
+      "command": [
+        "winget",
+        "settings",
+        "--enable",
+        "ProxyCommandLineOptions"
+      ],
+      "before": false,
+      "after": true,
+      "otherAdminSettingsUnchanged": true,
+      "wingetDefaultProxyUnchanged": true,
+      "scope": "Permit explicit per-command WinGet proxy; no Windows default proxy change"
+    },
+    "windowsPkiProof": "passed-memory-only",
+    "windowsPkiRepair": "planned-not-applied",
+    "latestWorkScope": "Diagnosis and native PKI proof; prior three optimization attempts remain historical"
+  },
+  "previousWindowsPkiImplementationFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "windows-pki-implementation-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "windows-pki-implementation-20261028-results.json",
+    "latestReport": "windows-pki-implementation-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 8,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "remainingOriginalGates": 0,
+    "passedNativeCasesScope": "Latest evidence contains prototype, native regression, exploratory failure and acceptance cases separately",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "passed-via-kspeeder-sdk",
+    "nativeCliQuery": "passed-with-source-update-warning",
+    "wingetInstallerDownload": "not-passed",
+    "explicitProxyOption": "enabled-user-authorized",
+    "stopReason": "Native WinINet still fails online CRL/OCSP retrieval after all three rounds; do not expand into machine-store or default-proxy changes",
+    "resolvedProductDecision": {
+      "setting": "ProxyCommandLineOptions",
+      "userApproved": true,
+      "executed": true,
+      "command": [
+        "winget",
+        "settings",
+        "--enable",
+        "ProxyCommandLineOptions"
+      ],
+      "before": false,
+      "after": true,
+      "otherAdminSettingsUnchanged": true,
+      "wingetDefaultProxyUnchanged": true,
+      "scope": "Permit explicit per-command WinGet proxy; no Windows default proxy change"
+    },
+    "windowsPkiProof": "passed-current-user-context",
+    "windowsPkiRepair": "implemented-passed-and-restored",
+    "latestWorkScope": "Explicit PKI implementation and three-round original native downloader acceptance"
+  },
+  "previousWindowsToolBootstrapFollowUp": {
+    "date": "2026-10-28",
+    "status": "partial",
+    "evidence": "windows-tools-20261028-results.json",
+    "historicalMilestonesPreserved": true,
+    "latestEvidence": "windows-tools-20261028-results.json",
+    "latestReport": "windows-tools-20261028.md",
+    "optimizationRounds": 3,
+    "maxOptimizationRounds": 3,
+    "originalGatesClosed": 8,
+    "originalGatesTotal": 8,
+    "allDesktopReleaseGatesPassed": false,
+    "initialNativeEvidence": "desktop-native-20261028-results.json",
+    "remainingOriginalGates": 0,
+    "passedNativeCasesScope": "Latest evidence contains prototype, native regression, exploratory failure and acceptance cases separately",
+    "ownerPowerShell51Entry": "passed",
+    "wingetFailureBoundary": "passed",
+    "wingetOnlineCatalog": "passed-via-kspeeder-sdk",
+    "nativeCliQuery": "passed-with-source-update-warning",
+    "wingetInstallerDownload": "not-passed",
+    "explicitProxyOption": "enabled-user-authorized",
+    "stopReason": "Current component passed after three optimization rounds. Prior WinGet revocation issue remains deferred by user; direct-origin TLS failure remains recorded separately.",
+    "resolvedProductDecision": {
+      "setting": "ProxyCommandLineOptions",
+      "userApproved": true,
+      "executed": true,
+      "command": [
+        "winget",
+        "settings",
+        "--enable",
+        "ProxyCommandLineOptions"
+      ],
+      "before": false,
+      "after": true,
+      "otherAdminSettingsUnchanged": true,
+      "wingetDefaultProxyUnchanged": true,
+      "scope": "Permit explicit per-command WinGet proxy; no Windows default proxy change"
+    },
+    "windowsPkiProof": "passed-current-user-context",
+    "windowsPkiRepair": "implemented-passed-and-restored",
+    "latestWorkScope": "Windows mise bootstrap and public owned-installation validation; prior WinGet network issue deferred",
+    "windowsMiseBootstrap": "passed-with-verified-original-archive-cache",
+    "windowsMiseDirectOrigin": "not-passed-tls",
+    "macosArm64FunctionalScope": "passed-with-historical-native-evidence",
+    "deferredIssues": [
+      {
+        "id": "winget-online-revocation",
+        "status": "deferred-by-user",
+        "evidence": "windows-pki-implementation-20261028-results.json",
+        "resolutionClaimed": false
+      }
+    ]
+  }
+}

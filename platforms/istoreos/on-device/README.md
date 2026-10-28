@@ -1,5 +1,4 @@
 # Generated istoreos preset
 
-This directory is generated. Do not edit it; change `components/` and run `tools/generate-platforms.sh`.
-
-Install only this preset with `sh install.sh --target /path/to/skills`.
+Generated from `components/composition.json` and canonical packs.
+Use `sh install.sh --target /path/to/skills`; review `migration.json` for legacy IDs.

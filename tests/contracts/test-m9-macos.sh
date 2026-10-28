@@ -59,8 +59,8 @@ for mode in on-device remote-control; do
 done
 on_device="$(find "$tmp/install-on-device" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')"
 remote="$(find "$tmp/install-remote-control" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')"
-[ "$on_device" -eq 2 ] || fail "macOS on-device expected 2 skills, got $on_device"
-[ "$remote" -eq 3 ] || fail "macOS remote-control expected 3 skills, got $remote"
+[ "$on_device" -eq 8 ] || fail "macOS on-device expected 8 skills, got $on_device"
+[ "$remote" -eq 9 ] || fail "macOS remote-control expected 9 skills, got $remote"
 [ -f "$tmp/install-remote-control/target-ssh-controller/SKILL.md" ] || fail "macOS SSH controller missing"
 
 sh "$root/tools/verify-generated.sh"

@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "partial-three-round-limit",
+  "previousEvidence": "winget-acceleration-20261028-results.json",
+  "queryAcceleration": "passed",
+  "nativeCliQuery": "passed-with-source-update-warning",
+  "sourceIndexRefresh": "not-passed",
+  "installerDownload": "not-passed",
+  "systemPackageInstallation": "not-tested",
+  "optimizationRounds": 3,
+  "maxOptimizationRounds": 3,
+  "stopReason": "Final native WinGet download remains 0x80072f19 after three focused attempts; certificate retrieval reports offline revocation and incomplete chain. No fourth optimization in this scope.",
+  "resolvedDecision": {
+    "setting": "ProxyCommandLineOptions",
+    "userApproved": true,
+    "executed": true,
+    "command": [
+      "winget",
+      "settings",
+      "--enable",
+      "ProxyCommandLineOptions"
+    ],
+    "before": false,
+    "after": true,
+    "otherAdminSettingsUnchanged": true,
+    "wingetDefaultProxyUnchanged": true,
+    "scope": "Permit explicit per-command WinGet proxy; no Windows default proxy change"
+  },
+  "cases": [
+    {
+      "id": "enable",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "User-authorized native setting enable",
+      "exitCode": 0,
+      "seconds": 2.098,
+      "rawEvidenceSha256": "6e26a95775f9443c586bca313cf5b4e2bb459ec2f4301d2950cc9d129eca15a9",
+      "stdoutSha256": "9dfa38dcec7a69fb8778d11de1eb9c40165eb290f4bc34e07396e8b6dd283be7",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": []
+    },
+    {
+      "id": "show",
+      "platform": "windows",
+      "status": "passed-with-source-update-warning",
+      "meaning": "Native CLI query; held index used after update failure",
+      "exitCode": 0,
+      "seconds": 52.777,
+      "rawEvidenceSha256": "a613fd2e8498210ad2c9011cdae0f64263a2e6475045a0adec6bd3e6c3ce4fd8",
+      "stdoutSha256": "c41cdb030cd3339e73147cbb5bb4c04ff60827fb44e2e07eb98a2635fc1c4901",
+      "stderrSha256": "8fc4931c726023aa193c0bf787dad5a212e352ee98236a4f03c2f00713d091ac",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 1014,
+          "downloadBytes": 29346
+        }
+      ]
+    },
+    {
+      "id": "download",
+      "platform": "windows",
+      "status": "failed",
+      "meaning": "Initial catalog metadata connection reset",
+      "exitCode": 254,
+      "seconds": 86.727,
+      "rawEvidenceSha256": "c72f2d7fd8935931508d280f910503c275b3ea49b5b751353d718ffce2644979",
+      "stdoutSha256": "c56cb33f99cf490121149085dec8aa4521cf9edc6e81df04d0d016c0253500cb",
+      "stderrSha256": "d9c488c275fd70ad23fd4e2fb5922be9c6a7aa1ff5c052028c0376da4a803928",
+      "connectMetrics": [
+        {
+          "dataTunnels": 1,
+          "uploadBytes": 191,
+          "downloadBytes": 9362
+        }
+      ],
+      "nativeHresults": [
+        "0x80072efe"
+      ]
+    },
+    {
+      "id": "download-round1",
+      "platform": "windows",
+      "status": "failed",
+      "meaning": "Installer URL reached, revocation check failure",
+      "exitCode": 25,
+      "seconds": 104.61,
+      "rawEvidenceSha256": "33b8acc58cd2c028984061072f31bfb0154f113f8e147be4aeb401a40f4ddb5c",
+      "stdoutSha256": "181d910cffa922da016aaf3f8de283763fcbbb04f8d7fca1043ea7a7f3ec3bbc",
+      "stderrSha256": "79a1ab1f8ca7ed038235eadf292f78767962415774eb2f01f2c836f64f470453",
+      "connectMetrics": [
+        {
+          "dataTunnels": 4,
+          "uploadBytes": 1344,
+          "downloadBytes": 32921
+        }
+      ],
+      "nativeHresults": [
+        "0x80072f19"
+      ]
+    },
+    {
+      "id": "download-round2",
+      "platform": "windows",
+      "status": "failed-before-native-child",
+      "meaning": "Controller gateway CONNECT preflight timed out",
+      "exitCode": 1,
+      "seconds": 12.348,
+      "rawEvidenceSha256": "289da640ad0f552e9195d7551f92e49c5510bc0d64036e605ce5d7a8dac934a2",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "bdd0c0200cca32e5e8c1000e20b8a987ad2d5535305ef8bb577f9e5a8d8a71df",
+      "connectMetrics": [],
+      "nativeHresults": []
+    },
+    {
+      "id": "controller-native-probe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Same controller gateway authenticated before child",
+      "exitCode": 0,
+      "seconds": 2.338,
+      "rawEvidenceSha256": "68637d98a160b198cd359f6209e35c125445a8b656187c47aaa3c344a56d429e",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "3ca753e551272fda795f253244810179fc35466c49dba8a31db9f55e4ea163ed",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "download-round2-final",
+      "platform": "windows",
+      "status": "failed",
+      "meaning": "Reachable controller egress; revocation check failure",
+      "exitCode": 25,
+      "seconds": 57.582,
+      "rawEvidenceSha256": "7bad8d7d5bafd1c1e3729bdd93482a6703276e41699025174913763d42d4a247",
+      "stdoutSha256": "181d910cffa922da016aaf3f8de283763fcbbb04f8d7fca1043ea7a7f3ec3bbc",
+      "stderrSha256": "06533e96577e3bd22204934eda80cc746b85ee6158909e2928c773dd52c05648",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 354,
+          "downloadBytes": 5877
+        }
+      ],
+      "nativeHresults": [
+        "0x80072f19"
+      ]
+    },
+    {
+      "id": "cert-check",
+      "platform": "windows",
+      "status": "failed-content-despite-zero-exit",
+      "meaning": "Native verification reports offline revocation and partial chain",
+      "exitCode": 0,
+      "seconds": 44.641,
+      "rawEvidenceSha256": "d1adb5099c480084bc719539ed60cbdcd3afeeaa6d94b2dc5cbb3ef3cadb8215",
+      "stdoutSha256": "c224f4614fe109b1d766b35155be0c69d5d5bc2986fd68197daff8c5fd5f1019",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "connectMetrics": [],
+      "nativeExitCodes": [
+        0,
+        0
+      ],
+      "revocationOffline": true,
+      "partialChain": true,
+      "revocationStatusUnknown": true
+    },
+    {
+      "id": "download-round3",
+      "platform": "windows",
+      "status": "failed",
+      "meaning": "Final native download after normal certificate retrieval attempt",
+      "exitCode": 25,
+      "seconds": 87.045,
+      "rawEvidenceSha256": "7dc4cb520cc657cff92e8a4347668fa164d82584aec2e86e0a03d1431093195d",
+      "stdoutSha256": "181d910cffa922da016aaf3f8de283763fcbbb04f8d7fca1043ea7a7f3ec3bbc",
+      "stderrSha256": "7c4f981263d54fae5988bcf16bd5e031860352d011fbf480a197f7f537e43e0a",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 354,
+          "downloadBytes": 5876
+        }
+      ],
+      "nativeHresults": [
+        "0x80072f19"
+      ]
+    }
+  ],
+  "clientBuild": {
+    "sourceCommit": "32cbbaa8aa0f3fce35b32c3d9497236e136678f5",
+    "sha256": "0da8285aea907ffd1c224acc6032b10693676334ee85348e6825573a323f9e47",
+    "version": "0.8.5-winget-candidate",
+    "published": false,
+    "runtimeImplementationChangedThisFollowUp": false
+  },
+  "downloadAcceptance": {
+    "id": "jqlang.jq",
+    "version": "1.8.2",
+    "architecture": "x64",
+    "source": "winget",
+    "directoryIncludesUnicodeAndSpaces": true,
+    "winGetDownloadSucceeded": false,
+    "frozenShaAndSizeCompared": false,
+    "downloadedProgramSmokeTestExecuted": false,
+    "existingApplicationsModified": false,
+    "securityHashOrCertificateChecksBypassed": false
+  },
+  "diagnostics": {
+    "dockerEgressMetadata": "HTTP 200, 376 bytes",
+    "dockerEgressSource2": "HTTP 200, 3848298 bytes",
+    "dockerEgressGitHub": "Timed out after 35 seconds",
+    "controllerEgressGitHub": "HTTP 200, 1035264 bytes",
+    "controllerEgressSource2": "HTTP 200, 3848298 bytes",
+    "certutilZeroExitIsNotValidationSuccess": true,
+    "certificateStoreOrTrustAnchorsModified": false,
+    "remainingGates": [
+      "Windows issuer/AIA and CRL/OCSP retrieval with complete validation",
+      "Native source index refresh",
+      "Native installer download, frozen artifact validation and execution",
+      "Native application install/remove acceptance"
+    ]
+  },
+  "documentationCandidate": {
+    "path": "release/winget-cli-20261028-candidate",
+    "manifestSha256": "dc39ffe634d10cbf788a3bbc84b4c9cf4e65a7371695b0a0745a01a1d90c9be9",
+    "sourceState": "worktree",
+    "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+    "artifacts": 20,
+    "nativeRuntimeTestedWithPreviousIdenticalExecutionCode": true
+  },
+  "checks": {
+    "catalog": "passed",
+    "windowsContract": "passed",
+    "actualReasonixConsumerLoader": "passed-via-ssd-build-cache-wrapper",
+    "generatedPresets": 10,
+    "generatedConsistency": "passed",
+    "consumerCanonicalLayers": 8,
+    "consumerConsistency": "passed",
+    "diffCheck": "passed",
+    "runtimeSuites": "Previous evidence retained; no runtime implementation changes this follow-up"
+  },
+  "proxyRegistry": {
+    "values": 20,
+    "sha256": "463d691e576f8a4e1ff64586c550eb1ccf154ffb33e9b49f26060b00eb404087",
+    "proxyEnabled": false,
+    "unchanged": true
+  },
+  "preservation": {
+    "macos": {
+      "checked": 5,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    },
+    "windows": {
+      "checked": 9,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    }
+  },
+  "cleanup": {
+    "docker": {
+      "containers": 0,
+      "networks": 0,
+      "images": 0,
+      "activeForwards": 0,
+      "privatePrototypeStopped": true,
+      "gatewayLogSha256": "80a2a7d94b50d74188a963ddd2f892fce46dd937cf31bb2c4780af273ef2461a",
+      "nativeDataRetained": true
+    },
+    "controller": {
+      "controllerGatewayProcesses": 0,
+      "controllerForwards": 0,
+      "originValidationPreserved": true,
+      "gatewayLogSha256": "836a49f6d5fc6310db6319c38b12a0fb9d6b0f70e270854f153a77e95edd358b"
+    }
+  },
+  "publiclyActivated": false,
+  "allDesktopReleaseGatesPassed": false
+}

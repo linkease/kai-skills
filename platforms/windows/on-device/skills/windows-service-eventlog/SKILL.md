@@ -6,7 +6,7 @@ systems: windows
 requires: target-shell:powershell
 triggers: Windows 服务失败, 服务未运行, 服务反复停止, Event Log, Windows Service, 重启服务
 auto-use: prefer
-routing-group: windows-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: medium
 ---

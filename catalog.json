@@ -20,7 +20,12 @@
       "path": "platforms/istoreos/on-device",
       "skillsRoot": "skills",
       "generated": true,
-      "generatedFrom": ["common", "linux", "openwrt", "istoreos"]
+      "generatedFrom": [
+        "common",
+        "linux",
+        "openwrt",
+        "istoreos"
+      ]
     },
     {
       "id": "istoreos-remote-control",
@@ -36,7 +41,14 @@
       "path": "platforms/istoreos/remote-control",
       "skillsRoot": "skills",
       "generated": true,
-      "generatedFrom": ["common", "linux", "openwrt", "istoreos", "transport.ssh", "transport.luci-http"]
+      "generatedFrom": [
+        "common",
+        "linux",
+        "openwrt",
+        "istoreos",
+        "transport.ssh",
+        "transport.luci-http"
+      ]
     },
     {
       "id": "windows-on-device",
@@ -44,11 +56,18 @@
       "title": "Use an agent on a Windows device",
       "platform": "windows",
       "mode": "on-device",
-      "aliases": ["Windows on device", "在 Windows 上使用", "本机维护 Windows"],
+      "aliases": [
+        "Windows on device",
+        "在 Windows 上使用",
+        "本机维护 Windows"
+      ],
       "path": "platforms/windows/on-device",
       "skillsRoot": "skills",
       "generated": true,
-      "generatedFrom": ["common", "windows"]
+      "generatedFrom": [
+        "common",
+        "windows"
+      ]
     },
     {
       "id": "windows-remote-control",
@@ -56,11 +75,19 @@
       "title": "Control a Windows device remotely",
       "platform": "windows",
       "mode": "remote-control",
-      "aliases": ["remote control Windows", "远程控制 Windows", "SSH 控制 Windows"],
+      "aliases": [
+        "remote control Windows",
+        "远程控制 Windows",
+        "SSH 控制 Windows"
+      ],
       "path": "platforms/windows/remote-control",
       "skillsRoot": "skills",
       "generated": true,
-      "generatedFrom": ["common", "windows", "transport.ssh"]
+      "generatedFrom": [
+        "common",
+        "windows",
+        "transport.ssh"
+      ]
     },
     {
       "id": "macos-on-device",
@@ -68,11 +95,18 @@
       "title": "Use an agent on a macOS device",
       "platform": "macos",
       "mode": "on-device",
-      "aliases": ["macOS on device", "在 macOS 上使用", "本机维护 Mac"],
+      "aliases": [
+        "macOS on device",
+        "在 macOS 上使用",
+        "本机维护 Mac"
+      ],
       "path": "platforms/macos/on-device",
       "skillsRoot": "skills",
       "generated": true,
-      "generatedFrom": ["common", "macos"]
+      "generatedFrom": [
+        "common",
+        "macos"
+      ]
     },
     {
       "id": "macos-remote-control",
@@ -80,11 +114,95 @@
       "title": "Control a macOS device remotely",
       "platform": "macos",
       "mode": "remote-control",
-      "aliases": ["remote control macOS", "远程控制 macOS", "SSH 控制 Mac"],
+      "aliases": [
+        "remote control macOS",
+        "远程控制 macOS",
+        "SSH 控制 Mac"
+      ],
       "path": "platforms/macos/remote-control",
       "skillsRoot": "skills",
       "generated": true,
-      "generatedFrom": ["common", "macos", "transport.ssh"]
+      "generatedFrom": [
+        "common",
+        "macos",
+        "transport.ssh"
+      ]
+    },
+    {
+      "id": "ubuntu-on-device",
+      "schemaVersion": 1,
+      "title": "Use an agent on ubuntu",
+      "platform": "ubuntu",
+      "mode": "on-device",
+      "aliases": [
+        "ubuntu on-device"
+      ],
+      "path": "platforms/ubuntu/on-device",
+      "skillsRoot": "skills",
+      "generated": true,
+      "generatedFrom": [
+        "common",
+        "linux",
+        "debian",
+        "ubuntu"
+      ]
+    },
+    {
+      "id": "ubuntu-remote-control",
+      "schemaVersion": 1,
+      "title": "Control ubuntu",
+      "platform": "ubuntu",
+      "mode": "remote-control",
+      "aliases": [
+        "ubuntu remote-control"
+      ],
+      "path": "platforms/ubuntu/remote-control",
+      "skillsRoot": "skills",
+      "generated": true,
+      "generatedFrom": [
+        "common",
+        "linux",
+        "debian",
+        "ubuntu",
+        "transport.ssh"
+      ]
+    },
+    {
+      "id": "debian-on-device",
+      "schemaVersion": 1,
+      "title": "Use an agent on debian",
+      "platform": "debian",
+      "mode": "on-device",
+      "aliases": [
+        "debian on-device"
+      ],
+      "path": "platforms/debian/on-device",
+      "skillsRoot": "skills",
+      "generated": true,
+      "generatedFrom": [
+        "common",
+        "linux",
+        "debian"
+      ]
+    },
+    {
+      "id": "debian-remote-control",
+      "schemaVersion": 1,
+      "title": "Control debian",
+      "platform": "debian",
+      "mode": "remote-control",
+      "aliases": [
+        "debian remote-control"
+      ],
+      "path": "platforms/debian/remote-control",
+      "skillsRoot": "skills",
+      "generated": true,
+      "generatedFrom": [
+        "common",
+        "linux",
+        "debian",
+        "transport.ssh"
+      ]
     }
   ]
 }

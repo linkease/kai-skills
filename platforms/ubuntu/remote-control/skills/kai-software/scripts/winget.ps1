@@ -1,0 +1,138 @@
+# PowerShell 5.1+; structured public Microsoft.WinGet.Client API only.
+$ErrorActionPreference = 'Stop'
+$ProgressPreference = 'SilentlyContinue'
+[Console]::InputEncoding = New-Object Text.UTF8Encoding($false)
+[Console]::OutputEncoding = New-Object Text.UTF8Encoding($false)
+function Emit($Value) {
+    [Console]::Out.WriteLine((ConvertTo-Json -InputObject $Value -Depth 8 -Compress))
+}
+function Fail([int]$Code, [string]$Category, [string]$Reason, $NativeResult = $null) {
+    Emit ([ordered]@{schemaVersion=1;status='failed';category=$Category;reason=$Reason;
+        nativeResult=$NativeResult;exitCode=$Code})
+    exit $Code
+}
+function Assert-CatalogAvailable($Package) {
+    $versions = @($Package.AvailableVersions)
+    # @($null) has one element. Failed native getters can yield null or blank
+    # entries, so a count alone must not lead to Source's further network reads.
+    $invalid = @($versions | Where-Object { [string]::IsNullOrWhiteSpace([string]$_) })
+    if ($versions.Count -eq 0 -or $invalid.Count -gt 0) {
+        Fail 11 'catalog-unavailable' 'The native source returned an incomplete catalog. Inspect connectivity and explicitly refresh the winget source; no package operation was attempted.'
+    }
+}
+function Exact-Catalog([string]$Id) {
+    $items = @(Find-WinGetPackage -Id $Id -MatchOption Equals -Source winget -Count 2 -ErrorAction Stop)
+    if ($items.Count -ne 1 -or $items[0].Id -cne $Id) {
+        Fail 4 'no-unique-candidate' 'The selected source did not return exactly one matching package.'
+    }
+    Assert-CatalogAvailable $items[0]
+    if ($items[0].Source -ne 'winget') { Fail 4 'source-mismatch' 'The package is not correlated to the selected source.' }
+    return $items[0]
+}
+function Exact-Installed([string]$Id) {
+    $items = @(Get-WinGetPackage -Id $Id -MatchOption Equals -Source winget -Count 2 -ErrorAction Stop)
+    if ($items.Count -gt 1) { Fail 4 'ambiguous-installed-package' 'Preserve ambiguous installed entries.' }
+    if ($items.Count -eq 1) {
+        if ($items[0].Id -cne $Id -or $items[0].Source -ne 'winget') {
+            Fail 4 'source-mismatch' 'The installed package is not correlated to the selected source.'
+        }
+        return $items[0]
+    }
+    return $null
+}
+function Package-Info($Catalog) {
+    $installed = Exact-Installed $Catalog.Id
+    $installedVersion = ''
+    if ($null -ne $installed) { $installedVersion = [string]$installed.InstalledVersion }
+    return [ordered]@{schemaVersion=1;id=('winget:'+$Catalog.Id);name=$Catalog.Id;
+        displayName=$Catalog.Name;type='system-package';source='winget';manager='winget';
+        platform='windows';compatible=$true;availableVersion=$Catalog.Version;
+        availableVersions=@($Catalog.AvailableVersions);installedVersion=$installedVersion;
+        installed=($installedVersion -ne '');entrypoint='';
+        evidenceTime=[DateTime]::UtcNow.ToString('o');
+        nextStep='Use the registered native application entry; WinGet does not expose a general file inventory.'}
+}
+try {
+    $request = [Console]::In.ReadToEnd() | ConvertFrom-Json
+    $action = [string]$request.action
+    $subject = [string]$request.subject
+    $version = [string]$request.version
+    if ($action -notin @('search','info','install','remove','refresh','files','owner')) {
+        Fail 2 'usage' 'Unknown software operation.'
+    }
+    if ($action -eq 'refresh') {
+        if ($subject -ne 'winget') { Fail 2 'usage' 'Explicitly select the winget source.' }
+        $native = Get-Command winget.exe -CommandType Application -ErrorAction SilentlyContinue
+        if (!$native) { Fail 127 'missing-executable' 'An existing winget.exe is required.' }
+        $log = & $native.Source source update --name winget --disable-interactivity 2>&1
+        [Console]::Error.WriteLine(($log | Out-String))
+        $code = $LASTEXITCODE
+        if ($code -ne 0) {
+            $exitCode = 11
+            if ($code -gt 0 -and $code -le 255) { $exitCode = $code }
+            Fail $exitCode 'provider-failed' 'The explicit native source refresh failed.' @{exitCode=$code}
+        }
+        Emit @{schemaVersion=1;status='passed';operation='refresh';provider='winget';exitCode=0}
+        exit 0
+    }
+    if ($action -in @('files','owner')) { Fail 18 'unsupported-operation' 'WinGet exposes no general package file ownership API.' }
+    if ($action -eq 'search') {
+        if (!$subject -or $subject.StartsWith('-') -or $subject.Length -gt 512) {
+            Fail 2 'usage' 'Supply a bounded literal search term.'
+        }
+    } elseif ($subject -notmatch '^[A-Za-z0-9][A-Za-z0-9._+-]*$') {
+        Fail 2 'usage' 'Use an exact source-qualified package identifier.'
+    }
+    if ($version -and ($version.Length -gt 128 -or $version -notmatch '^[A-Za-z0-9][A-Za-z0-9._+-]*$')) {
+        Fail 2 'usage' 'Invalid exact package version.'
+    }
+    try { Import-Module Microsoft.WinGet.Client -ErrorAction Stop }
+    catch { Fail 18 'native-adapter-unavailable' 'Prepare a trusted Microsoft.WinGet.Client PowerShell module with its original manager; no automatic module installation.' }
+    if ($action -eq 'search') {
+        $packages = @(Find-WinGetPackage -Query @($subject) -Source winget -Count 3 -ErrorAction Stop)
+        $rows = @()
+        foreach ($package in ($packages | Select-Object -First 3)) {
+            Assert-CatalogAvailable $package
+            if ($package.Source -ne 'winget') { Fail 4 'source-mismatch' 'Search returned a different source.' }
+            $row = Package-Info $package
+            $row['matchReason'] = 'matched in the selected native provider catalog'
+            $rows += $row
+        }
+        Emit $rows
+        exit 0
+    }
+    if ($action -eq 'remove') {
+        $installed = Exact-Installed $subject
+        if ($null -eq $installed) {
+            Emit @{schemaVersion=1;status='passed';operation='remove';id=('winget:'+$subject);reused=$true;exitCode=0}
+            exit 0
+        }
+        $result = Uninstall-WinGetPackage -Id $subject -Source winget -MatchOption Equals -Mode Silent -Confirm:$false -ErrorAction Stop
+    } else {
+        $catalog = Exact-Catalog $subject
+        $info = Package-Info $catalog
+        if ($action -eq 'info') { Emit $info; exit 0 }
+        $selected = [string]$catalog.Version
+        if ($version) { $selected = $version }
+        if (!$selected -or @($catalog.AvailableVersions) -cnotcontains $selected) {
+            Fail 4 'version-unavailable' 'The exact version is absent from this provider catalog.'
+        }
+        if ($info.installedVersion -ceq $selected) { Emit $info; exit 0 }
+        $result = Install-WinGetPackage -Id $subject -Source winget -MatchOption Equals -Version $selected -Mode Silent -Confirm:$false -ErrorAction Stop
+    }
+    if ($null -eq $result -or $result.Status -ne 'Ok') {
+        Fail 11 'native-package-failed' 'Inspect the original native result; no force, checksum bypass or installer override was used.' $result
+    }
+    if ($action -eq 'remove') {
+        if ($null -ne (Exact-Installed $subject)) { Fail 11 'removal-verification-failed' 'The package is still registered after native removal.' }
+        Emit @{schemaVersion=1;status='passed';operation='remove';id=('winget:'+$subject);rebootRequired=$result.RebootRequired;exitCode=0}
+    } else {
+        $info = Package-Info (Exact-Catalog $subject)
+        if ($info.installedVersion -cne $selected) { Fail 11 'version-mismatch' 'The installed version differs from the selected exact version.' }
+        $info['rebootRequired'] = $result.RebootRequired
+        Emit $info
+    }
+    exit 0
+} catch {
+    Fail 11 'native-provider-error' $_.Exception.Message @{hresult=$_.Exception.HResult;type=$_.Exception.GetType().FullName}
+}

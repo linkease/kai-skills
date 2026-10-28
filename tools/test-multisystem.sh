@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+root="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)"
+exec python3 "$root/tools/multisystem/test_runner.py" "$@"

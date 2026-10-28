@@ -1,0 +1,6 @@
+{
+  "role": "debian",
+  "aliases": ["debian-compatible"],
+  "version": "2026.09.12-1",
+  "description": "Minimal safe diagnostics for Debian targets"
+}

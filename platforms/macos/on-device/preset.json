@@ -4,7 +4,11 @@
   "title": "Use an agent on a macOS device",
   "platform": "macos",
   "mode": "on-device",
-  "aliases": [],
+  "aliases": [
+    "macOS on device",
+    "在 macOS 上使用",
+    "本机维护 Mac"
+  ],
   "path": ".",
   "skillsRoot": "skills",
   "generated": true,
@@ -16,6 +20,13 @@
     "common": "1.0.0",
     "macos": "1.0.0"
   },
-  "sourceDigest": "sha256:468aaa06857059bf4ec944100058158ab5318a3ae7af164e1c508436c110a619",
-  "treeDigest": "sha256:34b0c0c915a5a4bef93464e6d7e9c481b7d5d9c8218ad1561aff2617aa032af8"
+  "sourceDigest": "sha256:40efbb030095059fdfaf309ca45a24a77671ab539366fc50776c9f69461c3e17",
+  "treeDigest": "sha256:11ad8a1266d21a831e82e89c05a9a6f5b866ee37650626afcc9191126e7b7419",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
 }

@@ -1,0 +1,527 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS1",
+  "status": "passed",
+  "optimizationRounds": 1,
+  "reason": null,
+  "reports": [
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-26T23:55:39.567551+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "94d9dbac41585cb2aa47d989cc9b19908319fcf35c5cc153861dc3dc2eab71b1",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "322c06fc846e9bac5c97583f12a4aab97ea7ada2822cfdcf02f84169beb94e33",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-ubuntu",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 20.52,
+          "logSha256": "df0f0d3de0786b67d4aac00024f0de4a9c3ba1fa8a46b277c7db78fc8704e16a",
+          "expected": "lab real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS1-lab-debian",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 57.222,
+          "logSha256": "770953824b95cd667c932b04adf25e72f14eef2507204c2f31b2e38759b1d66c",
+          "expected": "lab real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 101.142,
+          "logSha256": "0ee9e5b3efb553d4a4c9c3046d9d2a1111ba4a1d3356868a9c9f3a1bb0d47f88",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-26T23:58:38.673463+00:00",
+      "attempt": "initial"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T00:00:12.605736+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "94d9dbac41585cb2aa47d989cc9b19908319fcf35c5cc153861dc3dc2eab71b1",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "80d34249e15c264ee89a600874f2ebbfd30d84d067cda5d7360bf22910da27e0",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 6.632,
+          "logSha256": "91a13986b6e3504db3373e2e61e98711008e5443925dbf4eb21ddfee0aaa4e35",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T00:00:19.457042+00:00",
+      "attempt": "optimization-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T00:01:22.349640+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "94d9dbac41585cb2aa47d989cc9b19908319fcf35c5cc153861dc3dc2eab71b1",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "5711f3a740545fb5cdf13ce09132764b35903c4140299c56834f6901e741da38",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 8.587,
+          "logSha256": "c14393cbad8c2d9dba168b34d126abb2258f6f9585c78dd673f9923c132dab29",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T00:01:31.153022+00:00",
+      "attempt": "optimization-2"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T00:03:57.375685+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "94d9dbac41585cb2aa47d989cc9b19908319fcf35c5cc153861dc3dc2eab71b1",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "a8976e4fd2144d396e2b302259d511099915252d05a2cb08a3083afad05bfa80",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 6.733,
+          "logSha256": "d493cbf73f0cdebec03c3daada577053a9d7060f466ef97152801e3b53884ec6",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T00:04:04.327247+00:00",
+      "attempt": "optimization-3"
+    }
+  ],
+  "completedTargets": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "milestone": "MS1",
+      "target": "ubuntu",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "identity": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
+          "onDevice": "passed",
+          "ssh": "passed"
+        },
+        {
+          "cycle": 2,
+          "identity": "PRETTY_NAME=\"Ubuntu 24.04.5 LTS\"\nNAME=\"Ubuntu\"\nVERSION_ID=\"24.04\"\nVERSION=\"24.04.5 LTS (Noble Numbat)\"\nVERSION_CODENAME=noble\nID=ubuntu\nID_LIKE=debian\nHOME_URL=\"https://www.ubuntu.com/\"\nSUPPORT_URL=\"https://help.ubuntu.com/\"\nBUG_REPORT_URL=\"https://bugs.launchpad.net/ubuntu/\"\nPRIVACY_POLICY_URL=\"https://www.ubuntu.com/legal/terms-and-policies/privacy-policy\"\nUBUNTU_CODENAME=noble\nLOGO=ubuntu-logo",
+          "onDevice": "passed",
+          "ssh": "passed"
+        }
+      ],
+      "failureCleanup": [
+        {
+          "fault": "injected-failure",
+          "cleanup": "passed"
+        },
+        {
+          "fault": "timeout",
+          "cleanup": "passed"
+        },
+        {
+          "fault": "cancel-signal",
+          "cleanup": "passed"
+        }
+      ],
+      "cleanup": "passed",
+      "hostDockerRootUnchanged": true
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "milestone": "MS1",
+      "target": "debian",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "identity": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"",
+          "onDevice": "passed",
+          "ssh": "passed"
+        },
+        {
+          "cycle": 2,
+          "identity": "PRETTY_NAME=\"Debian GNU/Linux 12 (bookworm)\"\nNAME=\"Debian GNU/Linux\"\nVERSION_ID=\"12\"\nVERSION=\"12 (bookworm)\"\nVERSION_CODENAME=bookworm\nID=debian\nHOME_URL=\"https://www.debian.org/\"\nSUPPORT_URL=\"https://www.debian.org/support\"\nBUG_REPORT_URL=\"https://bugs.debian.org/\"",
+          "onDevice": "passed",
+          "ssh": "passed"
+        }
+      ],
+      "failureCleanup": [
+        {
+          "fault": "injected-failure",
+          "cleanup": "passed"
+        },
+        {
+          "fault": "timeout",
+          "cleanup": "passed"
+        },
+        {
+          "fault": "cancel-signal",
+          "cleanup": "passed"
+        }
+      ],
+      "cleanup": "passed",
+      "hostDockerRootUnchanged": true
+    },
+    "istoreos": {
+      "schemaVersion": 1,
+      "milestone": "MS1",
+      "target": "istoreos",
+      "status": "passed",
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "istoreos",
+        "image": "kai-skills-lab/istoreos:20261026-ms01",
+        "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+        "source": {
+          "type": "immutable-istoreos-rom",
+          "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "sanitization": [
+            "factory SSH host keys",
+            "root authorized keys"
+          ],
+          "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+        },
+        "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+        "contextSha256": {
+          "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+          "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+        },
+        "buildNetwork": "host-package-download-only"
+      },
+      "cycles": [
+        {
+          "cycle": 1,
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "onDevice": "passed",
+          "ssh": "passed",
+          "systemCurl": {
+            "unchanged": true,
+            "version": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd",
+            "baselineSha256": "def9a2feb1e1467886881f9531b7b227b507f5a3311ccd19d72d0f592ecda8e3  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\nee904671d9fa668e78432b53322e8f41e7ec5375f0ff8f877c524c67902d27b4  /usr/lib/opkg/info/curl.control\n8314d45d1266d8b708f78ecd1906c18ed30a7cd946875663a9e220739f484dbc  /usr/lib/opkg/info/libcurl4.control\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf"
+          }
+        },
+        {
+          "cycle": 2,
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "onDevice": "passed",
+          "ssh": "passed",
+          "systemCurl": {
+            "unchanged": true,
+            "version": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd",
+            "baselineSha256": "def9a2feb1e1467886881f9531b7b227b507f5a3311ccd19d72d0f592ecda8e3  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\nee904671d9fa668e78432b53322e8f41e7ec5375f0ff8f877c524c67902d27b4  /usr/lib/opkg/info/curl.control\n8314d45d1266d8b708f78ecd1906c18ed30a7cd946875663a9e220739f484dbc  /usr/lib/opkg/info/libcurl4.control\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf"
+          }
+        }
+      ],
+      "failureCleanup": [
+        {
+          "fault": "injected-failure",
+          "cleanup": "passed"
+        },
+        {
+          "fault": "timeout",
+          "cleanup": "passed"
+        },
+        {
+          "fault": "cancel-signal",
+          "cleanup": "passed"
+        }
+      ],
+      "cleanup": "passed",
+      "hostDockerRootUnchanged": true
+    }
+  },
+  "diagnostics": [
+    {
+      "attempt": "initial",
+      "lastLogLines": "Configuring python3-ncurses.\nConfiguring python3-distutils.\nConfiguring python3-codecs.\nConfiguring python3-multiprocessing.\nConfiguring python3-asyncio.\nConfiguring python3-ctypes.\nConfiguring python3-dbm.\nConfiguring python3-logging.\nConfiguring python3-lzma.\nConfiguring python3-openssl.\nConfiguring python3-readline.\nConfiguring python3-sqlite3.\nConfiguring python3-unittest.\nConfiguring python3.\nCollected errors:\n * opkg_download: Failed to download https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/git-http_2.50.1-r1_x86_64.ipk, curl returned 127.\n * opkg_install_pkg: Failed to download git-http. Perhaps you need to run 'opkg update'?\n * opkg_install_cmd: Cannot install package git-http.\n ---> Removed intermediate container d3d4b8f3e901\nDEPRECATED: The legacy builder is deprecated and will be removed in a future release.\n            Install the buildx component to build images with BuildKit:\n            https://docs.docker.com/go/buildx/\n\nThe command '/bin/sh -c mkdir -p /tmp /var/lock /etc/dropbear && opkg update && opkg install bash jq python3 ca-bundle curl git-http && is-opkg install mise && test -x /usr/bin/mise && test -x /usr/sbin/mise-exec && test -f /lib/functions/mise.sh' returned a non-zero code: 255\n"
+    },
+    {
+      "attempt": "optimization-1",
+      "lastLogLines": "Updated list of available packages in /var/opkg-lists/openwrt_routing\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/routing/Packages.sig\nSignature check passed.\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/telephony/Packages.gz\nUpdated list of available packages in /var/opkg-lists/openwrt_telephony\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/telephony/Packages.sig\nSignature check passed.\nUpgrading libcurl4 on root from 8.12.1-r1 to 8.22.0-r1...\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/libcurl4_8.22.0-r1_x86_64.ipk\nlibzstd was autoinstalled and is now orphaned, removing.\nRemoving package libzstd from root...\nConfiguring libcurl4.\nUpgrading curl on root from 8.12.1-r1 to 8.22.0-r1...\nError loading shared library libzstd.so.1: No such file or directory (needed by /usr/bin/curl)\nCollected errors:\n * opkg_download: Failed to download https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/curl_8.22.0-r1_x86_64.ipk, curl returned 127.\n * opkg_install_pkg: Failed to download curl. Perhaps you need to run 'opkg update'?\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/curl_8.22.0-r1_x86_64.ipk\n ---> Removed intermediate container b96715432adc\nDEPRECATED: The legacy builder is deprecated and will be removed in a future release.\n            Install the buildx component to build images with BuildKit:\n            https://docs.docker.com/go/buildx/\n\nThe command '/bin/sh -c mkdir -p /tmp /var/lock /etc/dropbear && opkg update && opkg upgrade libcurl4 && opkg upgrade curl && curl --version && opkg install bash jq python3 ca-bundle git-http && is-opkg install mise && test -x /usr/bin/mise && test -x /usr/sbin/mise-exec && test -f /lib/functions/mise.sh' returned a non-zero code: 255\n"
+    },
+    {
+      "attempt": "optimization-2",
+      "lastLogLines": "Downloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/routing/Packages.sig\nSignature check passed.\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/telephony/Packages.gz\nUpdated list of available packages in /var/opkg-lists/openwrt_telephony\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/telephony/Packages.sig\nSignature check passed.\nSetting flags for package libzstd to user.\nUpgrading libcurl4 on root from 8.12.1-r1 to 8.22.0-r1...\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/libcurl4_8.22.0-r1_x86_64.ipk\nlibzstd was autoinstalled and is now orphaned, removing.\nRemoving package libzstd from root...\nConfiguring libcurl4.\nUpgrading curl on root from 8.12.1-r1 to 8.22.0-r1...\nError loading shared library libzstd.so.1: No such file or directory (needed by /usr/bin/curl)\nCollected errors:\n * opkg_download: Failed to download https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/curl_8.22.0-r1_x86_64.ipk, curl returned 127.\n * opkg_install_pkg: Failed to download curl. Perhaps you need to run 'opkg update'?\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/curl_8.22.0-r1_x86_64.ipk\n ---> Removed intermediate container 6de60a56397b\nDEPRECATED: The legacy builder is deprecated and will be removed in a future release.\n            Install the buildx component to build images with BuildKit:\n            https://docs.docker.com/go/buildx/\n\nThe command '/bin/sh -c mkdir -p /tmp /var/lock /etc/dropbear && opkg update && opkg flag user libzstd && opkg upgrade libcurl4 && opkg upgrade curl && curl --version && opkg install bash jq python3 ca-bundle git-http && is-opkg install mise && test -x /usr/bin/mise && test -x /usr/sbin/mise-exec && test -f /lib/functions/mise.sh' returned a non-zero code: 255\n"
+    },
+    {
+      "attempt": "optimization-3",
+      "lastLogLines": "Updated list of available packages in /var/opkg-lists/openwrt_routing\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/routing/Packages.sig\nSignature check passed.\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/telephony/Packages.gz\nUpdated list of available packages in /var/opkg-lists/openwrt_telephony\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/telephony/Packages.sig\nSignature check passed.\nUpgrading libcurl4 on root from 8.12.1-r1 to 8.22.0-r1...\nError loading shared library libzstd.so.1: No such file or directory (needed by /usr/bin/curl)\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/libcurl4_8.22.0-r1_x86_64.ipk\nlibzstd was autoinstalled and is now orphaned, removing.\nRemoving package libzstd from root...\nUpgrading curl on root from 8.12.1-r1 to 8.22.0-r1...\nDownloading https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/curl_8.22.0-r1_x86_64.ipk\nConfiguring libcurl4.\nCollected errors:\n * opkg_download: Failed to download https://mirrors.cernet.edu.cn/openwrt/releases/24.10.1/packages/x86_64/packages/curl_8.22.0-r1_x86_64.ipk, curl returned 127.\n * opkg_install_pkg: Failed to download curl. Perhaps you need to run 'opkg update'?\n ---> Removed intermediate container 511a4282ef05\nDEPRECATED: The legacy builder is deprecated and will be removed in a future release.\n            Install the buildx component to build images with BuildKit:\n            https://docs.docker.com/go/buildx/\n\nThe command '/bin/sh -c mkdir -p /tmp /var/lock /etc/dropbear && command -v wget && sed -i 's/^option use_curl .*/option use_curl 0/' /etc/opkg.conf && grep -q '^option check_signature' /etc/opkg.conf && opkg update && opkg upgrade libcurl4 curl && curl --version && opkg install bash jq python3 ca-bundle git-http && is-opkg install mise && test -x /usr/bin/mise && test -x /usr/sbin/mise-exec && test -f /lib/functions/mise.sh' returned a non-zero code: 255\n"
+    }
+  ],
+  "previousRun": {
+    "status": "blocked",
+    "optimizationRounds": 3,
+    "reason": "iStoreOS ROM curl 8.12.1 to feed 8.22.0 transition leaves curl unusable after automatic libzstd removal; option use_curl 0 did not bypass the actual curl downloader."
+  },
+  "rootCause": "The lab explicitly requested curl despite its presence in the firmware. Removing the unnecessary request avoids the incompatible curl/libcurl upgrade. Native Dropbear requires /etc/dropbear/authorized_keys.",
+  "focusedReports": [
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T00:50:08.262492+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "94d9dbac41585cb2aa47d989cc9b19908319fcf35c5cc153861dc3dc2eab71b1",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "be9f0e75ef1b2f0ede00efb587053c23088a1b63a79b3451836db90d7f6aeb43",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "failed",
+          "exitCode": 1,
+          "elapsedSeconds": 65.551,
+          "logSha256": "7a4b3075fe58fae89b5b0399f03241d69bd960071b6d5649786b9ad2dc53f1b3",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "failed",
+      "finishedAt": "2026-10-27T00:51:14.031125+00:00",
+      "attempt": "focused-initial"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T00:52:12.749653+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "94d9dbac41585cb2aa47d989cc9b19908319fcf35c5cc153861dc3dc2eab71b1",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.264,
+          "logSha256": "42d7c170baf412c0a64b91405f0bca0d5cf3c27303acf62deadb60967b867ca7",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-ubuntu",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 16.658,
+          "logSha256": "df0f0d3de0786b67d4aac00024f0de4a9c3ba1fa8a46b277c7db78fc8704e16a",
+          "expected": "lab real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS1-lab-debian",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 18.031,
+          "logSha256": "03f5099102f3b0456a0e18c23b46782ea6897fe605fda286888c60d0e6a14e23",
+          "expected": "lab real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 16.064,
+          "logSha256": "eb091f423158fce68ca22792a35936ee851eef2e8c54219c6cfe8d8851ecb62c",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T00:53:03.771433+00:00",
+      "attempt": "focused-optimization-1"
+    },
+    {
+      "schemaVersion": 1,
+      "startedAt": "2026-10-27T00:54:06.646301+00:00",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+      "cases": [
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 0.214,
+          "logSha256": "1d5bd0da238980ace2f852259054e1122e6781fbb482cfafab449ea35292d406",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS1-lab-ubuntu",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 21.078,
+          "logSha256": "cbdb0bf3e016542dfa42dc422318d43677904e18691c8ed15377cc7594aa4b94",
+          "expected": "lab real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS1-lab-debian",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 18.522,
+          "logSha256": "d6ebba6c49677cd8f658cc37a20b991bd09cadf32b89f2610d480fb5928e896e",
+          "expected": "lab real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        },
+        {
+          "id": "MS1-lab-istoreos",
+          "milestone": "MS1",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "elapsedSeconds": 19.717,
+          "logSha256": "5e67d991a6e635398e6a727aa0d18f36e00c670054f214dc1754c07b1376d1b1",
+          "expected": "lab real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ],
+      "status": "passed",
+      "finishedAt": "2026-10-27T00:55:06.184506+00:00",
+      "attempt": "focused-final-with-cancellation-and-curl-criterion"
+    }
+  ],
+  "hostSystemCurl": {
+    "before": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf",
+    "after": "curl 8.12.1 (x86_64-openwrt-linux-gnu) libcurl/8.12.1 OpenSSL/3.0.16 zlib/1.3.1 zstd/1.5.7 nghttp2/1.63.0\nRelease-Date: 2025-02-13\nProtocols: file ftp ftps http https ipfs ipns mqtt\nFeatures: alt-svc HSTS HTTP2 HTTPS-proxy IPv6 Largefile libz SSL threadsafe UnixSockets zstd\n750a735471d35118f5be2e552d54d2daac3efead2ccbce0195ec179033767304  /usr/bin/curl\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4\nbdeca932b01ef1b99c186d997087459c92067d794cf304781b4cc41f03b23b3a  /usr/lib/libcurl.so.4.8.0\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1\nc71713fb8cfce8f16942d38fd7c6b832e8e2c0110dda60abf1292074833b4edb  /usr/lib/libzstd.so.1.5.7\n96e320e29d0a336daa5177f31ca1e70a9cf251d57f4a870a9989d389791debcb  /etc/opkg.conf",
+    "unchanged": true
+  }
+}

@@ -1,0 +1,3785 @@
+{
+  "schemaVersion": 1,
+  "milestone": "MS10",
+  "status": "passed",
+  "optimizationRounds": 3,
+  "completedAt": "2026-10-27T21:36:19.101278+00:00",
+  "source": {
+    "baseCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+    "sourceState": "worktree",
+    "meaning": "Uncommitted review candidate; no publication or production deployment."
+  },
+  "reports": {
+    "baseline": {
+      "status": "passed",
+      "caseCount": 15,
+      "reportSha256": "57bde3c6d0114044b97a68f14efcce58337611591a0aa416da52d4f60f7551cc",
+      "cases": [
+        {
+          "id": "MS0-baseline-00",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 8.84,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-00.log",
+          "logSha256": "eaa7b33bc76228c7a8e5e1fe0966aefa347917840cc4e9bf0090107474131e18",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-01",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 0.162,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-01.log",
+          "logSha256": "30a42eee88750180389b9d659b9a101f9ecbe5110e7796140421ab1cad8b90dc",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-02",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 7.575,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-02.log",
+          "logSha256": "4e9ab64ec165ed7fe8d814eeabd254c6fdaff6539e0ec53e9bf185e5c9d09b22",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-03",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 7.324,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-03.log",
+          "logSha256": "3cbd5bb074bd538499a56917a61bd77039a6780fa560b6f2e2024d6b0b614732",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-04",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 2.529,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-04.log",
+          "logSha256": "17eab6580e1f58dc91a7c5d03f7f671d188e6e79c8c5d69c320a6feb89acd57d",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-05",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 1.714,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-05.log",
+          "logSha256": "12fb342c9324b29dd4f28b4a42ecc940b922f3795957c8e581443d9617d07b70",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-06",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 6.723,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-06.log",
+          "logSha256": "1ebe8951b389f3051c7f93f1547b86ff5fbf02c1ec32dc35870ae796a21975e5",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-07",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 1.162,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-07.log",
+          "logSha256": "7db652524dbf8895508adac956d20387beccff1150c6f5e4109b8dac3df324e3",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-08",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 1.112,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-08.log",
+          "logSha256": "cbfa6c5a989cf47f398ed0469f8876b8dc1d76954fc7b21609909d4caa82112f",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-09",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 0.964,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-09.log",
+          "logSha256": "e0592c1aff375e3ed98389384366d63a29b0adc64568dc38b65b065de4b63d58",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-10",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 10.65,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-10.log",
+          "logSha256": "2cc098aa81c05bf92f4f6b5e612bd5d352abb9c072a890e449fe6b053c7615ab",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-11",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 1.414,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-11.log",
+          "logSha256": "8e4c3d9c24858631d9bd654e407c54611bc9c84e52e2e30a0298f1d6ddafecdc",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-12",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 0.173,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-12.log",
+          "logSha256": "c9b8796f3de49ed49bd2f7a53b9bf7e81f6ae34da8e562d8afec77982f8f8115",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-13",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 1.516,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-13.log",
+          "logSha256": "9a4801c8517873f910e3d2265a7bba3fba9d1076fa5ba4dfe635fa9e908aeac4",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        },
+        {
+          "id": "MS0-baseline-14",
+          "milestone": "MS0",
+          "suite": "baseline",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "df452a4e06e4b9d61e2c2efd77b3bd75301d099a41e418af14fae176f67fad91",
+          "elapsedSeconds": 1.625,
+          "log": "/tmp/kai-ms10-opt2-baseline/MS0-baseline-14.log",
+          "logSha256": "a4a693dec0f92352055bbe02889c5d9e8b77f8c10899eda715cebf6e638da2de",
+          "expected": "existing public contract exits 0",
+          "evidence": "stdout/stderr and exit status"
+        }
+      ]
+    },
+    "contracts": {
+      "status": "passed",
+      "caseCount": 11,
+      "reportSha256": "c8240bd1133f83bf6e10deac1a684665f5691b83e5abeb86ab8f020e6ed14354",
+      "cases": [
+        {
+          "id": "MS0-manifest",
+          "milestone": "MS0",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 0.919,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS0-manifest.log",
+          "logSha256": "0e558e2fff6bc4466af7a39936ddfe5871720bb754721decb6abae723fe7af67",
+          "expected": "11 milestone declarations, >=30 routes, complete acceptance inventory",
+          "evidence": "public runner JSON"
+        },
+        {
+          "id": "MS1-contract",
+          "milestone": "MS1",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 0.611,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS1-contract.log",
+          "logSha256": "fcecc676e5f099b93d0e06cc12527b2a0b3934be0fed6261f70bc528273bc94c",
+          "expected": "lab positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS2-contract",
+          "milestone": "MS2",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 4.698,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS2-contract.log",
+          "logSha256": "5e601a52194c78398cb7ce36a147825f9d7c3bc6ecb41319ea8872adeff0a7bf",
+          "expected": "execution positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS3-contract",
+          "milestone": "MS3",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 1.593,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS3-contract.log",
+          "logSha256": "0a698aec7ea93d75348a7b08a5e24e7470645df1514746f92b096fbbac563a69",
+          "expected": "bootstrap positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS4-contract",
+          "milestone": "MS4",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 0.614,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS4-contract.log",
+          "logSha256": "7cf2733d7de82fb5bd6cc1a1223a0c30ac6dacf1c7512cd6f323dbbf253cc395",
+          "expected": "software positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS5-contract",
+          "milestone": "MS5",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 0.962,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS5-contract.log",
+          "logSha256": "a42c32a0415939c69ab1df8de15a61fe94ff65a818d43c75d738bb2a471d17e1",
+          "expected": "runtime positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS6-contract",
+          "milestone": "MS6",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 6.7,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS6-contract.log",
+          "logSha256": "a9673ab073ad7d776eb83f2f1271b6851d633021444275b358d3b703d3fb94ad",
+          "expected": "dependencies positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS7-contract",
+          "milestone": "MS7",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 0.762,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS7-contract.log",
+          "logSha256": "55bf8f8324c7d95d7f1858968e2d2ac6722be2c0c691453bca99d0229b6aaf90",
+          "expected": "acceleration positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS8-contract",
+          "milestone": "MS8",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 1.464,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS8-contract.log",
+          "logSha256": "e6a2c61ad017b59abdcc019724b3a29c8b8a68761f109bbab99c5bdf617acfa1",
+          "expected": "storage positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS9-contract",
+          "milestone": "MS9",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 12.137,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS9-contract.log",
+          "logSha256": "1e23be126627d5a1e11c13993b2972527547be3edc996b4dbc911a1978ba6880",
+          "expected": "desktop positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS10-contract",
+          "milestone": "MS10",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 9.677,
+          "log": "/tmp/kai-ms10-opt3-contracts/MS10-contract.log",
+          "logSha256": "d15b9184230ad4ba8a5c20ceeb1229692a146cb9aebe9d55ae9d39b965a224ae",
+          "expected": "distribution positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        }
+      ]
+    },
+    "istoreos": {
+      "status": "passed",
+      "caseCount": 2,
+      "reportSha256": "7edff9288711751891e2e4b597160832605f105e563c0d4535a2685eb0c0f698",
+      "cases": [
+        {
+          "id": "MS10-contract",
+          "milestone": "MS10",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "a7a988e7af0816f8fd46ebf9561b85de067fcb35d0e8ff2878c1c460e0ffe507",
+          "elapsedSeconds": 12.995,
+          "log": "/tmp/kai-ms10-opt2-native-istoreos/MS10-contract.log",
+          "logSha256": "a1018810c03c7eaa117ae66d9b944ee35be22213c80a4be737be1621b4c7d787",
+          "expected": "distribution positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS10-lab-istoreos",
+          "milestone": "MS10",
+          "suite": "lab",
+          "platform": "istoreos",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "a7a988e7af0816f8fd46ebf9561b85de067fcb35d0e8ff2878c1c460e0ffe507",
+          "elapsedSeconds": 527.468,
+          "log": "/tmp/kai-ms10-opt2-native-istoreos/MS10-lab-istoreos.log",
+          "logSha256": "4eca43fa0771464b310ed5edbe112c296fea0a417eeccdb54318978a90dfa223",
+          "expected": "distribution real istoreos acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ]
+    },
+    "ubuntu": {
+      "status": "passed",
+      "caseCount": 2,
+      "reportSha256": "4f1ec2c0ed4191d462307e0d790e70e43b7a6e9d7c14b2847b58f1e9ef61e0c3",
+      "cases": [
+        {
+          "id": "MS10-contract",
+          "milestone": "MS10",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "dff1794a08af0333960b2781818a9436cca12de6bb0a1bf1508fba81f481cb21",
+          "elapsedSeconds": 12.761,
+          "log": "/tmp/kai-ms10-opt2-native-ubuntu/MS10-contract.log",
+          "logSha256": "b57e2d6c851c2627f5a6f92a0182bedf9a5276b5e7bcd249e5f6e231812939be",
+          "expected": "distribution positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS10-lab-ubuntu",
+          "milestone": "MS10",
+          "suite": "lab",
+          "platform": "ubuntu",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "dff1794a08af0333960b2781818a9436cca12de6bb0a1bf1508fba81f481cb21",
+          "elapsedSeconds": 701.331,
+          "log": "/tmp/kai-ms10-opt2-native-ubuntu/MS10-lab-ubuntu.log",
+          "logSha256": "26da65ee134621ae3ec5f6d09e79e1d1bf34a69a7a98ee7ed1f85ab4fe97760b",
+          "expected": "distribution real ubuntu acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ]
+    },
+    "debian": {
+      "status": "passed",
+      "caseCount": 2,
+      "reportSha256": "8610f6136b161f123aba5ff880f652318a7b8c73fc41e0ec806492d8f272f815",
+      "cases": [
+        {
+          "id": "MS10-contract",
+          "milestone": "MS10",
+          "suite": "contract",
+          "platform": "all",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 10.778,
+          "log": "/tmp/kai-ms10-opt3-native-debian/MS10-contract.log",
+          "logSha256": "ed6738c3e849587c17302a0a60c8393e22251cd3fc101250091f1eff3c4af318",
+          "expected": "distribution positive and negative public-interface contracts pass",
+          "evidence": "behavior assertions"
+        },
+        {
+          "id": "MS10-lab-debian",
+          "milestone": "MS10",
+          "suite": "lab",
+          "platform": "debian",
+          "status": "passed",
+          "exitCode": 0,
+          "sourceTreeDigest": "29441f690266915f0c30e961cd6e9bcc04dc2f5bffc57ad0c5be59c8cd922f9f",
+          "elapsedSeconds": 639.592,
+          "log": "/tmp/kai-ms10-opt3-native-debian/MS10-lab-debian.log",
+          "logSha256": "4ece25d9d11b1607588efff92531ef06f7da80b7220062560c83ee0a258408cb",
+          "expected": "distribution real debian acceptance passes",
+          "evidence": "image/rootfs digest, target receipts and actual commands"
+        }
+      ]
+    }
+  },
+  "offline": {
+    "fullDiscoveryTests": 118,
+    "fullDiscoveryStatus": "passed",
+    "requiredContractGroups": 11,
+    "legacyBaselineGroups": 15,
+    "fullDiscoveryLogSha256": "58afad827e2775726f21f0492d996d6089afe2c7a7a05e36ffac7d16d32736d7"
+  },
+  "consumers": {
+    "installedLayouts": 20,
+    "platforms": 5,
+    "modes": 2,
+    "consumers": [
+      "codex",
+      "opencode"
+    ],
+    "loader": "actual Reasonix Skill Store and capability router; temporary Codex/OpenCode installation layouts",
+    "liveCodexOrOpenCodeProcessTested": false,
+    "canonicalKaiLayers": 8,
+    "commonSkillsStoredOnce": true,
+    "routingCaseCount": 35
+  },
+  "release": {
+    "directory": "release/ms10-candidate",
+    "manifestSha256": "eefa0451303d64fd6051bde8b2ca5a116ad48d087bcac1c18d77a536378f6071",
+    "artifacts": 20,
+    "presets": 10,
+    "twoBuildsByteIdentical": true,
+    "allArchivesUnpackedAndInstalled": true,
+    "sourceState": "worktree"
+  },
+  "targets": {
+    "istoreos": {
+      "status": "passed",
+      "elapsedSeconds": 527.468,
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "istoreos",
+        "image": "kai-skills-lab/istoreos:20261026-ms01",
+        "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+        "source": {
+          "type": "immutable-istoreos-rom",
+          "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+          "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+          "sanitization": [
+            "factory SSH host keys",
+            "root authorized keys"
+          ],
+          "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+        },
+        "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+        "contextSha256": {
+          "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+          "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+        },
+        "buildNetwork": "host-package-download-only"
+      },
+      "requiredJourneys": 6,
+      "freshRepeatJourneys": 3,
+      "ms7ChannelEvidence": {
+        "status": "linked-prior-validation",
+        "source": "multisystem-ms7-results.json",
+        "sha256": "e33d881836cca8eb67f2da63063c7e9915b1bf06c4c93f1818943e9088e83031",
+        "meaning": "Prior ten-channel proof remains separate from this cycle current-instance Python/pip observations.",
+        "currentGatewayCandidate": {
+          "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+          "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+        },
+        "currentClientCandidate": {
+          "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+          "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+        }
+      },
+      "cycles": [
+        {
+          "mode": "on-device",
+          "cycle": "on-device",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/workspace/runtime/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 152,
+                  "defaultVerifyPaths": {
+                    "cafile": "/etc/ssl/cert.pem",
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793134553
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "359099e733883d947f51c1a71f6105f5",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "359099e733883d947f51c1a71f6105f5",
+                "requestId": 10,
+                "startedAt": "2026-10-27T20:57:56.14191872Z",
+                "finishedAt": "2026-10-27T20:57:57.319323588Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "359099e733883d947f51c1a71f6105f5",
+                "requestId": 11,
+                "startedAt": "2026-10-27T20:58:01.429534696Z",
+                "finishedAt": "2026-10-27T20:58:01.674435077Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "513aa2f7d4ffde437490146bbc103d1c40878504b15254d4a415e797b71590aa",
+            "freshGatewayCache": true
+          },
+          "systemCurlAndSSLUnchanged": true,
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793134517,
+              "finishedUnix": 1793134517,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793134517,
+              "finishedUnix": 1793134518,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793134518,
+              "finishedUnix": 1793134522,
+              "logSha256": "71217889414f9359dc772b8dd83b87d45d5e78e94272cb7c9764858573fefeb2",
+              "execution": "on-device"
+            },
+            "ensure-independent-core": {
+              "exitCode": 0,
+              "startedUnix": 1793134534,
+              "finishedUnix": 1793134535,
+              "logSha256": "d20710e24b5bb5f1de8c13eb2df37bc6e9eca9a36441b56818c396194be65a35",
+              "execution": "on-device"
+            },
+            "ensure-complete-jq": {
+              "exitCode": 0,
+              "startedUnix": 1793134535,
+              "finishedUnix": 1793134552,
+              "logSha256": "f5f54c0e17d6b35fefbfd5975d2f8f0babae6faf9d451af9f9666826faeb1088",
+              "execution": "on-device"
+            },
+            "configure-owned-runtime": {
+              "exitCode": 0,
+              "startedUnix": 1793134552,
+              "finishedUnix": 1793134552,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793134552,
+              "finishedUnix": 1793134552,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793134553,
+              "finishedUnix": 1793134553,
+              "logSha256": "ab19d7f3fedf01a833cb7ed9518454d2d2bf3e6737fa2588a0c01c4f592df5f4",
+              "execution": "on-device"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793134553,
+              "finishedUnix": 1793134553,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793134553,
+              "finishedUnix": 1793134559,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "on-device"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134560,
+              "finishedUnix": 1793134560,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134560,
+              "finishedUnix": 1793134592,
+              "logSha256": "3eb184fb28218b618f2853f4c0d97b9d8c04113edddf5dc2b69ec7bf080d91bd",
+              "execution": "on-device"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134592,
+              "finishedUnix": 1793134592,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134592,
+              "finishedUnix": 1793134592,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793134593,
+              "finishedUnix": 1793134593,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793134593,
+              "finishedUnix": 1793134669,
+              "logSha256": "a137a354d88d97863e58c8ba691b3ae2415b29f86c3d09187c9f135da789f26f",
+              "execution": "on-device"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793134669,
+              "finishedUnix": 1793134681,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "on-device"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793134682,
+              "finishedUnix": 1793134682,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "on-device"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793134682,
+              "finishedUnix": 1793134682,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793134682,
+              "finishedUnix": 1793134682,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793134682,
+              "finishedUnix": 1793134682,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793134682,
+              "finishedUnix": 1793134683,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793134683,
+              "finishedUnix": 1793134683,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "istoreos-on-device",
+            "treeDigest": "sha256:69b47f842feb4ea0249cf6458b0c6e67cc62b3273f1774693cd6b11e8131d2c6",
+            "sourceDigest": "sha256:da1116ec38a28136e56c370cac012c40595f25addc3f7cee1c576af3acab21bd"
+          },
+          "exactFinalArchiveMatched": true
+        },
+        {
+          "mode": "remote-control",
+          "cycle": "remote-control",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/workspace/runtime/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 152,
+                  "defaultVerifyPaths": {
+                    "cafile": "/etc/ssl/cert.pem",
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793134741
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "35727832ddea1a71ee2704ca87c7c399",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "35727832ddea1a71ee2704ca87c7c399",
+                "requestId": 13,
+                "startedAt": "2026-10-27T21:01:04.397797659Z",
+                "finishedAt": "2026-10-27T21:01:05.638494257Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "35727832ddea1a71ee2704ca87c7c399",
+                "requestId": 14,
+                "startedAt": "2026-10-27T21:01:05.680843983Z",
+                "finishedAt": "2026-10-27T21:01:05.772979852Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "9246bc521de4f6ced6218240460dec470ff13e5c9c42848b8a48e4b87c49ec8d",
+            "freshGatewayCache": true
+          },
+          "systemCurlAndSSLUnchanged": true,
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793134693,
+              "finishedUnix": 1793134693,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793134693,
+              "finishedUnix": 1793134694,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793134694,
+              "finishedUnix": 1793134700,
+              "logSha256": "71217889414f9359dc772b8dd83b87d45d5e78e94272cb7c9764858573fefeb2",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-independent-core": {
+              "exitCode": 0,
+              "startedUnix": 1793134715,
+              "finishedUnix": 1793134715,
+              "logSha256": "a9d40c73a2b4bcb14522aa7405e0f89414cde329d155da072c38decee6b7c053",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-complete-jq": {
+              "exitCode": 0,
+              "startedUnix": 1793134716,
+              "finishedUnix": 1793134741,
+              "logSha256": "cd15b5ffc9a4d93ecf176e18f8bfc7a054a1da4f76a4b4f195252e4fed6304ae",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "configure-owned-runtime": {
+              "exitCode": 0,
+              "startedUnix": 1793134741,
+              "finishedUnix": 1793134741,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793134741,
+              "finishedUnix": 1793134741,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793134741,
+              "finishedUnix": 1793134741,
+              "logSha256": "bd76612cc0e6f04731b927d112d646a09f3c3702fabd1f008d373795fc0ab2d7",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793134742,
+              "finishedUnix": 1793134742,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793134742,
+              "finishedUnix": 1793134751,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134751,
+              "finishedUnix": 1793134752,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134752,
+              "finishedUnix": 1793134802,
+              "logSha256": "4f099c6dcdbda7bf1ec64c7f05342a0f808b39ebfacc695f917bf96493129647",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134802,
+              "finishedUnix": 1793134802,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134802,
+              "finishedUnix": 1793134802,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793134803,
+              "finishedUnix": 1793134803,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793134803,
+              "finishedUnix": 1793134854,
+              "logSha256": "a540127a382be03be2cfa61b5d9cf2f09756e36fa65d842294d13a849f793746",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793134854,
+              "finishedUnix": 1793134865,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793134866,
+              "finishedUnix": 1793134866,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793134866,
+              "finishedUnix": 1793134866,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793134866,
+              "finishedUnix": 1793134866,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793134866,
+              "finishedUnix": 1793134866,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793134866,
+              "finishedUnix": 1793134866,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793134867,
+              "finishedUnix": 1793134867,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "istoreos-remote-control",
+            "treeDigest": "sha256:308c36a89c9985797638a22b72e52cd3549722cb86140699c1fdc2d54bc10865",
+            "sourceDigest": "sha256:c38e3b3f1d9c091fcdfb1777a2fdb09ebf86327e4db4e3cf9f00f64a141fd500"
+          },
+          "exactFinalArchiveMatched": true
+        },
+        {
+          "mode": "on-device",
+          "cycle": "fresh-repeat",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/workspace/runtime/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/workspace/runtime/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 152,
+                  "defaultVerifyPaths": {
+                    "cafile": "/etc/ssl/cert.pem",
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793134911
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "istoreos",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "ef2ea9fd4a4541a9f8eeeb9e995ee656",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "ef2ea9fd4a4541a9f8eeeb9e995ee656",
+                "requestId": 10,
+                "startedAt": "2026-10-27T21:03:49.20021337Z",
+                "finishedAt": "2026-10-27T21:03:52.443335019Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "ef2ea9fd4a4541a9f8eeeb9e995ee656",
+                "requestId": 11,
+                "startedAt": "2026-10-27T21:03:52.484322172Z",
+                "finishedAt": "2026-10-27T21:03:53.787910074Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "2aaa72dd3a1d533a117c7259d755285eb306a7d4277eab2b37a5eda734fbdca9",
+            "freshGatewayCache": true
+          },
+          "systemCurlAndSSLUnchanged": true,
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793134877,
+              "finishedUnix": 1793134877,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793134877,
+              "finishedUnix": 1793134878,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793134878,
+              "finishedUnix": 1793134882,
+              "logSha256": "71217889414f9359dc772b8dd83b87d45d5e78e94272cb7c9764858573fefeb2",
+              "execution": "on-device"
+            },
+            "ensure-independent-core": {
+              "exitCode": 0,
+              "startedUnix": 1793134897,
+              "finishedUnix": 1793134898,
+              "logSha256": "efd6e2240083293c722146f52de1bb0b57d095b04a05eed80146ca630dbdd65b",
+              "execution": "on-device"
+            },
+            "ensure-complete-jq": {
+              "exitCode": 0,
+              "startedUnix": 1793134899,
+              "finishedUnix": 1793134910,
+              "logSha256": "777c408788c2141b4797e6171ab54ce42e5647daf24e42738c7e07e6fcb54565",
+              "execution": "on-device"
+            },
+            "configure-owned-runtime": {
+              "exitCode": 0,
+              "startedUnix": 1793134911,
+              "finishedUnix": 1793134911,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793134911,
+              "finishedUnix": 1793134911,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793134911,
+              "finishedUnix": 1793134911,
+              "logSha256": "f4b34cb63ddcd67063648fd3048b81c0f4c46e118bbf132b54d7ad6cc2aaca6f",
+              "execution": "on-device"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793134911,
+              "finishedUnix": 1793134911,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793134912,
+              "finishedUnix": 1793134918,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "on-device"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134918,
+              "finishedUnix": 1793134918,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134918,
+              "finishedUnix": 1793134967,
+              "logSha256": "96abea7185427fb4151907b1cc7a8dc7a2d842e98c2f8d44e1c3377c44c5bf18",
+              "execution": "on-device"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134967,
+              "finishedUnix": 1793134967,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793134968,
+              "finishedUnix": 1793134968,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793134968,
+              "finishedUnix": 1793134968,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793134968,
+              "finishedUnix": 1793135024,
+              "logSha256": "b31076f6bca616375bc32bbb1602db289222a01a1adfb4e29d59c2f3199338af",
+              "execution": "on-device"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793135024,
+              "finishedUnix": 1793135033,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "on-device"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793135034,
+              "finishedUnix": 1793135034,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "on-device"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135034,
+              "finishedUnix": 1793135034,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793135034,
+              "finishedUnix": 1793135034,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793135034,
+              "finishedUnix": 1793135035,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793135035,
+              "finishedUnix": 1793135035,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135035,
+              "finishedUnix": 1793135035,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "istoreos-on-device",
+            "treeDigest": "sha256:69b47f842feb4ea0249cf6458b0c6e67cc62b3273f1774693cd6b11e8131d2c6",
+            "sourceDigest": "sha256:da1116ec38a28136e56c370cac012c40595f25addc3f7cee1c576af3acab21bd"
+          },
+          "exactFinalArchiveMatched": true
+        }
+      ]
+    },
+    "ubuntu": {
+      "status": "passed",
+      "elapsedSeconds": 701.331,
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "ubuntu",
+        "image": "kai-skills-lab/ubuntu:20261026-ms01",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+        "source": {
+          "type": "registry",
+          "reference": "ubuntu:24.04",
+          "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+          "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+        },
+        "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+        "buildNetwork": "host-package-download-only"
+      },
+      "requiredJourneys": 6,
+      "freshRepeatJourneys": 3,
+      "ms7ChannelEvidence": {
+        "status": "linked-prior-validation",
+        "source": "multisystem-ms7-results.json",
+        "sha256": "e33d881836cca8eb67f2da63063c7e9915b1bf06c4c93f1818943e9088e83031",
+        "meaning": "Prior ten-channel proof remains separate from this cycle current-instance Python/pip observations.",
+        "currentGatewayCandidate": {
+          "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+          "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+        },
+        "currentClientCandidate": {
+          "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+          "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+        }
+      },
+      "cycles": [
+        {
+          "mode": "on-device",
+          "cycle": "on-device",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 0,
+                  "defaultVerifyPaths": {
+                    "cafile": null,
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793135138
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "8b605795070e5cfb4b007be4e2ef890a",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "8b605795070e5cfb4b007be4e2ef890a",
+                "requestId": 12,
+                "startedAt": "2026-10-27T21:07:23.043351619Z",
+                "finishedAt": "2026-10-27T21:07:27.223867674Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "8b605795070e5cfb4b007be4e2ef890a",
+                "requestId": 15,
+                "startedAt": "2026-10-27T21:07:42.279314794Z",
+                "finishedAt": "2026-10-27T21:07:45.353696955Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "cf79256be2ce397915d54d2515e44a0598e814199c8e4f15714d1f3e47afbc55",
+            "freshGatewayCache": true
+          },
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793135057,
+              "finishedUnix": 1793135057,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793135057,
+              "finishedUnix": 1793135088,
+              "logSha256": "5b09956fd169dede0ee06789bd68fd799687ffe839feadb6e91ec4524df60d1c",
+              "execution": "on-device"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793135088,
+              "finishedUnix": 1793135121,
+              "logSha256": "61226e07d14accc1b28699a55b0c5d6a198c6db52a7dbc3bbe02145d9ed83d66",
+              "execution": "on-device"
+            },
+            "ensure-core": {
+              "exitCode": 0,
+              "startedUnix": 1793135137,
+              "finishedUnix": 1793135137,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793135137,
+              "finishedUnix": 1793135138,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793135138,
+              "finishedUnix": 1793135138,
+              "logSha256": "5d4b7bf1c8c3dbdf30a6b4f213b3f1e978b87a05a9241e4b12da2a91dc6b1263",
+              "execution": "on-device"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793135138,
+              "finishedUnix": 1793135138,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793135138,
+              "finishedUnix": 1793135149,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "on-device"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135149,
+              "finishedUnix": 1793135149,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135149,
+              "finishedUnix": 1793135192,
+              "logSha256": "d867df570cb801cb8dcf1d83a1c5776c36c27ac8eb830080425c4527110db68d",
+              "execution": "on-device"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135192,
+              "finishedUnix": 1793135192,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135192,
+              "finishedUnix": 1793135193,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793135193,
+              "finishedUnix": 1793135193,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793135193,
+              "finishedUnix": 1793135234,
+              "logSha256": "55c0cedb298f6afce32c39948578e6dae9cad50f39cc991e66704a7d47f2ebb7",
+              "execution": "on-device"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793135235,
+              "finishedUnix": 1793135265,
+              "logSha256": "c4e3bdf24f569c71fd4f6501cd9bb940f5f11fe8b11be979ef7d1e961765dd7f",
+              "execution": "on-device"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793135265,
+              "finishedUnix": 1793135265,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "on-device"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135265,
+              "finishedUnix": 1793135265,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793135266,
+              "finishedUnix": 1793135266,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793135266,
+              "finishedUnix": 1793135266,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793135266,
+              "finishedUnix": 1793135266,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135266,
+              "finishedUnix": 1793135266,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "ubuntu-on-device",
+            "treeDigest": "sha256:782947933a65e1e3ef67b1206b98bfe800df4f4e3f7d0c3fe7425601f6650ed1",
+            "sourceDigest": "sha256:f5188093609e8dd74c38a739dff7d9311f8e05c3a98adf6d997ab7949a938ac2"
+          },
+          "exactFinalArchiveMatched": true
+        },
+        {
+          "mode": "remote-control",
+          "cycle": "remote-control",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 0,
+                  "defaultVerifyPaths": {
+                    "cafile": null,
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793135390
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "6feb62c678255baf259530f98684f410",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "6feb62c678255baf259530f98684f410",
+                "requestId": 11,
+                "startedAt": "2026-10-27T21:12:28.394836835Z",
+                "finishedAt": "2026-10-27T21:12:28.56924932Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "6feb62c678255baf259530f98684f410",
+                "requestId": 12,
+                "startedAt": "2026-10-27T21:12:28.661356632Z",
+                "finishedAt": "2026-10-27T21:12:28.731403062Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "6ee7d42bed80bda14e2ad382828378d3c515e30abd59162ad74bcaf2525c70a7",
+            "freshGatewayCache": true
+          },
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793135273,
+              "finishedUnix": 1793135273,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793135274,
+              "finishedUnix": 1793135343,
+              "logSha256": "837fa5769d5231c363ce4c8570d4272dd976d5bef665d6b7926df31dd2412fb7",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793135343,
+              "finishedUnix": 1793135376,
+              "logSha256": "8183327f7611fc024640de3610b4496d6a3139067f7b43f68e3b0ff7d5d3e248",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-core": {
+              "exitCode": 0,
+              "startedUnix": 1793135389,
+              "finishedUnix": 1793135389,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793135389,
+              "finishedUnix": 1793135389,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793135390,
+              "finishedUnix": 1793135390,
+              "logSha256": "cf49c3f7557d8984bad3d56b21037fc0fe52ee3e671382aa50e0a062047e591f",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793135390,
+              "finishedUnix": 1793135390,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793135391,
+              "finishedUnix": 1793135401,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135401,
+              "finishedUnix": 1793135402,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135402,
+              "finishedUnix": 1793135448,
+              "logSha256": "5368eb76442a360e606d019be634cd05addaef347004193f197b224c58ea9c13",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135448,
+              "finishedUnix": 1793135448,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135449,
+              "finishedUnix": 1793135449,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793135450,
+              "finishedUnix": 1793135450,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793135450,
+              "finishedUnix": 1793135544,
+              "logSha256": "6f1aba2e8a9d5fb43c93f6d786d7b698333420e518552b64ea82f3e6180d0558",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793135545,
+              "finishedUnix": 1793135548,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793135549,
+              "finishedUnix": 1793135549,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135549,
+              "finishedUnix": 1793135549,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793135550,
+              "finishedUnix": 1793135550,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793135550,
+              "finishedUnix": 1793135550,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793135551,
+              "finishedUnix": 1793135551,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135551,
+              "finishedUnix": 1793135551,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "ubuntu-remote-control",
+            "treeDigest": "sha256:596aa4cc6ca170de2c7f7dce2e3b6c9cc2a1549781f31f176a71c1edc22bdfd0",
+            "sourceDigest": "sha256:66faabd97d6b3f299acdc89e9ca0c3247cfdad4a2541927dbb556be268ab5939"
+          },
+          "exactFinalArchiveMatched": true
+        },
+        {
+          "mode": "on-device",
+          "cycle": "fresh-repeat",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 0,
+                  "defaultVerifyPaths": {
+                    "cafile": null,
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793135631
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "ubuntu",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "8d3c0e2817bffb20e74bb84b8c2ec6e4",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "8d3c0e2817bffb20e74bb84b8c2ec6e4",
+                "requestId": 12,
+                "startedAt": "2026-10-27T21:15:33.029406973Z",
+                "finishedAt": "2026-10-27T21:15:41.599576658Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "8d3c0e2817bffb20e74bb84b8c2ec6e4",
+                "requestId": 13,
+                "startedAt": "2026-10-27T21:15:41.630249293Z",
+                "finishedAt": "2026-10-27T21:15:47.112350627Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "c19a78a03e76db7b72e9245abf7bb94a9344d6317f32ed4ce27409cecf188036",
+            "freshGatewayCache": true
+          },
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793135560,
+              "finishedUnix": 1793135560,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793135561,
+              "finishedUnix": 1793135575,
+              "logSha256": "4ce8d03bf9f54c3202d2cb65369b98a780f364f6463283918de0b42cc837be43",
+              "execution": "on-device"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793135575,
+              "finishedUnix": 1793135611,
+              "logSha256": "bc1e8953965b9e5932cc4e72762b141c9fc1545d006d0e98c7b6809ba716ff46",
+              "execution": "on-device"
+            },
+            "ensure-core": {
+              "exitCode": 0,
+              "startedUnix": 1793135630,
+              "finishedUnix": 1793135630,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793135630,
+              "finishedUnix": 1793135630,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793135631,
+              "finishedUnix": 1793135631,
+              "logSha256": "91eb7f626f8890187682c23877331f5fd3d9d4d81f65fcd4cc90017ab433d08f",
+              "execution": "on-device"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793135631,
+              "finishedUnix": 1793135631,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793135631,
+              "finishedUnix": 1793135637,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "on-device"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135638,
+              "finishedUnix": 1793135638,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135638,
+              "finishedUnix": 1793135681,
+              "logSha256": "5d4a265618e7186fb87efd1f2ebe425d99652f545e6f159dff3bae2fe887d616",
+              "execution": "on-device"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135682,
+              "finishedUnix": 1793135682,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793135682,
+              "finishedUnix": 1793135682,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793135682,
+              "finishedUnix": 1793135682,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793135683,
+              "finishedUnix": 1793135713,
+              "logSha256": "d8b67f151243a0bf6367a4635121d39853ad5e518ca3d16a094c0ef1eb4d68e8",
+              "execution": "on-device"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793135713,
+              "finishedUnix": 1793135747,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "on-device"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793135747,
+              "finishedUnix": 1793135747,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "on-device"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135747,
+              "finishedUnix": 1793135747,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793135747,
+              "finishedUnix": 1793135747,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793135748,
+              "finishedUnix": 1793135748,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793135748,
+              "finishedUnix": 1793135748,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793135748,
+              "finishedUnix": 1793135748,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "ubuntu-on-device",
+            "treeDigest": "sha256:782947933a65e1e3ef67b1206b98bfe800df4f4e3f7d0c3fe7425601f6650ed1",
+            "sourceDigest": "sha256:f5188093609e8dd74c38a739dff7d9311f8e05c3a98adf6d997ab7949a938ac2"
+          },
+          "exactFinalArchiveMatched": true
+        }
+      ]
+    },
+    "debian": {
+      "status": "passed",
+      "elapsedSeconds": 639.592,
+      "imageLock": {
+        "schemaVersion": 1,
+        "target": "debian",
+        "image": "kai-skills-lab/debian:20261026-ms01",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+        "source": {
+          "type": "registry",
+          "reference": "debian:12",
+          "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+          "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+        },
+        "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+        "buildNetwork": "host-package-download-only"
+      },
+      "requiredJourneys": 6,
+      "freshRepeatJourneys": 3,
+      "ms7ChannelEvidence": {
+        "status": "linked-prior-validation",
+        "source": "multisystem-ms7-results.json",
+        "sha256": "e33d881836cca8eb67f2da63063c7e9915b1bf06c4c93f1818943e9088e83031",
+        "meaning": "Prior ten-channel proof remains separate from this cycle current-instance Python/pip observations.",
+        "currentGatewayCandidate": {
+          "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+          "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+        },
+        "currentClientCandidate": {
+          "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+          "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+        }
+      },
+      "cycles": [
+        {
+          "mode": "on-device",
+          "cycle": "on-device",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 0,
+                  "defaultVerifyPaths": {
+                    "cafile": null,
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793136317
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "0c4bebaafaf3d2ff067e5137e61e220a",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "0c4bebaafaf3d2ff067e5137e61e220a",
+                "requestId": 11,
+                "startedAt": "2026-10-27T21:27:35.579547483Z",
+                "finishedAt": "2026-10-27T21:27:35.753514237Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "0c4bebaafaf3d2ff067e5137e61e220a",
+                "requestId": 12,
+                "startedAt": "2026-10-27T21:27:39.806319476Z",
+                "finishedAt": "2026-10-27T21:27:39.848651767Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "c4cf00c0ad3bf516a134d70b7a6b88771fee2e06784a198c8bfe44191e6695d9",
+            "freshGatewayCache": true
+          },
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793136253,
+              "finishedUnix": 1793136253,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793136253,
+              "finishedUnix": 1793136273,
+              "logSha256": "afb79252f99e8aed540830f0f6e219c2a8ffeb986afc7c27efd89ffc13516a02",
+              "execution": "on-device"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793136273,
+              "finishedUnix": 1793136305,
+              "logSha256": "23671c9f8047ac28ce5e013cfb0579971abc17ae0994b6825f5ad1deaf8676f6",
+              "execution": "on-device"
+            },
+            "ensure-core": {
+              "exitCode": 0,
+              "startedUnix": 1793136317,
+              "finishedUnix": 1793136317,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793136317,
+              "finishedUnix": 1793136317,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793136317,
+              "finishedUnix": 1793136317,
+              "logSha256": "c4061b8facd91ec5b149fb0e2e9e480c1bfb06422cfa1318a5e93249bed587e8",
+              "execution": "on-device"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793136318,
+              "finishedUnix": 1793136318,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793136318,
+              "finishedUnix": 1793136326,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "on-device"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136326,
+              "finishedUnix": 1793136327,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136327,
+              "finishedUnix": 1793136356,
+              "logSha256": "3eb184fb28218b618f2853f4c0d97b9d8c04113edddf5dc2b69ec7bf080d91bd",
+              "execution": "on-device"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136356,
+              "finishedUnix": 1793136356,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136356,
+              "finishedUnix": 1793136356,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793136357,
+              "finishedUnix": 1793136357,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793136357,
+              "finishedUnix": 1793136431,
+              "logSha256": "1478be0599bf0a66af9bd23d18181048760aba4cf3e60de0daa8ca93f0983eaf",
+              "execution": "on-device"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793136431,
+              "finishedUnix": 1793136460,
+              "logSha256": "6720a332acc47f9e2b56bfb2da3008d0a41fa62fe4f5f6a5c205638ea89987d1",
+              "execution": "on-device"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793136460,
+              "finishedUnix": 1793136460,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "on-device"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793136460,
+              "finishedUnix": 1793136460,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793136460,
+              "finishedUnix": 1793136461,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793136461,
+              "finishedUnix": 1793136461,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793136461,
+              "finishedUnix": 1793136461,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793136462,
+              "finishedUnix": 1793136462,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "debian-on-device",
+            "treeDigest": "sha256:f99dcaa1dd7734b4b080b949fef6993cda8a29ae8cf4bb8a28e72e8ad0260afa",
+            "sourceDigest": "sha256:fc49c13348bb32fbb4d7517cc063c3dd421c88305985370395fa40c82e57eb46"
+          },
+          "exactFinalArchiveMatched": true
+        },
+        {
+          "mode": "remote-control",
+          "cycle": "remote-control",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 0,
+                  "defaultVerifyPaths": {
+                    "cafile": null,
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793136585
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "7b0d66fb13fcbe9fcccdd7f66cc10493",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "7b0d66fb13fcbe9fcccdd7f66cc10493",
+                "requestId": 10,
+                "startedAt": "2026-10-27T21:31:19.264581496Z",
+                "finishedAt": "2026-10-27T21:31:21.443407564Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "7b0d66fb13fcbe9fcccdd7f66cc10493",
+                "requestId": 12,
+                "startedAt": "2026-10-27T21:31:32.106702766Z",
+                "finishedAt": "2026-10-27T21:31:33.467413443Z",
+                "method": "GET",
+                "host": "pypi-files.linkease.net",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              },
+              {
+                "schemaVersion": 1,
+                "instanceId": "7b0d66fb13fcbe9fcccdd7f66cc10493",
+                "requestId": 11,
+                "startedAt": "2026-10-27T21:31:21.475674936Z",
+                "finishedAt": "2026-10-27T21:31:33.46795292Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "a6d9ed7e776548398de95c0be0e1c810d76b1a3c9290c52646123ee6775eb3b2",
+            "freshGatewayCache": true
+          },
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793136468,
+              "finishedUnix": 1793136468,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793136468,
+              "finishedUnix": 1793136540,
+              "logSha256": "efc2011d735087d5aed5b66e28e79cc6cc4aaacb8ac9237e50999e23279b56b7",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793136540,
+              "finishedUnix": 1793136572,
+              "logSha256": "1d87a46045e0d02ba06030c1c8e51f3f2c9c86abd49b37e1505ec339707639c5",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "ensure-core": {
+              "exitCode": 0,
+              "startedUnix": 1793136584,
+              "finishedUnix": 1793136584,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793136585,
+              "finishedUnix": 1793136585,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793136585,
+              "finishedUnix": 1793136585,
+              "logSha256": "28ca1c828088d43e826771c838b87714e788a61621cc8579e9a7ff6dbbc354ea",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793136586,
+              "finishedUnix": 1793136586,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793136586,
+              "finishedUnix": 1793136593,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136593,
+              "finishedUnix": 1793136593,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136594,
+              "finishedUnix": 1793136629,
+              "logSha256": "e9a3035f565145b065cbbe1205fdfd9769e1509af6943c87022299a7b0930d80",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136629,
+              "finishedUnix": 1793136629,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136630,
+              "finishedUnix": 1793136630,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793136631,
+              "finishedUnix": 1793136631,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793136631,
+              "finishedUnix": 1793136675,
+              "logSha256": "3b0ab0d45c88d4b83955338de9be536a759b23452f596d653264fc6ce128f6b9",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793136676,
+              "finishedUnix": 1793136693,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793136694,
+              "finishedUnix": 1793136694,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793136694,
+              "finishedUnix": 1793136694,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793136694,
+              "finishedUnix": 1793136695,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793136695,
+              "finishedUnix": 1793136695,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793136696,
+              "finishedUnix": 1793136696,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793136696,
+              "finishedUnix": 1793136696,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "pinned-ssh-target-transport"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "debian-remote-control",
+            "treeDigest": "sha256:992c88e3e48667cd44b10dc15d95d1b5a7fa0cdb1d4e10d268e47e9f7758ab28",
+            "sourceDigest": "sha256:8d4f9f8c2d6c0e3d2037049f45acfa50b3f8d7d56b03ef3bcdd122490b6de451"
+          },
+          "exactFinalArchiveMatched": true
+        },
+        {
+          "mode": "on-device",
+          "cycle": "fresh-repeat",
+          "status": "passed",
+          "freshContainer": true,
+          "freshHome": true,
+          "freshProject": true,
+          "freshClientCache": true,
+          "freshGatewayCache": true,
+          "journeys": [
+            {
+              "task": "find-install-use-software",
+              "status": "passed",
+              "version": "v0.1.0",
+              "sha256": "ce5f57bf9460c1e3a3e7dfed6a57d992877e854a544e4ecc635c5456fd47ed67"
+            },
+            {
+              "task": "install-sdk-and-run-dependency-project",
+              "status": "passed",
+              "sdk": {
+                "schemaVersion": 1,
+                "status": "passed",
+                "operation": "install",
+                "spec": "python@3.13.7",
+                "installRoot": "/root/.local/share/mise/installs/python/3.13.7",
+                "scope": "none",
+                "runtimeValidation": "passed",
+                "details": {
+                  "executable": "/root/.local/share/mise/installs/python/3.13.7/bin/python3.13",
+                  "version": "3.13.7",
+                  "modules": "passed",
+                  "loadedCaCount": 0,
+                  "defaultVerifyPaths": {
+                    "cafile": null,
+                    "capath": "/etc/ssl/certs",
+                    "openssl_cafile_env": "SSL_CERT_FILE",
+                    "openssl_cafile": "/etc/ssl/cert.pem",
+                    "openssl_capath_env": "SSL_CERT_DIR",
+                    "openssl_capath": "/etc/ssl/certs"
+                  },
+                  "trustHandshake": "not-tested"
+                },
+                "exitCode": 0
+              },
+              "dependency": "idna==3.10",
+              "functionalOutput": "idna:3.10:venv-functional",
+              "projectLockUnchanged": true
+            },
+            {
+              "task": "space-and-file-search",
+              "status": "passed",
+              "scope": "/workspace/samples",
+              "topFile": {
+                "size": 2097152,
+                "storagePath": "/workspace/samples/big file.bin",
+                "displayPath": "/workspace/samples/big file.bin",
+                "isDir": false,
+                "logicalBytes": 2097152,
+                "allocatedBytes": 2097152,
+                "attributedBytes": 2097152,
+                "hardLinks": 1,
+                "reclaimableUpperBoundBytes": 2097152
+              },
+              "match": {
+                "id": "",
+                "libraryId": "",
+                "generation": 0,
+                "kind": "scan",
+                "path": "/目标 file.txt",
+                "name": "目标 file.txt",
+                "isDir": false,
+                "size": 5,
+                "modTime": 1793136773
+              },
+              "persistence": "persistent"
+            }
+          ],
+          "clientCandidate": {
+            "executable": "/workspace/candidate-bin/ks-cli",
+            "version": "0.8.5-dev-ms7.1 commit=25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5 build-number=kai-ms7-opt1",
+            "sha256": "66a1317e81e169240befa8eb11ed63c2844f2850631869643cdf4d1beb0ad6f1",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCandidate": {
+            "sha256": "44e944d0f71da8c73ec7906a58c0f0d9c9072d7b2b788fc3dc5fa3c4a293509f",
+            "sourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5"
+          },
+          "gatewayCapabilities": {
+            "schema_version": 1,
+            "service": {
+              "version": "0.7.16",
+              "commit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+              "build_number": "kai-ms7-opt1"
+            },
+            "capabilities": [
+              "alias.node-unofficial.v1",
+              "download-gateway.v1",
+              "download-observation.v1",
+              "download-response-status.v1",
+              "route.github-release.v1",
+              "route.git-github.v1",
+              "route.go-sdk.v1",
+              "route.golang.v1",
+              "route.homebrew-api.v1",
+              "route.mise-versions.v1",
+              "route.nodejs-org.v1",
+              "route.npm.v1",
+              "route.pypi.v1"
+            ]
+          },
+          "core": {
+            "schemaVersion": 1,
+            "tool": "zsetup",
+            "platform": "debian",
+            "status": "reused",
+            "path": "/root/.local/bin/zsetup",
+            "version": "0.5.1",
+            "minimumVersion": "0.5.0",
+            "owner": "kai-bootstrap",
+            "reason": "",
+            "nextStep": "",
+            "commands": [],
+            "serviceOperations": false,
+            "exitCode": 0
+          },
+          "currentDependencyTraversal": {
+            "status": "passed",
+            "instanceId": "055708f52004b998967aa2876f4cad2a",
+            "metadata": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "055708f52004b998967aa2876f4cad2a",
+                "requestId": 9,
+                "startedAt": "2026-10-27T21:34:26.864529955Z",
+                "finishedAt": "2026-10-27T21:34:29.042754277Z",
+                "method": "GET",
+                "host": "dl-pypi.linkease.net:5443",
+                "path": "/simple/idna/",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 39706,
+                "sha256": "84a82f476ef963d3a65a5a9ed1ac044f5bde051457fa34c59e7e3d54caaa4f9e",
+                "transportCompleted": true
+              }
+            ],
+            "artifact": [
+              {
+                "schemaVersion": 1,
+                "instanceId": "055708f52004b998967aa2876f4cad2a",
+                "requestId": 10,
+                "startedAt": "2026-10-27T21:34:29.075896145Z",
+                "finishedAt": "2026-10-27T21:34:41.327164616Z",
+                "method": "GET",
+                "host": "dl-pypi-files.linkease.net:5443",
+                "path": "/packages/76/c6/c88e154df9c4e1a2a66ccf0005a88dfb2650c1dffb6f5ce603dfbd452ce3/idna-3.10-py3-none-any.whl",
+                "listenPort": 5443,
+                "tls": true,
+                "status": 200,
+                "bytes": 70442,
+                "sha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+                "transportCompleted": true
+              }
+            ],
+            "artifactSha256": "946d195a0d259cbba61165e88e65941f16e9b36ea6ddb97f00452bae8b1287d3",
+            "nativeProjectPassed": true,
+            "gatewayLogSha256": "149c02cc4f6e9cbc062da5c4cc19a87c2eb5deba51f664e3f8caecad26fc81c0",
+            "freshGatewayCache": true
+          },
+          "globalConfigurationAndProtectedMarkerUnchanged": true,
+          "captures": {
+            "native-identity": {
+              "exitCode": 0,
+              "startedUnix": 1793136703,
+              "finishedUnix": 1793136703,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "ensure-mise": {
+              "exitCode": 0,
+              "startedUnix": 1793136704,
+              "finishedUnix": 1793136723,
+              "logSha256": "484daf1795a49a9a537bd3be71ee997d7d76bf6ba5d12f44741078c82cf7571b",
+              "execution": "on-device"
+            },
+            "ensure-client": {
+              "exitCode": 0,
+              "startedUnix": 1793136723,
+              "finishedUnix": 1793136757,
+              "logSha256": "a1e9120f837434e968d600372a5c0be9a72de9e5586f20936424156df5be323d",
+              "execution": "on-device"
+            },
+            "ensure-core": {
+              "exitCode": 0,
+              "startedUnix": 1793136773,
+              "finishedUnix": 1793136773,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "core-probe": {
+              "exitCode": 0,
+              "startedUnix": 1793136773,
+              "finishedUnix": 1793136773,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "owned-fixtures": {
+              "exitCode": 0,
+              "startedUnix": 1793136774,
+              "finishedUnix": 1793136774,
+              "logSha256": "09f4de2caca1526b1cd2c8461dd92433502236284149ce3ec80a73420a032c5d",
+              "execution": "on-device"
+            },
+            "guards-before": {
+              "exitCode": 0,
+              "startedUnix": 1793136774,
+              "finishedUnix": 1793136774,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "refresh-internal": {
+              "exitCode": 0,
+              "startedUnix": 1793136774,
+              "finishedUnix": 1793136784,
+              "logSha256": "9ed8534560caa65a7569606e03b14d388042b23bd82235139e4157df898e43d6",
+              "execution": "on-device"
+            },
+            "find-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136785,
+              "finishedUnix": 1793136785,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136785,
+              "finishedUnix": 1793136829,
+              "logSha256": "8f808a69449b653e6fe66acb684832cfe1b3eaf6534f04c0bfb62f939cf2e2ea",
+              "execution": "on-device"
+            },
+            "verify-published-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136829,
+              "finishedUnix": 1793136829,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "use-installed-software": {
+              "exitCode": 0,
+              "startedUnix": 1793136830,
+              "finishedUnix": 1793136830,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "project-lock-before": {
+              "exitCode": 0,
+              "startedUnix": 1793136831,
+              "finishedUnix": 1793136831,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "install-sdk": {
+              "exitCode": 0,
+              "startedUnix": 1793136831,
+              "finishedUnix": 1793136858,
+              "logSha256": "075cb0a7b897627598ec5c1f651e2283b189edaa4701e99c04e403e7b424c14d",
+              "execution": "on-device"
+            },
+            "install-project-dependencies": {
+              "exitCode": 0,
+              "startedUnix": 1793136858,
+              "finishedUnix": 1793136881,
+              "logSha256": "c276d8a8c1c207d7ea7a0b526425ccca8581d1555196cd936d664997c9223774",
+              "execution": "on-device"
+            },
+            "run-real-project": {
+              "exitCode": 0,
+              "startedUnix": 1793136881,
+              "finishedUnix": 1793136881,
+              "logSha256": "1166cd62f8a0d51ed80a343b2a4167ad960d021e80048cd989fff213af5a9d2f",
+              "execution": "on-device"
+            },
+            "project-lock-after": {
+              "exitCode": 0,
+              "startedUnix": 1793136882,
+              "finishedUnix": 1793136882,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "analyze-space": {
+              "exitCode": 0,
+              "startedUnix": 1793136882,
+              "finishedUnix": 1793136882,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "search-files": {
+              "exitCode": 0,
+              "startedUnix": 1793136882,
+              "finishedUnix": 1793136882,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "storage-persistence": {
+              "exitCode": 0,
+              "startedUnix": 1793136883,
+              "finishedUnix": 1793136883,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            },
+            "guards-after": {
+              "exitCode": 0,
+              "startedUnix": 1793136883,
+              "finishedUnix": 1793136883,
+              "logSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+              "execution": "on-device"
+            }
+          },
+          "cleanup": "passed",
+          "bundle": {
+            "id": "debian-on-device",
+            "treeDigest": "sha256:f99dcaa1dd7734b4b080b949fef6993cda8a29ae8cf4bb8a28e72e8ad0260afa",
+            "sourceDigest": "sha256:fc49c13348bb32fbb4d7517cc063c3dd421c88305985370395fa40c82e57eb46"
+          },
+          "exactFinalArchiveMatched": true
+        }
+      ]
+    }
+  },
+  "requiredJourneys": 18,
+  "freshRepeatJourneys": 9,
+  "pending": [
+    "macOS native kernel/Homebrew/launchd",
+    "Windows native kernel/WinGet COM/PowerShell 5.1/cmd/MSYS/volume APIs",
+    "architectures outside native Linux x64",
+    "uncovered real kernel and service lifecycle behavior"
+  ],
+  "boundaries": {
+    "systemCurlLibrariesAndOpkgNotUpgraded": true,
+    "realAgentDirectoriesUnchanged": true,
+    "windowsConnections": 0,
+    "published": false,
+    "productionDeployment": false
+  },
+  "additionalOwnerRegression": {
+    "status": "pre-existing-boot-failures-confirmed-no-new-failures",
+    "scope": "Additional Skill|Capability Agent/Boot checks outside the frozen 15-group legacy baseline; required baseline remains passed.",
+    "baselineCommit": "b02cd539126ed7df8fa314d50fae54336659d046",
+    "baselineMethod": "Isolated git archive HEAD on SSD; exact same Go test commands and toolchain.",
+    "bootFailureTopLevelTests": 6,
+    "results": {
+      "boot-current": {
+        "failedTests": [
+          "TestBuildEnablesHostSessionMCPForCapabilityDispatch",
+          "TestBuildRunSkillSubagentRegistryHonorsReadOnlyFlag",
+          "TestUseCapabilityCallDispatchesHiddenGrep",
+          "TestUseCapabilityDispatchesOptionalToolsWithoutSchemaGrowth",
+          "TestUseCapabilityDispatchesOptionalToolsWithoutSchemaGrowth/grep",
+          "TestUseCapabilityDispatchesOptionalToolsWithoutSchemaGrowth/ls",
+          "TestUseCapabilitySetsOnlyTheCurrentSessionTitle",
+          "TestUseCapabilityWorksInPlanMode"
+        ],
+        "passedTestEvents": 24,
+        "packageStatus": "fail",
+        "logSha256": "37ca8138915cbde5dd6b3458420ac34519d61c69361f48aad1ecd27f97771563"
+      },
+      "boot-baseline": {
+        "failedTests": [
+          "TestBuildEnablesHostSessionMCPForCapabilityDispatch",
+          "TestBuildRunSkillSubagentRegistryHonorsReadOnlyFlag",
+          "TestUseCapabilityCallDispatchesHiddenGrep",
+          "TestUseCapabilityDispatchesOptionalToolsWithoutSchemaGrowth",
+          "TestUseCapabilityDispatchesOptionalToolsWithoutSchemaGrowth/grep",
+          "TestUseCapabilityDispatchesOptionalToolsWithoutSchemaGrowth/ls",
+          "TestUseCapabilitySetsOnlyTheCurrentSessionTitle",
+          "TestUseCapabilityWorksInPlanMode"
+        ],
+        "passedTestEvents": 24,
+        "packageStatus": "fail",
+        "logSha256": "a52ad169f36769587edbc35a40ee718aca3e5c0b32ae1f065597b8590a5bdc44"
+      },
+      "agent-current": {
+        "failedTests": [],
+        "passedTestEvents": 57,
+        "packageStatus": "pass",
+        "logSha256": "21423eee7fb1efd2fc8d4a90c28801784b32c8cbf62d275a6aaab97eaf44e542"
+      }
+    },
+    "dependencyProxyTimeoutResolved": "Process-only official Go proxy retry; original module version and go.sum unchanged."
+  },
+  "nineIndependentGatewayInstances": true,
+  "collectorCompatibilityProbes": [
+    {
+      "target": "debian",
+      "status": "passed",
+      "parserVersion": "jq-1.6",
+      "literalArguments": true,
+      "originalExitCode": 37,
+      "targetLogSha256": "9b8d5706c47176c9a1c3510de89815d34ee734ef42face30a1efab140427c6fa"
+    },
+    {
+      "target": "ubuntu",
+      "status": "passed",
+      "parserVersion": "jq-1.7",
+      "literalArguments": true,
+      "originalExitCode": 37,
+      "targetLogSha256": "9b8d5706c47176c9a1c3510de89815d34ee734ef42face30a1efab140427c6fa"
+    },
+    {
+      "target": "istoreos",
+      "status": "passed",
+      "parserVersion": "jq-1.8.1",
+      "literalArguments": true,
+      "originalExitCode": 37,
+      "targetLogSha256": "9b8d5706c47176c9a1c3510de89815d34ee734ef42face30a1efab140427c6fa"
+    }
+  ],
+  "measurementHistory": {
+    "debianOpt2": "Three on-device journeys passed; remote capture failed before bootstrap because jq 1.6 rejects $end; source artifacts unchanged.",
+    "debianOpt2ReportSha256": "6956b19aa306a2c36bdf490cb69a801d4631317d0959fea8846386baf767fddc",
+    "matrixSelection": "iStoreOS and Ubuntu optimization 2; Debian optimization 3. All match identical final archive bytes. No product or preset change in optimization 3."
+  },
+  "finalAudit": {
+    "ownedContainers": 0,
+    "ownedNetworks": 0,
+    "hostCurlSSLJqPackagePolicyUnchanged": true,
+    "hostSnapshotSha256": "bd6d3bd514a2fcde0c803d0e7ec7f38b8423cef33ef47148fcb52209522fa6a1",
+    "availableBytes": 22128656384,
+    "dockerRootUnchanged": true
+  },
+  "historicalReports": {
+    "initial-baseline": {
+      "status": "failed",
+      "reportSha256": "6ecadf4d8d085d1a1eec863bc7e6d1804c3bfaf20a9a60df0ecbf1da59167d78",
+      "retainedDirectory": "release/ms10-evidence/history/initial-baseline",
+      "failedCases": [
+        "MS0-baseline-00",
+        "MS0-baseline-02",
+        "MS0-baseline-03",
+        "MS0-baseline-06",
+        "MS0-baseline-09",
+        "MS0-baseline-14"
+      ]
+    },
+    "opt1-baseline": {
+      "status": "passed",
+      "reportSha256": "ebca9d97fe8f7f49e3c511534182d0d46e69f02b5e91a479f3b925d78db8e4cf",
+      "retainedDirectory": "release/ms10-evidence/history/opt1-baseline",
+      "failedCases": []
+    },
+    "opt1-ubuntu-native": {
+      "status": "passed",
+      "reportSha256": "697966cab0cdb4c9dc6a9751f093f6fcb714a4af10d4da9932b0a23d4accdd35",
+      "retainedDirectory": "release/ms10-evidence/history/opt1-ubuntu-native",
+      "failedCases": []
+    },
+    "opt2-debian-native": {
+      "status": "failed",
+      "reportSha256": "6956b19aa306a2c36bdf490cb69a801d4631317d0959fea8846386baf767fddc",
+      "retainedDirectory": "release/ms10-evidence/history/opt2-debian-native",
+      "failedCases": [
+        "MS10-lab-debian"
+      ]
+    }
+  }
+}

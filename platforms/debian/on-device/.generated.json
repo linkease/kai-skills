@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "debian-on-device",
+  "title": "Use an agent on debian",
+  "platform": "debian",
+  "mode": "on-device",
+  "aliases": [
+    "debian on-device"
+  ],
+  "path": ".",
+  "skillsRoot": "skills",
+  "generated": true,
+  "generatedFrom": [
+    "common",
+    "linux",
+    "debian"
+  ],
+  "componentVersions": {
+    "common": "1.0.0",
+    "linux": "1.0.0",
+    "debian": "1.0.0"
+  },
+  "sourceDigest": "sha256:29b528031327be643218a5c663ea415901010da1599658788eaf606f02d0ff05",
+  "treeDigest": "sha256:df7498659ccc0c18c00bfe7b0b8945cd3599b9d0b9d9d055528c008dfbbc6bb5",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
+}

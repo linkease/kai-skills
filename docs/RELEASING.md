@@ -10,7 +10,7 @@ sh tools/verify-generated.sh
 sh tools/build-release.sh release
 ```
 
-The release directory contains one `.tar.gz` and one `.zip` for every catalog preset plus `release-manifest.json`. Builds are deterministic for the same checkout. The manifest records the source commit, preset/version, archive SHA-256, and skill tree digest; every archive also contains the same information in `SOURCE.json`.
+The release directory contains one `.tar.gz` and one `.zip` for every catalog preset plus `release-manifest.json`. Builds are deterministic for the same checkout. The manifest records the source commit and sourceState, preset/version, archive SHA-256, and skill tree digest; every archive also contains the same information in `SOURCE.json`.
 
 Publish only when `git diff --exit-code`, all CI contracts, and a second release build comparison pass. Attach the manifest and all archives to the same release. Do not publish archives made from different commits under one manifest.
 
@@ -39,3 +39,11 @@ For an archive listed in the release manifest:
 2. Extract it and compare `SOURCE.json` with the release manifest.
 3. Recompute the digest of the `skills/` tree before installation.
 4. Use `--dry-run` and confirm that exactly one intended preset is selected.
+
+
+Ten presets cover Ubuntu, Debian, iStoreOS, macOS and Windows in both modes. Four retired
+iStoreOS primary IDs are migration aliases; their native interfaces ship as declared
+non-SKILL resources. Ownership hashes protect resources as well as active skills.
+A worktree candidate includes sourceDigest/treeDigest and sourceState=worktree; it is
+reviewable but is not a published release or a clean-commit provenance claim.
+Desktop offline completion does not imply native macOS/Windows acceptance.

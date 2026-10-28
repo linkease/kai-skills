@@ -6,7 +6,7 @@ systems: macos
 requires: target-shell:posix
 triggers: macOS 异常, Mac 诊断, 系统变慢, 磁盘空间, memory pressure, macOS health
 auto-use: prefer
-routing-group: macos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: low
 ---

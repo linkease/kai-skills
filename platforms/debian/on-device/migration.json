@@ -1,0 +1,141 @@
+{
+  "schemaVersion": 1,
+  "aliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  },
+  "activeSkills": [
+    "debian-system-diagnostics",
+    "kai-dev-environment",
+    "kai-download-acceleration",
+    "kai-project-dependencies",
+    "kai-software",
+    "kai-storage-files",
+    "kai-tool-bootstrap"
+  ],
+  "compatibilityResources": [],
+  "mapping": [
+    {
+      "oldId": "istoreos-app-diagnostics",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics"
+    },
+    {
+      "oldId": "istoreos-app-search",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search"
+    },
+    {
+      "oldId": "istoreos-backup-restore",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore"
+    },
+    {
+      "oldId": "istoreos-docker-acceleration-istoreenhance",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-docker-acceleration-istoreenhance",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance"
+    },
+    {
+      "oldId": "istoreos-docker-basics",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics"
+    },
+    {
+      "oldId": "istoreos-docker-data-root-migrate",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate"
+    },
+    {
+      "oldId": "istoreos-download-acceleration",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration"
+    },
+    {
+      "oldId": "istoreos-kspeeder-domainfold-fetch",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch"
+    },
+    {
+      "oldId": "istoreos-logs-and-diagnostics",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-logs-and-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics"
+    },
+    {
+      "oldId": "istoreos-luci-recovery",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery"
+    },
+    {
+      "oldId": "istoreos-mise-runtime",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime"
+    },
+    {
+      "oldId": "istoreos-network-quality",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality"
+    },
+    {
+      "oldId": "istoreos-package-manager",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-software",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager"
+    },
+    {
+      "oldId": "istoreos-quickstart-api",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api"
+    },
+    {
+      "oldId": "istoreos-run-executable",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable"
+    },
+    {
+      "oldId": "istoreos-service-manager",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager"
+    },
+    {
+      "oldId": "istoreos-source-introspect",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-source-introspect",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect"
+    },
+    {
+      "oldId": "istoreos-storage-path",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-storage-files",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path"
+    },
+    {
+      "oldId": "istoreos-system-task-router",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router"
+    },
+    {
+      "oldId": "istoreos-systools",
+      "decision": "retain-platform-specific",
+      "newId": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools"
+    }
+  ]
+}

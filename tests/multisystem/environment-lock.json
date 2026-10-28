@@ -1,0 +1,55 @@
+{
+  "schemaVersion": 1,
+  "platforms": {
+    "ubuntu": {
+      "schemaVersion": 1,
+      "target": "ubuntu",
+      "image": "kai-skills-lab/ubuntu:20261026-ms01",
+      "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+      "source": {
+        "type": "registry",
+        "reference": "ubuntu:24.04",
+        "digest": "ubuntu@sha256:68ee22004a9109b44973313b02ff7b1de250f1de0f5ecb628d73f579aaff33ac",
+        "baseImageId": "sha256:6277ab668b2ad3c3ab851d370faa1690d324b30db29d342527f61fed28f20f36"
+      },
+      "dockerfileSha256": "5e079bc42733a45544f94961f64d8a158f6bc44192c0e430f187a812a2aecb2f",
+      "buildNetwork": "host-package-download-only"
+    },
+    "debian": {
+      "schemaVersion": 1,
+      "target": "debian",
+      "image": "kai-skills-lab/debian:20261026-ms01",
+      "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+      "source": {
+        "type": "registry",
+        "reference": "debian:12",
+        "digest": "debian@sha256:854dd8ab51d62866dbd8f5431d15ce77b12983a2a4a1e1fe43a2395dc7ef9f61",
+        "baseImageId": "sha256:4f29e12c1f15cff3ebc2314175667876529e886c5130658a22c997da28acd1db"
+      },
+      "dockerfileSha256": "31cab8385df3e11654aec82d6fefeba180d011e5b54e51bab96b6dca8c629652",
+      "buildNetwork": "host-package-download-only"
+    },
+    "istoreos": {
+      "schemaVersion": 1,
+      "target": "istoreos",
+      "image": "kai-skills-lab/istoreos:20261026-ms01",
+      "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+      "source": {
+        "type": "immutable-istoreos-rom",
+        "rootfsSha256": "02e6e426bae8a13d00472221f99264b8f7e23770f93836a6befb5dd8b16dfba6",
+        "identity": "NAME=\"iStoreOS\"\nVERSION=\"24.10.1\"\nID=\"istoreos\"\nID_LIKE=\"lede openwrt\"\nPRETTY_NAME=\"iStoreOS 24.10.1\"\nVERSION_ID=\"24.10.1\"\nHOME_URL=\"https://github.com/istoreos\"\nBUG_URL=\"https://github.com/istoreos/istoreos/issues\"\nSUPPORT_URL=\"https://forum.openwrt.org/\"\nBUILD_ID=\"2025011019\"\nOPENWRT_BOARD=\"x86/64\"\nOPENWRT_ARCH=\"x86_64\"\nOPENWRT_TAINTS=\"busybox\"\nOPENWRT_DEVICE_MANUFACTURER=\"OpenWrt\"\nOPENWRT_DEVICE_MANUFACTURER_URL=\"https://openwrt.org/\"\nOPENWRT_DEVICE_PRODUCT=\"Generic\"\nOPENWRT_DEVICE_REVISION=\"v0\"\nOPENWRT_RELEASE=\"iStoreOS 24.10.1 2025011019\"\nOPENWRT_BUILD_DATE=\"1749783175\"",
+        "sanitization": [
+          "factory SSH host keys",
+          "root authorized keys"
+        ],
+        "baseImage": "kai-skills-lab/istoreos-rom:20261026-ms01"
+      },
+      "dockerfileSha256": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020",
+      "contextSha256": {
+        "prepare-istoreos.sh": "03a191240a141be1cf25c149ff067d5d6aabdb5554cb0aa72c8bb970917ba002",
+        "Dockerfile": "9d188d5c9afed4f770b2e49232f7655776c28f8d30b32d078bd8287599434020"
+      },
+      "buildNetwork": "host-package-download-only"
+    }
+  }
+}

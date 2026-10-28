@@ -4,7 +4,11 @@
   "title": "Control an iStoreOS device remotely",
   "platform": "istoreos",
   "mode": "remote-control",
-  "aliases": [],
+  "aliases": [
+    "remote control iStoreOS",
+    "远程控制 iStoreOS",
+    "SSH 控制软路由"
+  ],
   "path": ".",
   "skillsRoot": "skills",
   "generated": true,
@@ -24,6 +28,18 @@
     "transport.ssh": "1.1.0",
     "transport.luci-http": "1.0.0"
   },
-  "sourceDigest": "sha256:ea759af6d75ef2334130b8cf68c0b7f9474e2623c40433a32275807af6b11a9a",
-  "treeDigest": "sha256:3f53a838fffb6bf8e75b97bf3a3df2b292589f4d36a7f8a3757575862ebf5b14"
+  "sourceDigest": "sha256:8344bf36627cc7ff5aaa50a367e3946b743569e7548999c9f7c95f345daa6629",
+  "treeDigest": "sha256:1eeb7584f6ee4d35d4c7a8070db2aec06459d2f9c8927e98341f85c1a7cd651b",
+  "resources": [
+    "istoreos-download-acceleration",
+    "istoreos-mise-runtime",
+    "istoreos-package-manager",
+    "istoreos-storage-path"
+  ],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
 }

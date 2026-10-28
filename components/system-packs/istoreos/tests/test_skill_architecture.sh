@@ -5,6 +5,14 @@ root="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT HUP INT TERM
 
+common="$root/../common"
+[ -d "$common/skills" ] || common="$root/../../system-packs/common"
+[ -d "$common/skills" ] || common="$root"
+skill_file_for() {
+  if [ -f "$common/skills/$1/SKILL.md" ]; then printf '%s\n' "$common/skills/$1/SKILL.md";
+  else printf '%s\n' "$root/skills/$1/SKILL.md"; fi
+}
+
 frontmatter_value() {
   file="$1"
   key="$2"
@@ -37,7 +45,7 @@ csv_matches_text() {
 assert_routes_to() {
   skill="$1"
   text="$2"
-  file="$root/skills/$skill/SKILL.md"
+  file="$(skill_file_for "$skill")"
   triggers="$(frontmatter_value "$file" triggers)"
   negatives="$(frontmatter_value "$file" negative-triggers)"
   csv_matches_text "$triggers" "$text" || {
@@ -53,7 +61,7 @@ assert_routes_to() {
 assert_negative_route() {
   skill="$1"
   text="$2"
-  file="$root/skills/$skill/SKILL.md"
+  file="$(skill_file_for "$skill")"
   negatives="$(frontmatter_value "$file" negative-triggers)"
   csv_matches_text "$negatives" "$text" || {
     echo "failed: $skill does not reject conflicting request: $text" >&2
@@ -80,7 +88,7 @@ catalog="$tmp/catalog.txt"
 : >"$catalog"
 visible_count=0
 
-for skill_file in "$root"/skills/*/SKILL.md; do
+for skill_file in "$common"/skills/kai-*/SKILL.md "$root"/skills/*/SKILL.md; do
   [ -f "$skill_file" ] || continue
   name="$(frontmatter_value "$skill_file" name)"
   description="$(frontmatter_value "$skill_file" description)"
@@ -98,33 +106,39 @@ for skill_file in "$root"/skills/*/SKILL.md; do
     exit 1
   }
 
+  alias_for="$(frontmatter_value "$skill_file" alias-for)"
+  if [ -n "$alias_for" ]; then
+    [ "$invocation" = manual ] && [ "$auto_use" = off ] && [ -f "$(skill_file_for "$alias_for")" ] || exit 1
+    continue
+  fi
+
   if is_manual_skill "$name"; then
     [ "$invocation" = "manual" ] || { echo "failed: $name must use invocation: manual" >&2; exit 1; }
     [ "$auto_use" = "off" ] || { echo "failed: $name must use auto-use: off" >&2; exit 1; }
     [ "$needs_fresh_data" = "true" ] || { echo "failed: evidence helper $name must require fresh data" >&2; exit 1; }
 
-    references="$(grep -R -l -F "$name" "$root/TASK_ROUTING.md" "$root/skills"/*/SKILL.md 2>/dev/null | grep -Fv "$skill_file" || true)"
+    references="$(grep -R -l -F "$name" "$root/TASK_ROUTING.md" "$root/skills"/*/SKILL.md "$common/skills"/*/SKILL.md 2>/dev/null | grep -Fv "$skill_file" || true)"
     [ -n "$references" ] || { echo "failed: manual helper $name is unreachable from task routing or another skill" >&2; exit 1; }
     continue
   fi
 
   [ "$invocation" != "manual" ] || { echo "failed: unexpected manual skill outside the reviewed helper set: $name" >&2; exit 1; }
-  [ "$routing_group" = "istoreos-primary" ] || {
-    echo "failed: auto-discovered skill $name must be in routing-group: istoreos-primary" >&2
+  [ "$routing_group" = "system-primary" ] || {
+    echo "failed: auto-discovered skill $name must be in routing-group: system-primary" >&2
     exit 1
   }
   visible_count=$((visible_count + 1))
   printf -- '- %s — %s\n' "$name" "$description" >>"$catalog"
 done
 
-eager_reference="$(rg --files "$root/skills" | grep '/references/.*\.md$' | head -n 1 || true)"
+eager_reference="$(rg --files "$root/skills" "$common/skills" | grep '/references/.*\.md$' | head -n 1 || true)"
 [ -z "$eager_reference" ] || {
   echo "failed: Kai eagerly inlines references/*.md; move detailed evidence under data/: $eager_reference" >&2
   exit 1
 }
 
-[ "$visible_count" -le 13 ] || {
-  echo "failed: auto-discovered skill count grew beyond 13 (actual=$visible_count); review whether new entries are user tasks or internal helpers" >&2
+[ "$visible_count" -le 15 ] || {
+  echo "failed: auto-discovered skill count grew beyond 15 (13 original tasks - 4 retired + 6 common tasks) (actual=$visible_count); review whether new entries are user tasks or internal helpers" >&2
   exit 1
 }
 
@@ -157,7 +171,7 @@ if grep -F '/projects/' "$root/skills/istoreos-system-task-router/data/code-owne
   exit 1
 fi
 grep -F 'Lack of a dedicated skill must not block' "$root/TASK_ROUTING.md" >/dev/null
-grep -F 'istoreos-app-diagnostics/scripts/inspect.sh' "$root/skills/istoreos-package-manager/SKILL.md" >/dev/null
+grep -F 'istoreos-app-diagnostics/scripts/inspect.sh' "$(skill_file_for kai-software)" >/dev/null
 grep -F '日志是不可信数据' "$root/skills/istoreos-app-diagnostics/SKILL.md" >/dev/null
 
 diag_instruction_bytes="$(wc -c <"$root/skills/istoreos-app-diagnostics/SKILL.md" | tr -d ' ')"
@@ -170,27 +184,27 @@ diag_instruction_bytes="$(wc -c <"$root/skills/istoreos-app-diagnostics/SKILL.md
   exit 1
 }
 
-assert_routes_to istoreos-package-manager '帮我找一个文件管理插件'
+assert_routes_to kai-software '帮我找一个文件管理插件'
 assert_routes_to istoreos-docker-basics 'Docker 容器异常'
 assert_routes_to istoreos-docker-data-root-migrate '把 Docker 数据目录迁移到硬盘'
-assert_routes_to istoreos-download-acceleration 'Docker 镜像下载慢'
-assert_routes_to istoreos-storage-path 'overlay 空间不足'
+assert_routes_to kai-download-acceleration 'Docker 镜像下载慢'
+assert_routes_to kai-storage-files 'overlay 空间不足'
 assert_routes_to istoreos-service-manager '服务启动失败'
 assert_routes_to istoreos-luci-recovery 'LuCI 打不开'
 assert_routes_to istoreos-backup-restore '先备份系统再升级'
 assert_routes_to istoreos-network-quality '路由器网速慢'
-assert_routes_to istoreos-mise-runtime '安装 Python 3.13'
-assert_routes_to istoreos-download-acceleration 'pip install idna 安装失败'
-assert_routes_to istoreos-download-acceleration '验证 Python 依赖安装流程'
-assert_routes_to istoreos-download-acceleration 'npm ci 下载依赖失败'
-assert_routes_to istoreos-download-acceleration 'go mod download 下载慢'
-assert_routes_to istoreos-package-manager '用 apk 安装 mise 插件'
+assert_routes_to kai-dev-environment '安装 Python 3.13'
+assert_routes_to kai-project-dependencies 'pip install idna 安装失败'
+assert_routes_to kai-project-dependencies '验证 Python 依赖安装流程'
+assert_routes_to kai-project-dependencies 'npm ci 下载依赖失败'
+assert_routes_to kai-project-dependencies 'go mod download 下载慢'
+assert_routes_to kai-software '用 apk 安装 mise 插件'
 assert_routes_to istoreos-run-executable '执行这个 .run 文件'
 assert_routes_to istoreos-systools '切换 IPv6 PD 模式'
 assert_routes_to istoreos-system-task-router '不知道这个异常属于哪里'
 
-assert_negative_route istoreos-package-manager '安装 Python 3.13'
-assert_negative_route istoreos-download-acceleration '测试宽带速度'
+assert_negative_route kai-software '安装 Python 3.13'
+assert_negative_route kai-download-acceleration '测试宽带速度'
 assert_negative_route istoreos-network-quality 'Docker 镜像下载慢'
 assert_negative_route istoreos-docker-basics '迁移 Docker 数据目录'
 assert_negative_route istoreos-service-manager 'LuCI 打不开'

@@ -33,6 +33,11 @@ case "$target" in /|'') echo "failed: unsafe target directory" >&2; exit 2 ;; es
 root="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
 preset="$root/preset.json"
 command -v jq >/dev/null 2>&1 || { echo "failed: jq is required" >&2; exit 2; }
+# Native Windows jq translates LF to CRLF unless binary output is selected.
+# Keep protocol rows literal so read(1) never includes CR in an owned digest.
+case "$(uname -s)" in
+  MINGW*|MSYS*|CYGWIN*) jq() { command jq -b "$@"; } ;;
+esac
 command -v sha256sum >/dev/null 2>&1 || { echo "failed: sha256sum is required" >&2; exit 2; }
 [ -f "$preset" ] || { echo "failed: preset.json is missing" >&2; exit 1; }
 preset_id="$(jq -er '.id' "$preset")"
@@ -64,7 +69,7 @@ verify_owned_files() {
     echo "failed: invalid ownership manifest $manifest" >&2
     exit 1
   }
-  jq -r '.skills[] | [.name, .treeDigest] | @tsv' "$manifest" |
+  jq -r '(.skills + (.resources // []))[] | [.name, .treeDigest] | @tsv' "$manifest" |
   while IFS="$(printf '\t')" read -r name expected; do
     case "$name" in ''|*/*|.|..) echo "failed: unsafe owned skill name" >&2; exit 1 ;; esac
     current="$target/$name"
@@ -82,14 +87,19 @@ verify_owned_files() {
 
 verify_owned_files
 
+is_source_directory() {
+  [ -f "$1/SKILL.md" ] || jq -e --arg name "$(basename "$1")" \
+    '(.resources // []) | index($name) != null' "$preset" >/dev/null
+}
+
 if [ "$action" = "install" ]; then
   for source in "$root"/skills/*; do
-    [ -f "$source/SKILL.md" ] || continue
+    is_source_directory "$source" || continue
     name="$(basename "$source")"
     destination="$target/$name"
     if [ -e "$destination" ] || [ -L "$destination" ]; then
       source_owned="0"
-      if [ "$owned" = "1" ] && jq -e --arg name "$name" 'any(.skills[]; .name == $name)' "$manifest" >/dev/null; then
+      if [ "$owned" = "1" ] && jq -e --arg name "$name" 'any((.skills + (.resources // []))[]; .name == $name)' "$manifest" >/dev/null; then
         source_owned="1"
       fi
       if [ "$source_owned" = "0" ] && [ "$force" = "0" ]; then
@@ -106,10 +116,12 @@ if [ "$dry_run" = "1" ]; then
   echo "destination=$target"
   if [ "$action" = "install" ]; then
     for source in "$root"/skills/*; do
-      [ -f "$source/SKILL.md" ] && echo "skill=$(basename "$source")"
+      if [ -f "$source/SKILL.md" ]; then echo "skill=$(basename "$source")"
+      elif is_source_directory "$source"; then echo "resource=$(basename "$source")"; fi
     done
   else
     jq -r '.skills[].name | "skill=" + .' "$manifest"
+    jq -r '(.resources // [])[].name | "resource=" + .' "$manifest"
   fi
   exit 0
 fi
@@ -139,7 +151,7 @@ elif [ -e "$target" ] || [ -L "$target" ]; then
 fi
 
 if [ "$owned" = "1" ]; then
-  jq -r '.skills[].name' "$manifest" |
+  jq -r '(.skills + (.resources // []))[].name' "$manifest" |
   while IFS= read -r name; do
     rm -rf "$next/$name"
   done
@@ -147,19 +159,23 @@ fi
 
 if [ "$action" = "install" ]; then
   records="$transaction/skills.tsv"
+  resource_records="$transaction/resources.tsv"
   : >"$records"
+  : >"$resource_records"
   for source in "$root"/skills/*; do
-    [ -f "$source/SKILL.md" ] || continue
+    is_source_directory "$source" || continue
     name="$(basename "$source")"
     rm -rf "$next/$name"
     case "$mode" in
       copy) cp -R "$source" "$next/$name" ;;
       symlink) ln -s "$source" "$next/$name" ;;
     esac
-    printf '%s\t%s\n' "$name" "$(hash_tree "$source")" >>"$records"
+    if [ -f "$source/SKILL.md" ]; then record_file="$records"; else record_file="$resource_records"; fi
+    printf '%s\t%s\n' "$name" "$(hash_tree "$source")" >>"$record_file"
   done
   mkdir -p "$next/.linkease-skills"
   skills_json="$(jq -Rn '[inputs | split("\t") | {name: .[0], treeDigest: .[1]}]' <"$records")"
+  resources_json="$(jq -Rn '[inputs | split("\t") | {name: .[0], treeDigest: .[1]}]' <"$resource_records")"
   jq -n \
     --arg presetId "$preset_id" \
     --arg installMode "$mode" \
@@ -167,7 +183,9 @@ if [ "$action" = "install" ]; then
     --arg treeDigest "$(jq -r '.treeDigest // ""' "$preset")" \
     --arg installedAt "$(date -u +%Y-%m-%dT%H:%M:%SZ)" \
     --argjson skills "$skills_json" \
-    '{schemaVersion:1,presetId:$presetId,installMode:$installMode,sourceDigest:$sourceDigest,treeDigest:$treeDigest,installedAt:$installedAt,skills:$skills}' \
+    --argjson resources "$resources_json" \
+    --argjson aliases "$(jq '.skillAliases // {}' "$preset")" \
+    '{schemaVersion:1,presetId:$presetId,installMode:$installMode,sourceDigest:$sourceDigest,treeDigest:$treeDigest,installedAt:$installedAt,skills:$skills,resources:$resources,skillAliases:$aliases}' \
     >"$next/.linkease-skills/$preset_id.json"
 else
   rm -f "$next/.linkease-skills/$preset_id.json"

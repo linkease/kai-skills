@@ -1,0 +1,18 @@
+{
+  "$schema": "../../../schemas/pack.schema.json",
+  "schemaVersion": 1,
+  "id": "debian",
+  "version": "1.0.0",
+  "layer": "distribution",
+  "extends": [
+    "linux"
+  ],
+  "match": {
+    "osFamily": "linux",
+    "distribution": "debian"
+  },
+  "skillsRoot": "skills",
+  "requires": [
+    "target-shell:posix"
+  ]
+}

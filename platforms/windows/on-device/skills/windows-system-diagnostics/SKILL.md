@@ -6,7 +6,7 @@ systems: windows
 requires: target-shell:powershell
 triggers: Windows 异常, Windows 诊断, 系统变慢, 磁盘空间, 蓝屏后检查, Windows health
 auto-use: prefer
-routing-group: windows-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: low
 ---

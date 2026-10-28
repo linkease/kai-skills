@@ -43,19 +43,19 @@ done
 
 on_device_count="$(find "$tmp/install-on-device" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')"
 remote_count="$(find "$tmp/install-remote-control" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | wc -l | tr -d ' ')"
-[ "$on_device_count" -eq 20 ] || fail "on-device preset expected 20 skills, got $on_device_count"
-[ "$remote_count" -eq 22 ] || fail "remote-control preset expected 22 skills, got $remote_count"
+[ "$on_device_count" -eq 22 ] || fail "on-device preset expected 22 skills, got $on_device_count"
+[ "$remote_count" -eq 24 ] || fail "remote-control preset expected 24 skills, got $remote_count"
 [ ! -e "$tmp/install-on-device/target-ssh-controller" ] || fail "on-device preset contains SSH transport"
 [ -e "$tmp/install-remote-control/target-ssh-controller" ] || fail "remote-control preset lacks SSH transport"
 
-cmp "$root/components/system-packs/istoreos/skills/istoreos-package-manager/SKILL.md" \
-  "$root/platforms/istoreos/on-device/skills/istoreos-package-manager/SKILL.md" >/dev/null ||
+cmp "$root/components/system-packs/common/skills/kai-software/SKILL.md" \
+  "$root/platforms/istoreos/on-device/skills/kai-software/SKILL.md" >/dev/null ||
   fail "generated system skill differs from canonical source"
 
 mkdir -p "$tmp/stale-repo"
-cp -R "$root/components" "$root/tools" "$root/platforms" "$tmp/stale-repo/"
+cp -R "$root/components" "$root/tools" "$root/platforms" "$root/catalog.json" "$tmp/stale-repo/"
 printf '\nM4 drift sentinel\n' >> \
-  "$tmp/stale-repo/components/system-packs/istoreos/skills/istoreos-package-manager/SKILL.md"
+  "$tmp/stale-repo/components/system-packs/common/skills/kai-software/SKILL.md"
 if sh "$tmp/stale-repo/tools/verify-generated.sh" >/dev/null 2>&1; then
   fail "canonical source change did not trigger generated drift failure"
 fi

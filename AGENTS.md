@@ -10,6 +10,13 @@
 
 Never install every platform by default. Never install from `components/`. If the device is missing, ask only: “Which device platform do you want to manage?” If the execution location is missing, ask only: “Will the Agent run on the device, or control it remotely?” Do not ask users to choose a System Pack or Transport.
 
+On a native Windows target without Bash, unpack the selected preset and read
+`skills/kai-tool-bootstrap/SKILL.md` first. Its `scripts/bootstrap-bash.ps1`
+supports native PowerShell `-Action Plan` and, within the current authorization,
+`-Action Ensure`. Verify the resulting Git Bash before running the shell
+installer's dry-run. For a remote target, use its existing Transport; do not
+bootstrap tools on the controller by mistake. WSL is a separate Linux target.
+
 For Codex use `--consumer codex`; for OpenCode use `--consumer opencode`; for other Agents use `--consumer generic --target-skills DIR`.
 
 ## Repository boundaries

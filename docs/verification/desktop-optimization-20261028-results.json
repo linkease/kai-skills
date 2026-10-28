@@ -1,0 +1,833 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "partial",
+  "optimizationRounds": 3,
+  "maxOptimizationRounds": 3,
+  "allDesktopReleaseGatesPassed": false,
+  "historicalMS0ThroughMS10Preserved": true,
+  "supersedesRemainingGatesIn": "desktop-native-20261028-results.json",
+  "originalGatesClosed": 7,
+  "originalGatesTotal": 8,
+  "nativeTargets": {
+    "macos": "Darwin arm64; macOS 26.6.2; Bash 3.2.57",
+    "windows": "Windows 10 AMD64 build 19044; PowerShell 5.1 / 7.6.3; Git Bash 5.3.15"
+  },
+  "artifacts": {
+    "macos": {
+      "presetId": "macos-on-device",
+      "platform": "macos",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-macos-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:b4a4b49318285337a604875c48a887a223739ea9eee6009257d152cddef82d8d",
+      "treeDigest": "sha256:6fabed77c1d5073c3a14c352f7f6a36d9e1069e1a928ee12185da05dace2db87",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "sourceState": "worktree"
+    },
+    "windows": {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:31f8ff616ea807ac499431292d4b27025e7d92f5a61637f84fca0d57fd2768bc",
+      "treeDigest": "sha256:f5fa8c9a73b7037ae03c3b9d640506ba1164cdafb39d4f78030afdff7bb5205f",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+      "sourceState": "worktree"
+    }
+  },
+  "release": {
+    "directory": "release/desktop-opt-20261028-candidate",
+    "artifactCount": 20,
+    "manifestSha256": "4676eaf1bec9738780585ac4a2b3cfc894dc04ca6df0e3028d65f1c337e09876",
+    "published": false
+  },
+  "clientAndGatewayBuilds": {
+    "kspeeder-linux": {
+      "sourceCommit": "97b7d2bd9d10c2d9b0177b368d8bf2ebb8a41c54",
+      "sourceState": "worktree",
+      "testOnlyVersionOverride": false,
+      "sha256": "969c7141f432e46db1e472aca6b563687ef87d4ca50e8d99e322267218eb21d0",
+      "goos": "linux",
+      "goarch": "amd64",
+      "vcsModified": true,
+      "goBuildMetadataVerified": true
+    },
+    "ks-cli-windows-relay.exe": {
+      "sourceCommit": "a3c31cd486fa24f859e31b11de91ad2ea321f567",
+      "sourceState": "worktree",
+      "testOnlyVersionOverride": true,
+      "sha256": "0f9be9a0c3799ac8f3e06132108f99187b9957e2ae9f5a93183405eac10562bc",
+      "goos": "windows",
+      "goarch": "amd64",
+      "vcsModified": true,
+      "goBuildMetadataVerified": true
+    },
+    "ks-cli-windows.exe": {
+      "sourceCommit": "97b7d2bd9d10c2d9b0177b368d8bf2ebb8a41c54",
+      "sourceState": "worktree",
+      "testOnlyVersionOverride": true,
+      "sha256": "03bf92bad8e156ff942192231bdbfb045ae81deb2419311407602912b944cd66",
+      "goos": "windows",
+      "goarch": "amd64",
+      "vcsModified": true,
+      "goBuildMetadataVerified": true
+    },
+    "ks-cli-macos": {
+      "sourceCommit": "97b7d2bd9d10c2d9b0177b368d8bf2ebb8a41c54",
+      "sourceState": "worktree",
+      "testOnlyVersionOverride": true,
+      "sha256": "fe5e6ff1fa8f6f964b302342f97d48a0b447ef33868a696764e1c0103290e6c7",
+      "goos": "darwin",
+      "goarch": "arm64",
+      "vcsModified": true,
+      "goBuildMetadataVerified": true
+    },
+    "ks-cli-macos-relay": {
+      "sourceCommit": "a3c31cd486fa24f859e31b11de91ad2ea321f567",
+      "sourceState": "worktree",
+      "testOnlyVersionOverride": true,
+      "sha256": "18c1a1efa7bc0ed21b87acc2d6c38492e064ad97845a266359a8bbca0927335a",
+      "goos": "darwin",
+      "goarch": "arm64",
+      "vcsModified": true,
+      "goBuildMetadataVerified": true
+    }
+  },
+  "passedNativeCases": 28,
+  "passedCases": [
+    {
+      "platform": "macos",
+      "case": "frozen-python-install",
+      "status": "passed",
+      "assertions": [
+        "exact 3.13.7",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "macos-sdk-python.json",
+          "sha256": "35947bfaa0f0f83cf12d5d68d01998c8e35e0023936783c1a377fd67216d63e0",
+          "exitCode": 0,
+          "stdoutSha256": "5d58fc8d572a503af33662a09bd8cfe8370bfff60dd028c14ed7ef395072a346",
+          "stderrSha256": "9290aef6c8663cb639d2daabbc580d482afe086fbfc2fbd1c329e5672ce74061"
+        }
+      ],
+      "version": "3.13.7",
+      "receiptSha256": "5d58fc8d572a503af33662a09bd8cfe8370bfff60dd028c14ed7ef395072a346",
+      "clientBuild": "ks-cli-macos"
+    },
+    {
+      "platform": "macos",
+      "case": "frozen-node-install",
+      "status": "passed",
+      "assertions": [
+        "exact 22.14.0",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "macos-sdk-node.json",
+          "sha256": "ae7ad2b98460e679be3c21cf5f23a23fecb1288f533742103c2528b1cc51c54a",
+          "exitCode": 0,
+          "stdoutSha256": "7ffa79d7789fa96009ab62e636e018254a4ebc17e44658d771a9cb421a6c8837",
+          "stderrSha256": "1e1e640aff42c1ca32e47b21064f3a72c443456ccd00555a3825e2f4c3f9edc9"
+        }
+      ],
+      "version": "22.14.0",
+      "receiptSha256": "7ffa79d7789fa96009ab62e636e018254a4ebc17e44658d771a9cb421a6c8837",
+      "clientBuild": "ks-cli-macos"
+    },
+    {
+      "platform": "macos",
+      "case": "frozen-go-install",
+      "status": "passed",
+      "assertions": [
+        "exact 1.24.1",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "macos-sdk-go.json",
+          "sha256": "8299b8d02164d7f74e5e03533655f16d80eeb1a062b3f2f5acf0e03f4857c9eb",
+          "exitCode": 0,
+          "stdoutSha256": "19ab3cb9b11072fbb98cebeef74b0e6b3a1d605076ebce54d0323b6aed42994b",
+          "stderrSha256": "3ba27c70b1396f15348adfb27790662414b917414df41321e8ee84f7cfd1f7e4"
+        }
+      ],
+      "version": "1.24.1",
+      "receiptSha256": "19ab3cb9b11072fbb98cebeef74b0e6b3a1d605076ebce54d0323b6aed42994b",
+      "clientBuild": "ks-cli-macos"
+    },
+    {
+      "platform": "macos",
+      "case": "frozen-uv-install",
+      "status": "passed",
+      "assertions": [
+        "exact 0.8.22",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "macos-sdk-uv-retry.json",
+          "sha256": "c2015b5e45c5ef69539293843e18daae816159854428c76123b063cddf720f70",
+          "exitCode": 0,
+          "stdoutSha256": "3ca3395fc8b72b7ec3a919e98545f54e3bb8b2ccecc60475577d04bfba30506e",
+          "stderrSha256": "1751063c43bf0e5b9f4e402ceab50e121e6e52e12887cc88e3c0daa6acc4dff3"
+        }
+      ],
+      "version": "0.8.22",
+      "receiptSha256": "3ca3395fc8b72b7ec3a919e98545f54e3bb8b2ccecc60475577d04bfba30506e",
+      "clientBuild": "ks-cli-macos-relay"
+    },
+    {
+      "platform": "macos",
+      "case": "final-preset-native-lifecycle",
+      "status": "passed",
+      "assertions": [
+        "selected final archive",
+        "dry-run",
+        "Unicode install/upgrade/uninstall",
+        "8 skills"
+      ],
+      "evidence": [
+        {
+          "file": "opt-round3-test_native_desktop_lifecycle.json",
+          "sha256": "d4d9ddcc254a0e740b298b651c6c901727daecb54d558a6f37a66cb2b3207387",
+          "exitCode": 0,
+          "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderrSha256": "2fe67114821222be704d9eff2d06bca6996129581552c3636407e56c99da34db"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "frozen-python-install",
+      "status": "passed",
+      "assertions": [
+        "exact 3.13.7",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "windows-sdk-python.json",
+          "sha256": "b12d4f058ab69f1301e9354a442ec02af7614f8d583de7dd6da26bf288ceff89",
+          "exitCode": 0,
+          "stdoutSha256": "9f9ad658b0c481de319ebae139e3cab24a9ce355cbcf97a91f7077b4a86268e7",
+          "stderrSha256": "adabf1043b95ac9090757460fdc421421b7666ff22195fb19daf8ba762594ef4"
+        }
+      ],
+      "version": "3.13.7",
+      "receiptSha256": "9f9ad658b0c481de319ebae139e3cab24a9ce355cbcf97a91f7077b4a86268e7",
+      "clientBuild": "ks-cli-windows.exe"
+    },
+    {
+      "platform": "windows",
+      "case": "frozen-node-install",
+      "status": "passed",
+      "assertions": [
+        "exact 22.14.0",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "windows-sdk-node.json",
+          "sha256": "e84e3b7d81352092f8db035f5b95f3048ef148f9012356913f9834bb6ee38d32",
+          "exitCode": 0,
+          "stdoutSha256": "297df6fcf7f0e79644bece2c9519d1ae99ab3cf157af0e91b85b6381755540d6",
+          "stderrSha256": "77050a0a83f6398df97fc1308fbd4e3700c5b2fbcc0aa4495364116fb4308db2"
+        }
+      ],
+      "version": "22.14.0",
+      "receiptSha256": "297df6fcf7f0e79644bece2c9519d1ae99ab3cf157af0e91b85b6381755540d6",
+      "clientBuild": "ks-cli-windows.exe"
+    },
+    {
+      "platform": "windows",
+      "case": "frozen-go-install",
+      "status": "passed",
+      "assertions": [
+        "exact 1.24.1",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "windows-sdk-go.json",
+          "sha256": "6194ff276441fe2168de5d1bd5e93dca4d01c30e7ac8f735f511587bf4925b94",
+          "exitCode": 0,
+          "stdoutSha256": "53142ece5ae011bebda06266f0944b4523425f49142d234db5e2fa45c2876d48",
+          "stderrSha256": "7a5b46698c1277fa6087525bb97c58f225e71cf61da0e02ef2a6f24733d6dd1b"
+        }
+      ],
+      "version": "1.24.1",
+      "receiptSha256": "53142ece5ae011bebda06266f0944b4523425f49142d234db5e2fa45c2876d48",
+      "clientBuild": "ks-cli-windows.exe"
+    },
+    {
+      "platform": "windows",
+      "case": "frozen-uv-install",
+      "status": "passed",
+      "assertions": [
+        "exact 0.8.22",
+        "isolated mise data root",
+        "scope none",
+        "native verification and actual executable provenance",
+        "original integrity policy retained"
+      ],
+      "evidence": [
+        {
+          "file": "windows-sdk-uv.json",
+          "sha256": "5cf12f7837edc77584736b90768bc97b3b5d282c8f95063fbd8ae31daaace47f",
+          "exitCode": 0,
+          "stdoutSha256": "145feb32ded7c1dd5557cbb195f41a3951349cabe35c2b5179af3b4660d44d9d",
+          "stderrSha256": "75d3173e02d63fbf35e40a250183da5b7eb35161583388ae7df8e5a23fdf7ab7"
+        }
+      ],
+      "version": "0.8.22",
+      "receiptSha256": "145feb32ded7c1dd5557cbb195f41a3951349cabe35c2b5179af3b4660d44d9d",
+      "clientBuild": "ks-cli-windows.exe"
+    },
+    {
+      "platform": "windows",
+      "case": "final-preset-native-lifecycle",
+      "status": "passed",
+      "assertions": [
+        "selected final archive",
+        "dry-run",
+        "Unicode install/upgrade/uninstall",
+        "8 skills"
+      ],
+      "evidence": [
+        {
+          "file": "opt-round3-test_native_desktop_lifecycle.json",
+          "sha256": "77acf947aab3fd13a09a7b54fca732a81eafe1705412471f1f02b2fdd2030785",
+          "exitCode": 0,
+          "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderrSha256": "162750818e06e9d1aad33e5f42d1cf7681266438645ef4ff8145272eccaffb56"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "Homebrew-Python-linked-reuse",
+      "status": "passed",
+      "assertions": [
+        "original framework prefix",
+        "real versioned executable",
+        "exact 3.14.6",
+        "functional modules and pip",
+        "no synthetic alias/prefix"
+      ],
+      "evidence": [
+        {
+          "file": "opt-mac-python-reuse.json",
+          "sha256": "4afeaff570f76f9442d79bc61adcbd521872066814060349e63b430e0fcc4626",
+          "exitCode": 0,
+          "stdoutSha256": "105b45c1af2e81d3e39e556ccf5f376de4c3a77a26af7c1a66f4a97150efd277",
+          "stderrSha256": "e9acb62aa693455938d8da97ccc5de61b929af8cf77c16181fc2d200b8ecc3d8"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "native-APFS-storage",
+      "status": "passed",
+      "assertions": [
+        "actual APFS data mount",
+        "writable install eligibility",
+        "original public usage helper"
+      ],
+      "evidence": [
+        {
+          "file": "opt-round3-test_native_macos_storage.json",
+          "sha256": "f9d2beb9a0387f7387d0e38c6f6f787df07e0e3396e889ff674a2f5c03acbac1",
+          "exitCode": 0,
+          "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderrSha256": "d0fa3fc7cab84cdce3f889abc9b66e641dc62fe341063b417760868697f41a95"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "pip-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "frozen project metadata retained",
+        "selected frozen SDK",
+        "isolated project/cache",
+        "real import or program output"
+      ],
+      "evidence": [
+        {
+          "file": "macos-relay-deps-pip.json",
+          "sha256": "eac1396be93347fb675b42e1149926a7a3f5e6f21d8f5756f5f08783b50171af",
+          "exitCode": 0,
+          "stdoutSha256": "63cf0ece82f707e3fd7c0c93ae56bf7f7c4033e46ed10ba9fa4f7fb22c38ca60",
+          "stderrSha256": "b870f80749818dd2490f8af807f07ce3476ba97facb0a9e2cb57430a64226f37"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "uv-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "frozen project metadata retained",
+        "selected frozen SDK",
+        "isolated project/cache",
+        "real import or program output"
+      ],
+      "evidence": [
+        {
+          "file": "macos-final-deps-uv.json",
+          "sha256": "4347d7ad108b084b759f3489aef0ea20e5e105070fa68f55384efc3256f7c234",
+          "exitCode": 0,
+          "stdoutSha256": "16b03cf619632a89a8b144c761ae8087253743afffb6476dff56132939eef835",
+          "stderrSha256": "afe0d1fd3dccb2a39472d9a58269adffe5e2625ed2d56e52f976fa293c38b90f"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "go-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "frozen project metadata retained",
+        "selected frozen SDK",
+        "isolated project/cache",
+        "real import or program output"
+      ],
+      "evidence": [
+        {
+          "file": "macos-final-deps-go.json",
+          "sha256": "14ad39ed5b05124aa199926205ff5a6fafc5aeb6e324f2d1f5bd61e039dbcc6c",
+          "exitCode": 0,
+          "stdoutSha256": "ad1761c4b55dc6fbbff40c2d9e36d84d624ca6a9094c8306f01a91c357cd6c23",
+          "stderrSha256": "6663860f32a5586cabfd8c2df0738a7faf210122f319b22471b1ccca42ba43ee"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "npm-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "npm ci frozen lock/SRI",
+        "selected Node 22.14.0",
+        "actual package version 7.0.0",
+        "real module function"
+      ],
+      "evidence": [
+        {
+          "file": "macos-final-deps-npm.json",
+          "sha256": "032131f3e634ce1ea51362e5cdfcdd5bbf4b230f8c7094afa820999d5dca9ee8",
+          "exitCode": 0,
+          "stdoutSha256": "4e8cb63fea3a1ac21fb9b58ec2510d6fb917f5405d74cbe6af5f050e969fde4a",
+          "stderrSha256": "676e56ca229da9b3a0178a9ba0ff6b75a2658b46784ae171fb0843ccebb3966b"
+        },
+        {
+          "file": "opt-final-npm-version-functional.json",
+          "sha256": "e7534ba7c192d126a607490d6e514ce6fbdc1bc2a4618fe403375c1950bc9532",
+          "exitCode": 0,
+          "stdoutSha256": "8e958e0fc4c4888e75075aa306f12b6eaca1e1515eed867a93d96532ffc68c01",
+          "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "pip-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "frozen project metadata retained",
+        "selected frozen SDK",
+        "isolated project/cache",
+        "real import or program output"
+      ],
+      "evidence": [
+        {
+          "file": "windows-deps-pip.json",
+          "sha256": "8efa223b24c9784b8d55b6530dbf1ea8062b6198d00503110f729d57d3d2a31d",
+          "exitCode": 0,
+          "stdoutSha256": "d98a5eb8a52f7e8133052a2aee96e84f24e68a352150f62d839e4f2d6a008d1b",
+          "stderrSha256": "6dad4bfa6205d1cc6b9f5dcfa537a8c27d71803db266e7e4d027f3013418ba28"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "uv-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "frozen project metadata retained",
+        "selected frozen SDK",
+        "isolated project/cache",
+        "real import or program output"
+      ],
+      "evidence": [
+        {
+          "file": "windows-final-deps-uv.json",
+          "sha256": "962d9e433968d2e395d17002930a8bc075f15c4a6f33fa3a4ed280e1e9608ca2",
+          "exitCode": 0,
+          "stdoutSha256": "96df11f83932c3de435421160f67a236be0844244b6b0394989e9ef5bf5f9169",
+          "stderrSha256": "bb881b3e4e0556897c0d6f612744c713a7abe045d62f502cac7cd73f29b2823e"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "go-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "frozen project metadata retained",
+        "selected frozen SDK",
+        "isolated project/cache",
+        "real import or program output"
+      ],
+      "evidence": [
+        {
+          "file": "windows-deps-go.json",
+          "sha256": "3ba39c29897025f0064c55397886c9541770aee930028800f651e9e79bde9c91",
+          "exitCode": 0,
+          "stdoutSha256": "d8e64bd2b6c975a66a081e4dfb3c9ef063cc6c410b65ce026d7df53321cee19f",
+          "stderrSha256": "5d76ac463ec681f9cb5e5ad114ce3a564c623c07005ee561e8cc3821bcc2761f"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "npm-project-install-and-run",
+      "status": "passed",
+      "assertions": [
+        "npm ci frozen lock/SRI",
+        "selected Node 22.14.0",
+        "actual package version 7.0.0",
+        "real module function"
+      ],
+      "evidence": [
+        {
+          "file": "windows-deps-npm.json",
+          "sha256": "0da4d5cd5c1cd80ec590506816b38e52a1a53d99ae2415322274b4e84d652183",
+          "exitCode": 1,
+          "stdoutSha256": "b43e81438c74bb689c1da67ad871057f1598a652ed5067a75e26891b691d7faf",
+          "stderrSha256": "286f7e47fcf5d566a5e87f706f377fbac5fe575ccec547ef504264707d9d7d1e"
+        },
+        {
+          "file": "opt-final-npm-version-functional.json",
+          "sha256": "e668e944c54d02f05542c678b17bbd48eae65e239e88e65a034b9a7065fe2dd4",
+          "exitCode": 0,
+          "stdoutSha256": "8e958e0fc4c4888e75075aa306f12b6eaca1e1515eed867a93d96532ffc68c01",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        }
+      ],
+      "harnessCorrection": "Installer receipt passed. An absent npm script was initially invoked by the test harness; a separate selected-SDK node command then checked actual package version and behavior. No production change masked that failure."
+    },
+    {
+      "platform": "windows",
+      "case": "native-ssh-supervision-exit",
+      "status": "passed",
+      "assertions": [
+        "param block",
+        "literal Unicode",
+        "exit 37"
+      ],
+      "evidence": [
+        {
+          "file": "opt-supervisor-native-exit.json",
+          "sha256": "6d77aef03c124daf471a7f2fb2a177e50ce844f5b3939caa15f8a59491b7e56d",
+          "exitCode": 37,
+          "stdoutSha256": "f78a9a47ea143d69615bbf4cf798043df639c249ccf2d8fcfc0f0452d87ea799",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "native-timeout-descendant-verification",
+      "status": "passed",
+      "assertions": [
+        "separate native timeout returned 124",
+        "delayed descendant did not write marker"
+      ],
+      "evidence": [
+        {
+          "file": "opt-native-timeout-tree.json",
+          "sha256": "b0d696d028562b3f447c9df0ae6467546b82d7d23c4a27867295c583392f6c81",
+          "exitCode": 124,
+          "stdoutSha256": "f8ece77d43a03abfbb544c9d43c23b603e5cb1ffa9638cd18e91aff95ba481d0",
+          "stderrSha256": "dbd4f3a757c9f70531c3d13f61d35a32fafd4952331345f34de2c422004e95f1"
+        },
+        {
+          "file": "opt-timeout-child-verify2.json",
+          "sha256": "ddd70dfd15f7e34a5a36c914422538be306d4214cc30d312e57340199a5adf71",
+          "exitCode": 0,
+          "stdoutSha256": "93ed269325fa85130be78e2904fb3d79f9312e9f94a314cff4d8e16ebdd14963",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "fresh-missing-jq-and-core",
+      "status": "passed",
+      "assertions": [
+        "no core in fresh rescue directory",
+        "no jq/core on selected PATH",
+        "canonical Windows bootstrap",
+        "published native core verification",
+        "original jq 1.8.2 SHA/size",
+        "complete JSON/regex/Unicode check",
+        "explicit verified gateway URL for jq download"
+      ],
+      "evidence": [
+        {
+          "file": "opt-round3-jq-missing-core.json",
+          "sha256": "72a7e5097c02c48a0200a410a217a38e9ce1eb4c4f29ac2e6949bdadd1786312",
+          "exitCode": 0,
+          "stdoutSha256": "01cb630ddd1600af282a61ca0db0901a0775a8e165d4b832911532416a04d809",
+          "stderrSha256": "5e997f0905b1adc921aa171061fda83e33bd4e7a541105271f90527f0a0e367a"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "jq-owner-removal",
+      "status": "passed",
+      "assertions": [
+        "canonical Bash owner removal",
+        "temporary user command absent",
+        "provided trusted core"
+      ],
+      "evidence": [
+        {
+          "file": "opt-final-jq-bash-owner-removal.json",
+          "sha256": "9a2a5b35605bf0b765bbce21418f5ebef99ca09ea3b40e65ffc70138cc034099",
+          "exitCode": 0,
+          "stdoutSha256": "890936a78b379693f5818f1251ded387688c95ba287de4a7fb23a6988ee6e469",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        }
+      ]
+    },
+    {
+      "platform": "macos",
+      "case": "global-configurations-preserved",
+      "status": "passed",
+      "assertions": [
+        "original selected configuration files unchanged"
+      ],
+      "evidence": [
+        {
+          "file": "opt-final-preserve-global-configurations.json",
+          "sha256": "704768fa17dfee077714045ede58f0f6ee7e21fa8f6a7b652bfc6f4e56609aff",
+          "exitCode": 0,
+          "stdoutSha256": "f4eae3759692b9600fddd37e18eb5de340c94e07dcf53902100efeacd14edf64",
+          "stderrSha256": "8bcbe1a22705ffc21849bbcc72d5d9af3424c08cecd6e6fd59621e5ef32e5e68"
+        }
+      ],
+      "filesChecked": 5
+    },
+    {
+      "platform": "windows",
+      "case": "global-configurations-preserved",
+      "status": "passed",
+      "assertions": [
+        "original selected configuration files unchanged"
+      ],
+      "evidence": [
+        {
+          "file": "opt-final-after-refresh-configs.json",
+          "sha256": "b771723471e15fc96de89b7cb0fee8b345666cf3e707e2c5a1925ae886f36641",
+          "exitCode": 0,
+          "stdoutSha256": "6ed2877298691748fbdc4151a37376318785e111414488dcad5b2755f8a430f6",
+          "stderrSha256": "45789349d4fa36a0a272d05aa3e577b99a7bd6747fee7e9794f0cf6dc4cacb3f"
+        }
+      ],
+      "filesChecked": 9
+    },
+    {
+      "platform": "macos",
+      "case": "owned-native-process-cleanup",
+      "status": "passed",
+      "assertions": [
+        "no owned residual native task processes"
+      ],
+      "evidence": [
+        {
+          "file": "opt-final-owned-process-cleanup.json",
+          "sha256": "275b134008a4679c6152c109a45b3407c01abafc775424f254a0b98571f3d4d7",
+          "exitCode": 0,
+          "stdoutSha256": "9ef5750892f063db1d87057cb26e9765f1ab68630bc688fc855aae5addff5375",
+          "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21"
+        }
+      ]
+    },
+    {
+      "platform": "windows",
+      "case": "owned-native-process-cleanup",
+      "status": "passed",
+      "assertions": [
+        "no owned residual native task processes"
+      ],
+      "evidence": [
+        {
+          "file": "opt-final-owned-process-cleanup.json",
+          "sha256": "7f331dd057051c7310abceb0f708c7ef938eca53b4b79a1f711d5dfea4b15d92",
+          "exitCode": 0,
+          "stdoutSha256": "f396b0d8e4b35320bf4ead12e4e5afa1cfb4f062a1d8c27509076c69dae5f49f",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        }
+      ]
+    }
+  ],
+  "verification": {
+    "localTests": {
+      "total": 124,
+      "passed": 122,
+      "skippedNativeOnly": 2,
+      "failed": 0
+    },
+    "nativeOnlyTestExecutions": 3,
+    "nativeOnlyTestsPassed": true,
+    "repositoryScriptsPassed": 16,
+    "ksCliFullAppTestsPassed": true,
+    "relayRaceTLSProxyPriorityAndCleanupTestsPassed": true,
+    "gatewayDownloadDomainfoldAndMultiTestsPassed": true,
+    "eightCanonicalLayersAndOwnerLocksChecked": true
+  },
+  "remainingGates": [
+    {
+      "platform": "windows",
+      "case": "structured-winget-info",
+      "status": "blocked-after-round-3",
+      "reason": "Official source refresh succeeded, but public native catalog APIs still block or return unverifiable Source/version data. Direct native execution also blocks after module import. No source was invented; no system package install/remove was attempted. Deeper native catalog/COM failure remains unconfirmed.",
+      "evidence": [
+        {
+          "file": "opt-round3-winget-catalog.json",
+          "sha256": "85fb27866cdb4560db7733045906c4007dd4e59631ce52ac089867a75c0181bf",
+          "exitCode": 124,
+          "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderrSha256": "05bd00a896670660925ebbe8684030549a648dd6c86b3e5a53edb61070312808"
+        },
+        {
+          "file": "opt-round3-winget-second-package.json",
+          "sha256": "673930a4232831e8a34747067f3baad435b6457d38447f362d116e2558b08186",
+          "exitCode": 124,
+          "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderrSha256": "05bd00a896670660925ebbe8684030549a648dd6c86b3e5a53edb61070312808"
+        },
+        {
+          "file": "opt-winget-final-direct.json",
+          "sha256": "7dcc5b53371ac60e7030627d2c0a4427f1a5dcf92605b910402b7e5a905f8b46",
+          "exitCode": 0,
+          "stdoutSha256": "5bff3b00717ba113e00a1fe9060e6e90de503ee9dc90da739de218c95120a549",
+          "stderrSha256": "a3639af5e23464fc391dae127fd5493f02c8178068a35866d9c7fdd35dcd623f"
+        },
+        {
+          "file": "opt-final-winget-explicit-refresh.json",
+          "sha256": "e2c560ecf746aac3e3a6d5d0302a44d442886695adc945145eaaa38813cd952e",
+          "exitCode": 0,
+          "stdoutSha256": "1c1bc9eea524f4f42d0bba87ec20a106814ddaa88eac471ebab6634b07baf404",
+          "stderrSha256": "967162a73956ae7f395fb8435e8af23e00285e781438eee5eb050a67f013426a"
+        },
+        {
+          "file": "opt-final-winget-info-after-refresh.json",
+          "sha256": "74e89c5b670d2b0cacf76df71bb06c77e52dbd31093c74cce698bff6e930f86c",
+          "exitCode": 4,
+          "stdoutSha256": "c0ea486977147aa6974b2f82bf3189d8bf8948ae43a82d7fcd1395481d2ac8cc",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        },
+        {
+          "file": "opt-final-winget-version-provenance.json",
+          "sha256": "ced668b27268fed75957602cbf5158b4de8103f583007067d2cf5bcfb6213f63",
+          "exitCode": 124,
+          "stdoutSha256": "19c669e15ea153dae58825dbee3b3a2f85ce0f9a6330d650ea7accc322287e16",
+          "stderrSha256": "05bd00a896670660925ebbe8684030549a648dd6c86b3e5a53edb61070312808"
+        }
+      ]
+    }
+  ],
+  "additionalFindings": [
+    {
+      "platform": "windows",
+      "case": "independent-owner-PowerShell-5.1-jq-wrapper",
+      "status": "failed-outside-Kai-Bash-main-flow",
+      "reason": "The unchanged owner jq-install.ps1 native Bash -c argument bridge fails quoting under PowerShell 5.1. Canonical Bash install/use/remove passed. PowerShell 7 help reaches original usage; full independent PS7 lifecycle is not claimed. Owner resource bytes/source lock remain intact.",
+      "evidence": [
+        {
+          "file": "opt-final-jq-owner-removal.json",
+          "sha256": "8645899cdd75daee247b12997f02761aec8ca96f0d4eb5411e8b30c69f82d933",
+          "exitCode": 11,
+          "stdoutSha256": "0786b682d4a9213d7bed20837e8fcceeb02aae9f89ce2fc6cb2f6e09dc67f6c2",
+          "stderrSha256": "b87fcc3343b6b61ae2c6f67c90af68e2e7eba00450d75f232ba98be968f84175"
+        },
+        {
+          "file": "opt-final-jq-bash-owner-removal.json",
+          "sha256": "9a2a5b35605bf0b765bbce21418f5ebef99ca09ea3b40e65ffc70138cc034099",
+          "exitCode": 0,
+          "stdoutSha256": "890936a78b379693f5818f1251ded387688c95ba287de4a7fb23a6988ee6e469",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        },
+        {
+          "file": "opt-owner-jq-pwsh7-help.json",
+          "sha256": "98a828957dbb90f507b7fa45b053bb71208951757272e49134099107d8f9a19b",
+          "exitCode": 0,
+          "stdoutSha256": "8b3e3a00a3ca8e33f6b5b63381b50cf14634cb2d2428c8569b41a737f0073be0",
+          "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+        }
+      ]
+    }
+  ],
+  "cleanup": {
+    "ownedContainers": 0,
+    "ownedNetworks": 0,
+    "ownedImages": 0,
+    "gatewayAndForwardingStopped": true,
+    "nativeDataDirectoriesRetainedForReproduction": true,
+    "gatewayLogSha256": "e6e775786648a7254636a43b5c2d91c0b5858ebef94f3dab9b23a8b40a36ae4c",
+    "activeForwardProcesses": 0,
+    "activeScriptsPreserved": 2,
+    "ownedInactiveTemporaryScriptsRemoved": 1,
+    "nativeTemporaryScriptCleanupEvidence": {
+      "file": "opt-final-native-temp-cleanup.json",
+      "sha256": "c222a58f219e17f7f313fe7f3b15bf8eaf4a15dfbee9db3dcffb6c35e7f7cd5a",
+      "exitCode": 0
+    },
+    "temporaryUserJqCommandAbsent": true,
+    "globalConfigurationFilesChecked": 14,
+    "globalConfigurationsPreserved": true,
+    "ownedNativeResidualProcesses": 0,
+    "privateEvidenceArchivedOutsideRepositories": true
+  },
+  "scopeNotes": [
+    "Raw target logs, bindings, trust material and device paths remain outside this repository.",
+    "Test version 0.8.5 is a build override, not a published release.",
+    "Go build metadata says vcs.modified=true due to unrelated owner documentation; tested Go source inputs match the recorded commits.",
+    "Jq third bootstrap uses an explicit HTTPS gateway base with original owner SHA/size checks; no HTTP downgrade.",
+    "Native data directories are retained for reproduction; temporary gateway, forwards and user jq command are removed.",
+    "No desktop Docker daemon, other desktop architectures, system package installation/removal or service mutation acceptance is claimed."
+  ]
+}

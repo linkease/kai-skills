@@ -6,7 +6,7 @@ systems: istoreos
 triggers: 网速慢, 测速, 宽带速度, 上行速度, 下行速度, 延迟, 抖动, NAT 类型, IPv6 测试, IPv6 可用性, 局域网测速, LAN 测速, FastNet
 negative-triggers: Docker 镜像下载慢, GitHub 下载慢, 文件下载失败, 修改 IPv6 模式, 修改网络配置
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: medium
 ---
@@ -30,11 +30,11 @@ Use this skill to measure network quality with the device's packaged `/usr/sbin/
 
 ## Boundaries
 
-- If FastNet is absent, route installation of `app-meta-fastnet` through `istoreos-package-manager`; do not download an ad-hoc binary. Installing packages requires user confirmation.
+- If FastNet is absent, route installation of `app-meta-fastnet` through `kai-software`; do not download an ad-hoc binary. Installing packages requires user confirmation.
 - The FastNet CLI does not require `/etc/init.d/fastnet` to be running. Do not start or restart the Web UI service solely to run a CLI test.
 - Route FastNet Web UI/service failures to `istoreos-service-manager` plus `istoreos-logs-and-diagnostics`.
 - Route IPv6 PD/relay/NAT mode changes to `istoreos-systools`; this skill only measures IPv6 behavior.
-- Route a slow Docker image, Git clone, package artifact, or specific URL to `istoreos-download-acceleration`; a bandwidth test does not repair a download path.
+- Route a slow Docker image, Git clone, package artifact, or specific URL to `kai-download-acceleration`; a bandwidth test does not repair a download path.
 - Use `FastNet speedtest_one --json` for WAN SpeedTest results. Do not treat `/api/speedtest` as authoritative while the packaged API describes it as a placeholder with no upload result.
 - Never print `/etc/config/fastnet` wholesale, place its token in a URL, or repeat a LAN test token in the response. Only test a LAN endpoint supplied or confirmed by the user.
 

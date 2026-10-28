@@ -4,7 +4,11 @@
   "title": "Control a Windows device remotely",
   "platform": "windows",
   "mode": "remote-control",
-  "aliases": [],
+  "aliases": [
+    "remote control Windows",
+    "远程控制 Windows",
+    "SSH 控制 Windows"
+  ],
   "path": ".",
   "skillsRoot": "skills",
   "generated": true,
@@ -18,6 +22,13 @@
     "windows": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:8b6dc3eb7f94012c1028d41e248f56d8bd7c3d07c061159fad1569653c1e0fdf",
-  "treeDigest": "sha256:9ade1a000ad2869fa939e9e431292f9bffbc2abb993a8f6d46b699bc21e83f5e"
+  "sourceDigest": "sha256:440b314909aa8c91ebb83f93980c131353f477be09ecdca6262c6f70985c8383",
+  "treeDigest": "sha256:fc30b1a94385a027c78231fa8bf686a9988965f663897cdd406fa6a59a73ed35",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
 }

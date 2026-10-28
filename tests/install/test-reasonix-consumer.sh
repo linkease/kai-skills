@@ -25,16 +25,17 @@ func TestLinkeaseGeneratedConsumer(t *testing.T) {
   t.Run(mode, func(t *testing.T) {
    installed := filepath.Join(os.Getenv("LINKEASE_CONSUMER_FIXTURE"), mode)
    store := New(Options{HomeDir:t.TempDir(), CustomPaths:[]string{installed}, DisableBuiltins:true})
-   download, ok := store.Read("istoreos-download-acceleration")
+   download, ok := store.Read("kai-download-acceleration")
    if !ok { t.Fatal("download skill not discovered") }
-   if !slices.Contains(download.Triggers,"pip install") || !slices.Contains(download.Triggers,"go mod") { t.Fatal("dependency routes not parsed by actual loader") }
-   if download.Owner!="system-pack/istoreos" || !slices.Contains(download.Systems,"istoreos") || download.AutoUse!="prefer" || download.RoutingGroup!="istoreos-primary" || !download.NeedsFreshData { t.Fatal("system/routing metadata lost") }
-   if !strings.Contains(download.Body,filepath.Join(installed,"istoreos-download-acceleration","scripts","smoke.sh")) { t.Fatal("actual script paths missing from loaded body") }
-   runtime, ok := store.Read("istoreos-mise-runtime")
-   if !ok || !strings.Contains(runtime.Body,"data/execution.md") { t.Fatal("runtime execution reference missing") }
+   dependencies,found := store.Read("kai-project-dependencies")
+   if !found || !slices.Contains(dependencies.Triggers,"pip install") || !slices.Contains(dependencies.Triggers,"go mod") { t.Fatal("dependency routes not parsed by actual loader") }
+   if download.Owner!="system-pack/common" || !slices.Contains(download.Systems,"istoreos") || download.AutoUse!="prefer" || download.RoutingGroup!="system-primary" || !download.NeedsFreshData { t.Fatal("system/routing metadata lost") }
+   if !strings.Contains(download.Body,filepath.Join(installed,"kai-download-acceleration","scripts","accelerate.sh")) { t.Fatal("actual script paths missing from loaded body") }
+   runtime, ok := store.Read("kai-dev-environment")
+   if !ok || !strings.Contains(runtime.Body,filepath.Join(installed,"kai-dev-environment","scripts","runtime.sh")) { t.Fatal("runtime execution reference missing") }
    if strings.Contains(runtime.Body,"## Reference:") { t.Fatal("detailed data eagerly inlined") }
    catalog:=CatalogBlock(store.List())
-   if !strings.Contains(catalog,"istoreos-download-acceleration") { t.Fatal("primary missing from catalog") }
+   if !strings.Contains(catalog,"kai-download-acceleration") { t.Fatal("primary missing from catalog") }
    if strings.Contains(catalog,"istoreos-app-diagnostics") { t.Fatal("manual helper leaked into catalog") }
   })
  }

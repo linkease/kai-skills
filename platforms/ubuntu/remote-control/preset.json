@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "id": "ubuntu-remote-control",
+  "title": "Control ubuntu",
+  "platform": "ubuntu",
+  "mode": "remote-control",
+  "aliases": [
+    "ubuntu remote-control"
+  ],
+  "path": ".",
+  "skillsRoot": "skills",
+  "generated": true,
+  "generatedFrom": [
+    "common",
+    "linux",
+    "debian",
+    "ubuntu",
+    "transport.ssh"
+  ],
+  "componentVersions": {
+    "common": "1.0.0",
+    "linux": "1.0.0",
+    "debian": "1.0.0",
+    "ubuntu": "1.0.0",
+    "transport.ssh": "1.1.0"
+  },
+  "sourceDigest": "sha256:3e44d5bf0bd71b2ac827d28b370c23e39a2dcbcfe9e5aa977647456f9c634bf7",
+  "treeDigest": "sha256:c7949c8f87b50e5eb9fc75d0804a07b4a2ef9ecc5886d632c04ebf396b94cfb2",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
+}

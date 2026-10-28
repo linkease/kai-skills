@@ -22,8 +22,8 @@ sh "$root/tools/build-release.sh" "$tmp/release-a" >/dev/null
 sh "$root/tools/build-release.sh" "$tmp/release-b" >/dev/null
 diff -ru "$tmp/release-a" "$tmp/release-b" >/dev/null || fail "release build is not deterministic"
 manifest="$tmp/release-a/release-manifest.json"
-jq -e '.schemaVersion == 1 and (.sourceCommit | test("^[a-f0-9]{40}$")) and (.artifacts | length == 12)' "$manifest" >/dev/null
-[ "$(jq -r '.artifacts[].presetId' "$manifest" | sort -u | wc -l | tr -d ' ')" -eq 6 ] || fail "release does not contain six presets"
+jq -e '.schemaVersion == 1 and (.sourceCommit | test("^[a-f0-9]{40}$")) and (.artifacts | length == 20)' "$manifest" >/dev/null
+[ "$(jq -r '.artifacts[].presetId' "$manifest" | sort -u | wc -l | tr -d ' ')" -eq 10 ] || fail "release does not contain ten presets"
 
 jq -r '.artifacts[] | [.presetId,.format,.path,.sha256,.treeDigest] | @tsv' "$manifest" |
 while IFS="$(printf '\t')" read -r preset_id format archive expected_sha expected_tree; do

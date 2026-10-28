@@ -6,7 +6,7 @@ systems: macos
 requires: target-shell:posix
 triggers: launchd 服务失败, LaunchAgent, LaunchDaemon, macOS 服务未运行, macOS 日志, 重启 Mac 服务
 auto-use: prefer
-routing-group: macos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: medium
 ---

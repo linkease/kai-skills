@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "id": "ubuntu-on-device",
+  "title": "Use an agent on ubuntu",
+  "platform": "ubuntu",
+  "mode": "on-device",
+  "aliases": [
+    "ubuntu on-device"
+  ],
+  "path": ".",
+  "skillsRoot": "skills",
+  "generated": true,
+  "generatedFrom": [
+    "common",
+    "linux",
+    "debian",
+    "ubuntu"
+  ],
+  "componentVersions": {
+    "common": "1.0.0",
+    "linux": "1.0.0",
+    "debian": "1.0.0",
+    "ubuntu": "1.0.0"
+  },
+  "sourceDigest": "sha256:598c52830c08ab351931c2c18bf477889028b89829b4ec530825e1fffb124257",
+  "treeDigest": "sha256:5e6eaeabd035d8b352861953adab7177f7317ae95166cd15af790001053e3250",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
+}

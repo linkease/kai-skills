@@ -1,0 +1,27 @@
+{
+  "schemaVersion": 1,
+  "startedAt": "2026-10-27T01:39:36.779120+00:00",
+  "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+  "scopeDigest": "14a55adaf7aeee83ca0e79e5f56b8afd850301c107cf1f461745831789ed3c93",
+  "cases": [
+    {
+      "id": "MS2-contract",
+      "milestone": "MS2",
+      "suite": "contract",
+      "platform": "all",
+      "status": "passed",
+      "exitCode": 0,
+      "elapsedSeconds": 4.624,
+      "logSha256": "ca8258956ee8022f8d246138a743510f4a2050d09829c246e350017331b171d6",
+      "expected": "execution positive and negative public-interface contracts pass",
+      "evidence": "behavior assertions"
+    }
+  ],
+  "status": "passed",
+  "finishedAt": "2026-10-27T01:39:41.405262+00:00",
+  "scopeNotes": [
+    "Controller-side Python only; POSIX targets do not require Python.",
+    "Includes macOS x64/arm64 and native CPython launched under Windows Git Bash/MSYSTEM fixtures.",
+    "Native desktop execution remains pending."
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "purpose": "MS9 local parser and minimum-shell validation; no desktop kernel claim",
+  "powershell": {
+    "version": "7.4.21",
+    "platform": "linux-x64",
+    "url": "https://github.com/PowerShell/PowerShell/releases/download/v7.4.21/powershell-7.4.21-linux-x64.tar.gz",
+    "sha256": "3fc5e1567c450bd7bd5ae69ebb0a9a4a4e0418bbc36b0232cf6dd547f0bfc0eb",
+    "verification": "official GitHub release asset digest"
+  },
+  "bash": {
+    "version": "3.2.57(2)-release",
+    "platform": "x86_64-unknown-linux-gnu",
+    "source": "https://ftp.gnu.org/gnu/bash/bash-3.2.57.tar.gz",
+    "sourceSha256": "3fa9daf85ebf35068f090ce51283ddeeb3c75eb5bc70b1a4a7cb05868bfe06a4",
+    "signature": "https://ftp.gnu.org/gnu/bash/bash-3.2.57.tar.gz.sig",
+    "keyring": "https://ftp.gnu.org/gnu/gnu-keyring.gpg",
+    "signer": "Chet Ramey <chet@cwru.edu>",
+    "signingKeyId": "BB5869F064EA74AB",
+    "signatureResult": "gpgv: Good signature",
+    "binarySha256": "9b79815858a30f960a23bebed266983b64b75ffdaab73edba84d3c1b8662c875",
+    "build": "configure --without-bash-malloc --disable-nls; regenerate parser with distribution Bison 3.8.2; make -j1; CFLAGS=-O1 -fcommon -Wno-error=implicit-function-declaration -Wno-error=int-conversion",
+    "notes": "Unmodified signed source; old provided parser is stale and make -j2 races readline/history output, so regenerate and build serially. No global tool installation."
+  },
+  "wingetProtocol": {
+    "repository": "https://github.com/microsoft/winget-cli",
+    "sourceCommit": "5d302e449b63ca1534bf4b7c871f048ad07d5dca",
+    "api": "Microsoft.WinGet.Client: Find/Get/Install/Uninstall-WinGetPackage; PSCatalogPackage, PSInstalledCatalogPackage, PSInstallResult, PSUninstallResult"
+  }
+}

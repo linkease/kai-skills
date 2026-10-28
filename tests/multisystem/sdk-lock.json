@@ -1,0 +1,7 @@
+{
+  "schemaVersion": 1,
+  "selection": "Frozen acceptance versions; not a latest-version policy",
+  "python": "3.13.7",
+  "node": "22.14.0",
+  "go": "1.24.1"
+}

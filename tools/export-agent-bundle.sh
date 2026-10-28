@@ -63,7 +63,12 @@ names="$stage/.skill-names"
 : >"$names"
 for skill in "$stage"/skills/*; do
   [ -d "$skill" ] || continue
-  [ -f "$skill/SKILL.md" ] || { echo "failed: missing SKILL.md in $skill" >&2; exit 1; }
+  if [ ! -f "$skill/SKILL.md" ]; then
+    jq -e --arg folder "$(basename "$skill")" '(.resources // []) | index($folder) != null' "$preset/preset.json" >/dev/null || {
+      echo "failed: undeclared resource in $skill" >&2; exit 1;
+    }
+    continue
+  fi
   folder="$(basename "$skill")"
   name="$(sed -n '/^---[[:space:]]*$/,/^---[[:space:]]*$/s/^name:[[:space:]]*//p' "$skill/SKILL.md" \
     | head -n 1 | sed 's/[[:space:]]*$//')"
@@ -92,13 +97,16 @@ jq -n \
   --arg consumer "$consumer" \
   --arg presetId "$preset_id" \
   --arg sourceCommit "$(git -C "$root" rev-parse HEAD)" \
+  --arg sourceState "$(if [ -z "$(git -C "$root" status --porcelain --untracked-files=all)" ]; then echo committed; else echo worktree; fi)" \
   --arg sourceDigest "$(jq -r '.sourceDigest' "$preset/preset.json")" \
   --arg treeDigest "$tree_digest" \
   --argjson componentVersions "$(jq '.componentVersions' "$preset/preset.json")" \
   --argjson skills "$skills" \
+  --argjson resources "$(jq ' .resources // []' "$preset/preset.json")" \
+  --argjson skillAliases "$(jq '.skillAliases // {}' "$preset/preset.json")" \
   '{schemaVersion:1,platform:$platform,mode:$mode,consumer:$consumer,presetId:$presetId,
-    sourceCommit:$sourceCommit,sourceDigest:$sourceDigest,treeDigest:$treeDigest,
-    componentVersions:$componentVersions,skills:$skills}' >"$stage/manifest.json"
+    sourceCommit:$sourceCommit,sourceState:$sourceState,sourceDigest:$sourceDigest,treeDigest:$treeDigest,
+    componentVersions:$componentVersions,skills:$skills,resources:$resources,skillAliases:$skillAliases}' >"$stage/manifest.json"
 
 mv "$stage" "$output"
 trap - EXIT HUP INT TERM

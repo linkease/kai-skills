@@ -4,7 +4,11 @@
   "title": "Use an agent on a Windows device",
   "platform": "windows",
   "mode": "on-device",
-  "aliases": [],
+  "aliases": [
+    "Windows on device",
+    "在 Windows 上使用",
+    "本机维护 Windows"
+  ],
   "path": ".",
   "skillsRoot": "skills",
   "generated": true,
@@ -16,6 +20,13 @@
     "common": "1.0.0",
     "windows": "1.0.0"
   },
-  "sourceDigest": "sha256:6b7a1acc09525da5c8f7cde2c5616b40e37c22a7e1d5aa232e1fbc06d673e5da",
-  "treeDigest": "sha256:8d5b2b6f423d437211ae32b5d2e7861d5c508effc5eebb0729f1543d992b4c90"
+  "sourceDigest": "sha256:1e7f1dd4d4ccdeaee2069f63d1b91c718b8d3cd75a675794a3f4b58a2e213325",
+  "treeDigest": "sha256:96fad9e4e303f43963fc655beb4ee5834d68394a09371f39d45570b651cbb7b3",
+  "resources": [],
+  "skillAliases": {
+    "istoreos-download-acceleration": "kai-download-acceleration",
+    "istoreos-mise-runtime": "kai-dev-environment",
+    "istoreos-package-manager": "kai-software",
+    "istoreos-storage-path": "kai-storage-files"
+  }
 }

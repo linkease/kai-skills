@@ -5,7 +5,7 @@ owner: system-pack/istoreos
 systems: istoreos
 triggers: Docker data_root, Docker 数据目录, Docker 迁移, Docker 占满 overlay, 容器数据迁移
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: high
 ---
@@ -31,4 +31,4 @@ cost: high
 
 提示：
 - `<NEW_DATA_ROOT>` 建议在数据盘上，例如 `/mnt/<disk>/docker`。
-- 若你只知道“要放到哪个盘”，可先用 `istoreos-storage-path` 选出 `base path`，再拼接子目录。
+- 若你只知道“要放到哪个盘”，可先用 `kai-storage-files` 选出 `base path`，再拼接子目录。

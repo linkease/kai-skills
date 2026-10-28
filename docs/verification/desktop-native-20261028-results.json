@@ -1,0 +1,627 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "partial",
+  "allDesktopReleaseGatesPassed": false,
+  "historicalMS0ThroughMS10Preserved": true,
+  "nativeTargets": {
+    "macos": "Darwin arm64; macOS 26.6.2; system Bash 3.2.57",
+    "windows": "Windows 10 AMD64; native Windows PowerShell 5.1; SSH default PowerShell 7.6.3; Git Bash 5.3.15"
+  },
+  "artifacts": {
+    "macos": {
+      "presetId": "macos-on-device",
+      "platform": "macos",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "sha256": "sha256:755a925733ee06845b486894f92e256f402305a7e5e113e036420e58d9dc98d3",
+      "treeDigest": "sha256:3213ff5752d9698a54ff8448623b6f9505d504daed8e227f29febc44473fc152",
+      "sourceState": "worktree",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae"
+    },
+    "windows": {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "sha256": "sha256:344f21294cae2eceff7baff38e19a4bbc6a976e7609c430160290e65f992efd3",
+      "treeDigest": "sha256:148400ead61a54e22310058c01d68f5c1871c34a72360b610e162f172b2b1f0c",
+      "sourceState": "worktree",
+      "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae"
+    }
+  },
+  "passedCases": [
+    {
+      "platform": "macos",
+      "case": "final-artifact-native-lifecycle",
+      "status": "passed",
+      "assertions": [
+        "final generated on-device artifact",
+        "dry-run causes no installation",
+        "Unicode/space destination",
+        "install/upgrade/uninstall",
+        "8 common and native skills"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "9efabcb525ff2b89b643734e62f8fa46e77ebc5b404c1d980fae4b8db7e5b23e",
+      "elapsedSeconds": 1.338
+    },
+    {
+      "platform": "macos",
+      "case": "storage-search",
+      "status": "passed",
+      "assertions": [
+        "native kernel",
+        "literal Unicode search",
+        "3 known files",
+        "external link excluded"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "418c0ef84b962be36a3a0f77d7750a5c2d70b3e96c3e8ad1550bfc27b642fec6",
+      "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21",
+      "elapsedSeconds": 0.387
+    },
+    {
+      "platform": "macos",
+      "case": "storage-space",
+      "status": "passed",
+      "assertions": [
+        "bounded native scan",
+        "logical total 10485764 bytes",
+        "allocated metric on Darwin; explicit logical metric on Windows"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "c6b69c2b703215c187882369e036c9599b53b86c97b536c30162907cc4a51fea",
+      "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21",
+      "elapsedSeconds": 0.431
+    },
+    {
+      "platform": "macos",
+      "case": "native-system-diagnostics",
+      "status": "passed",
+      "assertions": [
+        "native structured system API",
+        "schemaVersion 1"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "11762ef54f9e604185581332cf496c250bf12e3b1973f85ae61087d8863ff191",
+      "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21",
+      "elapsedSeconds": 0.431
+    },
+    {
+      "platform": "macos",
+      "case": "preserve-global-configurations",
+      "status": "passed",
+      "assertions": [
+        "existing mise/npm/pip/Go/Git configuration files unchanged"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "174df18196c294be82225db05fb10c3733f11c41f520b9ff6b63aae72dd5f6a0",
+      "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21",
+      "elapsedSeconds": 0.454
+    },
+    {
+      "platform": "windows",
+      "case": "final-artifact-native-lifecycle",
+      "status": "passed",
+      "assertions": [
+        "final generated on-device artifact",
+        "dry-run causes no installation",
+        "Unicode/space destination",
+        "install/upgrade/uninstall",
+        "8 common and native skills"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "8300eb3a87f90be7274687d5c520e0dcd0d78ccdb06d4b8422e8c2d15c1eecad",
+      "elapsedSeconds": 32.233
+    },
+    {
+      "platform": "windows",
+      "case": "storage-search",
+      "status": "passed",
+      "assertions": [
+        "native kernel",
+        "literal Unicode search",
+        "3 known files",
+        "external link excluded"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "4f745bee6f411ca5318ed2ea3be5945ffb7ad3e05385beb5f7a4ce7456907640",
+      "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135",
+      "elapsedSeconds": 2.785
+    },
+    {
+      "platform": "windows",
+      "case": "storage-space",
+      "status": "passed",
+      "assertions": [
+        "bounded native scan",
+        "logical total 10485764 bytes",
+        "allocated metric on Darwin; explicit logical metric on Windows"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "dcd58439ad513854f8700eb2a2ee2296ef497787dbaa750c2c5c091ddbd5f8e2",
+      "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135",
+      "elapsedSeconds": 2.771
+    },
+    {
+      "platform": "windows",
+      "case": "native-system-diagnostics",
+      "status": "passed",
+      "assertions": [
+        "native structured system API",
+        "schemaVersion 1"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "d655ef4679ac1fc26e2b4c7a70902bf0b9e1b612b74dcb6891767d81defbf6b1",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "elapsedSeconds": 2.984
+    },
+    {
+      "platform": "windows",
+      "case": "preserve-global-configurations",
+      "status": "passed",
+      "assertions": [
+        "existing mise/npm/pip/Go/Git configuration files unchanged"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "c061b687e1e08f7a50d36213d8571ef3bc14ee98d9a174e45956697bfc3205a6",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "elapsedSeconds": 2.304
+    },
+    {
+      "platform": "macos",
+      "case": "final-artifact-storage-regression",
+      "status": "passed",
+      "assertions": [
+        "writable APFS path remains eligible",
+        "actual mount matches native df",
+        "query preserves probe file"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "f212a0213338f3c93ba720903786799248d28529e0a0339023edff4ca5bc32de",
+      "elapsedSeconds": 0.481
+    },
+    {
+      "platform": "macos",
+      "case": "execution-native-argv",
+      "status": "passed",
+      "assertions": [
+        "6 literal argument cases",
+        "empty argument",
+        "stdin",
+        "exit 37"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "505ca519396983b03f79dce7b5c8333c7eb85c52fe37e9441e5adddf97678945",
+      "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21",
+      "elapsedSeconds": 0.395
+    },
+    {
+      "platform": "macos",
+      "case": "software-info",
+      "status": "passed",
+      "assertions": [
+        "native Homebrew info for exact mise ID"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "415585f2d2c8f354d21f21d1cbc13b1890c7b74e498c692868f3d8595fd9bd58",
+      "stderrSha256": "c7d01e64585d328c617aa9b897bca92111c580893c9c65703e1ac13bfa506b21",
+      "elapsedSeconds": 1.351
+    },
+    {
+      "platform": "macos",
+      "case": "dependencies-offline-existing-sdk",
+      "status": "passed",
+      "assertions": [
+        "existing Node 24.18.0 and Go 1.26.5 linked in isolated mise",
+        "npm is-number 7.0.0 SRI preserved",
+        "Go uuid 1.6.0 go.sum verified",
+        "actual Node/Go execution",
+        "offline inputs; no online acceleration claim"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "5359a36530034288bdd7b00b28def8e5b0507cfa9ba29f71e9467a9416994cab",
+      "stderrSha256": "1c3c444933f02dbe7e8332c467988c1cdbefb2795ecc4f72eb13f4ce557e6774",
+      "elapsedSeconds": 37.828
+    },
+    {
+      "platform": "windows",
+      "case": "transport-param-utf8-final",
+      "status": "passed",
+      "assertions": [
+        "PowerShell 5.1 through existing PowerShell 7 SSH default shell",
+        "UTF-8 script and output",
+        "original param block",
+        "exit 37",
+        "user stderr retained"
+      ],
+      "nativeExitCode": 37,
+      "stdoutSha256": "f78a9a47ea143d69615bbf4cf798043df639c249ccf2d8fcfc0f0452d87ea799",
+      "stderrSha256": "574393364f45c646b6aa4cfdd97577bb97c760029d9e1908102a0c486b667d3a",
+      "elapsedSeconds": 1.464
+    },
+    {
+      "platform": "windows",
+      "case": "bash-bootstrap-native-ensure",
+      "status": "passed",
+      "assertions": [
+        "existing Git Bash 5.3.15 reused",
+        "PowerShell bootstrap receipt"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "9a5d268a36b23a963e54475b2c13ffc0e21cee12d8769c6de603356af86a5d6c",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "elapsedSeconds": 1.854
+    },
+    {
+      "platform": "windows",
+      "case": "execution-native-argv-and-cmd-final",
+      "status": "passed",
+      "assertions": [
+        "6 native literal arguments",
+        "stdin",
+        "exit 37",
+        "native cmd bridge",
+        "Unicode batch path",
+        "space and empty batch arguments"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "43e714fa589f1296ee75e43397091074baf4f4b1c93cf5ee6ecab410ef26ad22",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "elapsedSeconds": 5.187
+    },
+    {
+      "platform": "windows",
+      "case": "accelerated3-sdk-node-install",
+      "status": "passed",
+      "assertions": [
+        "Node 22.14.0 native archive downloaded through current gateway",
+        "original checksum verification",
+        "SDK provenance and functionality",
+        "npm 10.9.2",
+        "scope none"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "62915b191a7add89a2f5f39cfdfaf9c7fba7c1feaba3ca300c6a5ce603346d95",
+      "stderrSha256": "64e734c2b339880d3998c1981773b21ef5494e6a3e52f91ef1099354db95a9e6",
+      "elapsedSeconds": 59.412
+    },
+    {
+      "platform": "windows",
+      "case": "accelerated3-sdk-go-install",
+      "status": "passed",
+      "assertions": [
+        "Go 1.24.1 native archive downloaded through current gateway",
+        "original SHA256 verification",
+        "SDK provenance/version",
+        "scope none"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "06613cd8d2bdc027b391c20ef892cd180ae7247f18820dce634f468bb8f01317",
+      "stderrSha256": "3199b194ba4511afb22f48b06b4fcfd510297dcbae11ab695fdbfcf950fa9b47",
+      "elapsedSeconds": 114.325
+    },
+    {
+      "platform": "windows",
+      "case": "dependencies-npm-frozen-install",
+      "status": "passed",
+      "assertions": [
+        "npm ci with frozen Node",
+        "is-number 7.0.0 lock unchanged"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "fa3d6f373587e0d2483e5095288e9bfdc3e0f8652ed3e717cfcaa6d51894e74a",
+      "stderrSha256": "7af94b6d637b4d7c58dc32a440da9737cac9d3dd86c574c838426c5e2b04fc1c",
+      "elapsedSeconds": 11.165
+    },
+    {
+      "platform": "windows",
+      "case": "dependency-selected-runtime-use",
+      "status": "passed",
+      "assertions": [
+        "native Go reports go1.24.1",
+        "Node reports 22.14.0",
+        "actual is-number result true"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "33d1b797031e7c49a6ec318fe45cbcef587d528f98ec2ea8c3337331385f214f",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "elapsedSeconds": 5.179
+    },
+    {
+      "platform": "windows",
+      "case": "dependencies-go-npm-use",
+      "status": "passed",
+      "assertions": [
+        "Go module verification and actual uuid program",
+        "npm-exec subprobe fetched a temporary Node package: use separate selected-runtime assertion as authoritative"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "38178e7d357cd2d5c6887e3ca54d8d65c1c360456146b4834e53698098c368bb",
+      "stderrSha256": "b5bf3150e72733725f73f3336c34e8ab10053c867d0340288399ec0d6c749fc0",
+      "elapsedSeconds": 42.156
+    },
+    {
+      "platform": "windows",
+      "case": "fresh-project-npm-repeat-sdk-verify",
+      "status": "passed",
+      "assertions": [
+        "fresh Unicode project directory",
+        "repeat npm ci",
+        "Node and Go independently verified again"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "7efd29e6a456dea8b007af7ba6e0ebfd92b32003dc766d04877920a572d83ef2",
+      "stderrSha256": "cb09393f2ebbceebdbcc6d262ee322493c1813ab1d61c1c8b5373e9e23f432ed",
+      "elapsedSeconds": 18.966
+    },
+    {
+      "platform": "windows",
+      "case": "zsetup-verified-jq-download",
+      "status": "passed",
+      "assertions": [
+        "native zsetup 0.4.0",
+        "official Windows jq 1.8.2",
+        "size 1035264",
+        "SHA256 a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
+        "native executable runs"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "83cae7653e82a5f6570e22c6a99a63fe81e0c4d5a6251deea389838e6b102094",
+      "stderrSha256": "74452dec9e067c8c93c3f7c9070b8c394d11e6a997d67a55426888475937b595",
+      "elapsedSeconds": 16.571
+    },
+    {
+      "platform": "windows",
+      "case": "jq-owner-native-install-use-remove",
+      "status": "passed",
+      "assertions": [
+        "existing trusted native core",
+        "unchanged owner installer",
+        "download/integrity/full jq function",
+        "owned launcher removed by owner"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "7b91e77f79974f8e5031c06cfd1b8263ca515c9f43d6c63673e54d3e9cf7e825",
+      "stderrSha256": "b16d87c16ebe393058da8a806250e6bf8110bdafd1ceec23792f30a8cb3176c6",
+      "elapsedSeconds": 30.165
+    },
+    {
+      "platform": "windows",
+      "case": "native-service-inspect",
+      "status": "passed",
+      "assertions": [
+        "read-only native Windows service/eventlog API"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "60ac135672ba6a0357951286bace30fbb7a5b1fd8fe26f39911a00c60266e8cb",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+      "elapsedSeconds": 2.084
+    },
+    {
+      "platform": "windows",
+      "case": "storage-storage",
+      "status": "passed",
+      "assertions": [
+        "native Win32 volume APIs",
+        "NTFS persistent/writable facts",
+        "eligibleForInstall true"
+      ],
+      "nativeExitCode": 0,
+      "stdoutSha256": "ef15088de9e92fd2ace0c4c3c36871aa3d888f8396e7ed34540b7db19a6e6d7a",
+      "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135",
+      "elapsedSeconds": 2.558
+    }
+  ],
+  "remainingGates": [
+    {
+      "platform": "macos",
+      "case": "fresh-frozen-sdk-install",
+      "status": "blocked",
+      "reason": "Native resolver times out for upstream and loopback acceleration domains; account has no noninteractive sudo. Python direct and two accelerated attempts failed; Node/Go direct failed. Redundant outstanding network attempts canceled.",
+      "affectedVersions": {
+        "python": "3.13.7",
+        "node": "22.14.0",
+        "go": "1.24.1"
+      }
+    },
+    {
+      "platform": "macos",
+      "case": "Homebrew-Python-linked-reuse",
+      "status": "failed",
+      "reason": "Existing Homebrew Python 3.14.6 does not supply the unversioned python executable at the linked framework root; runtime verification correctly rejects this layout.",
+      "nativeExitCode": 11
+    },
+    {
+      "platform": "macos",
+      "case": "pip-uv-and-online-acceleration",
+      "status": "blocked",
+      "reason": "No verified selected Python SDK and unresolved native DNS; offline Node/Go passes do not satisfy these gates."
+    },
+    {
+      "platform": "windows",
+      "case": "frozen-python-install",
+      "status": "failed",
+      "reason": "Archive downloaded through verified gateway; original GitHub attestation API request failed. Verification remains enabled.",
+      "version": "3.13.7",
+      "nativeExitCode": 1
+    },
+    {
+      "platform": "windows",
+      "case": "pip-existing-python",
+      "status": "failed",
+      "reason": "Full public dependency entry timed out with existing trusted Python 3.14.6. Venv config, interpreter and pip launcher exist. Two accelerated attempts and a direct-index attempt failed; root cause unresolved.",
+      "attemptTimeoutSeconds": [
+        240,
+        90,
+        90
+      ],
+      "optimizationStopped": true
+    },
+    {
+      "platform": "windows",
+      "case": "uv-frozen-install",
+      "status": "failed",
+      "reason": "Public dev-cli install timed out after 180 seconds; no completed install receipt.",
+      "version": "0.8.22",
+      "nativeExitCode": 124
+    },
+    {
+      "platform": "windows",
+      "case": "structured-winget-info",
+      "status": "failed",
+      "reason": "Official signed Microsoft.WinGet.Client 1.29.380 returned exact Microsoft.PowerShell ID with empty Source. Adapter returns no-unique-candidate instead of guessing source. Native package install/remove not attempted.",
+      "nativeExitCode": 4
+    },
+    {
+      "platform": "windows",
+      "case": "missing-jq-and-core-bootstrap",
+      "status": "failed",
+      "reason": "Missing-core public jq ensure enters Linux/Darwin-only core bootstrap and fails; no registered native first-time core mapping was added. The provided-core owner lifecycle passed separately.",
+      "nativeExitCode": 1
+    }
+  ],
+  "notTested": [
+    "Other native desktop architectures",
+    "Desktop Docker daemon/image pull: native Docker absent",
+    "Real Codex/OpenCode application processes",
+    "Full desktop software catalog install/remove lifecycle",
+    "macOS native launchd service mutation",
+    "Windows native service mutation"
+  ],
+  "fixes": [
+    {
+      "name": "Windows SSH exit/UTF-8/param preservation",
+      "optimizationRounds": 3,
+      "status": "passed"
+    },
+    {
+      "name": "Darwin APFS mount and read-only facts",
+      "optimizationRounds": 1,
+      "status": "passed"
+    },
+    {
+      "name": "Windows jq CRLF ownership digest mismatch",
+      "optimizationRounds": 1,
+      "status": "passed"
+    }
+  ],
+  "localRegression": {
+    "unittestCasesRun": 120,
+    "passed": 118,
+    "skippedNativeOnly": 2,
+    "nativeOnlyTestsExecutedSeparately": 3,
+    "repositoryScriptsPassed": 16,
+    "reasonixEightLayerSourceLocks": "checked"
+  },
+  "credentialHandling": "SSH target configuration, keys, known_hosts and raw device logs remain outside the repository",
+  "cleanup": {
+    "ownedContainers": 0,
+    "ownedNetworks": 0,
+    "ownedImages": 0,
+    "gatewayAndForwardingStopped": true,
+    "nativeDataDirectoriesRetainedForReproduction": true,
+    "windowsTemporaryScriptCleanup": {
+      "temporaryJqCommandAbsent": true,
+      "ownedTemporaryScriptsRemoved": 2
+    }
+  },
+  "nativeClientCandidates": {
+    "sourceCommit": "9fb453dc9a6709a07ea6f51ce292dd3e3e93536f",
+    "sourceState": "worktree",
+    "versionOverride": "0.8.5",
+    "versionIsTestOverrideNotPublishedRelease": true,
+    "buildNumber": "desktop-native-test",
+    "CGO_ENABLED": "0",
+    "targets": [
+      "darwin/arm64",
+      "windows/amd64"
+    ],
+    "files": [
+      {
+        "file": "ks-cli-macos",
+        "sha256": "3d20f9847b062c125da4b980f232fc23cb4a74358fa34cc33c0a1fc5cf5bcb11",
+        "size": 14189858
+      },
+      {
+        "file": "ks-cli-windows.exe",
+        "sha256": "b59901ed56cc568ab69607615d824a6110a68fd231391c00134dbb9cbcc91787",
+        "size": 15204864
+      }
+    ],
+    "gatewaySourceCommit": "25d55cf08ab08ec8b8e3701e3cd1b62f8022eae5",
+    "gatewayDifferenceFromClientSource": "documentation only",
+    "publication": false,
+    "goBuildMetadata": {
+      "ks-cli-macos": [
+        "build\tCGO_ENABLED=0",
+        "build\tGOARCH=arm64",
+        "build\tGOOS=darwin",
+        "build\tvcs.revision=9fb453dc9a6709a07ea6f51ce292dd3e3e93536f",
+        "build\tvcs.time=2026-10-27T17:17:53Z",
+        "build\tvcs.modified=true"
+      ],
+      "ks-cli-windows.exe": [
+        "build\tCGO_ENABLED=0",
+        "build\tGOARCH=amd64",
+        "build\tGOOS=windows",
+        "build\tvcs.revision=9fb453dc9a6709a07ea6f51ce292dd3e3e93536f",
+        "build\tvcs.time=2026-10-27T17:17:53Z",
+        "build\tvcs.modified=true"
+      ]
+    },
+    "finalOwnerAudit": "Only unrelated docs/servers.md is modified; no owner Go source files were edited by this task",
+    "sourceQualification": "Both binaries record vcs.modified=true; final owner diff contains only unrelated docs/servers.md. Go build inputs match the recorded HEAD."
+  },
+  "prerequisites": {
+    "jqWindows": {
+      "version": "1.8.2",
+      "source": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-amd64.exe",
+      "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627"
+    },
+    "zsetupWindows": {
+      "version": "0.4.0",
+      "sourceCommit": "16a68a6a3fbe6b7a9b313de2c6526716f100c28b",
+      "sha256": "858633b03f4808417bc4724f28e8ab0cb17c9f09fe4e665c9532f488cc1f83a3",
+      "scope": "limited native download and jq owner lifecycle; no full core release claim",
+      "artifactTarget": "i686-pc-windows-gnu (executed on AMD64 Windows)"
+    },
+    "wingetModule": {
+      "version": "1.29.380",
+      "source": "https://www.powershellgallery.com/api/v2/package/Microsoft.WinGet.Client/1.29.380",
+      "nupkgSha256": "3469e5747eb6b100e51fed3f2057386b5ba60bc8955a6669b5c2eb562e316619",
+      "allInspectedCodeSignaturesValid": true,
+      "installationScope": "task directory and process PSModulePath only"
+    }
+  },
+  "evidenceDirectory": "release/desktop-native-evidence (ignored; sanitized logs and private test candidates, no SSH config or keys)",
+  "observedNativeDownloadBytes": {
+    "node": [
+      {
+        "received": 34906389,
+        "total": 34906389
+      },
+      {
+        "received": 3777,
+        "total": 3777
+      }
+    ],
+    "go": [
+      {
+        "received": 64,
+        "total": 64
+      },
+      {
+        "received": 87183196,
+        "total": 87183196
+      }
+    ]
+  },
+  "releaseManifestSha256": "54798f63857abe308ffc2547dd8261ad39544e82153ca5335bbb00020704e6e9"
+}

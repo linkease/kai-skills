@@ -1,0 +1,468 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "passed-supported-download-scope",
+  "allDesktopReleaseGatesPassed": false,
+  "goal": "Use existing ks-cli automatic routing for Windows mise bootstrap and validate actual SDK and package use without replacing original integrity checks.",
+  "taskTree": [
+    {
+      "task": "Align skill instructions and file routing",
+      "acceptance": "Default native auto mode, no forced acceleration, actual route and probe diagnostics retained, no service startup",
+      "status": "passed"
+    },
+    {
+      "task": "Connect Windows mise bootstrap to existing native ks-cli",
+      "acceptance": "Online ZIP acquisition without ArchiveCache, frozen SHA/size, exact version, both exe files, ownership and failure preservation",
+      "status": "passed"
+    },
+    {
+      "task": "Validate Windows usage and delivery",
+      "acceptance": "Public bootstrap, new mise installing/running Node, native npm metadata/install/run, matching gateway evidence, generated archive and consumer, preserved globals and cleanup",
+      "status": "passed"
+    }
+  ],
+  "optimizationRounds": 3,
+  "maxOptimizationRounds": 3,
+  "rounds": [
+    {
+      "round": 1,
+      "change": "Validate an existing owned mise before requiring its previous downloader",
+      "red": "Native reuse with an absent ks-cli returned 127 despite unchanged installed files",
+      "result": "Six native bootstrap cases passed, including no-cache ks-cli install and wrong-hash rejection"
+    },
+    {
+      "round": 2,
+      "change": "Move Linux rescue-cache detail from the skill entry to on-demand platform notes",
+      "red": "Shared entry exceeded the 6500-byte repository gate at 6719 bytes",
+      "result": "Entry is 6389 bytes; all failed budget-dependent checks passed; executable code unchanged"
+    },
+    {
+      "round": 3,
+      "change": "Retain native auto-mode attempt types and byte counts in the public file receipt",
+      "red": "Public download receipt dropped origin-probe diagnostics; strict no-direct-observation evidence could not be completed",
+      "result": "Regression and native file path passed; four same-window evidence proofs confirmed"
+    }
+  ],
+  "windows": {
+    "architecture": "AMD64",
+    "powerShellScope": [
+      "5.1",
+      "7.6.3"
+    ],
+    "bashScope": "Git Bash",
+    "miseVersion": "2026.8.14",
+    "miseArchiveSize": 33633582,
+    "miseArchiveSha256": "dfae38ae7c782ef2f0255aa2cd7f8d2c242559f94c491fb59182c7ad36c2bf79",
+    "bootstrap": {
+      "entry": "tool.sh ensure mise",
+      "downloader": "ks-cli",
+      "download": {
+        "selected": "admin_proxy",
+        "bytes": 33633582,
+        "speedBps": 3865484,
+        "strategy": "adaptive_race",
+        "mode": "auto",
+        "durationMs": 8701,
+        "status": "ok"
+      },
+      "archiveCacheUsed": false,
+      "contentAndVersionValidation": "passed",
+      "bothNativeExecutablesRetained": true
+    },
+    "sdk": {
+      "entry": "runtime.sh install/exec node 22.14.0",
+      "miseSelection": "newly bootstrapped native mise",
+      "client": "ks-cli mise",
+      "version": "22.14.0",
+      "archiveSize": 34906389,
+      "archiveSha256": "55b639295920b219bb2acbcfa00f90393a2789095b7323f79475c9f34795f217",
+      "metadataArchiveAndChecksumRequestsMatched": true,
+      "actualProgramRan": true
+    },
+    "npm": {
+      "entry": "dependencies.sh run/install npm 22.14.0",
+      "package": "is-number",
+      "version": "7.0.0",
+      "operations": [
+        "Native npm view exact version",
+        "npm ci preserving the existing lock",
+        "actual version and function assertions"
+      ],
+      "routing": "Passing ks-cli Doctor/Explain environment with selected native node.exe and npm-cli.js",
+      "metadataAndArtifactMatched": true,
+      "artifactSize": 3730,
+      "artifactSha256": "7b75c1057198cf97696909a9bee176c9c5e9bcb5b03bf3ecef2f484defadd51e",
+      "frozenSri512Verified": true,
+      "auditValidation": "not-passed-http-405"
+    },
+    "file": {
+      "entry": "accelerate.sh download",
+      "download": {
+        "status": "ok",
+        "mode": "auto",
+        "strategy": "adaptive_race",
+        "selected": "admin_proxy",
+        "bytes": 33633582,
+        "attempts": [
+          {
+            "type": "origin",
+            "bytes": 0,
+            "selected": false,
+            "errorKind": "unknown",
+            "httpStatus": null
+          },
+          {
+            "type": "admin_proxy",
+            "bytes": 33633582,
+            "selected": true,
+            "errorKind": null,
+            "httpStatus": null
+          }
+        ]
+      },
+      "contentValidation": "passed",
+      "accelerationValidation": "confirmed-by-separate-current-instance-evidence"
+    },
+    "localKspeederStarted": false,
+    "kspeederServiceCountAtEnd": 0,
+    "kspeederProcessCountAtEnd": 0,
+    "ksCliProcessCountAtEnd": 0,
+    "originalGlobalMiseVersion": "2026.7.0 windows-x64 (2026-07-02)"
+  },
+  "topology": {
+    "client": "Native Windows source-locked ks-cli candidate",
+    "gateway": "Isolated controller-side KSpeeder process",
+    "transport": "Existing trusted SSH with loopback forwards",
+    "productionGatewayChanged": false,
+    "defaultProxyChanged": false,
+    "windowsServerInstalled": false,
+    "healthForwardNote": "Download configurable ports and the SDK health default endpoints were both forwarded. The initial SDK health attempt failed before these default forwards existed; no service was installed."
+  },
+  "sourceArtifacts": {
+    "ksCli": {
+      "sourceCommit": "32cbbaa8aa0f3fce35b32c3d9497236e136678f5",
+      "sha256": "0da8285aea907ffd1c224acc6032b10693676334ee85348e6825573a323f9e47",
+      "version": "0.8.5-winget-candidate",
+      "testOnlyVersionOverride": true,
+      "published": false
+    },
+    "kspeeder": {
+      "sourceCommit": "97b7d2bd9d10c2d9b0177b368d8bf2ebb8a41c54",
+      "sha256": "969c7141f432e46db1e472aca6b563687ef87d4ca50e8d99e322267218eb21d0",
+      "existingVerifiedBinary": true,
+      "sourceState": "worktree"
+    }
+  },
+  "verification": {
+    "localTests": {
+      "discovered": 144,
+      "passed": 127,
+      "skippedNativeOnly": 17,
+      "failed": 0
+    },
+    "nativeBootstrapCasesPassed": 6,
+    "nativeBootstrapCaseArtifact": "R2 generated Windows preset; corresponding bootstrap/runtime/dependency code is byte-identical in R3",
+    "nativeFinalR3FileEntryPassed": true,
+    "nativeFinalR3LifecyclePassed": true,
+    "repositoryChecks": [
+      {
+        "check": "tests/architecture/m0-baseline.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "ece9f1b6b14bd1db68dccf05d5cc22ffac397f0751d77d087d724906db589251"
+      },
+      {
+        "check": "tests/architecture/test-catalog.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "30a42eee88750180389b9d659b9a101f9ecbe5110e7796140421ab1cad8b90dc"
+      },
+      {
+        "check": "tests/architecture/test-istoreos-home-prompts.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "87a00169751aeffdae67c33b8bdd5e974ddcf3801a38a2a39036e30c421e32f6"
+      },
+      {
+        "check": "tests/architecture/test-m2-canonical.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "60409e30a7d92c8b0fad226f274b8b06647bf272b67f09074f909ee23f046c9f"
+      },
+      {
+        "check": "tests/architecture/test-m4-generated.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "17eab6580e1f58dc91a7c5d03f7f671d188e6e79c8c5d69c320a6feb89acd57d"
+      },
+      {
+        "check": "tests/architecture/test-recommendations.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "c9b8796f3de49ed49bd2f7a53b9bf7e81f6ae34da8e562d8afec77982f8f8115"
+      },
+      {
+        "check": "tests/architecture/test-runtime-release-gate.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "9a4801c8517873f910e3d2265a7bba3fba9d1076fa5ba4dfe635fa9e908aeac4"
+      },
+      {
+        "check": "tests/install/test-agent-bundle-export.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "8e4c3d9c24858631d9bd654e407c54611bc9c84e52e2e30a0298f1d6ddafecdc"
+      },
+      {
+        "check": "tests/install/test-m10-lifecycle.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "e0592c1aff375e3ed98389384366d63a29b0adc64568dc38b65b065de4b63d58"
+      },
+      {
+        "check": "tests/install/test-m10-release.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "2cc098aa81c05bf92f4f6b5e612bd5d352abb9c072a890e449fe6b053c7615ab"
+      },
+      {
+        "check": "tests/install/test-m5-discovery.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "12fb342c9324b29dd4f28b4a42ecc940b922f3795957c8e581443d9617d07b70"
+      },
+      {
+        "check": "tests/install/test-reasonix-consumer.sh",
+        "arguments": [
+          "../reasonix-kai"
+        ],
+        "exitCode": 0,
+        "sha256": "a4a693dec0f92352055bbe02889c5d9e8b77f8c10899eda715cebf6e638da2de"
+      },
+      {
+        "check": "tests/context-budget/test-m7-istoreos.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "2da7930b60f41d4690c9738eee228d8f2eabd87b34c558ac4cc973c9e97975d0"
+      },
+      {
+        "check": "tests/contracts/test-m3-transports.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "a25cfeeec885ee48798e266d714a4c1c64291f073b17abbc294eae727c93b257"
+      },
+      {
+        "check": "tests/contracts/test-m8-windows.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "b0212d644e8951de82fe8e8b2a9d819317fddc78c0bb74cceed6e6cc367b7586"
+      },
+      {
+        "check": "tests/contracts/test-m9-macos.sh",
+        "arguments": [],
+        "exitCode": 0,
+        "sha256": "42555742be7fd3b889827bbc853d28e3bd019ce504e1c623f42e24af4310bc38"
+      }
+    ],
+    "generatedPresets": 10,
+    "canonicalConsumerLayers": 8,
+    "finalPresetCanonicalFilesVerified": 43,
+    "r2ToR3ExecutableScope": {
+      "changedExecutableFiles": [
+        "linkease-skills-windows-on-device-v1.0.0/skills/kai-download-acceleration/scripts/accelerate.sh"
+      ],
+      "unchangedExecutableFiles": 41,
+      "allBootstrapRuntimeDependencyCodeUnchanged": true
+    },
+    "proofs": [
+      {
+        "action": "bootstrap",
+        "channel": "file",
+        "status": "passed",
+        "accelerationValidation": "confirmed",
+        "cacheScope": "not-asserted",
+        "matchedRequestCount": 1,
+        "resultSha256": "369cb13be4f76e8297607b32046c5415cc8f31703761281756551bb9910cfb3e",
+        "clientLogSha256": "8ec4a5d0a8f876fe4ff999cccb41af5ebe4835c7164c6551a482d82372efc28a",
+        "gatewayLogSha256": "2e7be1ce333db7940bf7697f454772180428b732a8c60dc369d96ff29c64a1db"
+      },
+      {
+        "action": "sdk",
+        "channel": "sdk-node",
+        "status": "passed",
+        "accelerationValidation": "confirmed",
+        "cacheScope": "not-asserted",
+        "matchedRequestCount": 4,
+        "resultSha256": "43d3dd6707b4b4552079a2a3dcab9986bb873ff7f963d738e90cdeee35f2b136",
+        "clientLogSha256": "2f0df13a4ad3f734e2ff4cd8f1c3ce6966d02be65f2f5f9f75a03abfbbf46492",
+        "gatewayLogSha256": "2e7be1ce333db7940bf7697f454772180428b732a8c60dc369d96ff29c64a1db"
+      },
+      {
+        "action": "npm",
+        "channel": "npm",
+        "status": "passed",
+        "accelerationValidation": "confirmed",
+        "cacheScope": "not-asserted",
+        "matchedRequestCount": 2,
+        "resultSha256": "f082e5d387baa61a0ec833777785d9df52cd806942542f6e0c49cc1416f58e84",
+        "clientLogSha256": "0200c4178e443355246b2e2eb1e2e682c9f4cb258425940aa342ffa3896c4b57",
+        "gatewayLogSha256": "2e7be1ce333db7940bf7697f454772180428b732a8c60dc369d96ff29c64a1db"
+      },
+      {
+        "action": "file",
+        "channel": "file",
+        "status": "passed",
+        "accelerationValidation": "confirmed",
+        "cacheScope": "not-asserted",
+        "matchedRequestCount": 1,
+        "resultSha256": "8ff971bed03bcc48cd582d07b51df9011e4e129fad5998d7a61c8071e9329182",
+        "clientLogSha256": "9adc9201d3af8f83b5ff3ce1b80d8b5ac04bfd6098eacb7a801b86dfedef01fd",
+        "gatewayLogSha256": "2e7be1ce333db7940bf7697f454772180428b732a8c60dc369d96ff29c64a1db"
+      }
+    ],
+    "cacheClaim": "No client-and-gateway cold-cache or throughput-multiplier claim; the gateway instance was reused",
+    "evidence": [
+      {
+        "name": "native-bootstrap-six-cases",
+        "exitCode": 0,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "115fe97c4a70f06a8d229a363d2a28b860a335f1a14c137cdddea1565ee31dde",
+        "durationSeconds": 60.711
+      },
+      {
+        "name": "final-preset-source-hashes",
+        "exitCode": 0,
+        "stdoutSha256": "2e39e198ae48b1d1c02785c957012107d4181fe562a04323ae2e9c1abcbe2646",
+        "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+        "durationSeconds": 2.92
+      },
+      {
+        "name": "final-preset-serial-lifecycle",
+        "exitCode": 0,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "c6717a9c0b1f5cd5a92441c93227ff3803e4085f70654971c6ad3ff227d891ec",
+        "durationSeconds": 37.473
+      },
+      {
+        "name": "public-bootstrap",
+        "exitCode": 0,
+        "stdoutSha256": "fde1f9179e7a2090ebe24afc729fb0cc20964d6432bad1bd4f045ee32e08a8bc",
+        "stderrSha256": "0a26729ca4b6e387172c2af37976de31c61255d438cd408957545fef10e0f12d",
+        "durationSeconds": 50.68
+      },
+      {
+        "name": "public-sdk",
+        "exitCode": 0,
+        "stdoutSha256": "fd9f9a18d8b5411f58630ea7be47c4991f7efe44ac10fd17d1bacef29860f7e1",
+        "stderrSha256": "d7f8449d1fbbc5d68f7323af3a68a205f0f3257b98e51f78e962d274885cca48",
+        "durationSeconds": 22.03
+      },
+      {
+        "name": "public-npm",
+        "exitCode": 0,
+        "stdoutSha256": "7bcb257de21e4ff9984cb1f23f999ec876e4c9330be35e69e322c7ba3244b7a9",
+        "stderrSha256": "bb494155497595106016a775e5fb6df4c52cfc7bdd00e59c95c99369995205a7",
+        "durationSeconds": 15.007
+      },
+      {
+        "name": "public-file",
+        "exitCode": 0,
+        "stdoutSha256": "3d662a97653237b9db5e35e3f6dfd240a64d6a3f35eeddbd26fff9ef75f1067e",
+        "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+        "durationSeconds": 14.937
+      }
+    ],
+    "lifecycleTimeout": {
+      "parallelRun": {
+        "name": "parallel-lifecycle-timeout",
+        "exitCode": 124,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135",
+        "durationSeconds": 195.018
+      },
+      "serialRerunPassed": true,
+      "productionCodeChangedForRetry": false,
+      "exactCauseConfirmed": false,
+      "note": "Serial instrumented dry-run/install/upgrade/uninstall all completed. Initial concurrency/resource contention is not asserted as a proven root cause."
+    }
+  },
+  "preservation": {
+    "macos": {
+      "checked": 5,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    },
+    "windows": {
+      "checked": 9,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    }
+  },
+  "windowsDefaultProxy": {
+    "valueCount": 20,
+    "sha256": "463d691e576f8a4e1ff64586c550eb1ccf154ffb33e9b49f26060b00eb404087",
+    "enabled": false,
+    "baselineMatches": true
+  },
+  "cleanup": {
+    "activeGatewayAndForwardProcesses": 0,
+    "windowsTaskProcesses": 0,
+    "dockerCreated": false,
+    "ownedTestDataRetained": true,
+    "timedOutFixtureDataRetainedForDiagnosis": true
+  },
+  "candidate": {
+    "directory": "release/mise-acceleration-20261028-candidate-r3",
+    "manifestSha256": "c970c2ed82790b69a6c9fcfc04f3564c8cd2d0c28b67a629b363e5a51beb16f6",
+    "artifact": {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:031e7c74f843918cd0019f973b32fefb20c65f574899a533ffd459a37e56e9eb",
+      "treeDigest": "sha256:bada0a8c7fda4967d1d546ded0ef59df343523e0fc2cd326e67677b1b8aa4e8e"
+    },
+    "artifactCount": 20,
+    "sourceState": "worktree",
+    "published": false
+  },
+  "remainingIssues": [
+    {
+      "id": "winget-online-revocation",
+      "status": "deferred-by-user",
+      "evidence": "windows-pki-implementation-20261028-results.json",
+      "resolutionClaimed": false
+    },
+    {
+      "id": "npm-audit-post",
+      "status": "not-supported-in-tested-gateway",
+      "httpStatus": 405,
+      "paths": [
+        "/-/npm/v1/security/advisories/bulk",
+        "/-/npm/v1/security/audits/quick"
+      ],
+      "downloadAndSriValidationPassed": true,
+      "auditSuccessClaimed": false
+    },
+    {
+      "id": "desktop-release-coverage",
+      "status": "not-complete",
+      "scope": "Published native internal-client one-click artifacts, other desktop architectures, desktop Docker and real Agent applications; no fresh Python/Go/uv acceptance on the newly bootstrapped mise in this phase"
+    }
+  ],
+  "historicalScope": {
+    "ms0ThroughMs10Preserved": true,
+    "macosNativeFunctionalEvidencePreserved": true,
+    "macosFunctionalRerun": false,
+    "directZsetupTlsFailureNotRewritten": true,
+    "windowsPkiCasesNotRerun": true
+  },
+  "scopeNotes": [
+    "Raw logs, bindings, trust material, request manifests and device paths stay outside git.",
+    "No iStoreOS curl/library/opkg/TLS policy changes.",
+    "No Windows default proxy, DNS, hosts or trust-store changes.",
+    "No owner Go code changes or production release."
+  ]
+}

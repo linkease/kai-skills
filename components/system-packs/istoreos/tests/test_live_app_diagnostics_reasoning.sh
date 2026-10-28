@@ -37,7 +37,10 @@ call_model() {
   return 1
 }
 
-package_instructions="$(cat "$root/skills/istoreos-package-manager/SKILL.md")"
+common="$root/../common"
+[ -d "$common/skills" ] || common="$root/../../system-packs/common"
+[ -d "$common/skills" ] || common="$root"
+package_instructions="$(cat "$common/skills/kai-software/SKILL.md")"
 helper_props='{"helper":{"type":"string","enum":["istoreos-app-diagnostics","istoreos-logs-and-diagnostics","none"]}}'
 decision="$(call_model "You follow this iStoreOS skill exactly:\n$package_instructions" '用户说：刚安装 aria2，iStore 显示完成但页面有告警。下一步只选择一个 helper，不要修复。' choose_helper "$helper_props")"
 [ "$(printf '%s' "$decision" | jq -r .helper)" = istoreos-app-diagnostics ] || { echo 'failed: model did not select app diagnostics helper' >&2; exit 1; }

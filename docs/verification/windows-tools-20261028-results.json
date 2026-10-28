@@ -1,0 +1,286 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "passed-component-with-network-limitations",
+  "allDesktopReleaseGatesPassed": false,
+  "goal": "Bootstrap the locked native Windows mise without an existing mise, preserve ownership, and validate through the public tool entry.",
+  "taskTree": [
+    {
+      "task": "Reproduce missing Windows provider through tool.sh plan mise",
+      "acceptance": "Missing mise has a pinned native install plan; Plan creates no tool or staging directories",
+      "status": "passed"
+    },
+    {
+      "task": "Install through native zsetup with fixed archive integrity",
+      "acceptance": "Locked Windows x64 ZIP; both executables; exact version; PS5 install and PS7 reuse; foreign or changed files preserved",
+      "status": "passed-with-explicit-original-archive-cache"
+    },
+    {
+      "task": "Validate public Git Bash seam and deliver generated presets",
+      "acceptance": "Public ensure/install/reuse and changed-companion conflict; final archive source hashes; native preset lifecycle; canonical consumer; original configurations and default proxy preserved",
+      "status": "passed"
+    }
+  ],
+  "optimizationRounds": 3,
+  "maxOptimizationRounds": 3,
+  "initialFailure": "Native PS5 parameter default could not access PSScriptRoot.",
+  "rounds": [
+    {
+      "round": 1,
+      "change": "Resolve the default release lock inside the script body",
+      "result": "Native guards passed; published core rejected newer max-bytes/min-free-bytes arguments"
+    },
+    {
+      "round": 2,
+      "change": "Use the published core download contract and native disk-space check; retain locked size/SHA and bounded extraction",
+      "result": "Four native cache-based cases passed; direct origin TLS failed. Added changed-companion regression exposed a public reuse gap"
+    },
+    {
+      "round": 3,
+      "change": "Validate both owned Windows mise executables before public discovery executes the main program",
+      "result": "Four native cases passed from canonical stage and final generated archive; preset lifecycle passed"
+    }
+  ],
+  "macos": {
+    "platform": "macos",
+    "architecture": "arm64",
+    "functionalScopeCompleted": true,
+    "currentFunctionalRerun": false,
+    "evidence": [
+      "desktop-optimization-20261028-results.json",
+      "desktop-followup-20261028-results.json"
+    ],
+    "passedScope": [
+      "Frozen Python 3.13.7, Node 22.14.0, Go 1.24.1, uv 0.8.22",
+      "Real pip, npm, Go, uv projects",
+      "Existing Homebrew Python prefix reuse",
+      "Native preset install/upgrade/uninstall",
+      "APFS storage and file queries"
+    ],
+    "limits": [
+      "No other macOS architecture native acceptance",
+      "No desktop Docker daemon or real Agent application acceptance",
+      "No unpublished desktop client one-click installer release claim"
+    ]
+  },
+  "windowsMise": {
+    "platform": "windows",
+    "architecture": "x64",
+    "version": "2026.8.14",
+    "coreVersion": "0.4.0",
+    "coreArchitectureScope": "Published i686 core under AMD64 compatibility; no other architecture claim",
+    "installerBackend": "native-zsetup",
+    "wingetRequired": false,
+    "archiveSha256": "dfae38ae7c782ef2f0255aa2cd7f8d2c242559f94c491fb59182c7ad36c2bf79",
+    "archiveSize": 33633582,
+    "nativeCacheInstallation": "passed",
+    "directOriginInstallation": "failed-secure-connection",
+    "directOriginFailure": "Native zsetup exit 14; secure connection failed; frozen checks retained",
+    "nativeExecutables": [
+      "mise.exe",
+      "mise-shim.exe"
+    ],
+    "persistentPathChanged": false,
+    "originalGlobalMisePreserved": true
+  },
+  "deferredIssues": [
+    {
+      "id": "winget-online-revocation",
+      "status": "deferred-by-user",
+      "evidence": "windows-pki-implementation-20261028-results.json",
+      "resolutionClaimed": false
+    }
+  ],
+  "retainedLimitations": [
+    "Direct target zsetup download from the official GitHub URL fails TLS; explicit trusted original ZIP cache is validated and works",
+    "No published desktop internal-client one-click installation or production rollout",
+    "Other desktop architectures, desktop Docker and real Agent applications require separate acceptance"
+  ],
+  "verification": {
+    "localTests": {
+      "discovered": 139,
+      "passed": 124,
+      "skippedNativeOnly": 15,
+      "failed": 0
+    },
+    "nativeMiseCasesPassed": 4,
+    "nativeFinalPresetLifecyclePassed": true,
+    "nativePkiCasesRerun": false,
+    "repositoryChecks": [
+      {
+        "check": "tests/architecture/m0-baseline.sh",
+        "exitCode": 0,
+        "sha256": "5620cffbdcbd8ad74936dc03d5d8a8b8a9e458a65bf1dcc84a072c2aa7f9d908"
+      },
+      {
+        "check": "tests/architecture/test-catalog.sh",
+        "exitCode": 0,
+        "sha256": "30a42eee88750180389b9d659b9a101f9ecbe5110e7796140421ab1cad8b90dc"
+      },
+      {
+        "check": "tests/architecture/test-istoreos-home-prompts.sh",
+        "exitCode": 0,
+        "sha256": "87a00169751aeffdae67c33b8bdd5e974ddcf3801a38a2a39036e30c421e32f6"
+      },
+      {
+        "check": "tests/architecture/test-m2-canonical.sh",
+        "exitCode": 0,
+        "sha256": "0520785bd5df71fbc2faa35374b2ecedfad9d33e9570ef8a1843b4346c5d57ab"
+      },
+      {
+        "check": "tests/architecture/test-m4-generated.sh",
+        "exitCode": 0,
+        "sha256": "17eab6580e1f58dc91a7c5d03f7f671d188e6e79c8c5d69c320a6feb89acd57d"
+      },
+      {
+        "check": "tests/architecture/test-recommendations.sh",
+        "exitCode": 0,
+        "sha256": "c9b8796f3de49ed49bd2f7a53b9bf7e81f6ae34da8e562d8afec77982f8f8115"
+      },
+      {
+        "check": "tests/architecture/test-runtime-release-gate.sh",
+        "exitCode": 0,
+        "sha256": "9a4801c8517873f910e3d2265a7bba3fba9d1076fa5ba4dfe635fa9e908aeac4"
+      },
+      {
+        "check": "tests/install/test-agent-bundle-export.sh",
+        "exitCode": 0,
+        "sha256": "8e4c3d9c24858631d9bd654e407c54611bc9c84e52e2e30a0298f1d6ddafecdc"
+      },
+      {
+        "check": "tests/install/test-m10-lifecycle.sh",
+        "exitCode": 0,
+        "sha256": "e0592c1aff375e3ed98389384366d63a29b0adc64568dc38b65b065de4b63d58"
+      },
+      {
+        "check": "tests/install/test-m10-release.sh",
+        "exitCode": 0,
+        "sha256": "2cc098aa81c05bf92f4f6b5e612bd5d352abb9c072a890e449fe6b053c7615ab"
+      },
+      {
+        "check": "tests/install/test-m5-discovery.sh",
+        "exitCode": 0,
+        "sha256": "12fb342c9324b29dd4f28b4a42ecc940b922f3795957c8e581443d9617d07b70"
+      },
+      {
+        "check": "tests/install/test-reasonix-consumer.sh",
+        "exitCode": 0,
+        "sha256": "cb802002dca96ec1799c02a6be83e30a94602bcdd7aae8083cd37018a917c1d3",
+        "initialInvocation": {
+          "exitCode": 2,
+          "sha256": "99c7e17c114038088cccf397a8c30b6217737134fa79b702af7bcadd3215994b",
+          "reason": "Required source-root argument omitted; product code was not exercised"
+        },
+        "arguments": [
+          "../reasonix-kai"
+        ]
+      },
+      {
+        "check": "tests/context-budget/test-m7-istoreos.sh",
+        "exitCode": 0,
+        "sha256": "dd46670836baa46c7d0c280fe4b6106ba025204e0e8b7f2bdb4319611013757c"
+      },
+      {
+        "check": "tests/contracts/test-m3-transports.sh",
+        "exitCode": 0,
+        "sha256": "e223bad798de4b119d76d20af3d8d82ff9d4e9f24cd4b0bb6af818a97334e7c6"
+      },
+      {
+        "check": "tests/contracts/test-m8-windows.sh",
+        "exitCode": 0,
+        "sha256": "b0212d644e8951de82fe8e8b2a9d819317fddc78c0bb74cceed6e6cc367b7586"
+      },
+      {
+        "check": "tests/contracts/test-m9-macos.sh",
+        "exitCode": 0,
+        "sha256": "42555742be7fd3b889827bbc853d28e3bd019ce504e1c623f42e24af4310bc38"
+      }
+    ],
+    "generatedPresets": 10,
+    "canonicalConsumerLayers": 8,
+    "evidence": [
+      {
+        "name": "final-native-mise-public-cases",
+        "exitCode": 0,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "44f820c631e9af04ab22a066d564e57e24d02f1e9c6c2a8b542a8502f83d04ba",
+        "durationSeconds": 30.383
+      },
+      {
+        "name": "final-preset-lifecycle",
+        "exitCode": 0,
+        "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "stderrSha256": "69c7f3ee6e39c9c5972940b6f1740952959431d4411a91933ff82f4d12a1efcc",
+        "durationSeconds": 37.222
+      },
+      {
+        "name": "final-preset-canonical-source-check",
+        "exitCode": 0,
+        "stdoutSha256": "5227d3f7879cb587aaed91f708f3f0c731d9c1b6133d1267ec9e40eea935cac7",
+        "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d",
+        "durationSeconds": 2.624
+      },
+      {
+        "name": "direct-origin-network-probe",
+        "exitCode": 11,
+        "stdoutSha256": "2c29fa90e61a998d1859de16745386fe3ed02b690486417e92c8bdf84260d90e",
+        "stderrSha256": "26b48df507f11692bfd9074bde9225e875b2f1d2824b92f89122f1e45bd7ecba",
+        "durationSeconds": 18.069
+      },
+      {
+        "name": "original-global-mise-version-preservation",
+        "exitCode": 0,
+        "stdoutSha256": "e7e4f0555f7bfd1fbca7f8cc2afcdf557e8e467868078c30ffd6b1ceffe21e2e",
+        "stderrSha256": "98fe65748432430a1f43da99b713020509f54eb7e0949d507bcd5e1607783e00"
+      }
+    ],
+    "invocationCorrection": "Reasonix loader check initially omitted its required source-root argument; corrected invocation passed without product changes"
+  },
+  "candidate": {
+    "directory": "release/windows-tools-20261028-candidate",
+    "manifestSha256": "15e782cae0f4da4ef726c461b15e0db83f8005f85addafe2d803d6d536f68b65",
+    "artifact": {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:e1ec7b84a3f7f084a6b0eb3500a6c6ba503b45338da3f2b6404d0c3d9fe132ad",
+      "treeDigest": "sha256:5d0074b7c3633097dfe5cbc4dec6e6e17687172e98325c9f01fd75b1588fa69f"
+    },
+    "artifactCount": 20,
+    "sourceState": "worktree",
+    "published": false
+  },
+  "preservation": {
+    "macos": {
+      "checked": 5,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    },
+    "windows": {
+      "checked": 9,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    }
+  },
+  "windowsDefaultProxy": {
+    "values": 20,
+    "sha256": "463d691e576f8a4e1ff64586c550eb1ccf154ffb33e9b49f26060b00eb404087",
+    "enabled": false,
+    "baselineMatches": true
+  },
+  "cleanup": {
+    "ownedProbeDirectoriesRemoved": 2,
+    "temporaryNativeTestDirectoriesRemoved": true,
+    "originalVerifiedZipFixtureRetained": true,
+    "dockerCreated": false,
+    "gatewayOrForwardCreated": false
+  },
+  "scopeNotes": [
+    "Bindings, host trust, device paths and raw logs stay outside git.",
+    "No iStoreOS curl, library, TLS policy or opkg configuration changes.",
+    "User deferred the prior WinGet CRL/OCSP problem; no network or PKI repair was attempted in this phase."
+  ]
+}

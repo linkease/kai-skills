@@ -1,4 +1,4 @@
-# iStoreOS skills
+# istoreos skills
 
-- `on-device/`: the Agent runs on the iStoreOS device.
-- `remote-control/`: the Agent runs elsewhere and controls iStoreOS.
+- `on-device/`: the Agent runs on the target.
+- `remote-control/`: the Agent uses the selected target Transport.

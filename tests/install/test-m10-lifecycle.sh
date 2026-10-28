@@ -24,7 +24,7 @@ after="$(find "$target" -type f -exec sha256sum {} \; | LC_ALL=C sort | sha256su
 
 sh "$preset/install.sh" --target "$target" >/dev/null
 manifest="$target/.linkease-skills/macos-on-device.json"
-jq -e '.presetId == "macos-on-device" and (.skills | length == 2)' "$manifest" >/dev/null
+jq -e '.presetId == "macos-on-device" and (.skills | length == 8)' "$manifest" >/dev/null
 [ -f "$target/user-skill/SKILL.md" ] || fail "install removed unrelated user skill"
 
 sh "$preset/install.sh" --target "$target" --upgrade >/dev/null

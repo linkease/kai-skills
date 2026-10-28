@@ -5,7 +5,7 @@ owner: system-pack/istoreos
 systems: istoreos
 triggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装
 auto-use: prefer
-routing-group: istoreos-primary
+routing-group: system-primary
 needs-fresh-data: true
 cost: high
 ---

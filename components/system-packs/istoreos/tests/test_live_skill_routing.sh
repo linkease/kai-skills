@@ -59,7 +59,10 @@ esac
 
 catalog=
 auto_names=
-for file in "$root"/skills/*/SKILL.md; do
+common="$root/../common"
+[ -d "$common/skills" ] || common="$root/../../system-packs/common"
+[ -d "$common/skills" ] || common="$root"
+for file in "$common"/skills/kai-*/SKILL.md "$root"/skills/*/SKILL.md; do
   name=$(frontmatter_value "$file" name)
   description=$(frontmatter_value "$file" description)
   invocation=$(frontmatter_value "$file" invocation)
@@ -73,8 +76,8 @@ done
 
 auto_json=$(printf '%b' "$auto_names" | jq -Rsc 'split("\n") | map(select(length > 0))')
 auto_count=$(printf '%s' "$auto_json" | jq 'length')
-[ "$auto_count" -eq 13 ] || {
-  echo "failed: live routing expected 13 auto skills, got $auto_count" >&2
+[ "$auto_count" -eq 15 ] || {
+  echo "failed: live routing expected 15 auto skills, got $auto_count" >&2
   exit 1
 }
 
@@ -142,18 +145,19 @@ while IFS='|' read -r expected prompt; do
     failed=$((failed + 1))
   fi
 done <<'CASES'
-istoreos-package-manager|帮我找一个文件管理插件
+kai-tool-bootstrap|准备完整 jq 和开发工具引导，不要更改系统 curl
+kai-software|帮我找一个文件管理插件
 istoreos-docker-basics|Docker 容器反复退出，帮我检查容器状态和日志
 istoreos-docker-data-root-migrate|把 Docker 数据目录迁移到外接硬盘
-istoreos-download-acceleration|Docker 镜像下载很慢，怎么加速拉取
-istoreos-download-acceleration|用已经安装的 Python 3.13.7 验证 Python 依赖安装流程，创建隔离 venv，安装 idna 并检查网关证据
+kai-download-acceleration|Docker 镜像下载很慢，怎么加速拉取
+kai-project-dependencies|用已经安装的 Python 3.13.7 验证 Python 依赖安装流程，创建隔离 venv，安装 idna 并检查网关证据
 istoreos-luci-recovery|LuCI 管理页面打不开，但 SSH 可以登录
 istoreos-network-quality|宽带测速结果很差，检查延迟、丢包和上下行速度
-istoreos-storage-path|overlay 空间不足，帮我选择持久化存储路径
+kai-storage-files|overlay 空间不足，帮我选择持久化存储路径
 istoreos-service-manager|一个 init.d 服务启动失败，帮我检查状态
 istoreos-backup-restore|升级前备份系统配置，并说明如何恢复
 istoreos-run-executable|检查并运行我上传的 .run 安装文件
-istoreos-mise-runtime|在 iStoreOS 上安装 Python 3.13
+kai-dev-environment|在 iStoreOS 上安装 Python 3.13
 istoreos-systools|把 IPv6 模式从 relay 切换成 PD
 istoreos-system-task-router|系统偶尔异常，但我不知道属于网络、存储还是服务，请先判断方向
 CASES

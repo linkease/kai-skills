@@ -1,0 +1,686 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "partial-awaiting-product-decision",
+  "queryAcceleration": "passed",
+  "installerDownload": "not-passed",
+  "systemPackageInstallation": "not-tested",
+  "previousEvidence": "desktop-followup-20261028-results.json",
+  "optimizationRounds": 3,
+  "pendingDecision": {
+    "setting": "ProxyCommandLineOptions",
+    "currentValue": false,
+    "proposedNativeCommand": [
+      "winget",
+      "settings",
+      "--enable",
+      "ProxyCommandLineOptions"
+    ],
+    "executed": false,
+    "scope": "WinGet explicit proxy option; Windows default proxy remains unchanged"
+  },
+  "cases": [
+    {
+      "id": "winget-accel-inproc-proof2",
+      "platform": "windows",
+      "status": "passed-prototype",
+      "meaning": "Official SDK through temporary proof proxy; actual versions and catalog",
+      "exitCode": 0,
+      "seconds": 34.844,
+      "rawEvidenceSha256": "698f287d9d19a2ab8b79e3941c0f874b0d5a147ccc9dbe9d10ba434118bc826a",
+      "stdoutSha256": "c6eddf11d7a2221c1cefc1a70e853f845a17a87cbae6db8b8f0729608b48acc2",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "winget-accel-cli-proxy-proof",
+      "platform": "windows",
+      "status": "blocked-native-cli",
+      "meaning": "Native explicit proxy option disabled",
+      "exitCode": 2,
+      "seconds": 2.16,
+      "rawEvidenceSha256": "2c6d3211ba06f8deb0bf72e4f2a053ec0b5e627be5412c0f9c7719f7421d9896",
+      "stdoutSha256": "1ac61ea7e9400abddb45cf66d3e8374832fbf368b5d6acb2aa9298a2b895cf6e",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "winget-accel-prepare-sdk-native",
+      "platform": "windows",
+      "status": "failed-cold-preparation",
+      "meaning": "Gallery TLS failure; no validation bypass",
+      "exitCode": 11,
+      "seconds": 19.165,
+      "rawEvidenceSha256": "03a2ddcb287a8940b8493f5f3340fc0d743085fbbce8593f71f424103ebde402",
+      "stdoutSha256": "38924bdba524550cd9887819300693fb364368a76a7c2978269adaebfeedab2c",
+      "stderrSha256": "26b48df507f11692bfd9074bde9225e875b2f1d2824b92f89122f1e45bd7ecba"
+    },
+    {
+      "id": "winget-accel-prepare-cached-native",
+      "platform": "windows",
+      "status": "harness-failed",
+      "meaning": "Standalone staging location did not retain preset-relative resource layout",
+      "exitCode": 11,
+      "seconds": 2.588,
+      "rawEvidenceSha256": "692f5b4fdb57d8278a1fe8b82024cd8405dd46bfa59796b7cb08956928856db4",
+      "stdoutSha256": "8b37d475af80a05eb48fea8bd92375e8bef19368e25dee3e48e9766d9eaccace",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "winget-accel-prepare-sdk-cached-final",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "PS5 cached package preparation, with native zsetup verification",
+      "exitCode": 0,
+      "seconds": 6.627,
+      "rawEvidenceSha256": "ec66009c9b9f5d50a23f03667d408339751ee18b80bb766f4ad5e3041b70555d",
+      "stdoutSha256": "8d65330e767d7bfe8e3b89b89994511df88e85818e9633aebdf3332abfc409f3",
+      "stderrSha256": "1f35ab7c9bca15acf84d8845b2c82c4ce70ee4f542ccdcf3b69bae64ab73805b"
+    },
+    {
+      "id": "winget-accel-prepare-sdk-verified",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Verified candidate SDK reuse",
+      "exitCode": 0,
+      "seconds": 3.153,
+      "rawEvidenceSha256": "4886f7825f6b4205d501d354f7c11dc330c967ea84b4dc6d751dd0f5ee232986",
+      "stdoutSha256": "f72a6841449f9c93a15bf4553aab59f86035d7876d19b967a28efb4d787d28ad",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "id": "winget-accel-public-query-round1",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Public software entry, real KSpeeder and provided pinned SDK",
+      "exitCode": 0,
+      "seconds": 44.556,
+      "rawEvidenceSha256": "d9ae91af0d2a793d8d6c9ecdd211612d0f1d0e1f628b3528082ecd38e2ae28b1",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "1724728fbaaf12ff36ea192cece4febbc320ff5bbd59136a1b2a56dd347556f7"
+    },
+    {
+      "id": "winget-accel-public-query-final",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Public software entry with SDK from native preparation helper",
+      "exitCode": 0,
+      "seconds": 7.82,
+      "rawEvidenceSha256": "dfc6f442bd65ad29c67cb1c6d7dd956e12ff9550586c93365a5bfe15e6bb9cf9",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "610c05f00d39b3f9574331c2cfc175606bac54a2a493d08b929f42ab6f624324"
+    },
+    {
+      "id": "winget-accel-public-query-verified",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final native regression: real query and structured authentication failure",
+      "exitCode": 0,
+      "seconds": 41.268,
+      "rawEvidenceSha256": "3967f1809e58c52952754dcc3512b5a005e029cd0bfc628df1c1409ee5c53f0c",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "99085bc95771a44b053206ef7d1eadea74f23dd5f56395390c22820092a952f0"
+    },
+    {
+      "id": "winget-accel-case-powershell",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Actual available and installed versions",
+      "exitCode": 0,
+      "seconds": 35.199,
+      "rawEvidenceSha256": "4e71df4c4c6a43f1a308b52427117b29b4e395107c3d55c9d2c28ba5de6c08d6",
+      "stdoutSha256": "32b6e8ff6cd73c925b085a69f0ec7c59a1f2537b18ea10fa6e3a49ec106e8ee8",
+      "stderrSha256": "2e6c1f5ff62e0268efb8f29de15646877703e3cf753a1717843a57eac4f09790",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 718,
+          "downloadBytes": 23823
+        }
+      ],
+      "packages": [
+        {
+          "id": "winget:Microsoft.PowerShell",
+          "source": "winget",
+          "availableVersion": "7.6.9.0",
+          "installedVersion": "7.6.3.0"
+        }
+      ]
+    },
+    {
+      "id": "winget-accel-case-cold-7zip",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Another exact ID with actual installed status",
+      "exitCode": 0,
+      "seconds": 31.211,
+      "rawEvidenceSha256": "02b191b13713cad620ddfb3920ca34b0577743df4b2af7b598b566d95a6bd4b3",
+      "stdoutSha256": "f1f34f3cfa94763167c2ef4d1662f18c45cd4188395715dda34f2d51b6568b31",
+      "stderrSha256": "203b4ce24bb1bbbee9576bf2f91b6472131d538ad0e6863aa469d407c9e499fd",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 705,
+          "downloadBytes": 24708
+        }
+      ],
+      "packages": [
+        {
+          "id": "winget:7zip.7zip",
+          "source": "winget",
+          "availableVersion": "26.05",
+          "installedVersion": "19.00"
+        }
+      ]
+    },
+    {
+      "id": "winget-accel-case-search",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Bounded native catalog search",
+      "exitCode": 0,
+      "seconds": 35.349,
+      "rawEvidenceSha256": "e4a3443c4a07d891fda23ac2c67f3b9cb12c13bd4c6f105f8ba06c291afed482",
+      "stdoutSha256": "9584d5a9fb8c715b881df997eff54249907c77e1e742afd8361fec351bf0466b",
+      "stderrSha256": "bc3a23c83d17283b11b629d21bd86ddf696dc04f7b6260efbe57a09d02c182ba",
+      "connectMetrics": [
+        {
+          "dataTunnels": 2,
+          "uploadBytes": 926,
+          "downloadBytes": 38770
+        }
+      ],
+      "packages": [
+        {
+          "id": "winget:Microsoft.PowerShell",
+          "source": "winget",
+          "availableVersion": "7.6.9.0",
+          "installedVersion": "7.6.3.0"
+        },
+        {
+          "id": "winget:Abdelrhman-AK.WinPaletter",
+          "source": "winget",
+          "availableVersion": "1.1.0.0",
+          "installedVersion": ""
+        },
+        {
+          "id": "winget:Atuinsh.Atuin",
+          "source": "winget",
+          "availableVersion": "18.24.2",
+          "installedVersion": ""
+        }
+      ]
+    },
+    {
+      "id": "winget-accel-case-missing",
+      "platform": "windows",
+      "status": "passed-failure-boundary",
+      "meaning": "Absent ID remains exit 4",
+      "exitCode": 4,
+      "seconds": 6.133,
+      "rawEvidenceSha256": "e6e015e0d7477438a0fbd5d38cb2df1aa3ab3ca3ebd576eea1e46c470b8695c6",
+      "stdoutSha256": "c24a8f97b2a9e71b6b1e2689a6221f9204273d5788b025bffc80d41565311c89",
+      "stderrSha256": "60e8b60f0d266dc77fc751dd19f73d477631f01bfba4f69b040cde84ece1b357",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "winget-accel-case-mutation-rejected",
+      "platform": "windows",
+      "status": "passed-failure-boundary",
+      "meaning": "Accelerated mutations explicitly unsupported, exit 18",
+      "exitCode": 18,
+      "seconds": 3.603,
+      "rawEvidenceSha256": "7f4122f2594fa2eaa4296e79f81252bb31a0c87f851e12ee046ad4b77bc9158f",
+      "stdoutSha256": "ea626071f2df34ac025861d78172e7526ac7ae758ee5c17dd4647a3b4d73f326",
+      "stderrSha256": "4adf6493030e6c9710ee13f79b4dacfa4cf3e3729701016ffa464411572efdb0",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "winget-accel-case-bad-auth",
+      "platform": "windows",
+      "status": "expected-red",
+      "meaning": "Old accelerated branch returned nonzero with no JSON",
+      "exitCode": 1,
+      "seconds": 2.868,
+      "rawEvidenceSha256": "f51c827e7caebb1fc9e165589f25f7a445a7969e86c8f499dae30b0e77ed8dfa",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "532926f6dff114ffc70a6788c7186fd62e3ca301c2e4ce800f63bed1f679812d"
+    },
+    {
+      "id": "winget-accel-auth-receipt-red",
+      "platform": "windows",
+      "status": "harness-timeout",
+      "meaning": "Transport budget was smaller than inner native regression budget",
+      "exitCode": 124,
+      "seconds": 45.011,
+      "rawEvidenceSha256": "50670ab95e282ed3938eefc8fb3cdb59ee3b93bbb4ffceb0f256800e80a85d0e",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "390b49a01612fb0fa6112f5209bd66b73a5ac93162b99ccd4b00f9d2555f7135"
+    },
+    {
+      "id": "winget-accel-native-installer-download",
+      "platform": "windows",
+      "status": "failed-exploration",
+      "meaning": "SDK process setting rejected before any download",
+      "exitCode": 1,
+      "seconds": 3.86,
+      "rawEvidenceSha256": "d3531d8bd92c89607f169c28ca007eb863abc20a17bbd9f3ab6b271822055991",
+      "stdoutSha256": "89e89dec03e7af59f4ee08d62360ca3262746ff7eef76122d13b95c69712a944",
+      "stderrSha256": "db2e21aa75bf4558f1851935dbbaab625c8422ca0bd0365327466c1a8778e2ff",
+      "connectMetrics": [
+        {
+          "dataTunnels": 0,
+          "uploadBytes": 0,
+          "downloadBytes": 0
+        }
+      ]
+    },
+    {
+      "id": "winget-accel-final-native-lifecycle",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final Windows preset install/upgrade/uninstall",
+      "exitCode": 0,
+      "seconds": 35.254,
+      "rawEvidenceSha256": "7dcea6782eaa6275f82a640443dbc67378337df52c27f556cbf3f9cbb559caeb",
+      "stdoutSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrSha256": "b3d3b3debec375add79327206507e8f3f032fc2001ccabac885dc535bf523ab4"
+    },
+    {
+      "id": "winget-accel-final-jq-powershell.exe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final PS5 owner bridge regression",
+      "exitCode": 0,
+      "seconds": 5.213,
+      "rawEvidenceSha256": "5623b76f63eb8f7e0d159d87cc47e5cfa8253546740fdc97482e0b735320305a",
+      "stdoutSha256": "b209197583a81c212761f0f727c571a6e2bed56e05eede065f8f24fbef4aabc3",
+      "stderrSha256": "abd05d46fae7c95b4c6c95d7afa7990b1abbd6123c44bc8fbf762f0a911fa796"
+    },
+    {
+      "id": "winget-accel-final-jq-pwsh.exe",
+      "platform": "windows",
+      "status": "passed",
+      "meaning": "Final PS7 owner bridge regression",
+      "exitCode": 0,
+      "seconds": 5.957,
+      "rawEvidenceSha256": "9d348348a539fc13b8b1d750ccd7e6de2b9ca26ed97786c47687c4f4d43b65ad",
+      "stdoutSha256": "b209197583a81c212761f0f727c571a6e2bed56e05eede065f8f24fbef4aabc3",
+      "stderrSha256": "abd05d46fae7c95b4c6c95d7afa7990b1abbd6123c44bc8fbf762f0a911fa796"
+    },
+    {
+      "id": "winget-accel-final-native-lifecycle",
+      "platform": "macos",
+      "status": "passed",
+      "meaning": "Final lifecycle and APFS tests",
+      "exitCode": 0,
+      "rawEvidenceSha256": "665287d38ccd54ff7ef7f4504bd32c7b7fd47d02f2463ed8b49b54df417ee931"
+    }
+  ],
+  "clientBuild": {
+    "sourceCommit": "32cbbaa8aa0f3fce35b32c3d9497236e136678f5",
+    "testOnlyVersionOverride": true,
+    "version": "0.8.5-winget-candidate",
+    "sha256": "0da8285aea907ffd1c224acc6032b10693676334ee85348e6825573a323f9e47",
+    "goos": "windows",
+    "goarch": "amd64",
+    "goBuildMetadataVerified": true,
+    "vcsModified": true,
+    "unrelatedDirtyFile": "docs/servers.md"
+  },
+  "serverBuild": {
+    "sourceCommit": "97b7d2bd9d10c2d9b0177b368d8bf2ebb8a41c54",
+    "sourceState": "worktree",
+    "testOnlyVersionOverride": false,
+    "sha256": "969c7141f432e46db1e472aca6b563687ef87d4ca50e8d99e322267218eb21d0",
+    "goos": "linux",
+    "goarch": "amd64",
+    "vcsModified": true,
+    "goBuildMetadataVerified": true
+  },
+  "sdkLockSha256": "447e2190266ba71a8b0365312afdbdd1cb1a943a09ef34270ba5ce23a7ebcff9",
+  "sourceCommit": "a7c5b1e7a855edcbac21ed25e46515e540fc4fae",
+  "sourceState": "worktree",
+  "artifactManifestSha256": "b750ba3803e616e6cc67157def12f9d1520f0c3c7e8b8a867ee9bcbaac67f53e",
+  "artifacts": [
+    {
+      "presetId": "istoreos-on-device",
+      "platform": "istoreos",
+      "mode": "on-device",
+      "version": "2.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-istoreos-on-device-v2.0.0.tar.gz",
+      "sha256": "sha256:04e202e66f0e2b19a9612b0f461f5446164b245c939bd260f41aad190000b247",
+      "treeDigest": "sha256:506c6a3c6a34f02e98e6d6a2d048c2219580bfbdd93c80375ed8af0ee48765f2"
+    },
+    {
+      "presetId": "istoreos-on-device",
+      "platform": "istoreos",
+      "mode": "on-device",
+      "version": "2.0.0",
+      "format": "zip",
+      "path": "linkease-skills-istoreos-on-device-v2.0.0.zip",
+      "sha256": "sha256:d0766eed6a1dd439a2d02536923e11171ba8bf5167dfa75c58faecec19b08323",
+      "treeDigest": "sha256:506c6a3c6a34f02e98e6d6a2d048c2219580bfbdd93c80375ed8af0ee48765f2"
+    },
+    {
+      "presetId": "istoreos-remote-control",
+      "platform": "istoreos",
+      "mode": "remote-control",
+      "version": "2.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-istoreos-remote-control-v2.0.0.tar.gz",
+      "sha256": "sha256:befbd488ada54a11023e1bb8c8378415c9bab3f90b396b1a8f8cfe7e2706d8dc",
+      "treeDigest": "sha256:a0cc0b417786d6152b91414e7950568880e2c931c6197ab2e5708f0d6096f13a"
+    },
+    {
+      "presetId": "istoreos-remote-control",
+      "platform": "istoreos",
+      "mode": "remote-control",
+      "version": "2.0.0",
+      "format": "zip",
+      "path": "linkease-skills-istoreos-remote-control-v2.0.0.zip",
+      "sha256": "sha256:1e1c48a0b9eb53e927e120a5089bd0e3a40923b614d46dad68cdfbd55a0769ce",
+      "treeDigest": "sha256:a0cc0b417786d6152b91414e7950568880e2c931c6197ab2e5708f0d6096f13a"
+    },
+    {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:78f9abce00b2df5b40aed1ac1b88fc8823b9cf243834ddb25c69553827244e87",
+      "treeDigest": "sha256:8f04cb76fb52b50817f908a954c8041d1987d341a4da04f525fba5f8c91d9066"
+    },
+    {
+      "presetId": "windows-on-device",
+      "platform": "windows",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-windows-on-device-v1.0.0.zip",
+      "sha256": "sha256:07b52057e6fedb30664d516e7af1d3928237d6f2b5b449cce4126f1473c82a9e",
+      "treeDigest": "sha256:8f04cb76fb52b50817f908a954c8041d1987d341a4da04f525fba5f8c91d9066"
+    },
+    {
+      "presetId": "windows-remote-control",
+      "platform": "windows",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-windows-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:14dfdf891f2cea3bc06b2ac87fb74ea2dc3147e092bbbac4e3824731b139dce3",
+      "treeDigest": "sha256:cb0f6cb66627587975a647f06204899d14f1126fe1bb04a340448b27ad09506d"
+    },
+    {
+      "presetId": "windows-remote-control",
+      "platform": "windows",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-windows-remote-control-v1.0.0.zip",
+      "sha256": "sha256:6f56e053bf492a935b7eb7448d2d486500c73dff0b966b7a1b7bc3b73607967a",
+      "treeDigest": "sha256:cb0f6cb66627587975a647f06204899d14f1126fe1bb04a340448b27ad09506d"
+    },
+    {
+      "presetId": "macos-on-device",
+      "platform": "macos",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-macos-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:031a767b8e8be4502e4ce206169aa8a7279971d4a18ffc560555c66f37348532",
+      "treeDigest": "sha256:7155d0491b8786f9bc954905e6867c318db3341c76defa75c3728081a61d177f"
+    },
+    {
+      "presetId": "macos-on-device",
+      "platform": "macos",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-macos-on-device-v1.0.0.zip",
+      "sha256": "sha256:1b6057f21146b0b34659ba01b5879c7a9fa661aa50c0c31dbb476b56fcd61aca",
+      "treeDigest": "sha256:7155d0491b8786f9bc954905e6867c318db3341c76defa75c3728081a61d177f"
+    },
+    {
+      "presetId": "macos-remote-control",
+      "platform": "macos",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-macos-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:aa103392cb5b3125d54dbc3cc834598c6f2aa40628ee03c7919dc3f427919c97",
+      "treeDigest": "sha256:6f753a5ea511696e0f6122c11438ad7cdb53539161947897562c63218564a297"
+    },
+    {
+      "presetId": "macos-remote-control",
+      "platform": "macos",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-macos-remote-control-v1.0.0.zip",
+      "sha256": "sha256:44c23e5839732176d6163b0834cc5d11caafafb24d14cc1c6f9dfe0da45cc7bf",
+      "treeDigest": "sha256:6f753a5ea511696e0f6122c11438ad7cdb53539161947897562c63218564a297"
+    },
+    {
+      "presetId": "ubuntu-on-device",
+      "platform": "ubuntu",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-ubuntu-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:f36f1fd5b239b7798273626cd196d2d197d380bdb2d0ff5a0a5da2c13ebc3e67",
+      "treeDigest": "sha256:6bd2a6e96e77be4da19614d3303f42e9281957ab0561aac6bc4e6f001f25b493"
+    },
+    {
+      "presetId": "ubuntu-on-device",
+      "platform": "ubuntu",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-ubuntu-on-device-v1.0.0.zip",
+      "sha256": "sha256:8b218f02127b2699cfab3502b4a551a76d1a3d09fcfc62194b43e2a6ff31e8dd",
+      "treeDigest": "sha256:6bd2a6e96e77be4da19614d3303f42e9281957ab0561aac6bc4e6f001f25b493"
+    },
+    {
+      "presetId": "ubuntu-remote-control",
+      "platform": "ubuntu",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-ubuntu-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:d849fa92346553a9c781055b79d65c21add14b6cd72c838767b4e017226847d5",
+      "treeDigest": "sha256:679587e866cc604e6bb63cd4ad0509a2a7af386850dbb271b3310b1f2d5d1f79"
+    },
+    {
+      "presetId": "ubuntu-remote-control",
+      "platform": "ubuntu",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-ubuntu-remote-control-v1.0.0.zip",
+      "sha256": "sha256:e4eb315f9b3e6a3de0789296eae01716436613f79b37fa163f718496427f6db5",
+      "treeDigest": "sha256:679587e866cc604e6bb63cd4ad0509a2a7af386850dbb271b3310b1f2d5d1f79"
+    },
+    {
+      "presetId": "debian-on-device",
+      "platform": "debian",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-debian-on-device-v1.0.0.tar.gz",
+      "sha256": "sha256:4a3195933b054160672b0d9c57f8ab3dd0e4b2471b5dbf34b17efa4fd022f171",
+      "treeDigest": "sha256:b924fdde3f53b0725c3faf08b0236d64a6dfee18bf53bcd0d77716377069f7ea"
+    },
+    {
+      "presetId": "debian-on-device",
+      "platform": "debian",
+      "mode": "on-device",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-debian-on-device-v1.0.0.zip",
+      "sha256": "sha256:75459e5c9825c73dd4212ffb6ee8ba16f3186fcd61241e8c7aea18b40d13115d",
+      "treeDigest": "sha256:b924fdde3f53b0725c3faf08b0236d64a6dfee18bf53bcd0d77716377069f7ea"
+    },
+    {
+      "presetId": "debian-remote-control",
+      "platform": "debian",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "tar.gz",
+      "path": "linkease-skills-debian-remote-control-v1.0.0.tar.gz",
+      "sha256": "sha256:283867281951609a650dcd13169c71898be830f3e6441dbcaf79c9f16ca65495",
+      "treeDigest": "sha256:5195006cf23fb66595e862cf76310e069fcb071fddba69400d9838b8192bf062"
+    },
+    {
+      "presetId": "debian-remote-control",
+      "platform": "debian",
+      "mode": "remote-control",
+      "version": "1.0.0",
+      "format": "zip",
+      "path": "linkease-skills-debian-remote-control-v1.0.0.zip",
+      "sha256": "sha256:f9fbd3cdd940f5825d3c97be55b6a32089c8ce9c980468e9cf192e49e5090da8",
+      "treeDigest": "sha256:5195006cf23fb66595e862cf76310e069fcb071fddba69400d9838b8192bf062"
+    }
+  ],
+  "checks": {
+    "multisystem": {
+      "discovered": 127,
+      "passed": 123,
+      "nativeOnlySkipped": 4,
+      "exitCode": 0
+    },
+    "nativePublicRegression": {
+      "tests": 2,
+      "passed": 2
+    },
+    "shellSuites": [
+      {
+        "check": "tests/architecture/m0-baseline.sh",
+        "exitCode": 0,
+        "seconds": 6.19
+      },
+      {
+        "check": "tests/architecture/test-catalog.sh",
+        "exitCode": 0,
+        "seconds": 0.03
+      },
+      {
+        "check": "tests/architecture/test-istoreos-home-prompts.sh",
+        "exitCode": 0,
+        "seconds": 0.01
+      },
+      {
+        "check": "tests/architecture/test-m2-canonical.sh",
+        "exitCode": 0,
+        "seconds": 7.04
+      },
+      {
+        "check": "tests/architecture/test-m4-generated.sh",
+        "exitCode": 0,
+        "seconds": 2.56
+      },
+      {
+        "check": "tests/architecture/test-recommendations.sh",
+        "exitCode": 0,
+        "seconds": 0.01
+      },
+      {
+        "check": "tests/architecture/test-runtime-release-gate.sh",
+        "exitCode": 0,
+        "seconds": 1.17
+      },
+      {
+        "check": "tests/install/test-agent-bundle-export.sh",
+        "exitCode": 0,
+        "seconds": 1.49
+      },
+      {
+        "check": "tests/install/test-m10-lifecycle.sh",
+        "exitCode": 0,
+        "seconds": 0.96
+      },
+      {
+        "check": "tests/install/test-m10-release.sh",
+        "exitCode": 0,
+        "seconds": 9.16
+      },
+      {
+        "check": "tests/install/test-m5-discovery.sh",
+        "exitCode": 0,
+        "seconds": 1.78
+      },
+      {
+        "check": "tests/install/test-reasonix-consumer.sh",
+        "exitCode": 0,
+        "seconds": 1.82
+      },
+      {
+        "check": "tests/context-budget/test-m7-istoreos.sh",
+        "exitCode": 0,
+        "seconds": 6.78
+      },
+      {
+        "check": "tests/contracts/test-m3-transports.sh",
+        "exitCode": 0,
+        "seconds": 7.81
+      },
+      {
+        "check": "tests/contracts/test-m8-windows.sh",
+        "exitCode": 0,
+        "seconds": 1.13
+      },
+      {
+        "check": "tests/contracts/test-m9-macos.sh",
+        "exitCode": 0,
+        "seconds": 1.13
+      }
+    ],
+    "ksCliAppTests": "passed",
+    "ksCliWingetRaceTests": "passed",
+    "consumerLayers": 8,
+    "generatedPresets": 10,
+    "ownerSourceLock": "passed",
+    "diffCheck": "passed"
+  },
+  "preservation": {
+    "macos": {
+      "checked": 5,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    },
+    "windows": {
+      "checked": 9,
+      "changedCount": 0,
+      "ownedProcessCount": 0
+    }
+  },
+  "proxyRegistry": {
+    "values": 20,
+    "sha256": "463d691e576f8a4e1ff64586c550eb1ccf154ffb33e9b49f26060b00eb404087",
+    "unchanged": true,
+    "proxyEnabled": false
+  },
+  "cleanup": {
+    "containers": 0,
+    "networks": 0,
+    "images": 0,
+    "activeForwards": 0,
+    "privatePrototypeStopped": true,
+    "gatewayLogSha256": "22ea39cba67fa3267adae43c24da8e015c211656e3957c6bafe13a94e71f6800",
+    "nativeDataRetained": true
+  },
+  "publiclyActivated": false,
+  "allDesktopReleaseGatesPassed": false
+}
