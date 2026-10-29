@@ -28,17 +28,6 @@ class DesktopTests(unittest.TestCase):
                                 input=json.dumps(request), text=True, capture_output=True)
         return result, json.loads(result.stdout)
 
-    def test_winget_sdk_preparation_plan_is_pinned_and_writes_nothing(self):
-        destination = self.work / 'sdk candidate'
-        script = ROOT / 'components/system-packs/common/skills/kai-tool-bootstrap/scripts/prepare-winget-sdk.ps1'
-        result = subprocess.run([PWSH, '-NoProfile', '-File', str(script), '-Action', 'Plan',
-                                 '-Destination', str(destination)], capture_output=True, text=True)
-        self.assertEqual(result.returncode, 0, result.stderr)
-        plan = json.loads(result.stdout)
-        self.assertEqual(plan['fileCount'], 5)
-        self.assertEqual(plan['packageCount'], 3)
-        self.assertFalse(destination.exists())
-
     def test_explicit_cmd_bridge_executes_via_external_executor_and_preserves_exit(self):
         request = {'argv': [r'C:\Tools 中文\npm.cmd', '--version', 'with space', ''],
                    'cwd': str(self.work), 'target': {'platform': 'windows', 'shell': 'cmd'}}

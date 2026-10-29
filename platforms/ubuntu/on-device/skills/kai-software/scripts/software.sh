@@ -19,8 +19,6 @@ fail() {
 }
 case "$action" in search|info|install|remove|files|owner|refresh) ;; *) fail 2 usage 'software.sh search|info|install|remove|files|owner|refresh SUBJECT [VERSION]' ;; esac
 if [ "$platform" = windows ]; then
-    acceleration="${KAI_WINGET_ACCELERATION:-none}"
-    case "$acceleration" in none|required) ;; *) fail 2 usage 'KAI_WINGET_ACCELERATION must be none or required' ;; esac
     case "$action" in
         search) provider="${KAI_SOFTWARE_PROVIDER:-winget}" ;;
         refresh) provider="$subject" ;;
@@ -34,35 +32,14 @@ if [ "$platform" = windows ]; then
     [ "$provider" = winget ] || fail 18 unsupported-platform 'the selected provider has no Windows policy'
     powershell="${KAI_POWERSHELL_BIN:-$(command -v powershell.exe 2>/dev/null || command -v pwsh.exe 2>/dev/null || true)}"
     native_script="$here/winget.ps1"
-    if [ "$acceleration" = required ]; then
-        powershell="${KAI_WINGET_PWSH_BIN:-$(command -v pwsh.exe 2>/dev/null || true)}"
-        native_script="$here/winget-sdk.ps1"
-        kscli="${KAI_KSCLI_BIN:-$(command -v ks-cli 2>/dev/null || true)}"
-        [ -n "$powershell" ] && [ -n "$kscli" ] || fail 18 acceleration-unavailable 'Prepare PowerShell 7.5+, the pinned SDK and ks-cli winget exec'
-    fi
     if command -v cygpath >/dev/null 2>&1; then
         powershell="$(cygpath -u "$powershell")"
         native_script="$(cygpath -w "$native_script")"
     fi
     [ -n "$powershell" ] && [ -x "$powershell" ] || fail 127 missing-executable 'an existing native PowerShell is required for structured WinGet operations'
     command=("$powershell" -NoLogo -NoProfile -NonInteractive -File "$native_script")
-    if [ "$acceleration" = required ]; then
-        worker="$powershell"
-        if command -v cygpath >/dev/null 2>&1; then worker="$(cygpath -w "$powershell")"; kscli="$(cygpath -u "$kscli")"; fi
-        command=("$kscli" winget exec -- "$worker" -NoLogo -NoProfile -NonInteractive -MTA -File "$native_script")
-    fi
     request="$(jq -cn --arg action "$action" --arg subject "$subject" --arg version "$requested" \
         '{action:$action,subject:$subject,version:$version}')"
-    if [ "$acceleration" = required ]; then
-        code=0
-        result="$(printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "${command[@]}")" || code=$?
-        if [ -z "$result" ]; then
-            [ "$code" -ne 0 ] || code=11
-            fail "$code" acceleration-unavailable 'The WinGet CONNECT worker could not start; inspect the original client error on stderr'
-        fi
-        printf '%s\n' "$result"
-        exit "$code"
-    fi
     printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "${command[@]}"
     exit $?
 fi

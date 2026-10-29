@@ -35,25 +35,20 @@ installer error and HRESULT remain in the failed receipt. File inventory/ownersh
 is explicitly unavailable from this provider. Use a trusted existing
 `KAI_POWERSHELL_BIN` when discovery needs an explicit native path.
 
-For a WinGet CDN connection reset, set `KAI_WINGET_ACCELERATION=required` with
-`KAI_KSCLI_BIN`, an explicit trusted `KSPEEDER_WINGET_PROXY` CONNECT endpoint,
-and `KAI_WINGET_SDK_DIR`. This candidate supports accelerated `search`/`info`;
-other operations return unsupported rather than silently running direct.
-The existing module branch remains available with acceleration `none`.
-Prepare the pinned SDK with kai-tool-bootstrap's `prepare-winget-sdk.ps1`.
-The worker needs native PowerShell 7.5+ (`KAI_WINGET_PWSH_BIN` when required)
-and the current X64 lock; other SDK architectures are explicit unsupported gates.
-It uses the official in-process SDK and the original registered official source,
-verifies actual catalog/version provenance, and changes only its worker's WinINet
-session. It does not enable the native CLI proxy policy or alter system proxies.
+WinGet search/info use the native registered source directly. ks-cli does not
+provide WinGet CONNECT routing and cannot repair unavailable source metadata.
+Do not set a WinGet proxy through this skill or describe a same-egress relay as
+acceleration. Preserve native catalog failures and repair source connectivity
+outside this workflow.
 See [WinGet acceleration](resources/winget-acceleration.md).
 
 For the reviewed native CLI preparation candidate, use ks-cli's owned
 `winget download/install` workflow with explicit ID, exact version and target
 architecture as described in that reference. It prepares original files with
-auto download and a trusted CONNECT fallback before native verification.
-This is a separate entry from this helper's accelerated SDK search/info branch;
-check native acceptance and client provenance before using a candidate binary.
+ks-cli auto download before native verification. There is no CONNECT fallback;
+an origin without a KSpeeder route may use auto mode's ordinary direct path, and
+only an accelerated selected route is acceleration evidence.
+Check native acceptance and client provenance before using a candidate binary.
 Missing metadata stops preparation. Cached selection does not prove a fresh
 catalog, and payload acceleration does not prove Windows CRL/OCSP connectivity.
 

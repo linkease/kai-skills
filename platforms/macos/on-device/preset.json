@@ -20,8 +20,8 @@
     "common": "1.0.0",
     "macos": "1.0.0"
   },
-  "sourceDigest": "sha256:303fcd7a4633e5820bb78bc1b00e6bfc1318fd7e19ee5cb1c51e5ac5dcdab18c",
-  "treeDigest": "sha256:c70fd0dca3ade1815d55bc0d82761eeb792564354884dd40ae03195b138698da",
+  "sourceDigest": "sha256:70e43ef4f8adfa29c57d9218c99226dee7f199c674e4d5a3f3251f44c9af3bfb",
+  "treeDigest": "sha256:cf8c366ef1fa88aa69153948fc81a26f2870de62f84e36f695c2193b55451874",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

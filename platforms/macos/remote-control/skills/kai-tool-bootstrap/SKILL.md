@@ -82,15 +82,6 @@ Platform overrides are for an explicitly selected target or offline contracts;
 they do not prove a connection or native acceptance. Each subsequent mise task
 must establish its environment again rather than inherit a previous shell.
 
-For the optional accelerated WinGet search/info adapter, use native
-`powershell.exe -NoProfile -File scripts/prepare-winget-sdk.ps1 -Action Plan
--Destination ABSOLUTE_DIRECTORY` first, then `-Action Ensure -Core TRUSTED_ZSETUP`.
-It prepares five source-locked SDK libraries without registering a module or
-changing system packages. `-PackageCache` accepts pinned original nupkg files
-pre-staged through the trusted Transport; native zsetup still verifies them.
-See the sibling kai-software `resources/winget-acceleration.md` for prerequisites,
-source locks and the current query-only native acceptance scope.
-
 For Windows certificate-chain or revocation failures, use the independent native
 PKI Plan/Repair/Restore entry in [Windows PKI notes](resources/windows-pki.md).
 Validate current signed auxiliary material against existing target roots before
