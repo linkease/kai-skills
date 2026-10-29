@@ -405,5 +405,19 @@
         "resolutionClaimed": false
       }
     ]
+  },
+  "windowsWingetPreparationFollowUp": {
+    "date": "2026-10-29",
+    "status": "core-native-installation-and-catalog-recovery-passed-dependency-acquisition-blocked",
+    "latestReport": "winget-preparation-20261029.md",
+    "latestEvidence": "winget-preparation-20261029-results.json",
+    "allWinGetReleaseGatesPassed": false,
+    "optimizationRoundsUsed": 3,
+    "ownerCommit": "95b6098",
+    "signedExeMsiNativeInstallUseRemoval": "passed-scoped",
+    "officialCatalogRecovery": "passed-native-update-and-formal-equal-version-reuse",
+    "completeDependencyWorkflow": "blocked-original-acquisition",
+    "onlineRevocationHealth": "not-repaired",
+    "defaultProxyChanged": false
   }
 }

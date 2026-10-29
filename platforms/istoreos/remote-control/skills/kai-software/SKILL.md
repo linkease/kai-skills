@@ -48,6 +48,15 @@ verifies actual catalog/version provenance, and changes only its worker's WinINe
 session. It does not enable the native CLI proxy policy or alter system proxies.
 See [WinGet acceleration](resources/winget-acceleration.md).
 
+For the reviewed native CLI preparation candidate, use ks-cli's owned
+`winget download/install` workflow with explicit ID, exact version and target
+architecture as described in that reference. It prepares original files with
+auto download and a trusted CONNECT fallback before native verification.
+This is a separate entry from this helper's accelerated SDK search/info branch;
+check native acceptance and client provenance before using a candidate binary.
+Missing metadata stops preparation. Cached selection does not prove a fresh
+catalog, and payload acceleration does not prove Windows CRL/OCSP connectivity.
+
 Search defaults to the native system provider. For internal software, use
 `KAI_SOFTWARE_PROVIDER=zsetup`; for the iStore package catalog, use `istore`.
 When a request spans sources, query each applicable cached provider and compare

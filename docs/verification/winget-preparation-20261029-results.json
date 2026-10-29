@@ -1,0 +1,388 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-29",
+  "status": "core-native-installation-and-catalog-recovery-passed-dependency-acquisition-blocked",
+  "allWinGetReleaseGatesPassed": false,
+  "implementationOptimizationRoundsUsed": 3,
+  "fourthOptimizationAttempted": false,
+  "platform": {
+    "os": "windows",
+    "architecture": "AMD64",
+    "nativeWinget": "v1.29.380"
+  },
+  "sourceArtifacts": {
+    "ownerCommit": "95b6098",
+    "currentClientSha256": "b2b02ef9c0e9f9ff8ef216856cd2fac8b10bc47dd09eff91c22393a377d207b6",
+    "published": false,
+    "gatewaySha256": "969c7141f432e46db1e472aca6b563687ef87d4ca50e8d99e322267218eb21d0"
+  },
+  "mechanism": {
+    "nativeMetadataAndSourceValidation": true,
+    "payloadAutoFirst": true,
+    "unroutedOrFailedAutoFallback": "same-original-HTTPS-through-explicit-trusted-CONNECT",
+    "fallbackClaimsAdaptiveRace": false,
+    "nativeHashAndInstallationPolicyPreserved": true,
+    "defaultProxyChangedByTask": false,
+    "localWindowsKspeederInstalledByTask": false
+  },
+  "portableOriginal": {
+    "clientSha256": "95c33365d7dcdcfb96bbc2dc99b0ea65153354d7450e27586b3ba38cf5c140de",
+    "errorCode": null,
+    "nativeExitCode": 0,
+    "packages": [
+      {
+        "id": "jqlang.jq",
+        "version": "1.8.2",
+        "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
+        "installer_type": "portable",
+        "download": {
+          "bytes": 1035264,
+          "mode": "auto",
+          "selected": "admin_proxy",
+          "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
+          "strategy": "adaptive_race"
+        }
+      }
+    ],
+    "files": [
+      {
+        "signatureStatus": "NotSigned",
+        "zoneStream": true,
+        "signer": "",
+        "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
+        "extension": ".exe",
+        "bytes": 1035264
+      }
+    ],
+    "defaultProxyUnchanged": true,
+    "catalogRefresh": "failed-native-cache-used",
+    "status": "passed"
+  },
+  "signedMsiDownload": {
+    "files": [
+      {
+        "signatureStatus": "Valid",
+        "extension": ".msi",
+        "signer": "CN=Simon Tatham, O=Simon Tatham, S=Cambridgeshire, C=GB",
+        "sha256": "aa8e5036d973688f1e8622fbe9ab22e037346e0def0197bf5e7cdf37da4e223d",
+        "zoneStream": true,
+        "bytes": 3831808
+      }
+    ],
+    "errorCode": null,
+    "catalogRefresh": "failed-native-cache-used",
+    "nativeExitCode": 0,
+    "status": "passed",
+    "clientSha256": "bfcf884ba05dad2854a39350b94ef44accb80ee5c80f9fca894a64e5a5ac71b5",
+    "packages": [
+      {
+        "id": "PuTTY.PuTTY",
+        "version": "0.83.0.0",
+        "sha256": "aa8e5036d973688f1e8622fbe9ab22e037346e0def0197bf5e7cdf37da4e223d",
+        "installer_type": "wix",
+        "download": {
+          "bytes": 3831808,
+          "mode": "auto",
+          "selected": "trusted_connect",
+          "sha256": "aa8e5036d973688f1e8622fbe9ab22e037346e0def0197bf5e7cdf37da4e223d",
+          "strategy": "auto-then-connect-fallback"
+        }
+      }
+    ],
+    "defaultProxyUnchanged": true
+  },
+  "signedExeDownload": {
+    "files": [
+      {
+        "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+        "extension": ".exe",
+        "signatureStatus": "Valid",
+        "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US",
+        "zoneStream": true,
+        "bytes": 26964224
+      }
+    ],
+    "autoAttemptCount": 1,
+    "packages": [
+      {
+        "id": "Python.Python.3.12",
+        "version": "3.12.10",
+        "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+        "installer_type": "burn",
+        "download": {
+          "bytes": 26964224,
+          "mode": "auto",
+          "selected": "trusted_connect",
+          "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+          "strategy": "auto-then-connect-fallback"
+        }
+      }
+    ],
+    "clientSha256": "bfcf884ba05dad2854a39350b94ef44accb80ee5c80f9fca894a64e5a5ac71b5",
+    "catalogRefresh": "failed-native-cache-used",
+    "status": "passed",
+    "defaultProxyUnchanged": true,
+    "nativeExitCode": 0,
+    "errorCode": null,
+    "nativeAttemptCount": 2,
+    "installerRun": false
+  },
+  "signedMsiInstallation": {
+    "catalogRefresh": "failed-native-cache-used",
+    "clientSha256": "b2b02ef9c0e9f9ff8ef216856cd2fac8b10bc47dd09eff91c22393a377d207b6",
+    "autoAttemptCount": 1,
+    "errorCode": null,
+    "status": "passed",
+    "defaultProxyUnchanged": true,
+    "files": [],
+    "nativeExitCode": 0,
+    "installerRun": true,
+    "packages": [
+      {
+        "id": "PuTTY.PuTTY",
+        "version": "0.83.0.0",
+        "sha256": "aa8e5036d973688f1e8622fbe9ab22e037346e0def0197bf5e7cdf37da4e223d",
+        "installer_type": "wix",
+        "download": {
+          "bytes": 3831808,
+          "mode": "auto",
+          "selected": "trusted_connect",
+          "sha256": "aa8e5036d973688f1e8622fbe9ab22e037346e0def0197bf5e7cdf37da4e223d",
+          "strategy": "auto-then-connect-fallback"
+        }
+      }
+    ],
+    "nativeAttemptCount": 2
+  },
+  "signedMsiUseAndRemoval": {
+    "versionOutputMatched": true,
+    "registrationRemoved": true,
+    "executableRemoved": true,
+    "installedExecutableSignature": "Valid",
+    "uninstallExitCode": 0,
+    "executableExitCode": 0,
+    "installedVersion": "0.83.0.0"
+  },
+  "signedExeInstallation": {
+    "status": "passed",
+    "errorCode": null,
+    "packages": [
+      {
+        "id": "Python.Python.3.12",
+        "version": "3.12.10",
+        "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+        "installer_type": "burn",
+        "download": {
+          "bytes": 26964224,
+          "mode": "auto",
+          "selected": "trusted_connect",
+          "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+          "strategy": "auto-then-connect-fallback"
+        }
+      }
+    ],
+    "installerRun": true,
+    "files": [],
+    "autoAttemptCount": 1,
+    "clientSha256": "bfcf884ba05dad2854a39350b94ef44accb80ee5c80f9fca894a64e5a5ac71b5",
+    "nativeAttemptCount": 2,
+    "nativeExitCode": 0,
+    "defaultProxyUnchanged": true,
+    "catalogRefresh": "failed-native-cache-used"
+  },
+  "signedExeUseAndRemoval": {
+    "registrationRemoved": true,
+    "version": "Python 3.12.10",
+    "executableRemoved": true,
+    "pipExitCode": 0,
+    "pipAvailable": true,
+    "userPathUnchanged": true,
+    "uninstallExitCode": 0,
+    "executableExitCode": 0,
+    "installedVersion": "3.12.10150.0"
+  },
+  "metadataUnavailable": {
+    "errorCode": "WINGET_METADATA_OR_NATIVE_DOWNLOAD_FAILED",
+    "defaultProxyUnchanged": true,
+    "clientSha256": "bfcf884ba05dad2854a39350b94ef44accb80ee5c80f9fca894a64e5a5ac71b5",
+    "files": [],
+    "packages": null,
+    "autoAttemptCount": 0,
+    "nativeExitCode": -2145844746,
+    "catalogRefresh": null,
+    "nativeAttemptCount": 1,
+    "installerRun": false,
+    "status": null
+  },
+  "officialCatalogNativeRecovery": {
+    "sourceVersionAfter": "2026.1029.201.55",
+    "sourceTrustUnchanged": true,
+    "sourceIdentityUnchanged": true,
+    "sourceVersionBefore": "2026.708.1025.14",
+    "nativeDeploymentPassed": true,
+    "expectedVersion": "2026.1029.201.55",
+    "packageSha256": "566d71f9ae859264774a857433255f2484c566c8a787e19f6f6d46ed6fcaf5ee"
+  },
+  "formalCatalogCommand": {
+    "catalog_refresh": "native-signed-source-package",
+    "catalog_sha256": "566d71f9ae859264774a857433255f2484c566c8a787e19f6f6d46ed6fcaf5ee",
+    "deployment": "reused",
+    "download": {
+      "selected": "trusted_connect",
+      "strategy": "auto-then-connect-fallback"
+    },
+    "operation": "source-update",
+    "schema_version": 1,
+    "source_identity_unchanged": true,
+    "source_trust_unchanged": true,
+    "source_version_after": "2026.1029.201.55",
+    "source_version_before": "2026.1029.201.55",
+    "status": "passed",
+    "system_proxy_changed": false
+  },
+  "formalCatalogUpdateBranchScope": "Native original-package deployment updated the catalog; formal wrapper verified equal-version reuse, not a second new-version deployment.",
+  "legacyNativeRefresh": {
+    "nativeExitCode": 0,
+    "cancelled": true,
+    "acceptedAsFresh": false
+  },
+  "dependencyWorkflow": {
+    "nativeAttemptCount": 1,
+    "autoAttemptCount": 1,
+    "files": [],
+    "clientSha256": "10d4265b712edded7efd668238906bb9d0fdcf264ab424666fe0dba3cde4a31e",
+    "packages": null,
+    "installerRun": false,
+    "nativeExitCode": 1,
+    "defaultProxyUnchanged": true,
+    "catalogRefresh": null,
+    "status": null,
+    "errorCode": "WINGET_ORIGINAL_UNVERIFIED"
+  },
+  "dependencyFailure": {
+    "id": "Microsoft.VCRedist.2015+.x64",
+    "version": "14.51.36247.0",
+    "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
+    "originalHost": "download.visualstudio.microsoft.com",
+    "automaticRouteSupported": false,
+    "errorClassifiers": [
+      "context deadline exceeded",
+      "no matching origin route"
+    ],
+    "primaryOrDependencyInstallerRun": false,
+    "existingSharedRuntimeUpgradedByTask": false,
+    "nativeDependencyDownloadAndInstallAccepted": false
+  },
+  "pki": {
+    "previousEvidence": "windows-pki-20261028-results.json",
+    "newSystemTrustStoreWrites": false,
+    "revocationDisabled": false,
+    "freshOnlineCrlOcspRepaired": false,
+    "nativeSourceHeadChecksRepaired": false,
+    "signatureValidDoesNotProveOnlineRevocation": true
+  },
+  "selfChecks": {
+    "linuxFullAppTests": "passed",
+    "linuxWingetRaceTests": "passed",
+    "windowsAllWingetGoTests": "passed",
+    "windowsNativePowerShell7ModulePathInvalidArchiveRegression": "passed",
+    "linuxAndWindowsBuilds": "passed",
+    "kaiGeneratedPresets": 10,
+    "kaiCatalogContracts": "passed",
+    "kaiDistributionTests": 6,
+    "genericSkillValidator": "rejects-existing-repository-specific-frontmatter; repository catalog and generation validators passed"
+  },
+  "scopeLimits": [
+    "Native source command requires the registered official packaged Windows source and reviewed WinGet version.",
+    "Complete native dependency acquisition/installation is blocked; multi-branch dependency graphs and other desktop architectures are not accepted.",
+    "Kai accelerated SDK software helper remains search/info only; direct native CLI preparation is a separate candidate entry.",
+    "Signed EXE installation was tested with the earlier exact candidate hash recorded in its receipt; the final candidate MSI installation was repeated after the third-round changes.",
+    "No production release or push was requested."
+  ],
+  "history": {
+    "initialWorkspaceLoopRegression": "reproduced-red-then-fixed",
+    "unroutedOriginalRegression": "reproduced-and-trusted-CONNECT-fallback-passed",
+    "oldOfficialCatalogVersion": "2026.708.1025.14",
+    "newOfficialCatalogVersion": "2026.1029.201.55",
+    "nativeDependencyOrderingRegression": "reproduced-red-then-fixed",
+    "powershell7ModulePathRegression": "native-red-then-green",
+    "msiForwardSlashHarnessError1606": "native-Windows-location-input-corrected",
+    "concurrentMsiCleanup1618": "serial-owned-cleanup-passed",
+    "optionalNuGetCase": "interrupted-and-excluded-from-acceptance"
+  },
+  "rawEvidenceOutsideGit": true,
+  "privateEvidenceDigests": [
+    {
+      "name": "jq-public-private.json",
+      "sha256": "902a2277edc8182bdea9862b6917c04eb482d2ed887908e249010bf8d216a476",
+      "transportExitCode": 0
+    },
+    {
+      "name": "putty-public-private.json",
+      "sha256": "484c13c3b5e7fedea0e91637e058bafab4af460cd17eda82320c7f528302b394",
+      "transportExitCode": 0
+    },
+    {
+      "name": "python-public-private.json",
+      "sha256": "f03d54b0086cb11aa806597a0f7f56852b554a10df3e132863a124292008f60b",
+      "transportExitCode": 0
+    },
+    {
+      "name": "install-putty-public-private.json",
+      "sha256": "732dfe7d4e01583fa8f5696392d71bbe62ed9c45bafe982deffeafd417b71106",
+      "transportExitCode": 0
+    },
+    {
+      "name": "install-putty-smoke-and-remove-private.json",
+      "sha256": "f33c65b351c0751537de29d7551a6dde399cb160c0b3a11d8cd84c714b3baffa",
+      "transportExitCode": 0
+    },
+    {
+      "name": "install-python-public-private.json",
+      "sha256": "d4e6b12690e0be711c40b100395dd0f5765d892360758cb878209d8cc46aa60e",
+      "transportExitCode": 0
+    },
+    {
+      "name": "install-python-smoke-and-remove-private.json",
+      "sha256": "e7a83c125f93e729a118e52c440ebf64acc65d2bdcd284b86d2d887f5cf88dc7",
+      "transportExitCode": 0
+    },
+    {
+      "name": "metadata-unavailable-public-private.json",
+      "sha256": "32af8fbaeedfa0cd652509f8a548a5f67606da03c7e9905eee63395edd1a47a8",
+      "transportExitCode": 0
+    },
+    {
+      "name": "source-repair-native-private.json",
+      "sha256": "900acb7266a63b6b80e34d1943176d20c30d18af7c2e6dd41b26e9b90360b41a",
+      "transportExitCode": 0
+    },
+    {
+      "name": "formal-source-receipt-private.json",
+      "sha256": "fb8bd6e11625b6f12804e77336b3c1d687115155dde4e12326140cdd5ba188ac",
+      "transportExitCode": 0
+    },
+    {
+      "name": "transmission-public-private.json",
+      "sha256": "4a926df990f8b146e42d23e53edaad9831bf86a5f46f4f0bc576b70de66fb63b",
+      "transportExitCode": 0
+    },
+    {
+      "name": "go-native-tests-module-ps7-red-private.json",
+      "sha256": "3655b90ff73275cd4296fea05d848af564ce21bb6698a018a8741d7e829864c9",
+      "transportExitCode": 1
+    },
+    {
+      "name": "go-native-tests-third-verified-private.json",
+      "sha256": "f0cfecbcb79b27e96df59055d14c61168ab6378f91b9f2bedff6c810a7a7926d",
+      "transportExitCode": 0
+    }
+  ],
+  "finalPreservation": {
+    "ownedPythonRegistrationPresent": false,
+    "ownedPuttyRegistrationPresent": false,
+    "wingetProcesses": 0,
+    "localKspeederProcesses": 0,
+    "ownedCliProcesses": 0
+  }
+}

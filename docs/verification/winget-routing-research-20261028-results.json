@@ -1,0 +1,213 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-28",
+  "status": "diagnosed-and-native-cache-reuse-prototype-passed",
+  "productAdapterImplemented": false,
+  "allWinGetReleaseGatesPassed": false,
+  "target": {
+    "platform": "windows",
+    "architecture": "AMD64",
+    "wingetVersion": "v1.29.380"
+  },
+  "currentImplementation": {
+    "mechanism": "command-scoped-authenticated-CONNECT",
+    "systemProxyChanged": false,
+    "originTlsPreserved": true,
+    "originalInstallerConnectUsesFileAutoStrategy": false,
+    "plainHttpRelayProbeStatus": 405,
+    "plainHttpProbeIsNativeCryptnetProof": false
+  },
+  "pki": {
+    "windows": [
+      {
+        "host": "crt.sectigo.com",
+        "exitCode": 56,
+        "stats": "000 0"
+      },
+      {
+        "host": "crl.sectigo.com",
+        "exitCode": 56,
+        "stats": "000 0"
+      },
+      {
+        "host": "crl.usertrust.com",
+        "exitCode": 56,
+        "stats": "000 0"
+      }
+    ],
+    "controller": [
+      {
+        "host": "crt.sectigo.com",
+        "status": 200,
+        "bytes": 867
+      },
+      {
+        "host": "crl.sectigo.com",
+        "status": 200,
+        "bytes": 368
+      },
+      {
+        "host": "crl.usertrust.com",
+        "status": 200,
+        "bytes": 906
+      }
+    ],
+    "exactResetLocationIdentified": false,
+    "onlineRevocationNetworkRepaired": false
+  },
+  "coldNative": {
+    "revocation12057": true,
+    "existingHashRejected": false,
+    "nativeExitCode": -2147012839,
+    "existingHashMatched": false,
+    "files": []
+  },
+  "automaticPrefetch": {
+    "status": "ok",
+    "mode": "auto",
+    "strategy": "adaptive_race",
+    "selected": "admin_proxy",
+    "bytes": 1035264,
+    "duration_ms": 2789,
+    "speed_bps": 371195
+  },
+  "originalArtifact": {
+    "package": "jqlang.jq",
+    "version": "1.8.2",
+    "architecture": "x64",
+    "size": 1035264,
+    "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627"
+  },
+  "nativeCacheReuse": {
+    "nativeExitCode": 0,
+    "existingHashRejected": false,
+    "revocation12057": false,
+    "existingHashMatched": true,
+    "files": [
+      {
+        "size": 1035264,
+        "extension": ".exe",
+        "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627"
+      },
+      {
+        "size": 6135,
+        "extension": ".yaml",
+        "sha256": "db79ab3be57c6a129432f751f006822b5a90ff7b05c92f478208d5a39e00130e"
+      }
+    ]
+  },
+  "nativeBadCacheRejection": {
+    "revocation12057": true,
+    "nativeExitCode": -2147012839,
+    "existingHashMatched": false,
+    "files": [],
+    "existingHashRejected": true
+  },
+  "actualProgram": {
+    "executableExitCode": 0,
+    "originalUrlInWinGetManifest": true,
+    "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
+    "version": "jq-1.8.2",
+    "localKspeederProcessCount": 0,
+    "originalHashInWinGetManifest": true,
+    "size": 1035264,
+    "ksCliProcessCount": 0,
+    "wingetProcessCount": 0
+  },
+  "preservation": {
+    "localKspeederProcessCount": 0,
+    "checkedProxyKeys": 2,
+    "defaultProxyValuesUnchanged": true,
+    "ksCliProcessCount": 0
+  },
+  "cleanup": {
+    "gatewayAndForwardProcessesRemaining": 0
+  },
+  "nativeLogSummary": {
+    "cold": {
+      "sourceUpdateWarningObserved": false,
+      "originalHashMatchedLog": false,
+      "badHashRejectedLog": false,
+      "rawLogSha256": "585d3b5e30cae6441132fcde95ca3bf23a6377fdb6bdf5d29e00aa2c1736cb5a"
+    },
+    "cached": {
+      "sourceUpdateWarningObserved": false,
+      "originalHashMatchedLog": true,
+      "badHashRejectedLog": false,
+      "rawLogSha256": "12b735ab26155426a175594b54b276b42df6af2582bb4b0014cc6b8479564ef4"
+    },
+    "corrupt": {
+      "sourceUpdateWarningObserved": false,
+      "originalHashMatchedLog": false,
+      "badHashRejectedLog": true,
+      "rawLogSha256": "57382f6e7aa350238bbf6db402d12b80dd91faabc23c640aeaa5a518beca6dee"
+    }
+  },
+  "prototypeOptimizationRounds": 3,
+  "historicalHarnessFailuresPreserved": true,
+  "sourceArtifacts": {
+    "ksCli": {
+      "sourceCommit": "32cbbaa8aa0f3fce35b32c3d9497236e136678f5",
+      "sha256": "0da8285aea907ffd1c224acc6032b10693676334ee85348e6825573a323f9e47",
+      "published": false
+    },
+    "kspeeder": {
+      "sourceCommit": "97b7d2bd9d10c2d9b0177b368d8bf2ebb8a41c54",
+      "sourceState": "worktree",
+      "sha256": "969c7141f432e46db1e472aca6b563687ef87d4ca50e8d99e322267218eb21d0"
+    }
+  },
+  "scope": {
+    "softwareInstalled": false,
+    "newCertificateStoreWrites": false,
+    "newCertificateBypassOptions": false,
+    "coldCacheOrSpeedMultiplierClaimed": false,
+    "sourceRefreshIndependentlyAccepted": false,
+    "otherInstallerTypesAccepted": false,
+    "rawEvidenceOutsideGit": true
+  },
+  "evidence": [
+    {
+      "name": "cold",
+      "transportExitCode": 0,
+      "seconds": 52.926,
+      "stdoutSha256": "008824f8afa1285ff4a44807615adfdc1737dede6f0091d3220149e3310a1d02",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "name": "prefetch",
+      "transportExitCode": 0,
+      "seconds": 8.847,
+      "stdoutSha256": "2961dfcc214b10e00aab790b1fb33e9553502e499bb3ac461aa5eee9b527321a",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "name": "cached",
+      "transportExitCode": 0,
+      "seconds": 20.245,
+      "stdoutSha256": "e5735da807a9a495e0ed0e8a711c9faf6bbe24c56de95dfcfe8d9bdd4c72a3fe",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "name": "corrupt",
+      "transportExitCode": 0,
+      "seconds": 41.524,
+      "stdoutSha256": "69dced9ea8e96bc24b60c664918524083b1bd42afc1be8ec2df3be025982c3c7",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "name": "preservation",
+      "transportExitCode": 0,
+      "seconds": 2.695,
+      "stdoutSha256": "fad54d4fae102294ad73c7281b0dcf3190439633d98a0ff93a1ea701d6665bfb",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    },
+    {
+      "name": "exported-program",
+      "transportExitCode": 0,
+      "seconds": 2.78,
+      "stdoutSha256": "b522f86ddb5c177007ad08881441b71121454dad84c96a8d2d80c5939737f5ae",
+      "stderrSha256": "98660f8d8b9da1522dd8126c2203a0cfe7140caa21b926dbbe220a5b2f9e684d"
+    }
+  ]
+}

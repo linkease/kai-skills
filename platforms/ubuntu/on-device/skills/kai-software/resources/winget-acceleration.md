@@ -1,4 +1,4 @@
-# WinGet acceleration candidate
+# WinGet acceleration and native preparation
 
 The registered official `winget` source remains intact. A fresh PowerShell MTA
 worker loads the public Microsoft SDK, validates the source URL and actual package
@@ -80,10 +80,44 @@ ks-cli winget show --id Microsoft.PowerShell --exact --source winget --accept-so
 ks-cli winget download --id jqlang.jq --exact --source winget --version 1.8.2 --architecture x64 --download-directory 'D:/task/download 中文' --accept-source-agreements --accept-package-agreements --disable-interactivity
 ```
 
-Keep native CLI output as display text; use the SDK path for structured package
-records. A successful download does not establish install/remove acceptance.
-Native `--proxy` covers catalog and installer downloads; an installer can make
-its own network requests outside that proxy. See the official
+Use the SDK path for structured package records. The reviewed ks-cli native
+preparation candidate accepts WinGet `v1.29.380` and the registered trusted
+official source only. `download`/`install` require `--id`, `--exact`, `--version`
+and `--architecture`; unknown versions and unsupported flags fail explicitly.
+Read the owning ks-cli `docs/winget-connect.md` and current native verification
+evidence before using a locally built candidate; a source change is not proof
+that the downloadable release contains it.
+
+Native WinGet selects the original HTTPS URL and SHA256 in an isolated command
+workspace. ks-cli first calls its existing automatic download engine. Its origin
+routes are bounded: an unlisted vendor can fall back to Windows direct access,
+which may still reset. If automatic acquisition fails, this adapter uses the
+explicit trusted CONNECT endpoint to fetch the same original HTTPS URL. It labels
+that outcome `trusted_connect / auto-then-connect-fallback`, without claiming a
+cached or raced transfer. SHA256 and subsequent native WinGet validation remain
+mandatory before export or native installation. Package dependencies are prepared
+first; successful download alone does not establish actual install acceptance.
+
+The JSON preparation receipt reports `catalog_refresh` independently:
+`failed-native-cache-used` means refresh failed but native metadata was usable;
+`not-independently-verified` does not assert freshness. If complete native metadata
+cannot be obtained, stop before automatic payload download and installation.
+Repair the source's network access and explicitly retry or refresh with its
+original manager. The reviewed native packaged-Windows CLI candidate also provides
+`ks-cli --json winget source update --name winget --disable-interactivity`:
+it fetches the original official source2.msix through auto/CONNECT, then uses native
+PowerShell 5.1/Appx to deploy only a newer, same-identity Microsoft Store package.
+An equal version reuses the existing native signed package; check `deployment`
+and both version fields rather than inferring a new deployment. It preserves the
+registered source URL/type/trust and rejects downgrade, unsigned/forced deployment
+and unsupported unpackaged contexts. A transport hash alone is not signature
+evidence. Source update remains an explicit write, never an installation side
+effect. Native `source update` returning 0 with `Cancelled` is not refresh success.
+Do not fabricate a manifest URL/hash, rewrite source identity,
+or substitute an unreviewed downloaded catalog. A successful CONNECT preflight
+does not guarantee all native source-refresh/version-check requests use it.
+
+An installer can make its own network requests outside the WinGet proxy. See the official
 [proxy design](https://github.com/microsoft/winget-cli/blob/master/doc/specs/%23190%20-%20Proxy%20Support.md)
 and [download command](https://learn.microsoft.com/en-us/windows/package-manager/winget/download).
 
@@ -94,3 +128,16 @@ CRLs or OCSP responses. Use native certificate diagnostics to identify the faile
 URLs and preserve certificate validation. `certutil -verify -urlfetch` can exit 0
 while reporting `CRYPT_E_REVOCATION_OFFLINE`, an incomplete chain or unknown
 revocation status; inspect those results before claiming validation passed.
+Cryptnet/CAPI certificate retrieval is independent of package transfer and cannot
+be assumed to inherit WinGet's per-session proxy. The current CONNECT relay also
+does not provide an ordinary HTTP GET/OCSP POST proxy. Diagnose direct access and
+the exact certificate URLs separately; neither an HTTP probe nor a valid cached
+signature result identifies the resetting network device or proves fresh online
+revocation is healthy. Preserve the Windows default proxy and trust/revocation
+policy.
+
+Native acceptance on AMD64 established PuTTY MSI/Python EXE download, signatures,
+installation, execution and owned removal. The complete dependency workflow is
+still blocked at VC++ original acquisition after three implementation rounds.
+Do not enable the accelerated SDK helper's install/remove branch or claim general
+WinGet dependency/install coverage from these individual native successes.
