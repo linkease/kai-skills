@@ -24,8 +24,8 @@
     "openwrt": "1.0.0",
     "istoreos": "2.0.0"
   },
-  "sourceDigest": "sha256:b90ace179815f79eb30e9078774e6515016f560b1eec55569f489169cb2a610f",
-  "treeDigest": "sha256:bb5364f603e4b29c322c4413eec34e4190a36761706d7af8129e2f8449ae3b97",
+  "sourceDigest": "sha256:0ece9db134219dc4a591053b290dd49aafc9216fe9ebcebbd9379e8c65c5078d",
+  "treeDigest": "sha256:85ceb09664eabe8f238d7425b38ce4fd2aefed799c4d0e4c16a944cc2a24ac91",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",

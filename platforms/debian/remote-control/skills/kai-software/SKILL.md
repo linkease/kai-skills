@@ -36,7 +36,10 @@ is explicitly unavailable from this provider. Use a trusted existing
 `KAI_POWERSHELL_BIN` when discovery needs an explicit native path.
 
 WinGet search/info use the native registered source directly. ks-cli does not
-provide WinGet CONNECT routing and cannot repair unavailable source metadata.
+provide WinGet CONNECT routing. Prepared download/install may read the installed
+Store-signed source index, acquire its version metadata and manifest through
+`ks-cli download --mode=auto`, verify both source SHA256 values, and seed only
+the command's isolated WinGet cache before native selection.
 Do not set a WinGet proxy through this skill or describe a same-egress relay as
 acceleration. Preserve native catalog failures and repair source connectivity
 outside this workflow.
@@ -49,7 +52,7 @@ ks-cli auto download before native verification. There is no CONNECT fallback;
 an origin without a KSpeeder route may use auto mode's ordinary direct path, and
 only an accelerated selected route is acceleration evidence.
 Check native acceptance and client provenance before using a candidate binary.
-Missing metadata stops preparation. Cached selection does not prove a fresh
+Missing or unverifiable metadata stops preparation. Cached selection does not prove a fresh
 catalog, and payload acceleration does not prove Windows CRL/OCSP connectivity.
 
 Search defaults to the native system provider. For internal software, use

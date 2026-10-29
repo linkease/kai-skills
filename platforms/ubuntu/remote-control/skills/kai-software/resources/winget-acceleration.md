@@ -1,10 +1,14 @@
-# WinGet payload acceleration
+# WinGet metadata and payload acceleration
 
 WinGet metadata and installer payloads use separate paths.
 
-- Search, package selection and manifest lookup use the registered native
-  `winget` source directly. ks-cli does not proxy this traffic. If the catalog is
-  unreachable or incomplete, stop before downloading or installing anything.
+- Search and info use the registered native `winget` source directly. Prepared
+  download/install reads only the installed Store-signed source `index.db`, then
+  uses `ks-cli download --mode=auto` for the exact `versionData.mszyml` and
+  manifest paths. Their SHA256 values must chain back to that signed index.
+- Verified metadata is placed only in the command's isolated WinGet cache.
+  Native WinGet still performs package and installer selection; no WinGet
+  request is proxied.
 - After native WinGet has selected an exact original HTTPS URL and official
   SHA256, `ks-cli winget download/install` sends that payload to the existing
   `ks-cli download --mode=auto` engine. The result must match the native SHA256,
@@ -23,7 +27,9 @@ Do not pass `--proxy` or `--no-proxy`; ks-cli rejects both and does not read
 `KSPEEDER_WINGET_PROXY`. It does not change the Windows default proxy, trust store,
 revocation policy or WinGet source registration.
 
-The automatic download engine has bounded accelerated routes. An unlisted vendor
+The automatic download engine has bounded accelerated routes. WinGet metadata
+requires the KSpeeder `/winget` route on both client and deployed upstream; a
+client-only route whose upstream returns 404 is not acceleration. An unlisted vendor
 uses its ordinary direct path. If direct access also fails, preparation returns
 `WINGET_ORIGINAL_UNVERIFIED`; there is no WinGet proxy fallback. Add and validate
 a real KSpeeder download route for that origin before claiming acceleration. The
