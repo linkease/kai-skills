@@ -16,6 +16,22 @@ have() { command -v "$1" >/dev/null 2>&1; }
 
 ts() { date +%Y%m%d-%H%M%S 2>/dev/null || echo now; }
 
+run_logged() {
+  # POSIX pipelines return tee's status; preserve the program's status separately.
+  status_file="$(mktemp)"
+  trap 'rm -f "$status_file"' EXIT HUP INT TERM
+  (
+    code=0
+    "$@" 2>&1 || code=$?
+    printf '%s\n' "$code" > "$status_file"
+  ) | tee "$log"
+  code="$(cat "$status_file")"
+  rm -f "$status_file"
+  trap - EXIT HUP INT TERM
+  echo "log: $log" >&2
+  return "$code"
+}
+
 if [ "$confirm" != "YES" ]; then
   need "this will execute a local .run file (risky). Recommended: run a full system backup first (istoreos-backup-restore). Rerun with CONFIRM_RUN_EXEC=YES."
 fi
@@ -42,7 +58,7 @@ fetch_if_url() {
   in="$1"
   if is_url "$in"; then
     skills_dir="$(resolve_skills_dir || true)"
-    fetch="$skills_dir/istoreos-run-executable/scripts/fetch.sh"
+    fetch="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/scripts/fetch.sh"
     if [ ! -f "$fetch" ]; then
       need "fetch script not found: $fetch (ensure skills are installed)"
     fi
@@ -119,8 +135,7 @@ if [ "$prefer_dotrun" -eq 1 ] && [ $# -eq 0 ]; then
   cp -f "$file" "$tmp"
   cd "$(dirname "$tmp")" 2>/dev/null || true
   if have tee; then
-    is-opkg dotrun "$tmp" 2>&1 | tee "$log"
-    echo "log: $log" >&2
+    run_logged is-opkg dotrun "$tmp"
   else
     is-opkg dotrun "$tmp"
     echo "log: skipped (tee not found)" >&2
@@ -137,8 +152,7 @@ else
 
   echo "action: execute $exec_path $*" >&2
   if have tee; then
-    "$exec_path" "$@" 2>&1 | tee "$log"
-    echo "log: $log" >&2
+    run_logged "$exec_path" "$@"
   else
     "$exec_path" "$@"
     echo "log: skipped (tee not found)" >&2

@@ -1,0 +1,4 @@
+interface:
+  display_name: "LuCI HTTP Controller"
+  short_description: "Call a bound LuCI target with generic safety gates"
+  default_prompt: "Use $luci-http-controller only as the transport selected by a system-specific skill."

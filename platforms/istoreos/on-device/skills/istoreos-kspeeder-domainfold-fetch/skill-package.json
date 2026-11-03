@@ -1,0 +1,47 @@
+{
+  "id": "istoreos-kspeeder-domainfold-fetch",
+  "version": "1.1.0",
+  "path": "skills/istoreos-kspeeder-domainfold-fetch",
+  "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+  "description": "通过设备内 iStoreEnhance/KSpeeder 加速受支持的外部文件和公开 HTTPS Git 仓库；仅作为下载加速主 skill 按证据调用的内部执行 helper。",
+  "platforms": [
+    "istoreos"
+  ],
+  "kind": "business",
+  "component": "istoreos",
+  "architectures": {
+    "istoreos": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+    },
+    {
+      "id": "istoreos-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+      "sourceDigest": "sha256:a75675ca3e5c04c694909650482ff730c335d6f94a103a81b7017d5643b2f444"
+    },
+    {
+      "id": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+    },
+    {
+      "id": "istoreos-mise-runtime",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+      "sourceDigest": "sha256:5f5f2cd2e61e379a6455f223a22250f7520373b73638bfd9dfb59c596164773a"
+    },
+    {
+      "id": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+    }
+  ]
+}

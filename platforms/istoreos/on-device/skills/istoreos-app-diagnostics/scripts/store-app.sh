@@ -3,7 +3,7 @@ set -eu
 
 app="${1:-}"
 script_dir="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-fetch="$script_dir/../../istoreos-app-search/scripts/fetch-store.sh"
+fetch="$script_dir/../resources/runtime/istoreos-app-search/scripts/fetch-store.sh"
 case "$app" in [A-Za-z0-9][A-Za-z0-9._+-]*) ;; *) printf 'store_match\tfalse\n'; exit 0 ;; esac
 
 tmp="$(mktemp -d)"

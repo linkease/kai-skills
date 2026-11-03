@@ -22,4 +22,3 @@ run sh -c "ps w 2>/dev/null | grep -E '[i]StoreEnhance' || true"
 say "DNS/Registry Search"
 run sh -c "nslookup registry.linkease.net 2>/dev/null | head -n 60 || true"
 run sh -c "curl -fsSG --connect-timeout 2 --max-time 5 'https://registry.linkease.net:5443/v1/search' --data-urlencode 'q=busybox' --data 'n=1' 2>&1 | head -n 80 || true"
-

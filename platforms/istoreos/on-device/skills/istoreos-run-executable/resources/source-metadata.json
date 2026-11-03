@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-run-executable\ndescription: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构和空间，提示备份并要求明确确认。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: high\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+      "sourceDigest": "sha256:347bd417955694ccbd7266a21d78bd06e825727c11da9e92bd43e5455fea4b24"
+    },
+    {
+      "id": "istoreos-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+      "sourceDigest": "sha256:a75675ca3e5c04c694909650482ff730c335d6f94a103a81b7017d5643b2f444"
+    },
+    {
+      "id": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+    },
+    {
+      "id": "istoreos-mise-runtime",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+      "sourceDigest": "sha256:5f5f2cd2e61e379a6455f223a22250f7520373b73638bfd9dfb59c596164773a"
+    },
+    {
+      "id": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+    }
+  ]
+}

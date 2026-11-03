@@ -1,16 +1,12 @@
 ---
 name: macos-system-diagnostics
 description: Collect a bounded read-only macOS health summary covering version, architecture, uptime, root disk, memory pressure, and launchd job totals; use for general Mac errors, slowness, or first-pass diagnosis.
-owner: system-pack/macos
-systems: macos
-requires: target-shell:posix
-triggers: macOS 异常, Mac 诊断, 系统变慢, 磁盘空间, memory pressure, macOS health
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: low
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # macOS system diagnostics
 
 Run `scripts/inspect.sh`. It uses macOS-native evidence, is read-only, and caps every variable-length field.

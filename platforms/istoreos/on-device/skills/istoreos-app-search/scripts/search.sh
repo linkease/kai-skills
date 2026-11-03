@@ -7,7 +7,7 @@ script_dir="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
 skill_dir="$(dirname "$script_dir")"
 skills_dir="$(dirname "$skill_dir")"
 aliases="${ISTORE_APP_ALIASES:-$skill_dir/data/intent-aliases.tsv}"
-first_party="${ISTORE_FIRST_PARTY_INDEX:-$skills_dir/istoreos-app-diagnostics/data/first-party-apps.jsonl}"
+first_party="${ISTORE_FIRST_PARTY_INDEX:-$(CDPATH= cd -- "$(dirname "$0")/../resources/runtime/istoreos-app-diagnostics" && pwd -P)/data/first-party-apps.jsonl}"
 
 [ -n "$query" ] || { echo 'usage: search.sh <keyword> [top]' >&2; exit 2; }
 case "$top" in ''|*[!0-9]*|0) echo 'top must be a positive integer' >&2; exit 2 ;; esac

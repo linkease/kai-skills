@@ -1,0 +1,14 @@
+# code	outcome	next_skill	case-insensitive extended regular expression
+DEPENDENCY_MISSING	dependency_failed	kai-software	cannot find dependency|dependency .*missing|unsatisfied dependencies
+NO_SPACE	package_install_failed	kai-storage-files	no space left on device|not enough space|only have [0-9]+kb available
+READ_ONLY_FILESYSTEM	package_install_failed	kai-storage-files	read-only file system
+ARCH_UNSUPPORTED	package_install_failed	kai-software	incompatible with the architectures configured|wrong architecture|unsupported architecture
+DOWNLOAD_DNS_FAILED	package_install_failed	kai-download-acceleration	bad address|name or service not known|temporary failure in name resolution|could not resolve host
+DOWNLOAD_TLS_FAILED	package_install_failed	kai-download-acceleration	certificate verify failed|ssl certificate problem|tls handshake
+HASH_MISMATCH	package_install_failed	kai-software	checksum mismatch|hash mismatch
+POSTINST_FAILED	package_install_failed	kai-software	postinst script returned status|post-installation script.*failed
+AUTOCONF_FAILED	autoconf_failed	istoreos-source-introspect	auto ?configure.*failed|autoconf failed|/usr/libexec/istorea/.*(failed|error)|permission denied.*(/mnt|config)
+DOCKER_PULL_FAILED	runtime_failed	kai-download-acceleration	docker pull.*failed|error response from daemon.*(pull|manifest)|pull access denied
+VOLUME_PERMISSION	runtime_failed	istoreos-docker-basics	permission denied.*(volume|bind|mount)|mount.*permission denied
+PORT_CONFLICT	runtime_failed	istoreos-docker-basics	address already in use|port is already allocated
+CONTAINER_OOM	runtime_failed	istoreos-docker-basics	oomkilled|out of memory|killed process .*docker

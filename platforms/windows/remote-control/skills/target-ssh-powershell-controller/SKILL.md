@@ -1,11 +1,12 @@
 ---
 name: target-ssh-powershell-controller
 description: Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.
-owner: transport/ssh
-systems: any
-requires: ssh-client
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # SSH PowerShell target controller
 
 Use this only for a target that exposes PowerShell through OpenSSH. System-specific diagnosis and changes remain in the selected System Pack.

@@ -44,13 +44,15 @@ root_count="$(find "$tmp/root" -mindepth 2 -maxdepth 2 -name SKILL.md -type f | 
 for installed in "$tmp/direct"/istoreos-*; do
   [ -f "$installed/SKILL.md" ] || continue
   name="$(basename "$installed")"
-  cmp "$root/istoreos/skills/$name/SKILL.md" "$installed/SKILL.md" >/dev/null ||
-    fail "installed skill is not canonical: $name"
+  diff -ru "$root/skills/$name" "$installed" >/dev/null ||
+    fail "installed skill differs from its independent public package: $name"
+  jq -e --arg name "$name" 'any(.sources[];.id==$name and (.canonicalPath|startswith("components/system-packs/istoreos/")))' \
+    "$installed/resources/source-metadata.json" >/dev/null || fail "canonical provenance lost: $name"
 done
 
 for installed in "$tmp/direct"/kai-*; do
   name="$(basename "$installed")"
-  cmp "$root/components/system-packs/common/skills/$name/SKILL.md" "$installed/SKILL.md"
+  diff -ru "$root/skills/$name" "$installed" >/dev/null || fail "public common skill content differs: $name"
 done
 
 sh "$root/istoreos/drills/profile-smoke.sh"

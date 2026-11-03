@@ -22,15 +22,16 @@ def stage_tree(lab,instance,source,destination):
 
 
 class Journey:
-    def __init__(self,lab,instance,mode,preset,folder):
+    def __init__(self,lab,instance,mode,preset,folder,environment=None):
         self.lab,self.instance,self.mode,self.folder=lab,instance,mode,folder
         self.env=['env','PATH=/root/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin',
             'KAI_PLATFORM='+instance['target'],'KAI_TOOL_WORK_DIR=/workspace/bootstrap-work',
             'ZSETUP_ROOT=/workspace/zsetup','ZSETUP_CACHE_DIR=/workspace/zsetup-cache']
+        if environment is not None:self.env=list(environment)
         self.captures={};self.transport=None
         if mode=='on-device':
             stage_tree(lab,instance,preset,'/workspace/preset')
-            lab.exec(instance,'sh','/workspace/preset/install.sh','--target','/workspace/skills')
+            lab.exec(instance,*self.env,'sh','/workspace/preset/install.sh','--target','/workspace/skills')
         else:
             controller=folder/'controller-skills'
             subprocess.run(['sh',str(preset/'install.sh'),'--target',str(controller)],check=True,capture_output=True)

@@ -1,0 +1,27 @@
+{
+  "id": "macos-launchd-logs",
+  "version": "1.1.0",
+  "path": "skills/macos-launchd-logs",
+  "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+  "description": "Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.",
+  "platforms": [
+    "macos"
+  ],
+  "kind": "business",
+  "component": "macos",
+  "architectures": {
+    "macos": [
+      "arm64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "macos-launchd-logs",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "sourceDigest": "sha256:08141512c1bf95c35c70a810e61404241c41f87eb34efbedb0b8e86bc38dbb0a"
+    }
+  ]
+}

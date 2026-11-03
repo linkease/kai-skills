@@ -1,16 +1,12 @@
 ---
 name: istoreos-systools
 description: 诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。
-owner: system-pack/istoreos
-systems: istoreos
-triggers: IPv6 模式, IPv6 PD, IPv6 relay, IPv6 NAT, 硬盘不休眠, 硬盘唤醒, 应用商店损坏, iStore 修复, 升级后异常, 内核模块不兼容
-negative-triggers: 网络测速, 网速慢, NAT 类型, 局域网测速, 普通软件安装, Docker 镜像下载, overlay 空间不足
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: low
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # iStoreOS System Tools
 
 Use this skill for the supported system-maintenance cases above. Do not invoke arbitrary files under `/usr/share/systools`; the official `/usr/libexec/systools.sh` dispatcher accepts more actions than KaiPlus has reviewed.

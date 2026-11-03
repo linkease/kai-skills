@@ -1,14 +1,23 @@
 ---
 name: istoreos-kspeeder-domainfold-fetch
 description: 通过设备内 iStoreEnhance/KSpeeder 加速受支持的外部文件和公开 HTTPS Git 仓库；仅作为下载加速主 skill 按证据调用的内部执行 helper。
-owner: system-pack/istoreos
-systems: istoreos
-invocation: manual
-auto-use: off
-needs-fresh-data: true
-cost: medium
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-download-acceleration`: [local instructions](resources/runtime/istoreos-download-acceleration/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-kspeeder-domainfold-fetch`: [local instructions](resources/runtime/istoreos-kspeeder-domainfold-fetch/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-mise-runtime`: [local instructions](resources/runtime/istoreos-mise-runtime/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # KSpeeder / DomainFold Fetch
 
 只在 `kai-download-acceleration` 已判断目标属于外部文件、公开 Git 仓库或受支持运行时源时使用。它不是网络测速、Docker registry 或通用代理能力。
@@ -22,7 +31,7 @@ cost: medium
 
 ## 最小闭环
 
-1. 定位 skills：`SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"`。
+1. 定位 skills：`SKILLS_DIR="<absolute-parent-of-this-skill-directory>"`。
 2. 只读检查：`sh "$SKILLS_DIR/istoreos-kspeeder-domainfold-fetch/scripts/check_installed.sh"`。
 3. 若服务未运行，说明启用和启动影响并等待确认；确认后：
    `KAIPLUS_CONFIRMED=1 sh "$SKILLS_DIR/istoreos-kspeeder-domainfold-fetch/scripts/ensure_running.sh"`。

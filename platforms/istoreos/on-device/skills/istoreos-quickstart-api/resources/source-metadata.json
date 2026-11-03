@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-quickstart-api\ndescription: Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.\nowner: system-pack/istoreos\nsystems: istoreos\nrequires: target.http\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: medium\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+      "sourceDigest": "sha256:74a72527cd6444110b3dcf8cb53883df6a3849db4657c6dca43422205eecfae9"
+    },
+    {
+      "id": "luci-http-controller",
+      "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+      "sourceDigest": "sha256:137e44f05b71982fbe5020fa9460f072dcf7666ec8c5c1757198ea71ad756365"
+    }
+  ]
+}

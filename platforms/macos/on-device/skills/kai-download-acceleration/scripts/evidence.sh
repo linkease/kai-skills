@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-. "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+. "$here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
 fail() { jq -cn --arg reason "$1" '{schemaVersion:1,status:"failed",operation:"verify-evidence",category:"evidence-format",reason:$reason,accelerationValidation:"insufficient-evidence",exitCode:4}'; exit 4; }
 [ "$#" = 3 ] || fail 'evidence.sh MANIFEST CLIENT_LOG GATEWAY_LOG'

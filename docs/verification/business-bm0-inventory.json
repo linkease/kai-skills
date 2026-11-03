@@ -1,0 +1,2358 @@
+{
+  "schemaVersion": 1,
+  "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "platformScope": {
+    "linux": "existing environment-lock.json architecture/digests",
+    "macos": "arm64-native",
+    "windows": "amd64-native"
+  },
+  "skills": [
+    {
+      "id": "kai-dev-environment",
+      "component": "common",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/dev-cli.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/dev-cli.sh",
+          "line": 11,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/runtime.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/runtime.sh",
+          "line": 6,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "bash",
+        "go",
+        "jq",
+        "ks-cli",
+        "mise",
+        "node",
+        "opkg",
+        "python3"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "34c3ab4588f48e39a6724e225fae436112eac4748214dcaadca6be71ca7c0891"
+        },
+        {
+          "path": "data/python-openssl.md",
+          "sha256": "6f08fc575889f8ea73eab810c682bf24ef71e86bd8aa7d4fe0e9df10d180eccf"
+        },
+        {
+          "path": "references/python-openssl.lock.json",
+          "sha256": "e1f40bf12b0eea4ce2782ca3de9c3e5e1f3573c933aa404aaf84c3bac13c7cb8"
+        },
+        {
+          "path": "resources/istore-runtime/environment.sh",
+          "sha256": "66d69ef5f73a847eaae1262f32d8760fa71ba4a8e75802ea5cd8fb0c22141f2c"
+        },
+        {
+          "path": "resources/istore-runtime/exec.sh",
+          "sha256": "56dd7ccc0ff2568a3bda580295b301984e50e2c190839cdf267d0432f6801bc4"
+        },
+        {
+          "path": "resources/istore-runtime/source.lock.json",
+          "sha256": "f043c876517ff9d82bb2c5e2b985779c7f8416cf456ca285db75d43e0f236282"
+        },
+        {
+          "path": "scripts/check-node.cjs",
+          "sha256": "54a7b731d890f6a1f359ae01a2f8fa3581fe374dbdeea34cb27c7e50d671be63"
+        },
+        {
+          "path": "scripts/check-python.py",
+          "sha256": "56366a9c5a921bf5ada857c2b0aa84535d3185e875cb2bffda7c6ea1ea0b5135"
+        },
+        {
+          "path": "scripts/check-tls.py",
+          "sha256": "1af706b4528769598e2978a2b94ebd5c0c4f40e49b8abda2901a6c5e40100801"
+        },
+        {
+          "path": "scripts/dev-cli.sh",
+          "sha256": "33506a290fb7c5dde046662631604f6a58b9a0c2c87b6c180600290c57de22b9"
+        },
+        {
+          "path": "scripts/diagnose.sh",
+          "sha256": "3f88dc4bc8bd68daefacea491528d2b4123d67b317d2ab3feb08078d1e7a567c"
+        },
+        {
+          "path": "scripts/enter.sh",
+          "sha256": "fd56b4f37c1bcd7a5b0fc2cdf45d469ad55fb101a5b6666794dc08c95ff3b0b6"
+        },
+        {
+          "path": "scripts/python-openssl.sh",
+          "sha256": "bfa487e0c888fa836afb95a079f51e7ebee6b8bbe120617b3a1d5adee379b4b5"
+        },
+        {
+          "path": "scripts/runtime-adapter.sh",
+          "sha256": "db823061d2a105fee0fc5bad0d1f277bf608904fc4f94f733094f8b3a9c91d3d"
+        },
+        {
+          "path": "scripts/runtime.sh",
+          "sha256": "ad61e8a4572a2357bbe60a7bfd6e098644f158b80b41ed54e3abfe66d38b0172"
+        }
+      ]
+    },
+    {
+      "id": "kai-download-acceleration",
+      "component": "common",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/accelerate.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/evidence.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "bash",
+        "brew",
+        "go",
+        "jq",
+        "ks-cli",
+        "mise"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "48deb37765b1cf3d2aa26615fa8746893355e9d85ff8f5f5d973bd7aabca4438"
+        },
+        {
+          "path": "data/evidence.md",
+          "sha256": "cb93d93ddbc6e33ebde27674ce69d4ef9a85f3655e0dd313b3aee168164bc1f5"
+        },
+        {
+          "path": "scripts/accelerate.sh",
+          "sha256": "4bd00f4ce4009c7d612e6986d3f4d9f278ad5976147ec2b0a77563d6c84f53fd"
+        },
+        {
+          "path": "scripts/evidence.jq",
+          "sha256": "dbc99917aa7f487023e52782b1853e764156992b5f08841cbaf3f5dd59b2868a"
+        },
+        {
+          "path": "scripts/evidence.sh",
+          "sha256": "320f962ebfaa267b68bd7b5d90a58ed787f14b33d609d4b426485da83e1f593e"
+        }
+      ]
+    },
+    {
+      "id": "kai-project-dependencies",
+      "component": "common",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/dependencies.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/dependencies.sh",
+          "line": 6,
+          "skill": "kai-dev-environment",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/dependencies.sh",
+          "line": 74,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "bash",
+        "go",
+        "jq",
+        "ks-cli",
+        "mise",
+        "node"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9520451459e997292543d463a84f78fa8306b25e898f1709c14ea5d1b4347e45"
+        },
+        {
+          "path": "scripts/dependencies.sh",
+          "sha256": "68b66c03d6827f5765669fd9d166d1da99394ebff3889817e3cd37bc6b250c8a"
+        }
+      ]
+    },
+    {
+      "id": "kai-software",
+      "component": "common",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/software.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/software.sh",
+          "line": 6,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "bash",
+        "brew",
+        "go",
+        "jq",
+        "ks-cli",
+        "linkspace",
+        "mise",
+        "opkg",
+        "winget",
+        "zsetup"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d8445f6f266468c880abe793efe098d51560b9f493012907bc67bd13182a83eb"
+        },
+        {
+          "path": "resources/owner.lock.json",
+          "sha256": "144ebe0f9e9d45cfb656ad430c692b313638bea444adeb9c2638a46b2e749535"
+        },
+        {
+          "path": "resources/remove-managed.sh",
+          "sha256": "4e56c73daf2d412f4e5f28a9581e1d58444fc78416cd8bc48f0689da1b5dcb44"
+        },
+        {
+          "path": "resources/winget-acceleration.md",
+          "sha256": "46647f1190b80576caf47886fc1cba701f9fccfaac9aef937e8db663a0712551"
+        },
+        {
+          "path": "scripts/software.sh",
+          "sha256": "348e698baf47461d15a7aa5136f5733c48837d7e7cc91087e3e3c5f53defafc9"
+        },
+        {
+          "path": "scripts/winget.ps1",
+          "sha256": "388bb0a20794d20ae9ea611ea49498700bdcd7ecd4aeae9a803514a437d79419"
+        }
+      ]
+    },
+    {
+      "id": "kai-storage-files",
+      "component": "common",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/usage.sh",
+          "line": 4,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/usage.sh",
+          "line": 7,
+          "skill": "kai-tool-bootstrap",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/usage.sh",
+          "line": 9,
+          "skill": "kai-dev-environment",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "bash",
+        "jq",
+        "ks-cli",
+        "linkspace",
+        "mise",
+        "zsetup"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3b549da3faf4584b0920ec16a111e6d878b1940df9c732ba4482d18fa9880bca"
+        },
+        {
+          "path": "scripts/native.py",
+          "sha256": "c45f5313bc395c9bd1cb0a4d2fafaf7efeaacf7e31087b570c789202f4af69eb"
+        },
+        {
+          "path": "scripts/usage.sh",
+          "sha256": "8ad8bb25b7c9abc97f30774e05eeae13bbe7d70de7fcb1e93f9e26512c612c72"
+        }
+      ]
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "component": "common",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "bash",
+        "brew",
+        "jq",
+        "ks-cli",
+        "mise",
+        "opkg",
+        "python3",
+        "winget",
+        "zsetup"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "098ee5af949efed4df3be1d00606ab59289b16d1c451a7b215067b9b75b49665"
+        },
+        {
+          "path": "data/platforms.md",
+          "sha256": "469a162ea4a67705510402bd65651e4f6d15c16caaf3caeda64732a1c54383a3"
+        },
+        {
+          "path": "references/tools.lock.json",
+          "sha256": "9e11c3d129e187ffe934f1b3659dd2a66d7fa705ef7ee6a5145c0e2851d85fb7"
+        },
+        {
+          "path": "resources/bootstrap-windows.ps1",
+          "sha256": "ca825d80f90066c23d00f6cc2002827ab574fe9dbc053233656ce2161c122ac8"
+        },
+        {
+          "path": "resources/jq-install.ps1",
+          "sha256": "d28ba1e980ac3b2ea0f4add6c14de29d2a270c6cab4a4bb9a0e17d863105b7e8"
+        },
+        {
+          "path": "resources/jq-install.sh",
+          "sha256": "1a00c7bd03c42a07bc73e992c3383c1a9919993980e9e1382589a292004dbe8f"
+        },
+        {
+          "path": "resources/jq-owner.lock.json",
+          "sha256": "ed3131669980fba615e38f119ae640c3345a6644d7fb21e1659a74ebfeb69cf7"
+        },
+        {
+          "path": "resources/jq-owner.sha256",
+          "sha256": "7b987e730d7595702d6b593b5026fac4f4f281d963e86219d9f9f0a8ffd99c81"
+        },
+        {
+          "path": "resources/windows-pki.cs",
+          "sha256": "1fdd0f85b12270931651648aadbf0911586752d7f921069438ae5fbf451debf0"
+        },
+        {
+          "path": "resources/windows-pki.md",
+          "sha256": "25dcde39c32e0ed9eda41a86f9e86880b8b10a3ddb8e8839356014ddc6c10b2b"
+        },
+        {
+          "path": "scripts/bootstrap-bash.ps1",
+          "sha256": "b256b573f31433a02d13a4c55994db80f51bff1a12cfbd08d60e1731432e5012"
+        },
+        {
+          "path": "scripts/bootstrap-core-windows.ps1",
+          "sha256": "de62d182ffdd3df4fe463bbbe7a6993858a9bb809d0a91793eaa782932e43606"
+        },
+        {
+          "path": "scripts/bootstrap-core.sh",
+          "sha256": "a59c2a800de0d034a75b6e75c7d571e99f038e4bd83c9ddb95126bef1a2cf936"
+        },
+        {
+          "path": "scripts/install-mise-windows.ps1",
+          "sha256": "4f6a455aeb0b8ea7973e19fc9cdb4be0d3006cd9629ca735d03896cb68a32b40"
+        },
+        {
+          "path": "scripts/install-mise.sh",
+          "sha256": "f06b3a07f6c641992029bb66ff0514866675330ec15f3b2d199af1a8ef389fe6"
+        },
+        {
+          "path": "scripts/jq-env.sh",
+          "sha256": "0861c456947d74dbb9440541b33849e0a38b817a74450959d9bb9354382237b3"
+        },
+        {
+          "path": "scripts/jq.sh",
+          "sha256": "486bd43df81dcae5011cb33630dbe8fd86421b81414610a0cc958aac66283442"
+        },
+        {
+          "path": "scripts/prepare-windows-pki.py",
+          "sha256": "300db15c288c177b8efee0621babb900f64d221f4205d962c2fad9de6a0a1c37"
+        },
+        {
+          "path": "scripts/tool.sh",
+          "sha256": "fa3794a5726a30c6457731bb820c1e1e9d069d807e41c50c18e1eb8bf01847eb"
+        },
+        {
+          "path": "scripts/windows-pki.ps1",
+          "sha256": "9429c4a7fdab0c980c5ab6b5305b2dc4edbee58541cd0837d571476d2eebd7f2"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-app-diagnostics",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/store-app.sh",
+          "line": 6,
+          "skill": "istoreos-app-search",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "jq",
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "f9f084a30f02fc9d9f33fa7d6c32a02912d076d7703e5a8002f8bd2b6d1eac41"
+        },
+        {
+          "path": "data/failure-rules.tsv",
+          "sha256": "1d7d1306851a7f5ba236822acf3789988e7bb5b3bad4f192b0e10218633be47d"
+        },
+        {
+          "path": "data/first-party-apps.jsonl",
+          "sha256": "de756dd3e2ca6ae73e08d55e99696dcf100ed83213001494a009a701a45e61e8"
+        },
+        {
+          "path": "data/report-schema.json",
+          "sha256": "d3f91989ffe0d4735131e949c1fa8669fb7c37283735387378ef2cbb634e59d2"
+        },
+        {
+          "path": "scripts/catalog.sh",
+          "sha256": "71787a851ac3ec1b505672cd0d7b27e6575b5b6eba38227e4c9fa647e4d4e3c7"
+        },
+        {
+          "path": "scripts/classify.sh",
+          "sha256": "e6c2c60ade14599e59a89f57558290ccb2a11fd04e650d6889e8f6118c8d69f2"
+        },
+        {
+          "path": "scripts/collect.sh",
+          "sha256": "20e16d1103e4ed0d66de36fd8b0a3d5a404fbf720bcd14f06547be156ae36e36"
+        },
+        {
+          "path": "scripts/detail-log.sh",
+          "sha256": "847f932a5cc31bbe6ae093350f003ae67a2de36fe7adfeb90d6ef18e284d966d"
+        },
+        {
+          "path": "scripts/inspect.sh",
+          "sha256": "b8a82acb08c5bbcd9563f795b6d2b1d362163714889133acfd780d65ca0b150e"
+        },
+        {
+          "path": "scripts/sanitize-log.sh",
+          "sha256": "ba502d6a46d3b841f5659fd480883c57e6e9de8109529f714595036d388ce98a"
+        },
+        {
+          "path": "scripts/state.sh",
+          "sha256": "18c7c4484d21fba4784eea5db9d4c7f07e56a949d899537778fb9c9c65012ea7"
+        },
+        {
+          "path": "scripts/store-app.sh",
+          "sha256": "45d38bb26bf7f44aa46fd969a69b86f873678009632ac443059d4501fc58cfac"
+        },
+        {
+          "path": "scripts/system-log.sh",
+          "sha256": "b5bfe287029d7f8ff0994240fc8d1d20ecea24d9577c38b8bef0ea9b5651ec2f"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-app-search",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "jq"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "49285d6f3b2228c34863a5253b8b4a69efa63aef36bebd02bfef2fc04d8a4cda"
+        },
+        {
+          "path": "data/intent-aliases.tsv",
+          "sha256": "ec3014865d7572085b28084b5f8a39139d9ca25f5e6c8584b301bbb67d1a4bf3"
+        },
+        {
+          "path": "scripts/fetch-store.sh",
+          "sha256": "b05e0558a65e13825c48980206d85dc6cc2278b91e5a0b7c654742a27d45cacb"
+        },
+        {
+          "path": "scripts/search.sh",
+          "sha256": "1e668efce64727fc0d731ab111d379da0b7abda6556285134ec0d76876d3b225"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-backup-restore",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6acc7dc2ab4d2b37f17d26e7f6b37533f5d0da5fc189b71e62e9bbd11a70b33b"
+        },
+        {
+          "path": "scripts/backup_system.sh",
+          "sha256": "727d7cdba57ff133dc4fdce4870629236755bc2d9024fea79f86892d4363b785"
+        },
+        {
+          "path": "scripts/check.sh",
+          "sha256": "ec262118a46fca51ae90dcaacd925ffe871a73443aa78cdddc7a6c6efe303322"
+        },
+        {
+          "path": "scripts/restore_system.sh",
+          "sha256": "180682e688e3ecb1c33ef87057f937b832330f4c633b3442d0d22f50c1feedc2"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-docker-acceleration-istoreenhance",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4e21e5d84fbbf8291dd10d200109fc5703ec7f517ceec966f1a01f84a9914640"
+        },
+        {
+          "path": "scripts/check.sh",
+          "sha256": "d6683347c8c2d815b6bb4145b48691ff6146a7d08037c3890ca127c0ea926e0c"
+        },
+        {
+          "path": "scripts/ensure_ready.sh",
+          "sha256": "8e1ec2beed8fda66174f85a995819ed25af97bb85a8af653e4f02020f57f444d"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-docker-basics",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "SKILL.md",
+          "line": 30,
+          "skill": "istoreos-docker-acceleration-istoreenhance",
+          "kind": "documented-invocation"
+        }
+      ],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7b6cae1f9bb9816cb4239637020955fdaadff41dcb91172ad8351ca713482ec3"
+        },
+        {
+          "path": "scripts/check.sh",
+          "sha256": "71694a47b04702f29a5ec52a6c98c4b65efa4281c14d439b42f7e8d02b7943bb"
+        },
+        {
+          "path": "scripts/check_space.sh",
+          "sha256": "ae13de9414abc1cf2813705e8acf46ec2abd6feb6e952f5a4685c39a4aabf365"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-docker-data-root-migrate",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "042a7150459fbe2026cc11152e8811bdc243d8d36fb23623e93f1ca402d4ecf7"
+        },
+        {
+          "path": "scripts/apply.sh",
+          "sha256": "de8a50cd2a396afaf72708778a678928489bc54dd9b0bd7abdef96583e200b73"
+        },
+        {
+          "path": "scripts/plan.sh",
+          "sha256": "1a32dbbeb05084d60b49bc498b0232a89161548f6d0d37d09b72d41c556af1cc"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-download-acceleration",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "compatibility-resource",
+      "aliasTarget": "kai-download-acceleration",
+      "siblingCalls": [
+        {
+          "file": "scripts/dependency.sh",
+          "line": 13,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/evidence.sh",
+          "line": 15,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/smoke.sh",
+          "line": 20,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/smoke.sh",
+          "line": 22,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/smoke.sh",
+          "line": 24,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/smoke.sh",
+          "line": 46,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/smoke.sh",
+          "line": 111,
+          "skill": "istoreos-mise-runtime",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "go",
+        "ks-cli",
+        "mise",
+        "node",
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b58cf94751cb138d383cdf6eb69335a58ba5ad17741b0eb28098498e963e4e06"
+        },
+        {
+          "path": "data/dependencies.md",
+          "sha256": "eb941f892737a35a14f810482e6701d9643a8454c8dec30268b4921efb49c083"
+        },
+        {
+          "path": "data/gateway-evidence.awk",
+          "sha256": "a68b06ec212b819db702a93b96a27ecab99bf16295ac0b7e67d88ccfe2caf358"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "4d0412a2035a650530f25f847fecdd9041c1273a06eb92d94fd622b77a665aba"
+        },
+        {
+          "path": "scripts/dependency.sh",
+          "sha256": "1f9514ad89d4b530da007538abc8910b15b5adc748458a9a792c4bf65bdba490"
+        },
+        {
+          "path": "scripts/dispatch.sh",
+          "sha256": "83138e60a79761e89b250f7234b563f89c07c337c61133b6b0023af8f863e4fe"
+        },
+        {
+          "path": "scripts/evidence.sh",
+          "sha256": "615e298ead43482d2a558df868a2b9cfedec0f95b22fa0d294e5d0a472d49fa9"
+        },
+        {
+          "path": "scripts/smoke.sh",
+          "sha256": "0a99485533fd17a83d56ba363b519a227ec3e2d18ec45220453b2070814507c6"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-kspeeder-domainfold-fetch",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "SKILL.md",
+          "line": 47,
+          "skill": "istoreos-download-acceleration",
+          "kind": "documented-invocation"
+        }
+      ],
+      "programMentionsToReview": [
+        "brew",
+        "go",
+        "ks-cli"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4f7ef0c25b412540be1b131c8402869f7482675f26ce8722573098cdc9210e25"
+        },
+        {
+          "path": "data/advanced-routes.md",
+          "sha256": "ef2fc0c7af176d0d38d64af2270ecdc8956742e2549f755e2d62066ddbf0a620"
+        },
+        {
+          "path": "data/implementation-evidence.md",
+          "sha256": "400d502a60a943becb96687e1f6bc39a8abfde7aab8ca2204d73e5f0337d486b"
+        },
+        {
+          "path": "scripts/check_installed.sh",
+          "sha256": "927c28f94fb050421198a2914ebe7cd54f969dc22633baa3565886940972ab05"
+        },
+        {
+          "path": "scripts/ensure_running.sh",
+          "sha256": "983598f48cc27a91ce3b1ae810f6b7ce86cf74a1eaa0b449883a131dd18f71fd"
+        },
+        {
+          "path": "scripts/fetch_via_domainfold.sh",
+          "sha256": "b8375c8285bb3958944410535dd1218a39d7aade52aa8956e5dad138a17782eb"
+        },
+        {
+          "path": "scripts/ksget.sh",
+          "sha256": "4f4c9f1d7600d0334432213b4f387668d5b7d77a60b42cb92843fcb5a154c953"
+        },
+        {
+          "path": "scripts/remap_url.sh",
+          "sha256": "e3d7119909dae73c87fbd0befd1a5f869ee8586e39cddd9d788679a2097f964c"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-logs-and-diagnostics",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "cd5870c61288ed9f0f35a337b7bc10d37509f926d90273ca3828e38fdb815d27"
+        },
+        {
+          "path": "scripts/min-diag.sh",
+          "sha256": "ceb662ad3827d0026c0ec19c45e4c3ecca6ea5ab3a0dd9db278c3f823881614c"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-luci-recovery",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c99a77cbb47142b1c27ea33ce274228db6ca2981bae279881aadae1ea670b5de"
+        },
+        {
+          "path": "scripts/diag.sh",
+          "sha256": "ae78110617f1ba41f99336433a8180fe5c837ede63c78aee2d6234a0fe39c826"
+        },
+        {
+          "path": "scripts/reinstall_core.sh",
+          "sha256": "89a340b777c3e680b3eebdae7a1e43693d66bf7e7d662a918f25ababd3b6f5d7"
+        },
+        {
+          "path": "scripts/soft_recover.sh",
+          "sha256": "8ddd3482a0d3428c23d657a82d4ff23a736268a21de89370c58025ee4db414b2"
+        },
+        {
+          "path": "scripts/suggest_fix.sh",
+          "sha256": "28541f8d5ad5a164262c9aed12007146a90816cdc6b440d1e3f2a9a973eb29ad"
+        },
+        {
+          "path": "scripts/trace_owner.sh",
+          "sha256": "f07e3c1edbb6a8dc491a01ad010b810389aa3f3c1534953a5a638d887a43297a"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-mise-runtime",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "compatibility-resource",
+      "aliasTarget": "kai-dev-environment",
+      "siblingCalls": [
+        {
+          "file": "scripts/check.sh",
+          "line": 22,
+          "skill": "istoreos-package-manager",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "go",
+        "jq",
+        "ks-cli",
+        "mise",
+        "node"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a4f2938c93aaae8078af53fb4d4cd50d8161e8287752ca64a4e335c0ce7cb34b"
+        },
+        {
+          "path": "data/execution.md",
+          "sha256": "190429dcc4f09adab8eb1343caed54678f07ba598804269be316978bb804688a"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "661c0d00d4f296a71477282885ed1ae8a3c6205fbaa04ec10a6e93b16d14ad01"
+        },
+        {
+          "path": "data/runtimes.md",
+          "sha256": "5c91c530168234cc2fe52e70b106fc0c1dae6b3d2240835664c42f0de326730f"
+        },
+        {
+          "path": "scripts/check.sh",
+          "sha256": "d0de7844762266ad6c890bf240b39b5c18682ad3d028cbcc80c58b3d079bbab9"
+        },
+        {
+          "path": "scripts/diagnose.sh",
+          "sha256": "fee17e7ed7f31abf2d44a323c0276babd07e8f64fc9c721f0d87337466cc6809"
+        },
+        {
+          "path": "scripts/environment.sh",
+          "sha256": "66d69ef5f73a847eaae1262f32d8760fa71ba4a8e75802ea5cd8fb0c22141f2c"
+        },
+        {
+          "path": "scripts/exec.sh",
+          "sha256": "56dd7ccc0ff2568a3bda580295b301984e50e2c190839cdf267d0432f6801bc4"
+        },
+        {
+          "path": "scripts/install.sh",
+          "sha256": "6a3134c4f4f4cdb0ca861eb39201995391e990b6829eab0bfa9260df2658dc63"
+        },
+        {
+          "path": "scripts/probe.sh",
+          "sha256": "89a0ec1755f951c0661307d86b10fe45ab9b68dab98557e5bf1c8ff2b6b1fa1a"
+        },
+        {
+          "path": "scripts/result.sh",
+          "sha256": "3a6365941c7c426ddb3d776bf315e350615041d15db8ac9a705f08a385a20ca3"
+        },
+        {
+          "path": "scripts/verify.sh",
+          "sha256": "05a23dbeca0b9222a0484e9671438ad2813336f00f6028828839a6ae98f32ab3"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-network-quality",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "822f980cb979baa6f8e861f1ec43b72ac1a18652c9b3511d8ebc19121ecb2583"
+        },
+        {
+          "path": "scripts/inspect.sh",
+          "sha256": "91b78e2af6ac561a41e5f3279670aeb54dbfef30858f08c3e83886370cb44ab8"
+        },
+        {
+          "path": "scripts/run.sh",
+          "sha256": "fd013fa02f632fe0f96bfc26a1c9ec1470816a0d8fd16cef6ee6ac74a6ba6b18"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-package-manager",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "compatibility-resource",
+      "aliasTarget": "kai-software",
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "go",
+        "ks-cli",
+        "mise",
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "114fbd7250c7722b0018a8e1919b33fd06dec2a18f9934fe83ca73ccc7eee712"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "56afcbbbd6173dbe7a97815ad032d6e4eaa3c50ac61169dde98503b9dfa1b029"
+        },
+        {
+          "path": "scripts/ensure_services_from_pkg.sh",
+          "sha256": "62e5c86b383a5fe849790a1087c8dbaf653b8bf4f2ebd474cf444e5d8c2ec308"
+        },
+        {
+          "path": "scripts/legacy-query.sh",
+          "sha256": "b6d1737eb8ffc76b0b61fa366ab2ddbe7617cedf01f9585240fdb7431bc57d14"
+        },
+        {
+          "path": "scripts/meta-query.sh",
+          "sha256": "25424faf0825239ecdfb8181724517df58f34ecc01e1aeca1205e7bea67730f0"
+        },
+        {
+          "path": "scripts/opkg-find.sh",
+          "sha256": "d8cca8613f54aaa309b04ce0465060803413bc1b09764ff0a1117a0a92bdf1e9"
+        },
+        {
+          "path": "scripts/opkg-info.sh",
+          "sha256": "14ddbb96e219c564e75b96d18b9180a0ef1bb1542eab7cd01fd4c0a8635eff50"
+        },
+        {
+          "path": "scripts/opkg-search-file.sh",
+          "sha256": "57907cfda8fe99367fadd64a8575db79a258c3ffe7e9a495c3c16e1c29da34ae"
+        },
+        {
+          "path": "scripts/package.sh",
+          "sha256": "abf3d35a866d195338036ceb137afef9f61f0a4351ba94b5f3d42a3b74ec0955"
+        },
+        {
+          "path": "scripts/registry-search.sh",
+          "sha256": "57205f31f8228101c10a280afcb3d85bb6322e1b0573ee9d1790833d27169692"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-quickstart-api",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "go",
+        "jq"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "58604f4aee6a7a349d9b2ab9ceb2225c40cbfb02710d6ae048c231cf5fe0426b"
+        },
+        {
+          "path": "data/api-summary.md",
+          "sha256": "8d66fb054942660c4dd4873af21c3e080a4a19afb090ecbfe84e5fb185896cdf"
+        },
+        {
+          "path": "scripts/request.sh",
+          "sha256": "363ee3e923eeb5bd29dba2789a6082cea0acf51cfb10d3974f41ea8dee825cd8"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-run-executable",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/fetch.sh",
+          "line": 91,
+          "skill": "istoreos-kspeeder-domainfold-fetch",
+          "kind": "executable-sibling-path"
+        },
+        {
+          "file": "scripts/fetch.sh",
+          "line": 92,
+          "skill": "istoreos-kspeeder-domainfold-fetch",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "a28546f1c9eaf55a6aafd0a667b653e893e8dbdd513ad0d28df13811986d9a63"
+        },
+        {
+          "path": "scripts/fetch.sh",
+          "sha256": "4e0b955aca54ba6b9adaf467658006777e11e4689e802664dc48f2de2669fd7a"
+        },
+        {
+          "path": "scripts/inspect.sh",
+          "sha256": "258c38e5e7ba04f53b776fd5518b364c1e4b73dbe53a12d60fa909969ae6a653"
+        },
+        {
+          "path": "scripts/run.sh",
+          "sha256": "d674f7c34359272083fb68586a1be790aaa8592120fa808b89d9d4fb933ce276"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-service-manager",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2f5c7ea44a4f55a30e99511d15e263976e7de3d906d8deb146ffd12235bc65c9"
+        },
+        {
+          "path": "scripts/ensure.sh",
+          "sha256": "223b2b08c7f3c0daf4d51e0d1e922aad87e7895729fc32987d3874d8f168bc45"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-source-introspect",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "f6bc3f830f6da5e84d8d83ea997957bfec3763467d701a3ef12fd8233ab5e415"
+        },
+        {
+          "path": "scripts/collect.sh",
+          "sha256": "d92e041f685f6aae3a0993db092fbe917bf62d4f03861d2d7c2aa8e895181381"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-storage-path",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "compatibility-resource",
+      "aliasTarget": "kai-storage-files",
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5d0c3d66ded4647f504f8bab1da857c239ed9349bf7bdaa09500eae1864ba0ba"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "df4fa7257eec7a8f4fe2c5bd980d1431af2992f850cbb72bb7ff58f95228aa35"
+        },
+        {
+          "path": "scripts/detect.sh",
+          "sha256": "5e008e398b512aa2f9e1f835935d9389db2288bf59fc0901de90148e17ee9645"
+        },
+        {
+          "path": "scripts/probe.sh",
+          "sha256": "0a2bf5bf8a5d0780e27b105b9e3536c43fa6bd1bc1e373e459fd1374fd98c975"
+        },
+        {
+          "path": "scripts/quick-view.sh",
+          "sha256": "7c839aa6bcf854fa749df255015a1ee4947d668cee3b191c549c0101394cbb7f"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-system-task-router",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [
+        {
+          "file": "scripts/observe.sh",
+          "line": 108,
+          "skill": "istoreos-package-manager",
+          "kind": "executable-sibling-path"
+        }
+      ],
+      "programMentionsToReview": [
+        "go",
+        "ks-cli",
+        "mise",
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b17f6726e1a8604c879fc1fdbce4e2401b765ca096d31cb9c0c8c55cfcff833b"
+        },
+        {
+          "path": "data/code-ownership.tsv",
+          "sha256": "784c6f951ff207442a30cea1bc600801bbffc1c451922fb35c6cdc994141ea05"
+        },
+        {
+          "path": "scripts/observe.sh",
+          "sha256": "243e24780d271b7e764d080dddad1efcbf5d183e274241bc437864f35e0fa612"
+        }
+      ]
+    },
+    {
+      "id": "istoreos-systools",
+      "component": "istoreos",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "0ad37151f7e945f7af01d1810c26a56b9525e7a134eecc9e337a3338acbffbfb"
+        },
+        {
+          "path": "scripts/apply.sh",
+          "sha256": "4753aa3e4e31b6c907fba3545f5a70d8b99e14c57309da8b131f49b9ee5f3218"
+        },
+        {
+          "path": "scripts/inspect.sh",
+          "sha256": "932a02bd4c281ac14394f39439074c9b284818f9c57acdf2f64a930b40d3912d"
+        }
+      ]
+    },
+    {
+      "id": "windows-service-eventlog",
+      "component": "windows",
+      "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+      "platforms": [
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b248b0c22d8f88b6401df67e7236867cea210f4255b23c57aac8ccd4757f21c7"
+        },
+        {
+          "path": "scripts/apply.ps1",
+          "sha256": "ed4912d43cff610df9e50d02e6291cfa8e52c7feac328775d75074645d3914a0"
+        },
+        {
+          "path": "scripts/inspect.ps1",
+          "sha256": "da82ae968dadc9c407012a8f6ec32a51a8c7253972c751e6f41e8ed869b4b3d5"
+        },
+        {
+          "path": "scripts/plan.ps1",
+          "sha256": "1d57f825b7d3398288ab04399784df7f27a56390566a1a47d060140c147d9a93"
+        },
+        {
+          "path": "scripts/verify.ps1",
+          "sha256": "e973cb6d23a7b07243c68e328f895828372f02401e7527267ee682c3ec2cb38d"
+        }
+      ]
+    },
+    {
+      "id": "windows-system-diagnostics",
+      "component": "windows",
+      "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+      "platforms": [
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "go"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "534a572530c0418e05e973e0f84ad608f83494cc253df1cdd613e74230289f4d"
+        },
+        {
+          "path": "scripts/inspect.ps1",
+          "sha256": "7a8ed41913252ad900afa1a37de5d2e4904b91969c7b7afee1b3e64a6120a3de"
+        }
+      ]
+    },
+    {
+      "id": "macos-launchd-logs",
+      "component": "macos",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "platforms": [
+        "macos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "f406637069bd94ecc16abaedc3c08d1bf27a13cc81c28d4c5765076cc6ce1028"
+        },
+        {
+          "path": "scripts/apply.sh",
+          "sha256": "ba7cba5374411b740c53f80bad4f7ab3ba5bfe7c2810737700b53d2767fd632c"
+        },
+        {
+          "path": "scripts/common.sh",
+          "sha256": "0d94b2dc4d34ac9ce13c0e6ee742c2889c168f1d244a197136e8ee9d7f528012"
+        },
+        {
+          "path": "scripts/inspect.sh",
+          "sha256": "e9838f2d894bfa5b36a37b032220071979326c8cdea5234286d4d9419a69bb20"
+        },
+        {
+          "path": "scripts/plan.sh",
+          "sha256": "fb3ce48f1f06158276d40d578b2b80ec9f4baea4bcf824e494a8cc339c573aa6"
+        },
+        {
+          "path": "scripts/verify.sh",
+          "sha256": "493ae11f27350142b72d022e226595d12c8db0d24a0c736cdd92a9c95eef4df3"
+        }
+      ]
+    },
+    {
+      "id": "macos-system-diagnostics",
+      "component": "macos",
+      "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+      "platforms": [
+        "macos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "fe4545e6d05dc6020ad64594d0146bfb5a9bb8daaf871831cdb351c336f707b3"
+        },
+        {
+          "path": "scripts/inspect.sh",
+          "sha256": "02da64cc6c12149b2e1e27cc19fdf8f3ef910d88e1fb76ded562b4f49b177745"
+        }
+      ]
+    },
+    {
+      "id": "ubuntu-release-diagnostics",
+      "component": "ubuntu",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "platforms": [
+        "ubuntu"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4ae58816e930e77a748d0e3781fd4ae50c89a862e7c67da3ea11c97ce4d8d59b"
+        }
+      ]
+    },
+    {
+      "id": "debian-system-diagnostics",
+      "component": "debian",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "platforms": [
+        "debian",
+        "ubuntu"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "opkg"
+      ],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b488b41690c61d1989dcff7807300855d8235c664e3be578c99cfe23dd41074d"
+        }
+      ]
+    },
+    {
+      "id": "target-ssh-controller",
+      "component": "transport.ssh",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "8b1651d5e9296b93f05b416f99167de80620cee1d12eb8053c8ebf918375d551"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "b2448c8ade2b5bc0954e8ec0a268c6c046371744eafff838e8d79e4ae9db55e7"
+        },
+        {
+          "path": "scripts/target-ssh.sh",
+          "sha256": "e34a2f94ca1011fd05851f3bbc343466d7af135785abe6f39ea711d200848b54"
+        }
+      ]
+    },
+    {
+      "id": "target-ssh-powershell-controller",
+      "component": "transport.ssh",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+      "platforms": [
+        "windows"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [],
+      "files": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2d83df50850e1f7e5492a0f988293d97d59c0be7229a9d5167c30846508a9714"
+        },
+        {
+          "path": "scripts/supervise.ps1",
+          "sha256": "e38bf3e66a0fa3dede040e67f6c8760d60339b352bafd71a7f25a372087cb717"
+        },
+        {
+          "path": "scripts/target-ssh-powershell.sh",
+          "sha256": "b2d9a8052616ae1f144bca21ac2a470d6e9656172116a2f430bdf0d5d7896c31"
+        }
+      ]
+    },
+    {
+      "id": "luci-http-controller",
+      "component": "transport.luci-http",
+      "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+      "platforms": [
+        "istoreos"
+      ],
+      "disposition": "independent-skill",
+      "aliasTarget": null,
+      "siblingCalls": [],
+      "programMentionsToReview": [
+        "go"
+      ],
+      "files": [
+        {
+          "path": ".gitignore",
+          "sha256": "b7b5a9a5bdb3a876455f7320f221592c77a378fac89c0283dc6ebe19b124bf43"
+        },
+        {
+          "path": "SKILL.md",
+          "sha256": "9ff26133060aaa8ecffca84ea61d83baaf44496c442866808478eb161642f9df"
+        },
+        {
+          "path": "agents/openai.yaml",
+          "sha256": "f017299a1b8c41c4b904c124b64216957d5f47aa05eeb68d21affaa66e8a3491"
+        },
+        {
+          "path": "scripts/build-lucihttp.sh",
+          "sha256": "20b17fca6af778434f2f98f891e45573c06203a098ccf93dcc4acc3bfbcac2c3"
+        },
+        {
+          "path": "scripts/lucihttp.go",
+          "sha256": "de49b8a147f8c740da6bc74564a5ac2fa368e783c2f79bd76a3fe9fc2a54560b"
+        },
+        {
+          "path": "scripts/lucihttp_test.go",
+          "sha256": "99d3e97038ec6e4ae0b6ead3428d01cb78b33da05c7771bc0a59741d506baf9b"
+        }
+      ]
+    }
+  ],
+  "nativeCases": [
+    {
+      "id": "BM7-ubuntu-kai-tool-bootstrap",
+      "milestone": "BM7",
+      "platform": "ubuntu",
+      "skill": "kai-tool-bootstrap",
+      "required": true,
+      "scenario": "probe-and-ensure-full-jq",
+      "expected": "jq Unicode and regex result; compatible install reused",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-ubuntu-kai-software",
+      "milestone": "BM7",
+      "platform": "ubuntu",
+      "skill": "kai-software",
+      "required": true,
+      "scenario": "exact-package-lifecycle",
+      "expected": "exact package query, install, actual command and owned removal",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-ubuntu-kai-dev-environment",
+      "milestone": "BM7",
+      "platform": "ubuntu",
+      "skill": "kai-dev-environment",
+      "required": true,
+      "scenario": "mise-sdk",
+      "expected": "fixed mise SDK provenance, version and actual program output",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-ubuntu-kai-project-dependencies",
+      "milestone": "BM7",
+      "platform": "ubuntu",
+      "skill": "kai-project-dependencies",
+      "required": true,
+      "scenario": "locked-project",
+      "expected": "native locked dependency install, unchanged lock and actual import/run",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-ubuntu-kai-download-acceleration",
+      "milestone": "BM7",
+      "platform": "ubuntu",
+      "skill": "kai-download-acceleration",
+      "required": true,
+      "scenario": "verified-file-and-git",
+      "expected": "download SHA256 and Git full commit; actual route separately proven",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-ubuntu-kai-storage-files",
+      "milestone": "BM7",
+      "platform": "ubuntu",
+      "skill": "kai-storage-files",
+      "required": true,
+      "scenario": "bounded-space-and-search",
+      "expected": "known large file and exact search result in an isolated fixture tree",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-debian-kai-tool-bootstrap",
+      "milestone": "BM7",
+      "platform": "debian",
+      "skill": "kai-tool-bootstrap",
+      "required": true,
+      "scenario": "probe-and-ensure-full-jq",
+      "expected": "jq Unicode and regex result; compatible install reused",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-debian-kai-software",
+      "milestone": "BM7",
+      "platform": "debian",
+      "skill": "kai-software",
+      "required": true,
+      "scenario": "exact-package-lifecycle",
+      "expected": "exact package query, install, actual command and owned removal",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-debian-kai-dev-environment",
+      "milestone": "BM7",
+      "platform": "debian",
+      "skill": "kai-dev-environment",
+      "required": true,
+      "scenario": "mise-sdk",
+      "expected": "fixed mise SDK provenance, version and actual program output",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-debian-kai-project-dependencies",
+      "milestone": "BM7",
+      "platform": "debian",
+      "skill": "kai-project-dependencies",
+      "required": true,
+      "scenario": "locked-project",
+      "expected": "native locked dependency install, unchanged lock and actual import/run",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-debian-kai-download-acceleration",
+      "milestone": "BM7",
+      "platform": "debian",
+      "skill": "kai-download-acceleration",
+      "required": true,
+      "scenario": "verified-file-and-git",
+      "expected": "download SHA256 and Git full commit; actual route separately proven",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-debian-kai-storage-files",
+      "milestone": "BM7",
+      "platform": "debian",
+      "skill": "kai-storage-files",
+      "required": true,
+      "scenario": "bounded-space-and-search",
+      "expected": "known large file and exact search result in an isolated fixture tree",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-istoreos-kai-tool-bootstrap",
+      "milestone": "BM7",
+      "platform": "istoreos",
+      "skill": "kai-tool-bootstrap",
+      "required": true,
+      "scenario": "probe-and-ensure-full-jq",
+      "expected": "jq Unicode and regex result; compatible install reused",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-istoreos-kai-software",
+      "milestone": "BM7",
+      "platform": "istoreos",
+      "skill": "kai-software",
+      "required": true,
+      "scenario": "exact-package-lifecycle",
+      "expected": "exact package query, install, actual command and owned removal",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-istoreos-kai-dev-environment",
+      "milestone": "BM7",
+      "platform": "istoreos",
+      "skill": "kai-dev-environment",
+      "required": true,
+      "scenario": "mise-sdk",
+      "expected": "fixed mise SDK provenance, version and actual program output",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-istoreos-kai-project-dependencies",
+      "milestone": "BM7",
+      "platform": "istoreos",
+      "skill": "kai-project-dependencies",
+      "required": true,
+      "scenario": "locked-project",
+      "expected": "native locked dependency install, unchanged lock and actual import/run",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-istoreos-kai-download-acceleration",
+      "milestone": "BM7",
+      "platform": "istoreos",
+      "skill": "kai-download-acceleration",
+      "required": true,
+      "scenario": "verified-file-and-git",
+      "expected": "download SHA256 and Git full commit; actual route separately proven",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM7-istoreos-kai-storage-files",
+      "milestone": "BM7",
+      "platform": "istoreos",
+      "skill": "kai-storage-files",
+      "required": true,
+      "scenario": "bounded-space-and-search",
+      "expected": "known large file and exact search result in an isolated fixture tree",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-macos-kai-tool-bootstrap",
+      "milestone": "BM8",
+      "platform": "macos",
+      "skill": "kai-tool-bootstrap",
+      "required": true,
+      "scenario": "probe-and-ensure-full-jq",
+      "expected": "jq Unicode and regex result; compatible install reused",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-macos-kai-software",
+      "milestone": "BM8",
+      "platform": "macos",
+      "skill": "kai-software",
+      "required": true,
+      "scenario": "exact-package-lifecycle",
+      "expected": "exact package query, install, actual command and owned removal",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-macos-kai-dev-environment",
+      "milestone": "BM8",
+      "platform": "macos",
+      "skill": "kai-dev-environment",
+      "required": true,
+      "scenario": "mise-sdk",
+      "expected": "fixed mise SDK provenance, version and actual program output",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-macos-kai-project-dependencies",
+      "milestone": "BM8",
+      "platform": "macos",
+      "skill": "kai-project-dependencies",
+      "required": true,
+      "scenario": "locked-project",
+      "expected": "native locked dependency install, unchanged lock and actual import/run",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-macos-kai-download-acceleration",
+      "milestone": "BM8",
+      "platform": "macos",
+      "skill": "kai-download-acceleration",
+      "required": true,
+      "scenario": "verified-file-and-git",
+      "expected": "download SHA256 and Git full commit; actual route separately proven",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-macos-kai-storage-files",
+      "milestone": "BM8",
+      "platform": "macos",
+      "skill": "kai-storage-files",
+      "required": true,
+      "scenario": "bounded-space-and-search",
+      "expected": "known large file and exact search result in an isolated fixture tree",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-windows-kai-tool-bootstrap",
+      "milestone": "BM8",
+      "platform": "windows",
+      "skill": "kai-tool-bootstrap",
+      "required": true,
+      "scenario": "probe-and-ensure-full-jq",
+      "expected": "jq Unicode and regex result; compatible install reused",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-windows-kai-software",
+      "milestone": "BM8",
+      "platform": "windows",
+      "skill": "kai-software",
+      "required": true,
+      "scenario": "exact-package-lifecycle",
+      "expected": "exact package query, install, actual command and owned removal",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-windows-kai-dev-environment",
+      "milestone": "BM8",
+      "platform": "windows",
+      "skill": "kai-dev-environment",
+      "required": true,
+      "scenario": "mise-sdk",
+      "expected": "fixed mise SDK provenance, version and actual program output",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-windows-kai-project-dependencies",
+      "milestone": "BM8",
+      "platform": "windows",
+      "skill": "kai-project-dependencies",
+      "required": true,
+      "scenario": "locked-project",
+      "expected": "native locked dependency install, unchanged lock and actual import/run",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-windows-kai-download-acceleration",
+      "milestone": "BM8",
+      "platform": "windows",
+      "skill": "kai-download-acceleration",
+      "required": true,
+      "scenario": "verified-file-and-git",
+      "expected": "download SHA256 and Git full commit; actual route separately proven",
+      "evidence": "native-target-execution"
+    },
+    {
+      "id": "BM8-windows-kai-storage-files",
+      "milestone": "BM8",
+      "platform": "windows",
+      "skill": "kai-storage-files",
+      "required": true,
+      "scenario": "bounded-space-and-search",
+      "expected": "known large file and exact search result in an isolated fixture tree",
+      "evidence": "native-target-execution"
+    }
+  ],
+  "acceptanceCriteria": [
+    {
+      "id": "BM0-01",
+      "milestone": "BM0",
+      "required": true,
+      "expected": "每个现有 skill/兼容资源都有 ID、源码路径、公开去向、支持系统、执行方式和负责人代码边界；清单数量与扫描结果一致，无未分类项。"
+    },
+    {
+      "id": "BM0-02",
+      "milestone": "BM0",
+      "required": true,
+      "expected": "六个通用 skill 的正常流程和失败流程分别列出必需脚本、文档、相邻 skill 引用、原生程序、服务及平台资源。可选诊断不能误列为所有任务的必需依赖。"
+    },
+    {
+      "id": "BM0-03",
+      "milestone": "BM0",
+      "required": true,
+      "expected": "冻结平台/架构范围：Ubuntu、Debian、iStoreOS 使用现有可重建实验室锁定架构；macOS arm64、Windows AMD64 使用原生目标。额外架构只按已获得的证据声明，不泛称全部架构通过。"
+    },
+    {
+      "id": "BM0-04",
+      "milestone": "BM0",
+      "required": true,
+      "expected": "对每个通用 skill 定义一个有实际输出断言的最小独立任务；六个 skill × 五系统共 30 个 required 功能用例。平台专属 skill 按实际支持系统补充用例。"
+    },
+    {
+      "id": "BM0-05",
+      "milestone": "BM0",
+      "required": true,
+      "expected": "保留现有生成、安装生命周期、架构、Transport、runtime 和消费者测试的基线。既有失败单列复现命令和影响；受影响的新发布门禁修好前不能通过。"
+    },
+    {
+      "id": "BM0-06",
+      "milestone": "BM0",
+      "required": true,
+      "expected": "为每个验收点指定唯一 case ID、预期、证据等级和归属里程碑。真实测试设备、凭证、指纹与私有日志位置通过仓库外配置传入。"
+    },
+    {
+      "id": "BM1-01",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "skill 元数据具有 ID、版本、目录、描述、系统/架构范围、资源来源、外部程序要求和内容摘要；集合元数据具有 ID、版本、明确成员锁及适用条件。统一发布节奏下仍保留每个 skill 的独立版本字段。"
+    },
+    {
+      "id": "BM1-02",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "标准 SKILL.md 的可发现性不依赖自定义字段。发布时如需将本仓库扩展字段移到旁置元数据，必须验证 Kai 所需信息完整保留且由消费层正确读取。"
+    },
+    {
+      "id": "BM1-03",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "所有公开索引和旧 catalog 兼容视图来自唯一声明；有 schema 版本和对应读取器测试。旧 catalog 消费者不可因增加新字段而未经验证地继续宣称兼容。"
+    },
+    {
+      "id": "BM1-04",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "固定清单输入，分别解析单 skill、development、software-management、五系统两模式，得到预期且去重的成员/Transport；Kai 使用自身 Transport 时不叠加第三方连接 skills。"
+    },
+    {
+      "id": "BM1-05",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "缺成员、重复 ID、循环集合引用、摘要冲突、目录越界、不支持的平台/模式组合均返回非零；无目标写入。"
+    },
+    {
+      "id": "BM1-06",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "同一业务 skill 可安装而目标设备尚未连接；执行前必须确定目标事实。系统全量选择必须显式给出系统和执行方式，控制端系统不能替代目标系统。"
+    },
+    {
+      "id": "BM1-07",
+      "milestone": "BM1",
+      "required": true,
+      "expected": "无目标网络或内部工具时，集合的“可安装”不等于业务的“可执行”。外部程序和服务条件在计划中明确，不由集合解析器偷偷安装。"
+    },
+    {
+      "id": "BM2-01",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "对六个通用 skill，分别只复制该 skill 目录到全新临时 skills 根目录；测试执行器看不到 canonical 仓库和相邻 skills，公开脚本的正常路径可运行。"
+    },
+    {
+      "id": "BM2-02",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "skill 文档能独立说明任务入口、目标识别、程序前置条件和失败下一步。不要求模型先读取未安装的另一个 Kai skill；可选业务关联清晰标注。"
+    },
+    {
+      "id": "BM2-03",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "必需资源位于本 skill 内，路径含空格和中文、移动目录、独立 shell 调用仍正确。公共资源可追溯到唯一源码；没有运行时访问构建机绝对路径、源码 symlink 或 sibling checkout。"
+    },
+    {
+      "id": "BM2-04",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "六个 skill 各覆盖一个有可观察结果的成功用例，以及缺工具、工具冲突、原生命令失败等适用负向用例。mock 只证明调用契约，不能替代后续真实软件任务。"
+    },
+    {
+      "id": "BM2-05",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "kai-project-dependencies 在没有 kai-dev-environment 目录时仍能检查 SDK 并完成已具备运行时的依赖任务；缺 SDK 时使用自身携带的引导能力或准确报告下一步。"
+    },
+    {
+      "id": "BM2-06",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "kai-storage-files 的空间/搜索正常路径不因未安装开发环境 skill 而失败；下载业务不因缺少可选 iStoreOS 诊断 skill 而无法执行。"
+    },
+    {
+      "id": "BM2-07",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "Windows 没有 Bash 时，可以从独立包内的原生说明及 PowerShell 引导入口开始；已有 Bash、jq、mise 的复用行为正确。计划/发现不隐式启动 KSpeeder 服务。"
+    },
+    {
+      "id": "BM2-08",
+      "milestone": "BM2",
+      "required": true,
+      "expected": "每个公开平台专属 skill 同样满足目录闭包；Transport skill 可以单独发布，但不带入无关系统维护策略。必需的嵌入脚本不会因带有 SKILL.md 而被二次发现。"
+    },
+    {
+      "id": "BM3-01",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "所有 BM0 标记为公开的业务/平台/Transport skills 均可生成独立目录；每个目录有根 SKILL.md、必要资源及来源清单。"
+    },
+    {
+      "id": "BM3-02",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "development 至少包含开发环境、项目依赖、下载加速；software-management 至少包含软件管理、下载加速。是否将 bootstrap 作为额外可发现成员由清单明确声明，不因代码依赖自动展开其他业务入口。"
+    },
+    {
+      "id": "BM3-03",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "系统全量生成结果等于“本发行版本兼容该系统的全部公开业务 skills + 该系统专属 skills + 本执行方式需要的连接 skills”；用集合相等断言验证，不能只检查若干名称存在。"
+    },
+    {
+      "id": "BM3-04",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "五系统各有两种模式，共十个预设。平台专属 skill 不进入不兼容系统；on-device 不附带远控入口；远控连接能力按目标系统选择。"
+    },
+    {
+      "id": "BM3-05",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "同一 ID/version 的 skill 在独立目录、业务集合、系统集合和旧 preset 内文件级摘要一致。集合包装层可以不同，skill 内容不随集合改变。"
+    },
+    {
+      "id": "BM3-06",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "生成器拒绝缺失资源、非法来源/输出路径、来源符号链接和重复活跃 ID；不覆盖非本工具生成的用户目录。"
+    },
+    {
+      "id": "BM3-07",
+      "milestone": "BM3",
+      "required": true,
+      "expected": "同一 checkout 生成两次，文件列表与摘要一致；生成校验能检测手改产物、漏生成和资源过期；删除源码 checkout 后生成产物仍可使用。"
+    },
+    {
+      "id": "BM4-01",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "三种选择均有可读和 JSON 的 list/describe/plan；未知 ID、互斥选项及不完整的系统全量选择明确失败，不扩大为安装所有系统。"
+    },
+    {
+      "id": "BM4-02",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "dry-run 给出选择、目标目录、锁定版本/摘要、实际新增/复用/冲突内容以及 Transport；前后目录/归属/配置摘要相同，目的目录原本不存在时仍不创建它。"
+    },
+    {
+      "id": "BM4-03",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "Codex、OpenCode、generic 的目的路径选择正确，显式目录优先；测试只写隔离目录。下载/安装 skill 与在目标设备安装程序的动作分别报告。"
+    },
+    {
+      "id": "BM4-04",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "单 skill 安装只激活一个所选业务入口；必要资源内嵌而不自动激活额外业务 skills。集合安装的实际活跃列表与计划精确相同。"
+    },
+    {
+      "id": "BM4-05",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "单 skill 直接复制无需本仓库安装器；受管归属/升级由安装器负责。手工复制目录与受管目录在状态输出中可区分。"
+    },
+    {
+      "id": "BM4-06",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "离线归档提供其选择所需的完整资源，不临时回源仓库拼依赖；离线安装不误报为在线下载通过。"
+    },
+    {
+      "id": "BM4-07",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "Windows 原生入口可先展示计划和定位 Bash，再进入安装；不选中 WSL bash，不要求先调用尚未存在的 Bash 脚本才能看到下一步。"
+    },
+    {
+      "id": "BM4-08",
+      "milestone": "BM4",
+      "required": true,
+      "expected": "旧 --platform/--mode、--profile 的既有有效调用继续选中明确兼容集合；提示准确，现有查询输出兼容性按 BM1 冻结的合约验证。"
+    },
+    {
+      "id": "BM5-01",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "“单装 A → 安装含 A 的集合 B → 卸载 B”保留 A；“安装 B → 单装 A → 卸载 B”同样保留 A。反向卸载顺序也正确。"
+    },
+    {
+      "id": "BM5-02",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "两个集合共享 A，卸载其中一个仍可执行 A；释放最后一个受管选择后才删除未修改的受管 A。重复安装/卸载幂等，不重复累加归属。"
+    },
+    {
+      "id": "BM5-03",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "同 ID 同版本同摘要复用；同 ID 同版本不同摘要拒绝；不同版本影响其他选择时，在写入前列出冲突。显式升级必须同步更新全部受影响的选择锁，否则停止并保留原状。"
+    },
+    {
+      "id": "BM5-04",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "集合升级增删成员后，只回收没有其他选择使用的旧成员。单装/另一个集合的成员版本和选择意图不丢失。"
+    },
+    {
+      "id": "BM5-05",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "用户修改的文件、外来同名目录、失效或改变目标的链接和不可信归属记录均保留并返回冲突；既有 --force 不能绕过其他选择锁或吞掉修改内容。"
+    },
+    {
+      "id": "BM5-06",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "注入解包失败、安装前失败、交换中失败和取消，均保持旧可用状态或可确定地恢复；状态记录与实际文件一致，无半安装集合。"
+    },
+    {
+      "id": "BM5-07",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "两个进程同时操作同一目的目录时串行化或有一个明确失败；不能丢失选择、把新内容删除或产生半写入清单。锁持有进程异常退出后的恢复可测试。"
+    },
+    {
+      "id": "BM5-08",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "验证 copy 与继续支持的 symlink 模式；源目录内容变化必须被检测，不能以“相同 ID”认定内容可信。若某组合不支持 symlink，写入前明确拒绝。"
+    },
+    {
+      "id": "BM5-09",
+      "milestone": "BM5",
+      "required": true,
+      "expected": "无关 skill、用户项目和软件运行数据保持；卸载 skills 不卸载 mise、ks-cli、KSpeeder 服务或业务软件。"
+    },
+    {
+      "id": "BM6-01",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "从固定历史提交生成安装样本，不用当前 HEAD 假装旧版本；分别迁移到单 skill、业务集合和系统集合。旧 preset 记录转成等价选择，成员不重复、不丢失。"
+    },
+    {
+      "id": "BM6-02",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "同时存在多个旧归属记录时正确合并共享内容；不一致摘要、旧用户修改或无法判定的所有权停止迁移，保持原文件及记录。"
+    },
+    {
+      "id": "BM6-03",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "迁移后可升级和卸载；注入迁移中断可恢复。旧 alias 仍只指向一个活跃新 ID，不重新激活四个已退役 iStoreOS 主入口。"
+    },
+    {
+      "id": "BM6-04",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "Codex、OpenCode、Reasonix 的实际发现/loader 测试分别覆盖独立目录和集合：名称、描述、脚本路径正确；不要求支持本项目扩展字段才能发现基本业务。"
+    },
+    {
+      "id": "BM6-05",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "“安装 Python”“npm ci”“下载文件”“查询空间”“修复 LuCI”等冻结输入选择正确入口；通用技能不因内嵌 bootstrap 文档被错误路由到工具安装。"
+    },
+    {
+      "id": "BM6-06",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "Kai 继续使用 canonical System Pack 和自身 Transport。公共代码重构后 vendor、source lock、资源路径及运行测试同步，不能只验证第三方目录。"
+    },
+    {
+      "id": "BM6-07",
+      "milestone": "BM6",
+      "required": true,
+      "expected": "更新仓库 AGENTS.md、README 和发布说明，使 AI 可以先按业务选择，系统全量成为显式选项；移除“任何需求都必须选一个完整 preset”的旧硬限制。"
+    },
+    {
+      "id": "BM7-01",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "Ubuntu、Debian、iStoreOS 各执行六个通用 skill 的独立任务，共 18 个 required 正向用例；目标端只获得本次单 skill 及声明的原生程序，没有其他 Kai skill 目录。"
+    },
+    {
+      "id": "BM7-02",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "每个系统的最小独立任务覆盖：引导并复用完整 jq；查询/安装/实际使用一个精确软件；mise 安装运行固定 SDK；项目依赖实际导入运行；文件摘要/Git commit 验证；已知文件树的空间和查找结果。"
+    },
+    {
+      "id": "BM7-03",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "每系统验证 development 从 SDK 到项目运行、software-management 从查询到实际使用；集合任务不依赖之前单 skill 留下的未声明状态。"
+    },
+    {
+      "id": "BM7-04",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "每系统 on-device 和 remote-control 均完成一次系统全量安装、业务执行、升级和卸载，共六组旅程。远控标记和软件安装只发生在目标容器。"
+    },
+    {
+      "id": "BM7-05",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "iStoreOS 专属公开 skills 按 BM0 适用任务逐项运行；涉及不可在容器证明的真实内核/生产服务能力单列 gate，不写成容器通过。"
+    },
+    {
+      "id": "BM7-06",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "新独立下载/开发路径保留 ks-cli auto 实际选路；至少每系统一条实际传输有同实例、同窗口的网关证据。origin 成功与加速确认分别记录，不强制网关制造“加速”。"
+    },
+    {
+      "id": "BM7-07",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "关键旅程在全新 HOME、目录和客户端缓存复跑一次；网关缓存范围单独记录。缺工具、网络失败、摘要错误及不支持平台返回真实失败且不损坏原安装。"
+    },
+    {
+      "id": "BM7-08",
+      "milestone": "BM7",
+      "required": true,
+      "expected": "使用仓库外配置连接已授权的 Docker 测试宿主。开始前检查实际 Docker data-root/剩余空间，取消后只清理本 run 资源；iStoreOS 宿主和容器受保护的 curl/库/opkg/TLS 摘要保持。"
+    },
+    {
+      "id": "BM8-01",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "macOS arm64、Windows AMD64 各执行六个通用 skill 的独立任务，共 12 个 required 正向用例；不以历史旧包测试、Linux mock 或交叉编译替代新产物运行。"
+    },
+    {
+      "id": "BM8-02",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "macOS 使用实际系统 Bash/Homebrew 及 APFS 路径，验证 SDK、依赖和空间任务。Windows 验证 PowerShell 5.1/7 中声明支持的入口、Git Bash、盘符、中文空格路径、原生 exe 和项目包管理命令。"
+    },
+    {
+      "id": "BM8-03",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "Windows 从缺 Bash 的受控测试状态或可恢复隔离入口验证首次引导；保留原有 Git 安装。新的独立 skill 携带所需原生入口，不借用完整系统包中的 bootstrap 目录。"
+    },
+    {
+      "id": "BM8-04",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "两平台均执行两个业务集合和 on-device/remote-control 系统全量旅程，包括单装/集合共存、升级、卸载；远控程序与项目在目标机执行。"
+    },
+    {
+      "id": "BM8-05",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "Windows 的公开 software 安装入口接入 ks-cli winget install/download；显式刷新使用 ks-cli winget source update。search/info/remove 保持声明的原生行为；精确 ID、版本、架构、源和安装后检查完整保留。"
+    },
+    {
+      "id": "BM8-06",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "冻结已开发的 KSpeeder Windows Service 和已部署 /winget 上游的来源，实际检查服务启动、停止、重启和端口健康。业务 skill 复用授权服务，普通查询不隐式安装/启动服务。"
+    },
+    {
+      "id": "BM8-07",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "通过新独立 skill 完成签名 MSI、签名 EXE 和至少一个带依赖软件的真实下载、安装、版本/功能验证及测试软件回收。共享运行库不为测试而擅自卸载；测试前后状态和保留原因明确。"
+    },
+    {
+      "id": "BM8-08",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "source2.msix、versionData、manifest 的适用实际请求有路由/服务证据；安装器按其独立 origin 选路。/winget 404、元数据缺失、哈希错误和依赖失败均不能报告成功。"
+    },
+    {
+      "id": "BM8-09",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "保留原包 SHA256、签名和原生 WinGet 验证；无 CONNECT、无默认代理/证书/吊销策略修改。CRL/OCSP 健康独立记录，不能用 payload 下载通过替代。"
+    },
+    {
+      "id": "BM8-10",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "npm 包安装/使用与 npm audit 分别验收；现存 HTTP 405 有真实修复与 POST 成功证据才能关闭。若尚未修复，该审计能力保持未通过，不阻止已明确划分的包安装能力发布，也不再宣称安全审计支持通过。"
+    },
+    {
+      "id": "BM8-11",
+      "milestone": "BM8",
+      "required": true,
+      "expected": "保持用户配置及既有软件；新 task 进程/测试服务/转发回收或恢复。原生地址和凭证来自仓库外，不写入发布物。"
+    },
+    {
+      "id": "BM9-01",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "所有公开 skill 都有可直接复制的目录、独立 ZIP/tar.gz、版本和摘要；归档有单一明确 skill 根目录。业务/系统集合提供完整离线归档和成员锁，可选择下载整个集合。"
+    },
+    {
+      "id": "BM9-02",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "来源清单记录实际源码提交、sourceState、资源来源、skill 内容摘要和每个归档 SHA256；集合成员与独立制品完全一致。正式候选来自干净且可识别的提交。"
+    },
+    {
+      "id": "BM9-03",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "相同源码与锁两次构建，归档字节摘要一致；修改一个 skill 的资源能使其摘要及相关集合锁变化，无关 skill 的版本/内容不被伪造为变化。"
+    },
+    {
+      "id": "BM9-04",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "解包到仓库外再次安装，断开源码访问后运行任务；重命名根目录、中文空格路径均有效。构建机路径、凭证、设备地址和测试配置不进入制品。"
+    },
+    {
+      "id": "BM9-05",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "required 门禁为全部绿色，无 failed/blocked/skipped；可选原生专属功能单列结果。BM0 冻结的 30 个独立功能正向用例全部关联到最终候选内容。"
+    },
+    {
+      "id": "BM9-06",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "最终候选变更的执行资源必须重新运行受影响原生用例；未变化部分可引用同内容摘要证据。不能把不同候选、不同依赖资源的测试拼成同一个版本全部通过。"
+    },
+    {
+      "id": "BM9-07",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "旧 preset 回归、生成校验、安装生命周期、消费者实际加载及 Kai 同步全部通过；已知历史限制在发布索引和报告中保持可见。"
+    },
+    {
+      "id": "BM9-08",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "文档提供“只装一个”“按业务安装”“下载指定系统全部”“远控使用”“升级卸载”五条可照做路径，并明确独立复制与受管安装的生命周期差异。"
+    },
+    {
+      "id": "BM9-09",
+      "milestone": "BM9",
+      "required": true,
+      "expected": "CI 支持独立 skill、集合解析、归属迁移和构建一致性门禁；缺失的 required 执行入口返回失败，不以跳过当成通过。"
+    },
+    {
+      "id": "BM10-01",
+      "milestone": "BM10",
+      "required": true,
+      "expected": "发布范围和目标渠道已有授权；上传内容与 BM9 冻结清单一致。没有发布授权时本阶段保持 awaiting-release，BM0–BM9 的完成状态不受影响，不把 BM10 写成通过。"
+    },
+    {
+      "id": "BM10-02",
+      "milestone": "BM10",
+      "required": true,
+      "expected": "发布页可按单 skill、业务集合、系统全量集合发现下载物，明确版本、平台/架构范围、模式及校验方式；目录中的每个公开条目都能获取对应产物。"
+    },
+    {
+      "id": "BM10-03",
+      "milestone": "BM10",
+      "required": true,
+      "expected": "从实际发布地址新下载而非复用本地构建文件，核对归档 SHA256、来源和成员摘要；抽检一个独立 skill、一个业务集合，以及五系统两模式全部系统归档的成员一致性。"
+    },
+    {
+      "id": "BM10-04",
+      "milestone": "BM10",
+      "required": true,
+      "expected": "在五系统各用一个重新下载的独立 skill 完成实际任务，并执行对应系统全量包的安装/升级/卸载烟测；使用范围及最终发布物来源可追踪。"
+    },
+    {
+      "id": "BM10-05",
+      "milestone": "BM10",
+      "required": true,
+      "expected": "发布索引只引用存在且摘要匹配的文件。任一复验失败，保留上一可用版本和失败证据，停止把新版本标为推荐；修复后重新冻结候选和执行受影响门禁。"
+    },
+    {
+      "id": "BM10-06",
+      "milestone": "BM10",
+      "required": true,
+      "expected": "最终报告分别列出已发布版本、支持范围、真实通过范围和仍未通过的可选能力；新用户无需取得维护者源码工作区即可完成三种安装方式。"
+    }
+  ]
+}

@@ -48,9 +48,9 @@ remote_count="$(find "$tmp/install-remote-control" -mindepth 2 -maxdepth 2 -name
 [ ! -e "$tmp/install-on-device/target-ssh-controller" ] || fail "on-device preset contains SSH transport"
 [ -e "$tmp/install-remote-control/target-ssh-controller" ] || fail "remote-control preset lacks SSH transport"
 
-cmp "$root/components/system-packs/common/skills/kai-software/SKILL.md" \
-  "$root/platforms/istoreos/on-device/skills/kai-software/SKILL.md" >/dev/null ||
-  fail "generated system skill differs from canonical source"
+diff -ru "$root/skills/kai-software" \
+  "$root/platforms/istoreos/on-device/skills/kai-software" >/dev/null ||
+  fail "generated system skill differs from independent package"
 
 mkdir -p "$tmp/stale-repo"
 cp -R "$root/components" "$root/tools" "$root/platforms" "$root/catalog.json" "$tmp/stale-repo/"

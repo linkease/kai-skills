@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: macos-launchd-logs\ndescription: Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.\nowner: system-pack/macos\nsystems: macos\nrequires: target-shell:posix\ntriggers: launchd 服务失败, LaunchAgent, LaunchDaemon, macOS 服务未运行, macOS 日志, 重启 Mac 服务\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "macos-launchd-logs",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "sourceDigest": "sha256:08141512c1bf95c35c70a810e61404241c41f87eb34efbedb0b8e86bc38dbb0a"
+    }
+  ]
+}

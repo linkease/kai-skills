@@ -34,4 +34,3 @@ if have uci; then
   echo "## istore config"
 uci -q show istore 2>/dev/null | head -n 80 || true
 fi
-

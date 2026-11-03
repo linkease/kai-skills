@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 1,
+  "id": "system:ubuntu:on-device",
+  "version": "1.1.0",
+  "platform": "ubuntu",
+  "mode": "on-device",
+  "members": [
+    {
+      "id": "debian-system-diagnostics",
+      "version": "1.1.0",
+      "treeDigest": "sha256:c5472348ea411dbf5ec56688007b4f9af7aef100c2d54feb43dbd905e9237ad9"
+    },
+    {
+      "id": "kai-dev-environment",
+      "version": "1.1.0",
+      "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483"
+    },
+    {
+      "id": "kai-download-acceleration",
+      "version": "1.1.0",
+      "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234"
+    },
+    {
+      "id": "kai-project-dependencies",
+      "version": "1.1.0",
+      "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d"
+    },
+    {
+      "id": "kai-software",
+      "version": "1.1.0",
+      "treeDigest": "sha256:4be070a2629926fe8d704a790d55be0d443d316113cd7fd20bec4d8b5a3c4ec1"
+    },
+    {
+      "id": "kai-storage-files",
+      "version": "1.1.0",
+      "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "version": "1.1.0",
+      "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca"
+    },
+    {
+      "id": "ubuntu-release-diagnostics",
+      "version": "1.1.0",
+      "treeDigest": "sha256:6533a03bad19a039df24548b3dab5e79ca6f2216023b1493102a292d02d4541c"
+    }
+  ]
+}

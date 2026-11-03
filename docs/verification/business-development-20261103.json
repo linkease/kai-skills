@@ -1,0 +1,66 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-03",
+  "scope": "kai-skills business distribution code completion, before further native testing",
+  "status": "development-complete",
+  "plan": "../architecture/business-development-completion.md",
+  "selfCheckRounds": 2,
+  "failedSelfCheckRounds": 0,
+  "implementation": {
+    "independentSkills": 31,
+    "businessCollections": 2,
+    "systemCollections": 10,
+    "archives": 86,
+    "formats": ["zip", "tar.gz"],
+    "nativeWindowsEntry": "selected member embedded bootstrap, distribution support fallback, explicit destination and copy mode",
+    "provenance": "actual Git commit/state, canonical resource hashes, full package digests, collection locks, installer input hashes, archive SHA256",
+    "releaseTool": "tools/release/business_release.py",
+    "ci": ".github/workflows/business-distribution.yml"
+  },
+  "checks": {
+    "businessSuite": {"status": "passed", "tests": 52, "failures": 0, "skipped": 0},
+    "finalReleaseSuite": {"status": "passed", "tests": 8, "failures": 0, "skipped": 0,
+      "note": "Rerun after archive path hardening; seven cases overlap the business suite, one new boundary case. Total unique current business tests: 53."},
+    "finalInstallationSuite": {"status": "passed", "tests": 9, "failures": 0, "skipped": 0},
+    "isolatedSkillBehavior": {"status": "passed", "tests": 81, "failures": 0, "skipped": 0},
+    "repositoryBaseline": {"status": "passed", "groups": 15, "failures": 0, "skipped": 0},
+    "deterministicArchives": {"status": "passed", "archivesCompared": 86, "includesManifestAndChecksums": true},
+    "offlineCollectionLifecycle": {"status": "passed", "collections": 12,
+      "operations": ["plan", "install", "upgrade", "uninstall"], "relocatedUnicodeSpacePath": true},
+    "nativePowerShellBusinessPlan": {"status": "passed", "collections": 2,
+      "executionHost": "local Linux PowerShell; not a Windows kernel acceptance result"},
+    "freshDownload": {"status": "passed", "transport": "local HTTP fixture",
+      "realPublishedDownload": false},
+    "releaseGate": {"status": "passed", "requiredCases": 110, "nativeCases": 30,
+      "rejects": ["dirty-source", "missing-case", "skipped-case", "stale-package", "stale-manifest", "bad-receipt"],
+      "positiveCase": "synthetic local clean-commit fixture only; not native evidence"},
+    "generatedConsistency": "passed",
+    "kaiCanonicalSourceSync": "passed-eight-layers",
+    "workflowYamlParse": "passed",
+    "whitespace": "passed-kai-skills-and-reasonix-kai"
+  },
+  "candidate": {
+    "manifestDigest": "sha256:ec688381f49e283cd14f69ad4d986605d78e9b662743e46d1e766ec5c59533c0",
+    "sourceState": "worktree",
+    "validationStatus": "unverified",
+    "formalGate": "correctly-rejected-dirty-source",
+    "location": "outside-checkout private verification directory; no upload"
+  },
+  "nativeTesting": {
+    "executedThisPhase": false,
+    "previousLinuxResult": "business-bm7-repair-20261102.json",
+    "previousDesktopResult": "business-bm8-20261102.json",
+    "remaining": [
+      "iStoreOS native Git prerequisite package checksum/size and source health",
+      "macOS original Git POST HTTP 405 and complete collections",
+      "Windows jq owner DNS, mise/Node signatures and actual SDK use",
+      "Windows signed EXE/MSI, package dependencies, source metadata and service lifecycle",
+      "final package digest matched five-system single-skill and collection journeys",
+      "npm audit POST acceptance separately from package installation"
+    ]
+  },
+  "dependencyNote": "Previously tested KSpeeder fixes remain in their isolated branch; this phase neither merges nor publishes those program candidates.",
+  "commitPreparation": "The staged-file check additionally found pre-existing trailing blank lines copied from canonical iStoreOS scripts. Removed only those blank lines, regenerated independent packages/locks/presets and rechecked package behavior and generated consistency. The recorded candidate digest above remains historical; rebuild from the final commit before native acceptance or release.",
+  "releaseReady": false,
+  "published": false
+}

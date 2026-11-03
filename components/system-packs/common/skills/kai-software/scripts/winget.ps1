@@ -1,4 +1,4 @@
-# PowerShell 5.1+; structured public Microsoft.WinGet.Client API only.
+# PowerShell 5.1+; native catalog API and prepared ks-cli WinGet operations.
 $ErrorActionPreference = 'Stop'
 $ProgressPreference = 'SilentlyContinue'
 [Console]::InputEncoding = New-Object Text.UTF8Encoding($false)
@@ -52,27 +52,57 @@ function Package-Info($Catalog) {
         evidenceTime=[DateTime]::UtcNow.ToString('o');
         nextStep='Use the registered native application entry; WinGet does not expose a general file inventory.'}
 }
+function Invoke-PreparedWinGet([string[]]$NativeArguments, [string]$Operation) {
+    $client = [string]$request.ksCli
+    if (!$client) { $client = $env:KAI_KSCLI_BIN }
+    if (!$client) {
+        $command = Get-Command ks-cli.exe -CommandType Application -ErrorAction SilentlyContinue
+        if ($command) { $client = $command.Source }
+    }
+    if (!$client -or !(Test-Path -LiteralPath $client -PathType Leaf)) {
+        Fail 127 'missing-executable' 'Select an existing ks-cli for prepared WinGet operations.'
+    }
+    $output = @(& $client --json winget @NativeArguments)
+    $code = $LASTEXITCODE
+    $receipt = $null
+    try { $receipt = ($output -join "`n") | ConvertFrom-Json } catch {}
+    if ($code -ne 0) {
+        $exitCode = 11
+        if ($code -gt 0 -and $code -le 255) { $exitCode = $code }
+        Fail $exitCode 'native-package-failed' 'Prepared WinGet failed; preserve the original native diagnostics.' @{exitCode=$code;receipt=$receipt}
+    }
+    if ($receipt -isnot [pscustomobject] -or $receipt.schema_version -ne 1 -or $receipt.status -ne 'passed' -or
+        $receipt.system_proxy_changed -isnot [bool] -or
+        $receipt.operation -ne $Operation -or $receipt.system_proxy_changed -ne $false) {
+        Fail 11 'invalid-provider-receipt' 'ks-cli did not return a successful receipt for this operation.' $receipt
+    }
+    return $receipt
+}
+function Target-Architecture {
+    $architecture = [string]$request.architecture
+    if (!$architecture) { $architecture = $env:KAI_WINGET_ARCH }
+    if (!$architecture) {
+        switch ($env:PROCESSOR_ARCHITECTURE) {
+            'AMD64' { $architecture = 'x64' }
+            'ARM64' { $architecture = 'arm64' }
+            'x86' { $architecture = 'x86' }
+        }
+    }
+    if ($architecture -notin @('x64','arm64','x86')) { Fail 2 'usage' 'Select an explicit supported target architecture.' }
+    return $architecture
+}
 try {
     $request = [Console]::In.ReadToEnd() | ConvertFrom-Json
     $action = [string]$request.action
     $subject = [string]$request.subject
     $version = [string]$request.version
-    if ($action -notin @('search','info','install','remove','refresh','files','owner')) {
+    if ($action -notin @('search','info','install','download','remove','refresh','files','owner')) {
         Fail 2 'usage' 'Unknown software operation.'
     }
     if ($action -eq 'refresh') {
         if ($subject -ne 'winget') { Fail 2 'usage' 'Explicitly select the winget source.' }
-        $native = Get-Command winget.exe -CommandType Application -ErrorAction SilentlyContinue
-        if (!$native) { Fail 127 'missing-executable' 'An existing winget.exe is required.' }
-        $log = & $native.Source source update --name winget --disable-interactivity 2>&1
-        [Console]::Error.WriteLine(($log | Out-String))
-        $code = $LASTEXITCODE
-        if ($code -ne 0) {
-            $exitCode = 11
-            if ($code -gt 0 -and $code -le 255) { $exitCode = $code }
-            Fail $exitCode 'provider-failed' 'The explicit native source refresh failed.' @{exitCode=$code}
-        }
-        Emit @{schemaVersion=1;status='passed';operation='refresh';provider='winget';exitCode=0}
+        $receipt = Invoke-PreparedWinGet @('source','update','--name','winget','--disable-interactivity') 'source-update'
+        Emit @{schemaVersion=1;status='passed';operation='refresh';provider='winget';nativeResult=$receipt;exitCode=0}
         exit 0
     }
     if ($action -in @('files','owner')) { Fail 18 'unsupported-operation' 'WinGet exposes no general package file ownership API.' }
@@ -117,8 +147,24 @@ try {
         if (!$selected -or @($catalog.AvailableVersions) -cnotcontains $selected) {
             Fail 4 'version-unavailable' 'The exact version is absent from this provider catalog.'
         }
-        if ($info.installedVersion -ceq $selected) { Emit $info; exit 0 }
-        $result = Install-WinGetPackage -Id $subject -Source winget -MatchOption Equals -Version $selected -Mode Silent -Confirm:$false -ErrorAction Stop
+        if ($action -eq 'install' -and $info.installedVersion -ceq $selected) { Emit $info; exit 0 }
+        $architecture = Target-Architecture
+        if ($action -eq 'download') {
+            $destination = [string]$request.destination
+            if (!$destination -or $destination.Length -gt 2048 -or
+                ![IO.Path]::IsPathRooted($destination) -or $destination.IndexOf([char]0) -ge 0) {
+                Fail 2 'usage' 'Provide an absolute download directory.'
+            }
+            $prepared = Invoke-PreparedWinGet @('download','--id',$subject,'--exact','--version',$selected,
+                '--architecture',$architecture,'--source','winget','--download-directory',$destination,
+                '--disable-interactivity') 'download'
+            Emit @{schemaVersion=1;status='passed';operation='download';id=('winget:'+$subject);
+                version=$selected;architecture=$architecture;path=$destination;nativeResult=$prepared;exitCode=0}
+            exit 0
+        }
+        $prepared = Invoke-PreparedWinGet @('install','--id',$subject,'--exact','--version',$selected,
+            '--architecture',$architecture,'--source','winget','--silent','--disable-interactivity') 'install'
+        $result = @{Status='Ok';RebootRequired=$null}
     }
     if ($null -eq $result -or $result.Status -ne 'Ok') {
         Fail 11 'native-package-failed' 'Inspect the original native result; no force, checksum bypass or installer override was used.' $result
@@ -130,6 +176,7 @@ try {
         $info = Package-Info (Exact-Catalog $subject)
         if ($info.installedVersion -cne $selected) { Fail 11 'version-mismatch' 'The installed version differs from the selected exact version.' }
         $info['rebootRequired'] = $result.RebootRequired
+        $info['nativeResult'] = $prepared
         Emit $info
     }
     exit 0

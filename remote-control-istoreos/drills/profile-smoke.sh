@@ -46,7 +46,9 @@ sh "$root/install.sh" --target "$tmp" --copy >/dev/null
   echo "failed: remote preset did not install 22 system + 2 transport skills" >&2
   exit 1
 }
-cmp "$repo_root/components/system-packs/common/skills/kai-software/SKILL.md" \
-  "$tmp/kai-software/SKILL.md"
+diff -ru "$repo_root/skills/kai-software" "$tmp/kai-software" >/dev/null || {
+  echo 'failed: installed public skill differs from its independent package' >&2
+  exit 1
+}
 
 echo "ok: remote-control-istoreos profile smoke passed"

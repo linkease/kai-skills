@@ -89,17 +89,69 @@ class DesktopTests(unittest.TestCase):
                         module / 'Microsoft.WinGet.Client.psm1')
         state = self.work / 'winget-state.json'
         state.write_text(json.dumps({'installed': '', 'failure': False}))
+        client = self.work / 'ks-cli'
+        client.write_text('#!' + sys.executable + '\n' +
+                          (ROOT / 'tests/multisystem/fixtures/ks-cli-winget.py').read_text())
+        client.chmod(0o700)
         return {**os.environ, 'PSModulePath': str(modules),
+                'KAI_KSCLI_BIN': str(client), 'KAI_WINGET_ARCH': 'x64',
                 'KAI_WINGET_FIXTURE_STATE': str(state),
                 'KAI_WINGET_FIXTURE_LOG': str(self.work / 'winget-events.jsonl')}
 
-    def winget(self, env, action, subject, version=''):
+    def test_winget_install_uses_prepared_client_with_exact_native_selectors(self):
+        env = self.winget_environment()
+        result, value = self.winget(env, 'install', 'Example.Tree', '1.0.0')
+        self.assertEqual(result.returncode, 0, value)
+        events = [json.loads(line) for line in Path(env['KAI_WINGET_FIXTURE_LOG']).read_text(encoding='utf-8-sig').splitlines()]
+        calls = [row['arguments'] for row in events if row['operation'] == 'ks-cli']
+        self.assertEqual(calls, [['--json', 'winget', 'install', '--id', 'Example.Tree',
+                                 '--exact', '--version', '1.0.0', '--architecture', 'x64',
+                                 '--source', 'winget', '--silent', '--disable-interactivity']])
+        self.assertFalse(any(row['operation'] == 'install' for row in events))
+
+    def winget(self, env, action, subject, version='', **options):
         adapter = ROOT / 'components/system-packs/common/skills/kai-software/scripts/winget.ps1'
         result = subprocess.run([PWSH, '-NoLogo', '-NoProfile', '-NonInteractive', '-File', str(adapter)],
-            input=json.dumps({'action': action, 'subject': subject, 'version': version}),
+            input=json.dumps({'action': action, 'subject': subject, 'version': version, **options}),
             text=True, capture_output=True, env=env, timeout=15)
         self.assertTrue(result.stdout.strip(), result.stderr)
         return result, json.loads(result.stdout)
+
+    def test_winget_prepared_download_preserves_destination_and_does_not_install(self):
+        env = self.winget_environment()
+        destination = self.work / 'Downloads 中文 space'
+        result, value = self.winget(env, 'download', 'Example.Tree', '1.0.0',
+                                    destination=str(destination), architecture='arm64')
+        self.assertEqual(result.returncode, 0, value)
+        self.assertEqual((value['operation'], value['architecture']), ('download', 'arm64'))
+        self.assertEqual(json.loads(Path(env['KAI_WINGET_FIXTURE_STATE']).read_text())['installed'], '')
+        events = [json.loads(line) for line in Path(env['KAI_WINGET_FIXTURE_LOG']).read_text(encoding='utf-8-sig').splitlines()]
+        args = [row['arguments'] for row in events if row['operation'] == 'ks-cli'][0]
+        self.assertEqual(args[args.index('--download-directory') + 1], str(destination))
+        self.assertNotIn('--silent', args)
+
+    def test_winget_refresh_uses_signed_source_adapter_without_module_loading(self):
+        env = self.winget_environment()
+        env['PSModulePath'] = str(self.work / 'absent-module')
+        result, value = self.winget(env, 'refresh', 'winget')
+        self.assertEqual(result.returncode, 0, value)
+        self.assertEqual(value['nativeResult']['operation'], 'source-update')
+        events = [json.loads(line) for line in Path(env['KAI_WINGET_FIXTURE_LOG']).read_text().splitlines()]
+        self.assertEqual(events, [{'operation': 'ks-cli', 'arguments':
+            ['--json', 'winget', 'source', 'update', '--name', 'winget', '--disable-interactivity']}])
+
+    def test_winget_missing_client_and_invalid_receipts_do_not_report_success(self):
+        env = self.winget_environment()
+        result, value = self.winget({**env, 'KAI_KSCLI_BIN': str(self.work/'absent')},
+                                    'install', 'Example.Tree', '1.0.0')
+        self.assertEqual((result.returncode, value['category']), (127, 'missing-executable'))
+        for mode in ['malformed', 'wrong-operation', 'changed-proxy', 'array', 'proxy-string']:
+            Path(env['KAI_WINGET_FIXTURE_STATE']).write_text(json.dumps(
+                {'installed': '', 'failure': False, 'clientMode': mode}))
+            result, value = self.winget(env, 'refresh', 'winget')
+            self.assertEqual((result.returncode, value.get('category')), (11, 'invalid-provider-receipt'))
+        result, value = self.winget(env, 'info', 'Example.Tree')
+        self.assertEqual(result.returncode, 0, value)
 
     def test_winget_structured_search_exact_install_reuse_and_remove(self):
         env = self.winget_environment()
@@ -119,13 +171,10 @@ class DesktopTests(unittest.TestCase):
         self.assertEqual(value['status'], 'passed')
         self.assertEqual(marker.read_text(), 'keep')
         events = [json.loads(line) for line in Path(env['KAI_WINGET_FIXTURE_LOG']).read_text(encoding='utf-8-sig').splitlines()]
-        installs = [event for event in events if event['operation'] == 'install']
+        installs = [event for event in events if event['operation'] == 'ks-cli']
         self.assertEqual(len(installs), 1)
-        self.assertEqual(installs[0]['arguments']['Id'], 'Example.Tree')
-        self.assertEqual(installs[0]['arguments']['MatchOption'], 'Equals')
-        self.assertEqual(installs[0]['arguments']['Source'], 'winget')
-        self.assertEqual(installs[0]['arguments']['Version'], '1.0.0')
-        self.assertNotIn('AllowHashMismatch', installs[0]['arguments'])
+        self.assertIn('--exact', installs[0]['arguments'])
+        self.assertNotIn('--ignore-security-hash', installs[0]['arguments'])
 
     def test_common_software_entry_dispatches_to_structured_windows_adapter(self):
         env = self.winget_environment()
@@ -148,9 +197,10 @@ class DesktopTests(unittest.TestCase):
         self.assertEqual((result.returncode, value['category']), (4, 'version-unavailable'))
         state.write_text(json.dumps({'installed': '', 'failure': True}))
         result, value = self.winget(env, 'install', 'Example.Tree', '2.0.0')
-        self.assertEqual((result.returncode, value['status']), (11, 'failed'))
-        self.assertEqual(value['nativeResult']['InstallerErrorCode'], 37)
-        self.assertEqual(value['nativeResult']['ExtendedErrorCode']['HResult'], -123)
+        self.assertEqual((result.returncode, value['status']), (37, 'failed'))
+        self.assertEqual(value['nativeResult']['exitCode'], 37)
+        self.assertEqual(value['nativeResult']['receipt']['InstallerErrorCode'], 37)
+        self.assertEqual(value['nativeResult']['receipt']['ExtendedErrorCode']['HResult'], -123)
         self.assertEqual(json.loads(state.read_text())['installed'], '')
         result, value = self.winget(env, 'install', 'Example.Tree; echo bad', '2.0.0')
         self.assertEqual((result.returncode, value['category']), (2, 'usage'))
@@ -270,6 +320,9 @@ class DesktopTests(unittest.TestCase):
             directory=self.work/arch;directory.mkdir();bin_dir=directory/'bin';bin_dir.mkdir()
             prefix=directory/'brew prefix';(prefix/'bin').mkdir(parents=True)
             mise=prefix/'bin/mise';mise.write_text('#!/bin/sh\necho "2026.8.14"\n');mise.chmod(0o700)
+            (prefix/'opt/mise/bin').mkdir(parents=True)
+            (prefix/'opt/mise/bin/mise').symlink_to(mise)
+            (prefix/'opt/mise/INSTALL_RECEIPT.json').write_text('{}')
             log=directory/'commands.jsonl'
             programs={
                 'uname':'case "$1" in -s) echo Darwin;; -m) printf "%s\\n" "$TEST_ARCH";; esac',

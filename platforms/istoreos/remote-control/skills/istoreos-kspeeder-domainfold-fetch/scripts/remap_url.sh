@@ -47,4 +47,3 @@ echo "$out"
 if [ -n "$admin_path" ]; then
   echo "admin_proxy_url=http://127.0.0.1:${admin_port}${admin_path}" >&2
 fi
-

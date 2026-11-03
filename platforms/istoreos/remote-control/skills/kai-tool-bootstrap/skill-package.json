@@ -1,0 +1,44 @@
+{
+  "id": "kai-tool-bootstrap",
+  "version": "1.1.0",
+  "path": "skills/kai-tool-bootstrap",
+  "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+  "description": "准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。",
+  "platforms": [
+    "debian",
+    "istoreos",
+    "macos",
+    "ubuntu",
+    "windows"
+  ],
+  "kind": "business",
+  "component": "common",
+  "architectures": {
+    "debian": [
+      "x64"
+    ],
+    "istoreos": [
+      "x64"
+    ],
+    "macos": [
+      "arm64"
+    ],
+    "ubuntu": [
+      "x64"
+    ],
+    "windows": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "Bash, or native PowerShell for the Windows first entry",
+    "native verified zsetup core for managed installation"
+  ],
+  "resourceSources": [
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

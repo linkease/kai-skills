@@ -1,16 +1,12 @@
 ---
 name: macos-launchd-logs
 description: Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.
-owner: system-pack/macos
-systems: macos
-requires: target-shell:posix
-triggers: launchd 服务失败, LaunchAgent, LaunchDaemon, macOS 服务未运行, macOS 日志, 重启 Mac 服务
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # macOS launchd and unified logs
 
 Use the four-phase contract with an exact launchd domain and label:

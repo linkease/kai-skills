@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-. "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+. "$here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
 fail() { jq -cn --argjson code "$1" --arg category "$2" --arg reason "$3" '{schemaVersion:1,status:"failed",category:$category,reason:$reason,exitCode:$code}'; exit "$1"; }
 action="${1:-}"; tool="${2:-}"; version="${3:-}"
 case "$action" in probe|install|exec) ;; *) fail 2 usage 'dev-cli.sh probe|install|exec uv EXACT_VERSION [-- ARGUMENTS]' ;; esac
 [ "$tool" = uv ] || fail 18 unsupported-tool 'the first developer CLI profile is uv; SDKs use runtime.sh'
 [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail 2 version-selection 'select a complete stable developer CLI version'
-platform="${KAI_PLATFORM:-$(bash "$here/../../kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
+platform="${KAI_PLATFORM:-$(bash "$here/../resources/runtime/kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
 case "$platform" in
     istoreos|openwrt)
         if [ "${ISTORE_RUNTIME_ENTERED:-}" != 1 ]; then

@@ -1,16 +1,12 @@
 ---
 name: istoreos-network-quality
 description: 使用 iStoreOS 内置 FastNet 测量并解释外网带宽、延迟与抖动、NAT 类型、IPv6 可用性和局域网吞吐；用于网速慢、测速、NAT/IPv6 检测和 LAN 测速，不用于特定下载源加速或修改网络配置。
-owner: system-pack/istoreos
-systems: istoreos
-triggers: 网速慢, 测速, 宽带速度, 上行速度, 下行速度, 延迟, 抖动, NAT 类型, IPv6 测试, IPv6 可用性, 局域网测速, LAN 测速, FastNet
-negative-triggers: Docker 镜像下载慢, GitHub 下载慢, 文件下载失败, 修改 IPv6 模式, 修改网络配置
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # iStoreOS Network Quality
 
 Use this skill to measure network quality with the device's packaged `/usr/sbin/FastNet` binary and explain the result. Keep measurement separate from configuration changes.
@@ -43,7 +39,7 @@ Use this skill to measure network quality with the device's packaged `/usr/sbin/
 Locate the installed skill without relying on the current directory:
 
 ```sh
-SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"
+SKILLS_DIR="<absolute-parent-of-this-skill-directory>"
 sh "$SKILLS_DIR/istoreos-network-quality/scripts/inspect.sh"
 KAIPLUS_CONFIRMED=1 sh "$SKILLS_DIR/istoreos-network-quality/scripts/run.sh" quick
 ```

@@ -1,16 +1,13 @@
 ---
 name: kai-tool-bootstrap
 description: 准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。
-owner: system-pack/common
-systems: ubuntu, debian, istoreos, openwrt, linux, macos, windows
-triggers: 安装 Bash, Git Bash, 完整 jq, 引导工具, 准备 mise, ks-cli 版本
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
 ---
 
-Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+Prepare compatible Bash; the native Windows first entry is in this skill’s scripts/bootstrap-bash.ps1.
 
 Start with `bash scripts/tool.sh plan jq`, then `ensure jq` when installation is
 needed. This entry works without jq. Reuse a jq that actually supports JSON,
@@ -39,6 +36,14 @@ the target and uses the reported provider. Reuse a compatible installation and
 its manager. An external path with unknown ownership is a conflict; retain it.
 `KAI_TRUSTED_TOOL_PATH` names an existing executable the caller has explicitly
 chosen to trust. This is not permission to replace an old external installation.
+The mise identity query runs offline only for `--version`; installation keeps
+the caller's network and integrity policy. Homebrew ownership is checked from
+its existing prefix, opt link and native installation receipt, without an online
+formula lookup just to identify an installed program.
+
+For Windows jq through an existing authorized gateway, see
+[platform notes](data/platforms.md#windows-jq-download-routing). The original
+owner's size, SHA256 and functionality checks remain required.
 
 Ordinary Linux uses `zsetup install ks-cli --foreground`. The client package
 does not install or start KSpeeder. iStoreOS uses `is-opkg install ks-cli` and its

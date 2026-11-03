@@ -1,0 +1,50 @@
+{
+  "id": "kai-software",
+  "version": "1.1.0",
+  "path": "skills/kai-software",
+  "canonicalPath": "components/system-packs/common/skills/kai-software",
+  "description": "按目标系统搜索、查询和安装软件，保留原包管理器与来源。",
+  "platforms": [
+    "debian",
+    "istoreos",
+    "macos",
+    "ubuntu",
+    "windows"
+  ],
+  "kind": "business",
+  "component": "common",
+  "architectures": {
+    "debian": [
+      "x64"
+    ],
+    "istoreos": [
+      "x64"
+    ],
+    "macos": [
+      "arm64"
+    ],
+    "ubuntu": [
+      "x64"
+    ],
+    "windows": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "compatible Bash and full jq",
+    "target native package manager",
+    "ks-cli for prepared WinGet operations"
+  ],
+  "resourceSources": [
+    {
+      "id": "kai-software",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "sourceDigest": "sha256:e7e0942a023dc90f98e4cae36166b29c9d3c6f27ca3cc8569392ac38af53295e"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

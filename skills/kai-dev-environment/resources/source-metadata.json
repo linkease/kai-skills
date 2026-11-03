@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: kai-dev-environment\ndescription: 用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 安装 Python, 安装 Node, 安装 node, 安装 Go, 安装 golang, 开发环境, 安装开发 CLI, SDK, python-build, 解释器异常\nnegative-triggers: pip install, npm ci, go mod, uv sync\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\naliases: istoreos-mise-runtime\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

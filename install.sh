@@ -1,6 +1,16 @@
 #!/bin/sh
 set -eu
 
+# Keep the legacy preset CLI stable while business selections use one new engine.
+for option in "$@"; do
+  case "$option" in
+    --skill|--bundle|--all|--list-skills|--list-bundles|--describe-skill|--describe-bundle)
+      business_root="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
+      exec sh "$business_root/tools/install-business.sh" "$@"
+      ;;
+  esac
+done
+
 action="install"
 platform=""
 usage_mode=""

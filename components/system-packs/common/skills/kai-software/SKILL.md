@@ -26,8 +26,9 @@ two same-named candidates into one installation ID. Queries use cached indexes;
 `refresh apt|opkg|istore|zsetup|brew|winget` is an explicit write. Desktop queries
 retain their native provider's catalog policy; no implicit refresh command is issued.
 
-On Windows, enter through Git Bash. The helper uses an existing native PowerShell
-and the trusted `Microsoft.WinGet.Client` module for structured results from the
+On Windows, enter through Git Bash. The helper prefers an existing PowerShell 7
+and otherwise uses Windows PowerShell. It uses the trusted
+`Microsoft.WinGet.Client` module for structured results from the
 selected `winget` source. Missing PowerShell or module is explicit, with no
 automatic module installation. Exact IDs/source/version are checked before an
 install and the registered version is checked afterward. Native failure status,
@@ -40,20 +41,31 @@ provide WinGet CONNECT routing. Prepared download/install may read the installed
 Store-signed source index, acquire its version metadata and manifest through
 `ks-cli download --mode=auto`, verify both source SHA256 values, and seed only
 the command's isolated WinGet cache before native selection.
+`install winget:PACKAGE.ID VERSION` uses the existing `ks-cli winget install`
+adapter, retaining exact native selection and checking the registered version
+afterward. Set `KAI_KSCLI_BIN` when that client is outside PATH, and
+`KAI_WINGET_ARCH=x64|arm64|x86` for an explicit target architecture; otherwise
+the native target architecture is used. Queries and removal retain the native
+module API and do not start a service.
+
+To acquire a package without installing it, use
+`bash scripts/software.sh download winget:PACKAGE.ID VERSION 'D:/Downloads/package' x64`.
+The explicit absolute directory and architecture are passed to the same prepared
+client. `bash scripts/software.sh refresh winget` uses the client's original,
+Store-signed source-package update and preserves its deployment receipt. These
+operations require an existing compatible client; missing or invalid receipts
+and nonzero native exits are failures. No automatic module or service install
+is performed. Keep source, payload and CRL/OCSP health as separate results.
+
 Do not set a WinGet proxy through this skill or describe a same-egress relay as
-acceleration. Preserve native catalog failures and repair source connectivity
-outside this workflow.
+acceleration. Preserve native catalog failures; an explicit source refresh is
+separate from a package query or installation.
 See [WinGet acceleration](resources/winget-acceleration.md).
 
-For the reviewed native CLI preparation candidate, use ks-cli's owned
-`winget download/install` workflow with explicit ID, exact version and target
-architecture as described in that reference. It prepares original files with
-ks-cli auto download before native verification. There is no CONNECT fallback;
-an origin without a KSpeeder route may use auto mode's ordinary direct path, and
-only an accelerated selected route is acceleration evidence.
-Check native acceptance and client provenance before using a candidate binary.
-Missing or unverifiable metadata stops preparation. Cached selection does not prove a fresh
-catalog, and payload acceleration does not prove Windows CRL/OCSP connectivity.
+Check client provenance and native acceptance in that reference before using a
+candidate. Missing or unverifiable metadata stops preparation. Ordinary direct
+transfer is valid content; only an accelerated selected route proves acceleration.
+Cached selection and payload transfer do not prove fresh catalog or CRL/OCSP health.
 
 Search defaults to the native system provider. For internal software, use
 `KAI_SOFTWARE_PROVIDER=zsetup`; for the iStore package catalog, use `istore`.

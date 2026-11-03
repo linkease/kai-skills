@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-luci-recovery\ndescription: 诊断和恢复 iStoreOS LuCI 管理页面打不开、500、空白或登录循环；先只读采证，修改、重启或重装前必须确认。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: LuCI 打不开, LuCI 500, LuCI 空白, LuCI 登录循环, 管理页面打不开, Web 管理异常\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+      "sourceDigest": "sha256:95c970da6d815722c7961e62da50b45f1d254496c5aa24a06853f6ddc3e1c34a"
+    }
+  ]
+}

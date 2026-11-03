@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Business-first skill catalog; legacy preset catalog remains versioned separately",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "version", "skills", "bundles", "legacyCatalog", "defaultPolicy"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "version": {"type": "string"},
+    "skills": {"type": "array", "minItems": 1, "items": {"$ref": "skill-package.schema.json"}},
+    "bundles": {"type": "object", "additionalProperties": {"type": "object", "additionalProperties": false, "properties": {"title": {"type": "string"}, "skills": {"type": "array", "items": {"type": "string"}}, "bundles": {"type": "array", "items": {"type": "string"}}}, "anyOf": [{"required": ["skills"]}, {"required": ["bundles"]}]}},
+    "legacyCatalog": {"const": "catalog.json"},
+    "defaultPolicy": {"type": "object", "additionalProperties": false, "required": ["installAll"], "properties": {"installAll": {"const": false}}}
+  }
+}

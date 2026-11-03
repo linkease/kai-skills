@@ -1,15 +1,18 @@
 ---
 name: istoreos-system-task-router
 description: iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。
-owner: system-pack/istoreos
-systems: istoreos
-triggers: iStoreOS, 路由器问题, 系统问题, 帮我检查, 帮我修复, 不知道怎么办, 不确定, 报错, 异常, 执行这个 .run 文件
-auto-use: suggest
-routing-group: system-primary
-needs-fresh-data: true
-cost: low
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS System Task Router
 
 Use this skill when an iStoreOS request is ambiguous, spans domains, or has no obvious specialist. It is a router, not a second implementation of each specialist.

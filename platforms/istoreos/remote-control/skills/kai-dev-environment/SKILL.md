@@ -1,18 +1,24 @@
 ---
 name: kai-dev-environment
 description: 用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。
-owner: system-pack/common
-systems: ubuntu, debian, istoreos, openwrt, linux, macos, windows
-triggers: 安装 Python, 安装 Node, 安装 node, 安装 Go, 安装 golang, 开发环境, 安装开发 CLI, SDK, python-build, 解释器异常
-negative-triggers: pip install, npm ci, go mod, uv sync
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
-aliases: istoreos-mise-runtime
 ---
 
-Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
+through native PowerShell, then the authorized Ensure operation.
+
+## Business workflow
+Use the local bootstrap resource above for missing Bash/tools.
 
 Use the target's platform and Transport. Discover/ensure mise with
 kai-tool-bootstrap. System packages belong to kai-software; npm/pip/uv/Go project

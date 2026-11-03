@@ -38,8 +38,10 @@ JSON receipt records the selected route, strategy and
 acceleration evidence.
 
 Package dependencies follow the same selection, auto-download, SHA256 and native
-verification gates. The current native acceptance covers individual signed EXE
-and MSI installations; a general branching dependency graph remains unaccepted.
+verification gates. Native acceptance must cover signed EXE, MSI and dependency
+installation on the selected client/gateway version. Historical results from
+another transport do not validate this no-CONNECT path; preserve pending or
+failed native gates rather than inferring success from local adapter tests.
 
 Explicit official catalog recovery is available separately:
 

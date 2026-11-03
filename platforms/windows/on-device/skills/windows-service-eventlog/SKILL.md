@@ -1,16 +1,12 @@
 ---
 name: windows-service-eventlog
 description: Diagnose one Windows service with recent System events, prepare a change plan, apply an explicitly approved start/stop/restart, and verify the resulting service state.
-owner: system-pack/windows
-systems: windows
-requires: target-shell:powershell
-triggers: Windows 服务失败, 服务未运行, 服务反复停止, Event Log, Windows Service, 重启服务
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # Windows service and Event Log
 
 Use the four-phase contract with a literal service name:

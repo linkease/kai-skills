@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-docker-data-root-migrate\ndescription: 安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: Docker data_root, Docker 数据目录, Docker 迁移, Docker 占满 overlay, 容器数据迁移\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: high\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+      "sourceDigest": "sha256:9128e483a88bbdb488a6a4a6fd2d3d8c2a2e14d410562da38ac302aa7827c786"
+    },
+    {
+      "id": "istoreos-storage-path",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
+      "sourceDigest": "sha256:753ece1cdce08582ee24849f6173e020847e19e9a4a65a3305c8c8c3d31dcd21"
+    }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "istoreos-backup-restore",
+  "version": "1.1.0",
+  "path": "skills/istoreos-backup-restore",
+  "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+  "description": "iStoreOS 系统备份、恢复与回滚闭环；用于备份配置或 overlay、恢复系统，以及迁移、重置等危险操作前建立可恢复点。",
+  "platforms": [
+    "istoreos"
+  ],
+  "kind": "business",
+  "component": "istoreos",
+  "architectures": {
+    "istoreos": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+      "sourceDigest": "sha256:7e290a211cf7ccb2ea5b29f8703d9ae96e1fc71c00b1d97c4732638a773bb9f4"
+    }
+  ]
+}

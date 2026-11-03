@@ -1,49 +1,142 @@
-# Release and lifecycle contract
+# Business skill release and lifecycle contract
 
-## Build
+The public unit is one independent skill. Business and system collections lock
+those same bytes; they do not introduce another discoverable skill. Target
+program installation and service operations remain separate from installing skills.
 
-From a clean checkout, run:
+## Build a development candidate
+
+On the build host, Python 3, jq and Git are required. Target installers require
+Bash, full jq, SHA256 tools and ordinary shell utilities, without Python.
 
 ```sh
+sh tools/generate-business.sh
 sh tools/generate-platforms.sh
 sh tools/verify-generated.sh
-sh tools/build-release.sh release
+sh tools/build-release.sh /path/to/new-candidate-a
+sh tools/build-release.sh /path/to/new-candidate-b
+diff -ru /path/to/new-candidate-a /path/to/new-candidate-b
+python3 tools/release/business_release.py verify /path/to/new-candidate-a
 ```
 
-The release directory contains one `.tar.gz` and one `.zip` for every catalog preset plus `release-manifest.json`. Builds are deterministic for the same checkout. The manifest records the source commit and sourceState, preset/version, archive SHA-256, and skill tree digest; every archive also contains the same information in `SOURCE.json`.
+Use new output directories. Builds refuse to overwrite an existing candidate.
+The default matrix is 31 independent skills, two business collections and ten
+system collections, each in ZIP and tar.gz: 86 archives. A single skill archive
+has exactly one root named after the skill and preserves all package bytes.
+Its provenance is in its existing `resources/source-metadata.json` and the
+external release manifest; extra release files are not injected into the skill.
 
-Publish only when `git diff --exit-code`, all CI contracts, and a second release build comparison pass. Attach the manifest and all archives to the same release. Do not publish archives made from different commits under one manifest.
+Collections include only their exact members, a filtered catalog, their lock,
+the shell and native PowerShell entry points, a support bootstrap and SOURCE.json.
+They contain no source checkout, native test configuration or credentials.
+`release-manifest.json` schema 2 records the actual Git commit, sourceState,
+build/installer input hashes, canonical resource sources and hashes, package
+digests, exact collection membership, artifact hashes and frozen requirements.
+`SHA256SUMS` covers that manifest and every archive.
 
-## Install, upgrade, and uninstall
+Archive order, modes, ownership and timestamps are normalized. Comparing two
+builds requires the same inputs and build toolchain. Building from a dirty tree
+is allowed for development, records `sourceState=worktree`, and cannot pass the
+formal release gate. `SOURCE_COMMIT` cannot replace the actual Git identity.
+The manifest's `validationStatus=unverified` means building alone proves no
+native acceptance. A passing gate emits a separate result bound to that exact
+manifest; it never edits the frozen candidate.
 
-An extracted archive is self-contained:
+Legacy preset artifacts remain available with
+`sh tools/build-release.sh --legacy NEW_OUTPUT`: 20 schema-1 preset archives.
+They are a separate compatibility release, not the new business release index.
+
+## Install and use
+
+See [README](../README.md) for all five supported workflows: single skill,
+business collection, system all, remote execution and managed upgrade/removal.
+
+- Single archive: unpack and copy its one skill directory into the Agent's skills
+  directory. This is self-contained, manual ownership. For managed single-skill
+  installation, use the repository root installer with `--skill ID`.
+- Business archive: after unpacking, run
+  `sh install.sh --bundle development --consumer generic --target-skills DIR --dry-run`.
+  `software-management` is the other business selection.
+- System archive: use, for example,
+  `sh install.sh --platform windows --all --mode on-device --consumer generic --target-skills DIR --dry-run`.
+  A remote collection uses `--mode remote-control`; task programs belong on the
+  selected target and use its existing authorized transport.
+
+On Windows before Bash exists, run `./install.ps1 -Action Plan -Bundle development
+-TargetSkills DIR` through native PowerShell. The receipt locates the selected
+member's embedded bootstrap. Use its Plan, then the explicitly authorized
+`-Action EnsureBash` preparation when needed. A system selection instead uses
+`-Platform windows -All -Mode on-device`. With an existing trusted Git Bash,
+pass `-TrustedBash 'C:/Program Files/Git/bin/bash.exe'` and Plan continues to the
+shell dry-run. Windows managed installation supports copy and rejects symlink
+before any writes. This native entry does not install jq; prepare full jq with
+the bootstrap tool workflow before managed shell installation.
+
+Review the dry-run, then remove `--dry-run`; native PowerShell uses `-Action Install`.
+Keep the same selection and destination for `--upgrade` and `--uninstall` through
+Bash. Shared members survive removal of another selection. Coordinated shared
+updates use `--upgrade --update-shared`. User modifications, foreign directories
+and changed links stop the transaction and remain intact. Do not erase ownership
+records to bypass a conflict. Retain a symlink distribution at its original
+location on supported Unix systems; copying archives is the portable default.
+
+## Require evidence before publishing
+
+Commit the completed sources and regenerated outputs. Build and freeze a clean
+candidate before collecting final native evidence:
 
 ```sh
-sh linkease-skills-macos-remote-control-v1.0.0/install.sh --target /path/to/agent/skills
+python3 tools/release/business_release.py evidence-template CANDIDATE > evidence.json
+python3 tools/release/business_release.py gate CANDIDATE --evidence evidence.json
 ```
 
-The installer stages a complete next destination and swaps it into place. It writes ownership state under `.linkease-skills/<preset-id>.json`, while preserving unrelated skills.
+The template intentionally contains pending results and empty receipts; it is
+not test evidence. The gate requires all BM0–BM9 required acceptance criteria
+and the 30 frozen native positive scenarios. Each result has `status=passed`,
+the exact package digest map specified in the template, and nonempty receipt
+references `{path, sha256}`. Receipt paths are relative to evidence.json, cannot
+escape its directory or use symlinks, and their hashes are checked. Results bind
+to the SHA256 of the entire frozen release manifest. Missing, failed, blocked,
+skipped or stale evidence fails. Source changes require a new candidate and
+affected native evidence, never a fabricated success or rewritten old receipt.
+Human review must confirm that referenced receipts demonstrate each scenario;
+the gate checks completeness and identity, not the truth of arbitrary log text.
+
+CI runs development contracts on PR/push. Manual `Business skill distribution`
+execution additionally downloads `kai-business-native-evidence` from the supplied
+GitHub Actions run ID and enforces this gate. That artifact must contain
+evidence.json and its relative receipt files for the exact candidate commit.
+An absent artifact or mismatched candidate fails. No workflow publishes files.
+
+## Publish the frozen files and verify a fresh download
+
+BM10 requires a chosen channel, version, target URL and publication authorization.
+Record the previous known-good release URL and manifest digest before changing
+the recommendation. Upload the same manifest, SHA256SUMS and all 86 archives
+from the accepted candidate to one immutable version location. Do not rebuild
+during upload or mix commits. The manifest's `kind`, `id`, platforms,
+architectures and collection mode provide the three discovery dimensions.
+
+Keep a trusted local copy of the accepted manifest (or verify its digest through
+the release channel), then re-download all published files:
 
 ```sh
-sh install.sh --target /path/to/agent/skills --upgrade
-sh install.sh --target /path/to/agent/skills --uninstall
+python3 tools/release/business_release.py fetch \
+  --manifest CANDIDATE/release-manifest.json \
+  --base-url https://RELEASE_HOST/VERSION \
+  --output /path/to/new-download
 ```
 
-Upgrade and uninstall verify every owned skill against its installed digest first. If a user changed or removed one, the operation stops before the swap and preserves the destination. Resolve the conflict manually; never delete the ownership manifest to bypass review.
+The downloader requires HTTPS, fetches new bytes into a staging directory,
+requires the remote manifest to match the pinned local manifest exactly,
+verifies every archive SHA256, source, member payload, lock and installer,
+then promotes the completed download directory. On failure it leaves no completed
+output and changes no recommendation. `--allow-http` exists only for local fixture
+tests. An archive hash is integrity relative to the trusted manifest, not an
+independent publisher signature.
 
-## Verification
-
-For an archive listed in the release manifest:
-
-1. Verify its `sha256:` value against the downloaded bytes.
-2. Extract it and compare `SOURCE.json` with the release manifest.
-3. Recompute the digest of the `skills/` tree before installation.
-4. Use `--dry-run` and confirm that exactly one intended preset is selected.
-
-
-Ten presets cover Ubuntu, Debian, iStoreOS, macOS and Windows in both modes. Four retired
-iStoreOS primary IDs are migration aliases; their native interfaces ship as declared
-non-SKILL resources. Ownership hashes protect resources as well as active skills.
-A worktree candidate includes sourceDigest/treeDigest and sourceState=worktree; it is
-reviewable but is not a published release or a clean-commit provenance claim.
-Desktop offline completion does not imply native macOS/Windows acceptance.
+BM10 also requires five-system actual use and lifecycle checks from those newly
+downloaded bytes. Retain the previous release until these pass. If they fail,
+keep failure evidence, stop promotion, fix sources and freeze a new candidate.
+Do not mark the current untested candidate recommended. Development completion,
+native acceptance, release-ready and published remain separate recorded states.

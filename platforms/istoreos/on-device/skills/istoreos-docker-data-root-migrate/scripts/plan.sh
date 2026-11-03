@@ -31,7 +31,7 @@ skills_root() {
 
 suggest() {
   root="$(skills_root)"
-  detect="$root/istoreos-storage-path/scripts/detect.sh"
+  detect="$(CDPATH= cd -- "$(dirname "$0")/../resources/runtime/istoreos-storage-path" && pwd -P)/scripts/detect.sh"
   if [ -f "$detect" ]; then
     base="$(sh "$detect" 2>/dev/null || true)"
     [ -n "${base:-}" ] && echo "$base/docker"
@@ -56,7 +56,7 @@ if [ -n "${new:-}" ]; then
   echo "## suggested new root"
   echo "suggested=$new"
   root="$(skills_root)"
-  echo "next=CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh \"$root/istoreos-docker-data-root-migrate/scripts/apply.sh\" '$new'"
+  echo "next=CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh \"$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/scripts/apply.sh\" '$new'"
 else
   echo ""
   echo "## suggested new root"

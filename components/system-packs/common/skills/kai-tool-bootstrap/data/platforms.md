@@ -31,3 +31,15 @@ install that package directly. Installing its reverse dependency istoreenhance
 or luci-app-istoreenhance is a different service/application operation. The
 native mise package owns mise-exec, `/lib/functions/mise.sh`, UCI runtime_dir and
 runtime environment setup; use that integration on every independent call.
+
+# Windows jq download routing
+
+When Windows can reach an already authorized KSpeeder gateway but direct jq
+download fails, resolve the original locked release URL with that gateway's
+`POST /api/domainfold/remap`. Set `JQ_DOWNLOAD_BASE` to the HTTPS parent of the
+returned jq artifact URL for this process, then repeat `ensure jq`. The existing
+zsetup owner still validates its original size, SHA256 and functionality. Do not
+disable those checks, start an unapproved service or set a system proxy. For
+the current x64 lock the original artifact is
+`https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-amd64.exe`;
+other architectures must use their own locked artifact rather than this URL.

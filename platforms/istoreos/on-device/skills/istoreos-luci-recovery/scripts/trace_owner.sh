@@ -94,4 +94,3 @@ fi
 section "next"
 echo "1) Prefer reinstall over editing: reinstall the owning package (or luci-base) and retry LuCI."
 echo "2) If you must hotfix: back up first, keep a diff patch, and plan rollback to /rom or package reinstall."
-

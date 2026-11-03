@@ -88,8 +88,8 @@ resolve_skills_dir() {
 SKILLS_DIR="$(resolve_skills_dir || true)"
 
 ksget=""
-if [ -n "${SKILLS_DIR:-}" ] && [ -f "$SKILLS_DIR/istoreos-kspeeder-domainfold-fetch/scripts/ksget.sh" ]; then
-  ksget="$SKILLS_DIR/istoreos-kspeeder-domainfold-fetch/scripts/ksget.sh"
+if [ -n "${SKILLS_DIR:-}" ] && [ -f "$(CDPATH= cd -- "$(dirname "$0")/../resources/runtime/istoreos-kspeeder-domainfold-fetch" && pwd -P)/scripts/ksget.sh" ]; then
+  ksget="$(CDPATH= cd -- "$(dirname "$0")/../resources/runtime/istoreos-kspeeder-domainfold-fetch" && pwd -P)/scripts/ksget.sh"
 fi
 
 download_ok=0

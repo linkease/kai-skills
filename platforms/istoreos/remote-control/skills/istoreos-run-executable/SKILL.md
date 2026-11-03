@@ -1,15 +1,21 @@
 ---
 name: istoreos-run-executable
 description: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构和空间，提示备份并要求明确确认。
-owner: system-pack/istoreos
-systems: istoreos
-triggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: high
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-download-acceleration`: [local instructions](resources/runtime/istoreos-download-acceleration/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-kspeeder-domainfold-fetch`: [local instructions](resources/runtime/istoreos-kspeeder-domainfold-fetch/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-mise-runtime`: [local instructions](resources/runtime/istoreos-mise-runtime/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS `.run` Executable Handler
 
 当用户拿到一个 `*.run`（本地文件或下载链接）并想执行/安装时，按“先获取 → 先检查 → 再备份 → 再确认 → 再执行 → 再留证据”的统一流程走。
@@ -24,16 +30,16 @@ cost: high
 
 ## 只读检查（推荐一键）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-run-executable/scripts/inspect.sh" <FILE.run>`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-run-executable/scripts/inspect.sh" <FILE.run>`
 
 ## 获取（当输入是 URL）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-run-executable/scripts/fetch.sh" -o /tmp/<name>.run <URL>`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-run-executable/scripts/fetch.sh" -o /tmp/<name>.run <URL>`
 
 ## 执行（危险操作，需确认）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; CONFIRM_RUN_EXEC=YES CONFIRM_BACKUP_DONE=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
-- 或（明确跳过备份）：`SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; CONFIRM_RUN_EXEC=YES CONFIRM_BACKUP_SKIPPED=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_RUN_EXEC=YES CONFIRM_BACKUP_DONE=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
+- 或（明确跳过备份）：`SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_RUN_EXEC=YES CONFIRM_BACKUP_SKIPPED=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
 
 提示：
 - 如果用户是在设备的普通 shell 里执行命令：可用 `chmod 755 <FILE.run> && <FILE.run> ...`（或在同目录 `./xxx.run`）。

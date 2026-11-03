@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-docker-basics\ndescription: 检查、安装、启停和排查 iStoreOS Docker/dockerd 与容器；镜像或文件下载慢由下载加速能力处理，数据目录迁移由专用 skill 处理。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: Docker 异常, Docker 安装, Docker 启动失败, dockerd, 容器异常, compose, 容器服务\nnegative-triggers: Docker 镜像慢, Docker 拉取失败, docker pull, Docker 数据目录, data_root\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+      "sourceDigest": "sha256:6b6fed5b0ec983652548a7f71e7509f7520ee5aad681f3f6d68460adc6594898"
+    }
+  ]
+}

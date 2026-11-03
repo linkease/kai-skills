@@ -1,18 +1,29 @@
 ---
 name: kai-download-acceleration
 description: 检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。
-owner: system-pack/common
-systems: ubuntu, debian, istoreos, openwrt, linux, macos, windows
-triggers: 文件下载慢, GitHub 文件, 下载链接, docker pull, Docker 镜像下载, git clone, 下载加速
-negative-triggers: 网速慢, 测速, 宽带速度, pip install, npm ci, go mod, uv sync
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
-aliases: istoreos-download-acceleration
 ---
 
-Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
+through native PowerShell, then the authorized Ensure operation.
+
+## Business workflow
+Routed Git reads require native Git >=2.37. The client resolves only its local
+TLS gateway hostname within the child Git process; Host/SNI, normal certificate
+verification and the repository's original GitHub URL remain intact. Do not
+change the target's DNS or hosts file to make the local route work.
+
+Use the local bootstrap resource above for missing Bash/tools.
 
 Use the selected target and Transport. Prepare missing Bash/jq/ks-cli with
 kai-tool-bootstrap; service setup belongs to that target's platform lifecycle.
@@ -41,6 +52,10 @@ For a public GitHub repository, use
 checked out at the verified commit; a matching clean managed clone is reused.
 Foreign or changed repositories are preserved. The helper uses process-local
 ks-cli Git routing and never writes global Git insteadOf or credentials.
+This operation requires native Git with HTTPS support on the target. Prepare it
+through that target's native package provider when absent; a missing Git is a
+failed prerequisite, not a successful download. On iStoreOS review the package
+plan first and preserve the firmware's curl, libraries and TLS configuration.
 
 For an immutable Docker image, use `docker-pull IMAGE@sha256:DIGEST` with an
 existing authorized daemon. Digest references pass through the native client,

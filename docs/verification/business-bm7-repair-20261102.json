@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 1,
+  "milestone": "BM7",
+  "batch": "authorized-node-repair-20261102",
+  "status": "failed",
+  "optimizationRounds": 3,
+  "stoppedBy": "user-defined maximum of three optimization rounds",
+  "rounds": [
+    {
+      "optimizationRound": 1,
+      "status": "failed",
+      "stage": "ubuntu independent Git clone",
+      "reason": "HTTP 429 on git-upload-pack",
+      "reportSha256": "7c9f253dcce56d1798bdd902608831a35b9b8371394d1e1c7642a311e2a23d34",
+      "cleanup": "passed"
+    },
+    {
+      "optimizationRound": 2,
+      "status": "failed",
+      "stage": "ubuntu development collection Git clone",
+      "reason": "HTTP 429 on git-upload-pack",
+      "reportSha256": "c6a3a13f56cb09c33bb11c6a638c63a239ef1fd9f56cddd70d84ad8367868542",
+      "cleanup": "passed"
+    },
+    {
+      "optimizationRound": 3,
+      "status": "failed",
+      "stage": "istoreos development Git prerequisite preview",
+      "reason": "native opkg checksum or size mismatch for git-http 2.50.1-r1",
+      "reportSha256": "0d0b2b71631ddd701981d6f57acf2b79abc424a8ca16025f4ec9f4453f099d32",
+      "cleanup": "passed"
+    }
+  ],
+  "nodeMusl": {
+    "status": "passed",
+    "runtime": "22.14.0",
+    "archiveBytes": 55537378,
+    "originalSha256Validation": "passed",
+    "gpgAttestation": "not-established; native upstream signature endpoint returned 404; no verification option disabled",
+    "commandSeconds": 85,
+    "receiptSha256": "4ee29ad8a99538ac88a11c9ffc528315baf208d23459eafc2f1f72491c409fa0"
+  },
+  "candidate": {
+    "sourceCommit": "76cd58fceefc62c8ae83383199c548ad8b1f3442",
+    "officialRelease": false
+  },
+  "testedGeneration": {
+    "scope": "before subsequent BM8 bootstrap/WinGet changes",
+    "finalCandidateAcceptance": false,
+    "independentCases": [
+      {
+        "id": "BM7-ubuntu-kai-tool-bootstrap",
+        "skill": "kai-tool-bootstrap",
+        "treeDigest": "sha256:5fd1ab0adeb49bea68feb3c030d69ffe1be3e1bc5da5bbc4c2e42b39486410da",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-ubuntu-kai-software",
+        "skill": "kai-software",
+        "treeDigest": "sha256:d36cfb60f2538734bacd3494e18020ecf793df3433f6c4bf8002c5704e5ce0aa",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-ubuntu-kai-dev-environment",
+        "skill": "kai-dev-environment",
+        "treeDigest": "sha256:5369872f3543993f119a7be739447615a33767a4adb4d1d2e7130a44671525aa",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-ubuntu-kai-project-dependencies",
+        "skill": "kai-project-dependencies",
+        "treeDigest": "sha256:101545800303b0ba08e4e1a2aa97642fb2d4e88ea625f200dfa62284be4c99e0",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-ubuntu-kai-download-acceleration",
+        "skill": "kai-download-acceleration",
+        "treeDigest": "sha256:f16349613fef28d94596b096b9f75f06a5cc8481d4bb51c8e75f7228ee7a463d",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-ubuntu-kai-storage-files",
+        "skill": "kai-storage-files",
+        "treeDigest": "sha256:2a4b705538e523d45eb87b8836ac28eaedabc55dfac6e5429f2f155ef35a3f28",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-debian-kai-tool-bootstrap",
+        "skill": "kai-tool-bootstrap",
+        "treeDigest": "sha256:5fd1ab0adeb49bea68feb3c030d69ffe1be3e1bc5da5bbc4c2e42b39486410da",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-debian-kai-software",
+        "skill": "kai-software",
+        "treeDigest": "sha256:d36cfb60f2538734bacd3494e18020ecf793df3433f6c4bf8002c5704e5ce0aa",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-debian-kai-dev-environment",
+        "skill": "kai-dev-environment",
+        "treeDigest": "sha256:5369872f3543993f119a7be739447615a33767a4adb4d1d2e7130a44671525aa",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-debian-kai-project-dependencies",
+        "skill": "kai-project-dependencies",
+        "treeDigest": "sha256:101545800303b0ba08e4e1a2aa97642fb2d4e88ea625f200dfa62284be4c99e0",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-debian-kai-download-acceleration",
+        "skill": "kai-download-acceleration",
+        "treeDigest": "sha256:f16349613fef28d94596b096b9f75f06a5cc8481d4bb51c8e75f7228ee7a463d",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-debian-kai-storage-files",
+        "skill": "kai-storage-files",
+        "treeDigest": "sha256:2a4b705538e523d45eb87b8836ac28eaedabc55dfac6e5429f2f155ef35a3f28",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-istoreos-kai-tool-bootstrap",
+        "skill": "kai-tool-bootstrap",
+        "treeDigest": "sha256:5fd1ab0adeb49bea68feb3c030d69ffe1be3e1bc5da5bbc4c2e42b39486410da",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-istoreos-kai-software",
+        "skill": "kai-software",
+        "treeDigest": "sha256:d36cfb60f2538734bacd3494e18020ecf793df3433f6c4bf8002c5704e5ce0aa",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-istoreos-kai-dev-environment",
+        "skill": "kai-dev-environment",
+        "treeDigest": "sha256:5369872f3543993f119a7be739447615a33767a4adb4d1d2e7130a44671525aa",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-istoreos-kai-project-dependencies",
+        "skill": "kai-project-dependencies",
+        "treeDigest": "sha256:101545800303b0ba08e4e1a2aa97642fb2d4e88ea625f200dfa62284be4c99e0",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-istoreos-kai-download-acceleration",
+        "skill": "kai-download-acceleration",
+        "treeDigest": "sha256:f16349613fef28d94596b096b9f75f06a5cc8481d4bb51c8e75f7228ee7a463d",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      },
+      {
+        "id": "BM7-istoreos-kai-storage-files",
+        "skill": "kai-storage-files",
+        "treeDigest": "sha256:2a4b705538e523d45eb87b8836ac28eaedabc55dfac6e5429f2f155ef35a3f28",
+        "status": "passed",
+        "isolatedSkillCount": 1
+      }
+    ],
+    "specialistCases": [
+      {
+        "skill": "istoreos-app-search",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:dc6be26a377fef9bbcaa07c0e3600961dedd7a85bfbbb68733fc1610d4f0284d",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-app-diagnostics",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:cbf0716b10fef412d228adeaea06116b6eec21092daa649d971c04e1e52c9803",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-backup-restore",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:572137a3ba7f780daf0be0ddf797522e573f5c203c7407ebfd37923c5edf52de",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-docker-acceleration-istoreenhance",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:0da649ff5eab55a8f1954a49e8774ce3896e07b8c155aed0405602c754387ace",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-docker-basics",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:9a52a01f65ed243c11e1143b97abab59d9f9032dceaa5e6d150912ec3e6fec74",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-docker-data-root-migrate",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:e04592edd87173856aeadf188c4b1579175aecda364cc157079654e451d8cc24",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-kspeeder-domainfold-fetch",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:847ea88cac3a409e8d41de2b4f7bcdc1a96235ba034620318eb2bfa07d931060",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-logs-and-diagnostics",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:4a6f0ada0cab279fc0587a10147ec809b116bbbf7ebed0d6d80581f06bb7572f",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-luci-recovery",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:f6375a53bbbd97a1a9804e16ec6923e74d7d2217a1d9a4d0df433f71178cb6ec",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-network-quality",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:e73dd12211042690073938be78dedf04361833eb9643e1e48be0d737d91a6350",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-source-introspect",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:985c81c540a7c9e64430318064350a597ef3977cf2ae5d3385e51aa8fadcba74",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-system-task-router",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:99bcdd1e6302611079226058abe8fcbb357726d706271972e6decd53a6fd1c59",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-systools",
+        "status": "passed",
+        "scope": "native-read-only",
+        "treeDigest": "sha256:b8ce9144241e7c874c94db8d182cf2a977ec0420d9120fa429d2647ce9276c6e",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-run-executable",
+        "status": "passed",
+        "scope": "actual-owned-executable-and-failure",
+        "treeDigest": "sha256:cca238c783ff8fae941446575b1f2d66351491e43b6339ed442688107b6fbc74",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-service-manager",
+        "status": "passed",
+        "scope": "native-precondition-rejection",
+        "treeDigest": "sha256:dd73a3fae2d9274d0bf39bdf3703d22ee3ce66a6bf70c7e19ebbf8788a36be34",
+        "isolatedSkillCount": 1
+      },
+      {
+        "skill": "istoreos-quickstart-api",
+        "status": "passed",
+        "scope": "native-precondition-rejection",
+        "treeDigest": "sha256:334d2067b68fcced2b875298518a9e72d70c5224c3c326f6578dd08cbd4e1d12",
+        "isolatedSkillCount": 1
+      }
+    ],
+    "developmentCollections": [
+      {
+        "platform": "ubuntu",
+        "status": "passed",
+        "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e"
+      },
+      {
+        "platform": "debian",
+        "status": "passed",
+        "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b"
+      },
+      {
+        "platform": "istoreos",
+        "status": "failed",
+        "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b"
+      }
+    ],
+    "softwareManagementCollections": "not-run-for-new-programs",
+    "systemJourneys": "not-run-for-new-programs"
+  },
+  "previousBatchEvidence": "business-bm7-blocker.json",
+  "cleanup": {
+    "status": "passed",
+    "runs": [
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": true
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": true
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": true
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": true
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": true
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": false
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": false
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": false
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": false
+      },
+      {
+        "containers": 0,
+        "networks": 0,
+        "emptyRunDirectoryRemoved": false
+      }
+    ],
+    "availableBytes": 22040731648,
+    "frozenImagesRetained": true
+  }
+}

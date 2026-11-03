@@ -28,4 +28,3 @@ fi
 
 echo "action: restore from $file (will reboot after success)" >&2
 /usr/libexec/istore/overlay-backup restore "$file"
-

@@ -1,15 +1,18 @@
 ---
 name: istoreos-docker-data-root-migrate
 description: 安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。
-owner: system-pack/istoreos
-systems: istoreos
-triggers: Docker data_root, Docker 数据目录, Docker 迁移, Docker 占满 overlay, 容器数据迁移
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: high
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-storage-path`: [local instructions](resources/runtime/istoreos-storage-path/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # Docker data_root Migration (Safe)
 
 目标：当 Docker 数据目录在 `/overlay`（例如 `/overlay/upper/opt/docker`）或空间不足时，把 `dockerd.globals.data_root` 迁移到数据盘，避免把系统盘打满。
@@ -23,11 +26,11 @@ cost: high
 
 ## 快速检查（只读）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/plan.sh"`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/plan.sh"`
 
 ## 执行迁移（写操作，需确认）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/apply.sh" <NEW_DATA_ROOT>`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/apply.sh" <NEW_DATA_ROOT>`
 
 提示：
 - `<NEW_DATA_ROOT>` 建议在数据盘上，例如 `/mnt/<disk>/docker`。

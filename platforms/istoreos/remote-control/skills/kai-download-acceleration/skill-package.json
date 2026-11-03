@@ -1,0 +1,52 @@
+{
+  "id": "kai-download-acceleration",
+  "version": "1.1.0",
+  "path": "skills/kai-download-acceleration",
+  "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+  "description": "检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。",
+  "platforms": [
+    "debian",
+    "istoreos",
+    "macos",
+    "ubuntu",
+    "windows"
+  ],
+  "kind": "business",
+  "component": "common",
+  "architectures": {
+    "debian": [
+      "x64"
+    ],
+    "istoreos": [
+      "x64"
+    ],
+    "macos": [
+      "arm64"
+    ],
+    "ubuntu": [
+      "x64"
+    ],
+    "windows": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "compatible Bash and full jq",
+    "ks-cli",
+    "native Git with HTTPS support for Git tasks",
+    "authorized Docker daemon for Docker tasks",
+    "authorized gateway for accelerated routes"
+  ],
+  "resourceSources": [
+    {
+      "id": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "sourceDigest": "sha256:52cbf06d6e0d186d7f106e2492dc1036897af5f1015b3368bef62dc7c9b077a5"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

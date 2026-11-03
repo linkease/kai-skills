@@ -1,16 +1,12 @@
 ---
 name: istoreos-service-manager
 description: 检查和管理 iStoreOS init.d 服务及对应 UCI 启用状态；用于服务未运行、开机未启动、端口未监听或安装后未生效，不负责 LuCI 核心恢复。
-owner: system-pack/istoreos
-systems: istoreos
-triggers: 服务没启动, 服务启动失败, 服务状态, 开机自启, 端口没监听, 安装后没生效, init.d
-negative-triggers: LuCI 打不开, LuCI 500, Docker 数据目录
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # iStoreOS Service Manager
 
 目标：把“已安装但没生效/服务没起来/插件没启用”的问题收敛到一个通用闭环：**init.d + UCI enable flag + 验证**。

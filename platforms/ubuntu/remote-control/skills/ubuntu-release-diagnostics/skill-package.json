@@ -1,0 +1,27 @@
+{
+  "id": "ubuntu-release-diagnostics",
+  "version": "1.1.0",
+  "path": "skills/ubuntu-release-diagnostics",
+  "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+  "description": "Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.",
+  "platforms": [
+    "ubuntu"
+  ],
+  "kind": "business",
+  "component": "ubuntu",
+  "architectures": {
+    "ubuntu": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "ubuntu-release-diagnostics",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "sourceDigest": "sha256:9862a6f1fd91e01f5dd1b2195ca240b32e3b7b5b5cbf31a3965ea0af04b375b6"
+    }
+  ]
+}

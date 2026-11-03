@@ -1,14 +1,21 @@
 ---
 name: istoreos-app-search
 description: 从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 istoreos-package-manager。
-owner: system-pack/istoreos
-systems: istoreos
-invocation: manual
-auto-use: off
-needs-fresh-data: true
-cost: low
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-app-diagnostics`: [local instructions](resources/runtime/istoreos-app-diagnostics/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-app-search`: [local instructions](resources/runtime/istoreos-app-search/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS App Search (MVP)
 
 用于把“口头描述找插件/应用”变成标准的 Top3 候选 + 用户确认流程。

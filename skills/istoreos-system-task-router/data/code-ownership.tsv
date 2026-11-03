@@ -1,0 +1,8 @@
+# domain	repository	relative_path	use_for
+kai-runtime	linkease/istore-ai-helper	reasonix-kai/	Kai capability routing, skill loading, web UI and runtime behavior
+istoreos-profile	linkease/istore-ai-helper	linkease-skills/istoreos/	iStoreOS prompts, skills, evidence helpers and tests
+istore-store	linkease/openwrt-apps	istore/luci/luci-app-store/	Store UI, controller, is-opkg wrapper and Store contracts
+taskd	linkease/openwrt-apps	istore/luci/taskd/; istore/luci/luci-lib-taskd/	task execution, status and persisted install logs
+first-party-apps	linkease/openwrt-apps	istoreos-app-hub/apps/	first-party app-meta, autoconf, init, UCI, LuCI and istorec implementations
+fastnet	linkease/fastnet	./	FastNet CLI modes, output contracts and network measurement behavior
+is-opkg	linkease/openwrt-apps	istore/luci/luci-app-store/root/bin/is-opkg	package operation, AUTOCONF and task dispatch behavior

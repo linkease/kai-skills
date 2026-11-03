@@ -1,0 +1,27 @@
+{
+  "id": "target-ssh-powershell-controller",
+  "version": "1.1.0",
+  "path": "skills/target-ssh-powershell-controller",
+  "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+  "description": "Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.",
+  "platforms": [
+    "windows"
+  ],
+  "kind": "transport",
+  "component": "transport.ssh",
+  "architectures": {
+    "windows": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "target-ssh-powershell-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+      "sourceDigest": "sha256:371d021111c4eabc8b65809225e48718b80faaad8eb7c8dda87086733b362204"
+    }
+  ]
+}

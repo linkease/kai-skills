@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: ubuntu-release-diagnostics\ndescription: Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.\nowner: system-pack/ubuntu\nsystems: ubuntu\nfeatures: apt-get, systemctl\ninvocation: manual\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "ubuntu-release-diagnostics",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "sourceDigest": "sha256:9862a6f1fd91e01f5dd1b2195ca240b32e3b7b5b5cbf31a3965ea0af04b375b6"
+    }
+  ]
+}

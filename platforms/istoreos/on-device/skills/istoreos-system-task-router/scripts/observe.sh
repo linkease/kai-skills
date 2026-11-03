@@ -105,7 +105,7 @@ trap 'rm -f "$tmp"' EXIT HUP INT TERM
     package)
       section package
       here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-      pkg="$here/../../istoreos-package-manager/scripts/package.sh"
+      pkg="$here/../resources/runtime/istoreos-package-manager/scripts/package.sh"
       ISTORE_SYSTEM_ROOT="$root" sh "$pkg" detect 2>&1 || true
       ISTORE_SYSTEM_ROOT="$root" sh "$pkg" installed "$subject" 2>&1 | head -n 80 || true
       ISTORE_SYSTEM_ROOT="$root" sh "$pkg" files "$subject" 2>&1 | head -n 120 || true

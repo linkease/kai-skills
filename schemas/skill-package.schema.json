@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Independent business skill package",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "version", "path", "canonicalPath", "description", "platforms", "kind", "component", "architectures", "programRequirements"],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9-]{0,63}$"},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?$"},
+    "path": {"type": "string", "pattern": "^skills/[a-z0-9][a-z0-9-]*$"},
+    "canonicalPath": {"type": "string", "pattern": "^components/(?!.*(?:^|/)\\.\\.(?:/|$)).+$"},
+    "description": {"type": "string", "minLength": 1},
+    "platforms": {"type": "array", "uniqueItems": true, "minItems": 1, "items": {"enum": ["ubuntu", "debian", "istoreos", "macos", "windows"]}},
+    "kind": {"enum": ["business", "transport"]},
+    "component": {"type": "string", "minLength": 1},
+    "architectures": {"type": "object", "additionalProperties": {"type": "array", "uniqueItems": true, "minItems": 1, "items": {"enum": ["x64", "arm64", "armv7"]}}},
+    "programRequirements": {"type": "array", "items": {"type": "string", "minLength": 1}},
+    "treeDigest": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+    "resourceSources": {"type": "array", "items": {"type": "object", "required": ["id", "canonicalPath", "sourceDigest"], "properties": {"id": {"type": "string"}, "canonicalPath": {"type": "string"}, "sourceDigest": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"}}}}
+  }
+}

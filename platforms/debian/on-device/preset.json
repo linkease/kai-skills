@@ -20,8 +20,8 @@
     "linux": "1.0.0",
     "debian": "1.0.0"
   },
-  "sourceDigest": "sha256:3382d76a5e277c574baf762fa676ce9e45b8c26089aa1a950674d57f178431f0",
-  "treeDigest": "sha256:91cbf78768be58495ab74bd514654c04b797fb0bb3789da83e487f5d666b8d1c",
+  "sourceDigest": "sha256:ca531924a9ce5198dd89a64ca8746bd3480e3151792db423e6bc37e46becbc22",
+  "treeDigest": "sha256:250fd274179693374ad838f52ed24b6f00d6170b0fcaed453404456bdf91f972",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

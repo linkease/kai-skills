@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-. "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+. "$here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
-runtime_helper="$here/../../kai-dev-environment/scripts/runtime.sh"
+runtime_helper="$here/../resources/runtime/kai-dev-environment/scripts/runtime.sh"
 fail() { jq -cn --arg category "$2" --arg reason "$3" --argjson code "$1" '{schemaVersion:1,status:"failed",category:$category,reason:$reason,exitCode:$code}'; exit "$1"; }
 action="${1:-}"; manager="${2:-}"; version="${3:-}"; project="${4:-}"
 case "$action" in install|run|add|sources) ;; *) fail 2 usage 'dependencies.sh install|run|add|sources npm|pip|uv|go EXACT_RUNTIME_VERSION PROJECT [-- ARGS...]' ;; esac
@@ -71,7 +71,7 @@ if [ "${KAI_DEP_ENTERED:-0}" != 1 ]; then
     exec bash "$runtime_helper" exec "$runtime" "$version" -- env KAI_DEP_ENTERED=1 KAI_DEP_SDK_ROOT="$sdk_root" bash "$here/dependencies.sh" "$@"
 fi
 cd -- "$project"
-platform="${KAI_PLATFORM:-$(bash "$here/../../kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
+platform="${KAI_PLATFORM:-$(bash "$here/../resources/runtime/kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
 npm_native=(npm)
 if [ "$platform:$manager" = windows:npm ]; then
     sdk="$(CDPATH= cd -- "${KAI_DEP_SDK_ROOT:?selected SDK root is required}" && pwd -P)"

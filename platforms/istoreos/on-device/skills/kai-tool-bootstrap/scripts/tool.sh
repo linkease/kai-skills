@@ -64,8 +64,11 @@ apt_owns() {
 brew_owns() {
     [ "$platform" = macos ] && command -v brew >/dev/null 2>&1 || return 1
     local prefix
-    prefix="$(brew --prefix "$tool" 2>/dev/null)" || return 1
-    [ "$path" -ef "$prefix/bin/$tool" ]
+    # A formula query can refresh API metadata even for an installed tool.
+    # Resolve only the existing prefix, opt link and native installation receipt.
+    prefix="$(brew --prefix 2>/dev/null)" || return 1
+    [ -f "$prefix/opt/$tool/INSTALL_RECEIPT.json" ] &&
+        [ "$path" -ef "$prefix/opt/$tool/bin/$tool" ]
 }
 
 discover() {
@@ -116,6 +119,9 @@ discover() {
     fi
     local raw
     if [ "$tool" = bash ]; then raw="$("$path" -c 'printf %s "$BASH_VERSION"' 2>/dev/null || true)";
+    # Identity discovery must not wait for mise's online self-update check.
+    # Keep offline mode local to --version; SDK installation retains its policy.
+    elif [ "$tool" = mise ]; then raw="$(MISE_OFFLINE=1 "$path" --version 2>/dev/null | head -n 1 || true)";
     else raw="$("$path" --version 2>/dev/null | head -n 1 || true)"; fi
     version="$(printf '%s\n' "$raw" | sed -n 's/^[^0-9]*\([0-9][0-9.]*\).*/\1/p')"
     owner=external

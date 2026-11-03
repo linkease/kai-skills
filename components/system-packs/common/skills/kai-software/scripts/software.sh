@@ -17,8 +17,14 @@ fail() {
         '{schemaVersion:1,status:"failed",category:$category,reason:$detail,exitCode:$code}'
     exit "$code"
 }
-case "$action" in search|info|install|remove|files|owner|refresh) ;; *) fail 2 usage 'software.sh search|info|install|remove|files|owner|refresh SUBJECT [VERSION]' ;; esac
+case "$action" in search|info|install|download|remove|files|owner|refresh) ;; *) fail 2 usage 'software.sh search|info|install|download|remove|files|owner|refresh SUBJECT [VERSION]' ;; esac
 if [ "$platform" = windows ]; then
+    destination=; architecture="${KAI_WINGET_ARCH:-}"
+    if [ "$action" = download ]; then
+        [ "$#" -ge 4 ] && [ "$#" -le 5 ] && [ -n "$requested" ] || fail 2 usage 'software.sh download winget:ID VERSION ABSOLUTE_DIRECTORY [ARCH]'
+        destination="$4"; architecture="${5:-$architecture}"
+        if command -v cygpath >/dev/null 2>&1; then destination="$(cygpath -w "$destination")"; fi
+    fi
     case "$action" in
         search) provider="${KAI_SOFTWARE_PROVIDER:-winget}" ;;
         refresh) provider="$subject" ;;
@@ -30,7 +36,7 @@ if [ "$platform" = windows ]; then
             esac ;;
     esac
     [ "$provider" = winget ] || fail 18 unsupported-platform 'the selected provider has no Windows policy'
-    powershell="${KAI_POWERSHELL_BIN:-$(command -v powershell.exe 2>/dev/null || command -v pwsh.exe 2>/dev/null || true)}"
+    powershell="${KAI_POWERSHELL_BIN:-$(command -v pwsh.exe 2>/dev/null || command -v powershell.exe 2>/dev/null || true)}"
     native_script="$here/winget.ps1"
     if command -v cygpath >/dev/null 2>&1; then
         powershell="$(cygpath -u "$powershell")"
@@ -38,11 +44,15 @@ if [ "$platform" = windows ]; then
     fi
     [ -n "$powershell" ] && [ -x "$powershell" ] || fail 127 missing-executable 'an existing native PowerShell is required for structured WinGet operations'
     command=("$powershell" -NoLogo -NoProfile -NonInteractive -File "$native_script")
+    ks_cli="${KAI_KSCLI_BIN:-$(command -v ks-cli 2>/dev/null || command -v ks-cli.exe 2>/dev/null || true)}"
+    if [ -n "$ks_cli" ] && command -v cygpath >/dev/null 2>&1; then ks_cli="$(cygpath -w "$ks_cli")"; fi
     request="$(jq -cn --arg action "$action" --arg subject "$subject" --arg version "$requested" \
-        '{action:$action,subject:$subject,version:$version}')"
+        --arg ksCli "$ks_cli" --arg architecture "$architecture" --arg destination "$destination" \
+        '{action:$action,subject:$subject,version:$version,ksCli:$ksCli,architecture:$architecture,destination:$destination}')"
     printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "${command[@]}"
     exit $?
 fi
+[ "$action" != download ] || fail 18 unsupported-operation 'prepared software download is currently available for the Windows winget provider'
 native_provider() { case "$platform" in ubuntu|debian) echo apt ;; istoreos|openwrt) echo opkg ;; macos) echo brew ;; windows) echo winget ;; *) echo unknown ;; esac; }
 validate_name() { [[ "$1" =~ ^[A-Za-z0-9][A-Za-z0-9._+-]*$ ]] || fail 2 usage 'invalid exact software name'; }
 validate_provider() {

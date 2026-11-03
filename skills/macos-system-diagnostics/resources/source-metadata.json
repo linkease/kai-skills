@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: macos-system-diagnostics\ndescription: Collect a bounded read-only macOS health summary covering version, architecture, uptime, root disk, memory pressure, and launchd job totals; use for general Mac errors, slowness, or first-pass diagnosis.\nowner: system-pack/macos\nsystems: macos\nrequires: target-shell:posix\ntriggers: macOS 异常, Mac 诊断, 系统变慢, 磁盘空间, memory pressure, macOS health\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: low\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "macos-system-diagnostics",
+      "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+      "sourceDigest": "sha256:5040046a648abd6296dbb8a7660eb38a14f59f39a611ac711239ddb19cf6513c"
+    }
+  ]
+}

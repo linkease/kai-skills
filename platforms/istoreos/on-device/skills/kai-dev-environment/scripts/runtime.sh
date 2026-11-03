@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-. "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+. "$here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
-platform="${KAI_PLATFORM:-$(bash "$here/../../kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
+platform="${KAI_PLATFORM:-$(bash "$here/../resources/runtime/kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
 fail() { jq -cn --arg category "$2" --arg reason "$3" --argjson code "$1" '{schemaVersion:1,status:"failed",category:$category,reason:$reason,exitCode:$code}'; exit "$1"; }
 action="${1:-}"; runtime="${2:-}"; version="${3:-}"
 case "$action" in resolve|probe|install|verify|exec) ;; *) fail 2 usage 'runtime.sh resolve|probe|install|verify|exec RUNTIME VERSION [SCOPE|-- COMMAND...]' ;; esac

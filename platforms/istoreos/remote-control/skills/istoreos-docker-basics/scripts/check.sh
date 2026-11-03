@@ -19,7 +19,7 @@ run sh -c "docker info 2>&1 | head -n 80 || true"
 say "Docker Space Check"
 script_dir="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
 skills_dir="$(CDPATH= cd -- "$script_dir/../.." && pwd)"
-run sh -c "sh \"$skills_dir/istoreos-docker-basics/scripts/check_space.sh\" 2>&1 || true"
+run sh -c "sh \"$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/scripts/check_space.sh\" 2>&1 || true"
 
 say "UCI dockerd"
 run sh -c "uci -q show dockerd 2>/dev/null | head -n 120 || true"

@@ -24,4 +24,3 @@ fi
 
 echo "not installed: iStoreEnhance not found (PATH or /usr/sbin/iStoreEnhance), and /etc/init.d/istoreenhance not found." >&2
 exit 1
-

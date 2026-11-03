@@ -12,6 +12,11 @@ cost: medium
 aliases: istoreos-download-acceleration
 ---
 
+Routed Git reads require native Git >=2.37. The client resolves only its local
+TLS gateway hostname within the child Git process; Host/SNI, normal certificate
+verification and the repository's original GitHub URL remain intact. Do not
+change the target's DNS or hosts file to make the local route work.
+
 Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.
 
 Use the selected target and Transport. Prepare missing Bash/jq/ks-cli with
@@ -41,6 +46,10 @@ For a public GitHub repository, use
 checked out at the verified commit; a matching clean managed clone is reused.
 Foreign or changed repositories are preserved. The helper uses process-local
 ks-cli Git routing and never writes global Git insteadOf or credentials.
+This operation requires native Git with HTTPS support on the target. Prepare it
+through that target's native package provider when absent; a missing Git is a
+failed prerequisite, not a successful download. On iStoreOS review the package
+plan first and preserve the firmware's curl, libraries and TLS configuration.
 
 For an immutable Docker image, use `docker-pull IMAGE@sha256:DIGEST` with an
 existing authorized daemon. Digest references pass through the native client,

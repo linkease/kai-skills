@@ -51,6 +51,26 @@ hash_tree() {
   done | sha256sum | awk '{print "sha256:" $1}'
 }
 
+# Once a destination has migrated, old preset entrypoints must respect shared
+# package ownership rather than deleting files owned by a business selection.
+if [ -f "$target/.linkease-skills/business-state.json" ]; then
+  business_root=
+  for candidate in "$root" "$root/../../.."; do
+    if [ -f "$candidate/business-catalog.json" ] && [ -f "$candidate/tools/install-business.sh" ]; then
+      business_root="$(CDPATH= cd -- "$candidate" && pwd -P)"; break
+    fi
+  done
+  [ -n "$business_root" ] || { echo 'failed: this legacy-only archive cannot manage migrated ownership; use the current complete distribution' >&2; exit 2; }
+  platform="$(jq -er .platform "$preset")"
+  usage_mode="$(jq -er .mode "$preset")"
+  set -- --platform "$platform" --all --mode "$usage_mode" --consumer generic --target-skills "$target"
+  [ "$dry_run" = 0 ] || set -- "$@" --dry-run
+  [ "$upgrade_only" = 0 ] || set -- "$@" --upgrade
+  [ "$action" != uninstall ] || set -- "$@" --uninstall
+  [ "$mode" = copy ] || set -- "$@" --symlink
+  [ "$force" = 0 ] || set -- "$@" --force
+  exec sh "$business_root/tools/install-business.sh" "$@"
+fi
 manifest="$target/.linkease-skills/$preset_id.json"
 owned="0"
 [ -f "$manifest" ] && owned="1"

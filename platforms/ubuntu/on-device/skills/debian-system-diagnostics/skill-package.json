@@ -1,0 +1,31 @@
+{
+  "id": "debian-system-diagnostics",
+  "version": "1.1.0",
+  "path": "skills/debian-system-diagnostics",
+  "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+  "description": "Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.",
+  "platforms": [
+    "debian",
+    "ubuntu"
+  ],
+  "kind": "business",
+  "component": "debian",
+  "architectures": {
+    "debian": [
+      "x64"
+    ],
+    "ubuntu": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "debian-system-diagnostics",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "sourceDigest": "sha256:7940724d7318dcec51ab61eb939b144d6865fa0c9e74e75337bdc11c8afad58f"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": "kai-storage-files",
+  "version": "1.1.0",
+  "path": "skills/kai-storage-files",
+  "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+  "description": "限定路径分析空间与大文件、搜索文件名，核实安装目录的挂载和持久性。",
+  "platforms": [
+    "debian",
+    "istoreos",
+    "macos",
+    "ubuntu",
+    "windows"
+  ],
+  "kind": "business",
+  "component": "common",
+  "architectures": {
+    "debian": [
+      "x64"
+    ],
+    "istoreos": [
+      "x64"
+    ],
+    "macos": [
+      "arm64"
+    ],
+    "ubuntu": [
+      "x64"
+    ],
+    "windows": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "compatible Bash and full jq",
+    "linkspace on supported Linux targets or explicitly selected Python fallback",
+    "zsetup storage on Linux for mount facts"
+  ],
+  "resourceSources": [
+    {
+      "id": "kai-storage-files",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "sourceDigest": "sha256:d288ec91ffa91996775e6fd9d5c2798b95a159416defa650cb3e6c5717e37bd4"
+    },
+    {
+      "id": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

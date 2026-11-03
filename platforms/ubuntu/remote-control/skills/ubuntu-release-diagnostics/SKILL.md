@@ -1,12 +1,14 @@
 ---
 name: ubuntu-release-diagnostics
 description: Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.
-owner: system-pack/ubuntu
-systems: ubuntu
-features: apt-get, systemctl
-invocation: manual
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # Ubuntu Release Diagnostics
 
 Use this overlay only for Ubuntu-specific behavior. Start with the Debian

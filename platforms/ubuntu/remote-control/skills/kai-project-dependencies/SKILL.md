@@ -1,17 +1,27 @@
 ---
 name: kai-project-dependencies
 description: 在所选 mise SDK 和项目隔离环境中安装 npm、pip、uv、Go 依赖。
-owner: system-pack/common
-systems: ubuntu, debian, istoreos, openwrt, linux, macos, windows
-triggers: pip install, npm install, npm ci, go mod, uv sync, Python 依赖, 项目依赖, 验证 Python 依赖安装流程
-negative-triggers: 安装 Python, 安装 Node, 安装 Go, 系统软件包
-auto-use: prefer
-routing-group: system-primary
-needs-fresh-data: true
-cost: medium
 ---
 
-Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `kai-dev-environment`: [local instructions](resources/runtime/kai-dev-environment/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
+through native PowerShell, then the authorized Ensure operation.
+
+SDK helpers are local at `resources/runtime/kai-dev-environment/scripts/runtime.sh`.
+
+## Business workflow
+Use the local bootstrap resource above for missing Bash/tools.
 
 Use the target's platform and Transport. System libraries/packages belong to
 kai-software; SDK installation and exact version resolution belong to

@@ -27,7 +27,7 @@ if [ -z "$skills_dir" ]; then
   here="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)"
   skills_dir="$(dirname "$here")"
 fi
-controller="$skills_dir/luci-http-controller/scripts/lucihttp.go"
+controller="$(CDPATH= cd -- "$(dirname "$0")/../resources/runtime/luci-http-controller" && pwd -P)/scripts/lucihttp.go"
 [ -f "$controller" ] || { echo "failed: luci-http-controller is not installed" >&2; exit 2; }
 [ -n "${TARGET_HTTP_HOST:-}" ] || { echo "failed: TARGET_HTTP_HOST is required" >&2; exit 2; }
 [ -n "${TARGET_LUCI_USER:-}" ] || { echo "failed: TARGET_LUCI_USER is required" >&2; exit 2; }

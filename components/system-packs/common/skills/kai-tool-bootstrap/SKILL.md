@@ -39,6 +39,14 @@ the target and uses the reported provider. Reuse a compatible installation and
 its manager. An external path with unknown ownership is a conflict; retain it.
 `KAI_TRUSTED_TOOL_PATH` names an existing executable the caller has explicitly
 chosen to trust. This is not permission to replace an old external installation.
+The mise identity query runs offline only for `--version`; installation keeps
+the caller's network and integrity policy. Homebrew ownership is checked from
+its existing prefix, opt link and native installation receipt, without an online
+formula lookup just to identify an installed program.
+
+For Windows jq through an existing authorized gateway, see
+[platform notes](data/platforms.md#windows-jq-download-routing). The original
+owner's size, SHA256 and functionality checks remain required.
 
 Ordinary Linux uses `zsetup install ks-cli --foreground`. The client package
 does not install or start KSpeeder. iStoreOS uses `is-opkg install ks-cli` and its

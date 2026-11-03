@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: debian-system-diagnostics\ndescription: Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.\nowner: system-pack/debian\nsystems: debian, ubuntu\nfeatures: apt-get, systemctl\ninvocation: manual\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "debian-system-diagnostics",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "sourceDigest": "sha256:7940724d7318dcec51ab61eb939b144d6865fa0c9e74e75337bdc11c8afad58f"
+    }
+  ]
+}

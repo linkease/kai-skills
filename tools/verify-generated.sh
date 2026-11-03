@@ -12,3 +12,4 @@ diff -ru "$root/platforms" "$tmp/platforms" >/dev/null || {
   exit 1
 }
 echo "ok: generated platforms match canonical components"
+if [ -f "$root/business-catalog.json" ]; then sh "$root/tools/verify-business.sh"; fi

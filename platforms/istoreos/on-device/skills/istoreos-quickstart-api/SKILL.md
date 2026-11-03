@@ -1,15 +1,20 @@
 ---
 name: istoreos-quickstart-api
 description: Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.
-owner: system-pack/istoreos
-systems: istoreos
-requires: target.http
-invocation: manual
-auto-use: off
-needs-fresh-data: true
-cost: medium
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `luci-http-controller`: [local instructions](resources/runtime/luci-http-controller/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS QuickStart API
 
 Use this helper when another iStoreOS skill needs QuickStart status or a user explicitly requests a QuickStart-backed operation. It owns endpoint semantics; `$luci-http-controller` owns authentication and HTTP transport.

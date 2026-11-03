@@ -78,12 +78,24 @@ class BootstrapTests(unittest.TestCase):
 
     def test_macos_reuses_the_brew_owned_executable(self):
         executable = self.script('mise', 'echo "2026.8.14 macos fixture"')
-        prefix = self.work / 'formula'; (prefix / 'bin').mkdir(parents=True)
-        (prefix / 'bin/mise').symlink_to(executable)
-        self.script('brew', 'if [ "$1" = --prefix ] && [ "$2" = mise ]; then printf "%s\\n" "$KAI_TEST_FORMULA"; else exit 2; fi')
+        prefix = self.work / 'brew'; formula = prefix / 'opt/mise'
+        (formula / 'bin').mkdir(parents=True)
+        (formula / 'bin/mise').symlink_to(executable)
+        (formula / 'INSTALL_RECEIPT.json').write_text('{}')
+        # Formula-qualified --prefix can fetch the online API with a cold cache.
+        self.script('brew', 'if [ "$#" = 1 ] && [ "$1" = --prefix ]; then printf "%s\\n" "$KAI_TEST_FORMULA"; else exit 2; fi')
         p, r = self.call('probe', 'mise', KAI_PLATFORM='macos', KAI_TEST_FORMULA=str(prefix))
         self.assertEqual(p.returncode, 0, r)
         self.assertEqual((r['status'], r['owner']), ('reused', 'homebrew'))
+
+    def test_mise_identity_probe_does_not_request_online_update_checks(self):
+        executable = self.script('mise',
+            '[ "$1" = --version ] && [ "${MISE_OFFLINE:-}" = 1 ] || exit 37\n'
+            'printf "2026.7.7 macos-arm64\\n"')
+        p, r = self.call('probe', 'mise', KAI_PLATFORM='macos',
+                         KAI_TRUSTED_TOOL_PATH=str(executable), MISE_OFFLINE='0')
+        self.assertEqual(p.returncode, 0, r)
+        self.assertEqual((r['status'], r['version']), ('reused', '2026.7.7'))
 
     def test_macos_reuses_compatible_existing_core(self):
         executable = self.script('zsetup', 'echo "zsetup 0.4.0"')
@@ -99,15 +111,16 @@ class BootstrapTests(unittest.TestCase):
         prefix = self.work / 'formula'
         self.script('brew', '''if [ "$1" = --prefix ]; then printf '%s\\n' "$KAI_TEST_FORMULA"; exit; fi
 [ "$1" = install ] && [ "$2" = mise ]
-/bin/mkdir -p "$KAI_TEST_FORMULA/bin"
-printf '#!/bin/sh\\necho "2026.8.14 macos fixture"\\n' > "$KAI_TEST_FORMULA/bin/mise"
-/bin/chmod 755 "$KAI_TEST_FORMULA/bin/mise"
-/bin/ln -s "$KAI_TEST_FORMULA/bin/mise" "$KAI_TEST_COMMAND"''')
+/bin/mkdir -p "$KAI_TEST_FORMULA/opt/mise/bin"
+printf '{}' > "$KAI_TEST_FORMULA/opt/mise/INSTALL_RECEIPT.json"
+printf '#!/bin/sh\\necho "2026.8.14 macos fixture"\\n' > "$KAI_TEST_FORMULA/opt/mise/bin/mise"
+/bin/chmod 755 "$KAI_TEST_FORMULA/opt/mise/bin/mise"
+/bin/ln -s "$KAI_TEST_FORMULA/opt/mise/bin/mise" "$KAI_TEST_COMMAND"''')
         p, r = self.call('ensure', 'mise', KAI_PLATFORM='macos', PATH=str(self.bin) + ':' + str(minimal),
                          KAI_TEST_FORMULA=str(prefix), KAI_TEST_COMMAND=str(self.bin / 'mise'))
         self.assertEqual(p.returncode, 0, r)
         digest = self.home / '.local/share/kai/tools/mise.sha256'
-        self.assertEqual(digest.read_text().split()[0], hashlib.sha256((prefix / 'bin/mise').read_bytes()).hexdigest())
+        self.assertEqual(digest.read_text().split()[0], hashlib.sha256((prefix / 'opt/mise/bin/mise').read_bytes()).hexdigest())
 
     def test_windows_native_trusted_path_is_converted_for_git_bash(self):
         executable = self.script('ks-cli', 'echo 0.8.5')

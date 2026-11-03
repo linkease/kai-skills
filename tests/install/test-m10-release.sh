@@ -18,8 +18,8 @@ hash_tree() {
   done | sha256sum | awk '{print "sha256:" $1}'
 }
 
-sh "$root/tools/build-release.sh" "$tmp/release-a" >/dev/null
-sh "$root/tools/build-release.sh" "$tmp/release-b" >/dev/null
+sh "$root/tools/build-release.sh" --legacy "$tmp/release-a" >/dev/null
+sh "$root/tools/build-release.sh" --legacy "$tmp/release-b" >/dev/null
 diff -ru "$tmp/release-a" "$tmp/release-b" >/dev/null || fail "release build is not deterministic"
 manifest="$tmp/release-a/release-manifest.json"
 jq -e '.schemaVersion == 1 and (.sourceCommit | test("^[a-f0-9]{40}$")) and (.artifacts | length == 20)' "$manifest" >/dev/null

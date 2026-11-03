@@ -1,0 +1,39 @@
+{
+  "id": "target-ssh-controller",
+  "version": "1.1.0",
+  "path": "skills/target-ssh-controller",
+  "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+  "description": "Bind a specific remote target over SSH and safely execute target scripts with strict host-key verification, bounded timeouts, explicit write approval, and no operating-system business logic.",
+  "platforms": [
+    "debian",
+    "istoreos",
+    "macos",
+    "ubuntu"
+  ],
+  "kind": "transport",
+  "component": "transport.ssh",
+  "architectures": {
+    "debian": [
+      "x64"
+    ],
+    "istoreos": [
+      "x64"
+    ],
+    "macos": [
+      "arm64"
+    ],
+    "ubuntu": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "target-ssh-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+      "sourceDigest": "sha256:edb838a0e359be1b8af78053fededec3fa5b2f80c531d1dbbfc8d7730583bed5"
+    }
+  ]
+}

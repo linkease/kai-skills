@@ -1,0 +1,27 @@
+{
+  "id": "windows-system-diagnostics",
+  "version": "1.1.0",
+  "path": "skills/windows-system-diagnostics",
+  "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+  "description": "Collect a bounded read-only Windows health summary covering OS, uptime, fixed disks, service totals, and recent critical System events; use for general Windows errors, slowness, or first-pass diagnosis.",
+  "platforms": [
+    "windows"
+  ],
+  "kind": "business",
+  "component": "windows",
+  "architectures": {
+    "windows": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "windows-system-diagnostics",
+      "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+      "sourceDigest": "sha256:a6a9ecd7cc9fda33553fd9cd2f972f65bc7eb730c4454d33d16e6fe43daf3d35"
+    }
+  ]
+}

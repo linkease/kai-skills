@@ -1,0 +1,27 @@
+{
+  "id": "istoreos-systools",
+  "version": "1.1.0",
+  "path": "skills/istoreos-systools",
+  "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+  "description": "诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。",
+  "platforms": [
+    "istoreos"
+  ],
+  "kind": "business",
+  "component": "istoreos",
+  "architectures": {
+    "istoreos": [
+      "x64"
+    ]
+  },
+  "programRequirements": [
+    "target programs documented in SKILL.md"
+  ],
+  "resourceSources": [
+    {
+      "id": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "sourceDigest": "sha256:1ed5efa0ec983b2c6c1e6ab30344d9160af96b05bd72e5ef87956da869507d40"
+    }
+  ]
+}

@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-. "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+. "$here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
 fail() { jq -cn --argjson code "$1" --arg category "$2" --arg reason "$3" '{schemaVersion:1,status:"failed",category:$category,reason:$reason,exitCode:$code}'; exit "$1"; }
-platform="${KAI_PLATFORM:-$(bash "$here/../../kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
+platform="${KAI_PLATFORM:-$(bash "$here/../resources/runtime/kai-tool-bootstrap/scripts/tool.sh" probe bash | jq -er .platform)}"
 action="${1:-}"
-if [ "$action" = cli ]; then shift; exec bash "$here/../../kai-dev-environment/scripts/dev-cli.sh" "$@"; fi
+if [ "$action" = cli ]; then shift; exec bash "$here/../resources/runtime/kai-dev-environment/scripts/dev-cli.sh" "$@"; fi
 case "$action" in space|search|storage) ;; *) fail 2 usage 'usage.sh space ROOT [LIMIT [SECONDS]] | search ROOT TERM [LIMIT [SECONDS]] | storage ROOT [MIN_FREE_BYTES] | cli ...' ;; esac
 root="${2:-}"; case "$root" in /*) ;; *) fail 2 scope 'an explicit absolute directory is required' ;; esac
 [ -d "$root" ] && [ ! -L "$root" ] || fail 2 scope 'use an existing directory rather than creating or following a root link'

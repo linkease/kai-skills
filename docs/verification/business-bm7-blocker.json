@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 1,
+  "milestone": "BM7",
+  "status": "failed",
+  "optimizationRounds": 3,
+  "stopReason": "User-defined maximum of three optimization rounds exhausted; BM8–BM10 not started.",
+  "completed": {
+    "requiredIndependentCases": {
+      "passed": 18,
+      "total": 18
+    },
+    "businessCollections": {
+      "passed": 6,
+      "total": 6
+    },
+    "systemJourneys": {
+      "passed": 8,
+      "total": 9
+    },
+    "nativeIStoreOSEntryChecks": 16,
+    "productionGatesNotVerified": 9,
+    "businessTestsPassed": 44,
+    "isolatedBehaviorTestsPassed": 80,
+    "baselineGroupsPassed": 15
+  },
+  "independentCases": [
+    {
+      "id": "BM7-ubuntu-kai-tool-bootstrap",
+      "skill": "kai-tool-bootstrap",
+      "treeDigest": "sha256:5fd1ab0adeb49bea68feb3c030d69ffe1be3e1bc5da5bbc4c2e42b39486410da",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-ubuntu-kai-software",
+      "skill": "kai-software",
+      "treeDigest": "sha256:d36cfb60f2538734bacd3494e18020ecf793df3433f6c4bf8002c5704e5ce0aa",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-ubuntu-kai-dev-environment",
+      "skill": "kai-dev-environment",
+      "treeDigest": "sha256:5369872f3543993f119a7be739447615a33767a4adb4d1d2e7130a44671525aa",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-ubuntu-kai-project-dependencies",
+      "skill": "kai-project-dependencies",
+      "treeDigest": "sha256:101545800303b0ba08e4e1a2aa97642fb2d4e88ea625f200dfa62284be4c99e0",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-ubuntu-kai-download-acceleration",
+      "skill": "kai-download-acceleration",
+      "treeDigest": "sha256:f16349613fef28d94596b096b9f75f06a5cc8481d4bb51c8e75f7228ee7a463d",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-ubuntu-kai-storage-files",
+      "skill": "kai-storage-files",
+      "treeDigest": "sha256:2a4b705538e523d45eb87b8836ac28eaedabc55dfac6e5429f2f155ef35a3f28",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-debian-kai-tool-bootstrap",
+      "skill": "kai-tool-bootstrap",
+      "treeDigest": "sha256:5fd1ab0adeb49bea68feb3c030d69ffe1be3e1bc5da5bbc4c2e42b39486410da",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-debian-kai-software",
+      "skill": "kai-software",
+      "treeDigest": "sha256:d36cfb60f2538734bacd3494e18020ecf793df3433f6c4bf8002c5704e5ce0aa",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-debian-kai-dev-environment",
+      "skill": "kai-dev-environment",
+      "treeDigest": "sha256:5369872f3543993f119a7be739447615a33767a4adb4d1d2e7130a44671525aa",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-debian-kai-project-dependencies",
+      "skill": "kai-project-dependencies",
+      "treeDigest": "sha256:101545800303b0ba08e4e1a2aa97642fb2d4e88ea625f200dfa62284be4c99e0",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-debian-kai-download-acceleration",
+      "skill": "kai-download-acceleration",
+      "treeDigest": "sha256:f16349613fef28d94596b096b9f75f06a5cc8481d4bb51c8e75f7228ee7a463d",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-debian-kai-storage-files",
+      "skill": "kai-storage-files",
+      "treeDigest": "sha256:2a4b705538e523d45eb87b8836ac28eaedabc55dfac6e5429f2f155ef35a3f28",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-istoreos-kai-tool-bootstrap",
+      "skill": "kai-tool-bootstrap",
+      "treeDigest": "sha256:5fd1ab0adeb49bea68feb3c030d69ffe1be3e1bc5da5bbc4c2e42b39486410da",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-istoreos-kai-software",
+      "skill": "kai-software",
+      "treeDigest": "sha256:d36cfb60f2538734bacd3494e18020ecf793df3433f6c4bf8002c5704e5ce0aa",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-istoreos-kai-dev-environment",
+      "skill": "kai-dev-environment",
+      "treeDigest": "sha256:5369872f3543993f119a7be739447615a33767a4adb4d1d2e7130a44671525aa",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-istoreos-kai-project-dependencies",
+      "skill": "kai-project-dependencies",
+      "treeDigest": "sha256:101545800303b0ba08e4e1a2aa97642fb2d4e88ea625f200dfa62284be4c99e0",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-istoreos-kai-download-acceleration",
+      "skill": "kai-download-acceleration",
+      "treeDigest": "sha256:f16349613fef28d94596b096b9f75f06a5cc8481d4bb51c8e75f7228ee7a463d",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    },
+    {
+      "id": "BM7-istoreos-kai-storage-files",
+      "skill": "kai-storage-files",
+      "treeDigest": "sha256:2a4b705538e523d45eb87b8836ac28eaedabc55dfac6e5429f2f155ef35a3f28",
+      "status": "passed",
+      "isolatedSkillCount": 1
+    }
+  ],
+  "systemJourneyResults": [
+    {
+      "platform": "ubuntu",
+      "cycle": "collection-local",
+      "mode": "on-device",
+      "status": "passed"
+    },
+    {
+      "platform": "ubuntu",
+      "cycle": "collection-ssh",
+      "mode": "remote-control",
+      "status": "passed"
+    },
+    {
+      "platform": "ubuntu",
+      "cycle": "fresh-repeat",
+      "mode": "on-device",
+      "status": "passed"
+    },
+    {
+      "platform": "debian",
+      "cycle": "collection-local",
+      "mode": "on-device",
+      "status": "passed"
+    },
+    {
+      "platform": "debian",
+      "cycle": "collection-ssh",
+      "mode": "remote-control",
+      "status": "passed"
+    },
+    {
+      "platform": "debian",
+      "cycle": "fresh-repeat",
+      "mode": "on-device",
+      "status": "passed"
+    },
+    {
+      "platform": "istoreos",
+      "cycle": "collection-local",
+      "mode": "on-device",
+      "status": "passed"
+    },
+    {
+      "platform": "istoreos",
+      "cycle": "collection-ssh",
+      "mode": "remote-control",
+      "status": "passed"
+    },
+    {
+      "platform": "istoreos",
+      "cycle": "fresh-repeat",
+      "mode": "on-device",
+      "status": "failed"
+    }
+  ],
+  "blockedCase": {
+    "platform": "istoreos",
+    "cycle": "fresh-repeat",
+    "sdk": "node@22.14.0",
+    "origin": "https://unofficial-builds.nodejs.org/download/release/v22.14.0/node-v22.14.0-linux-x64-musl.tar.gz",
+    "nativeExitCode": 1,
+    "elapsedSeconds": 349,
+    "transportBudget": {
+      "miseRequestSeconds": 900,
+      "commandSeconds": 1800,
+      "routing": "native-auto",
+      "archiveValidation": "unchanged"
+    },
+    "rejectedTruncatedArchiveBytes": [
+      38457344,
+      37490688,
+      39043072
+    ],
+    "fallbackFailure": "native low-speed threshold: 13828 B/s < 16384 B/s",
+    "diagnosis": "Upstream responses were truncated and correctly rejected; increasing the request timeout did not resolve them. The exact upstream truncation mechanism remains undetermined.",
+    "client": {
+      "version": "0.8.5-business-candidate commit=199ace46eedf758a8b65699e579fcc01dd17648c",
+      "sha256": "b481322403f3bee663eead02f66c005967953985ac659fae7a0a88bec097cba9",
+      "sourceCommit": "199ace46eedf758a8b65699e579fcc01dd17648c"
+    },
+    "gateway": {
+      "sha256": "1d64a0189e9eaf4e1f44a24124f925cc198577cece603ab47dee218783644c6f",
+      "sourceCommit": "199ace46eedf758a8b65699e579fcc01dd17648c"
+    },
+    "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+    "nativeCaptureSha256": "3abd89015cb2e16f00bcfc5548f021e625676065f94968cac4297880e16e58a1",
+    "gatewayLogSha256": "a6c2c072ff12e8717860ffb08c13be86b96793d324b6add35adbd12b04735dd4"
+  },
+  "guards": {
+    "containerCurlLibrariesOpkgTlsUnchanged": true,
+    "hostCurlLibrariesPolicyTlsUnchanged": true,
+    "failedRunCleanup": "passed",
+    "archiveIntegrityChecksPreserved": true,
+    "nativeAutoRoutingPreserved": true,
+    "windowsNativeTestingStarted": false
+  },
+  "nextWork": "After renewed authorization, trace node-unofficial relay response completeness, DNS and slow-origin fallback; preserve original SHA/signature/gzip checks and firmware curl."
+}

@@ -10,6 +10,10 @@ import shutil
 import subprocess
 import sys
 
+sys.path.insert(0,str(Path(__file__).resolve().parent/'business'))
+from model import Distribution
+from package import build_package
+
 ROOT=Path(os.environ.get('LINKEASE_SKILLS_ROOT',Path(__file__).resolve().parents[1])).resolve()
 
 
@@ -94,14 +98,18 @@ def select(declaration,entry,canonical=False):
     if set(resources)!=set(plan['compatibilityResources']):raise ValueError('missing legacy resources')
     if not set(declaration['aliases'].values())<=set(names):raise ValueError('migration target is absent')
     source_roots += [ROOT/'components/composition.json',ROOT/'catalog.json',ROOT/'tools/preset-install.sh',
-                     ROOT/'tools/compose.py',ROOT/'tools/generate-platforms.sh']
+                     ROOT/'tools/compose.py',ROOT/'tools/generate-platforms.sh',
+                     ROOT/'components/business.json',ROOT/'tools/business']
     return names,resources,versions,source_roots,components
 
 
 def populate(declaration,entry,output,canonical=False):
     names,resources,versions,roots,components=select(declaration,entry,canonical)
     skills=output/'skills';skills.mkdir(parents=True)
-    for name,source in names.items():copy(source,skills/name)
+    distribution=None if canonical else Distribution(ROOT)
+    for name,source in names.items():
+        if canonical:copy(source,skills/name)
+        else:build_package(distribution,name,skills/name)
     for name,source in resources.items():copy(source,skills/name,resource=True)
     migration={'schemaVersion':1,'aliases':declaration['aliases'],
                'activeSkills':sorted(names),'compatibilityResources':sorted(resources),

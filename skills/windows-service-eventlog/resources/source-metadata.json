@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: windows-service-eventlog\ndescription: Diagnose one Windows service with recent System events, prepare a change plan, apply an explicitly approved start/stop/restart, and verify the resulting service state.\nowner: system-pack/windows\nsystems: windows\nrequires: target-shell:powershell\ntriggers: Windows 服务失败, 服务未运行, 服务反复停止, Event Log, Windows Service, 重启服务\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "windows-service-eventlog",
+      "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+      "sourceDigest": "sha256:715bb196aa87cec5e4caf19fb1a374ae21ff8173110f6a32dbd62be9cbe35218"
+    }
+  ]
+}

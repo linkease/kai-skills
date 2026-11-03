@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "id": "bundle:development",
+  "version": "1.1.0",
+  "platform": null,
+  "mode": null,
+  "members": [
+    {
+      "id": "kai-dev-environment",
+      "version": "1.1.0",
+      "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483"
+    },
+    {
+      "id": "kai-download-acceleration",
+      "version": "1.1.0",
+      "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234"
+    },
+    {
+      "id": "kai-project-dependencies",
+      "version": "1.1.0",
+      "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d"
+    }
+  ]
+}

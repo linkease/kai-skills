@@ -1,11 +1,12 @@
 ---
 name: luci-http-controller
 description: Send bounded authenticated HTTP requests to a bound LuCI target without embedding device-specific endpoints, credentials, or operating-system repair policy.
-owner: transport/luci-http
-systems: any
-requires: http-client
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # LuCI HTTP Controller
 
 Use this transport only when a selected system skill names the endpoint, method, body, expected response, and safety class. This skill handles LuCI login, in-memory cookies, timeout, TLS policy, response bounds, and the generic write gate; it does not decide what an endpoint means.

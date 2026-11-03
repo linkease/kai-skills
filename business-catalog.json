@@ -1,0 +1,1131 @@
+{
+  "schemaVersion": 1,
+  "version": "1.1.0",
+  "skills": [
+    {
+      "id": "debian-system-diagnostics",
+      "version": "1.1.0",
+      "path": "skills/debian-system-diagnostics",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "description": "Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.",
+      "platforms": [
+        "debian",
+        "ubuntu"
+      ],
+      "kind": "business",
+      "component": "debian",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "ubuntu": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "debian-system-diagnostics",
+          "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+          "sourceDigest": "sha256:7940724d7318dcec51ab61eb939b144d6865fa0c9e74e75337bdc11c8afad58f"
+        }
+      ],
+      "treeDigest": "sha256:c5472348ea411dbf5ec56688007b4f9af7aef100c2d54feb43dbd905e9237ad9"
+    },
+    {
+      "id": "istoreos-app-diagnostics",
+      "version": "1.1.0",
+      "path": "skills/istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "description": "只读分析最近一次 iStore 安装任务，将任务日志、当前包状态和插件能力合并为紧凑诊断报告；由应用安装流程在失败或安装后异常时按需调用。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-app-diagnostics",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+          "sourceDigest": "sha256:a103bb406e7ae9c44844d7fbfd546570952b7860850853509a4515d2896de95f"
+        },
+        {
+          "id": "istoreos-app-diagnostics",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+          "sourceDigest": "sha256:a103bb406e7ae9c44844d7fbfd546570952b7860850853509a4515d2896de95f"
+        },
+        {
+          "id": "istoreos-app-search",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+          "sourceDigest": "sha256:b5225bdee61814f6b83413969b024da935527692c839edbb97b096a4164641c2"
+        }
+      ],
+      "treeDigest": "sha256:cbf0716b10fef412d228adeaea06116b6eec21092daa649d971c04e1e52c9803"
+    },
+    {
+      "id": "istoreos-app-search",
+      "version": "1.1.0",
+      "path": "skills/istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "description": "从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 istoreos-package-manager。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-app-search",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+          "sourceDigest": "sha256:b5225bdee61814f6b83413969b024da935527692c839edbb97b096a4164641c2"
+        },
+        {
+          "id": "istoreos-app-diagnostics",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+          "sourceDigest": "sha256:a103bb406e7ae9c44844d7fbfd546570952b7860850853509a4515d2896de95f"
+        },
+        {
+          "id": "istoreos-app-search",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+          "sourceDigest": "sha256:b5225bdee61814f6b83413969b024da935527692c839edbb97b096a4164641c2"
+        }
+      ],
+      "treeDigest": "sha256:dc6be26a377fef9bbcaa07c0e3600961dedd7a85bfbbb68733fc1610d4f0284d"
+    },
+    {
+      "id": "istoreos-backup-restore",
+      "version": "1.1.0",
+      "path": "skills/istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+      "description": "iStoreOS 系统备份、恢复与回滚闭环；用于备份配置或 overlay、恢复系统，以及迁移、重置等危险操作前建立可恢复点。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-backup-restore",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+          "sourceDigest": "sha256:7e290a211cf7ccb2ea5b29f8703d9ae96e1fc71c00b1d97c4732638a773bb9f4"
+        }
+      ],
+      "treeDigest": "sha256:bf534445db11fa30607a2ae507d4da2ef0a8edca7cd6bc74a33072a9429f63a1"
+    },
+    {
+      "id": "istoreos-docker-acceleration-istoreenhance",
+      "version": "1.1.0",
+      "path": "skills/istoreos-docker-acceleration-istoreenhance",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
+      "description": "Docker 镜像下载慢/失败时的 iStoreOS 加速闭环（istoreenhance/kspeeder：安装→autoconf→启用→registry_mirrors→search API 验证→降级策略）。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-docker-acceleration-istoreenhance",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
+          "sourceDigest": "sha256:f9ebc83264957142e8c659666235937ba0c7d837edc5fb05d4a5bb1677cdbadd"
+        }
+      ],
+      "treeDigest": "sha256:682edecfa381c97e7df0460d7463a048c6b826e54fd8c0d652601b745039bada"
+    },
+    {
+      "id": "istoreos-docker-basics",
+      "version": "1.1.0",
+      "path": "skills/istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+      "description": "检查、安装、启停和排查 iStoreOS Docker/dockerd 与容器；镜像或文件下载慢由下载加速能力处理，数据目录迁移由专用 skill 处理。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-docker-basics",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+          "sourceDigest": "sha256:6b6fed5b0ec983652548a7f71e7509f7520ee5aad681f3f6d68460adc6594898"
+        }
+      ],
+      "treeDigest": "sha256:9a52a01f65ed243c11e1143b97abab59d9f9032dceaa5e6d150912ec3e6fec74"
+    },
+    {
+      "id": "istoreos-docker-data-root-migrate",
+      "version": "1.1.0",
+      "path": "skills/istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+      "description": "安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-docker-data-root-migrate",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+          "sourceDigest": "sha256:9128e483a88bbdb488a6a4a6fd2d3d8c2a2e14d410562da38ac302aa7827c786"
+        },
+        {
+          "id": "istoreos-storage-path",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
+          "sourceDigest": "sha256:753ece1cdce08582ee24849f6173e020847e19e9a4a65a3305c8c8c3d31dcd21"
+        }
+      ],
+      "treeDigest": "sha256:8bb7f9726593995bd6b1ea52d92332aec57b28ed8d2e99886f05616265485b2a"
+    },
+    {
+      "id": "istoreos-kspeeder-domainfold-fetch",
+      "version": "1.1.0",
+      "path": "skills/istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "description": "通过设备内 iStoreEnhance/KSpeeder 加速受支持的外部文件和公开 HTTPS Git 仓库；仅作为下载加速主 skill 按证据调用的内部执行 helper。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-kspeeder-domainfold-fetch",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+          "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+        },
+        {
+          "id": "istoreos-download-acceleration",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+          "sourceDigest": "sha256:a75675ca3e5c04c694909650482ff730c335d6f94a103a81b7017d5643b2f444"
+        },
+        {
+          "id": "istoreos-kspeeder-domainfold-fetch",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+          "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+        },
+        {
+          "id": "istoreos-mise-runtime",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+          "sourceDigest": "sha256:5f5f2cd2e61e379a6455f223a22250f7520373b73638bfd9dfb59c596164773a"
+        },
+        {
+          "id": "istoreos-package-manager",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+          "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+        }
+      ],
+      "treeDigest": "sha256:2b66a2514288ba91d6b6e859128bef3a3de0fa906247bacacc208e09074fd856"
+    },
+    {
+      "id": "istoreos-logs-and-diagnostics",
+      "version": "1.1.0",
+      "path": "skills/istoreos-logs-and-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
+      "description": "iStoreOS 故障诊断最小信息集与分流（opkg/is-opkg、init.d、df/mount、docker/dockerd、istoreenhance、DNS/网络）；用于失败时先采证据再结论。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-logs-and-diagnostics",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
+          "sourceDigest": "sha256:eabac29c828663f77037e148b0847f809fc268bed5bea16317350188cba6a4a0"
+        }
+      ],
+      "treeDigest": "sha256:4a6f0ada0cab279fc0587a10147ec809b116bbbf7ebed0d6d80581f06bb7572f"
+    },
+    {
+      "id": "istoreos-luci-recovery",
+      "version": "1.1.0",
+      "path": "skills/istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+      "description": "诊断和恢复 iStoreOS LuCI 管理页面打不开、500、空白或登录循环；先只读采证，修改、重启或重装前必须确认。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-luci-recovery",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+          "sourceDigest": "sha256:95c970da6d815722c7961e62da50b45f1d254496c5aa24a06853f6ddc3e1c34a"
+        }
+      ],
+      "treeDigest": "sha256:3f160cc7c185362248fc63640028905a24abf940b171bff719c39eebf3344c01"
+    },
+    {
+      "id": "istoreos-network-quality",
+      "version": "1.1.0",
+      "path": "skills/istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+      "description": "使用 iStoreOS 内置 FastNet 测量并解释外网带宽、延迟与抖动、NAT 类型、IPv6 可用性和局域网吞吐；用于网速慢、测速、NAT/IPv6 检测和 LAN 测速，不用于特定下载源加速或修改网络配置。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-network-quality",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+          "sourceDigest": "sha256:ee151de897bff98c8c499e4cae4b86791624dda2ac2b9a74534d41e04ee1a40e"
+        }
+      ],
+      "treeDigest": "sha256:e73dd12211042690073938be78dedf04361833eb9643e1e48be0d737d91a6350"
+    },
+    {
+      "id": "istoreos-quickstart-api",
+      "version": "1.1.0",
+      "path": "skills/istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+      "description": "Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-quickstart-api",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+          "sourceDigest": "sha256:74a72527cd6444110b3dcf8cb53883df6a3849db4657c6dca43422205eecfae9"
+        },
+        {
+          "id": "luci-http-controller",
+          "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+          "sourceDigest": "sha256:137e44f05b71982fbe5020fa9460f072dcf7666ec8c5c1757198ea71ad756365"
+        }
+      ],
+      "treeDigest": "sha256:334d2067b68fcced2b875298518a9e72d70c5224c3c326f6578dd08cbd4e1d12"
+    },
+    {
+      "id": "istoreos-run-executable",
+      "version": "1.1.0",
+      "path": "skills/istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+      "description": "安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构和空间，提示备份并要求明确确认。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-run-executable",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+          "sourceDigest": "sha256:347bd417955694ccbd7266a21d78bd06e825727c11da9e92bd43e5455fea4b24"
+        },
+        {
+          "id": "istoreos-download-acceleration",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+          "sourceDigest": "sha256:a75675ca3e5c04c694909650482ff730c335d6f94a103a81b7017d5643b2f444"
+        },
+        {
+          "id": "istoreos-kspeeder-domainfold-fetch",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+          "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+        },
+        {
+          "id": "istoreos-mise-runtime",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+          "sourceDigest": "sha256:5f5f2cd2e61e379a6455f223a22250f7520373b73638bfd9dfb59c596164773a"
+        },
+        {
+          "id": "istoreos-package-manager",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+          "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+        }
+      ],
+      "treeDigest": "sha256:5efeb5cf6bd44b836eb6cc297b474d755b3083ac3bacfd2c18a72a4d1c0e5b3e"
+    },
+    {
+      "id": "istoreos-service-manager",
+      "version": "1.1.0",
+      "path": "skills/istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "description": "检查和管理 iStoreOS init.d 服务及对应 UCI 启用状态；用于服务未运行、开机未启动、端口未监听或安装后未生效，不负责 LuCI 核心恢复。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-service-manager",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+          "sourceDigest": "sha256:5932664ec416d408510e87aa5c6bf0b085efc46bc8aa0e021c849784d6c57293"
+        }
+      ],
+      "treeDigest": "sha256:dd73a3fae2d9274d0bf39bdf3703d22ee3ce66a6bf70c7e19ebbf8788a36be34"
+    },
+    {
+      "id": "istoreos-source-introspect",
+      "version": "1.1.0",
+      "path": "skills/istoreos-source-introspect",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
+      "description": "iStoreOS/OpenWrt 只读证据采集：定向读取 /etc/config、/etc/init.d 与 /usr/lib/lua/luci 相关源码片段（默认脱敏），用于未知问题定位与“以证据为准”的分流。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-source-introspect",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
+          "sourceDigest": "sha256:eafebb24699612d406d0b7b1db5763c67859417a7828b9a1d8172afdab3315af"
+        }
+      ],
+      "treeDigest": "sha256:985c81c540a7c9e64430318064350a597ef3977cf2ae5d3385e51aa8fadcba74"
+    },
+    {
+      "id": "istoreos-system-task-router",
+      "version": "1.1.0",
+      "path": "skills/istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+      "description": "iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-system-task-router",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+          "sourceDigest": "sha256:1af644b193dfa4a7ddff79fae3f3cf2bc4992a51875681cdbf50c055f9c865cf"
+        },
+        {
+          "id": "istoreos-package-manager",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+          "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+        }
+      ],
+      "treeDigest": "sha256:32d2646b4b0705109063449bf6a3ee551243963961c8b82a58662a6a546d6fc8"
+    },
+    {
+      "id": "istoreos-systools",
+      "version": "1.1.0",
+      "path": "skills/istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "description": "诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "business",
+      "component": "istoreos",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "istoreos-systools",
+          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+          "sourceDigest": "sha256:1ed5efa0ec983b2c6c1e6ab30344d9160af96b05bd72e5ef87956da869507d40"
+        }
+      ],
+      "treeDigest": "sha256:b8ce9144241e7c874c94db8d182cf2a977ec0420d9120fa429d2647ce9276c6e"
+    },
+    {
+      "id": "kai-dev-environment",
+      "version": "1.1.0",
+      "path": "skills/kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "description": "用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "kind": "business",
+      "component": "common",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ],
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "compatible Bash and full jq",
+        "mise and target native runtime integration",
+        "ks-cli and an authorized gateway when acceleration is required"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-dev-environment",
+          "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483"
+    },
+    {
+      "id": "kai-download-acceleration",
+      "version": "1.1.0",
+      "path": "skills/kai-download-acceleration",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "description": "检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "kind": "business",
+      "component": "common",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ],
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "compatible Bash and full jq",
+        "ks-cli",
+        "native Git with HTTPS support for Git tasks",
+        "authorized Docker daemon for Docker tasks",
+        "authorized gateway for accelerated routes"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-download-acceleration",
+          "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+          "sourceDigest": "sha256:52cbf06d6e0d186d7f106e2492dc1036897af5f1015b3368bef62dc7c9b077a5"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234"
+    },
+    {
+      "id": "kai-project-dependencies",
+      "version": "1.1.0",
+      "path": "skills/kai-project-dependencies",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+      "description": "在所选 mise SDK 和项目隔离环境中安装 npm、pip、uv、Go 依赖。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "kind": "business",
+      "component": "common",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ],
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "compatible Bash and full jq",
+        "selected mise SDK",
+        "project native package manager and existing lock",
+        "ks-cli and an authorized gateway when acceleration is required"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-project-dependencies",
+          "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+          "sourceDigest": "sha256:779fa3f10d8c75121236491c42b435696ab249054d5022ce06859feff911fa38"
+        },
+        {
+          "id": "kai-dev-environment",
+          "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d"
+    },
+    {
+      "id": "kai-software",
+      "version": "1.1.0",
+      "path": "skills/kai-software",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "description": "按目标系统搜索、查询和安装软件，保留原包管理器与来源。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "kind": "business",
+      "component": "common",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ],
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "compatible Bash and full jq",
+        "target native package manager",
+        "ks-cli for prepared WinGet operations"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-software",
+          "canonicalPath": "components/system-packs/common/skills/kai-software",
+          "sourceDigest": "sha256:e7e0942a023dc90f98e4cae36166b29c9d3c6f27ca3cc8569392ac38af53295e"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:4be070a2629926fe8d704a790d55be0d443d316113cd7fd20bec4d8b5a3c4ec1"
+    },
+    {
+      "id": "kai-storage-files",
+      "version": "1.1.0",
+      "path": "skills/kai-storage-files",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "description": "限定路径分析空间与大文件、搜索文件名，核实安装目录的挂载和持久性。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "kind": "business",
+      "component": "common",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ],
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "compatible Bash and full jq",
+        "linkspace on supported Linux targets or explicitly selected Python fallback",
+        "zsetup storage on Linux for mount facts"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-storage-files",
+          "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+          "sourceDigest": "sha256:d288ec91ffa91996775e6fd9d5c2798b95a159416defa650cb3e6c5717e37bd4"
+        },
+        {
+          "id": "kai-dev-environment",
+          "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "version": "1.1.0",
+      "path": "skills/kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "description": "准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu",
+        "windows"
+      ],
+      "kind": "business",
+      "component": "common",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ],
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "Bash, or native PowerShell for the Windows first entry",
+        "native verified zsetup core for managed installation"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca"
+    },
+    {
+      "id": "luci-http-controller",
+      "version": "1.1.0",
+      "path": "skills/luci-http-controller",
+      "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+      "description": "Send bounded authenticated HTTP requests to a bound LuCI target without embedding device-specific endpoints, credentials, or operating-system repair policy.",
+      "platforms": [
+        "istoreos"
+      ],
+      "kind": "transport",
+      "component": "transport.luci-http",
+      "architectures": {
+        "istoreos": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "luci-http-controller",
+          "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+          "sourceDigest": "sha256:137e44f05b71982fbe5020fa9460f072dcf7666ec8c5c1757198ea71ad756365"
+        }
+      ],
+      "treeDigest": "sha256:e5cc2d7eb56c6901462ed955ae33f9ce2e728ff1cd1ac9702bbed3138cbfbece"
+    },
+    {
+      "id": "macos-launchd-logs",
+      "version": "1.1.0",
+      "path": "skills/macos-launchd-logs",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "description": "Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.",
+      "platforms": [
+        "macos"
+      ],
+      "kind": "business",
+      "component": "macos",
+      "architectures": {
+        "macos": [
+          "arm64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "macos-launchd-logs",
+          "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+          "sourceDigest": "sha256:08141512c1bf95c35c70a810e61404241c41f87eb34efbedb0b8e86bc38dbb0a"
+        }
+      ],
+      "treeDigest": "sha256:7dcb1b6d397ab0e09d30266a398271ecb8fd32f0c8a625ec0f796c695e9fb782"
+    },
+    {
+      "id": "macos-system-diagnostics",
+      "version": "1.1.0",
+      "path": "skills/macos-system-diagnostics",
+      "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+      "description": "Collect a bounded read-only macOS health summary covering version, architecture, uptime, root disk, memory pressure, and launchd job totals; use for general Mac errors, slowness, or first-pass diagnosis.",
+      "platforms": [
+        "macos"
+      ],
+      "kind": "business",
+      "component": "macos",
+      "architectures": {
+        "macos": [
+          "arm64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "macos-system-diagnostics",
+          "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+          "sourceDigest": "sha256:5040046a648abd6296dbb8a7660eb38a14f59f39a611ac711239ddb19cf6513c"
+        }
+      ],
+      "treeDigest": "sha256:169cfc62950d3648c5c8b955d96749555de69061746bffd47fb9ee9cfe470b8c"
+    },
+    {
+      "id": "target-ssh-controller",
+      "version": "1.1.0",
+      "path": "skills/target-ssh-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+      "description": "Bind a specific remote target over SSH and safely execute target scripts with strict host-key verification, bounded timeouts, explicit write approval, and no operating-system business logic.",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "macos",
+        "ubuntu"
+      ],
+      "kind": "transport",
+      "component": "transport.ssh",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "macos": [
+          "arm64"
+        ],
+        "ubuntu": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "target-ssh-controller",
+          "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+          "sourceDigest": "sha256:edb838a0e359be1b8af78053fededec3fa5b2f80c531d1dbbfc8d7730583bed5"
+        }
+      ],
+      "treeDigest": "sha256:e7ba9025c8b1f1a1fc1416742707769c5b9d799a0053b1336c42bb2e3d587137"
+    },
+    {
+      "id": "target-ssh-powershell-controller",
+      "version": "1.1.0",
+      "path": "skills/target-ssh-powershell-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+      "description": "Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.",
+      "platforms": [
+        "windows"
+      ],
+      "kind": "transport",
+      "component": "transport.ssh",
+      "architectures": {
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "target-ssh-powershell-controller",
+          "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+          "sourceDigest": "sha256:371d021111c4eabc8b65809225e48718b80faaad8eb7c8dda87086733b362204"
+        }
+      ],
+      "treeDigest": "sha256:69faab0e9b9d9d111e93ded6ef900d4a44f591e5be1fbd9c89630e82d4500ce5"
+    },
+    {
+      "id": "ubuntu-release-diagnostics",
+      "version": "1.1.0",
+      "path": "skills/ubuntu-release-diagnostics",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "description": "Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.",
+      "platforms": [
+        "ubuntu"
+      ],
+      "kind": "business",
+      "component": "ubuntu",
+      "architectures": {
+        "ubuntu": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "ubuntu-release-diagnostics",
+          "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+          "sourceDigest": "sha256:9862a6f1fd91e01f5dd1b2195ca240b32e3b7b5b5cbf31a3965ea0af04b375b6"
+        }
+      ],
+      "treeDigest": "sha256:6533a03bad19a039df24548b3dab5e79ca6f2216023b1493102a292d02d4541c"
+    },
+    {
+      "id": "windows-service-eventlog",
+      "version": "1.1.0",
+      "path": "skills/windows-service-eventlog",
+      "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+      "description": "Diagnose one Windows service with recent System events, prepare a change plan, apply an explicitly approved start/stop/restart, and verify the resulting service state.",
+      "platforms": [
+        "windows"
+      ],
+      "kind": "business",
+      "component": "windows",
+      "architectures": {
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "windows-service-eventlog",
+          "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+          "sourceDigest": "sha256:715bb196aa87cec5e4caf19fb1a374ae21ff8173110f6a32dbd62be9cbe35218"
+        }
+      ],
+      "treeDigest": "sha256:cd3f2b74b3afb73f6de96eb868ab56413197d63054c09ef7772d396605e145b7"
+    },
+    {
+      "id": "windows-system-diagnostics",
+      "version": "1.1.0",
+      "path": "skills/windows-system-diagnostics",
+      "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+      "description": "Collect a bounded read-only Windows health summary covering OS, uptime, fixed disks, service totals, and recent critical System events; use for general Windows errors, slowness, or first-pass diagnosis.",
+      "platforms": [
+        "windows"
+      ],
+      "kind": "business",
+      "component": "windows",
+      "architectures": {
+        "windows": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "target programs documented in SKILL.md"
+      ],
+      "resourceSources": [
+        {
+          "id": "windows-system-diagnostics",
+          "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+          "sourceDigest": "sha256:a6a9ecd7cc9fda33553fd9cd2f972f65bc7eb730c4454d33d16e6fe43daf3d35"
+        }
+      ],
+      "treeDigest": "sha256:eab5cc561f71da4cfabce6069fbbf405061e4ffa37733b0a8d7c3a23f2d7b74e"
+    }
+  ],
+  "bundles": {
+    "development": {
+      "title": "Develop and run a project with mise and accelerated dependencies",
+      "skills": [
+        "kai-dev-environment",
+        "kai-project-dependencies",
+        "kai-download-acceleration"
+      ]
+    },
+    "software-management": {
+      "title": "Find, install and use software with verified downloads",
+      "skills": [
+        "kai-software",
+        "kai-download-acceleration"
+      ]
+    }
+  },
+  "legacyCatalog": "catalog.json",
+  "defaultPolicy": {
+    "installAll": false
+  }
+}

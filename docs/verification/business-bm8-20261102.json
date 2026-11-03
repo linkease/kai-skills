@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "milestone": "BM8",
+  "status": "failed",
+  "optimizationRounds": 3,
+  "stoppedBy": "user-defined maximum of three optimization rounds",
+  "targets": [
+    {
+      "platform": "macos",
+      "status": "failed",
+      "optimizationRounds": 3,
+      "sourceReportSha256": "5c3ffae4c4fea64dd6219aa4ff46a7b45f4bca3425b887c9dcbb9f97436f68da",
+      "client": {
+        "sourceCommit": "339e4314cc58834195c250e901c27c7e16201c12",
+        "sha256": "e0091b27bf99bfc014c3b1b1f385d797e1ae10d47cf36c7fb00263539953bcd4"
+      },
+      "gatewayProgram": {
+        "sourceCommit": "76cd58fceefc62c8ae83383199c548ad8b1f3442",
+        "sha256": "162eaa5fb30e6be8e757351ed281afe42bf0e70454dba2d4a964be5e9fbf4dff"
+      },
+      "independentCases": [
+        {
+          "id": "BM8-macos-kai-tool-bootstrap",
+          "skill": "kai-tool-bootstrap",
+          "status": "passed",
+          "treeDigest": "sha256:8360c298902163f6580b05f95bc1357e6bef35e4227df302fa4e273f19d8203d",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-dev-environment",
+          "skill": "kai-dev-environment",
+          "status": "passed",
+          "treeDigest": "sha256:5bea0e3940d0c449500a3c0eb58632bff11b4daa0ef409d54b6a830f12518ba5",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-project-dependencies",
+          "skill": "kai-project-dependencies",
+          "status": "passed",
+          "treeDigest": "sha256:c8a29e311687bb746ef0d82429996cdebf0c68aaaf570f2b632d0c6f514e8971",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-storage-files",
+          "skill": "kai-storage-files",
+          "status": "passed",
+          "treeDigest": "sha256:14d314afb0388c0e3144a9d991f49524f8ee9d0fa3dbd8adb46174211ef27cc2",
+          "isolatedSkillCount": 1
+        }
+      ],
+      "positiveCasesPassed": 4,
+      "requiredIndependentCases": 6,
+      "businessAndSystemCollections": "not-run",
+      "taskProgramsStopped": true,
+      "blocker": "native Git upload-pack returned HTTP 405 after local hostname resolution was fixed",
+      "fileDownload": "original SHA256 validation passed; Git part of the skill remains failed",
+      "softwareInstall": "not-run after the Git failure"
+    },
+    {
+      "platform": "windows",
+      "status": "failed",
+      "optimizationRounds": 3,
+      "sourceReportSha256": "1225cb0c5d09bb415d13b8752d5cb64a08ec9766c41476b367649fd8217ad218",
+      "client": {
+        "sourceCommit": "339e4314cc58834195c250e901c27c7e16201c12",
+        "sha256": "ad78307243803094e4ece4c73da4ef3f8ef76040e143d7baee8f4f9adc6ebada"
+      },
+      "gatewayProgram": {
+        "sourceCommit": "339e4314cc58834195c250e901c27c7e16201c12",
+        "sha256": "ba6cf04aac1d5bca5400eead77a8ac0c70c5fdccaca6faaed4c0a7f5312ae992"
+      },
+      "independentCases": [],
+      "positiveCasesPassed": 0,
+      "requiredIndependentCases": 6,
+      "businessAndSystemCollections": "not-run",
+      "taskProgramsStopped": true,
+      "blocker": "jq owner download exited 13 with name resolution failure using the owned test gateway; no checksum bypass",
+      "originalServiceAndBinaryUnchanged": true,
+      "signedInstallerAndDependencyInstall": "not-run; native bootstrap gate failed",
+      "signatureFallbackNativeAcceptance": "not-established; handler regression passed but current Windows candidate stopped before Node"
+    }
+  ],
+  "localChecks": {
+    "bootstrap": "17 passed",
+    "desktop": "24 passed including seven WinGet contracts",
+    "kspeeder": "downloadcmd normal and race, cmd/multi, vet passed; an existing observation-test race was reproduced and its test-only synchronization fixed",
+    "ksCli": "full internal/app passed; Git and mise identity race subset and vet passed",
+    "business": "44 passed with configured native PowerShell executor",
+    "isolatedIndependentBehavior": "81 passed",
+    "repositoryBaseline": "15 groups passed after skill-entry documentation compaction",
+    "generatedAndConsumerSync": "10 presets, 31 independent skills, 12 collection locks and eight Kai layers consistent"
+  },
+  "implementedButNativeGateNotPassed": [
+    "prepared WinGet install/download/source refresh in public software helpers",
+    "signature transport fallback with proxy-only 404 rejected",
+    "offline mise identity probing",
+    "child-only Git local hostname resolution; routed Git minimum 2.37"
+  ],
+  "originalFailuresPreserved": true,
+  "connectEnabled": false,
+  "systemProxyOrRevocationPolicyModified": false,
+  "candidateRelease": false,
+  "kspeederBranch": "fix/kai-bm8-signature-fallback",
+  "kspeederSourceCommit": "339e4314cc58834195c250e901c27c7e16201c12"
+}

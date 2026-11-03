@@ -1,12 +1,14 @@
 ---
 name: debian-system-diagnostics
 description: Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.
-owner: system-pack/debian
-systems: debian, ubuntu
-features: apt-get, systemctl
-invocation: manual
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # Debian System Diagnostics
 
 Collect a small evidence set before recommending changes:

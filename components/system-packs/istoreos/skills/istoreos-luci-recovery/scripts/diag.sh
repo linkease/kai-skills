@@ -81,4 +81,3 @@ fi
 section "next"
 echo "1) If you want a low-risk attempt: confirm soft recovery (clear /tmp luci cache + restart rpcd/uhttpd)."
 echo "2) If still broken and disk is OK: confirm reinstall core packages (luci-base/uhttpd/rpcd...). Recommend full system backup first."
-

@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-systools\ndescription: 诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: IPv6 模式, IPv6 PD, IPv6 relay, IPv6 NAT, 硬盘不休眠, 硬盘唤醒, 应用商店损坏, iStore 修复, 升级后异常, 内核模块不兼容\nnegative-triggers: 网络测速, 网速慢, NAT 类型, 局域网测速, 普通软件安装, Docker 镜像下载, overlay 空间不足\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: low\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "sourceDigest": "sha256:1ed5efa0ec983b2c6c1e6ab30344d9160af96b05bd72e5ef87956da869507d40"
+    }
+  ]
+}

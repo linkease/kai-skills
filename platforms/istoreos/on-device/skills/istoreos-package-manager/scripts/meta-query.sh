@@ -35,4 +35,3 @@ for f in "$META_DIR"/*.json; do
 
   printf "%s | %s | %s | %s | %s\n" "${name:-?}" "${title:-?}" "${entry:-}" "$has_docker" "${tags:-}"
 done
-

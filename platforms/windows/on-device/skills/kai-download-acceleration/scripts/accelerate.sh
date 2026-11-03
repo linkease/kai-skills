@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
-. "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+. "$here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
 fail() {
     jq -cn --argjson code "$1" --arg category "$2" --arg reason "$3" --argjson native "${4:-null}" --argjson diagnostic "${native_result:-null}" \

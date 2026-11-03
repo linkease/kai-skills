@@ -1,14 +1,14 @@
 ---
 name: istoreos-source-introspect
 description: iStoreOS/OpenWrt 只读证据采集：定向读取 /etc/config、/etc/init.d 与 /usr/lib/lua/luci 相关源码片段（默认脱敏），用于未知问题定位与“以证据为准”的分流。
-owner: system-pack/istoreos
-systems: istoreos
-invocation: manual
-auto-use: off
-needs-fresh-data: true
-cost: low
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # iStoreOS Source Introspection (Read-only)
 
 当你不确定“服务入口/启用开关/配置字段/LuCI 实际读写逻辑”时，先采集证据再下结论，避免猜。
@@ -21,7 +21,7 @@ cost: low
 
 ## 一键采集（推荐）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-source-introspect/scripts/collect.sh" <name-or-keyword>`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-source-introspect/scripts/collect.sh" <name-or-keyword>`
 
 提示：
 - `<name-or-keyword>` 通常是 service/uci/meta 名（例如 `dockerd`、`istoreenhance`、`frpc`）。

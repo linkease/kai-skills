@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "plan": "../architecture/business-skill-distribution-milestones.md",
+  "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "development": {
+    "status": "complete",
+    "completedAt": "2026-11-03",
+    "scope": "kai-skills business distribution implementation and local self-checks; native acceptance and publication remain separate",
+    "plan": "../architecture/business-development-completion.md",
+    "evidence": "business-development-20261103.json",
+    "publicSkills": 31,
+    "businessCollections": 2,
+    "systemCollections": 10,
+    "archives": 86,
+    "nativeAcceptance": "not-passed",
+    "releaseReady": false,
+    "published": false
+  },
+  "milestones": [
+    {"id": "BM0", "status": "passed", "optimizationRounds": 1, "evidence": "business-distribution-execution.md#bm0-范围清单与基线"},
+    {"id": "BM1", "status": "passed", "optimizationRounds": 0, "tests": "tests/business/test_model.py: 7 passed"},
+    {"id": "BM2", "status": "passed", "optimizationRounds": 2, "tests": "6 package tests and 80 isolated behavior tests passed"},
+    {"id": "BM3", "status": "passed", "optimizationRounds": 0, "tests": "2 generation behavior tests and generated consistency passed"},
+    {"id": "BM4", "status": "passed", "optimizationRounds": 0, "tests": "8 managed installation and native PowerShell plan contracts passed"},
+    {"id": "BM5", "status": "passed", "optimizationRounds": 1, "tests": "13 ownership, conflict, concurrent and crash-recovery tests passed"},
+    {"id": "BM6", "status": "passed", "optimizationRounds": 3, "tests": "42 business tests, 15 repository groups, 126 existing behavior tests; real Codex/OpenCode/Reasonix discovery passed"},
+    {"id": "BM7", "status": "failed", "optimizationRounds": 3,
+     "previousBatch": {"requiredIndependentCases": {"passed": 18, "total": 18}, "nativeSpecialistEntryChecks": {"passed": 16, "productionGatesNotVerified": 9}, "businessCollections": {"passed": 6, "total": 6}, "systemJourneys": {"passed": 8, "total": 9}, "blocker": "iStoreOS fresh repeat: truncated musl Node archives and low-speed fallback", "evidence": "business-bm7-blocker.json"},
+     "resumedRepair": {"optimizationRounds": 3, "status": "failed", "nodeMuslInstallation": "passed", "testedIndependentCases": {"passed": 18, "total": 18}, "developmentCollections": {"passed": 2, "total": 3}, "blocker": "native iStoreOS git-http prerequisite preview rejected package checksum or size; earlier rounds retained Git HTTP 429 failures", "evidence": "business-bm7-repair-20261102.json", "appliesToFinalCurrentPackages": false},
+     "stoppedBy": "user-defined maximum of three optimization rounds"},
+    {"id": "BM8", "status": "failed", "optimizationRounds": 3, "macosIndependentCases": {"passed": 4, "total": 6}, "windowsFinalCandidateIndependentCases": {"passed": 0, "total": 6}, "blocker": "macOS Git upload-pack HTTP 405; Windows jq owner download DNS failure; collections and native WinGet installation remain unverified", "evidence": "business-bm8-20261102.json", "stoppedBy": "user-defined maximum of three optimization rounds"},
+    {"id": "BM9", "status": "awaiting-native-acceptance", "developmentStatus": "complete", "optimizationRounds": 0,
+     "localEvidence": "business-development-20261103.json", "releaseReady": false},
+    {"id": "BM10", "status": "awaiting-release", "developmentStatus": "verification-tooling-complete",
+     "optimizationRounds": 0, "published": false}
+  ]
+}

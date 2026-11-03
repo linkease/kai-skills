@@ -1,11 +1,12 @@
 ---
 name: target-ssh-controller
 description: Bind a specific remote target over SSH and safely execute target scripts with strict host-key verification, bounded timeouts, explicit write approval, and no operating-system business logic.
-owner: transport/ssh
-systems: any
-requires: ssh-client
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # SSH Target Controller
 
 Use this skill only when the current Agent has no built-in target runtime and must reach a bound target through SSH. System diagnosis and repair belong to the selected system skill; this controller only transports its script to the target shell.

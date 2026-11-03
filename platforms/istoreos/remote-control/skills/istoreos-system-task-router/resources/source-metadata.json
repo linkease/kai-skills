@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-system-task-router\ndescription: iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: iStoreOS, 路由器问题, 系统问题, 帮我检查, 帮我修复, 不知道怎么办, 不确定, 报错, 异常, 执行这个 .run 文件\nauto-use: suggest\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: low\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+      "sourceDigest": "sha256:1af644b193dfa4a7ddff79fae3f3cf2bc4992a51875681cdbf50c055f9c865cf"
+    },
+    {
+      "id": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+    }
+  ]
+}

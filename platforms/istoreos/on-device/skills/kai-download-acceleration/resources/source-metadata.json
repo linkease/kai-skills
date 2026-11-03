@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: kai-download-acceleration\ndescription: 检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 文件下载慢, GitHub 文件, 下载链接, docker pull, Docker 镜像下载, git clone, 下载加速\nnegative-triggers: 网速慢, 测速, 宽带速度, pip install, npm ci, go mod, uv sync\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\naliases: istoreos-download-acceleration\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "sourceDigest": "sha256:52cbf06d6e0d186d7f106e2492dc1036897af5f1015b3368bef62dc7c9b077a5"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

@@ -62,4 +62,3 @@ case "$tool" in
     exit 2
     ;;
 esac
-

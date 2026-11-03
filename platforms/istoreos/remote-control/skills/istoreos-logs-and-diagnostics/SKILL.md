@@ -1,14 +1,14 @@
 ---
 name: istoreos-logs-and-diagnostics
 description: iStoreOS 故障诊断最小信息集与分流（opkg/is-opkg、init.d、df/mount、docker/dockerd、istoreenhance、DNS/网络）；用于失败时先采证据再结论。
-owner: system-pack/istoreos
-systems: istoreos
-invocation: manual
-auto-use: off
-needs-fresh-data: true
-cost: low
+metadata:
+  opencode/autoinvoke: "false"
 ---
 
+This directory is an independent skill. Resolve paths relative to this SKILL.md,
+and run commands on the selected target through its existing authorized Transport.
+Other Kai skills named below are optional specialists; this directory contains
+the executable resources required by its own workflow.
 # iStoreOS Logs & Diagnostics
 
 原则：先采证据，再给结论；先分层，再深入；命令块不超过 6 条。

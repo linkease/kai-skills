@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "releaseVersion": "1.1.0",
+  "architectureSupport": {
+    "ubuntu": ["x64"],
+    "debian": ["x64"],
+    "istoreos": ["x64"],
+    "macos": ["arm64"],
+    "windows": ["x64"]
+  },
+  "bundles": {
+    "development": {
+      "title": "Develop and run a project with mise and accelerated dependencies",
+      "skills": ["kai-dev-environment", "kai-project-dependencies", "kai-download-acceleration"]
+    },
+    "software-management": {
+      "title": "Find, install and use software with verified downloads",
+      "skills": ["kai-software", "kai-download-acceleration"]
+    }
+  },
+  "runtimeResources": {
+    "kai-dev-environment": ["kai-tool-bootstrap"],
+    "kai-download-acceleration": ["kai-tool-bootstrap"],
+    "kai-project-dependencies": ["kai-tool-bootstrap", "kai-dev-environment"],
+    "kai-software": ["kai-tool-bootstrap"],
+    "kai-storage-files": ["kai-tool-bootstrap", "kai-dev-environment"],
+    "istoreos-app-diagnostics": ["istoreos-app-search"],
+    "istoreos-app-search": ["istoreos-app-diagnostics"],
+    "istoreos-docker-data-root-migrate": ["istoreos-storage-path"],
+    "istoreos-system-task-router": ["istoreos-package-manager"],
+    "istoreos-quickstart-api": ["luci-http-controller"],
+    "istoreos-run-executable": ["istoreos-kspeeder-domainfold-fetch"],
+    "istoreos-kspeeder-domainfold-fetch": ["istoreos-download-acceleration"],
+    "istoreos-download-acceleration": ["istoreos-mise-runtime", "istoreos-kspeeder-domainfold-fetch"],
+    "istoreos-mise-runtime": ["istoreos-package-manager"]
+  },
+  "programRequirements": {
+    "kai-tool-bootstrap": ["Bash, or native PowerShell for the Windows first entry", "native verified zsetup core for managed installation"],
+    "kai-software": ["compatible Bash and full jq", "target native package manager", "ks-cli for prepared WinGet operations"],
+    "kai-dev-environment": ["compatible Bash and full jq", "mise and target native runtime integration", "ks-cli and an authorized gateway when acceleration is required"],
+    "kai-project-dependencies": ["compatible Bash and full jq", "selected mise SDK", "project native package manager and existing lock", "ks-cli and an authorized gateway when acceleration is required"],
+    "kai-download-acceleration": ["compatible Bash and full jq", "ks-cli", "native Git with HTTPS support for Git tasks", "authorized Docker daemon for Docker tasks", "authorized gateway for accelerated routes"],
+    "kai-storage-files": ["compatible Bash and full jq", "linkspace on supported Linux targets or explicitly selected Python fallback", "zsetup storage on Linux for mount facts"]
+  }
+}

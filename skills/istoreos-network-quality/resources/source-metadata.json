@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: istoreos-network-quality\ndescription: 使用 iStoreOS 内置 FastNet 测量并解释外网带宽、延迟与抖动、NAT 类型、IPv6 可用性和局域网吞吐；用于网速慢、测速、NAT/IPv6 检测和 LAN 测速，不用于特定下载源加速或修改网络配置。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: 网速慢, 测速, 宽带速度, 上行速度, 下行速度, 延迟, 抖动, NAT 类型, IPv6 测试, IPv6 可用性, 局域网测速, LAN 测速, FastNet\nnegative-triggers: Docker 镜像下载慢, GitHub 下载慢, 文件下载失败, 修改 IPv6 模式, 修改网络配置\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+      "sourceDigest": "sha256:ee151de897bff98c8c499e4cae4b86791624dda2ac2b9a74534d41e04ee1a40e"
+    }
+  ]
+}

@@ -1,0 +1,127 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://linkease.com/schemas/istoreos-app-diagnostics-report-v1.json",
+  "title": "iStoreOS application diagnostic report",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "requested_app",
+    "task",
+    "result",
+    "device",
+    "evidence",
+    "next",
+    "limits"
+  ],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "requested_app": { "type": "string", "minLength": 1 },
+    "task": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "state", "correlation", "exit_code", "action", "package"],
+      "properties": {
+        "id": { "type": "string" },
+        "state": { "enum": ["running", "finished", "unknown"] },
+        "correlation": { "enum": ["exact", "mismatch", "none"] },
+        "exit_code": { "type": ["integer", "null"] },
+        "action": { "type": ["string", "null"] },
+        "package": { "type": ["string", "null"] },
+        "enable_requested": { "type": ["integer", "null"], "enum": [0, 1, null] },
+        "target_path": { "type": ["string", "null"] },
+        "started_at": { "type": ["integer", "null"] },
+        "stopped_at": { "type": ["integer", "null"] },
+        "age_seconds": { "type": ["integer", "null"], "minimum": 0 }
+      }
+    },
+    "result": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["outcome", "primary_code", "summary", "confidence"],
+      "properties": {
+        "outcome": {
+          "enum": [
+            "success",
+            "success_with_warnings",
+            "in_progress",
+            "package_install_failed",
+            "dependency_failed",
+            "autoconf_failed",
+            "runtime_failed",
+            "unknown"
+          ]
+        },
+        "primary_code": { "type": "string", "minLength": 1 },
+        "summary": { "type": "string", "minLength": 1 },
+        "confidence": { "enum": ["high", "medium", "low"] }
+      }
+    },
+    "device": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "package_installed",
+        "meta_present",
+        "autoconf_present",
+        "istorec_present",
+        "init_script_present",
+        "config_present",
+        "service_state",
+        "container_state"
+      ],
+      "properties": {
+        "package_installed": { "type": ["boolean", "null"] },
+        "meta_present": { "type": "boolean" },
+        "autoconf_present": { "type": "boolean" },
+        "istorec_present": { "type": "boolean" },
+        "init_script_present": { "type": "boolean" },
+        "config_present": { "type": "boolean" },
+        "service_state": { "type": ["string", "null"] },
+        "container_state": { "type": ["string", "null"] }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["source", "code", "message"],
+        "properties": {
+          "source": { "enum": ["task", "log", "package", "filesystem", "service", "container", "catalog"] },
+          "code": { "type": "string", "minLength": 1 },
+          "message": { "type": "string", "minLength": 1 }
+        }
+      }
+    },
+    "next": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["skill", "detail"],
+      "properties": {
+        "skill": { "type": ["string", "null"] },
+        "detail": { "type": ["string", "null"] }
+      }
+    },
+    "limits": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["historical_log_available", "log_truncated", "untrusted_log"],
+      "properties": {
+        "historical_log_available": { "type": "boolean" },
+        "log_truncated": { "type": "boolean" },
+        "untrusted_log": { "const": true }
+      }
+    },
+    "detail": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["phase", "log_excerpt"],
+      "properties": {
+        "phase": { "enum": ["all", "package", "autoconf", "runtime"] },
+        "log_excerpt": { "type": "string", "maxLength": 32768 }
+      }
+    }
+  }
+}
