@@ -37,7 +37,7 @@
 历史多系统核心功能结果见[多系统完成情况](docs/verification/platform-completion-20261028.md)。
 代码开发及本地自检已完成；[2026-11-05 新版 KSpeeder 复测](docs/verification/business-retest-20261105.md)中，Ubuntu、Debian、iStoreOS 独立业务各通过 6/6，Windows 通过 5/6，macOS 通过 4/6。这些结果属于各自记录的程序候选，不能合并推定最终版本全面通过。
 尚未关闭：iStoreOS 开发集合在刷新前置索引前的包校验失败（前置准备已修复，集合待复测）、macOS Git HTTP 405、Homebrew bottle 的网关 Plus 授权及原站 DNS。服务、集合旅程及 npm 审计仍待验收；BM9/BM10 未放行。
-Windows 已验证线上 MSZIP、PuTTY MSI、Python EXE 安装/运行/卸载；[本批原生复验](docs/verification/windows-winget-path-retest-20261105.md)通过完整依赖下载与 Neovim 的已有依赖复用闭环，修复了 PowerShell 输入 EOF 等待。缺失依赖首次安装、升级、多层图、目录刷新及 fresh CRL/OCSP 仍未验证；[上批失败记录](docs/verification/windows-winget-followup-20261105.md)保留。
+Windows 已验证线上 MSZIP、PuTTY MSI、Python EXE 安装/运行/卸载；[原生安装复验](docs/verification/windows-winget-path-retest-20261105.md)通过完整依赖下载与 Neovim 的已有依赖复用闭环，修复了 PowerShell 输入 EOF 等待。[目录专项复验](docs/verification/windows-source-refresh-20261105.md)已通过正式 ks-cli 的官方目录实际更新、skill 刷新及后续查询；原生 WinGet 的独立刷新在部署阶段报登录会话错误，不能把退出码 0 当成功。三个历史 CRL 地址本次原生无缓存获取通过，完整 fresh CRL/OCSP、缺失依赖首次安装、升级和多层图仍待覆盖；[上批失败记录](docs/verification/windows-winget-followup-20261105.md)保留。
 `ks-cli`、网关和 jq 引导的未发布候选须按来源锁使用，不能把本地测试结果当成公开制品已经上线。
 
 ## 下载某个系统全部适用 Skills

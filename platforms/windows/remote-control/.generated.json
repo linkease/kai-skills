@@ -22,8 +22,8 @@
     "windows": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:13a30d24f400ea1f61399a006697c3f3ff3828b6a65c124898c92ea805fef2c5",
-  "treeDigest": "sha256:2ad2c70e77680796b4be657761aae18082de089800e0bb9326f9b127e6a9a030",
+  "sourceDigest": "sha256:0a218317e55e079a79e9cefeada11e1fc4f3245d13ef0c8f0f16288d18532a99",
+  "treeDigest": "sha256:f3dac340f6ea3df2017b975bcdb675556d5ba1dbce29921985c619c27d3dbe35",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

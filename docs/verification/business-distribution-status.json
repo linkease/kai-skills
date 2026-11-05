@@ -2,6 +2,20 @@
   "schemaVersion": 1,
   "plan": "../architecture/business-skill-distribution-milestones.md",
   "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "latestWindowsSourceRefresh": {
+    "date": "2026-11-05",
+    "execution": "windows-source-refresh-20261105.md",
+    "evidence": "windows-source-refresh-20261105-results.json",
+    "candidate": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+    "nativeSourceUpdate": "failed-deployment-0x80070520-despite-exit-zero",
+    "explicitKsCliCatalogUpdate": "passed-newer-official-Store-signed-package",
+    "skillRefreshAndInfo": "passed",
+    "historicalCRLURLsWireOnlyRetrieval": "passed-3-of-3-without-cache-read-or-write",
+    "freshFullChainCRLAndOCSP": "not-verified",
+    "selectedRoute": "origin-no-acceleration-claim",
+    "originalConfiguration": "unchanged",
+    "releaseReady": false
+  },
   "latestWindowsPathRetest": {
     "date": "2026-11-05",
     "evidence": "windows-winget-path-retest-20261105-results.json",

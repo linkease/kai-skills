@@ -2,7 +2,7 @@
 
 计划：[BM0–BM10](../architecture/business-skill-distribution-milestones.md)。
 
-最新阶段：2026-11-05 用户重新授权后，Windows 原生目录复验在第二轮通过 Python EXE 安装/运行/卸载、完整依赖下载及 Neovim 的已有依赖复用闭环；新增 PowerShell 输入结束标记修复通过本地与 Windows 原机验证。见[本批记录](windows-winget-path-retest-20261105.md)及[机器结果](windows-winget-path-retest-20261105-results.json)。缺失依赖新装/升级、目录刷新及 fresh CRL/OCSP 等门禁保留，BM7/BM8 未整体通过，BM9 尚非 release-ready，BM10 未发布。下文保留各历史阶段原始结论。
+最新阶段：2026-11-05 [目录专项复验](windows-source-refresh-20261105.md)已通过正式 ks-cli 的官方目录实际更新、skill 刷新与查询；原生 WinGet 独立刷新仍有部署阶段登录会话错误。三个历史 CRL 地址本次原生无缓存获取通过，不代替完整 fresh CRL/OCSP。此前 Windows 第二轮通过 Python EXE 安装/运行/卸载、完整依赖下载及 Neovim 的已有依赖复用闭环；PowerShell 输入结束标记修复通过本地与 Windows 原机验证，见[安装复验](windows-winget-path-retest-20261105.md)及[机器结果](windows-winget-path-retest-20261105-results.json)。缺失依赖新装/升级、多层图及其他系统门禁保留，BM7/BM8 未整体通过，BM9 尚非 release-ready，BM10 未发布。下文保留各历史阶段原始结论。
 
 ## BM0 范围、清单与基线
 

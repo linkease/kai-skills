@@ -1,0 +1,214 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "scope": "Windows official catalog recovery and current certificate-network diagnosis",
+  "candidate": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+  "clientSHA256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+  "gatewaySHA256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+  "productRoundsUsed": 1,
+  "productCodeChanges": false,
+  "harnessCorrections": [
+    "setup variable shadowing before source operation; original result retained",
+    "PowerShell boolean serialization after probe; first capture retained",
+    "skill wrapper nativeResult nesting; validated existing successful refresh without repeating it"
+  ],
+  "nativeSourceUpdate": {
+    "status": "failed-native-deployment",
+    "nativeExitCode": 0,
+    "reported": "Cancelled",
+    "download": "passed",
+    "microsoftCertificateChainValidation": "passed",
+    "msixTrustValidation": "passed",
+    "failureStage": "AddPackage deployment",
+    "hresult": "0x80070520",
+    "meaning": "ERROR_NO_SUCH_LOGON_SESSION",
+    "machineVsSessionAttribution": "not-controlled-across-hosts-or-logon-types"
+  },
+  "explicitCatalogRecovery": {
+    "catalog_refresh": "native-signed-source-package",
+    "catalog_sha256": "0eca41c759218f75b922f9e51faaad6675387823be5e77e29a3b777a0cec3636",
+    "deployment": "updated",
+    "download": {
+      "acceleration_validation": "direct-selected-no-acceleration-claim",
+      "selected": "origin",
+      "strategy": "adaptive_race"
+    },
+    "operation": "source-update",
+    "schema_version": 1,
+    "source_identity_unchanged": true,
+    "source_trust_unchanged": true,
+    "source_version_after": "2026.1105.1439.51",
+    "source_version_before": "2026.1029.201.55",
+    "status": "passed",
+    "system_proxy_changed": false
+  },
+  "skillRefresh": {
+    "status": "passed",
+    "schemaVersion": 1,
+    "nativeResult": {
+      "catalog_refresh": "native-signed-source-package",
+      "catalog_sha256": "0eca41c759218f75b922f9e51faaad6675387823be5e77e29a3b777a0cec3636",
+      "deployment": "reused",
+      "download": {
+        "acceleration_validation": "direct-selected-no-acceleration-claim",
+        "selected": "origin",
+        "strategy": "adaptive_race"
+      },
+      "operation": "source-update",
+      "schema_version": 1,
+      "source_identity_unchanged": true,
+      "source_trust_unchanged": true,
+      "source_version_after": "2026.1105.1439.51",
+      "source_version_before": "2026.1105.1439.51",
+      "status": "passed",
+      "system_proxy_changed": false
+    },
+    "provider": "winget",
+    "operation": "refresh",
+    "exitCode": 0
+  },
+  "nativeQueryAfterRecovery": {
+    "status": "passed",
+    "id": "PuTTY.PuTTY",
+    "version": "0.85.0.0",
+    "sourceUpdateWarningObserved": false
+  },
+  "skillQueryAfterRecovery": {
+    "status": "passed",
+    "availableVersion": "0.85.0.0"
+  },
+  "certificateNetworking": {
+    "operation": "native-wire-only-crl-fetch",
+    "retrievalFlags": 12,
+    "cacheRead": false,
+    "cacheWrite": false,
+    "probes": [
+      {
+        "url": "http://www.microsoft.com/pkiops/crl/partition/Microsoft%20TLS%20G2%20RSA%20CA%20OCSP%2004_Partition00099.crl",
+        "ok": true,
+        "error": "0x00000000",
+        "milliseconds": 1377
+      },
+      {
+        "url": "http://crl.sectigo.com/SectigoPublicServerAuthenticationCADVE36.crl",
+        "ok": true,
+        "error": "0x00000000",
+        "milliseconds": 2359
+      },
+      {
+        "url": "http://crl.usertrust.com/USERTrustECCCertificationAuthority.crl",
+        "ok": true,
+        "error": "0x00000000",
+        "milliseconds": 850
+      }
+    ],
+    "fullChainRevocationValidation": "not-tested",
+    "ocsp": "not-tested"
+  },
+  "acceleration": {
+    "selected": "origin",
+    "validation": "direct-selected-no-acceleration-claim",
+    "windowsGatewayResponse": 502,
+    "windowsUpstreamHEAD": 404,
+    "controllerProbe": [
+      {
+        "url": "https://gh.d4ctech.com/winget/cache/source2.msix",
+        "method": "HEAD",
+        "status": 403
+      },
+      {
+        "url": "https://gh.d4ctech.com/winget/cache/source2.msix",
+        "method": "GET",
+        "status": 403
+      },
+      {
+        "url": "https://cdn.winget.microsoft.com/cache/source2.msix",
+        "method": "HEAD",
+        "status": 200,
+        "bytesRead": 0,
+        "seconds": 0.31
+      },
+      {
+        "url": "https://cdn.winget.microsoft.com/cache/source2.msix",
+        "method": "GET",
+        "status": 206,
+        "bytesRead": 1,
+        "seconds": 2.3
+      }
+    ],
+    "status": "upstream-route-not-accepted"
+  },
+  "configurationAudit": {
+    "services": true,
+    "trust": true,
+    "proxy": true,
+    "winhttp": true,
+    "userPath": true,
+    "machinePath": true,
+    "testPortsAbsent": true
+  },
+  "ownedProgramsStopped": true,
+  "remainingCoverage": [
+    "missing dependency first install",
+    "dependency upgrade",
+    "multi-level dependency graph",
+    "fresh full-chain CRL/OCSP",
+    "clean Windows environment",
+    "accelerated upstream catalog route"
+  ],
+  "localChecks": {
+    "independentPackageContracts": {
+      "passed": 8,
+      "skipped": 0
+    },
+    "wingetAdapterContracts": {
+      "passed": 8,
+      "skipped": 0
+    },
+    "generatedConsistency": "passed"
+  },
+  "privateEvidence": [
+    {
+      "name": "verify-remote-programs",
+      "sha256": "0be6e3979434e33a90abc209fc560da1976fe2b870305e3d0aef772caedd0df0"
+    },
+    {
+      "name": "baseline-before",
+      "sha256": "76481ac2c3a03d6375fd832e13130baef3db13be3056ef0163ba3bfd0ff4bd55"
+    },
+    {
+      "name": "native-source-update",
+      "sha256": "05c0e508036875b9dfc962a3441c4be8369518c709fb103c27734adf01ee1236"
+    },
+    {
+      "name": "formal-source-update",
+      "sha256": "209f1119f5e33bed912a533eeae8f809ad72b074331abdf6a162c91b589142c9"
+    },
+    {
+      "name": "native-source-private-logs",
+      "sha256": "48bdc411057a08f005800ad275f90148cd9ed815729cfc50f33886d5ebd2eecc"
+    },
+    {
+      "name": "skill-source-refresh",
+      "sha256": "ec7dd9d5ce2667662192466b7862db9759676b72373235ff3b7ab79cfa7d08ba"
+    },
+    {
+      "name": "skill-info-after-refresh",
+      "sha256": "f31e77bb56c695faf1a74380f6f34fbdf6b5a654a20b2da75e28c5f2eed1bdda"
+    },
+    {
+      "name": "native-show-after-update",
+      "sha256": "387949bf5f09f436b8a7ccbd9c77f6a24c1fe121fddfca82c22c632e472bbbf9"
+    },
+    {
+      "name": "native-fresh-crl-wire-v2",
+      "sha256": "4c144d802da947f20a3c1d26261efd37eeee8b315b4d7de2d47a16da5bfa696b"
+    },
+    {
+      "name": "final-after-followup",
+      "sha256": "5c2d1c9ccaec531bcb89ac05c9de11cb0b64e46b6c39b3f5b16cddf65c7efb49"
+    }
+  ],
+  "releaseReady": false,
+  "published": false
+}

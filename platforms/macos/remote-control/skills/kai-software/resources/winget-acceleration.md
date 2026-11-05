@@ -74,6 +74,16 @@ can use direct transfer when no accelerated route is selected. It never
 substitutes another source, disables signature checks or treats a transport hash
 as publisher trust.
 
+For a failed native `winget source update`, inspect its output and deployment
+logs as well as the exit code. Native WinGet can print `Cancelled` and return
+zero after a failed source deployment. That is not a successful refresh. If
+downloads and trust validation succeeded but deployment reports `0x80070520`
+(no such logon session), record a native deployment/session failure rather than
+a download or CRL failure. Use the explicit ks-cli recovery above within the
+authorized refresh operation, then verify its deployment receipt and a native
+query. Distinguish a newer registered catalog from equal-version reuse; do not
+reset sources, change trust or replace services to hide the native failure.
+
 Windows CRL/OCSP and issuer retrieval remain independent native network requests.
 Successful payload transfer, cached signature validation or catalog reuse does
 not prove fresh revocation connectivity. Preserve these failures and diagnose the
