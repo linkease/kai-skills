@@ -473,6 +473,36 @@ info) printf '{"formulae":[{"versions":{"stable":"1.8.2"},"installed":[{"version
         result=subprocess.run(['sh',str(transport),'inspect'],input=script,env=env,text=True,capture_output=True,timeout=15)
         self.assertEqual(result.returncode,4,result.stderr);self.assertFalse(sent.exists())
 
+    def test_powershell_transport_frames_input_without_waiting_for_eof(self):
+        self.assertTrue(PWSH)
+        key=self.work/'key';subprocess.run(['ssh-keygen','-q','-t','ed25519','-N','','-f',str(key)],check=True)
+        known=self.work/'known_hosts';known.write_text('windows.example '+key.with_suffix('.pub').read_text())
+        executor=self.work/'framed-ssh-executor'
+        executor.write_text('#!'+sys.executable+'\nimport os,subprocess,sys\n'
+            'data=sys.stdin.buffer.read();offset=sys.argv.index("powershell.exe")\n'
+            'if os.environ["TEST_INPUT_MODE"]=="truncated": data=b"".join(data.splitlines(keepends=True)[:-1])\n'
+            'p=subprocess.Popen([os.environ["KAI_DESKTOP_PWSH"],*sys.argv[offset+1:]],stdin=subprocess.PIPE,stdout=subprocess.PIPE,stderr=subprocess.PIPE)\n'
+            'p.stdin.write(data);p.stdin.flush()\n'
+            'if os.environ["TEST_INPUT_MODE"]=="truncated": p.stdin.close();p.stdin=None\n'
+            'try: code=p.wait(timeout=6)\n'
+            'except subprocess.TimeoutExpired:\n'
+            ' p.kill();p.communicate();sys.stderr.write("launcher waited for stdin EOF\\n");sys.exit(97)\n'
+            'out,err=p.communicate();sys.stdout.buffer.write(out);sys.stderr.buffer.write(err);sys.exit(code)\n')
+        executor.chmod(0o700)
+        transport=ROOT/'components/transports/ssh/skills/target-ssh-powershell-controller/scripts/target-ssh-powershell.sh'
+        for mode in ('held-open','truncated'):
+            with self.subTest(mode=mode):
+                env={**os.environ,'TARGET_ID':'framing-contract','TARGET_SSH_HOST':'windows.example','TARGET_SSH_USER':'operator',
+                     'TARGET_SSH_KNOWN_HOSTS':str(known),'TARGET_SSH_BIN':str(executor),'TEST_INPUT_MODE':mode}
+                result=subprocess.run(['sh',str(transport),'inspect'],input="[Console]::WriteLine('executed 中文');exit 37\n",
+                                      env=env,text=True,capture_output=True,timeout=15)
+                if mode=='held-open':
+                    self.assertEqual(result.returncode,37,result.stdout+result.stderr)
+                    self.assertIn('executed 中文',result.stdout)
+                else:
+                    self.assertNotEqual(result.returncode,0,result.stdout+result.stderr)
+                    self.assertNotIn('executed 中文',result.stdout)
+
     def test_powershell_transport_timeout_reaps_descendants(self):
         self.assertTrue(PWSH)
         key=self.work/'key';subprocess.run(['ssh-keygen','-q','-t','ed25519','-N','','-f',str(key)],check=True)
