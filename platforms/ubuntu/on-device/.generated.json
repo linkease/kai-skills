@@ -22,8 +22,8 @@
     "debian": "1.0.0",
     "ubuntu": "1.0.0"
   },
-  "sourceDigest": "sha256:7a6e816e0d374c466834eec372ae9356b33d5268a2e51f86e641ff6e7cfcdce1",
-  "treeDigest": "sha256:8e5bce20eca769d9e3aa24060a58984ebc572733f407b395b66510c378ca878f",
+  "sourceDigest": "sha256:390a982a370c8acf0ab78176b0d8194ea7deef10bd35e39483342c1c552027a9",
+  "treeDigest": "sha256:a5257785fa20dd3b15eddfd00661513925ac0342f97108d9f5b7f558c5b9b2c3",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

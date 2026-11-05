@@ -2,6 +2,22 @@
   "schemaVersion": 1,
   "plan": "../architecture/business-skill-distribution-milestones.md",
   "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "latestMacosBrewPlusValidation": {
+    "date": "2026-11-05",
+    "execution": "macos-brew-plus-20261105.md",
+    "evidence": "macos-brew-plus-20261105-results.json",
+    "clientCandidate": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+    "existingGatewayVersion": "0.7.16",
+    "existingGatewayCommit": "3aca8b58d228c5e94f6d482bdf841c600fe6b0eb",
+    "homebrewVersion": "6.0.16",
+    "bottleInstallUseVersionRemove": "passed-tree-2.3.2",
+    "originalBottleHash": "passed",
+    "strictNativeArtifactFetch": "command-and-checksum-passed-post-fetch-output-assertion-invalid",
+    "tokensReadOrCopied": false,
+    "existingGatewayLoginAndService": "preserved",
+    "ownedForwards": "removed",
+    "releaseReady": false
+  },
   "latestMacosBrewGHCR": {
     "date": "2026-11-05",
     "execution": "macos-brew-ghcr-20261105.md",

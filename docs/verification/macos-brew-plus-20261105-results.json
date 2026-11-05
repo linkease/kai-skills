@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "scope": "native macOS Homebrew through an existing authorized Linux Plus gateway",
+  "client": {
+    "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+    "sha256": "59f7d2a74a094378afb3a805b7c868c7cd6dfd637252d80247ea4ec9b1af1837"
+  },
+  "gateway": {
+    "version": "0.7.16",
+    "commit": "3aca8b58d228c5e94f6d482bdf841c600fe6b0eb",
+    "build_number": ""
+  },
+  "homebrew": "6.0.16",
+  "login": {
+    "readViaAPI": true,
+    "before": {
+      "is_login": true,
+      "is_plus": true
+    },
+    "after": {
+      "is_login": true,
+      "is_plus": true
+    },
+    "tokenRead": false,
+    "tokenCopied": false,
+    "loginChanged": false
+  },
+  "connection": {
+    "type": "owned SSH forwards between loopback listeners",
+    "TLSIdentityPreserved": true,
+    "registryGateHTTPStatus": 200,
+    "forwardsRemoved": true,
+    "gatewayReplacedOrRestarted": false
+  },
+  "installation": {
+    "status": "passed",
+    "formula": "tree",
+    "version": "2.3.2",
+    "nativeBottlePour": "passed",
+    "actualVersionAndFileListing": "passed",
+    "nativeRegisteredVersion": "2.3.2",
+    "removal": "passed"
+  },
+  "bottle": {
+    "tag": "arm64_tahoe",
+    "bytes": 66262,
+    "sha256": "d1967d2ed08717f963addb249ea6b8ca11c26ecb59efba34f2860853a06bedc7",
+    "matchesNativeManifest": true,
+    "manifestSHA256": "cee62fd18164d7c6120f8fdebfa8c6dced5c9c248343baab1d0baf5010264251"
+  },
+  "strictFetch": {
+    "nativeExitCode": 0,
+    "freshCache": true,
+    "artifactFallbackDisabled": true,
+    "nativeNoFallbackSourceChecked": true,
+    "checksumPassed": true,
+    "perRequestGatewayObservation": "not-available",
+    "interpretation": "configured artifact route with native no-fallback contract; no measured speedup or packet trace claim"
+  },
+  "executionGroups": [
+    {
+      "group": "install-round1",
+      "nativeInstallExitCode": 0,
+      "result": "installation succeeded; test expected a nonexistent status field; use not reached; fixture removed"
+    },
+    {
+      "group": "install-round2",
+      "result": "install-use-version-remove passed"
+    },
+    {
+      "group": "strict-fetch-round3",
+      "result": "native fetch and checksum passed; post-fetch verbose-URL assertion was invalid; successful receipt and current native no-fallback source checked without a fourth execution"
+    }
+  ],
+  "audit": {
+    "macosCellarProxyAndPortsUnchanged": true,
+    "LinuxPIDAndExecutablePathUnchanged": true,
+    "LinuxVersionAndPlusStateUnchanged": true,
+    "LinuxBinaryHashPostInstallToFinalUnchanged": true,
+    "allOwnedForwardsStopped": true
+  },
+  "localChecks": {
+    "independentPackageContracts": 8,
+    "skipped": 0,
+    "generatedConsistency": "passed"
+  },
+  "remaining": [
+    "macOS Git upload-pack HTTP 405",
+    "business and system collections",
+    "final distribution candidate with its own gateway binary",
+    "speedup measurement"
+  ],
+  "privateEvidence": [
+    {
+      "name": "linux-plus-status-v2.stdout",
+      "sha256": "c992771eda9a5094ee158f7141081eea7198dd07dd09a4ad4e3d354fe30fcad0"
+    },
+    {
+      "name": "linux-plus-status-final.stdout",
+      "sha256": "c992771eda9a5094ee158f7141081eea7198dd07dd09a4ad4e3d354fe30fcad0"
+    },
+    {
+      "name": "linux-service-inspect-v2.stdout",
+      "sha256": "f95d5af7ac5a2c424df47ac288ada56a3b725fb66998808e876f009779507d49"
+    },
+    {
+      "name": "linux-transfer-evidence-final.stdout",
+      "sha256": "95082b574883ea4326f36ded0ce7e933e2d2d8b5842125524dd55a8812a9fa46"
+    },
+    {
+      "name": "install-round1/native-result.json",
+      "sha256": "82fcc149279354070e043392c37f0700fb5e10cb75ae89d90a5a6fe9b9d54bec"
+    },
+    {
+      "name": "install-round2/native-result.json",
+      "sha256": "75e1a9d3d2a49b3de4c045160a62257d898fa9200304e70321c272c35733df58"
+    },
+    {
+      "name": "strict-fetch-round3/native-result.json",
+      "sha256": "ff8bf5f63d7927f7a0392ad3f7109fcc134ff0e540dd96d90149f4007f17a760"
+    },
+    {
+      "name": "install-round2/formal-install.json",
+      "sha256": "02396711f5ecc7dc8059cf4ae6a6fd5946fbffd885c07cad52545a9aa0631a32"
+    },
+    {
+      "name": "install-round2/formal-use.json",
+      "sha256": "6e5b65ddd2ae5b98abcbbf6b8e7193fea8f5a3f5fc226381b1b0caab63a732c6"
+    },
+    {
+      "name": "install-round2/software-after-install.json",
+      "sha256": "270ae5621b8282ec654269b79764ca0286142a59ad561918c19fe0e8dd14e26e"
+    },
+    {
+      "name": "install-round2/formal-remove.json",
+      "sha256": "92c43a10864151e9463223ab45512340f9b7324a3b37cab0f36a23a63be9e11a"
+    },
+    {
+      "name": "install-round2/baseline-after.json",
+      "sha256": "48f025a3d6d9032d176e2bf39c9f3c4225847b56965abdb7705dc2e60a6995e8"
+    },
+    {
+      "name": "install-round2/bottle-cache-evidence-final.json",
+      "sha256": "c7cbe7a38220e91bc1956f4e5137075188f5a24a7362c82d13abc798ef64a1d3"
+    },
+    {
+      "name": "strict-fetch-round3/strict-bottle-fetch.json",
+      "sha256": "59abafe8badeaaf4fe9f2bf443867b9c9b665d424cc23297a6346a51f13f66c5"
+    },
+    {
+      "name": "strict-fetch-round3/strict-fetch-source-and-cache-v2.json",
+      "sha256": "54e83ad5cb7eb41c7349ce20ff458848ed6eb49eede1bbd53d47191e8fd4df9a"
+    }
+  ],
+  "releaseReady": false,
+  "published": false
+}

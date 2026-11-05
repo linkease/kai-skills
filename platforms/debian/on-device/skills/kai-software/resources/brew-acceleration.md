@@ -56,6 +56,15 @@ curl --noproxy '*' --fail --silent --show-error \
 A 403 from the Plus gate requires a normal authorized session before another
 installation attempt. A 200 establishes only that this gate is open; still
 verify the manifest, blob, original hash, installation and actual program use.
+Before starting a fresh test gateway, check whether an existing gateway within
+the user's authorized scope already has a usable Plus session. Read its login
+and entitlement booleans without retrieving tokens. An owned, loopback-bound SSH
+forward can let the target use that service while retaining the registry alias,
+Host/SNI and TLS verification; keep the connection details in the target
+Transport. Check the existing service's capabilities and record its version
+separately from the client. Remove the forwards afterward. This avoids cloning
+login state or modifying the existing service and validates that client/service
+pair, not an untested replacement gateway build.
 Do not substitute the generic `/homebrew-bottles` DomainFold route to work around
 the existing GHCR entitlement rule. Keep API-only acceleration and explicitly
 selected Plus bottle acceleration separate in the result. Match the target's
