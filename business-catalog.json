@@ -759,7 +759,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:d029ecfe0ecbd184f9962d74fd6f7203fba62130468dfd460571e373bf367098"
+          "sourceDigest": "sha256:5cdeeb9b864a94009421608644e67b06c4723ddd39f688fcce0d7962839387ab"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -767,7 +767,7 @@
           "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
         }
       ],
-      "treeDigest": "sha256:009baeef8ccde4336ccae353d5e8f38706d780c6987d133cf96dbf3643223b55"
+      "treeDigest": "sha256:786a94cef6e2778275a18f0d3090bf15f5885e7aa712f7978826e19076f07834"
     },
     {
       "id": "kai-storage-files",
@@ -1017,10 +1017,10 @@
         {
           "id": "target-ssh-powershell-controller",
           "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
-          "sourceDigest": "sha256:371d021111c4eabc8b65809225e48718b80faaad8eb7c8dda87086733b362204"
+          "sourceDigest": "sha256:84be9579af7c6e62ccd487a237988a68ccf026c109d2f1fdde34a81eb5a00ea7"
         }
       ],
-      "treeDigest": "sha256:69faab0e9b9d9d111e93ded6ef900d4a44f591e5be1fbd9c89630e82d4500ce5"
+      "treeDigest": "sha256:a271dcb8b49f2256ceec19bb8a5f64000cdbba4047257530082efa6263317398"
     },
     {
       "id": "ubuntu-release-diagnostics",

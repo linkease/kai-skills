@@ -23,7 +23,7 @@
     {
       "id": "kai-software",
       "version": "1.1.0",
-      "treeDigest": "sha256:009baeef8ccde4336ccae353d5e8f38706d780c6987d133cf96dbf3643223b55"
+      "treeDigest": "sha256:786a94cef6e2778275a18f0d3090bf15f5885e7aa712f7978826e19076f07834"
     },
     {
       "id": "kai-storage-files",
@@ -38,7 +38,7 @@
     {
       "id": "target-ssh-powershell-controller",
       "version": "1.1.0",
-      "treeDigest": "sha256:69faab0e9b9d9d111e93ded6ef900d4a44f591e5be1fbd9c89630e82d4500ce5"
+      "treeDigest": "sha256:a271dcb8b49f2256ceec19bb8a5f64000cdbba4047257530082efa6263317398"
     },
     {
       "id": "windows-service-eventlog",

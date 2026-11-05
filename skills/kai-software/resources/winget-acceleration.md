@@ -56,6 +56,11 @@ verification gates. Native acceptance must cover signed EXE, MSI and dependency
 installation on the selected client/gateway version. Historical results from
 another transport do not validate this no-CONNECT path; preserve pending or
 failed native gates rather than inferring success from local adapter tests.
+The receipt's `packages` describes prepared original payloads and their versions.
+An install may reuse an older dependency that already satisfies the manifest;
+preparing a newer dependency payload does not prove that version was installed.
+Check the native registered versions and actual program use separately. Record
+dependency reuse and first installation as different acceptance results.
 
 Explicit official catalog recovery is available separately:
 

@@ -2,6 +2,21 @@
   "schemaVersion": 1,
   "plan": "../architecture/business-skill-distribution-milestones.md",
   "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "latestWindowsPathRetest": {
+    "date": "2026-11-05",
+    "evidence": "windows-winget-path-retest-20261105-results.json",
+    "execution": "windows-winget-path-retest-20261105.md",
+    "candidate": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+    "roundsUsed": 2,
+    "EXEInstallUseRemove": "passed-Python-3.12.10",
+    "dependencyDownloads": "passed-Neovim-and-VC-redist",
+    "dependencyInstallReuseUseRemove": "passed-Neovim-0.11.5-with-existing-VC",
+    "missingDependencyFirstInstall": "not-verified",
+    "catalogRefresh": "failed-native-cache-used",
+    "powerShellInputFraming": "passed-local-and-native-held-input-deadline-child-cleanup",
+    "originalServicesAndBinaryHashes": "unchanged",
+    "releaseReady": false
+  },
   "latestWindowsFollowup": {
     "date": "2026-11-05",
     "evidence": "windows-winget-followup-20261105-results.json",

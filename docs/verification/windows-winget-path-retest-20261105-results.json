@@ -1,0 +1,293 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "status": "exe-and-dependency-reuse-passed",
+  "skillsBaseline": "b8d0fa1",
+  "kspeederCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+  "maxNativeRounds": 3,
+  "roundsUsed": 2,
+  "firstRoundFailure": "PowerShell stdin launcher awaited EOF before Bash preparation; no software installer executed; stopped after verifying idle launcher identity and zero children",
+  "thirdRoundExecuted": false,
+  "cases": [
+    {
+      "case": "exe",
+      "round": 1,
+      "status": "failed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "privateReceiptSha256": "77148bbcbd089b3528bad698219b9096e2506cc83899bcde04e9789f53f7ea39",
+      "controlSessionStopped": true,
+      "packages": []
+    },
+    {
+      "case": "exe",
+      "round": 2,
+      "status": "passed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "privateReceiptSha256": "5c65a178348e6abe1eb8e73697f017e7e3a9144f99d8c259997d8c5cea0f0ed8",
+      "controlSessionStopped": true,
+      "packages": [
+        {
+          "id": "Python.Python.3.12",
+          "version": "3.12.10",
+          "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+          "installer_type": "burn",
+          "download": {
+            "acceleration_validation": "direct-selected-no-acceleration-claim",
+            "bytes": 26964224,
+            "mode": "auto",
+            "selected": "origin",
+            "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+            "strategy": "direct"
+          }
+        }
+      ],
+      "operation": "install",
+      "catalogRefresh": "failed-native-cache-used",
+      "metadataDownloads": [
+        {
+          "acceleration_validation": "direct-selected-no-acceleration-claim",
+          "bytes": 668,
+          "kind": "version-data",
+          "mode": "auto",
+          "selected": "origin",
+          "sha256": "a615771fa2fbb46c84add8d84a51559d43354ba82deb8c94820cd4f723ed3d62",
+          "strategy": "adaptive_race"
+        },
+        {
+          "acceleration_validation": "direct-selected-no-acceleration-claim",
+          "bytes": 15907,
+          "kind": "manifest",
+          "mode": "auto",
+          "selected": "origin",
+          "sha256": "604a38c5f4760214a52296c3a6116d32a0e07290845d8b7feb2fbd2d19ca8265",
+          "strategy": "adaptive_race"
+        }
+      ],
+      "registeredAfterInstall": {
+        "id": "winget:Python.Python.3.12",
+        "installed": true,
+        "installedVersion": "3.12.10"
+      },
+      "nativeUse": {
+        "exitCode": 0,
+        "receiptSha256": "dc6e75380113a333c3ccc766161baa466c4f79564007e0d2b46675fe24bcf0a1"
+      },
+      "removalExitCode": 0
+    },
+    {
+      "case": "dependency",
+      "round": 2,
+      "status": "passed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "privateReceiptSha256": "551c3c155af52227b2aaa730fba4dcc612a73f40fe403685e6d909ae8c9993f1",
+      "controlSessionStopped": true,
+      "packages": [
+        {
+          "id": "Microsoft.VCRedist.2015+.x64",
+          "version": "14.51.36247.0",
+          "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
+          "installer_type": "burn",
+          "download": {
+            "acceleration_validation": "direct-selected-no-acceleration-claim",
+            "bytes": 18731856,
+            "mode": "auto",
+            "selected": "origin",
+            "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
+            "strategy": "direct"
+          }
+        },
+        {
+          "id": "Neovim.Neovim",
+          "version": "0.11.5",
+          "sha256": "cd43d46dfdf1e02c9c571ace0a757389b1ce5c750d627172dbc76d24d8428a76",
+          "installer_type": "wix",
+          "download": {
+            "acceleration_validation": "direct-selected-no-acceleration-claim",
+            "bytes": 12111421,
+            "mode": "auto",
+            "selected": "origin",
+            "sha256": "cd43d46dfdf1e02c9c571ace0a757389b1ce5c750d627172dbc76d24d8428a76",
+            "strategy": "adaptive_race"
+          }
+        }
+      ],
+      "operation": "download",
+      "catalogRefresh": "failed-native-cache-used",
+      "metadataDownloads": [
+        {
+          "acceleration_validation": "direct-selected-no-acceleration-claim",
+          "bytes": 1390,
+          "kind": "version-data",
+          "mode": "auto",
+          "selected": "origin",
+          "sha256": "754db7f5ea253ac4abafde0d5c794a06c1b6f3a922da34bc9ec58be10640a95b",
+          "strategy": "adaptive_race"
+        },
+        {
+          "acceleration_validation": "direct-selected-no-acceleration-claim",
+          "bytes": 3679,
+          "kind": "manifest",
+          "mode": "auto",
+          "selected": "origin",
+          "sha256": "402b3f9ffbd8e107cdbaed85893bc85c7d171f0be7892d743b75c59ce08d9e60",
+          "strategy": "adaptive_race"
+        }
+      ]
+    },
+    {
+      "case": "dependency-install",
+      "round": 2,
+      "status": "passed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "privateReceiptSha256": "909da92e80aa5067ff0788b3a66f700a1fc16870e5a4dfe451fa6235dae75790",
+      "controlSessionStopped": true,
+      "packages": [
+        {
+          "id": "Microsoft.VCRedist.2015+.x64",
+          "version": "14.51.36247.0",
+          "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
+          "installer_type": "burn",
+          "download": {
+            "acceleration_validation": "direct-selected-no-acceleration-claim",
+            "bytes": 18731856,
+            "mode": "auto",
+            "selected": "origin",
+            "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
+            "strategy": "direct"
+          }
+        },
+        {
+          "id": "Neovim.Neovim",
+          "version": "0.11.5",
+          "sha256": "cd43d46dfdf1e02c9c571ace0a757389b1ce5c750d627172dbc76d24d8428a76",
+          "installer_type": "wix",
+          "download": {
+            "acceleration_validation": "direct-selected-no-acceleration-claim",
+            "bytes": 12111421,
+            "mode": "auto",
+            "selected": "origin",
+            "sha256": "cd43d46dfdf1e02c9c571ace0a757389b1ce5c750d627172dbc76d24d8428a76",
+            "strategy": "adaptive_race"
+          }
+        }
+      ],
+      "operation": "install",
+      "catalogRefresh": "failed-native-cache-used",
+      "metadataDownloads": [
+        {
+          "acceleration_validation": "direct-selected-no-acceleration-claim",
+          "bytes": 1390,
+          "kind": "version-data",
+          "mode": "auto",
+          "selected": "origin",
+          "sha256": "754db7f5ea253ac4abafde0d5c794a06c1b6f3a922da34bc9ec58be10640a95b",
+          "strategy": "adaptive_race"
+        },
+        {
+          "acceleration_validation": "direct-selected-no-acceleration-claim",
+          "bytes": 3679,
+          "kind": "manifest",
+          "mode": "auto",
+          "selected": "origin",
+          "sha256": "402b3f9ffbd8e107cdbaed85893bc85c7d171f0be7892d743b75c59ce08d9e60",
+          "strategy": "adaptive_race"
+        }
+      ],
+      "registeredAfterInstall": {
+        "id": "winget:Neovim.Neovim",
+        "installed": true,
+        "installedVersion": "0.11.5"
+      },
+      "nativeUse": {
+        "exitCode": 0,
+        "receiptSha256": "9bdc16c3f0026d17416638f49bd20b854e71772bad5ce15468197c63414365b6"
+      },
+      "removalExitCode": 0
+    }
+  ],
+  "transportFraming": {
+    "testOnlyCommit": "673b8a2",
+    "red": [
+      "held stdin open blocked execution",
+      "truncated message executed unexpectedly"
+    ],
+    "targetedLocalTests": 3,
+    "native": {
+      "heldInputExitCode": 37,
+      "unicodeAndParam": "passed",
+      "nativeDeadlineExitCode": 124,
+      "childStarted": true,
+      "childEscaped": false,
+      "status": "passed"
+    },
+    "sourceState": "worktree during native verification; generated package/runner digests retained per case"
+  },
+  "signatures": [
+    {
+      "name": "Python 3.12_3.12.10_User_X64_burn_en-US.exe",
+      "sha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+      "signature": "Valid",
+      "signer": "CN=Python Software Foundation, O=Python Software Foundation, L=Beaverton, S=Oregon, C=US"
+    },
+    {
+      "name": "Neovim_0.11.5_Machine_X64_wix_en-US.msi",
+      "sha256": "cd43d46dfdf1e02c9c571ace0a757389b1ce5c750d627172dbc76d24d8428a76",
+      "signature": "NotSigned",
+      "signer": ""
+    },
+    {
+      "name": "Microsoft Visual C++ v14 Redistributable (x64)_14.51.36247.0_Machine_X64_burn_en-US.exe",
+      "sha256": "843068991daaa1f73ad9f6239bce4d0f6a07a51f18c37ea2a867e9beca71295c",
+      "signature": "Valid",
+      "signer": "CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US"
+    }
+  ],
+  "cleanup": {
+    "registeredPackages": [
+      {
+        "Id": "Microsoft.VCRedist.2015+.x64",
+        "InstalledVersion": "14.36.32532.0"
+      },
+      {
+        "Id": "Microsoft.VCRedist.2015+.x86",
+        "InstalledVersion": "14.34.31938.0"
+      }
+    ],
+    "userPathUnchanged": true,
+    "machinePathUnchanged": true,
+    "servicesAndHashesUnchanged": true,
+    "serviceHashesRecorded": true,
+    "testPortsAbsent": true,
+    "ownedProgramsAbsent": true,
+    "privateReceiptSha256": "a507f7e7c6aa354816b5d895b4c816d5fe60e48d1c38ef78e98a832b1de747e6"
+  },
+  "localChecks": {
+    "desktopTests": 26,
+    "businessTests": 53,
+    "skipped": 0,
+    "M3TransportAndM2Canonical": "passed",
+    "generatedConsistency": "passed"
+  },
+  "pending": [
+    "missing-dependency first install",
+    "dependency version upgrade",
+    "multi-level dependency graph",
+    "official catalog refresh",
+    "fresh CRL/OCSP",
+    "SCM lifecycle",
+    "desktop collections",
+    "full final-candidate release gate"
+  ],
+  "dependencyScope": "verified original downloads plus native existing-compatible-dependency reuse; prepared dependency versions are not claimed as installed versions",
+  "releaseReady": false,
+  "published": false,
+  "privateEvidence": "external business-20261105 evidence directory; native paths and connection settings excluded"
+}

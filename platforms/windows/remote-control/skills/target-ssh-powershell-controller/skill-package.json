@@ -21,7 +21,7 @@
     {
       "id": "target-ssh-powershell-controller",
       "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
-      "sourceDigest": "sha256:371d021111c4eabc8b65809225e48718b80faaad8eb7c8dda87086733b362204"
+      "sourceDigest": "sha256:84be9579af7c6e62ccd487a237988a68ccf026c109d2f1fdde34a81eb5a00ea7"
     }
   ]
 }
