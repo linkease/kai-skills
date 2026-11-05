@@ -1,0 +1,131 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "scope": "macOS Homebrew API and GHCR bottle acceleration diagnosis",
+  "candidate": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+  "homebrewVersion": "6.0.16",
+  "clientSHA256": "59f7d2a74a094378afb3a805b7c868c7cd6dfd637252d80247ea4ec9b1af1837",
+  "gatewaySHA256": "0fb49605a6773aa8d0c5c91bf1d6af7e8b930a4428e5a4710c718b88b90c2def",
+  "programIdentity": "remote SHA256 check and runtime capabilities; historical gateway source-label constant is not authoritative",
+  "productRoundsUsed": 1,
+  "productionCodeChanged": false,
+  "preparationCorrections": [
+    "brew list in an isolated cache attempted API download and timed out before gateway startup; replaced by read-only Cellar inventory",
+    "audit used an explicit native brew path; first failed capture retained"
+  ],
+  "api": {
+    "status": "passed",
+    "signedIndexHTTPStatus": 200,
+    "nativeSkillInfo": "passed",
+    "formula": "tree",
+    "availableVersion": "2.3.2"
+  },
+  "ghcr": {
+    "status": "blocked-by-existing-Plus-gate",
+    "rootHTTPStatus": 403,
+    "manifestRequests": [
+      {
+        "host": "ghcr.linkease.net:5443",
+        "path": "/v2/homebrew/core/tree/manifests/2.3.2",
+        "status": 403,
+        "bytes": 216,
+        "sha256": "d8a4c2563dac26811c11c8ad0bc6edfd8fa106a5623e600f25102fda12be4101"
+      },
+      {
+        "host": "ghcr.linkease.net:5443",
+        "path": "/v2/homebrew/core/tree/manifests/2.3.2",
+        "status": 403,
+        "bytes": 216,
+        "sha256": "d8a4c2563dac26811c11c8ad0bc6edfd8fa106a5623e600f25102fda12be4101"
+      }
+    ],
+    "blobRequests": [
+      {
+        "host": "ghcr.linkease.net:5443",
+        "path": "/v2/homebrew/core/tree/blobs/sha256:d1967d2ed08717f963addb249ea6b8ca11c26ecb59efba34f2860853a06bedc7",
+        "status": 403,
+        "bytes": 216,
+        "sha256": "d8a4c2563dac26811c11c8ad0bc6edfd8fa106a5623e600f25102fda12be4101"
+      }
+    ],
+    "denialBodySHA256": "d8a4c2563dac26811c11c8ad0bc6edfd8fa106a5623e600f25102fda12be4101",
+    "denialMatchesProductionHandler": true,
+    "authorizedLiveTransfer": "not-verified",
+    "gateBypassed": false
+  },
+  "installation": {
+    "status": "not-passed",
+    "transportExitCode": 124,
+    "reason": "manifest/blob gate refusals followed by bounded installation timeout; final native fallback error was not captured",
+    "actualProgramUse": "not-executed"
+  },
+  "directGHCR": {
+    "exitCode": 28,
+    "httpStatus": "000",
+    "dnsFailure": false,
+    "timeout": true
+  },
+  "brewEnvModes": "free API-only; Plus adds explicit GHCR artifact domain",
+  "audit": {
+    "cellarProxyAndListenersUnchanged": true,
+    "taskProgramsStopped": true,
+    "brewEnvModesMatchPolicy": true
+  },
+  "localChecks": {
+    "TLSGHCRRoutingAndEntitlementTests": 2,
+    "brewClientRoutingTests": 5,
+    "independentPackageContracts": 8,
+    "skipped": 0,
+    "generatedConsistency": "passed"
+  },
+  "remaining": [
+    "authorized Plus session manifest/blob transfer",
+    "original bottle integrity and install/use/remove",
+    "macOS Git upload-pack HTTP 405",
+    "business and system collections"
+  ],
+  "privateEvidence": [
+    {
+      "name": "verify-programs",
+      "sha256": "057c04496d5f08346fd973dd4065d6344d9a9634e82a234df02b967838fb16f7"
+    },
+    {
+      "name": "baseline-before",
+      "sha256": "1271ca9650fc99d60d1132b6b7d3714a307d648b3638d26dbca4678aaf39065c"
+    },
+    {
+      "name": "gateway-health",
+      "sha256": "119caaa2ddd161ff1ebceb02bb3d587b5d2ba438ff3491811b231bc4ead29cc4"
+    },
+    {
+      "name": "ghcr-gate-repro",
+      "sha256": "14181ac5ff51a5baf2f8c4af34c76e752626820c73077c1fd2fced71f928d4e6"
+    },
+    {
+      "name": "software-before",
+      "sha256": "adef9a5825515d471af7707da7ee61994647fc1e71502bd5b9250a15c8457d14"
+    },
+    {
+      "name": "formal-install",
+      "sha256": "1a8b52f8b83479fdd9c97e823908ffa09882b5e229f110cc7b5d504fdaa15364"
+    },
+    {
+      "name": "ghcr-private-inspect",
+      "sha256": "2c9cec15380fee6fa69a6c7d4f661dd49033313c92f268dd902778e8bfc50ea7"
+    },
+    {
+      "name": "baseline-after-v2",
+      "sha256": "38f4055745b070786e91133986b3e640b0c35b7b0bc24eacbdf3ae29b565622d"
+    },
+    {
+      "name": "brew-env-modes",
+      "sha256": "7123e540b5519e94390fa1f98998579a13bda7f3cdf517212aab5cd1c5f40868"
+    },
+    {
+      "name": "direct-ghcr-network",
+      "sha256": "5b43e98ae54331a8686c362721dece7de447270cd5082a6e35e6a9461b519c6b"
+    }
+  ],
+  "releaseReady": false,
+  "published": false
+}

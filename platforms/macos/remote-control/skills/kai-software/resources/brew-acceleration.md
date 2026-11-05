@@ -40,5 +40,26 @@ or bypass the gate. Native Homebrew can subsequently fall back to `ghcr.io`,
 so retain the first gateway error as well as the final native download error.
 That registry alias does not establish support for
 arbitrary source-archive URLs or Git tap operations.
+`ks-cli doctor brew` checks the API gateway contract, not the caller-selected
+GHCR route's Plus session or a complete bottle transfer. Before retrying a bottle
+install through that route, check its gate on the selected target with an
+existing trusted curl and the same gateway port:
+
+```sh
+brew_gateway_port="${KSPEEDER_PORT:-5443}"
+curl --noproxy '*' --fail --silent --show-error \
+  --connect-timeout 5 --max-time 15 \
+  --resolve "ghcr.linkease.net:${brew_gateway_port}:127.0.0.1" \
+  "https://ghcr.linkease.net:${brew_gateway_port}/v2/"
+```
+
+A 403 from the Plus gate requires a normal authorized session before another
+installation attempt. A 200 establishes only that this gate is open; still
+verify the manifest, blob, original hash, installation and actual program use.
+Do not substitute the generic `/homebrew-bottles` DomainFold route to work around
+the existing GHCR entitlement rule. Keep API-only acceleration and explicitly
+selected Plus bottle acceleration separate in the result. Match the target's
+current Homebrew version when diagnosing fallback; do not carry an old DNS
+diagnosis forward without a current probe.
 The new client is a locally validated candidate until its release provenance
 is published. A failed original API/JWS/bottle check remains a failure.

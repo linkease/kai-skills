@@ -22,8 +22,8 @@
     "macos": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:4bbb3957a43095548fc7738e548c933a837c12ea6bf55d9ecd7b8bbd20342895",
-  "treeDigest": "sha256:216b744167ec1de04881bb51e34f71022bcf5fb2e6c5d42f5529d5b535c6c1fc",
+  "sourceDigest": "sha256:cdf58d348db2bba8d8ece12f72912b7ddc289110dbb30f82c3983a5dba5336ae",
+  "treeDigest": "sha256:61f9a10c608d152ea815f454a62d964fadded8891a16c2702976c7fb0fec6f8d",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

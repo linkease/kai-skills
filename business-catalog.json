@@ -759,7 +759,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:2480f879224003392d50ee86c5cfe2f8988a8b30dd98910b9a79193e383e85d7"
+          "sourceDigest": "sha256:b435b268c56c7f14d71415a2fd061274aebb00a98eafaa4ef7b77a4bf3901ba8"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -767,7 +767,7 @@
           "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
         }
       ],
-      "treeDigest": "sha256:5bf82595be73094abccf7042af784ad4cfdbfeb5846ecfe70f1eaf513791b401"
+      "treeDigest": "sha256:db08262e88ea6d5ad18a4902043721c81ab5f08e5da379dabd651b8cdf00bcba"
     },
     {
       "id": "kai-storage-files",
