@@ -2,7 +2,7 @@
 
 计划：[BM0–BM10](../architecture/business-skill-distribution-milestones.md)。
 
-最新阶段：2026-11-03 按用户要求先完成代码。当前 `kai-skills` 业务分发开发与本地自检完成；BM7/BM8 的原生失败保持，BM9 尚非 release-ready，BM10 未发布。详见文末及 [本轮结果](business-development-20261103.json)。
+最新阶段：2026-11-05 按用户授权对新版 KSpeeder 恢复开发测试。依赖及 Homebrew skill 修复与本地自检通过；三组原生业务各完成最多三轮，BM7/BM8 仍未整体通过，BM9 尚非 release-ready，BM10 未发布。详见[新版复测](business-retest-20261105.md)及[机器结果](business-retest-20261105-results.json)。下文保留各历史阶段原始结论。
 
 ## BM0 范围、清单与基线
 
@@ -161,3 +161,13 @@ BM8 三轮后仍 failed；没有第四轮。签名 EXE/MSI、依赖安装、SCM 
 已通过正式入口构建并完整验证工作区候选，清单摘要 `sha256:ec688381f49e283cd14f69ad4d986605d78e9b662743e46d1e766ec5c59533c0`。正式 gate 按预期拒绝该 worktree 候选。gate 正向用例只是本地干净 fixture 的合成回执，下载复验只是本地 HTTP fixture；二者均不作为真实原生证据或正式发布。没有连接远端、改变默认代理/证书/系统 curl、启动生产服务或上传发布物。
 
 结果：`kai-skills` 业务分发代码及 skills 开发完成。下一阶段需要按最终提交/内容摘要执行原生测试；iStoreOS 包源校验、macOS Git HTTP 405、Windows jq DNS、mise/签名及 WinGet 实际安装/依赖、服务和集合旅程仍保留待验。KSpeeder 依赖修复仍在其独立分支，不因本轮代码完成而视为已合并/已发布。详细机器结果见 [business-development-20261103.json](business-development-20261103.json)。
+
+## 2026-11-05 新版 KSpeeder 原生复测（未整体通过）
+
+执行前任务树及验收标准、各轮来源和失败见[专项记录](business-retest-20261105.md)。旧签名回退、mise 身份查询和 Git 本地解析修复在新基线先复现红灯后整合；新增 Node 损坏包原站恢复、Homebrew 临时 curl 配置及显式 bottle alias 解析、Windows MSZIP 版本元数据解压，均先提交失败测试再实现。KSpeeder 修复已在当前依赖工作分支提交到 `f5665424`，没有推送/发布；不能把旧分支成果误作已发布程序。
+
+Linux 第三轮独立业务 18/18 通过；iStoreOS 专属入口 16 项通过但九项生产门禁未验；开发集合 Ubuntu/Debian 通过，iStoreOS 在 Git 原生安装预演的摘要/大小校验处失败。原生刷新前后对照为 255→0，测试工具已补齐开发集合缺失的索引刷新前置，未重跑完整集合。软件管理及系统集合本批未执行。系统 curl/TLS 保护保持。
+
+Windows 第三轮 5/6 通过，已实际完成 Node、npm、空间及中文查找、校验文件和 Git；WinGet 源元数据可获取且压缩字节摘要正确，安装停在 MSZIP 误解析。修复后四项 Windows 原生离线解析测试全部通过；未追加 EXE/MSI/依赖安装。macOS 第三轮 4/6，通过核心开发和存储业务；Git POST 405 保持。正式 Homebrew API 查询通过，bottle alias 确已到达本地网关但被现有 Plus 权限拒绝 403，随后原站 DNS 失败。保留权限检查，没有复制其他服务凭据。
+
+本地业务 53、独立隔离 81、桌面契约 25、基线 15 组以及生成一致性通过。六个跨平台程序已构建，最终构建清单留档；不同轮候选的成功不合并为最终全绿。Linux 容器/网络及桌面临时程序/端口已清理，Windows 既有服务状态/启动模式/路径保持；本批没有既有服务二进制前置摘要，不宣称哈希比对通过。三轮上限后停止原生业务重试，BM9/BM10 不放行。

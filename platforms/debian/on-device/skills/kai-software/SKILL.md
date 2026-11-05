@@ -73,7 +73,10 @@ candidate. Missing or unverifiable metadata stops preparation. Ordinary direct
 transfer is valid content; only an accelerated selected route proves acceleration.
 Cached selection and payload transfer do not prove fresh catalog or CRL/OCSP health.
 
-Search defaults to the native system provider. For internal software, use
+Search defaults to the native system provider.
+Homebrew acceleration uses `KAI_SOFTWARE_ACCELERATION=required` with an existing
+compatible ks-cli and ready gateway; see [Homebrew](resources/brew-acceleration.md).
+For internal software, use
 `KAI_SOFTWARE_PROVIDER=zsetup`; for the iStore package catalog, use `istore`.
 When a request spans sources, query each applicable cached provider and compare
 their source-qualified results. A missing cache or an empty system repository

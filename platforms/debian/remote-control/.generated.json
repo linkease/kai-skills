@@ -22,8 +22,8 @@
     "debian": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:15915d6781a942eac4b634ea4fa2ba91db53c3557302571d9043faea3758f068",
-  "treeDigest": "sha256:7831cef9770babad451e97d84832425cf353b9532ea3c43fa9b0cb35db145ec9",
+  "sourceDigest": "sha256:9fce644f249604773c875603ddb29758a95ba2ca0dec3e7869fea350c5525f89",
+  "treeDigest": "sha256:561283d0c43c5103f6f6efe0e0b9e3bc0ae306538e653a31f56cf8903e6f13d9",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

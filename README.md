@@ -35,8 +35,8 @@
 远控主机的系统不决定目标包管理器。Windows 需要 Git Bash；首次引导可用原生 PowerShell，WSL 作为独立 Linux 目标。
 
 历史多系统核心功能结果见[多系统完成情况](docs/verification/platform-completion-20261028.md)。
-新的独立 skill / 业务集合候选尚未完成多系统验收，最近复测中仍有 iStoreOS Git 软件源校验、macOS Git HTTP 405 和 Windows 引导下载 DNS 问题。
-WinGet 实际安装、集合原生旅程及 npm 审计能力尚未通过新候选门禁；当前优先按[代码完成标准](docs/architecture/business-development-completion.md)补齐实现，再集中测试。
+代码开发及本地自检已完成；[2026-11-05 新版 KSpeeder 复测](docs/verification/business-retest-20261105.md)中，Ubuntu、Debian、iStoreOS 独立业务各通过 6/6，Windows 通过 5/6，macOS 通过 4/6。这些结果属于各自记录的程序候选，不能合并推定最终版本全面通过。
+尚未关闭：iStoreOS 开发集合在刷新前置索引前的包校验失败（前置准备已修复，集合待复测）、macOS Git HTTP 405、Homebrew bottle 的网关 Plus 授权及原站 DNS、WinGet 实际安装。Windows MSZIP 元数据解析修复已通过原生离线测试，EXE/MSI、依赖、服务、集合旅程及 npm 审计仍待验收；BM9/BM10 未放行。
 `ks-cli`、网关和 jq 引导的未发布候选须按来源锁使用，不能把本地测试结果当成公开制品已经上线。
 
 ## 下载某个系统全部适用 Skills

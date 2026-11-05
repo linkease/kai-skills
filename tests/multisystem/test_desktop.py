@@ -248,6 +248,36 @@ class DesktopTests(unittest.TestCase):
         self.assertEqual(json.loads(result.stdout)['owner'], 'apple')
         self.assertFalse(marker.exists())
 
+    def test_macos_required_software_acceleration_uses_formal_brew_client(self):
+        binary = self.work / 'bin'; binary.mkdir()
+        direct = self.work / 'unexpected-native-brew'
+        brew = binary / 'brew'
+        brew.write_text('#!/bin/sh\ntouch "$TEST_DIRECT_BREW"\nexit 77\n'); brew.chmod(0o700)
+        client = binary / 'ks-cli'
+        client.write_text('#!' + sys.executable + '\nimport json,os,sys\n'
+            'with open(os.environ["TEST_BREW_CALLS"],"a") as out: out.write(json.dumps(sys.argv[1:])+"\\n")\n'
+            'if sys.argv[1:]==["doctor","brew","--json"]: print(json.dumps({"schema_version":1,"overall":"pass","tool":"brew"}))\n'
+            'elif sys.argv[1:]==["brew","info","--json=v2","tree"]: print(json.dumps({"formulae":[{"name":"tree","versions":{"stable":"1.2.3"},"installed":[]}]}))\n'
+            'else: sys.exit(78)\n')
+        client.chmod(0o700)
+        calls = self.work / 'brew-calls.jsonl'
+        helper = ROOT / 'components/system-packs/common/skills/kai-software/scripts/software.sh'
+        env = {**os.environ, 'PATH': str(binary) + ':' + os.environ['PATH'],
+               'KAI_PLATFORM': 'macos', 'KAI_SOFTWARE_ACCELERATION': 'required',
+               'KAI_KSCLI_BIN': str(client), 'TEST_DIRECT_BREW': str(direct), 'TEST_BREW_CALLS': str(calls)}
+        result = subprocess.run(['bash', str(helper), 'info', 'brew:tree'], env=env,
+                                capture_output=True, text=True, timeout=15)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout)['availableVersion'], '1.2.3')
+        self.assertEqual([json.loads(line) for line in calls.read_text().splitlines()],
+                         [['doctor','brew','--json'],['brew','info','--json=v2','tree']])
+        self.assertFalse(direct.exists())
+        env['KAI_KSCLI_BIN'] = str(binary / 'missing-client')
+        result = subprocess.run(['bash', str(helper), 'info', 'brew:tree'], env=env,
+                                capture_output=True, text=True, timeout=15)
+        self.assertEqual(result.returncode, 127, result.stdout + result.stderr)
+        self.assertFalse(direct.exists())
+
     def test_bash_bootstrap_rejects_slash_separated_wsl_launcher_before_running_it(self):
         self.assertTrue(PWSH)
         directory = self.work / 'System32'; directory.mkdir()

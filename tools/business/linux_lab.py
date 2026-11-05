@@ -226,6 +226,9 @@ class NativeTasks:
         assert self.lab.exec(self.instance, 'sha256sum', '/workspace/verified-file').split()[0] == item['sha256']
         if not self.lab.exec(self.instance, 'sh', '-c', 'command -v git || true'):
             assert self.target == 'istoreos', 'native Git prerequisite absent'
+            # Development-only collections do not run software(), which refreshes
+            # the frozen image's package indexes before native installation.
+            self.capture('git-native-refresh-index', ['opkg', 'update'])
             plan = self.capture('git-native-install-plan', ['opkg', '--noaction', 'install', 'git-http'])
             operations = re.findall(r'^(?:Installing|Upgrading|Downgrading|Removing)\s+(\S+)',
                 plan['stdout'] + '\n' + plan['stderr'], re.M)

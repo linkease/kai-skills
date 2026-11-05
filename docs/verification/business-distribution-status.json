@@ -2,6 +2,23 @@
   "schemaVersion": 1,
   "plan": "../architecture/business-skill-distribution-milestones.md",
   "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "latestNativeBatch": {
+    "date": "2026-11-05",
+    "status": "native-acceptance-not-passed",
+    "evidence": "business-retest-20261105-results.json",
+    "execution": "business-retest-20261105.md",
+    "maxRoundsPerGroup": 3,
+    "linuxIndependentCases": {"passed": 18, "total": 18, "candidate": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab"},
+    "developmentCollections": {"passed": 2, "total": 3, "istoreos": "Git prerequisite package preview rejected checksum or size; missing index refresh fixed after native before/after diagnosis; whole collection not rerun"},
+    "macosIndependentCases": {"passed": 4, "total": 6, "candidate": "f5665424f3af5ce3bd8f1bc07598da2103656154"},
+    "windowsIndependentCases": {"passed": 5, "total": 6, "candidate": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6"},
+    "macosBlockers": ["Git upload-pack POST HTTP 405", "GHCR bottle alias HTTP 403 at existing Plus authorization gate; native fallback ghcr.io DNS failure"],
+    "windowsBlocker": "WinGet compressed source metadata parsing; fixed and verified in four native offline tests, full EXE/MSI/dependency installation not rerun",
+    "collectionsNotRun": ["Linux software-management", "Linux system journeys", "desktop business/system collections"],
+    "stoppedBy": "user-defined maximum of three native business rounds per group",
+    "releaseReady": false,
+    "published": false
+  },
   "development": {
     "status": "complete",
     "completedAt": "2026-11-03",

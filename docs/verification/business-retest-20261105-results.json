@@ -1,0 +1,777 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "status": "native-acceptance-not-passed",
+  "skillsBaseline": "491b707bb8af5f66d1e3540602c6fd8230cd4d8b",
+  "kspeederBaseline": "8b92b446f09c3d1f706145bf6a46172dcd84566d",
+  "kspeederFinal": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+  "maxNativeRoundsPerGroup": 3,
+  "fourthNativeBusinessRound": false,
+  "localChecks": {
+    "business": {
+      "passed": 53,
+      "skipped": 0
+    },
+    "isolated": {
+      "passed": 81,
+      "skipped": 0
+    },
+    "desktop": {
+      "passed": 25,
+      "skipped": 0
+    },
+    "baseline": {
+      "passedGroups": 15,
+      "skipped": 0
+    },
+    "ksCliApp": "passed",
+    "downloadcmd": "passed",
+    "downloadcmdRace": "passed",
+    "relatedCliRace": "passed",
+    "windowsVet": "passed",
+    "generatedConsistency": "passed"
+  },
+  "linuxRounds": [
+    {
+      "round": 1,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "7c08cbd2bb31a28a086cb49d195d74e2879c39cc6b278558ce73bec065836c17",
+      "targets": [
+        {
+          "target": "debian",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+            "sha256": "2810785dd2501df89eebd4fe7b99b16e8e867a0b0daed789009e1fe0c50b9b9c"
+          },
+          "gateway": {
+            "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+            "sha256": "37836f2f812582a4618f7038c5e4680c173876f47cbeee0a21c1c4f35da23763"
+          }
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "scope": "BM7-singles",
+      "status": "failed",
+      "privateReceiptSha256": "9c9f0744c0a4cb21a27e845c736bb1a3fad16bf67def78e6bb9a5368e8043701",
+      "targets": [
+        {
+          "target": "istoreos",
+          "status": "failed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "systemCurlAndTlsUnchanged": true,
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "passedCases": 2,
+          "client": {
+            "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+            "sha256": "2810785dd2501df89eebd4fe7b99b16e8e867a0b0daed789009e1fe0c50b9b9c"
+          },
+          "gateway": {
+            "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+            "sha256": "37836f2f812582a4618f7038c5e4680c173876f47cbeee0a21c1c4f35da23763"
+          }
+        }
+      ]
+    },
+    {
+      "round": 1,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "4195e714e570a582b6bdd14eaa54b9a42e5fa9b0fcf0e826b2c807d79800e85b",
+      "targets": [
+        {
+          "target": "ubuntu",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+            "sha256": "2810785dd2501df89eebd4fe7b99b16e8e867a0b0daed789009e1fe0c50b9b9c"
+          },
+          "gateway": {
+            "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+            "sha256": "37836f2f812582a4618f7038c5e4680c173876f47cbeee0a21c1c4f35da23763"
+          }
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "scope": "BM7-singles",
+      "status": "failed",
+      "privateReceiptSha256": "016e8fa8cc5853c7782895477e5bf77fe2b65d54543b945acc59d5b0b7592f4e",
+      "targets": [
+        {
+          "target": "debian",
+          "status": "failed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "passedCases": 4,
+          "client": {
+            "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+            "sha256": "81055a77d6bdf8db64b4fbd558538f7c8146f86301d3e06ac7f94cb950652482"
+          },
+          "gateway": {
+            "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+            "sha256": "73acc86789cef35d5711bd396d3e73bbba6783d6614b7a03b3590f711f4fecce"
+          }
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "e816e1705d4e420a07e198940b7c3d7c77de48790243483d5df59241addc1e33",
+      "targets": [
+        {
+          "target": "istoreos",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "systemCurlAndTlsUnchanged": true,
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+            "sha256": "81055a77d6bdf8db64b4fbd558538f7c8146f86301d3e06ac7f94cb950652482"
+          },
+          "gateway": {
+            "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+            "sha256": "73acc86789cef35d5711bd396d3e73bbba6783d6614b7a03b3590f711f4fecce"
+          }
+        }
+      ]
+    },
+    {
+      "round": 2,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "feaaef341d084b6c943c381cb0fad44daad3c3f73415e07eb9c1f6a6ac7b6939",
+      "targets": [
+        {
+          "target": "ubuntu",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+            "sha256": "81055a77d6bdf8db64b4fbd558538f7c8146f86301d3e06ac7f94cb950652482"
+          },
+          "gateway": {
+            "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+            "sha256": "73acc86789cef35d5711bd396d3e73bbba6783d6614b7a03b3590f711f4fecce"
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "scope": "BM7-bundle-development",
+      "status": "failed",
+      "privateReceiptSha256": "9e083425daf56d47c4b3b242d994f8a8ded50534c819a85f4f4049e5fc19820b",
+      "targets": [
+        {
+          "target": "ubuntu",
+          "status": "passed",
+          "tag": "bundle-development",
+          "cleanup": "passed",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "passedCases": 0,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        },
+        {
+          "target": "debian",
+          "status": "passed",
+          "tag": "bundle-development",
+          "cleanup": "passed",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "passedCases": 0,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        },
+        {
+          "target": "istoreos",
+          "status": "failed",
+          "tag": "bundle-development",
+          "cleanup": "passed",
+          "systemCurlAndTlsUnchanged": true,
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "passedCases": 0,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "502d7069966e9b5034911cba53b68d7195b6f12fb4749df9a567db762fc21494",
+      "targets": [
+        {
+          "target": "debian",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "imageId": "sha256:30aa785fbc20ddeedb7e2b10468b2b12833b0998cfe27c1f615f99d119b5d50b",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "7a2a7403a58cf2d6f4fd481da9b2d74617bb1263beef662a29bf33ca3ce481b7",
+      "targets": [
+        {
+          "target": "istoreos",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "systemCurlAndTlsUnchanged": true,
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "scope": "BM7-singles",
+      "status": "passed",
+      "privateReceiptSha256": "f6473be787fcd5e88b59a57bb02288249d0f05877510052cf04112163546e862",
+      "targets": [
+        {
+          "target": "ubuntu",
+          "status": "passed",
+          "tag": "singles",
+          "cleanup": "passed",
+          "imageId": "sha256:09b361383a21226d4c6bdc8079f7da7059d731daf41841773c3f57d0278f7a9e",
+          "passedCases": 6,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        }
+      ]
+    },
+    {
+      "round": 3,
+      "scope": "BM7-specialists",
+      "status": "passed",
+      "privateReceiptSha256": "786415bda86cead73aeb161814d0224e8d5b47575e935c4e71a924d69356bf28",
+      "targets": [
+        {
+          "target": "istoreos",
+          "status": "passed",
+          "tag": "specialists",
+          "cleanup": "passed",
+          "systemCurlAndTlsUnchanged": true,
+          "imageId": "sha256:b04e436b97b86fdf849ae5fd9a949bfd56201308ac154256ee17ed41d8ad8d6b",
+          "passedCases": 16,
+          "client": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "58e2512b87ae85af1215e4b0da99fb29a18b094a45901e420a067ac6dc31ad0f"
+          },
+          "gateway": {
+            "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+            "sha256": "aafa12bb7b563806f59cb1d09508cf48e99bfbad26a34861ebdf6d11891b9d30"
+          }
+        }
+      ]
+    }
+  ],
+  "desktopRounds": [
+    {
+      "platform": "macos",
+      "status": "failed",
+      "optimizationRound": 1,
+      "programSnapshot": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+      "taskProgramsStopped": true,
+      "privateReceiptSha256": "76a006dbb75b7bfc6b1a82dbb148c9cd916c5f4fc1a84b044c52372e6cfb4298",
+      "passedCases": 4,
+      "requiredCases": 6,
+      "cases": [
+        {
+          "id": "BM8-macos-kai-tool-bootstrap",
+          "skill": "kai-tool-bootstrap",
+          "status": "passed",
+          "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-dev-environment",
+          "skill": "kai-dev-environment",
+          "status": "passed",
+          "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-project-dependencies",
+          "skill": "kai-project-dependencies",
+          "status": "passed",
+          "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-storage-files",
+          "skill": "kai-storage-files",
+          "status": "passed",
+          "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20",
+          "isolatedSkillCount": 1
+        }
+      ],
+      "failedSkills": [
+        "kai-download-acceleration",
+        "kai-software"
+      ],
+      "client": {
+        "sha256": "99a2d23f684d2159ec18a7dc8ceed75ee6a37aaf3acf49388ed5583dbf232eb7",
+        "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872"
+      },
+      "gatewayProgram": {
+        "sha256": "104afcd30f71ee4780cfe28cfb5de6f1b167aac278c0abeed5b975f81b22c59f",
+        "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+        "provenanceCorrection": "legacy harness constant; matched actual program SHA256 to frozen build manifest; raw receipt retained"
+      }
+    },
+    {
+      "platform": "windows",
+      "status": "failed",
+      "optimizationRound": 1,
+      "programSnapshot": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+      "taskProgramsStopped": true,
+      "privateReceiptSha256": "75cdcdb14fcd37c70483cca3d4b8bfe84c25b401ee9c595294066370b749ae40",
+      "passedCases": 0,
+      "requiredCases": 6,
+      "cases": [],
+      "failedSkills": [],
+      "client": {
+        "sha256": "1742fd8511bdaaa0c70b2935ef9afb70049786d6c96ae3427ad505c3ed71f6a7",
+        "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872"
+      },
+      "gatewayProgram": {
+        "sha256": "9ada9bcf898a77d15eeab6893f9e57cd82e0b4c30dc13c16b17cfcf950731159",
+        "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872"
+      }
+    },
+    {
+      "platform": "macos",
+      "status": "failed",
+      "optimizationRound": 2,
+      "programSnapshot": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+      "taskProgramsStopped": true,
+      "privateReceiptSha256": "6bf6aabd315bf8244c0e5a578e746512939ce44a1f6809dff291641f9b534107",
+      "passedCases": 4,
+      "requiredCases": 6,
+      "cases": [
+        {
+          "id": "BM8-macos-kai-tool-bootstrap",
+          "skill": "kai-tool-bootstrap",
+          "status": "passed",
+          "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-dev-environment",
+          "skill": "kai-dev-environment",
+          "status": "passed",
+          "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-project-dependencies",
+          "skill": "kai-project-dependencies",
+          "status": "passed",
+          "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-storage-files",
+          "skill": "kai-storage-files",
+          "status": "passed",
+          "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20",
+          "isolatedSkillCount": 1
+        }
+      ],
+      "failedSkills": [
+        "kai-download-acceleration",
+        "kai-software"
+      ],
+      "client": {
+        "sha256": "bea861bf8987ef67d6490e39572eb58016de1cbfe3982589d9d8151111f927a1",
+        "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab"
+      },
+      "gatewayProgram": {
+        "sha256": "0bcd5c1b398604ebfa19fe20c9fcd20628d4b5651f1e350d93c6d05d4af5975d",
+        "sourceCommit": "b690c4d311f7c6d0c6878bb093925e5d7a0990ab",
+        "provenanceCorrection": "legacy harness constant; matched actual program SHA256 to frozen build manifest; raw receipt retained"
+      }
+    },
+    {
+      "platform": "windows",
+      "status": "failed",
+      "optimizationRound": 2,
+      "programSnapshot": "d966590e18c095f4668fecf3a4cb3cab0a7a4872",
+      "taskProgramsStopped": true,
+      "privateReceiptSha256": "646569560944917ee62ba226f00ad19d43248e2a0db05574b0fc2b06c5842127",
+      "passedCases": 4,
+      "requiredCases": 6,
+      "cases": [
+        {
+          "id": "BM8-windows-kai-tool-bootstrap",
+          "skill": "kai-tool-bootstrap",
+          "status": "passed",
+          "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-dev-environment",
+          "skill": "kai-dev-environment",
+          "status": "passed",
+          "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-project-dependencies",
+          "skill": "kai-project-dependencies",
+          "status": "passed",
+          "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-download-acceleration",
+          "skill": "kai-download-acceleration",
+          "status": "passed",
+          "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234",
+          "isolatedSkillCount": 1
+        }
+      ],
+      "failedSkills": [
+        "kai-storage-files",
+        "kai-software"
+      ],
+      "client": {
+        "sha256": "1742fd8511bdaaa0c70b2935ef9afb70049786d6c96ae3427ad505c3ed71f6a7",
+        "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872"
+      },
+      "gatewayProgram": {
+        "sha256": "9ada9bcf898a77d15eeab6893f9e57cd82e0b4c30dc13c16b17cfcf950731159",
+        "sourceCommit": "d966590e18c095f4668fecf3a4cb3cab0a7a4872"
+      }
+    },
+    {
+      "platform": "macos",
+      "status": "failed",
+      "optimizationRound": 3,
+      "programSnapshot": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "taskProgramsStopped": true,
+      "privateReceiptSha256": "a259e44317df2439cfe44a45ded34e0e41482db274992f31add8f69855e48c31",
+      "passedCases": 4,
+      "requiredCases": 6,
+      "cases": [
+        {
+          "id": "BM8-macos-kai-tool-bootstrap",
+          "skill": "kai-tool-bootstrap",
+          "status": "passed",
+          "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-dev-environment",
+          "skill": "kai-dev-environment",
+          "status": "passed",
+          "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-project-dependencies",
+          "skill": "kai-project-dependencies",
+          "status": "passed",
+          "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-macos-kai-storage-files",
+          "skill": "kai-storage-files",
+          "status": "passed",
+          "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20",
+          "isolatedSkillCount": 1
+        }
+      ],
+      "failedSkills": [
+        "kai-download-acceleration",
+        "kai-software"
+      ],
+      "client": {
+        "sha256": "59f7d2a74a094378afb3a805b7c868c7cd6dfd637252d80247ea4ec9b1af1837",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154"
+      },
+      "gatewayProgram": {
+        "sha256": "0fb49605a6773aa8d0c5c91bf1d6af7e8b930a4428e5a4710c718b88b90c2def",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "provenanceCorrection": "legacy harness constant; matched actual program SHA256 to frozen build manifest; raw receipt retained"
+      }
+    },
+    {
+      "platform": "windows",
+      "status": "failed",
+      "optimizationRound": 3,
+      "programSnapshot": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6",
+      "taskProgramsStopped": true,
+      "privateReceiptSha256": "35311071fd25b520bd6c86cfbe035f03adcaf1d134819c63d04a9e77ded66f3f",
+      "passedCases": 5,
+      "requiredCases": 6,
+      "cases": [
+        {
+          "id": "BM8-windows-kai-tool-bootstrap",
+          "skill": "kai-tool-bootstrap",
+          "status": "passed",
+          "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-dev-environment",
+          "skill": "kai-dev-environment",
+          "status": "passed",
+          "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-project-dependencies",
+          "skill": "kai-project-dependencies",
+          "status": "passed",
+          "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-storage-files",
+          "skill": "kai-storage-files",
+          "status": "passed",
+          "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20",
+          "isolatedSkillCount": 1
+        },
+        {
+          "id": "BM8-windows-kai-download-acceleration",
+          "skill": "kai-download-acceleration",
+          "status": "passed",
+          "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234",
+          "isolatedSkillCount": 1
+        }
+      ],
+      "failedSkills": [
+        "kai-software"
+      ],
+      "client": {
+        "sha256": "8409489747ae9e0556b10a82e3f4f5c2471908723b0eb20c90d6a960efef0487",
+        "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6"
+      },
+      "gatewayProgram": {
+        "sha256": "a22b74ed4e44090af77731a32fd7b508ae75677b78f5a579068f3d369709ec79",
+        "sourceCommit": "3eee9f61cf81f8857e9ae2f4917aafa793e8dbf6"
+      }
+    }
+  ],
+  "windowsMSZIP": {
+    "status": "passed-native-offline",
+    "tests": 4,
+    "skipped": 0,
+    "privateReceiptSha256": "f425f31b38f925f20885a6ee67dc7bcba49bbf93abafc79f3233884746f01640",
+    "capturedWireSha256": "f498fa136618467d229ea8ba699e13f3d0a6acaa93830ccdbfd4362d51c7149e",
+    "includesInstallerExecution": false,
+    "fullWinGetInstall": "not-passed"
+  },
+  "istoreosGitIndexDiagnosis": {
+    "metadataChanged": true,
+    "planBefore": 255,
+    "planAfter": 0,
+    "cleanup": "passed",
+    "systemCurlAndTlsUnchanged": true
+  },
+  "istoreosGitIndexFixFullCollectionRetested": false,
+  "nodeArchiveRecoveryNativeBranch": "executed successfully in round 3 iStoreOS development collection before later Git prerequisite failure",
+  "macosBrewBlocker": {
+    "api": "signed API query passed via local gateway HTTP 200",
+    "artifactAlias": "local manifest and blob HTTP 403; existing Plus authorization gate",
+    "nativeFallback": "ghcr.io DNS failure",
+    "installation": "failed"
+  },
+  "macosGitBlocker": "upload-pack POST HTTP 405",
+  "notExecutedThisBatch": [
+    "Linux software-management collections",
+    "Linux system collections and fresh repeat",
+    "desktop business collections",
+    "desktop system collections",
+    "WinGet signed EXE/MSI/dependency end-to-end installation",
+    "SCM service lifecycle",
+    "fresh CRL/OCSP acceptance",
+    "npm audit acceptance"
+  ],
+  "build": {
+    "sourceState": "generated-version-and-existing-assets",
+    "version": "0.8.5",
+    "generatedVersionFileSha256": "1f4977f1d4082129752776df1ba02948a600409d085a95ddb2bd102fa852bb12",
+    "embeddedAssets": {
+      ".gitkeep": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "assets/index-BF1rSMJt.css": "e85630646c2a5be7a324365fb5ce2f5d4cce096f3e01cacc954ddae546e7f6e7",
+      "assets/index-BqpBiaXf.js": "bcb036f9604e0d21b15eb0c52200c869fdcade2efcb8c89b3906d74a14d89dd1",
+      "assets/index-Bv8eK1ip.js": "d5d9c5d5ed61486079d0f91874c732fbf19cb9a3bb82e56983ce8a3f05293ed0",
+      "assets/index-CAg8U4Yl.js": "f8d47fb0d41f09e81c55814092e32f4814db27a85e7b9b82ec48979d2bf399e6",
+      "assets/index-CL1q-f66.css": "5eac1ba78c274e317066789bc43ab24ad1c325eb6acc2d0104c3fdfd5e0354ac",
+      "assets/index-CQR6RG-Q.css": "7f0d2e96703134cd6488b347e50dab7e725fcd7dbd0f73da8002702649ce640a",
+      "assets/index-CWgP6BLZ.js": "6fc704475f2ceb96d282a4484cc05c4a73be7cad149348ff5f7144ed253b36d2",
+      "assets/index-ChMuak45.css": "d5640f490ee359f8956de7cc38f4c919e9e713c9c10a546fc5b3fd4db70176dd",
+      "assets/index-DI8KMi3C.js": "7aee3c93d10762dcce3b745e0624cee3540f61d61a26c49de376409ac605f3a1",
+      "assets/index-DdCDTIcW.css": "cfb94f4e5fcb5675cd48590ecaca3ca914fe95833b8b78014e12ca46196a9dce",
+      "assets/index-DeybxMOd.js": "a8341df5d8f363932f8c50c616f3d3e9c6e1db0556d8784e52a42814ec2e7a4a",
+      "assets/index-DnT2dWUp.js": "c91c40675d87b68bf9c6f15657ea82ccb23248f4bdf6eb36bcff09888ec81740",
+      "assets/index-Du4Wic4S.css": "3ba78a929ee505b9eecab24431a63aedb6fe37b5b42c29558294582678679266",
+      "assets/index-DwsFJsqY.css": "963fd1a36d4d52b87e80b66bc75c55fa234fa08dd2e25372bf55d3683d110fb7",
+      "assets/index-fXCwdCbl.js": "2d87980ddcde303b9fbb08a0bf555d756274a7436ae2ebc9cd7250abbba87cca",
+      "assets/index-kG4_w_YI.js": "1b9494511af29d5e901b0d93cbe0b5f1d4ad964484a0444b0b93b097480010fa",
+      "assets/index-mDMb5aPK.js": "63da27570c59f0d530ba28574df81d189130f743fcd360ac01bdf33426dfdd58",
+      "desktop-entry.js": "5605881d50e59c61c296de917262d5571f4077d1558cddbb7ceb70e1a81b6b15",
+      "favicon.ico": "daf5ee74c672fd61bed019f8a2700fac88054c9d7c8db49da7b0eabe9e91f418",
+      "index.html": "5e349f200ebb68515bdf0312ffe784ff1de3e14f0e4f01a6d9068355a10d9c34"
+    },
+    "finalArtifacts": [
+      {
+        "program": "kspeeder",
+        "os": "linux",
+        "arch": "amd64",
+        "file": "kspeeder-linux-amd64",
+        "sha256": "e31b055762915d54607b2f02dff7f5cd8cf97520d18fabf512e5409590bc8fcc",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "size": 21895703
+      },
+      {
+        "program": "ks-cli",
+        "os": "linux",
+        "arch": "amd64",
+        "file": "ks-cli-linux-amd64",
+        "sha256": "3bbb0a6d2557ab564e1f3d3d123b779afd2a4ca632461894a93a3bbdf73e1e07",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "size": 15190662
+      },
+      {
+        "program": "kspeeder",
+        "os": "darwin",
+        "arch": "arm64",
+        "file": "kspeeder-darwin-arm64",
+        "sha256": "0fb49605a6773aa8d0c5c91bf1d6af7e8b930a4428e5a4710c718b88b90c2def",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "size": 21279282
+      },
+      {
+        "program": "ks-cli",
+        "os": "darwin",
+        "arch": "arm64",
+        "file": "ks-cli-darwin-arm64",
+        "sha256": "59f7d2a74a094378afb3a805b7c868c7cd6dfd637252d80247ea4ec9b1af1837",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "size": 14562594
+      },
+      {
+        "program": "kspeeder",
+        "os": "windows",
+        "arch": "amd64",
+        "file": "kspeeder-windows-amd64.exe",
+        "sha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "size": 22275584
+      },
+      {
+        "program": "ks-cli",
+        "os": "windows",
+        "arch": "amd64",
+        "file": "ks-cli-windows-amd64.exe",
+        "sha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+        "sourceCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+        "size": 15616512
+      }
+    ],
+    "submodules": {
+      "gokit": "d3c42a5a3079c41d7c0723a5f73591117d1afcda",
+      "docker-registry": "58df08f227f308ce7e2ee7cc6b73724a1ad3b3fd"
+    },
+    "scopeWarning": "Final full-program native execution only on macOS round 3; other native receipts retain their earlier candidate commits. No cross-candidate aggregate acceptance."
+  },
+  "cleanup": [
+    {
+      "platform": "linux",
+      "ownedContainersAbsent": true,
+      "ownedNetworksAbsent": true,
+      "freeBytes": 22040686592
+    },
+    {
+      "platform": "windows",
+      "servicesUnchanged": true,
+      "testListenersAbsent": true,
+      "ownedProgramsAbsent": true
+    },
+    {
+      "platform": "macos",
+      "testListenersAndProgramsAbsent": true,
+      "treeAbsent": true
+    }
+  ],
+  "windowsExistingServiceBinaryHashCompared": false,
+  "releaseReady": false,
+  "published": false,
+  "BM9": "awaiting-native-acceptance",
+  "BM10": "awaiting-release",
+  "rawEvidenceLocation": "private external business-20261105 evidence directory; connection settings and native paths excluded"
+}

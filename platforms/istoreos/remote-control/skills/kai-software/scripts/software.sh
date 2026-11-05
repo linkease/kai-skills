@@ -79,6 +79,28 @@ cached_zsetup() {
     ZSETUP_CONFIG="$zconfig" "$zsetup" "$@"
 }
 
+run_brew() {
+    local client doctor code=0
+    case "${KAI_SOFTWARE_ACCELERATION:-none}" in
+        none) command brew "$@"; return $? ;;
+        required) ;;
+        *) echo 'KAI_SOFTWARE_ACCELERATION must be none or required for Homebrew' >&2; return 2 ;;
+    esac
+    client="${KAI_KSCLI_BIN:-$(type -P ks-cli 2>/dev/null || true)}"
+    if [ -z "$client" ] || [ ! -x "$client" ]; then
+        echo 'Homebrew acceleration requires an existing compatible ks-cli' >&2
+        return 127
+    fi
+    doctor="$("$client" doctor brew --json)" || code=$?
+    if [ "$code" != 0 ]; then printf '%s\n' "$doctor" >&2; return "$code"; fi
+    if ! printf '%s' "$doctor" | jq -e '.schema_version==1 and .tool=="brew" and .overall=="pass"' >/dev/null; then
+        printf '%s\n' "$doctor" >&2
+        echo 'Homebrew acceleration readiness was not established' >&2
+        return 11
+    fi
+    "$client" brew "$@"
+}
+
 if [ "$action" = refresh ]; then
     provider="$subject"; validate_provider
     code=0
@@ -97,7 +119,7 @@ if [ "$action" = refresh ]; then
                 jq -e '.schema_version == 1 and (.installers | type == "array")' "$candidate" >/dev/null || code=11
             fi
             if [ "$code" = 0 ]; then mv "$candidate" "$zconfig"; fi ;;
-        brew) brew update >&2 || code=$? ;;
+        brew) run_brew update >&2 || code=$? ;;
     esac
     [ "$code" = 0 ] || fail "$code" provider-failed 'explicit index refresh failed'
     jq -cn --arg provider "$provider" --arg time "$timestamp" '{schemaVersion:1,status:"passed",operation:"refresh",provider:$provider,evidenceTime:$time,exitCode:0}'
@@ -139,7 +161,7 @@ package_info() {
             fi
             available= ;;
         brew)
-            raw="$(brew info --json=v2 "$name")" || fail "$?" provider-failed 'Homebrew query failed'
+            raw="$(run_brew info --json=v2 "$name")" || fail "$?" provider-failed 'Homebrew query failed'
             available="$(printf '%s' "$raw" | jq -r '.formulae[0].versions.stable // empty')"
             installed="$(printf '%s' "$raw" | jq -r '.formulae[0].installed[0].version // empty')" ;;
     esac
@@ -159,7 +181,7 @@ if [ "$action" = search ]; then
         opkg) raw="$(opkg list)" || fail "$?" provider-failed 'opkg search failed'; names="$(printf '%s\n' "$raw" | grep -iF -- "$subject" | awk 'NF {print $1}' || true)" ;;
         istore) raw="$(is-opkg opkg list)" || fail "$?" provider-failed 'iStore search failed'; names="$(printf '%s\n' "$raw" | grep -iF -- "$subject" | awk 'NF {print $1}' || true)" ;;
         zsetup) raw="$(cached_zsetup install --list)" || fail "$?" provider-failed 'zsetup search failed'; names="$(printf '%s\n' "$raw" | grep -iF -- "$subject" || true)" ;;
-        brew) names="$(brew search --formula -- "$subject")" || fail "$?" provider-failed 'Homebrew search failed' ;;
+        brew) names="$(run_brew search --formula -- "$subject")" || fail "$?" provider-failed 'Homebrew search failed' ;;
     esac
     names="$(while IFS= read -r candidate; do
         [ -n "$candidate" ] || continue
@@ -216,7 +238,7 @@ case "$action:$provider" in
     install:istore) is-opkg install "$name" >&2 || code=$? ;;
     remove:istore) is-opkg remove "$name" >&2 || code=$? ;;
     install:zsetup) cached_zsetup install "$name" --foreground >&2 || code=$? ;;
-    install:brew) brew install "$name" >&2 || code=$? ;;
+    install:brew) run_brew install "$name" >&2 || code=$? ;;
     remove:brew) brew uninstall "$name" >&2 || code=$? ;;
     *) fail 18 unsupported-operation 'provider lifecycle adapter is unavailable' ;;
 esac
