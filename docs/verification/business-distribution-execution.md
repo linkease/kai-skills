@@ -2,7 +2,7 @@
 
 计划：[BM0–BM10](../architecture/business-skill-distribution-milestones.md)。
 
-最新阶段：2026-11-05 按用户授权对新版 KSpeeder 恢复开发测试。依赖及 Homebrew skill 修复与本地自检通过；三组原生业务各完成最多三轮，BM7/BM8 仍未整体通过，BM9 尚非 release-ready，BM10 未发布。详见[新版复测](business-retest-20261105.md)及[机器结果](business-retest-20261105-results.json)。下文保留各历史阶段原始结论。
+最新阶段：2026-11-05 新版多系统复测后，用户再次授权 Windows 专项。线上 MSZIP 与 PuTTY MSI 安装/运行/卸载通过；Python 三轮后仍在原生 MSI Error 1606 失败，目录参数修正待新一批验证；依赖未验收。见 [Windows 专项](windows-winget-followup-20261105.md)及[机器结果](windows-winget-followup-20261105-results.json)。BM7/BM8 未整体通过，BM9 尚非 release-ready，BM10 未发布。下文保留各历史阶段原始结论。
 
 ## BM0 范围、清单与基线
 

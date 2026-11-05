@@ -1,0 +1,112 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-11-05",
+  "status": "msi-passed-exe-and-dependencies-not-accepted",
+  "kspeederCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+  "skillsBaseline": "cc8f1c56fb696395f8749daba442d3aa82844685",
+  "maxRounds": 3,
+  "fourthInstallAttempt": false,
+  "rounds": [
+    {
+      "case": "msi",
+      "round": 1,
+      "status": "passed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "rawReceiptSha256": "c89f0cf372dc946416233eb6288d15bae475f8b4ba29761804f55a5b6257788d",
+      "controlSessionStopped": true
+    },
+    {
+      "case": "exe",
+      "round": 1,
+      "status": "failed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "rawReceiptSha256": "37274f619edac7b9cd5f07e8af6634e36add595153d5a4f8997940ee6c2acac8",
+      "controlSessionStopped": false
+    },
+    {
+      "case": "exe",
+      "round": 2,
+      "status": "failed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "rawReceiptSha256": "27e7c762cda4b394fad9790aae090146ba88726803fa5e6292e8a7e92e91a8c2",
+      "controlSessionStopped": true
+    },
+    {
+      "case": "exe",
+      "round": 3,
+      "status": "failed",
+      "programCommit": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+      "clientSha256": "0937d2d3acd37658f56318f0484ff6ef584441a9f8d1bec34f2ccaec399ebdfb",
+      "gatewaySha256": "573c70ddf332e78476581ee797b3ec894cf4552443766788d944460967e9b1e3",
+      "rawReceiptSha256": "7fd8d6b45fa185a1d509925b413f6b7210f0489c13f0cd6219f4bebee9f1d9d2",
+      "controlSessionStopped": true
+    }
+  ],
+  "msi": {
+    "package": "PuTTY.PuTTY",
+    "version": "0.85.0.0",
+    "onlineMSZIPAndManifest": "passed",
+    "installerSha256": "2213ebacf962b709411d654a40087508a694756bc4e41c5a1c24ad86596b2511",
+    "signature": "Valid",
+    "signer": "Simon Tatham",
+    "route": "origin",
+    "accelerationClaim": false,
+    "nativeInstall": "passed",
+    "nativeUse": "plink -V passed",
+    "ownedRemoval": "passed"
+  },
+  "exe": {
+    "package": "Python.Python.3.12",
+    "version": "3.12.10",
+    "installerSha256": "67b5635e80ea51072b87941312d00ec8927c4db9ba18938f7ad2d27b328b95fb",
+    "signature": "Valid",
+    "signer": "Python Software Foundation",
+    "payloadPreparation": "passed",
+    "installation": "failed",
+    "round1": "candidate gateway readiness timeout; independent audit confirmed no owned listeners/programs",
+    "round2": "MSYS rewrote quiet argument; cancelled four verified owned processes; control session stopped",
+    "argvComparison": {
+      "normalPreserved": false,
+      "fixedPreserved": true
+    },
+    "round3": "native installer exit 1603; Burn 0x80070643; core MSI Error 1606 at CostFinalize",
+    "preparedDirectoryCorrection": {
+      "argumentsPreserved": true,
+      "nativeDirectoryFullyQualified": true,
+      "failedLocationMatchesForwardSlashTarget": true,
+      "installerExecuted": false
+    },
+    "correctionInstallerRetested": false
+  },
+  "dependencies": {
+    "fixture": "Neovim.Neovim 0.11.5",
+    "declaredDependency": "Microsoft.VCRedist.2015+.x64",
+    "existingVersion": "14.36.32532.0",
+    "catalogVersion": "14.51.36247.0",
+    "nativeDownload": "not-executed",
+    "nativeInstall": "not-executed"
+  },
+  "cleanup": {
+    "registeredPackages": [
+      {
+        "Id": "Microsoft.VCRedist.2015+.x64",
+        "InstalledVersion": "14.36.32532.0"
+      }
+    ],
+    "userPathUnchanged": true,
+    "machinePathUnchanged": true,
+    "existingServicesUnchanged": true,
+    "testPortsAbsent": true,
+    "ownedProgramsAbsent": true,
+    "rawReceiptSha256": "7c43eec1f39c8e5966f191b2e487e002299445dee36650a46628987566f79c77"
+  },
+  "releaseReady": false,
+  "published": false,
+  "privateEvidence": "external business-20261105 verification directory; native paths and connection settings excluded"
+}

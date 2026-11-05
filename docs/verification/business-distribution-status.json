@@ -2,6 +2,19 @@
   "schemaVersion": 1,
   "plan": "../architecture/business-skill-distribution-milestones.md",
   "baselineCommit": "0d8ea8ca635df7eb7b7bbf06c9670ec9eace6159",
+  "latestWindowsFollowup": {
+    "date": "2026-11-05",
+    "evidence": "windows-winget-followup-20261105-results.json",
+    "execution": "windows-winget-followup-20261105.md",
+    "candidate": "f5665424f3af5ce3bd8f1bc07598da2103656154",
+    "MSZIPOnlineMetadata": "passed",
+    "signedMSIInstallUseRemove": "passed",
+    "signedEXEPreparation": "passed",
+    "EXEInstall": "failed-native-MSI-1606",
+    "dependencyDownloadAndInstall": "not-executed",
+    "stoppedBy": "three Python execution rounds exhausted; prepared native directory correction not installer-retested",
+    "releaseReady": false
+  },
   "latestNativeBatch": {
     "date": "2026-11-05",
     "status": "native-acceptance-not-passed",

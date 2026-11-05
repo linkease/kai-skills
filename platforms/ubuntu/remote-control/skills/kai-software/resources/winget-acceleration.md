@@ -27,6 +27,20 @@ Do not pass `--proxy` or `--no-proxy`; ks-cli rejects both and does not read
 `KSPEEDER_WINGET_PROXY`. It does not change the Windows default proxy, trust store,
 revocation policy or WinGet source registration.
 
+For custom installer arguments, prefer native PowerShell with an argument array.
+When invoking the native `ks-cli.exe` directly from Git Bash, MSYS can rewrite a
+slash-prefixed value such as `--override '/quiet ...'` into a Git installation
+path, even when shell-quoted. For that one native invocation use
+`MSYS2_ARG_CONV_EXCL='*'` and explicit Windows paths for native path arguments;
+do not export it globally or assume POSIX paths will still be converted. Verify
+the arguments with `ks-cli --json --explain winget ...` before installation.
+Keep the installer-specific silent flags, intended scope and existing user
+configuration; a running installer process alone does not prove success.
+After disabling conversion, preserve the installer's native Windows directory
+syntax for directory overrides. Inspect installer logs for an MSI Error 1606
+before classifying it as a network failure; download and signature success do
+not validate an installer's `TargetDir` value.
+
 The automatic download engine has bounded accelerated routes. WinGet metadata
 requires the KSpeeder `/winget` route on both client and deployed upstream; a
 client-only route whose upstream returns 404 is not acceleration. An unlisted vendor

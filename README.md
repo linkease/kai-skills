@@ -36,7 +36,8 @@
 
 历史多系统核心功能结果见[多系统完成情况](docs/verification/platform-completion-20261028.md)。
 代码开发及本地自检已完成；[2026-11-05 新版 KSpeeder 复测](docs/verification/business-retest-20261105.md)中，Ubuntu、Debian、iStoreOS 独立业务各通过 6/6，Windows 通过 5/6，macOS 通过 4/6。这些结果属于各自记录的程序候选，不能合并推定最终版本全面通过。
-尚未关闭：iStoreOS 开发集合在刷新前置索引前的包校验失败（前置准备已修复，集合待复测）、macOS Git HTTP 405、Homebrew bottle 的网关 Plus 授权及原站 DNS、WinGet 实际安装。Windows MSZIP 元数据解析修复已通过原生离线测试，EXE/MSI、依赖、服务、集合旅程及 npm 审计仍待验收；BM9/BM10 未放行。
+尚未关闭：iStoreOS 开发集合在刷新前置索引前的包校验失败（前置准备已修复，集合待复测）、macOS Git HTTP 405、Homebrew bottle 的网关 Plus 授权及原站 DNS、WinGet EXE 实际安装与依赖。服务、集合旅程及 npm 审计仍待验收；BM9/BM10 未放行。
+后续 [Windows 安装专项](docs/verification/windows-winget-followup-20261105.md)已验证线上 MSZIP、PuTTY MSI 安装/运行/卸载及签名。Python EXE 准备和签名通过，但安装器内部 MSI 报 1606；Bash 自定义静默参数转换已修正，原生安装目录参数修正待下一批验证，依赖仍未验收。
 `ks-cli`、网关和 jq 引导的未发布候选须按来源锁使用，不能把本地测试结果当成公开制品已经上线。
 
 ## 下载某个系统全部适用 Skills
