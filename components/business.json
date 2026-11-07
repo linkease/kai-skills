@@ -21,6 +21,7 @@
   "runtimeResources": {
     "kai-dev-environment": ["kai-tool-bootstrap"],
     "kai-download-acceleration": ["kai-tool-bootstrap"],
+    "kai-network-quality": ["kai-tool-bootstrap"],
     "kai-project-dependencies": ["kai-tool-bootstrap", "kai-dev-environment"],
     "kai-software": ["kai-tool-bootstrap"],
     "kai-storage-files": ["kai-tool-bootstrap", "kai-dev-environment"],
@@ -40,6 +41,7 @@
     "kai-dev-environment": ["compatible Bash and full jq", "mise and target native runtime integration", "ks-cli and an authorized gateway when acceleration is required"],
     "kai-project-dependencies": ["compatible Bash and full jq", "selected mise SDK", "project native package manager and existing lock", "ks-cli and an authorized gateway when acceleration is required"],
     "kai-download-acceleration": ["compatible Bash and full jq", "ks-cli", "native Git with HTTPS support for Git tasks", "authorized Docker daemon for Docker tasks", "authorized gateway for accelerated routes"],
+    "kai-network-quality": ["compatible POSIX shell", "FastNet with interaction schema version 1 on the selected Linux target"],
     "kai-storage-files": ["compatible Bash and full jq", "linkspace on supported Linux targets or explicitly selected Python fallback", "zsetup storage on Linux for mount facts"]
   }
 }

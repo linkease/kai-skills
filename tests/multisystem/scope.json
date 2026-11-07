@@ -2054,8 +2054,8 @@
     },
     {
       "oldId": "istoreos-network-quality",
-      "decision": "retain-platform-specific",
-      "newId": "istoreos-network-quality",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-network-quality",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality"
     },
     {

@@ -152,7 +152,7 @@ istoreos-docker-data-root-migrate|把 Docker 数据目录迁移到外接硬盘
 kai-download-acceleration|Docker 镜像下载很慢，怎么加速拉取
 kai-project-dependencies|用已经安装的 Python 3.13.7 验证 Python 依赖安装流程，创建隔离 venv，安装 idna 并检查网关证据
 istoreos-luci-recovery|LuCI 管理页面打不开，但 SSH 可以登录
-istoreos-network-quality|宽带测速结果很差，检查延迟、丢包和上下行速度
+kai-network-quality|宽带测速结果很差，检查延迟、丢包和上下行速度
 kai-storage-files|overlay 空间不足，帮我选择持久化存储路径
 istoreos-service-manager|一个 init.d 服务启动失败，帮我检查状态
 istoreos-backup-restore|升级前备份系统配置，并说明如何恢复

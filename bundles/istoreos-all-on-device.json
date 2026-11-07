@@ -51,11 +51,6 @@
       "treeDigest": "sha256:3f160cc7c185362248fc63640028905a24abf940b171bff719c39eebf3344c01"
     },
     {
-      "id": "istoreos-network-quality",
-      "version": "1.1.0",
-      "treeDigest": "sha256:e73dd12211042690073938be78dedf04361833eb9643e1e48be0d737d91a6350"
-    },
-    {
       "id": "istoreos-quickstart-api",
       "version": "1.1.0",
       "treeDigest": "sha256:334d2067b68fcced2b875298518a9e72d70c5224c3c326f6578dd08cbd4e1d12"
@@ -78,12 +73,12 @@
     {
       "id": "istoreos-system-task-router",
       "version": "1.1.0",
-      "treeDigest": "sha256:32d2646b4b0705109063449bf6a3ee551243963961c8b82a58662a6a546d6fc8"
+      "treeDigest": "sha256:7f87237de9763c19b7354ac60a07a80894046888cc07d67f3697a0c52b44338a"
     },
     {
       "id": "istoreos-systools",
       "version": "1.1.0",
-      "treeDigest": "sha256:b8ce9144241e7c874c94db8d182cf2a977ec0420d9120fa429d2647ce9276c6e"
+      "treeDigest": "sha256:9a01949343cee2d8efe918f4fb3252d90d81a4159d94cb3d9da17ce04bd432a0"
     },
     {
       "id": "kai-dev-environment",
@@ -93,7 +88,12 @@
     {
       "id": "kai-download-acceleration",
       "version": "1.1.0",
-      "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234"
+      "treeDigest": "sha256:9098c317fab8a64a802c05e9d3a0b57bb7650c1ca2f3e1ace2076d7920e644cd"
+    },
+    {
+      "id": "kai-network-quality",
+      "version": "1.1.0",
+      "treeDigest": "sha256:5e31e00124f2308cc84ca8b338880003cb46445e40d60019ab730c3919c9914d"
     },
     {
       "id": "kai-project-dependencies",
@@ -103,7 +103,7 @@
     {
       "id": "kai-software",
       "version": "1.1.0",
-      "treeDigest": "sha256:1d17f690a1f90c63449324f1d8b14a1784fbbbb510325519d34e9823896dcda0"
+      "treeDigest": "sha256:f639c59383f3716767ea0659157464d839726d196199b9ede17ca2da73c6f506"
     },
     {
       "id": "kai-storage-files",

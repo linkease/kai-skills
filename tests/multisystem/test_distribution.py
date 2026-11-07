@@ -39,7 +39,7 @@ class DistributionTests(unittest.TestCase):
                 if mode=='on-device':self.assertFalse(any(name.startswith('target-') for name in active))
         active={p.parent.name for p in (output/'istoreos/on-device/skills').glob('*/SKILL.md')}
         retained={row['oldId'] for row in SCOPE['migration'] if row['decision']=='retain-platform-specific'}
-        self.assertEqual(active,COMMON|retained)
+        self.assertEqual(active,COMMON|retained|{'kai-network-quality'})
 
     def test_installer_owns_legacy_resources_without_activating_legacy_skills(self):
         output=self.work/'platforms'

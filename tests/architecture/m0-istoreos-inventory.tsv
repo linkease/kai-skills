@@ -10,7 +10,7 @@ istoreos-kspeeder-domainfold-fetch	yes	yes	diverged	behavior-merge-into-istoreos
 istoreos-logs-and-diagnostics	yes	yes	diverged	behavior-merge-into-istoreos-pack
 istoreos-luci-recovery	yes	yes	diverged	behavior-merge-into-istoreos-pack
 istoreos-mise-runtime	yes	no	local-only	keep-in-istoreos-pack
-istoreos-network-quality	yes	no	local-only	keep-in-istoreos-pack
+istoreos-network-quality	yes	no	local-only	extract-to-kai-network-quality
 istoreos-package-manager	yes	yes	diverged	behavior-merge-into-istoreos-pack
 istoreos-run-executable	yes	yes	diverged	behavior-merge-into-istoreos-pack
 istoreos-service-manager	yes	yes	diverged	behavior-merge-into-istoreos-pack

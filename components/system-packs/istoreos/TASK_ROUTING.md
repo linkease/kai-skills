@@ -12,7 +12,7 @@ Select one primary skill; load at most one evidence-required helper. Other targe
 | 磁盘/overlay/持久化目录 | `kai-storage-files` | docker-data-root-migrate, backup-restore |
 | 服务/端口/开机启动 | `istoreos-service-manager` | logs-and-diagnostics, source-introspect |
 | LuCI 网页异常 | `istoreos-luci-recovery` | backup-restore |
-| 测速、延迟、NAT、IPv6/LAN | `istoreos-network-quality` | logs-and-diagnostics |
+| 测速、延迟、NAT、IPv6/LAN、安装目标网络诊断 | `kai-network-quality` | logs-and-diagnostics |
 | IPv6 模式、休眠、商店/内核修复 | `istoreos-systools` | logs-and-diagnostics |
 | .run/未知安装文件 | `istoreos-run-executable` | download-acceleration, backup-restore |
 | 危险操作/恢复/迁移 | `istoreos-backup-restore` | owning skill |

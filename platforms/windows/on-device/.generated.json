@@ -20,13 +20,8 @@
     "common": "1.0.0",
     "windows": "1.0.0"
   },
-  "sourceDigest": "sha256:de41edf11ed7cf61993b230b49f5a5de5dc8bccd64896908f0d0a1057bc343e5",
-  "treeDigest": "sha256:edbc68e509d8dd0e9c0a945912766b2152b3d4c8ed9433d5daf558b7f796e96f",
+  "sourceDigest": "sha256:60a85ed2b83c55f8b38c52f14bb9f01c7fc40d4cf0a6606e176efc9e9a9bbad4",
+  "treeDigest": "sha256:fc15ae9a8263177e133ec725861e6407d2add26b18f378b220e0008cb5ba0885",
   "resources": [],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }

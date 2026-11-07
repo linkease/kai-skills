@@ -28,7 +28,7 @@ Identify the actual target System Pack first. Ubuntu is not iStoreOS: do not app
 6. "LuCI/网页管理/登录循环/500/空白页" -> `istoreos-luci-recovery`.
 7. "不知道配置字段/不确定脚本行为/要改配置" -> internal helper `istoreos-source-introspect` first.
 8. "恢复/重置/升级/危险修改/迁移前" -> `istoreos-backup-restore` first.
-9. "网速慢/测速/延迟或抖动/NAT 类型/IPv6 是否可用/局域网测速" -> `istoreos-network-quality`; a specific slow download remains with `kai-download-acceleration`.
+9. "网速慢/测速/延迟或抖动/NAT 类型/IPv6 是否可用/局域网测速" -> `kai-network-quality`; a specific slow download remains with `kai-download-acceleration`, which may use FastNet target-path evidence.
 10. "修改 IPv6 PD/relay/NAT 模式/硬盘不休眠/iStore 商店损坏/升级后内核模块异常" -> `istoreos-systools`.
 11. "安装 Python/Node.js/Go SDK/选择运行时版本/python-build/预编译/解释器异常" -> `kai-dev-environment`; system facts use check.sh, installed SDK checks use probe.sh, installations use install.sh. These dedicated helpers establish integration for each call and report scoped results.
 12. ".run 文件/未知可执行安装包" -> `istoreos-run-executable`.

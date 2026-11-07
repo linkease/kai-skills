@@ -96,7 +96,8 @@ def select(declaration,entry,canonical=False):
             names[skill.name]=skill
         if requested is not None and not requested<=set(names):raise ValueError('missing transport skill')
     if set(resources)!=set(plan['compatibilityResources']):raise ValueError('missing legacy resources')
-    if not set(declaration['aliases'].values())<=set(names):raise ValueError('migration target is absent')
+    active_aliases={name:target for name,target in declaration['aliases'].items() if name in plan['compatibilityResources']}
+    if not set(active_aliases.values())<=set(names):raise ValueError('migration target is absent')
     source_roots += [ROOT/'components/composition.json',ROOT/'catalog.json',ROOT/'tools/preset-install.sh',
                      ROOT/'tools/compose.py',ROOT/'tools/generate-platforms.sh',
                      ROOT/'components/business.json',ROOT/'tools/business']
@@ -111,7 +112,8 @@ def populate(declaration,entry,output,canonical=False):
         if canonical:copy(source,skills/name)
         else:build_package(distribution,name,skills/name)
     for name,source in resources.items():copy(source,skills/name,resource=True)
-    migration={'schemaVersion':1,'aliases':declaration['aliases'],
+    active_aliases={name:target for name,target in declaration['aliases'].items() if name in resources}
+    migration={'schemaVersion':1,'aliases':active_aliases,
                'activeSkills':sorted(names),'compatibilityResources':sorted(resources),
                'mapping':declaration['migration']}
     write(output/'migration.json',migration)
@@ -120,7 +122,7 @@ def populate(declaration,entry,output,canonical=False):
               'path':'.','skillsRoot':'skills','generated':True,'generatedFrom':components,
               'componentVersions':versions,'sourceDigest':digest(roots,ROOT),
               'treeDigest':digest([skills],skills),'resources':sorted(resources),
-              'skillAliases':declaration['aliases']}
+              'skillAliases':active_aliases}
     return metadata
 
 

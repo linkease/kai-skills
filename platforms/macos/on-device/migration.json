@@ -1,11 +1,6 @@
 {
   "schemaVersion": 1,
-  "aliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  },
+  "aliases": {},
   "activeSkills": [
     "kai-dev-environment",
     "kai-download-acceleration",
@@ -86,8 +81,8 @@
     },
     {
       "oldId": "istoreos-network-quality",
-      "decision": "retain-platform-specific",
-      "newId": "istoreos-network-quality",
+      "decision": "extract-with-platform-adapter",
+      "newId": "kai-network-quality",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality"
     },
     {

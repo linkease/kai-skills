@@ -74,6 +74,16 @@ installed result. Afterward execute a meaningful command. Package status alone
 does not prove the user's task works. Uninstall with the original manager and
 preserve project files and modified configuration.
 
+## Network diagnosis handoff
+
+Do not speed-test every install. Escalate structured DNS/TCP/TLS/timeout,
+incomplete-transfer, broken-IPv6, HTTP 429/5xx, or degraded-path failures to
+`kai-network-quality`; keep 401/403/404, dependency, architecture, conflict,
+postinstall and trust-policy failures here. Follow
+[the handoff contract](data/network-diagnosis-handoff.md): validate a bounded
+redacted request, preserve `operationId`, obtain authorization before diagnosis,
+and retry at most once only after comparable verification improves.
+
 For `zsetup:linkspace`, `zsetup:ks-cli` and `zsetup:kspeeder`, removal calls the
 zsetup-scripts owned resource in `resources/`, checked against `owner.lock.json`.
 It verifies all owned program bytes, markers and links under the installer lock,

@@ -22,13 +22,8 @@
     "debian": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:88c2e78d5f8e689cf413974cc3a46dd2814a40a8d40db4467185fa52560fc8c6",
-  "treeDigest": "sha256:6fca041a1a2690d472bd9388ba73b946d3bae3d5113c3a966e9aaf24ab18667d",
+  "sourceDigest": "sha256:85ed76a4d9e3268cf617f05f996a9f886ac664fe160c298c520bb2c6c5ac45a5",
+  "treeDigest": "sha256:307e992422b387ed8824eb398feb692d68fd30489ba832bcd5cb388005d9eaa6",
   "resources": [],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }

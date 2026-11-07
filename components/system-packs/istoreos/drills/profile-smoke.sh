@@ -51,11 +51,15 @@ need_skill "istoreos-backup-restore"
 need_skill "istoreos-luci-recovery"
 need_skill "istoreos-systools"
 need_skill "kai-dev-environment"
-need_skill "istoreos-network-quality"
+if [ ! -f "$root/../linux/skills/kai-network-quality/SKILL.md" ] &&
+   [ ! -f "$root/../../system-packs/linux/skills/kai-network-quality/SKILL.md" ] &&
+   [ ! -f "$root/skills/kai-network-quality/SKILL.md" ]; then
+  need_skill "istoreos-network-quality"
+fi
 need_skill "istoreos-app-diagnostics"
 
-grep -F 'istoreos-network-quality' "$root/TASK_ROUTING.md" >/dev/null
-grep -F 'istoreos-network-quality' "$root/skills/istoreos-system-task-router/SKILL.md" >/dev/null
+grep -F 'kai-network-quality' "$root/TASK_ROUTING.md" >/dev/null
+grep -F 'kai-network-quality' "$root/skills/istoreos-system-task-router/SKILL.md" >/dev/null
 
 for script in "$root"/skills/*/scripts/*.sh; do
   [ -f "$script" ] || continue

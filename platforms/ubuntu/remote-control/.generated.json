@@ -24,13 +24,8 @@
     "ubuntu": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:89007d29c5a8f6909a2b67598233421164759c2c72d69a16c94a4490e55b42d5",
-  "treeDigest": "sha256:941976fc5abd87c1362d2b47b395bfabc8028db5df3a15c1cc9e2b6b7e1ff59e",
+  "sourceDigest": "sha256:531312a7981fa271325648747061f237746dc8f085f0a5ef49e078abff645553",
+  "treeDigest": "sha256:fcd1993bdfd9a8f015f1104e7406107c778b76339577b6fa1055611e1f288cfb",
   "resources": [],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }

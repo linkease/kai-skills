@@ -19,7 +19,7 @@ Use this skill for the supported system-maintenance cases above. Do not invoke a
 4. Only after confirmation, run `KAIPLUS_CONFIRMED=1 scripts/apply.sh <action> [argument]`.
 5. Re-run the matching inspection and report success or the remaining problem.
 
-Network measurement belongs to `istoreos-network-quality`. IPv6 actions here change network and firewall configuration and may interrupt access. Store repair and incompatible-kernel-module repair reinstall packages and require a configuration backup first.
+Network measurement belongs to `kai-network-quality`. IPv6 actions here change network and firewall configuration and may interrupt access. Store repair and incompatible-kernel-module repair reinstall packages and require a configuration backup first.
 
 ## Reviewed Actions
 

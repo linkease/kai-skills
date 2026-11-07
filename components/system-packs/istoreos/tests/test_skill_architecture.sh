@@ -10,6 +10,7 @@ common="$root/../common"
 [ -d "$common/skills" ] || common="$root"
 skill_file_for() {
   if [ -f "$common/skills/$1/SKILL.md" ]; then printf '%s\n' "$common/skills/$1/SKILL.md";
+  elif [ -f "$root/../linux/skills/$1/SKILL.md" ]; then printf '%s\n' "$root/../linux/skills/$1/SKILL.md";
   else printf '%s\n' "$root/skills/$1/SKILL.md"; fi
 }
 
@@ -192,7 +193,7 @@ assert_routes_to kai-storage-files 'overlay 空间不足'
 assert_routes_to istoreos-service-manager '服务启动失败'
 assert_routes_to istoreos-luci-recovery 'LuCI 打不开'
 assert_routes_to istoreos-backup-restore '先备份系统再升级'
-assert_routes_to istoreos-network-quality '路由器网速慢'
+assert_routes_to kai-network-quality '路由器网速慢'
 assert_routes_to kai-dev-environment '安装 Python 3.13'
 assert_routes_to kai-project-dependencies 'pip install idna 安装失败'
 assert_routes_to kai-project-dependencies '验证 Python 依赖安装流程'
@@ -205,7 +206,7 @@ assert_routes_to istoreos-system-task-router '不知道这个异常属于哪里'
 
 assert_negative_route kai-software '安装 Python 3.13'
 assert_negative_route kai-download-acceleration '测试宽带速度'
-assert_negative_route istoreos-network-quality 'Docker 镜像下载慢'
+assert_negative_route kai-network-quality 'Docker 镜像下载慢'
 assert_negative_route istoreos-docker-basics '迁移 Docker 数据目录'
 assert_negative_route istoreos-service-manager 'LuCI 打不开'
 

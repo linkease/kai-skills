@@ -332,34 +332,6 @@
       "treeDigest": "sha256:3f160cc7c185362248fc63640028905a24abf940b171bff719c39eebf3344c01"
     },
     {
-      "id": "istoreos-network-quality",
-      "version": "1.1.0",
-      "path": "skills/istoreos-network-quality",
-      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
-      "description": "使用 iStoreOS 内置 FastNet 测量并解释外网带宽、延迟与抖动、NAT 类型、IPv6 可用性和局域网吞吐；用于网速慢、测速、NAT/IPv6 检测和 LAN 测速，不用于特定下载源加速或修改网络配置。",
-      "platforms": [
-        "istoreos"
-      ],
-      "kind": "business",
-      "component": "istoreos",
-      "architectures": {
-        "istoreos": [
-          "x64"
-        ]
-      },
-      "programRequirements": [
-        "target programs documented in SKILL.md"
-      ],
-      "resourceSources": [
-        {
-          "id": "istoreos-network-quality",
-          "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
-          "sourceDigest": "sha256:ee151de897bff98c8c499e4cae4b86791624dda2ac2b9a74534d41e04ee1a40e"
-        }
-      ],
-      "treeDigest": "sha256:e73dd12211042690073938be78dedf04361833eb9643e1e48be0d737d91a6350"
-    },
-    {
       "id": "istoreos-quickstart-api",
       "version": "1.1.0",
       "path": "skills/istoreos-quickstart-api",
@@ -519,7 +491,7 @@
         {
           "id": "istoreos-system-task-router",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-          "sourceDigest": "sha256:1af644b193dfa4a7ddff79fae3f3cf2bc4992a51875681cdbf50c055f9c865cf"
+          "sourceDigest": "sha256:bda5f7f861e124a0962ece76a861582748aa2a1bb1f260e26718520a6018c536"
         },
         {
           "id": "istoreos-package-manager",
@@ -527,7 +499,7 @@
           "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
         }
       ],
-      "treeDigest": "sha256:32d2646b4b0705109063449bf6a3ee551243963961c8b82a58662a6a546d6fc8"
+      "treeDigest": "sha256:7f87237de9763c19b7354ac60a07a80894046888cc07d67f3697a0c52b44338a"
     },
     {
       "id": "istoreos-systools",
@@ -552,10 +524,10 @@
         {
           "id": "istoreos-systools",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
-          "sourceDigest": "sha256:1ed5efa0ec983b2c6c1e6ab30344d9160af96b05bd72e5ef87956da869507d40"
+          "sourceDigest": "sha256:d92bbc01cc63c14d1bb6a58ec88b9dba4ea13d7168e68dea69366d0f7e6f6cea"
         }
       ],
-      "treeDigest": "sha256:b8ce9144241e7c874c94db8d182cf2a977ec0420d9120fa429d2647ce9276c6e"
+      "treeDigest": "sha256:9a01949343cee2d8efe918f4fb3252d90d81a4159d94cb3d9da17ce04bd432a0"
     },
     {
       "id": "kai-dev-environment",
@@ -651,7 +623,7 @@
         {
           "id": "kai-download-acceleration",
           "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
-          "sourceDigest": "sha256:52cbf06d6e0d186d7f106e2492dc1036897af5f1015b3368bef62dc7c9b077a5"
+          "sourceDigest": "sha256:aa6f435754fad08052580bbe23bee9dc14a1f5b6755b0f515baea04bb0d0f182"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -659,7 +631,49 @@
           "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
         }
       ],
-      "treeDigest": "sha256:13fcc72994ba69af5f81fd6f370214d3a2bf8e4b2ebb4bb17030241a0d0fd234"
+      "treeDigest": "sha256:9098c317fab8a64a802c05e9d3a0b57bb7650c1ca2f3e1ace2076d7920e644cd"
+    },
+    {
+      "id": "kai-network-quality",
+      "version": "1.1.0",
+      "path": "skills/kai-network-quality",
+      "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
+      "description": "使用 FastNet 测量和诊断 Linux/iStoreOS 的公网、目标下载路径、IPv4/IPv6、NAT 与设备间 LAN 质量，并为软件安装或下载失败提供结构化证据；不修改网络配置。",
+      "platforms": [
+        "debian",
+        "istoreos",
+        "ubuntu"
+      ],
+      "kind": "business",
+      "component": "linux",
+      "architectures": {
+        "debian": [
+          "x64"
+        ],
+        "istoreos": [
+          "x64"
+        ],
+        "ubuntu": [
+          "x64"
+        ]
+      },
+      "programRequirements": [
+        "compatible POSIX shell",
+        "FastNet with interaction schema version 1 on the selected Linux target"
+      ],
+      "resourceSources": [
+        {
+          "id": "kai-network-quality",
+          "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
+          "sourceDigest": "sha256:795bf9cd0e46a428e5858fc6469817217f027f5d8426add60d19e6e796db4c29"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+          "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+        }
+      ],
+      "treeDigest": "sha256:5e31e00124f2308cc84ca8b338880003cb46445e40d60019ab730c3919c9914d"
     },
     {
       "id": "kai-project-dependencies",
@@ -759,7 +773,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:9f42f9f8ee8579e6c45d00c6847ffa35e06269970b28ce1611118b9e2c52d4b0"
+          "sourceDigest": "sha256:8ea7b7e8fe6c5305fac8aa0408752eec15f9b9732a9f84d4fe392e734eb5f095"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -767,7 +781,7 @@
           "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
         }
       ],
-      "treeDigest": "sha256:1d17f690a1f90c63449324f1d8b14a1784fbbbb510325519d34e9823896dcda0"
+      "treeDigest": "sha256:f639c59383f3716767ea0659157464d839726d196199b9ede17ca2da73c6f506"
     },
     {
       "id": "kai-storage-files",

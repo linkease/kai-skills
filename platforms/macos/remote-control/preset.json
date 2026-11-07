@@ -22,13 +22,8 @@
     "macos": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:e3324c953a8a7998c4d9bfe44e98c7a95c72ec5f3156856e4b71f4384f0696fd",
-  "treeDigest": "sha256:e9444db8a22c040704c5fe9260a6fbb61534b6249dab3bae48b75e7d8471ce50",
+  "sourceDigest": "sha256:1a85e7781b1fe2c98ad668a28f319e299d788a8cbd1a0b291aae71c35e679c87",
+  "treeDigest": "sha256:e4764db1effdc6aaa1eb3eca307569d9382e2a0bac6cad0dfac0888048a951ea",
   "resources": [],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }

@@ -20,13 +20,8 @@
     "linux": "1.0.0",
     "debian": "1.0.0"
   },
-  "sourceDigest": "sha256:bed72d654a75cc8718f34084f01b19b40e6154f937135300c680ad4b9401a57c",
-  "treeDigest": "sha256:062d7e55128115a75c3b2930962aea26971ebc4d825465ab877b51cfe0cdc142",
+  "sourceDigest": "sha256:f368cc15fea7b317f14fe65a7e83e7e15afcbc9159275bb643d2b1ca2c05a071",
+  "treeDigest": "sha256:a5cfe3ce8d2efa672c7ee1362c1509723af7b223a8772d49b44d34a4f4fe35e4",
   "resources": [],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }

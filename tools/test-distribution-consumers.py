@@ -13,7 +13,6 @@ root=Path(__file__).resolve().parents[1]
 parser=argparse.ArgumentParser();parser.add_argument('--presets',type=Path,required=True)
 parser.add_argument('--reasonix',type=Path,default=root.parent/'reasonix-kai');args=parser.parse_args()
 scope=json.loads((root/'tests/multisystem/scope.json').read_text())
-aliases={m['oldId']:m['newId'] for m in scope['migration'] if m['decision']=='extract-with-platform-adapter'}
 with tempfile.TemporaryDirectory(prefix='kai-consumers-') as directory:
  work=Path(directory);roots=[]
  checkout=work/'checkout';checkout.mkdir()
@@ -27,9 +26,11 @@ with tempfile.TemporaryDirectory(prefix='kai-consumers-') as directory:
              '--consumer',consumer,'--target-skills',str(destination)]
     subprocess.run([*command,'--dry-run'],check=True,capture_output=True)
     subprocess.run(command,check=True,capture_output=True)
-    roots.append({'Platform':platform,'Mode':mode,'Consumer':consumer,'Path':str(destination)})
+    preset=json.loads((args.presets/platform/mode/'preset.json').read_text())
+    roots.append({'Platform':platform,'Mode':mode,'Consumer':consumer,'Path':str(destination),
+                  'Aliases':preset.get('skillAliases',{})})
  cases=[{'Platform':c['platform'],'Task':c['task'],'Skill':c['skill']} for c in scope['routingCases']]
- data=work/'input.json';data.write_text(json.dumps({'Roots':roots,'Aliases':aliases,'Cases':cases},ensure_ascii=False))
+ data=work/'input.json';data.write_text(json.dumps({'Roots':roots,'Cases':cases},ensure_ascii=False))
  overlay=work/'overlay.json';overlay.write_text(json.dumps({'Replace':{
   str(args.reasonix/'internal/skill/kai_distribution_external_test.go'):
   str(root/'tests/multisystem/fixtures/distribution_consumer_test.go')}}))

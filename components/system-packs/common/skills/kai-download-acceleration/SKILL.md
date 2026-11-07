@@ -78,6 +78,16 @@ manifest; populate client outcomes and freshness from the actual execution and
 Transport, rather than from the expected result. This requires the service's
 `download-observation.v1` log format. Missing evidence leaves acceleration pending.
 
+When `kai-network-quality` supplies a FastNet finding, keep its scope intact.
+Broad WAN degradation across unrelated targets is not proof that a target
+gateway will help. A healthy base path with one degraded metadata/artifact path
+may enter this skill's Doctor/Explain workflow. HTTP 401/403/404 and package
+policy failures remain with their owner; do not label them acceleration
+problems. Preserve the shared `operationId`, then let FastNet repeat the same
+bounded diagnosis after any route remediation. Improved FastNet evidence proves
+only the network observation changed; this skill must still prove the selected
+route with its own current-instance client and gateway evidence.
+
 For native iStoreOS evidence only, resolve `istoreos-docker-acceleration-istoreenhance`
 or `istoreos-kspeeder-domainfold-fetch` through the target System Pack when the
 ordinary client plan cannot explain its native integration. Load one helper on demand.

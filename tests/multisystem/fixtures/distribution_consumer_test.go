@@ -15,8 +15,7 @@ import (
 
 func TestKaiMultisystemDistributionConsumer(t *testing.T) {
  var data struct {
-  Roots []struct { Platform, Mode, Consumer, Path string }
-  Aliases map[string]string
+  Roots []struct { Platform, Mode, Consumer, Path string; Aliases map[string]string }
   Cases []struct { Platform, Task, Skill string }
  }
  body,err:=os.ReadFile(os.Getenv("KAI_DISTRIBUTION_INPUT"));if err!=nil {t.Fatal(err)}
@@ -31,11 +30,11 @@ func TestKaiMultisystemDistributionConsumer(t *testing.T) {
     if name=="kai-tool-bootstrap" && len(value.Requires)!=0 {t.Fatal("bootstrap is hidden behind a missing Bash prerequisite")}
     if !slices.Contains(value.Systems,root.Platform) {t.Fatalf("%s lost target system metadata",name)}
    }
-   for old,current:=range data.Aliases {
+   for old,current:=range root.Aliases {
     value,ok:=store.Read(old);if !ok || value.Name!=current {t.Errorf("alias %s did not resolve uniquely to %s",old,current)}
    }
    listed:=store.List()
-   for _,value:=range listed {if _,retired:=data.Aliases[value.Name];retired {t.Fatalf("retired primary is active: %s",value.Name)}}
+   for _,value:=range listed {if _,retired:=root.Aliases[value.Name];retired {t.Fatalf("retired primary is active: %s",value.Name)}}
    entries:=capability.SkillEntries(listed,[]tool.ContractEntry{{Name:"run_skill"}})
    for _,test:=range data.Cases {
     if test.Platform!=root.Platform {continue}

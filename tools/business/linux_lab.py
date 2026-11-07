@@ -333,7 +333,6 @@ class NativeTasks:
                 ('istoreos-kspeeder-domainfold-fetch', 'remap_url.sh', [url], 'https://'),
                 ('istoreos-logs-and-diagnostics', 'min-diag.sh', ['base'], '## Base'),
                 ('istoreos-luci-recovery', 'diag.sh', [], 'skill=istoreos-luci-recovery'),
-                ('istoreos-network-quality', 'inspect.sh', [], '[network]'),
                 ('istoreos-source-introspect', 'collect.sh', ['dropbear'], 'target=dropbear'),
                 ('istoreos-system-task-router', 'observe.sh', ['package', 'bash'], '[package]'),
                 ('istoreos-systools', 'inspect.sh', ['store'], '[store]')]
@@ -373,7 +372,7 @@ class NativeTasks:
                 ('istoreos-docker-basics', 'production Docker daemon deliberately unavailable'),
                 ('istoreos-docker-data-root-migrate', 'real daemon data-root migration requires a separately authorized device journey'),
                 ('istoreos-luci-recovery', 'production rpcd/uhttpd restart and core reinstall not exercised'),
-                ('istoreos-network-quality', 'WAN saturation and physical LAN measurements not exercised'),
+                ('kai-network-quality', 'FastNet AI candidate, WAN saturation and physical LAN measurements not exercised'),
                 ('istoreos-service-manager', 'procd boot and production service restart not exercised'),
                 ('istoreos-quickstart-api', 'authenticated QuickStart backend unavailable in the ROM container'),
                 ('istoreos-systools', 'kernel, disk power, upgrade and network mutations not exercised')]:

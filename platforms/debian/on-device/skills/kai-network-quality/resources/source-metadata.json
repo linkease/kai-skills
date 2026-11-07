@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: kai-network-quality\ndescription: 使用 FastNet 测量和诊断 Linux/iStoreOS 的公网、目标下载路径、IPv4/IPv6、NAT 与设备间 LAN 质量，并为软件安装或下载失败提供结构化证据；不修改网络配置。\nowner: system-pack/linux\nsystems: ubuntu, debian, istoreos, openwrt, linux\ntriggers: 网速慢, 测速, 宽带速度, 上行速度, 下行速度, 延迟, 抖动, NAT 类型, IPv6 测试, IPv6 可用性, 局域网测速, LAN 测速, FastNet, 安装网络诊断, DNS 超时, TLS 超时\nnegative-triggers: 修改 IPv6 模式, 修改网络配置, 只安装软件, Docker 镜像下载慢, 认证失败, 软件包冲突\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\naliases: istoreos-network-quality\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "kai-network-quality",
+      "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
+      "sourceDigest": "sha256:795bf9cd0e46a428e5858fc6469817217f027f5d8426add60d19e6e796db4c29"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:393650941c64722436d76974f6697cff05473712d9612d8ee3e22470d0991e0b"
+    }
+  ]
+}

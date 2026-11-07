@@ -6,7 +6,7 @@
     {
       "id": "istoreos-system-task-router",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-      "sourceDigest": "sha256:1af644b193dfa4a7ddff79fae3f3cf2bc4992a51875681cdbf50c055f9c865cf"
+      "sourceDigest": "sha256:bda5f7f861e124a0962ece76a861582748aa2a1bb1f260e26718520a6018c536"
     },
     {
       "id": "istoreos-package-manager",
