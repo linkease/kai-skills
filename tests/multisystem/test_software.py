@@ -8,6 +8,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[2]
 CLI = ROOT / 'components/system-packs/common/skills/kai-software/scripts/software.sh'
 SCOOP_ADAPTER = ROOT / 'skills/kai-software/scripts/scoop.ps1'
+SCOOP_SOURCE_ADAPTER = ROOT / 'components/system-packs/common/skills/kai-software/scripts/scoop.ps1'
+SCOOP_LOCK = ROOT / 'components/system-packs/common/skills/kai-software/resources/scoop.lock.json'
 
 
 class SoftwareTests(unittest.TestCase):
@@ -103,6 +105,11 @@ else:
         self.assertIn(r'System32\WindowsPowerShell\v1.0\powershell.exe', remove)
         self.assertIn(r'apps\scoop\current\bin\scoop.ps1', remove)
         self.assertNotIn(r'shims\scoop.cmd', remove)
+
+    def test_windows_scoop_provider_accepts_the_0_1_1_upgrade_receipt(self):
+        lock = json.loads(SCOOP_LOCK.read_text())
+        self.assertEqual(lock['installer_version'], '0.1.1')
+        self.assertIn("[string]$lock.installer_version -cne '0.1.1'", SCOOP_SOURCE_ADAPTER.read_text())
 
     def test_query_is_bounded_source_qualified_and_does_not_refresh(self):
         p, result = self.call('search', 'directory')
