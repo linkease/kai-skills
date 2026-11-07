@@ -7,6 +7,7 @@ import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
 CLI = ROOT / 'components/system-packs/common/skills/kai-software/scripts/software.sh'
+SCOOP_ADAPTER = ROOT / 'skills/kai-software/scripts/scoop.ps1'
 
 
 class SoftwareTests(unittest.TestCase):
@@ -95,6 +96,13 @@ else:
         calls = [json.loads(line) for line in self.log.read_text().splitlines()]
         self.assertEqual(calls[0]['request']['policy'], 'required')
         self.assertEqual(calls[1]['request']['subject'], 'main')
+
+    def test_windows_scoop_remove_does_not_run_inside_the_package_being_removed(self):
+        source = SCOOP_ADAPTER.read_text()
+        remove = source.split('function Invoke-Remove', 1)[1].split('function Invoke-Files', 1)[0]
+        self.assertIn(r'System32\WindowsPowerShell\v1.0\powershell.exe', remove)
+        self.assertIn(r'apps\scoop\current\bin\scoop.ps1', remove)
+        self.assertNotIn(r'shims\scoop.cmd', remove)
 
     def test_query_is_bounded_source_qualified_and_does_not_refresh(self):
         p, result = self.call('search', 'directory')
