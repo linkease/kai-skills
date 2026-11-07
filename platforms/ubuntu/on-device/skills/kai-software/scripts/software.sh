@@ -19,37 +19,65 @@ fail() {
 }
 case "$action" in search|info|install|download|remove|files|owner|refresh) ;; *) fail 2 usage 'software.sh search|info|install|download|remove|files|owner|refresh SUBJECT [VERSION]' ;; esac
 if [ "$platform" = windows ]; then
-    destination=; architecture="${KAI_WINGET_ARCH:-}"
+    destination=; architecture="${KAI_WINGET_ARCH:-}"; policy="${KAI_SOFTWARE_ACCELERATION:-auto}"
+    case "$policy" in required|auto|none) ;; *) fail 2 usage 'KAI_SOFTWARE_ACCELERATION must be required, auto or none on Windows' ;; esac
     if [ "$action" = download ]; then
         [ "$#" -ge 4 ] && [ "$#" -le 5 ] && [ -n "$requested" ] || fail 2 usage 'software.sh download winget:ID VERSION ABSOLUTE_DIRECTORY [ARCH]'
         destination="$4"; architecture="${5:-$architecture}"
         if command -v cygpath >/dev/null 2>&1; then destination="$(cygpath -w "$destination")"; fi
     fi
     case "$action" in
-        search) provider="${KAI_SOFTWARE_PROVIDER:-winget}" ;;
-        refresh) provider="$subject" ;;
+        search) provider="${KAI_SOFTWARE_PROVIDER:-all}" ;;
+        refresh)
+            case "$subject" in
+                scoop:*) provider=scoop; subject="${subject#scoop:}" ;;
+                winget:*) provider=winget; subject="${subject#winget:}" ;;
+                *) fail 2 usage 'refresh requires scoop:BUCKET or winget:winget' ;;
+            esac ;;
         owner) provider=winget ;;
         *)
             case "$subject" in
                 winget:*) provider=winget; subject="${subject#winget:}" ;;
+                scoop:*) provider=scoop; subject="${subject#scoop:}" ;;
                 *) fail 2 usage 'use a source-qualified Windows software ID' ;;
             esac ;;
     esac
-    [ "$provider" = winget ] || fail 18 unsupported-platform 'the selected provider has no Windows policy'
+    case "$provider" in all|winget|scoop) ;; *) fail 18 unsupported-platform 'the selected provider has no Windows policy' ;; esac
+    [ "$provider" != all ] || [ "$action" = search ] || fail 2 usage 'provider aggregation is read-only and only valid for search'
+    [ "$provider" != scoop ] || [ "$action" != download ] || fail 18 unsupported-operation 'Scoop download seeds its managed cache and has no destination-directory contract'
     powershell="${KAI_POWERSHELL_BIN:-$(command -v pwsh.exe 2>/dev/null || command -v powershell.exe 2>/dev/null || true)}"
-    native_script="$here/winget.ps1"
     if command -v cygpath >/dev/null 2>&1; then
         powershell="$(cygpath -u "$powershell")"
-        native_script="$(cygpath -w "$native_script")"
     fi
     [ -n "$powershell" ] && [ -x "$powershell" ] || fail 127 missing-executable 'an existing native PowerShell is required for structured WinGet operations'
-    command=("$powershell" -NoLogo -NoProfile -NonInteractive -File "$native_script")
     ks_cli="${KAI_KSCLI_BIN:-$(command -v ks-cli 2>/dev/null || command -v ks-cli.exe 2>/dev/null || true)}"
-    if [ -n "$ks_cli" ] && command -v cygpath >/dev/null 2>&1; then ks_cli="$(cygpath -w "$ks_cli")"; fi
-    request="$(jq -cn --arg action "$action" --arg subject "$subject" --arg version "$requested" \
-        --arg ksCli "$ks_cli" --arg architecture "$architecture" --arg destination "$destination" \
-        '{action:$action,subject:$subject,version:$version,ksCli:$ksCli,architecture:$architecture,destination:$destination}')"
-    printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "${command[@]}"
+    zsetup_native="$zsetup"; scoop_root="${KAI_SCOOP_ROOT:-}"; runtime_binary="${KAI_KSPEEDER_RUNTIME_BINARY:-}"; runtime_identity="${KAI_KSPEEDER_RUNTIME_IDENTITY:-}"
+    if command -v cygpath >/dev/null 2>&1; then
+        [ -z "$ks_cli" ] || ks_cli="$(cygpath -w "$ks_cli")"
+        [ -z "$zsetup_native" ] || zsetup_native="$(cygpath -w "$zsetup_native")"
+        [ -z "$scoop_root" ] || scoop_root="$(cygpath -w "$scoop_root")"
+        [ -z "$runtime_binary" ] || runtime_binary="$(cygpath -w "$runtime_binary")"
+        [ -z "$runtime_identity" ] || runtime_identity="$(cygpath -w "$runtime_identity")"
+    fi
+    invoke_windows_provider() {
+        local selected="$1" native_script request
+        native_script="$here/$selected.ps1"
+        if command -v cygpath >/dev/null 2>&1; then native_script="$(cygpath -w "$native_script")"; fi
+        request="$(jq -cn --arg action "$action" --arg subject "$subject" --arg version "$requested" \
+            --arg ksCli "$ks_cli" --arg zsetup "$zsetup_native" --arg architecture "$architecture" \
+            --arg destination "$destination" --arg policy "$policy" --arg root "$scoop_root" \
+            --arg runtimeBinary "$runtime_binary" --arg runtimeIdentity "$runtime_identity" \
+            '{action:$action,subject:$subject,version:$version,ksCli:$ksCli,zsetup:$zsetup,architecture:$architecture,destination:$destination,policy:$policy,root:$root,runtimeBinary:$runtimeBinary,runtimeIdentity:$runtimeIdentity}')"
+        printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "$powershell" -NoLogo -NoProfile -NonInteractive -File "$native_script"
+    }
+    if [ "$provider" = all ]; then
+        scoop_rows="$(invoke_windows_provider scoop)" || exit "$?"
+        winget_rows="$(invoke_windows_provider winget)" || exit "$?"
+        jq -cn --argjson scoop "$scoop_rows" --argjson winget "$winget_rows" \
+            '$scoop + $winget | sort_by(if .source=="scoop" and .type=="cli-tool" then 0 elif .source=="winget" then 1 else 2 end, .id)'
+        exit 0
+    fi
+    invoke_windows_provider "$provider"
     exit $?
 fi
 [ "$action" != download ] || fail 18 unsupported-operation 'prepared software download is currently available for the Windows winget provider'
