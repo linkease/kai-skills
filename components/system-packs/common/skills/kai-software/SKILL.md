@@ -20,47 +20,36 @@ kai-project-dependencies. Do not install a system Python to satisfy a mise task.
 
 `bash scripts/software.sh search TERM` returns bounded source-qualified IDs.
 Use the selected `apt:NAME`, `opkg:NAME`, `istore:NAME`, `zsetup:NAME`,
-`brew:FORMULA` or `winget:PACKAGE.ID` with
+`brew:FORMULA`, `scoop:BUCKET/APP` or `winget:PACKAGE.ID` with
 `info`, `install`, `files` and `remove`. A source is part of identity; never merge
 two same-named candidates into one installation ID. Queries use cached indexes;
-`refresh apt|opkg|istore|zsetup|brew|winget` is an explicit write. Desktop queries
+`refresh` is an explicit write. Desktop queries
 retain their native provider's catalog policy; no implicit refresh command is issued.
 
-On Windows, enter through Git Bash. The helper prefers an existing PowerShell 7
-and otherwise uses Windows PowerShell. It uses the trusted
-`Microsoft.WinGet.Client` module for structured results from the
-selected `winget` source. Missing PowerShell or module is explicit, with no
-automatic module installation. Exact IDs/source/version are checked before an
-install and the registered version is checked afterward. Native failure status,
-installer error and HRESULT remain in the failed receipt. File inventory/ownership
-is explicitly unavailable from this provider. Use a trusted existing
-`KAI_POWERSHELL_BIN` when discovery needs an explicit native path.
+On Windows, enter through Git Bash. Search queries both Scoop and WinGet by
+default and keeps every source-qualified row; an identical display name is not a
+shared identity. Prefer Scoop for command-line and portable tools. Prefer WinGet
+for GUI, MSIX/Store applications, or when the selected Scoop bucket has no exact
+candidate. Lifecycle and refresh operations require an explicit
+`scoop:BUCKET/APP`, `scoop:BUCKET`, `winget:PACKAGE.ID`, or `winget:winget` target;
+never pass one provider's identity to the other.
 
-WinGet search/info use the native registered source directly. ks-cli does not
-provide WinGet CONNECT routing. Prepared download/install may read the installed
-Store-signed source index, acquire its version metadata and manifest through
-`ks-cli download --mode=auto`, verify both source SHA256 values, and seed only
-the command's isolated WinGet cache before native selection.
-`install winget:PACKAGE.ID VERSION` uses the existing `ks-cli winget install`
-adapter, retaining exact native selection and checking the registered version
-afterward. Set `KAI_KSCLI_BIN` when that client is outside PATH, and
-`KAI_WINGET_ARCH=x64|arm64|x86` for an explicit target architecture; otherwise
-the native target architecture is used. Queries and removal retain the native
-module API and do not start a service.
+The helper prefers PowerShell 7 and otherwise uses Windows PowerShell. WinGet
+queries use the registered source through the trusted `Microsoft.WinGet.Client`
+module; install/download use the exact ks-cli adapter and verify its receipt plus
+the registered version. Missing adapters, native errors and HRESULTs remain
+explicit. Never configure a WinGet proxy or treat ordinary direct transfer as
+acceleration. Details and commands are in
+[WinGet acceleration](resources/winget-acceleration.md).
 
-To acquire a package without installing it, use
-`bash scripts/software.sh download winget:PACKAGE.ID VERSION 'D:/Downloads/package' x64`.
-The explicit absolute directory and architecture are passed to the same prepared
-client. `bash scripts/software.sh refresh winget` uses the client's original,
-Store-signed source-package update and preserves its deployment receipt. These
-operations require an existing compatible client; missing or invalid receipts
-and nonzero native exits are failures. No automatic module or service install
-is performed. Keep source, payload and CRL/OCSP health as separate results.
-
-Do not set a WinGet proxy through this skill or describe a same-egress relay as
-acceleration. Preserve native catalog failures; an explicit source refresh is
-separate from a package query or installation.
-See [WinGet acceleration](resources/winget-acceleration.md).
+Scoop is accepted only when its complete zsetup M6 ownership receipt matches the
+canonical lock. A missing or mismatched Scoop is ensured only through the formal
+zsetup application; never use WinGet or the public Scoop bootstrap script.
+`KAI_SOFTWARE_ACCELERATION=required|auto|none` is passed unchanged to ks-cli.
+Required mode must prove every payload used `admin_proxy`; auto may disclose
+origin fallback; none does not claim acceleration. Native Scoop still owns final
+hashing, dependencies, extraction, shims, persist and scripts. See
+[Scoop provider](resources/scoop.md).
 
 Check client provenance and native acceptance in that reference before using a
 candidate. Missing or unverifiable metadata stops preparation. Ordinary direct
