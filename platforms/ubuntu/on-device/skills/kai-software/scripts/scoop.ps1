@@ -270,7 +270,14 @@ function Invoke-Remove([string]$Root, [string]$Target) {
     [IO.File]::WriteAllText((Join-Path $config 'config.json'), '{"no_junction":true,"use_lessmsi":true}', (New-Object Text.UTF8Encoding($false)))
     $previous = $env:XDG_CONFIG_HOME; $env:XDG_CONFIG_HOME = $xdg
     try {
-        $native = Invoke-NativeCaptured (Join-Path $Root 'shims\scoop.cmd') @('uninstall',$parts[1])
+        # scoop.cmd prefers pwsh when it is on PATH. That makes `scoop uninstall pwsh`
+        # run inside the package being removed, so Scoop refuses the uninstall but
+        # still exits zero. Pin the inbox Windows PowerShell host for every removal.
+        $windowsPowerShell = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+        $scoopScript = Join-Path $Root 'apps\scoop\current\bin\scoop.ps1'
+        Assert-Leaf $windowsPowerShell 'Windows PowerShell'
+        Assert-Leaf $scoopScript 'Scoop core script'
+        $native = Invoke-NativeCaptured $windowsPowerShell @('-NoProfile','-NonInteractive','-ExecutionPolicy','Bypass','-File',$scoopScript,'uninstall',$parts[1])
         if ($native.exitCode -ne 0) { Fail $native.exitCode 'native-package-failed' 'Native Scoop uninstall failed.' @{exitCode=$native.exitCode;output=($native.output -join "`n")} }
     } finally { $env:XDG_CONFIG_HOME = $previous; Remove-Item -LiteralPath $xdg -Recurse -Force -ErrorAction SilentlyContinue }
     if (Test-Path -LiteralPath $appRoot) { Fail 11 'remove-incomplete' 'Scoop app directory remains after uninstall.' }
