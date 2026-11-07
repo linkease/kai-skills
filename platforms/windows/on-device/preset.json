@@ -20,8 +20,8 @@
     "common": "1.0.0",
     "windows": "1.0.0"
   },
-  "sourceDigest": "sha256:b01efb00a97575e61fc99b541d1b61ae7453429e44c508d5ef3f8349b10fd5f8",
-  "treeDigest": "sha256:19e9b5eeb07de23f3d91c3531dbff2c44f8fc0fc60a5a090531c9a8a20223b2a",
+  "sourceDigest": "sha256:de41edf11ed7cf61993b230b49f5a5de5dc8bccd64896908f0d0a1057bc343e5",
+  "treeDigest": "sha256:edbc68e509d8dd0e9c0a945912766b2152b3d4c8ed9433d5daf558b7f796e96f",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",

@@ -84,7 +84,7 @@ function Read-Lock {
     $path = Join-Path $PSScriptRoot '..\resources\scoop.lock.json'
     try { $lock = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json } catch { Fail 11 'integrity-failed' 'The Scoop ownership lock is unreadable.' }
     if ($lock.schema_version -ne 1 -or $lock.owner -cne 'linkease-zsetup' -or
-        [string]$lock.installer_version -cne '0.1.0' -or [string]$lock.core_commit -notmatch '^[0-9a-f]{40}$' -or
+        [string]$lock.installer_version -cne '0.1.1' -or [string]$lock.core_commit -notmatch '^[0-9a-f]{40}$' -or
         [string]$lock.main_commit -notmatch '^[0-9a-f]{40}$' -or [string]$lock.runtime_bundle_sha256 -notmatch '^[0-9a-f]{64}$') {
         Fail 11 'integrity-failed' 'The Scoop ownership lock has an unsupported identity.'
     }

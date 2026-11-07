@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "owner": "linkease-zsetup",
-  "installer_version": "0.1.0",
+  "installer_version": "0.1.1",
   "runtime_bundle_id": "0.7.16-08aea475819b8037977684c7fbbde2ae40bb1b96-windows-amd64",
   "runtime_bundle_sha256": "66fa51769556b8d52289f354d3e43952338814b6ef357b04868f829fc1c5c4dc",
   "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",

@@ -24,8 +24,8 @@
     "ubuntu": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:0d09d83ebcb2e5300ca2dc620f8e5d30f2a926607dbcfba36a80953337e6b320",
-  "treeDigest": "sha256:d497b16a5b7d3abe1d1cf4261eeac5c65ae22c19cab6c24574300fae1468f1a9",
+  "sourceDigest": "sha256:89007d29c5a8f6909a2b67598233421164759c2c72d69a16c94a4490e55b42d5",
+  "treeDigest": "sha256:941976fc5abd87c1362d2b47b395bfabc8028db5df3a15c1cc9e2b6b7e1ff59e",
   "resources": [],
   "skillAliases": {
     "istoreos-download-acceleration": "kai-download-acceleration",
