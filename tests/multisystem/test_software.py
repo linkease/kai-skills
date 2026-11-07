@@ -42,6 +42,60 @@ case "$1" in install) touch "$KAI_TEST_STATE" ;; remove) rm -f "$KAI_TEST_STATE"
         self.assertTrue(p.stdout.strip(), p.stderr)
         return p, json.loads(p.stdout)
 
+    def windows_environment(self):
+        adapter = self.bin / 'powershell.exe'
+        adapter.write_text('#!' + __import__('sys').executable + '\n' + r'''
+import json, os, pathlib, sys
+request = json.load(sys.stdin)
+script = pathlib.Path(sys.argv[-1]).name
+provider = 'scoop' if script == 'scoop.ps1' else 'winget'
+with open(os.environ['KAI_TEST_LOG'], 'a') as out:
+    out.write(json.dumps({'provider': provider, 'request': request}) + '\n')
+if request['action'] == 'search':
+    print(json.dumps([{'schemaVersion': 1, 'id': provider + (':main/tree' if provider == 'scoop' else ':Example.Tree'),
+        'name': 'tree', 'title': 'Tree', 'type': 'cli-tool' if provider == 'scoop' else 'desktop-app',
+        'source': provider, 'manager': provider, 'platform': 'windows', 'compatible': True,
+        'availableVersion': '1.0.0', 'installedVersion': '', 'installed': False,
+        'entrypoint': '', 'evidenceTime': '2026-11-07T00:00:00Z', 'matchReason': 'fixture'}]))
+else:
+    print(json.dumps({'schemaVersion': 1, 'status': 'passed', 'operation': request['action'],
+        'id': provider + ':' + request['subject'], 'source': provider, 'policy': request.get('policy')}))
+''')
+        adapter.chmod(0o700)
+        return {'KAI_PLATFORM': 'windows', 'KAI_POWERSHELL_BIN': str(adapter),
+                'KAI_KSCLI_BIN': str(self.bin / 'ks-cli.exe'),
+                'KAI_ZSETUP_BIN': str(self.bin / 'zsetup.exe')}
+
+    def test_windows_search_preserves_same_name_scoop_and_winget_candidates(self):
+        p, result = self.call('search', 'tree', **self.windows_environment())
+        self.assertEqual(p.returncode, 0, result)
+        self.assertEqual([row['id'] for row in result], ['scoop:main/tree', 'winget:Example.Tree'])
+        self.assertEqual([row['source'] for row in result], ['scoop', 'winget'])
+        calls = [json.loads(line) for line in self.log.read_text().splitlines()]
+        self.assertEqual([row['provider'] for row in calls], ['scoop', 'winget'])
+
+    def test_windows_source_qualified_ids_never_cross_provider_boundaries(self):
+        env = self.windows_environment()
+        for subject, expected in [('scoop:main/tree', 'scoop'), ('winget:Example.Tree', 'winget')]:
+            p, result = self.call('info', subject, **env)
+            self.assertEqual(p.returncode, 0, result)
+            self.assertEqual(result['source'], expected)
+        p, result = self.call('info', 'main/tree', **env)
+        self.assertEqual((p.returncode, result['category']), (2, 'usage'))
+        calls = [json.loads(line) for line in self.log.read_text().splitlines()]
+        self.assertEqual([row['provider'] for row in calls], ['scoop', 'winget'])
+
+    def test_windows_scoop_policy_and_qualified_refresh_are_forwarded(self):
+        env = self.windows_environment()
+        p, result = self.call('install', 'scoop:main/tree', '1.0.0',
+                              **{**env, 'KAI_SOFTWARE_ACCELERATION': 'required'})
+        self.assertEqual(p.returncode, 0, result)
+        p, result = self.call('refresh', 'scoop:main', **env)
+        self.assertEqual(p.returncode, 0, result)
+        calls = [json.loads(line) for line in self.log.read_text().splitlines()]
+        self.assertEqual(calls[0]['request']['policy'], 'required')
+        self.assertEqual(calls[1]['request']['subject'], 'main')
+
     def test_query_is_bounded_source_qualified_and_does_not_refresh(self):
         p, result = self.call('search', 'directory')
         self.assertEqual(p.returncode, 0, result)
