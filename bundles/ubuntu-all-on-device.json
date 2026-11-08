@@ -1,59 +1,59 @@
 {
   "schemaVersion": 1,
   "id": "system:ubuntu:on-device",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "platform": "ubuntu",
   "mode": "on-device",
   "members": [
     {
       "id": "debian-system-diagnostics",
-      "version": "1.2.0",
-      "treeDigest": "sha256:dda30b815159d95f53b4134f7c8f8c876aac1f25f3cf590aca14e97c4c689ac1"
+      "version": "1.2.1",
+      "treeDigest": "sha256:289b5b3e81eb6a2310309c69308cda9620d3eeb63b7c84a91cdb26fa74a3482a"
     },
     {
       "id": "kai-dev-environment",
-      "version": "1.2.0",
-      "treeDigest": "sha256:ab1f7ee24048b356748f419720aeac40ecb0c2939409afc5697da828e53e1166"
+      "version": "1.2.1",
+      "treeDigest": "sha256:42ac3df58b604d9060bc9b7911780e9779cd1af66c23ecd46e93c516f67465dd"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.2.0",
-      "treeDigest": "sha256:37c62cf989f12c170fa3d2e022f16cbb533b8330fa47ae04ad9eb249c903b621"
+      "version": "1.2.1",
+      "treeDigest": "sha256:3907a16956a30fbfb2e4d848f13851dcfc9b9e209f112d32071f219bfae37b6c"
     },
     {
       "id": "kai-network-quality",
-      "version": "1.2.0",
-      "treeDigest": "sha256:ecbc2bc89f34cf0c4aa34cc9b3626f4e6e3b8ce2942e377fddbb2f74d9b6e017"
+      "version": "1.2.1",
+      "treeDigest": "sha256:bfa87777c794882bc4f9d99b79c3efabd1cf4ed11e8ebec0afbb7b2043213758"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.2.0",
-      "treeDigest": "sha256:2e1ef34899ab98cf3d2748e603328d977b1d0d4b299fdd50c8ccd4a3c4cddf9c"
+      "version": "1.2.1",
+      "treeDigest": "sha256:3ce0a9bae89f5e4327b9c0860739f191741d24751c1f36d8a4962536ea9351d8"
     },
     {
       "id": "kai-project-run",
-      "version": "1.2.0",
-      "treeDigest": "sha256:a9f13756ce4a05e5452cee3e0fb131289b116bac21969965e336b035a5078c32"
+      "version": "1.2.1",
+      "treeDigest": "sha256:7bfcc7586b31089af93eacfa6186ee0cba701f8b995cfa0d2a5239c3ffe00dfa"
     },
     {
       "id": "kai-software",
-      "version": "1.2.0",
-      "treeDigest": "sha256:d2bddfaa5d979142e9e59d242d5a811d7b3048caae4c02a9a706634cfe008ca8"
+      "version": "1.2.1",
+      "treeDigest": "sha256:ca69be0d55eb5c17551e57443e3661dcddb38cae0247bc52f741e20957cfcc9a"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.2.0",
-      "treeDigest": "sha256:cc996cf4cb55636e30fbec53c49b9004b0dd5217e81c9f7bdd1479f6fe883605"
+      "version": "1.2.1",
+      "treeDigest": "sha256:b54875dd0e0da4bc15cbe3cb2c7035e80c0306a117da51c5382eb166ab624da8"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.2.0",
-      "treeDigest": "sha256:eb8c8d2a9437f686aa47ab0ff2850b21bb1f3b661b83353fcfd2982f6f62d49e"
+      "version": "1.2.1",
+      "treeDigest": "sha256:8acee3758e35b6a22fd5f1e0978e29d487d11128fc3bbfdcf5c264b5a9d3d420"
     },
     {
       "id": "ubuntu-release-diagnostics",
-      "version": "1.2.0",
-      "treeDigest": "sha256:d23d644de36dc6ae963c8cd150ce824586ca3caa9c4daab163b95462b25a9422"
+      "version": "1.2.1",
+      "treeDigest": "sha256:4bfa9dbf6e909a3d211b20ca9d93210a502547b85f8946b764d0cc9134df1238"
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "id": "target-ssh-controller",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "path": "skills/target-ssh-controller",
   "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
   "description": "Bind a specific remote target over SSH and safely execute target scripts with strict host-key verification, bounded timeouts, explicit write approval, and no operating-system business logic.",
