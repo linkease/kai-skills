@@ -58,6 +58,22 @@ network remediation.
 
 ## Installation handoff
 
+For a bounded diagnosis, start from [the complete request example](data/diagnose-request.example.json).
+Put the owning operation ID in **`metadata.operationId`** and the byte limit in
+**`budget.maxResponseBytes`**; the time limit is `budget.timeoutSeconds`.
+There is no top-level `operationId` or `maxTransferBytes` field. Replace the
+example's target and ID with the explicitly authorized values. Never drop the
+ID to make validation pass. If the request is rejected, correct its fields
+before any external execution; do not reverse-engineer the executable or try
+unrelated payloads.
+
+`validate` returns `command: "fastnet agent validate"` without starting network
+traffic. This skill's `diagnose` entry calls the supported `agent execute` JSON
+interface, so its result uses **`command: "fastnet agent execute"`**. The returned
+`result.operationId` must equal the request's `metadata.operationId`. A
+successful diagnosis without that correlation does not complete an installation
+handoff. Confirmation for this wrapper is **`KAIPLUS_CONFIRMED=1`**.
+
 Read [the installation handoff contract](data/install-handoff.md) before using
 FastNet from `kai-software` or `kai-download-acceleration`. Never infer targets
 from an unbounded log. Use endpoints from the owning plan or structured native

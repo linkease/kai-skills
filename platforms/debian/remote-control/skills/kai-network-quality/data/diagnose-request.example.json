@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "profile": "software-install",
+  "targets": [
+    {
+      "id": "metadata",
+      "url": "https://example.invalid/metadata.json"
+    }
+  ],
+  "budget": {
+    "timeoutSeconds": 10,
+    "maxResponseBytes": 4096
+  },
+  "metadata": {
+    "operationId": "replace-with-owning-operation-id"
+  }
+}

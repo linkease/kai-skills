@@ -6,7 +6,7 @@
     {
       "id": "kai-network-quality",
       "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
-      "sourceDigest": "sha256:5993150c964d7c6a28019a7c32f7a999f25c2fd37ef7a9a2ca22ed6ac95f1adf"
+      "sourceDigest": "sha256:dfcc6d96223190c513d8bb3ccf0446ae9d016d770d8c1d01ed8284a30bf7cd66"
     },
     {
       "id": "kai-tool-bootstrap",

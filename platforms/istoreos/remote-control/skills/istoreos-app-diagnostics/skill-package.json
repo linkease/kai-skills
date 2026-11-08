@@ -1,6 +1,6 @@
 {
   "id": "istoreos-app-diagnostics",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "path": "skills/istoreos-app-diagnostics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
   "description": "只读分析最近一次 iStore 安装任务，将任务日志、当前包状态和插件能力合并为紧凑诊断报告；由应用安装流程在失败或安装后异常时按需调用。",

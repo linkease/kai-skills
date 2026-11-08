@@ -20,8 +20,8 @@
     "linux": "1.0.0",
     "debian": "1.0.0"
   },
-  "sourceDigest": "sha256:a183726454d99851b75501fb688681d18da8754d17d11873a95931229583b8f5",
-  "treeDigest": "sha256:167c417b55162f3ce751f1e9e774d46a691f8e3496d9274ad9afba065afd78ac",
+  "sourceDigest": "sha256:65d0472372371a9cf3f03fee4d5bf3f83e5ac04d73809101b959597e066ac3f4",
+  "treeDigest": "sha256:42f7805ecf6a49da8a1767b2d631d226a4ca06a32aa6fc68feba3650fb9eab25",
   "resources": [],
   "skillAliases": {}
 }
