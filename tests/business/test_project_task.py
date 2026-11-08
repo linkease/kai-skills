@@ -32,5 +32,15 @@ class ProjectTask(unittest.TestCase):
         (self.project/'package-lock.json').unlink();r,b=self.call();self.assertEqual(r.returncode,20,r.stdout+r.stderr);self.assertEqual(b['reason'],'project-lock-required');self.assertFalse((self.project/'package-lock.json').exists())
     def test_target_mismatch_does_not_probe_sdk_or_create_work_directory(self):
         self.req['targetId']='different';r,b=self.call();self.assertEqual(r.returncode,21,r.stdout+r.stderr);self.assertEqual(b['reason'],'target-mismatch');self.assertFalse((self.project/'.kai-project').exists())
+    def test_sdk_crypto_policy_is_explicit_and_plan_does_not_write_config(self):
+        self.req['project']['cryptoPolicy']='sdk-default'
+        r,b=self.call();self.assertEqual(r.returncode,0,r.stdout+r.stderr)
+        self.assertEqual(b['details']['cryptoPolicy'],'sdk-default')
+        self.assertEqual(len(b['details']['cryptoConfigSHA256']),64)
+        self.assertFalse((self.project/'.kai-project').exists())
+    def test_unknown_crypto_policy_requires_recipe_instead_of_silent_override(self):
+        self.req['project']['cryptoPolicy']='ignore-firmware'
+        r,b=self.call();self.assertEqual(r.returncode,20,r.stdout+r.stderr)
+        self.assertEqual(b['reason'],'unknown-project-crypto-policy')
 
 if __name__=='__main__':unittest.main()
