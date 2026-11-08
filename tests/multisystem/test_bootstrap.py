@@ -103,6 +103,44 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual(p.returncode, 0, r)
         self.assertEqual(r['status'], 'reused')
 
+    def test_missing_macos_core_uses_pinned_bootstrap_without_stable_pointer(self):
+        p,r=self.call('plan','zsetup',KAI_PLATFORM='macos',KAI_ZSETUP_BIN=str(self.work/'absent'))
+        self.assertEqual(p.returncode,0,r)
+        self.assertEqual(r['status'],'missing')
+        self.assertEqual(r['commands'],[['bash',str(SKILL/'scripts/bootstrap-core.sh')]])
+        self.assertFalse((self.home/'.local/bin/zsetup').exists())
+
+    def test_macos_core_bootstrap_does_not_require_jq(self):
+        cert=self.work/'mac.crt';key=self.work/'mac.key'
+        subprocess.run(['openssl','req','-x509','-newkey','ec','-pkeyopt','ec_paramgen_curve:P-256',
+                        '-nodes','-days','1','-keyout',str(key),'-out',str(cert),
+                        '-subj','/CN=localhost','-addext','subjectAltName=IP:127.0.0.1'],
+                       check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
+        payload=b'#!/bin/sh\necho "zsetup 0.4.0"\n'
+        class Handler(http.server.BaseHTTPRequestHandler):
+            def log_message(self,*args):pass
+            def do_GET(self):
+                self.send_response(200);self.send_header('Content-Length',str(len(payload)));self.end_headers();self.wfile.write(payload)
+        server=http.server.ThreadingHTTPServer(('127.0.0.1',0),Handler)
+        tls=ssl.SSLContext(ssl.PROTOCOL_TLS_SERVER);tls.load_cert_chain(cert,key)
+        server.socket=tls.wrap_socket(server.socket,server_side=True)
+        thread=threading.Thread(target=server.serve_forever,daemon=True);thread.start()
+        try:
+            self.script('uname','if [ "$1" = -s ];then echo Darwin;else echo arm64;fi')
+            self.script('jq','touch "$KAI_TEST_JQ_CALLED";exit 7')
+            lock=self.work/'macos.lock'
+            lock.write_text(f'version=0.4.0\narch=aarch64\nurl=https://127.0.0.1:{server.server_port}/core\nsha256={hashlib.sha256(payload).hexdigest()}\nsize={len(payload)}\n')
+            marker=self.work/'jq-called'
+            result=subprocess.run(['bash',str(SKILL/'scripts/bootstrap-core.sh'),'--print-path'],
+                env={**self.env,'KAI_BOOTSTRAP_MACOS_LOCK':str(lock),'KAI_TEST_JQ_CALLED':str(marker),'CURL_CA_BUNDLE':str(cert)},
+                capture_output=True,text=True,timeout=15)
+            self.assertEqual(result.returncode,0,result.stderr)
+            self.assertEqual(result.stdout.strip(),str(self.home/'.local/bin/zsetup'))
+            self.assertFalse(marker.exists(),'first-time Mac core bootstrap called missing jq')
+            self.assertTrue((self.home/'.local/bin/zsetup').is_file())
+        finally:
+            server.shutdown();server.server_close();thread.join(timeout=3)
+
     def test_macos_install_records_digest_without_gnu_sha256sum(self):
         minimal = self.work / 'minimal'; minimal.mkdir()
         for command in ['bash','dirname','uname','sed','tr','head','grep','jq','mkdir','readlink','shasum']:
