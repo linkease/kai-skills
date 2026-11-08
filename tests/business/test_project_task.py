@@ -15,7 +15,7 @@ class ProjectTask(unittest.TestCase):
         (self.project/'package.json').write_text(json.dumps({'name':'sample','scripts':{'start':'node main.js'}}))
         (self.project/'package-lock.json').write_text(json.dumps({'name':'sample','lockfileVersion':3,'packages':{}}))
         (self.project/'main.js').write_text('console.log("project ready")')
-        self.runtime=self.base/'runtime.sh';self.runtime.write_text('#!/bin/bash\nif [ "$1" = probe ]; then printf '{"schemaVersion":1,"status":"passed","installRoot":"%s"}\\n' "$SIM_SDK"; else exit 7; fi\n')
+        self.runtime=self.base/'runtime.sh';self.runtime.write_text('#!/bin/bash\nif [ "$1" = probe ]; then printf \'{"schemaVersion":1,"status":"passed","installRoot":"%s"}\\n\' "$SIM_SDK"; else exit 7; fi\n')
         self.req={'software':'project','targetId':'project-test','project':{'path':str(self.project),'runtimeVersion':'24.18.0','sourceFiles':['main.js'],'expectedOutput':'project ready','budgetBytes':33554432}}
         self.env={**os.environ,'ZSETUP_TASK_TARGET_ID':'project-test','KAI_SOFTWARE_TASK_ENTRY':str(OWNER),'KAI_PROJECT_RUNTIME_ENTRY':str(self.runtime),'SIM_SDK':str(self.sdk)}
     def call(self,op='project-plan'):
