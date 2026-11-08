@@ -110,6 +110,15 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual(r['commands'],[['bash',str(SKILL/'scripts/bootstrap-core.sh')]])
         self.assertFalse((self.home/'.local/bin/zsetup').exists())
 
+    def test_windows_missing_core_plan_uses_process_scoped_native_bootstrap(self):
+        p,r=self.call('plan','zsetup',KAI_PLATFORM='windows',KAI_ZSETUP_BIN=str(self.work/'absent'))
+        self.assertEqual(p.returncode,0,r)
+        self.assertEqual(r['status'],'missing')
+        self.assertEqual(r['commands'][0][0],'powershell.exe')
+        self.assertIn('-ExecutionPolicy',r['commands'][0])
+        self.assertIn('Bypass',r['commands'][0])
+        self.assertFalse((self.home/'.local/bin/zsetup.exe').exists())
+
     def test_macos_core_bootstrap_does_not_require_jq(self):
         cert=self.work/'mac.crt';key=self.work/'mac.key'
         subprocess.run(['openssl','req','-x509','-newkey','ec','-pkeyopt','ec_paramgen_curve:P-256',
