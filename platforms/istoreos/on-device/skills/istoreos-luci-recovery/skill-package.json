@@ -1,6 +1,6 @@
 {
   "id": "istoreos-luci-recovery",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "path": "skills/istoreos-luci-recovery",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
   "description": "诊断和恢复 iStoreOS LuCI 管理页面打不开、500、空白或登录循环；先只读采证，修改、重启或重装前必须确认。",

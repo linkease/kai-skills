@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
   "path": "scripts/remove-managed.sh",
-  "sourceCommit": "f2d3cdd9b2050f08359c8986fa5b7acac683d855",
+  "sourceCommit": "2685ad4093a36ceb6c7bbc9bbdbd71e4fb5909c4",
   "sourceState": "local-candidate",
   "sha256": "4e56c73daf2d412f4e5f28a9581e1d58444fc78416cd8bc48f0689da1b5dcb44",
   "size": 16081,

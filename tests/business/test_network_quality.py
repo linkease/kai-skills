@@ -1,7 +1,9 @@
 import json
 import os
+import signal
 from pathlib import Path
 import subprocess
+import time
 import tempfile
 import unittest
 
@@ -21,7 +23,9 @@ class NetworkQualityContractTests(unittest.TestCase):
         self.fastnet.write_text(
             "#!/bin/sh\n"
             "printf '%s\\n' \"$@\" >> \"$FASTNET_CALL_LOG\"\n"
-            "printf '%s\\n' '{\"schemaVersion\":1,\"command\":\"fixture\",\"status\":\"succeeded\",\"result\":{}}'\n"
+            "if [ \"$1\" = capabilities ]; then\n"
+            "printf '%s\\n' '{\"schemaVersion\":1,\"command\":\"fastnet capabilities\",\"status\":\"succeeded\",\"result\":{\"product\":\"FastNet\",\"interactionSchemaVersion\":1,\"commands\":[{\"name\":\"inspect\"},{\"name\":\"agent validate\"},{\"name\":\"agent execute\"},{\"name\":\"measure quick\"},{\"name\":\"measure lan\"},{\"name\":\"monitor run\"},{\"name\":\"lan test\"}]}}'\n"
+            "else command=\"fastnet $1\"; case \"$1\" in agent|measure|monitor|history|lan) command=\"$command $2\";; esac; printf '{\"schemaVersion\":1,\"command\":\"%s\",\"status\":\"succeeded\",\"result\":{}}\\n' \"$command\"; fi\n"
         )
         self.fastnet.chmod(0o700)
         self.request = self.work / "request.json"
@@ -48,7 +52,62 @@ class NetworkQualityContractTests(unittest.TestCase):
                               text=True, capture_output=True, timeout=10)
 
     def call_lines(self):
-        return self.calls.read_text().splitlines() if self.calls.exists() else []
+        lines = self.calls.read_text().splitlines() if self.calls.exists() else []
+        return lines[2:] if lines[:2] == ['capabilities', '--json'] else lines
+
+    def test_legacy_zero_exit_menu_is_incompatible_not_successful_inspection(self):
+        self.fastnet.write_text('#!/bin/sh\nprintf "Select a menu item\\n"\nexit 0\n')
+        result = self.run_script('inspect')
+        self.assertEqual(result.returncode, 4, result.stdout)
+        self.assertEqual(json.loads(result.stdout)['error']['code'], 'fastnet_incompatible')
+        self.assertNotIn('Select a menu', result.stdout)
+
+    def test_unknown_protocol_and_hanging_probe_are_bounded(self):
+        self.fastnet.write_text('#!/bin/sh\nprintf \'%s\\n\' \'{"schemaVersion":2,"status":"succeeded","result":{}}\'\n')
+        result = self.run_script('inspect')
+        self.assertEqual(result.returncode, 4)
+        self.fastnet.write_text('#!/bin/sh\nexec sleep 20\n')
+        result = self.run_script('inspect', extra_env={'FASTNET_PROBE_TIMEOUT_SECONDS': '1'})
+        self.assertEqual(result.returncode, 4)
+        self.assertEqual(json.loads(result.stdout)['error']['code'], 'fastnet_incompatible')
+
+    def test_valid_capability_probe_does_not_make_malformed_operation_successful(self):
+        body = self.fastnet.read_text().replace('else command=', 'else echo menu; exit 0; command=')
+        self.fastnet.write_text(body)
+        result = self.run_script('inspect')
+        self.assertEqual(result.returncode, 4)
+        self.assertEqual(json.loads(result.stdout)['error']['code'], 'fastnet_invalid_result')
+
+    def test_cancellation_terminates_a_running_machine_operation(self):
+        self.fastnet.write_text(self.fastnet.read_text().replace('else command=', 'else exec sleep 20; command='))
+        process = subprocess.Popen(['sh', str(SCRIPT), 'inspect'], env=self.env,
+                                   text=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
+        try:
+            deadline = time.monotonic() + 3
+            while time.monotonic() < deadline:
+                if self.calls.exists() and 'inspect' in self.calls.read_text():
+                    break
+                time.sleep(.02)
+            process.terminate()
+            process.communicate(timeout=3)
+            self.assertEqual(process.returncode, 143)
+        finally:
+            try:
+                os.killpg(process.pid, signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+            process.communicate(timeout=3)
+
+    def test_grouped_native_capability_names_are_supported(self):
+        self.fastnet.write_text(self.fastnet.read_text().replace('"name":"lan test"', '"name":"lan serve|test"'))
+        token_file = self.work / 'token'; token_file.write_text('private'); token_file.chmod(0o600)
+        result = self.run_script('lan-test', 'router.lan:3200', token_file, confirmed=True)
+        self.assertEqual(result.returncode, 0, result.stdout)
+
+    def test_wrong_operation_identity_is_rejected(self):
+        self.fastnet.write_text(self.fastnet.read_text().replace('command="fastnet $1"', 'command="fastnet unrelated"'))
+        result = self.run_script('inspect')
+        self.assertEqual(result.returncode, 4)
 
     def test_inspect_and_validate_are_non_saturating_machine_calls(self):
         result = self.run_script("inspect")

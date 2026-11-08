@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "f2d3cdd9b2050f08359c8986fa5b7acac683d855",
+  "sourceCommit": "2685ad4093a36ceb6c7bbc9bbdbd71e4fb5909c4",
   "sourceState": "local-candidate",
   "protocol": "jq-managed-v1",
   "version": "1.8.2",
@@ -9,14 +9,14 @@
     {
       "source": "jq/jq-install.sh",
       "file": "jq-install.sh",
-      "sha256": "1a00c7bd03c42a07bc73e992c3383c1a9919993980e9e1382589a292004dbe8f",
-      "size": 22734
+      "sha256": "8d7e24fd88f88a8f21c60bf69d30dbf2360a29f24c6fc3b23c87e74ffe38df49",
+      "size": 23183
     },
     {
       "source": "jq/jq-install.ps1",
       "file": "jq-install.ps1",
-      "sha256": "d28ba1e980ac3b2ea0f4add6c14de29d2a270c6cab4a4bb9a0e17d863105b7e8",
-      "size": 33222
+      "sha256": "ba69671aef36c114976106dc637efad1eb0f785a9848e6d187be27da06350f11",
+      "size": 33822
     },
     {
       "source": "lib/bootstrap.ps1",

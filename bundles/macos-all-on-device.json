@@ -1,49 +1,49 @@
 {
   "schemaVersion": 1,
   "id": "system:macos:on-device",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "platform": "macos",
   "mode": "on-device",
   "members": [
     {
       "id": "kai-dev-environment",
-      "version": "1.1.0",
-      "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483"
+      "version": "1.1.1",
+      "treeDigest": "sha256:187398ac39dc7ef77ce12f5e9c204d4156b88c84c9b2fedcd6b0031e5666ca74"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.1.0",
-      "treeDigest": "sha256:9098c317fab8a64a802c05e9d3a0b57bb7650c1ca2f3e1ace2076d7920e644cd"
+      "version": "1.1.1",
+      "treeDigest": "sha256:dae676db8b99e3695fbdcbb2c4e91dbc4538c3d2d106ac1ed4cbb5655c8fc574"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.1.0",
-      "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d"
+      "version": "1.1.1",
+      "treeDigest": "sha256:7a4e927582bf30dabd3df8c40594a889cdaf01e6e331a99e9fc6ba782a1abb72"
     },
     {
       "id": "kai-software",
-      "version": "1.1.0",
-      "treeDigest": "sha256:f639c59383f3716767ea0659157464d839726d196199b9ede17ca2da73c6f506"
+      "version": "1.1.1",
+      "treeDigest": "sha256:26aac8776765a1eee20cccd3d03db60289243e61efa4ad2e2130ce3675dcb614"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.1.0",
-      "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20"
+      "version": "1.1.1",
+      "treeDigest": "sha256:19379f9799937452d679855c1f739cb4b388cb66dab62bacccc8f848139e8033"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.1.0",
-      "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca"
+      "version": "1.1.1",
+      "treeDigest": "sha256:a88d98cbf5a3f7ec82a1f070fc2b1df4e86d9b509fa326b08168c9c72828993d"
     },
     {
       "id": "macos-launchd-logs",
-      "version": "1.1.0",
-      "treeDigest": "sha256:7dcb1b6d397ab0e09d30266a398271ecb8fd32f0c8a625ec0f796c695e9fb782"
+      "version": "1.1.1",
+      "treeDigest": "sha256:bb810e7f9c43d732e4776124d6f33129c072d3feaca050ebcf9a2efce130dcb6"
     },
     {
       "id": "macos-system-diagnostics",
-      "version": "1.1.0",
-      "treeDigest": "sha256:169cfc62950d3648c5c8b955d96749555de69061746bffd47fb9ee9cfe470b8c"
+      "version": "1.1.1",
+      "treeDigest": "sha256:b8fd50bf03329a1f277979212187384a0f9fcd93cbc21ac5599489cab5aca4d0"
     }
   ]
 }

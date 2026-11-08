@@ -1,49 +1,49 @@
 {
   "schemaVersion": 1,
   "id": "system:windows:on-device",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "platform": "windows",
   "mode": "on-device",
   "members": [
     {
       "id": "kai-dev-environment",
-      "version": "1.1.0",
-      "treeDigest": "sha256:90b72ddb75d64dbbedf9193f08baa8f54d945e4606ed748a24ddc41cc9cb8483"
+      "version": "1.1.1",
+      "treeDigest": "sha256:187398ac39dc7ef77ce12f5e9c204d4156b88c84c9b2fedcd6b0031e5666ca74"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.1.0",
-      "treeDigest": "sha256:9098c317fab8a64a802c05e9d3a0b57bb7650c1ca2f3e1ace2076d7920e644cd"
+      "version": "1.1.1",
+      "treeDigest": "sha256:dae676db8b99e3695fbdcbb2c4e91dbc4538c3d2d106ac1ed4cbb5655c8fc574"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.1.0",
-      "treeDigest": "sha256:4b0c0aaf103fefebbb18ba180c6802cbee8c2538a90dbc440cacd421f37c449d"
+      "version": "1.1.1",
+      "treeDigest": "sha256:7a4e927582bf30dabd3df8c40594a889cdaf01e6e331a99e9fc6ba782a1abb72"
     },
     {
       "id": "kai-software",
-      "version": "1.1.0",
-      "treeDigest": "sha256:f639c59383f3716767ea0659157464d839726d196199b9ede17ca2da73c6f506"
+      "version": "1.1.1",
+      "treeDigest": "sha256:26aac8776765a1eee20cccd3d03db60289243e61efa4ad2e2130ce3675dcb614"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.1.0",
-      "treeDigest": "sha256:9f5cfbcdb32cbd137f391747f6d84fe337e1468e601270b30cd567b507613a20"
+      "version": "1.1.1",
+      "treeDigest": "sha256:19379f9799937452d679855c1f739cb4b388cb66dab62bacccc8f848139e8033"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.1.0",
-      "treeDigest": "sha256:2fa7f2f82a992e1277352291a0e64c07d64fe053386bccd7c141cca8a934a6ca"
+      "version": "1.1.1",
+      "treeDigest": "sha256:a88d98cbf5a3f7ec82a1f070fc2b1df4e86d9b509fa326b08168c9c72828993d"
     },
     {
       "id": "windows-service-eventlog",
-      "version": "1.1.0",
-      "treeDigest": "sha256:cd3f2b74b3afb73f6de96eb868ab56413197d63054c09ef7772d396605e145b7"
+      "version": "1.1.1",
+      "treeDigest": "sha256:236ddb5d72d162ca00533750fcd3e2fe4518a5811736b5406172fe0f2f560496"
     },
     {
       "id": "windows-system-diagnostics",
-      "version": "1.1.0",
-      "treeDigest": "sha256:eab5cc561f71da4cfabce6069fbbf405061e4ffa37733b0a8d7c3a23f2d7b74e"
+      "version": "1.1.1",
+      "treeDigest": "sha256:578b7166498aaf4500af1f1a85a933f06db160014684abcabc694af5aede8817"
     }
   ]
 }

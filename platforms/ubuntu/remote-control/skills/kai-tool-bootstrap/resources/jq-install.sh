@@ -358,6 +358,13 @@ jq_install() {
     jq_output="$jq_stage/product"
     # Let native zsetup revalidate an owned existing file through its SHA cache.
     [ ! -f "$jq_bin" ] || jq_output=$jq_bin
+    # Prepared bytes are a cache input, validated by native zsetup against the
+    # original release SHA256/size. Never overwrite an owned version with an
+    # unvalidated cache, and never follow an external cache symlink.
+    if [ "$jq_output" != "$jq_bin" ] && [ -n "${JQ_ARTIFACT_CACHE:-}" ]; then
+        [ -f "$JQ_ARTIFACT_CACHE" ] && [ ! -L "$JQ_ARTIFACT_CACHE" ] || return 2
+        cp "$JQ_ARTIFACT_CACHE" "$jq_output" || return 12
+    fi
     set -- "$ZSETUP_BIN" download -o "$jq_output" --sha256 "$jq_sha" --size "$jq_size"
     [ -z "${ZSETUP_CA_FILE:-}" ] || set -- "$@" --ca-file "$ZSETUP_CA_FILE"
     if [ -n "${JQ_DOWNLOAD_BASE:-}" ]; then

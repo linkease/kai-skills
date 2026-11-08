@@ -1,6 +1,6 @@
 {
   "id": "macos-launchd-logs",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "path": "skills/macos-launchd-logs",
   "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
   "description": "Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.",

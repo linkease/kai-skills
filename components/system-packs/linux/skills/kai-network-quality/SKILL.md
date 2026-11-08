@@ -14,6 +14,13 @@ aliases: istoreos-network-quality
 
 # Kai Network Quality
 
+The machine wrapper requires full jq, Linux `setsid`, and native zsetup capture
+(or Linux `timeout`) in addition to a compatible FastNet. Prepare missing tools through the local kai-tool-bootstrap
+resource. Each operation first performs a bounded schema-1 capabilities check;
+legacy menus and malformed output are incompatibility failures, even on exit 0.
+Single-result operations validate their JSON envelope. Native JSONL monitoring
+and LAN server streams retain FastNet's progress and cancellation behavior.
+
 Use FastNet as the network evidence and diagnosis owner. Preserve its existing
 human menu, commands, and Web UI; this skill uses the additional machine
 interface. FastNet observes and assesses. It does not authorize or perform a
