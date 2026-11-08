@@ -152,8 +152,9 @@ provider() {
         istoreos:mise|openwrt:mise) commands='[["is-opkg","install","mise"]]' ;;
         istoreos:bash|openwrt:bash) commands='[["opkg","install","bash"]]' ;;
         ubuntu:ks-cli|debian:ks-cli|linux:ks-cli) commands='[["zsetup","install","ks-cli","--foreground"]]' ;;
-        ubuntu:zsetup|debian:zsetup|linux:zsetup|istoreos:zsetup|openwrt:zsetup) commands="[$(array bash "$here/bootstrap-core.sh")]" ;;
+        ubuntu:zsetup|debian:zsetup|linux:zsetup|istoreos:zsetup|openwrt:zsetup|macos:zsetup) commands="[$(array bash "$here/bootstrap-core.sh")]" ;;
         ubuntu:mise|debian:mise|linux:mise|windows:mise) commands="[$(array bash "$here/install-mise.sh")]" ;;
+        windows:zsetup) commands="[$(array powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$here/bootstrap-core-windows.ps1")]" ;;
         macos:mise) commands='[["brew","install","mise"]]' ;;
         ubuntu:bash|debian:bash) commands='[["apt-get","install","-y","bash"]]' ;;
         macos:bash) commands='[["brew","install","bash"]]' ;;
@@ -183,7 +184,7 @@ fi
 
 code=0
 case "$platform:$tool" in
-    ubuntu:zsetup|debian:zsetup|linux:zsetup|istoreos:zsetup|openwrt:zsetup) bash "$here/bootstrap-core.sh" >&2 || code=$? ;;
+    ubuntu:zsetup|debian:zsetup|linux:zsetup|istoreos:zsetup|openwrt:zsetup|macos:zsetup) bash "$here/bootstrap-core.sh" >&2 || code=$? ;;
     ubuntu:ks-cli|debian:ks-cli|linux:ks-cli)
         zsetup="${KAI_ZSETUP_BIN:-$(command -v zsetup 2>/dev/null || true)}"
         if [ -z "$zsetup" ] && [ -x "$HOME/.local/bin/zsetup" ]; then zsetup="$HOME/.local/bin/zsetup"; fi
@@ -193,6 +194,15 @@ case "$platform:$tool" in
         fi
         if [ "$code" = 0 ]; then "$zsetup" install ks-cli --foreground >&2 || code=$?; fi ;;
     ubuntu:mise|debian:mise|linux:mise) bash "$here/install-mise.sh" >&2 || code=$? ;;
+    windows:zsetup)
+        (cd "$here/../resources" && sha256sum -c jq-owner.sha256) >&2 || code=$?
+        if [ "$code" = 0 ];then
+            native_root="${ZSETUP_ROOT:-${TEMP:-/tmp}/zsetup}"
+            native_core=$(env ZSETUP_ROOT="$(cygpath -w "$native_root")" powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$(cygpath -w "$here/bootstrap-core-windows.ps1")") || code=$?
+            if [ "$code" = 0 ];then
+                KAI_ZSETUP_BIN=$(cygpath -u "${native_core%$'\r'}");export KAI_ZSETUP_BIN
+            fi
+        fi ;;
     windows:mise)
         provider_output="$(bash "$here/install-mise.sh")" || code=$?
         [ -z "$provider_output" ] || printf '%s\n' "$provider_output" >&2

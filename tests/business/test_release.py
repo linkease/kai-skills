@@ -53,7 +53,7 @@ class ReleaseTests(unittest.TestCase):
         return result
 
     def test_all_units_have_two_identical_builds_and_exact_single_skill_bytes(self):
-        self.assertEqual(len(self.manifest['packages']), 31)
+        self.assertEqual(len(self.manifest['packages']), 32)
         self.assertEqual(len(self.manifest['collections']), 12)
         self.assertEqual(len(self.manifest['artifacts']), 86)
         self.assertEqual({p.name: release.sha(p) for p in self.first.iterdir()},

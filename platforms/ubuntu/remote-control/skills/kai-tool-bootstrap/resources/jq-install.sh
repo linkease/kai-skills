@@ -304,10 +304,11 @@ jq_install() {
             "$jq_version" "$jq_os" "$jq_artifact" "$jq_sha" "$jq_size" "$jq_url"
         return
     fi
-    jq_prefix=${ZSETUP_INSTALL_PREFIX:-$HOME/.local/lib/linkease/jq}; jq_action=install
+    jq_prefix=${ZSETUP_INSTALL_PREFIX:-$HOME/.local/lib/linkease/jq}; jq_action=install; jq_selected_command=
     while [ "$#" -gt 0 ]; do
         case "$1" in
             --installer-prefix) [ "$#" -ge 2 ] || return 2; jq_prefix=$2; shift 2 ;;
+            --installer-command) [ "$#" -ge 2 ] || return 2; jq_selected_command=$2; shift 2 ;;
             --remove) jq_action=remove; shift ;;
             *) printf '%s\n' 'jq: unsupported installer argument' >&2; return 2 ;;
         esac
@@ -319,6 +320,8 @@ jq_install() {
     fi
     jq_extension=; [ "$jq_os" != windows ] || jq_extension=.exe
     jq_command="$HOME/.local/bin/jq$jq_extension"
+    [ -z "$jq_selected_command" ] || jq_command=$jq_selected_command
+    if [ "$jq_os" = windows ] && command -v cygpath >/dev/null 2>&1; then jq_command=$(cygpath -u "$jq_command"); fi
     jq_check_path "$jq_prefix" && jq_check_path "${jq_command%/*}" || return 2
     [ ! -L "$jq_prefix/.managed" ] || return 2
     if [ -e "$jq_prefix/.managed" ]; then
@@ -428,7 +431,9 @@ jq_remove() {
         rmdir "$jq_dir/bin" "$jq_dir" || return 12
     done
     [ ! -d "$jq_prefix/versions" ] || rmdir "$jq_prefix/versions" || return 12
-    rm -f "$jq_command" "$jq_prefix/current" "$jq_prefix/.managed"
+    # Retain the tiny ownership marker so preserved user configuration does
+    # not become an unowned/conflicting directory on the next installation.
+    rm -f "$jq_command" "$jq_prefix/current"
     jq_committed=1
     printf 'application=jq\nstatus=removed\n'
 }
@@ -474,7 +479,7 @@ jq_cleanup() {
 main() {
     case "${1:-}" in
         --plan) jq_install "$@" ;;
-        --help) printf '%s\n' 'jq-install.sh [--plan|--remove] [--installer-prefix ABSOLUTE_DIRECTORY]' 'Installs only a pinned, verified jq; preserves the system executable.' ;;
+        --help) printf '%s\n' 'jq-install.sh [--plan|--remove] [--installer-prefix ABSOLUTE_DIRECTORY] [--installer-command ABSOLUTE_FILE]' 'Installs only a pinned, verified jq; preserves the system executable.' ;;
         *)
             if [ "${ZSETUP_INSTALLER_MODE:-0}" != 1 ] && [ -z "${ZSETUP_BIN:-}" ]; then
                 bootstrap_zsetup || return $?

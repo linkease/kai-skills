@@ -74,6 +74,8 @@ def build(reasonix, output, version):
         selections = [("bundle:" + name, distribution.select(bundle=name, own_transport=True))
                       for name in distribution.bundles]
         for platform in distribution.config["architectureSupport"]:
+            selections.append((f"system:{platform}", distribution.select(
+                platform=platform, mode="on-device", all_skills=True, own_transport=True)))
             for mode in ["on-device", "remote-control"]:
                 selections.append((f"system:{platform}:{mode}", distribution.select(
                     platform=platform, mode=mode, all_skills=True, own_transport=True)))

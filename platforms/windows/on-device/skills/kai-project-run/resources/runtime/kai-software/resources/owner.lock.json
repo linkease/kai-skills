@@ -1,0 +1,15 @@
+{
+  "schemaVersion": 1,
+  "owner": "zsetup-scripts",
+  "path": "scripts/remove-managed.sh",
+  "sourceCommit": "4f5ee92970ac9cf1863a31cb009dbcbc4c26ef42",
+  "sourceState": "local-candidate",
+  "sha256": "4e56c73daf2d412f4e5f28a9581e1d58444fc78416cd8bc48f0689da1b5dcb44",
+  "size": 16081,
+  "protocol": "managed-binary-remove-v1",
+  "applications": [
+    "linkspace",
+    "ks-cli",
+    "kspeeder"
+  ]
+}

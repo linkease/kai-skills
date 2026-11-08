@@ -41,7 +41,7 @@ class MigrationTests(unittest.TestCase):
         self.ok(self.call('--skill', 'kai-software'))
         state = json.loads((self.target / '.linkease-skills/business-state.json').read_text())
         self.assertEqual(set(state['selections']), {'skill:kai-software', 'system:istoreos:on-device'})
-        self.assertEqual(len(list(self.target.glob('*/SKILL.md'))), 22)
+        self.assertEqual(len(list(self.target.glob('*/SKILL.md'))), 23)
         self.assertFalse((self.target / 'istoreos-package-manager').exists())
         self.ok(self.call('--platform', 'istoreos', '--mode', 'on-device', '--uninstall'))
         self.assertEqual({p.parent.name for p in self.target.glob('*/SKILL.md')}, {'kai-software'})
@@ -61,7 +61,7 @@ class MigrationTests(unittest.TestCase):
         self.assertEqual(len(list(self.target.glob('*/SKILL.md'))), 20)
         self.assertTrue((self.target / '.linkease-skills/istoreos-on-device.json').exists())
         self.ok(self.call('--bundle', 'software-management'))
-        self.assertEqual(len(list(self.target.glob('*/SKILL.md'))), 22)
+        self.assertEqual(len(list(self.target.glob('*/SKILL.md'))), 23)
 
     def test_two_legacy_owners_migrate_without_losing_their_shared_members(self):
         for platform in ['ubuntu', 'debian']:

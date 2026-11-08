@@ -27,7 +27,7 @@ class ModelTests(unittest.TestCase):
         config['bundles']['joined'] = {'bundles': ['development', 'software-management']}
         result = model.Distribution(declaration=config).select(bundle='joined')
         self.assertEqual([p['id'] for p in result['packages']],
-                         ['kai-dev-environment', 'kai-download-acceleration', 'kai-project-dependencies', 'kai-software'])
+                         ['kai-dev-environment', 'kai-download-acceleration', 'kai-project-dependencies', 'kai-project-run', 'kai-software'])
 
     def test_all_ten_platform_modes_match_existing_active_presets(self):
         for preset in self.distribution.legacy['presets']:

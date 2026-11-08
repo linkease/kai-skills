@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "owner": "zsetup-scripts",
+  "sourceCommit": "4f5ee92970ac9cf1863a31cb009dbcbc4c26ef42",
+  "sourceState": "local-candidate",
+  "protocol": "software-task/v1",
+  "files": [
+    {
+      "source": "software/artifact.sh",
+      "file": "owner/software/artifact.sh",
+      "sha256": "9089a39878cc35d0fc14e69888794d43e192864374dac5f5342db02fdb7106ae",
+      "size": 18846
+    },
+    {
+      "source": "software/backup.sh",
+      "file": "owner/software/backup.sh",
+      "sha256": "f5dd6dd46556727e658e84a558946c44ac6191152f94d15fb62f9a1e5b227813",
+      "size": 8878
+    },
+    {
+      "source": "software/container.sh",
+      "file": "owner/software/container.sh",
+      "sha256": "875d2773d6bb89ede52d41ed13b2141dbc337725a373a3c65177bdb02528d926",
+      "size": 16705
+    },
+    {
+      "source": "software/native.sh",
+      "file": "owner/software/native.sh",
+      "sha256": "f90838be1032f93b374b00eb52044ffcbdc281b96fa682ecadd0ba861c99da29",
+      "size": 6044
+    },
+    {
+      "source": "software/protocol.sh",
+      "file": "owner/software/protocol.sh",
+      "sha256": "d6789da8dbf17f95275d2fae88b459c3e52d1b72e206c516f08545ad138f634a",
+      "size": 3277
+    },
+    {
+      "source": "software/release.sh",
+      "file": "owner/software/release.sh",
+      "sha256": "d62543fc1f6e2624cf6b4d791656e05e2fa6b7332b586a5386d0ec40cd3c92e2",
+      "size": 2620
+    },
+    {
+      "source": "software/selection.sh",
+      "file": "owner/software/selection.sh",
+      "sha256": "4905adf69f5eea372794f1d0ece8bad2a1a5061819fc6503c4626f5a28f37921",
+      "size": 18916
+    },
+    {
+      "source": "software/storage.sh",
+      "file": "owner/software/storage.sh",
+      "sha256": "dac61fdd94e8f4f1f2b55b18ab6c9672e6000ff7c894f4c69093ec0e6af2db48",
+      "size": 6790
+    },
+    {
+      "source": "software/task.sh",
+      "file": "owner/software/task.sh",
+      "sha256": "6dc285973403445176bb8cceb013ae1ab4ba2990efdddb25f2d3d61f917eb385",
+      "size": 3093
+    },
+    {
+      "source": "software/releases.lock.json",
+      "file": "owner/software/releases.lock.json",
+      "sha256": "12a881ef2b8627054e764fcebb71841fe4c59e25e29d803db667fbaf9204400b",
+      "size": 1507
+    },
+    {
+      "source": "software/README.md",
+      "file": "owner/software/README.md",
+      "sha256": "5fe309c3eba3905a74ef8167a7b7429c09beee39ad5288c02ae7f9d5ba8435ff",
+      "size": 4839
+    },
+    {
+      "source": "jq/jq-install.sh",
+      "file": "owner/jq/jq-install.sh",
+      "sha256": "5b0fa3bf551bd17c07b5a9dbcf8a7f7f56484c3fb53a56ba81679f1d6ec663db",
+      "size": 23653
+    },
+    {
+      "source": "jq/artifacts.lock.json",
+      "file": "owner/jq/artifacts.lock.json",
+      "sha256": "3496ad7d950abad70b958f5dae05dc8bac1e1ad0c9dea608018ac8a0f19503dd",
+      "size": 5799
+    }
+  ]
+}

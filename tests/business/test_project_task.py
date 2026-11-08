@@ -7,7 +7,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
 ENTRY=ROOT/'components/system-packs/common/skills/kai-project-run/scripts/project.sh'
-OWNER=Path(os.environ.get('KAI_TEST_SOFTWARE_OWNER',ROOT.parent.parent/'zsetup-scripts'))/'software/task.sh'
+OWNER=Path(os.environ.get('KAI_TEST_SOFTWARE_OWNER',ROOT/'components/system-packs/common/skills/kai-software/resources/owner'))/'software/task.sh'
 
 class ProjectTask(unittest.TestCase):
     def setUp(self):

@@ -40,12 +40,18 @@ if [ -z "$core" ]; then
         # The canonical native owner can bootstrap its core without jq or Bash
         # downloads. Never send a Windows target into the POSIX Linux bootstrap.
         native_root="${ZSETUP_ROOT:-${TEMP:-/tmp}/zsetup}"
-        core="$(env ZSETUP_ROOT="$(cygpath -w "$native_root")" powershell.exe -NoLogo -NoProfile -NonInteractive -File \
+        core="$(env ZSETUP_ROOT="$(cygpath -w "$native_root")" powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File \
             "$(cygpath -w "$here/bootstrap-core-windows.ps1")")" || code=$?
         if [ "$code" != 0 ]; then status=failed;emit;exit "$code";fi
         core="$(cygpath -u "${core%$'\r'}")"
         [ -f "$core" ] && [ -x "$core" ] || { status=failed;code=11;emit;exit "$code"; }
         export KAI_ZSETUP_BIN="$core"
+        ;;
+        Darwin)
+            core="$(bash "$here/bootstrap-core.sh" --print-path)" || code=$?
+            if [ "$code" != 0 ];then status=failed;emit;exit "$code";fi
+            [ -f "$core" ] && [ -x "$core" ] || { status=failed;code=11;emit;exit "$code"; }
+            export KAI_ZSETUP_BIN="$core"
         ;; esac
 fi
 if [ -n "$core" ]; then

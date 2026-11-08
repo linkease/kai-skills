@@ -14,9 +14,30 @@ aliases: istoreos-package-manager
 
 Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.
 
-Use the target's System Pack and Transport. Python/Node/Go SDK selection belongs
-to kai-dev-environment; npm/pip/uv/Go project dependencies belong to
-kai-project-dependencies. Do not install a system Python to satisfy a mise task.
+Use the selected target's Transport for every operation. Never retry a failed remote
+operation on the controller. Enabling this skill installs instructions and checked
+resources; preparing tools, installing software and starting services are separate tasks.
+
+Start with the shared scripted task flow in [software tasks](resources/software-tasks.md).
+Prepare Bash/full jq/zsetup through kai-tool-bootstrap; pass its verified executable
+paths to the selected target process. Run `bash scripts/software-task.sh plan REQUEST.json`.
+Rules first inspect existing software, then native candidates or an exact owned release.
+Show the method, version/source, physical destination, storage budget, backup and effects
+from `details`. Within the user's existing authorization, pass those exact details as
+`plan` to apply; replan after any changed input. Do not guess unknown release URLs.
+Use query for registration/integrity and verify for actual functionality. Preserve native
+errors; needs-ai means continue with evidence and a concrete missing rule, not blind retries.
+
+Python/Node/Go SDK selection belongs to kai-dev-environment; project dependencies to
+kai-project-dependencies; full build/run tasks to kai-project-run. Do not install a system
+Python to satisfy a mise task. Storage preflight covers work/download/program/data/backup
+on their real filesystems. On iStoreOS use an explicitly selected persistent data disk for
+portable tools; native packages still consume their package manager's system locations.
+Docker is an installation method and never implicitly moves or starts the daemon. Required
+file backups use Linkspace and must complete before dependent modifications.
+
+The existing source-qualified provider interface remains available below for catalog
+operations and native Windows Scoop/WinGet integrations; its support and receipts apply.
 
 `bash scripts/software.sh search TERM` returns bounded source-qualified IDs.
 Use the selected `apt:NAME`, `opkg:NAME`, `istore:NAME`, `zsetup:NAME`,

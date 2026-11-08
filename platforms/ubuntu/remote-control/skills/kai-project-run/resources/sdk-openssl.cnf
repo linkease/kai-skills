@@ -1,0 +1,9 @@
+# Explicit per-project SDK policy. Firmware configuration remains untouched.
+config_diagnostics = 1
+openssl_conf = sdk_init
+[sdk_init]
+providers = sdk_providers
+[sdk_providers]
+default = sdk_default
+[sdk_default]
+activate = 1

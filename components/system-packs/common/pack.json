@@ -2,7 +2,7 @@
   "$schema": "../../../schemas/pack.schema.json",
   "schemaVersion": 1,
   "id": "common",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "layer": "common",
   "skillsRoot": "skills",
   "requires": []

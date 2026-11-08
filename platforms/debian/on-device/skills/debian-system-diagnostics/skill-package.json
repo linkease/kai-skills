@@ -1,6 +1,6 @@
 {
   "id": "debian-system-diagnostics",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "path": "skills/debian-system-diagnostics",
   "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
   "description": "Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.",

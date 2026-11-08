@@ -1,0 +1,5 @@
+version=0.4.0
+arch=aarch64
+url=https://fw.koolcenter.com/binary/zsetup/0.4.0/zsetup-macos-aarch64
+sha256=0c0dba18596bece096b719d0b699604cc80370d57c900b3298fbc2d346a5f457
+size=1612528

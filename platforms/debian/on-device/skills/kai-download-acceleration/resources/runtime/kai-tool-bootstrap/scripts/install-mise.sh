@@ -12,13 +12,13 @@ case "$(uname -s)" in
         if [ -z "$core" ]; then
             (cd "$here/../resources" && sha256sum -c jq-owner.sha256) >&2
             native_root="${ZSETUP_ROOT:-${TEMP:-/tmp}/zsetup}"
-            core="$(env ZSETUP_ROOT="$(cygpath -w "$native_root")" powershell.exe -NoLogo -NoProfile -NonInteractive \
+            core="$(env ZSETUP_ROOT="$(cygpath -w "$native_root")" powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass \
                 -File "$(cygpath -w "$here/bootstrap-core-windows.ps1")")"
             core="${core%$'\r'}"
         fi
         core="$(cygpath -w "$core")"
         lock="${KAI_BOOTSTRAP_RELEASE_LOCK:-$here/../references/tools.lock.json}"
-        args=(-NoLogo -NoProfile -NonInteractive -File "$(cygpath -w "$here/install-mise-windows.ps1")"
+        args=(-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$(cygpath -w "$here/install-mise-windows.ps1")"
             -Action Ensure -Destination "$(cygpath -w "$HOME/.local/bin/mise.exe")"
             -Core "$core" -ReleaseLock "$(cygpath -w "$lock")" -DownloadMode "${KAI_DOWNLOAD_MODE:-auto}")
         client="${KAI_KSCLI_BIN:-$(command -v ks-cli 2>/dev/null || true)}"

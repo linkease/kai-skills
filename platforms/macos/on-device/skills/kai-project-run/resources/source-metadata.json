@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "originalFrontmatter": "name: kai-project-run\ndescription: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.\n",
+  "transform": "business-self-contained-v1",
+  "sources": [
+    {
+      "id": "kai-project-run",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-run",
+      "sourceDigest": "sha256:4944c96a3dd91ebf35e5241493b964803dfa18dcc4f5a28e7afa67b9074c5ea5"
+    },
+    {
+      "id": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+    },
+    {
+      "id": "kai-project-dependencies",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+      "sourceDigest": "sha256:779fa3f10d8c75121236491c42b435696ab249054d5022ce06859feff911fa38"
+    },
+    {
+      "id": "kai-software",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "sourceDigest": "sha256:3ecf672ea1ea48a3c538c7819f48511272c1b7fd62d2210b51c2abf8f4057c44"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
+    }
+  ]
+}

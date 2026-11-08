@@ -1,6 +1,6 @@
 {
   "id": "istoreos-app-search",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "path": "skills/istoreos-app-search",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
   "description": "从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 istoreos-package-manager。",
@@ -11,7 +11,8 @@
   "component": "istoreos",
   "architectures": {
     "istoreos": [
-      "x64"
+      "x64",
+      "arm64"
     ]
   },
   "programRequirements": [

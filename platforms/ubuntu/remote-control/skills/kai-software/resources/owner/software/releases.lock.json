@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "software": {
+    "linkspace": {
+      "version": "0.2.0-sim.3",
+      "sourceOwner": "apptunnel/linkspace",
+      "sourceCommit": "2aaa439ae4e2521391ab03b78e09a931ef7f3f16",
+      "features": [
+        "backup-file-level"
+      ],
+      "verifyArgs": [
+        "backup",
+        "version"
+      ],
+      "expectedOutput": "0.2.0-sim.3",
+      "artifacts": {
+        "linux-amd64": {
+          "url": "https://fw.koolcenter.com/binary/kai/tools/linkspace/0.2.0-sim.3/linkspace-linux-amd64",
+          "sha256": "ac56f716508b6a30364144f3caf64a7494ea28a42b5735c33223b841edf3a19a",
+          "size": 18374840
+        },
+        "linux-arm64": {
+          "url": "https://fw.koolcenter.com/binary/kai/tools/linkspace/0.2.0-sim.3/linkspace-linux-arm64",
+          "sha256": "76555e521782a591d74466628cf80a4340024709dc17c6674ea5dacca06d0939",
+          "size": 16908472
+        },
+        "macos-arm64": {
+          "url": "https://fw.koolcenter.com/binary/kai/tools/linkspace/0.2.0-sim.3/linkspace-macos-arm64",
+          "sha256": "40e901794c9254094d13e50cb1cd5c700bdf0ea06192641418394f12b1e5cb1b",
+          "size": 17231522
+        },
+        "windows-amd64": {
+          "url": "https://fw.koolcenter.com/binary/kai/tools/linkspace/0.2.0-sim.3/linkspace-windows-amd64.exe",
+          "sha256": "7297db563881887a189b08d4203fce284b22a51c8b2895c5815e4af4b5eeae9e",
+          "size": 18749952
+        }
+      },
+      "canonicalSource": "linkspace/backup-release.lock.json"
+    }
+  }
+}

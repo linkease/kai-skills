@@ -1,6 +1,6 @@
 {
   "id": "istoreos-quickstart-api",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "path": "skills/istoreos-quickstart-api",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
   "description": "Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.",
@@ -11,7 +11,8 @@
   "component": "istoreos",
   "architectures": {
     "istoreos": [
-      "x64"
+      "x64",
+      "arm64"
     ]
   },
   "programRequirements": [

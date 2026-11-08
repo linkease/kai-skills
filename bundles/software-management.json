@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "id": "bundle:software-management",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "platform": null,
   "mode": null,
   "members": [
     {
       "id": "kai-download-acceleration",
-      "version": "1.1.2",
-      "treeDigest": "sha256:694f5d3701ab7fa87106bcc03892acc2f32795cf833c8d25db78d7677b62e6f5"
+      "version": "1.2.0",
+      "treeDigest": "sha256:37c62cf989f12c170fa3d2e022f16cbb533b8330fa47ae04ad9eb249c903b621"
     },
     {
       "id": "kai-software",
-      "version": "1.1.2",
-      "treeDigest": "sha256:770f93bb446761927cebb39cd66a5e5cfaeeed6be377be19ea9c18b5a4b38679"
+      "version": "1.2.0",
+      "treeDigest": "sha256:d2bddfaa5d979142e9e59d242d5a811d7b3048caae4c02a9a706634cfe008ca8"
     }
   ]
 }

@@ -25,7 +25,7 @@ class GenerationTests(unittest.TestCase):
         self.assertEqual(tree_digest(first), tree_digest(second))
         distribution = Distribution()
         catalog = json.loads((first / 'business-catalog.json').read_text())
-        self.assertEqual(len(catalog['skills']), 31)
+        self.assertEqual(len(catalog['skills']), 32)
         self.assertEqual(len(list((first / 'bundles').glob('*.json'))), 12)
         packages = {p['id']: p for p in catalog['skills']}
         for bundle in (first / 'bundles').glob('*.json'):

@@ -52,3 +52,29 @@ if args.check:
 else:
     (jq_dest / 'jq-owner.lock.json').write_text(json.dumps(jq_lock, indent=2) + '\n')
     (jq_dest / 'jq-owner.sha256').write_text(checksum)
+
+# Preserve the owner's relative layout, including its existing jq recipe.
+task_dest = dest / 'owner'
+task_sources = sorted((args.source / 'software').glob('*.sh'))
+task_sources += [args.source / 'software/releases.lock.json', args.source / 'software/README.md', args.source / 'jq/jq-install.sh',
+                 args.source / 'jq/artifacts.lock.json']
+task_files = []
+for source in task_sources:
+    relative = source.relative_to(args.source).as_posix()
+    payload = source.read_bytes()
+    target = task_dest / relative
+    task_files.append({'source': relative, 'file': 'owner/' + relative,
+                       'sha256': hashlib.sha256(payload).hexdigest(), 'size': len(payload)})
+    if args.check:
+        assert target.read_bytes() == payload, 'stale software rule: ' + relative
+    else:
+        target.parent.mkdir(parents=True, exist_ok=True)
+        target.write_bytes(payload)
+task_lock = {'schemaVersion': 1, 'owner': 'zsetup-scripts', 'sourceCommit': commit,
+             'sourceState': 'local-candidate', 'protocol': 'software-task/v1',
+             'files': task_files}
+task_lock_path = dest / 'software-owner.lock.json'
+if args.check:
+    assert json.loads(task_lock_path.read_text()) == task_lock, 'stale software task lock'
+else:
+    task_lock_path.write_text(json.dumps(task_lock, indent=2) + '\n')

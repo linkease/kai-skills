@@ -2,8 +2,21 @@
 set -u
 set -o pipefail
 project_here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-project_entry=${KAI_SOFTWARE_TASK_ENTRY:-$project_here/../../kai-software/resources/owner/software/task.sh}
-task_root=$(CDPATH= cd -- "$(dirname -- "$project_entry")" && pwd) || exit 21
+project_entry=${KAI_SOFTWARE_TASK_ENTRY:-}
+if [ -n "$project_entry" ];then
+    # Explicit caller-supplied rule library; its actual digest binds the plan.
+    task_root=$(CDPATH= cd -- "$(dirname -- "$project_entry")" && pwd) || exit 21
+else
+    . "$project_here/../../kai-tool-bootstrap/scripts/jq-env.sh"
+    kai_use_jq full || exit $?
+    . "$project_here/../../kai-software/scripts/owner-env.sh"
+    if ! task_root=$(kai_software_owner_root);then
+        printf '%s\n' '{"protocol":"software-task/v1","schemaVersion":1,"operation":null,"targetId":null,"software":null,"status":"blocked","reason":"owner-resource-integrity","nativeExitCode":11,"effects":[],"details":{}}'
+        exit 21
+    fi
+    task_root=$task_root/software
+    export ZSETUP_TASK_JQ="$KAI_JQ_BIN"
+fi
 . "$task_root/protocol.sh"
 case "$TASK_OPERATION" in project-plan|project-apply) ;; *) task_stop invalid unknown-operation 2 ;; esac
 task_request "${2:-}"

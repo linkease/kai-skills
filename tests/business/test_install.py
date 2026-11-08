@@ -45,7 +45,7 @@ class InstallationTests(unittest.TestCase):
         expected = {p['id'] for p in json.loads(result.stdout)['packages']}
         self.assert_ok(self.call('--bundle', 'development'))
         self.assertEqual(self.active(), expected)
-        self.assertEqual(expected, {'kai-dev-environment', 'kai-project-dependencies', 'kai-download-acceleration'})
+        self.assertEqual(expected, {'kai-dev-environment', 'kai-project-dependencies', 'kai-project-run', 'kai-download-acceleration'})
 
     def test_platform_all_remote_has_exact_business_and_transport_members(self):
         result = self.call('--platform', 'windows', '--all', '--mode', 'remote-control', '--dry-run', '--json')

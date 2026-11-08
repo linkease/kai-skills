@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -eu
 here="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
+if [ "${1:-}" = task ];then shift;exec bash "$here/software-task.sh" "$@";fi
 . "$here/../../kai-tool-bootstrap/scripts/jq-env.sh"
 kai_use_jq full || exit $?
 bootstrap="$here/../../kai-tool-bootstrap/scripts/tool.sh"
@@ -68,7 +69,7 @@ if [ "$platform" = windows ]; then
             --arg destination "$destination" --arg policy "$policy" --arg root "$scoop_root" \
             --arg runtimeBinary "$runtime_binary" --arg runtimeIdentity "$runtime_identity" \
             '{action:$action,subject:$subject,version:$version,ksCli:$ksCli,zsetup:$zsetup,architecture:$architecture,destination:$destination,policy:$policy,root:$root,runtimeBinary:$runtimeBinary,runtimeIdentity:$runtimeIdentity}')"
-        printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "$powershell" -NoLogo -NoProfile -NonInteractive -File "$native_script"
+        printf '%s\n' "$request" | MSYS2_ARG_CONV_EXCL='*' "$powershell" -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File "$native_script"
     }
     if [ "$provider" = all ]; then
         scoop_rows="$(invoke_windows_provider scoop)" || exit "$?"

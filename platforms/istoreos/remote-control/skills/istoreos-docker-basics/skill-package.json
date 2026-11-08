@@ -1,6 +1,6 @@
 {
   "id": "istoreos-docker-basics",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "path": "skills/istoreos-docker-basics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
   "description": "检查、安装、启停和排查 iStoreOS Docker/dockerd 与容器；镜像或文件下载慢由下载加速能力处理，数据目录迁移由专用 skill 处理。",
@@ -11,7 +11,8 @@
   "component": "istoreos",
   "architectures": {
     "istoreos": [
-      "x64"
+      "x64",
+      "arm64"
     ]
   },
   "programRequirements": [
