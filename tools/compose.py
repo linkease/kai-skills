@@ -68,6 +68,12 @@ def load():
     return declaration,catalog
 
 
+def resource_ids(declaration):
+    # Private implementation resources are not public skill aliases.
+    return {name for preset in declaration['presets'].values()
+            for name in preset['compatibilityResources']}
+
+
 def select(declaration,entry,canonical=False):
     plan=declaration['presets'][entry['id']]
     names={};resources={};versions={};source_roots=[]
@@ -89,7 +95,7 @@ def select(declaration,entry,canonical=False):
         for skill in sorted(skill_root.iterdir()) if skill_root.exists() else []:
             if not (skill/'SKILL.md').is_file():continue
             if requested is not None and skill.name not in requested:continue
-            if skill.name in declaration['aliases']:
+            if skill.name in resource_ids(declaration):
                 if skill.name in plan['compatibilityResources']:resources[skill.name]=skill
                 continue
             if skill.name in names:raise ValueError('duplicate active skill '+skill.name)
@@ -182,7 +188,7 @@ def layer(component,output):
     (output/'skills').mkdir()
     for item in sorted((source/'skills').iterdir()) if (source/'skills').exists() else []:
         if not (item/'SKILL.md').is_file():continue
-        resource=item.name in declaration['aliases']
+        resource=item.name in resource_ids(declaration)
         copy(item,output/'skills'/item.name,resource=resource)
         (resources if resource else active).append(item.name)
     write(output/'composition-source.json',{

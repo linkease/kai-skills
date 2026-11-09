@@ -2,6 +2,7 @@ import copy
 import importlib.util
 from pathlib import Path
 import tempfile
+import shutil
 import unittest
 
 ROOT = Path(__file__).resolve().parents[2]
@@ -13,6 +14,40 @@ spec.loader.exec_module(model)
 class ModelTests(unittest.TestCase):
     def setUp(self):
         self.distribution = model.Distribution()
+
+    def test_shared_skills_have_only_kai_names_and_no_historical_aliases(self):
+        self.assertEqual(self.distribution.composition['aliases'], {})
+        shared = [p for p in self.distribution.packages.values()
+                  if p['component'] in ('common', 'linux')]
+        self.assertEqual(len(shared), 8)
+        for package in shared:
+            self.assertTrue(package['id'].startswith('kai-'))
+            body = (ROOT / package['canonicalPath'] / 'SKILL.md').read_text()
+            self.assertNotRegex(body.split('---', 2)[1], r'(?m)^aliases\s*:')
+        for name in ('istoreos-download-acceleration', 'istoreos-mise-runtime',
+                     'istoreos-network-quality', 'istoreos-package-manager', 'istoreos-storage-path'):
+            self.assertNotIn(name, self.distribution.packages)
+            with self.assertRaises(ValueError):
+                self.distribution.select(skill=name)
+        self.assertIn('istoreos-download-acceleration',
+                      self.distribution.runtime_closure('istoreos-kspeeder-domainfold-fetch'))
+
+    def test_shared_skill_alias_or_platform_prefix_cannot_be_reintroduced(self):
+        for change in ('alias', 'prefix'):
+            with self.subTest(change=change), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                shutil.copytree(ROOT / 'components', root / 'components')
+                shutil.copy2(ROOT / 'catalog.json', root / 'catalog.json')
+                skill = root / 'components/system-packs/common/skills/kai-download-acceleration'
+                if change == 'alias':
+                    p = skill / 'SKILL.md'
+                    p.write_text(p.read_text().replace('---\n', '---\naliases: istoreos-download-acceleration\n', 1))
+                    error = 'must not publish aliases'
+                else:
+                    skill.rename(skill.with_name('istoreos-shared-download'))
+                    error = 'require the kai- prefix'
+                with self.assertRaisesRegex(ValueError, error):
+                    model.Distribution(root)
 
     def test_one_skill_does_not_activate_code_resource_dependencies(self):
         result = self.distribution.select(skill='kai-project-dependencies')

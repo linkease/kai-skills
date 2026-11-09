@@ -11,7 +11,7 @@
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+      "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
     },
     {
       "id": "kai-project-dependencies",
@@ -21,7 +21,7 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:3ecf672ea1ea48a3c538c7819f48511272c1b7fd62d2210b51c2abf8f4057c44"
+      "sourceDigest": "sha256:f33d75953d9e5e45f0180b5738d899b1c1552ff3c4fd5dfc5ae6abe902923ebf"
     },
     {
       "id": "kai-tool-bootstrap",

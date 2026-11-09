@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-download-acceleration\ndescription: 检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 文件下载慢, GitHub 文件, 下载链接, docker pull, Docker 镜像下载, git clone, 下载加速\nnegative-triggers: 网速慢, 测速, 宽带速度, pip install, npm ci, go mod, uv sync\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\naliases: istoreos-download-acceleration\n",
+  "originalFrontmatter": "name: kai-download-acceleration\ndescription: 检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 文件下载慢, GitHub 文件, 下载链接, docker pull, Docker 镜像下载, git clone, 下载加速\nnegative-triggers: 网速慢, 测速, 宽带速度, pip install, npm ci, go mod, uv sync\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-download-acceleration",
       "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
-      "sourceDigest": "sha256:aa6f435754fad08052580bbe23bee9dc14a1f5b6755b0f515baea04bb0d0f182"
+      "sourceDigest": "sha256:223dda1551441bed3e5f30d4ad114da3a97f682e7003b104a7e312fb3e2f90d5"
     },
     {
       "id": "kai-tool-bootstrap",

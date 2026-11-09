@@ -50,7 +50,8 @@ def inventory():
                         refs.append({'file': str(member.relative_to(path)), 'line': lineno,
                                      'skill': target, 'kind': 'documented-invocation' if member.suffix == '.md' else 'executable-sibling-path'})
                     programs.update(re.findall(r'(?<![\w-])(bash|jq|zsetup|mise|ks-cli|linkspace|python3|node|go|brew|winget|opkg)(?![\w-])', line))
-            retired = path.name in composition['aliases']
+            retired = any(path.name in preset['compatibilityResources']
+                          for preset in composition['presets'].values())
             items.append({'id': path.name, 'component': component,
                           'canonicalPath': str(path.relative_to(ROOT)), 'platforms': supported,
                           'disposition': 'compatibility-resource' if retired else 'independent-skill',

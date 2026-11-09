@@ -1,6 +1,6 @@
 {
   "id": "istoreos-systools",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "path": "skills/istoreos-systools",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
   "description": "诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。",

@@ -1,6 +1,6 @@
 {
   "id": "target-ssh-powershell-controller",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "path": "skills/target-ssh-powershell-controller",
   "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
   "description": "Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.",

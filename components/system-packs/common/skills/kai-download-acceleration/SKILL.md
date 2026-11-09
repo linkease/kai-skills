@@ -9,7 +9,6 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: medium
-aliases: istoreos-download-acceleration
 ---
 
 Routed Git reads require native Git >=2.37. The client resolves only its local

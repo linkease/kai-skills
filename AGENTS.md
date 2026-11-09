@@ -35,3 +35,8 @@ For Codex use `--consumer codex`; for OpenCode use `--consumer opencode`; for ot
 - Kai consumes canonical System Packs and its own Target Transport, not third-party remote-control presets.
 
 Credentials, target addresses, fingerprints, and device-specific state must remain outside this repository and model context. Unknown or changed SSH host keys are a hard stop.
+
+Shared skills in `common` and `linux` use only `kai-` identifiers and publish no
+historical skill aliases. Internal platform adapter resources are classified by
+`compatibilityResources`, independently of public skill names. Keep genuine
+platform-specific skills under their platform prefix.

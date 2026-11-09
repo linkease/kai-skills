@@ -1,12 +1,6 @@
 {
   "schemaVersion": 1,
-  "aliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-network-quality": "kai-network-quality",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  },
+  "aliases": {},
   "activeSkills": [
     "istoreos-app-diagnostics",
     "istoreos-app-search",

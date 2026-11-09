@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
-  "version": "1.2.1",
+  "version": "1.2.2",
   "skills": [
     {
       "id": "debian-system-diagnostics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/debian-system-diagnostics",
       "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
       "description": "Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.",
@@ -32,11 +32,11 @@
           "sourceDigest": "sha256:7940724d7318dcec51ab61eb939b144d6865fa0c9e74e75337bdc11c8afad58f"
         }
       ],
-      "treeDigest": "sha256:289b5b3e81eb6a2310309c69308cda9620d3eeb63b7c84a91cdb26fa74a3482a"
+      "treeDigest": "sha256:f71e9f101a752260e1e839e893ac978672551a16af70bb492dfc722216233cf5"
     },
     {
       "id": "istoreos-app-diagnostics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
       "description": "只读分析最近一次 iStore 安装任务，将任务日志、当前包状态和插件能力合并为紧凑诊断报告；由应用安装流程在失败或安装后异常时按需调用。",
@@ -71,11 +71,11 @@
           "sourceDigest": "sha256:b5225bdee61814f6b83413969b024da935527692c839edbb97b096a4164641c2"
         }
       ],
-      "treeDigest": "sha256:d5b5b93dd371b9b77c710deb85721cd8762f32a05c346784a8a5ed0bd7cf1f4d"
+      "treeDigest": "sha256:3e8d2a7cabfe0e70e0c673c05aaedef0de7b7727272d055b28c21ffb8ce5e02c"
     },
     {
       "id": "istoreos-app-search",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
       "description": "从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 istoreos-package-manager。",
@@ -110,11 +110,11 @@
           "sourceDigest": "sha256:b5225bdee61814f6b83413969b024da935527692c839edbb97b096a4164641c2"
         }
       ],
-      "treeDigest": "sha256:35c2d10cfad70c6fd7bd3e1a5e5d70f32d1b5102ebd51fb3dc9cd80176ea3454"
+      "treeDigest": "sha256:e4ac818ffdddaabece33b5c3229fc4970a6bbff5b6878487cd5b61da79600965"
     },
     {
       "id": "istoreos-backup-restore",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-backup-restore",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
       "description": "iStoreOS 系统备份、恢复与回滚闭环；用于备份配置或 overlay、恢复系统，以及迁移、重置等危险操作前建立可恢复点。",
@@ -139,11 +139,11 @@
           "sourceDigest": "sha256:7e290a211cf7ccb2ea5b29f8703d9ae96e1fc71c00b1d97c4732638a773bb9f4"
         }
       ],
-      "treeDigest": "sha256:35f4e431efaaaebcae0d41e0b3260caa1167cf3fbbbba08c20de93afd7e668b5"
+      "treeDigest": "sha256:d9d7f2afdfedf5ce4a47d674e8f49a03f68efde71646c2a27847b6fe4edbb25b"
     },
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-docker-acceleration-istoreenhance",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
       "description": "Docker 镜像下载慢/失败时的 iStoreOS 加速闭环（istoreenhance/kspeeder：安装→autoconf→启用→registry_mirrors→search API 验证→降级策略）。",
@@ -168,11 +168,11 @@
           "sourceDigest": "sha256:f9ebc83264957142e8c659666235937ba0c7d837edc5fb05d4a5bb1677cdbadd"
         }
       ],
-      "treeDigest": "sha256:82d6e6405b7fb8fc28ce35f5e8f7133340cef586bf5711c935b0ab439c5c0ce2"
+      "treeDigest": "sha256:9e38b570bec471e4c9fe0d4db9472fb173e12ac8f6763cdab12e21a3dfab850e"
     },
     {
       "id": "istoreos-docker-basics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-docker-basics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
       "description": "检查、安装、启停和排查 iStoreOS Docker/dockerd 与容器；镜像或文件下载慢由下载加速能力处理，数据目录迁移由专用 skill 处理。",
@@ -197,11 +197,11 @@
           "sourceDigest": "sha256:6b6fed5b0ec983652548a7f71e7509f7520ee5aad681f3f6d68460adc6594898"
         }
       ],
-      "treeDigest": "sha256:f14a2fc460242ebcef34a47505c6e32666387b97713cca00bbe8f3c488175dbb"
+      "treeDigest": "sha256:6ffd240c84fa54a653163669bb446359119db9aec1281ae17c7856bc98ea4664"
     },
     {
       "id": "istoreos-docker-data-root-migrate",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-docker-data-root-migrate",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
       "description": "安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。",
@@ -231,11 +231,11 @@
           "sourceDigest": "sha256:753ece1cdce08582ee24849f6173e020847e19e9a4a65a3305c8c8c3d31dcd21"
         }
       ],
-      "treeDigest": "sha256:af7d0daa7b736e1298f14cd3e075e2a00144ce1058da2d76b18a69a287c09b48"
+      "treeDigest": "sha256:1caa292a3f28c6b55d5366456f8aae2ceff6ef4fdea0878185c9952672cecded"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-kspeeder-domainfold-fetch",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
       "description": "通过设备内 iStoreEnhance/KSpeeder 加速受支持的外部文件和公开 HTTPS Git 仓库；仅作为下载加速主 skill 按证据调用的内部执行 helper。",
@@ -280,11 +280,11 @@
           "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
         }
       ],
-      "treeDigest": "sha256:2f4e95b4497116897d869f659234a69be02c3b93429af4c4709022da46448551"
+      "treeDigest": "sha256:eca6346e284a3a3a9d5755ab9e60aa181d49e8a420578d90933a45c0d4302911"
     },
     {
       "id": "istoreos-logs-and-diagnostics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-logs-and-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
       "description": "iStoreOS 故障诊断最小信息集与分流（opkg/is-opkg、init.d、df/mount、docker/dockerd、istoreenhance、DNS/网络）；用于失败时先采证据再结论。",
@@ -309,11 +309,11 @@
           "sourceDigest": "sha256:eabac29c828663f77037e148b0847f809fc268bed5bea16317350188cba6a4a0"
         }
       ],
-      "treeDigest": "sha256:19c29fe1b717c6793def80ced2c851182c807283d4ec4365ace83f3d144bf785"
+      "treeDigest": "sha256:13c2abca696fedb7ca96fb8c03ba70a23dfa46bff226428fd4419869e48ef850"
     },
     {
       "id": "istoreos-luci-recovery",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-luci-recovery",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
       "description": "诊断和恢复 iStoreOS LuCI 管理页面打不开、500、空白或登录循环；先只读采证，修改、重启或重装前必须确认。",
@@ -338,11 +338,11 @@
           "sourceDigest": "sha256:95c970da6d815722c7961e62da50b45f1d254496c5aa24a06853f6ddc3e1c34a"
         }
       ],
-      "treeDigest": "sha256:15bc883dc23fb1b690ba85f6f6e71fd792029e39bf3b005eba2edc1739e90724"
+      "treeDigest": "sha256:3327625e496af69e66542bcf48d1eea9e10bef74a3051dcb10b88e22b0501fe4"
     },
     {
       "id": "istoreos-quickstart-api",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-quickstart-api",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
       "description": "Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.",
@@ -372,11 +372,11 @@
           "sourceDigest": "sha256:137e44f05b71982fbe5020fa9460f072dcf7666ec8c5c1757198ea71ad756365"
         }
       ],
-      "treeDigest": "sha256:299bf95622584f210c775615d39ec8bccd00980278cad2ce73b28bf18431c608"
+      "treeDigest": "sha256:156dbd5a320760e583e7540e0c5dfd2e2a5cbaafedd45609908f162006c81927"
     },
     {
       "id": "istoreos-run-executable",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-run-executable",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
       "description": "安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构和空间，提示备份并要求明确确认。",
@@ -421,11 +421,11 @@
           "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
         }
       ],
-      "treeDigest": "sha256:f97cb03468dd0f776364cabea059a46784a2a9b5684ef92c98e74eb0649f1ac8"
+      "treeDigest": "sha256:08510941e9551596e90146abce0a73ca2776f512c64eaae9abe812ca493ebfc4"
     },
     {
       "id": "istoreos-service-manager",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
       "description": "检查和管理 iStoreOS init.d 服务及对应 UCI 启用状态；用于服务未运行、开机未启动、端口未监听或安装后未生效，不负责 LuCI 核心恢复。",
@@ -450,11 +450,11 @@
           "sourceDigest": "sha256:5932664ec416d408510e87aa5c6bf0b085efc46bc8aa0e021c849784d6c57293"
         }
       ],
-      "treeDigest": "sha256:1c2fbdee5a3427caa9504cb87caf6ae0cdb172fea1fbe31ed86f17998f2801de"
+      "treeDigest": "sha256:d2489fba395fb97d0434033d71440dd0ae0807059a47db0a6fc3facdc3d9484d"
     },
     {
       "id": "istoreos-source-introspect",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-source-introspect",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
       "description": "iStoreOS/OpenWrt 只读证据采集：定向读取 /etc/config、/etc/init.d 与 /usr/lib/lua/luci 相关源码片段（默认脱敏），用于未知问题定位与“以证据为准”的分流。",
@@ -479,11 +479,11 @@
           "sourceDigest": "sha256:eafebb24699612d406d0b7b1db5763c67859417a7828b9a1d8172afdab3315af"
         }
       ],
-      "treeDigest": "sha256:84af65da29a5b1f73c4509eda81e8e497dc0ce9bc964dd1b645d78727f80966e"
+      "treeDigest": "sha256:bb8db1d74111a6d4b3dac2ad75fe8d547c606a7e9e0fbc722cdb04b40f7a4d55"
     },
     {
       "id": "istoreos-system-task-router",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-system-task-router",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
       "description": "iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。",
@@ -513,11 +513,11 @@
           "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
         }
       ],
-      "treeDigest": "sha256:96bc9a419550550ce5e56a4d753aefe1a3a6e6e1d469dc980bb9a37c71ab80b1"
+      "treeDigest": "sha256:5b1e7113846c72d158db8942e9e3e9dbbce74f4e51e0e1c7bfb0d346db903669"
     },
     {
       "id": "istoreos-systools",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/istoreos-systools",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
       "description": "诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。",
@@ -542,11 +542,11 @@
           "sourceDigest": "sha256:d92bbc01cc63c14d1bb6a58ec88b9dba4ea13d7168e68dea69366d0f7e6f6cea"
         }
       ],
-      "treeDigest": "sha256:fdd4be14a68f0965d429577344baaf2092b8dffc2d8b944348b393a5d7e59068"
+      "treeDigest": "sha256:b7ed2ced45403a2ffa9ee51a7053258cea2fa806aa7556a1565e1f6a8dd43c78"
     },
     {
       "id": "kai-dev-environment",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
       "description": "用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。",
@@ -586,7 +586,7 @@
         {
           "id": "kai-dev-environment",
           "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+          "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -594,11 +594,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:42ac3df58b604d9060bc9b7911780e9779cd1af66c23ecd46e93c516f67465dd"
+      "treeDigest": "sha256:64074dd85a254ba8cf0f9d98827bd4633fcded9abd9f5a0375485e9c37aa0ee6"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-download-acceleration",
       "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
       "description": "检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。",
@@ -640,7 +640,7 @@
         {
           "id": "kai-download-acceleration",
           "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
-          "sourceDigest": "sha256:aa6f435754fad08052580bbe23bee9dc14a1f5b6755b0f515baea04bb0d0f182"
+          "sourceDigest": "sha256:223dda1551441bed3e5f30d4ad114da3a97f682e7003b104a7e312fb3e2f90d5"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -648,11 +648,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:3907a16956a30fbfb2e4d848f13851dcfc9b9e209f112d32071f219bfae37b6c"
+      "treeDigest": "sha256:d8c06c550ed779db3a8672a3c98490b641152c9efd1c110f91ee3a6c2aeae140"
     },
     {
       "id": "kai-network-quality",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-network-quality",
       "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
       "description": "使用 FastNet 测量和诊断 Linux/iStoreOS 的公网、目标下载路径、IPv4/IPv6、NAT 与设备间 LAN 质量，并为软件安装或下载失败提供结构化证据；不修改网络配置。",
@@ -684,7 +684,7 @@
         {
           "id": "kai-network-quality",
           "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
-          "sourceDigest": "sha256:dfcc6d96223190c513d8bb3ccf0446ae9d016d770d8c1d01ed8284a30bf7cd66"
+          "sourceDigest": "sha256:516a2f5650f396641c401ed07a91c3bffa373c8e9b84b4f4238ba5d0eeaeb961"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -692,11 +692,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:bfa87777c794882bc4f9d99b79c3efabd1cf4ed11e8ebec0afbb7b2043213758"
+      "treeDigest": "sha256:5da83042911cb5e30b9fa2576a10f50f59130206540c4dd5b790362279136046"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-project-dependencies",
       "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
       "description": "在所选 mise SDK 和项目隔离环境中安装 npm、pip、uv、Go 依赖。",
@@ -742,7 +742,7 @@
         {
           "id": "kai-dev-environment",
           "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+          "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -750,11 +750,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:3ce0a9bae89f5e4327b9c0860739f191741d24751c1f36d8a4962536ea9351d8"
+      "treeDigest": "sha256:848d65f5e2ddc7ba0ca4dcb5e66081d2c644613c4e523e8a98d1f89a6fec0183"
     },
     {
       "id": "kai-project-run",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-project-run",
       "canonicalPath": "components/system-packs/common/skills/kai-project-run",
       "description": "Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.",
@@ -801,7 +801,7 @@
         {
           "id": "kai-dev-environment",
           "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+          "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
         },
         {
           "id": "kai-project-dependencies",
@@ -811,7 +811,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:3ecf672ea1ea48a3c538c7819f48511272c1b7fd62d2210b51c2abf8f4057c44"
+          "sourceDigest": "sha256:f33d75953d9e5e45f0180b5738d899b1c1552ff3c4fd5dfc5ae6abe902923ebf"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -819,11 +819,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:7bfcc7586b31089af93eacfa6186ee0cba701f8b995cfa0d2a5239c3ffe00dfa"
+      "treeDigest": "sha256:e1b7b7aa517681d2e27fb18811d9bdd50a949a39b1fd85835d266063a3bbe1e9"
     },
     {
       "id": "kai-software",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
       "description": "按目标系统搜索、查询和安装软件，保留原包管理器与来源。",
@@ -865,7 +865,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:3ecf672ea1ea48a3c538c7819f48511272c1b7fd62d2210b51c2abf8f4057c44"
+          "sourceDigest": "sha256:f33d75953d9e5e45f0180b5738d899b1c1552ff3c4fd5dfc5ae6abe902923ebf"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -873,11 +873,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:ca69be0d55eb5c17551e57443e3661dcddb38cae0247bc52f741e20957cfcc9a"
+      "treeDigest": "sha256:92a24d660e9f980ad373370045eba670d535dcc746cd053c5be75447f4715568"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-storage-files",
       "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
       "description": "限定路径分析空间与大文件、搜索文件名，核实安装目录的挂载和持久性。",
@@ -917,12 +917,12 @@
         {
           "id": "kai-storage-files",
           "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
-          "sourceDigest": "sha256:d288ec91ffa91996775e6fd9d5c2798b95a159416defa650cb3e6c5717e37bd4"
+          "sourceDigest": "sha256:03784dbdd27fb6d49f48e7cec7e31d113c319be3394f91f2f9d22982aa1476c4"
         },
         {
           "id": "kai-dev-environment",
           "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-          "sourceDigest": "sha256:b9acb8f71af5949ad60ebea1e0b3e0e3ff6248a9f31c2af03e2c2b71514926f7"
+          "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -930,11 +930,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:b54875dd0e0da4bc15cbe3cb2c7035e80c0306a117da51c5382eb166ab624da8"
+      "treeDigest": "sha256:9e536a1cb5dc597f463915d27d0c3ab8aabc337a2a6de0c60939abc3dbbcbc4c"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
       "description": "准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。",
@@ -976,11 +976,11 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:8acee3758e35b6a22fd5f1e0978e29d487d11128fc3bbfdcf5c264b5a9d3d420"
+      "treeDigest": "sha256:b8599d0f4fb4f2fde6af1c61154b71a949d1842018cce4555aeb8fee62b50c5a"
     },
     {
       "id": "luci-http-controller",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/luci-http-controller",
       "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
       "description": "Send bounded authenticated HTTP requests to a bound LuCI target without embedding device-specific endpoints, credentials, or operating-system repair policy.",
@@ -1005,11 +1005,11 @@
           "sourceDigest": "sha256:137e44f05b71982fbe5020fa9460f072dcf7666ec8c5c1757198ea71ad756365"
         }
       ],
-      "treeDigest": "sha256:9bc6c256af19d07aef523c7280dd4b79cb02fabbb33611e3a194be7eeb0d64b0"
+      "treeDigest": "sha256:a8b5ceed2776944ba105ca439d471dfbbb1fdb3d6a24bbdff2eaac68e06e6376"
     },
     {
       "id": "macos-launchd-logs",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/macos-launchd-logs",
       "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
       "description": "Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.",
@@ -1033,11 +1033,11 @@
           "sourceDigest": "sha256:08141512c1bf95c35c70a810e61404241c41f87eb34efbedb0b8e86bc38dbb0a"
         }
       ],
-      "treeDigest": "sha256:bed51315556384dff368a23f37a836c5409336bdc0b839a0adbfd201532e7efb"
+      "treeDigest": "sha256:fcb16d3db77c6537fa5576df829796c03f2b6765a7cda85350329b21f30a91c5"
     },
     {
       "id": "macos-system-diagnostics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/macos-system-diagnostics",
       "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
       "description": "Collect a bounded read-only macOS health summary covering version, architecture, uptime, root disk, memory pressure, and launchd job totals; use for general Mac errors, slowness, or first-pass diagnosis.",
@@ -1061,11 +1061,11 @@
           "sourceDigest": "sha256:5040046a648abd6296dbb8a7660eb38a14f59f39a611ac711239ddb19cf6513c"
         }
       ],
-      "treeDigest": "sha256:16830c3645181a7afe98f6b9a3c57c1518724099bcd16ef8d563044e9f7e19e2"
+      "treeDigest": "sha256:a3e3679db2680fc2fd847255fc126a6a53872391740c13ce5d2fafd68f906f20"
     },
     {
       "id": "target-ssh-controller",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/target-ssh-controller",
       "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
       "description": "Bind a specific remote target over SSH and safely execute target scripts with strict host-key verification, bounded timeouts, explicit write approval, and no operating-system business logic.",
@@ -1102,11 +1102,11 @@
           "sourceDigest": "sha256:edb838a0e359be1b8af78053fededec3fa5b2f80c531d1dbbfc8d7730583bed5"
         }
       ],
-      "treeDigest": "sha256:528b7c177b4bd7b9e9d49c2cc3b0c55b2956342d7fc09732ac34b62055c41cb0"
+      "treeDigest": "sha256:bc43d577c01bfcf0edd6acb6c7a86ebeb2a2038edc7e9e0f94b1dc5620da8f40"
     },
     {
       "id": "target-ssh-powershell-controller",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/target-ssh-powershell-controller",
       "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
       "description": "Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.",
@@ -1130,11 +1130,11 @@
           "sourceDigest": "sha256:84be9579af7c6e62ccd487a237988a68ccf026c109d2f1fdde34a81eb5a00ea7"
         }
       ],
-      "treeDigest": "sha256:58db64b90b77aa5227e2c1600797e64e163d7fbf87d9fb461ac84f69d3e754b6"
+      "treeDigest": "sha256:20637090aae2b7116d5258e46633b0c41a3779439083b64b22e64bc2eefde045"
     },
     {
       "id": "ubuntu-release-diagnostics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/ubuntu-release-diagnostics",
       "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
       "description": "Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.",
@@ -1158,11 +1158,11 @@
           "sourceDigest": "sha256:9862a6f1fd91e01f5dd1b2195ca240b32e3b7b5b5cbf31a3965ea0af04b375b6"
         }
       ],
-      "treeDigest": "sha256:4bfa9dbf6e909a3d211b20ca9d93210a502547b85f8946b764d0cc9134df1238"
+      "treeDigest": "sha256:25fa448cd6cc9fe774a99336e71a4ad84bc238978dcbcfc274e3c023f9d05671"
     },
     {
       "id": "windows-service-eventlog",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/windows-service-eventlog",
       "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
       "description": "Diagnose one Windows service with recent System events, prepare a change plan, apply an explicitly approved start/stop/restart, and verify the resulting service state.",
@@ -1186,11 +1186,11 @@
           "sourceDigest": "sha256:715bb196aa87cec5e4caf19fb1a374ae21ff8173110f6a32dbd62be9cbe35218"
         }
       ],
-      "treeDigest": "sha256:8782e3c20c9043f5236f7cd60b795e0b7a1adaa2b8ea0e6be929ce73b0bfb1b7"
+      "treeDigest": "sha256:aefa062a60d96f006e6262f7515492b6127f479b4cdd46c9ad619f7c8b4f8699"
     },
     {
       "id": "windows-system-diagnostics",
-      "version": "1.2.1",
+      "version": "1.2.2",
       "path": "skills/windows-system-diagnostics",
       "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
       "description": "Collect a bounded read-only Windows health summary covering OS, uptime, fixed disks, service totals, and recent critical System events; use for general Windows errors, slowness, or first-pass diagnosis.",
@@ -1214,7 +1214,7 @@
           "sourceDigest": "sha256:a6a9ecd7cc9fda33553fd9cd2f972f65bc7eb730c4454d33d16e6fe43daf3d35"
         }
       ],
-      "treeDigest": "sha256:daaad670974dfd68bd5735620b06557572aa1219576fa861d6345f695226329e"
+      "treeDigest": "sha256:e5a28ad5b06da6a555a787a60be2a279f54e88d88d814d9586a99adbc2bc51b4"
     }
   ],
   "bundles": {

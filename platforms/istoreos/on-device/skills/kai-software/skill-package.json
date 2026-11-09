@@ -1,6 +1,6 @@
 {
   "id": "kai-software",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "path": "skills/kai-software",
   "canonicalPath": "components/system-packs/common/skills/kai-software",
   "description": "按目标系统搜索、查询和安装软件，保留原包管理器与来源。",
@@ -42,7 +42,7 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:3ecf672ea1ea48a3c538c7819f48511272c1b7fd62d2210b51c2abf8f4057c44"
+      "sourceDigest": "sha256:f33d75953d9e5e45f0180b5738d899b1c1552ff3c4fd5dfc5ae6abe902923ebf"
     },
     {
       "id": "kai-tool-bootstrap",

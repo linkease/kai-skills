@@ -1,59 +1,59 @@
 {
   "schemaVersion": 1,
   "id": "system:debian:remote-control",
-  "version": "1.2.1",
+  "version": "1.2.2",
   "platform": "debian",
   "mode": "remote-control",
   "members": [
     {
       "id": "debian-system-diagnostics",
-      "version": "1.2.1",
-      "treeDigest": "sha256:289b5b3e81eb6a2310309c69308cda9620d3eeb63b7c84a91cdb26fa74a3482a"
+      "version": "1.2.2",
+      "treeDigest": "sha256:f71e9f101a752260e1e839e893ac978672551a16af70bb492dfc722216233cf5"
     },
     {
       "id": "kai-dev-environment",
-      "version": "1.2.1",
-      "treeDigest": "sha256:42ac3df58b604d9060bc9b7911780e9779cd1af66c23ecd46e93c516f67465dd"
+      "version": "1.2.2",
+      "treeDigest": "sha256:64074dd85a254ba8cf0f9d98827bd4633fcded9abd9f5a0375485e9c37aa0ee6"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.2.1",
-      "treeDigest": "sha256:3907a16956a30fbfb2e4d848f13851dcfc9b9e209f112d32071f219bfae37b6c"
+      "version": "1.2.2",
+      "treeDigest": "sha256:d8c06c550ed779db3a8672a3c98490b641152c9efd1c110f91ee3a6c2aeae140"
     },
     {
       "id": "kai-network-quality",
-      "version": "1.2.1",
-      "treeDigest": "sha256:bfa87777c794882bc4f9d99b79c3efabd1cf4ed11e8ebec0afbb7b2043213758"
+      "version": "1.2.2",
+      "treeDigest": "sha256:5da83042911cb5e30b9fa2576a10f50f59130206540c4dd5b790362279136046"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.2.1",
-      "treeDigest": "sha256:3ce0a9bae89f5e4327b9c0860739f191741d24751c1f36d8a4962536ea9351d8"
+      "version": "1.2.2",
+      "treeDigest": "sha256:848d65f5e2ddc7ba0ca4dcb5e66081d2c644613c4e523e8a98d1f89a6fec0183"
     },
     {
       "id": "kai-project-run",
-      "version": "1.2.1",
-      "treeDigest": "sha256:7bfcc7586b31089af93eacfa6186ee0cba701f8b995cfa0d2a5239c3ffe00dfa"
+      "version": "1.2.2",
+      "treeDigest": "sha256:e1b7b7aa517681d2e27fb18811d9bdd50a949a39b1fd85835d266063a3bbe1e9"
     },
     {
       "id": "kai-software",
-      "version": "1.2.1",
-      "treeDigest": "sha256:ca69be0d55eb5c17551e57443e3661dcddb38cae0247bc52f741e20957cfcc9a"
+      "version": "1.2.2",
+      "treeDigest": "sha256:92a24d660e9f980ad373370045eba670d535dcc746cd053c5be75447f4715568"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.2.1",
-      "treeDigest": "sha256:b54875dd0e0da4bc15cbe3cb2c7035e80c0306a117da51c5382eb166ab624da8"
+      "version": "1.2.2",
+      "treeDigest": "sha256:9e536a1cb5dc597f463915d27d0c3ab8aabc337a2a6de0c60939abc3dbbcbc4c"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.2.1",
-      "treeDigest": "sha256:8acee3758e35b6a22fd5f1e0978e29d487d11128fc3bbfdcf5c264b5a9d3d420"
+      "version": "1.2.2",
+      "treeDigest": "sha256:b8599d0f4fb4f2fde6af1c61154b71a949d1842018cce4555aeb8fee62b50c5a"
     },
     {
       "id": "target-ssh-controller",
-      "version": "1.2.1",
-      "treeDigest": "sha256:528b7c177b4bd7b9e9d49c2cc3b0c55b2956342d7fc09732ac34b62055c41cb0"
+      "version": "1.2.2",
+      "treeDigest": "sha256:bc43d577c01bfcf0edd6acb6c7a86ebeb2a2038edc7e9e0f94b1dc5620da8f40"
     }
   ]
 }

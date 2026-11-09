@@ -28,8 +28,8 @@
     "transport.ssh": "1.1.0",
     "transport.luci-http": "1.0.0"
   },
-  "sourceDigest": "sha256:d4e2048795715ac7f149e4d568e569a1e1ab79cc901d722aa6f7aacf315a6d0e",
-  "treeDigest": "sha256:1f01d3694e78cae8c81ac562501dc39a4239a195e5a0fa755ced9f3ba2df9955",
+  "sourceDigest": "sha256:23e440a85b0ceaae6e2e5f48a0bedb8924e3eb94e7fe09dd65067cc00f9fd2df",
+  "treeDigest": "sha256:0f3170fd6bbcb89e350be52a0172e81d51234b07cc1dea005180c13b4ddb2a2f",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",
@@ -37,11 +37,5 @@
     "istoreos-package-manager",
     "istoreos-storage-path"
   ],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-network-quality": "kai-network-quality",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }

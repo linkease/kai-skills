@@ -49,6 +49,8 @@ class Distribution:
             raise ValueError('unsupported business declaration or invalid release version')
         self.composition = self.read('components/composition.json')
         self.legacy = self.read('catalog.json')
+        private_resources = {name for preset in self.composition['presets'].values()
+                             for name in preset['compatibilityResources']}
         self.packages, self.resources = {}, {}
         for component, relative in self.composition['componentRoots'].items():
             source = safe_path(self.root, relative)
@@ -62,7 +64,7 @@ class Distribution:
                 if name in self.resources:
                     raise ValueError('duplicate canonical skill: ' + name)
                 self.resources[name] = path
-                if name in self.composition['aliases']:
+                if name in private_resources:
                     continue
                 platforms = sorted({p['platform'] for p in self.legacy['presets']
                     if component in p['generatedFrom'] and
@@ -70,6 +72,12 @@ class Distribution:
                         t['component'] == component and name in t['skills']
                         for t in self.composition['presets'][p['id']]['transports']))})
                 body = (skill / 'SKILL.md').read_text()
+                if component in ('common', 'linux'):
+                    if not name.startswith('kai-'):
+                        raise ValueError('shared skills require the kai- prefix: ' + name)
+                    frontmatter = body.split('---', 2)[1] if body.startswith('---') else ''
+                    if re.search(r'^aliases\s*:', frontmatter, re.M):
+                        raise ValueError('shared skills must not publish aliases: ' + name)
                 description = re.search(r'^description:\s*(.+)$', body, re.M)
                 self.packages[name] = {
                     'id': name, 'version': self.config['releaseVersion'],

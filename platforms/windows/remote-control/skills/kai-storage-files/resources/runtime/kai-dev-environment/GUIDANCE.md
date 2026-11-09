@@ -9,7 +9,6 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: medium
-aliases: istoreos-mise-runtime
 ---
 
 Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap. On Windows the first Bash bootstrap uses native PowerShell. Follow the selected target Transport; the controller OS does not choose the target package manager.

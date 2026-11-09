@@ -24,8 +24,8 @@
     "openwrt": "1.0.0",
     "istoreos": "2.0.0"
   },
-  "sourceDigest": "sha256:0980bf4e3164a7eeb15e009743cf649158dae1392c2427003cf5e32569897444",
-  "treeDigest": "sha256:3c72786d7dd57eafa39455632f5e5e9efe7a31d6e00a74ee1aa5dcea82b9e2e9",
+  "sourceDigest": "sha256:5a2752bf259d04410ad46a06a54882931c7720a473484ad90b2ca416533b9aee",
+  "treeDigest": "sha256:e6abe62b24d6f936e5f4affe2cc14b11a6ec5a7b9314ce981c53a4765d5c1bbe",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",
@@ -33,11 +33,5 @@
     "istoreos-package-manager",
     "istoreos-storage-path"
   ],
-  "skillAliases": {
-    "istoreos-download-acceleration": "kai-download-acceleration",
-    "istoreos-mise-runtime": "kai-dev-environment",
-    "istoreos-network-quality": "kai-network-quality",
-    "istoreos-package-manager": "kai-software",
-    "istoreos-storage-path": "kai-storage-files"
-  }
+  "skillAliases": {}
 }
