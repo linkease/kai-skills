@@ -49,13 +49,13 @@ class ZsetupReleaseBuildTest(unittest.TestCase):
         cls.manifest = release.build(cls.source, cls.first)
         release.build(cls.source, cls.second)
 
-    def test_build_has_one_artifact_per_skill_and_two_locked_systems(self):
+    def test_build_has_one_artifact_per_skill_and_three_locked_systems(self):
         catalog = json.loads((self.source / "business-catalog.json").read_text())
         artifacts = self.manifest["artifacts"]
         self.assertEqual(len(artifacts), len(catalog["skills"]) + 2)
         self.assertEqual(
             {(item["kind"], item["id"]) for item in artifacts if item["kind"] == "system"},
-            {("system", "istoreos"), ("system", "ubuntu")},
+            {("system", "istoreos"), ("system", "ubuntu"), ("system", "windows")},
         )
         self.assertEqual(
             {item["id"] for item in artifacts if item["kind"] == "skill"},
@@ -74,6 +74,7 @@ class ZsetupReleaseBuildTest(unittest.TestCase):
         root = release.extract_for_test(self.first, artifact)
         self.addCleanup(shutil.rmtree, root.parent)
         self.assertTrue((root / "install.sh").is_file())
+        self.assertTrue((root / "install.ps1").is_file())
         self.assertTrue((root / "tools/install-business.sh").is_file())
         self.assertEqual(artifact["fileCount"], len(list(release.tree_members(root))))
         self.assertEqual(artifact["expandedSize"], sum(path.stat().st_size for path in release.tree_members(root)))
@@ -83,7 +84,7 @@ class ZsetupReleaseBuildTest(unittest.TestCase):
                          [root / "skills/kai-software/SKILL.md"])
 
     def test_system_members_are_exactly_the_lock_members(self):
-        for identity in ("istoreos", "ubuntu"):
+        for identity in ("istoreos", "ubuntu", "windows"):
             artifact = next(item for item in self.manifest["artifacts"]
                             if item["kind"] == "system" and item["id"] == identity)
             root = release.extract_for_test(self.first, artifact)
