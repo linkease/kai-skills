@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 2,
+  "status": "accepted",
+  "application": "kai-skills",
+  "minimumZsetupVersion": "0.6.0",
+  "platforms": [
+    "linux",
+    "openwrt"
+  ],
+  "systems": [
+    "istoreos",
+    "ubuntu"
+  ],
+  "runtimeSystemSelectors": {
+    "istoreos": "openwrt",
+    "ubuntu": "ubuntu"
+  },
+  "sources": {
+    "primary": [
+      "https://dl.istoreos.com/binary/kai/kai-skills",
+      "https://fw.d4ctech.com/binary/kai/kai-skills",
+      "https://fw20.koolcenter.com/binary/kai/kai-skills"
+    ],
+    "fallback": "https://fw.koolcenter.com/binary/kai/kai-skills",
+    "fallbackPublishRoot": "/mnt/sata3-1/istore-data/public_html/binary/kai/kai-skills"
+  },
+  "selectors": {
+    "skill": "--skill",
+    "system": "--system",
+    "mode": "--mode",
+    "defaultSystemMode": "on-device",
+    "consumer": "--consumer",
+    "scope": "--scope",
+    "dryRun": "--dry-run",
+    "upgrade": "--upgrade",
+    "uninstall": "--uninstall"
+  },
+  "consumers": {
+    "codex": {
+      "user": "~/.agents/skills",
+      "project": ".agents/skills"
+    },
+    "claude": {
+      "user": "~/.claude/skills",
+      "project": ".claude/skills"
+    },
+    "opencode": {
+      "user": "~/.config/opencode/skills",
+      "project": ".opencode/skills"
+    }
+  },
+  "releaseLayout": {
+    "channelEntry": "setup.sh",
+    "channelAliases": [
+      "install.sh"
+    ],
+    "installer": "releases/{release}/kai-skills-install.sh",
+    "manifest": "releases/{release}/release-manifest.json",
+    "skill": "releases/{release}/skills/{id}.{archiveExtension}",
+    "system": "releases/{release}/systems/{id}.{archiveExtension}",
+    "entrypoint": "entrypoints/install-{id}.sh",
+    "immutableReleases": true
+  },
+  "runtimeDependencies": {
+    "required": [
+      "zsetup",
+      "/bin/sh",
+      "jq",
+      "basic-file-tools"
+    ],
+    "forbidden": [
+      "git",
+      "github",
+      "gh",
+      "node",
+      "npm",
+      "npx",
+      "ks-cli",
+      "kspeeder",
+      "curl",
+      "wget",
+      "tar",
+      "gzip",
+      "sha256sum",
+      "shasum"
+    ],
+    "zsetupOwned": [
+      "https-download",
+      "size-verification",
+      "sha256-verification",
+      "safe-archive-extraction"
+    ]
+  },
+  "bootstrapDependencies": {
+    "required": [
+      "/bin/sh",
+      "curl-or-wget"
+    ],
+    "optionalIntegrity": [
+      "sha256sum",
+      "openssl"
+    ],
+    "defaultPersistentRoot": "${XDG_DATA_HOME:-$HOME/.local/share}/zsetup",
+    "modifiesShellProfile": false
+  },
+  "trustChain": [
+    "product-config-pins-business-installer",
+    "business-installer-pins-release-manifest",
+    "release-manifest-pins-selected-package",
+    "zsetup-verifies-before-extract",
+    "managed-installer-commits-after-plan-and-conflict-check"
+  ],
+  "publication": {
+    "order": [
+      "build-immutable-release",
+      "stage-fallback-origin",
+      "synchronize-primary-sites",
+      "https-readback-all-sites",
+      "single-skill-canary",
+      "system-canary",
+      "activate-product-config"
+    ],
+    "rollback": "restore-product-config-and-mutable-entrypoints; retain-immutable-release"
+  }
+}

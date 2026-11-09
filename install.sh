@@ -27,6 +27,10 @@ dry_run="0"
 usage() {
   cat >&2 <<'EOF'
 Usage:
+  sh install.sh --skill SKILL --consumer codex|claude|opencode \
+    --scope user|project [--target-skills DIR] [--dry-run]
+  sh install.sh --platform istoreos|ubuntu --all --mode on-device \
+    --consumer codex|claude|opencode --scope user|project
   sh install.sh --list [--json]
   sh install.sh --describe PRESET_ID
   sh install.sh --platform PLATFORM --mode on-device|remote-control \

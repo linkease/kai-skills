@@ -1,6 +1,6 @@
 {
   "id": "istoreos-docker-data-root-migrate",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "path": "skills/istoreos-docker-data-root-migrate",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
   "description": "安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。",

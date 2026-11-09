@@ -1,6 +1,6 @@
 {
   "id": "kai-network-quality",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "path": "skills/kai-network-quality",
   "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
   "description": "使用 FastNet 测量和诊断 Linux/iStoreOS 的公网、目标下载路径、IPv4/IPv6、NAT 与设备间 LAN 质量，并为软件安装或下载失败提供结构化证据；不修改网络配置。",

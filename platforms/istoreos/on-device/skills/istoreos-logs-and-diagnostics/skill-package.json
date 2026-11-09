@@ -1,6 +1,6 @@
 {
   "id": "istoreos-logs-and-diagnostics",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "path": "skills/istoreos-logs-and-diagnostics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
   "description": "iStoreOS 故障诊断最小信息集与分流（opkg/is-opkg、init.d、df/mount、docker/dockerd、istoreenhance、DNS/网络）；用于失败时先采证据再结论。",

@@ -1,14 +1,16 @@
 #!/bin/sh
-# The installation path needs only the existing shell, full jq and SHA256 tools.
+# Managed online packages need only the existing shell, jq, and zsetup.  The
+# validation filters deliberately avoid jq's optional Oniguruma regex support
+# because OpenWrt ships a smaller jq build without it.
 set -eu
 root="${LINKEASE_BUSINESS_ROOT:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)}"
 umask 077
-skill= bundle= platform= usage_mode= consumer=generic target= architecture=
+skill= bundle= platform= usage_mode= consumer=generic scope=user target= architecture=
 all=0 dry=0 action=install install_mode=copy json=0 own_transport=0 update_shared=0
 fail() { echo "failed: $*" >&2; exit 2; }
 need_value() { [ "$#" -ge 2 ] && [ -n "$2" ] || fail "missing value for $1"; }
 safe_id() { case "$1" in ''|*[!a-z0-9-]*) fail "invalid identity $1" ;; esac; }
-for tool in jq find sort; do command -v "$tool" >/dev/null 2>&1 || fail "prepare $tool before managed skill installation"; done
+command -v jq >/dev/null 2>&1 || fail 'prepare jq before managed skill installation'
 case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) jq() { command jq -b "$@"; } ;; esac
 while [ "$#" -gt 0 ]; do
   case "$1" in
@@ -18,6 +20,7 @@ while [ "$#" -gt 0 ]; do
     --mode) need_value "$@"; usage_mode="$2"; shift ;;
     --architecture) need_value "$@"; architecture="$2"; shift ;;
     --consumer) need_value "$@"; consumer="$2"; shift ;;
+    --scope) need_value "$@"; scope="$2"; shift ;;
     --target-skills|--target) need_value "$@"; target="$2"; shift ;;
     --all) all=1 ;;
     --dry-run) dry=1 ;;
@@ -56,11 +59,14 @@ case "$platform" in ''|ubuntu|debian|istoreos|macos|windows) ;; *) fail 'unsuppo
 case "$usage_mode" in ''|on-device|remote-control) ;; *) fail 'unsupported execution mode' ;; esac
 [ "$all" = 0 ] || { [ -n "$platform" ] && [ -n "$usage_mode" ]; } || fail 'platform --all requires platform and mode'
 [ "$usage_mode" != remote-control ] || [ -n "$platform" ] || fail 'remote-control requires target platform'
-case "$consumer" in codex|opencode|generic) ;; *) fail 'unsupported consumer' ;; esac
+case "$consumer" in codex|claude|opencode|generic) ;; *) fail 'unsupported consumer' ;; esac
+case "$scope" in user|project) ;; *) fail 'unsupported installation scope' ;; esac
 if [ -z "$target" ]; then
+  if [ "$scope" = project ]; then project_root="${KAI_SKILLS_PROJECT_ROOT:-$(pwd -P)}"; fi
   case "$consumer" in
-    codex) if [ -n "${CODEX_HOME:-}" ]; then target="$CODEX_HOME/skills"; elif [ -d /config/.codex ]; then target=/config/.codex/skills; else target="$HOME/.codex/skills"; fi ;;
-    opencode) target="${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills" ;;
+    codex) if [ "$scope" = project ]; then target="$project_root/.agents/skills"; elif [ -n "${CODEX_HOME:-}" ]; then target="$CODEX_HOME/skills"; else target="$HOME/.agents/skills"; fi ;;
+    claude) if [ "$scope" = project ]; then target="$project_root/.claude/skills"; else target="$HOME/.claude/skills"; fi ;;
+    opencode) if [ "$scope" = project ]; then target="$project_root/.opencode/skills"; else target="${XDG_CONFIG_HOME:-$HOME/.config}/opencode/skills"; fi ;;
     generic) fail 'specify --target-skills DIR for a generic consumer' ;;
   esac
 fi
@@ -95,9 +101,31 @@ elif [ "$own_transport" = 1 ] && [ "$all" = 1 ]; then
   incoming="$(printf '%s' "$incoming" | jq -c 'map(select(.kind!="transport"))')"
 fi
 if [ "$all" = 0 ] && { [ -n "$platform" ] || [ -n "$usage_mode" ]; }; then selection="$selection@$platform:$usage_mode"; fi
-printf '%s' "$incoming" | jq -e 'length>0 and ([.[].id]|unique|length)==length and
-  all(.[]; (.id|test("^[a-z0-9][a-z0-9-]{0,63}$")) and .path==("skills/"+.id) and
-  (.version|test("^[0-9]+\\.[0-9]+\\.[0-9]+([-+][0-9A-Za-z.-]+)?$")) and (.treeDigest|test("^sha256:[a-f0-9]{64}$")))' >/dev/null || fail 'unsafe package record'
+printf '%s' "$incoming" | jq -e '
+  def skill_id:
+    type=="string" and length>0 and length<=64 and
+    (explode as $c |
+      (($c[0]>=48 and $c[0]<=57) or ($c[0]>=97 and $c[0]<=122)) and
+      all($c[]; (.>=48 and .<=57) or (.>=97 and .<=122) or .==45));
+  def digest:
+    type=="string" and length==71 and startswith("sha256:") and
+    (.[7:] | explode | all(.[]; (.>=48 and .<=57) or (.>=97 and .<=102)));
+  def digits: type=="string" and length>0 and (explode | all(.[]; .>=48 and .<=57));
+  def semver:
+    if type!="string" then false else
+      . as $v |
+      ($v|split("+")) as $plus |
+      ($v|split("+")[0]|split("-")[0]|split(".")) as $core |
+      ($core|join(".")) as $base |
+      ($v|explode|all(.[];
+        (.>=48 and .<=57) or (.>=65 and .<=90) or (.>=97 and .<=122) or .==43 or .==45 or .==46)) and
+      ($plus|length)<=2 and all($plus[]; length>0) and
+      ($core|length)==3 and all($core[]; digits) and
+      ($v==$base or ((($v|startswith($base+"-")) or ($v|startswith($base+"+"))) and ($v|length)>($base|length)+1))
+    end;
+  length>0 and ([.[].id]|unique|length)==length and
+  all(.[]; (.id|skill_id) and .path==("skills/"+.id) and
+  (.version|semver) and (.treeDigest|digest))' >/dev/null || fail 'unsafe package record'
 requested="$incoming"
 hash_file() {
   if command -v sha256sum >/dev/null 2>&1; then sha256sum "$1" | cut -d ' ' -f1
@@ -106,6 +134,14 @@ hash_file() {
 }
 hash_tree() (
   directory="$1"
+  if [ -n "${ZSETUP_BIN:-}" ]; then
+    [ -x "$ZSETUP_BIN" ] || fail 'configured zsetup is not executable'
+    "$ZSETUP_BIN" checksum-tree "$directory"
+    exit $?
+  fi
+  # Source-tree/developer fallback. Generated online packages always set
+  # ZSETUP_BIN and therefore do not require these host utilities.
+  for tool in find sort; do command -v "$tool" >/dev/null 2>&1 || fail "prepare $tool for source-tree installation"; done
   [ -d "$directory" ] || exit 1
   [ -z "$(find -H "$directory" -type l -print)" ] || exit 1
   cd -- "$directory"
@@ -116,18 +152,52 @@ hash_tree() (
   else digest="$(printf '%s\n' "$records" | shasum -a 256)"; fi
   printf 'sha256:%s\n' "${digest%% *}"
 )
+release_id="${KAI_SKILLS_RELEASE:-$(jq -r '.version // empty' "$catalog")}"
+case "$release_id" in ''|*[!0-9A-Za-z._+-]*) fail 'invalid release identity' ;; esac
 state_file="$target/.linkease-skills/business-state.json"
 empty='{"schemaVersion":2,"packages":{},"selections":{}}'
 load_state() {
   [ ! -L "$target/.linkease-skills" ] && [ ! -L "$state_file" ] || fail 'ownership state is aliased'
   if [ -f "$state_file" ]; then state="$(jq -ce . "$state_file")" || fail 'invalid ownership state'
   else state="$empty"; fi
-  printf '%s' "$state" | jq -e '.schemaVersion==2 and (.packages|type)=="object" and (.selections|type)=="object" and
-    all(.packages|to_entries[]; (.key|test("^[a-z0-9][a-z0-9-]{0,63}$")) and (.value.treeDigest|test("^sha256:[a-f0-9]{64}$")) and
-      (.value.version|test("^[0-9]+\\.[0-9]+\\.[0-9]+([-+][0-9A-Za-z.-]+)?$")) and
+  printf '%s' "$state" | jq -e '
+    def skill_id:
+      type=="string" and length>0 and length<=64 and
+      (explode as $c |
+        (($c[0]>=48 and $c[0]<=57) or ($c[0]>=97 and $c[0]<=122)) and
+        all($c[]; (.>=48 and .<=57) or (.>=97 and .<=122) or .==45));
+    def digest:
+      type=="string" and length==71 and startswith("sha256:") and
+      (.[7:] | explode | all(.[]; (.>=48 and .<=57) or (.>=97 and .<=102)));
+    def digits: type=="string" and length>0 and (explode | all(.[]; .>=48 and .<=57));
+    def semver:
+      if type!="string" then false else
+        . as $v | ($v|split("+")) as $plus |
+        ($v|split("+")[0]|split("-")[0]|split(".")) as $core |
+        ($core|join(".")) as $base |
+        ($v|explode|all(.[];
+          (.>=48 and .<=57) or (.>=65 and .<=90) or (.>=97 and .<=122) or .==43 or .==45 or .==46)) and
+        ($plus|length)<=2 and all($plus[]; length>0) and
+        ($core|length)==3 and all($core[]; digits) and
+        ($v==$base or ((($v|startswith($base+"-")) or ($v|startswith($base+"+"))) and ($v|length)>($base|length)+1))
+      end;
+    def selection_key:
+      type=="string" and length>0 and
+      (explode|all(.[]; (.>=48 and .<=57) or (.>=97 and .<=122) or .==45 or .==58 or .==64));
+    def release_id:
+      type=="string" and length>0 and
+      (explode|all(.[];
+        (.>=48 and .<=57) or (.>=65 and .<=90) or (.>=97 and .<=122) or .==43 or .==45 or .==46 or .==95));
+    .schemaVersion==2 and (.packages|type)=="object" and (.selections|type)=="object" and
+    all(.packages|to_entries[]; (.key|skill_id) and (.value.treeDigest|digest) and
+      (.value.version|semver) and
       (.value.installMode=="copy" or .value.installMode=="symlink") and (.value.sourcePath|type)=="string") and
     (.packages as $packages | .selections as $selections |
-      all($selections|to_entries[]; (.key|test("^[a-z0-9:@-]+$")) and (.value.members|type)=="array" and (.value.members|length)>0 and
+      all($selections|to_entries[]; (.key|selection_key) and
+        ((.value.consumer // "generic")|IN("codex","claude","opencode","generic")) and
+        ((.value.scope // "user")|IN("user","project")) and
+        ((.value.release // "legacy")|release_id) and
+        (.value.members|type)=="array" and (.value.members|length)>0 and
         all(.value.members[]; . as $m | $packages[$m.id]!=null and $packages[$m.id].version==$m.version and $packages[$m.id].treeDigest==$m.treeDigest)) and
       all($packages|keys[]; . as $id | any($selections[].members[];.id==$id)))' >/dev/null || fail 'invalid ownership records or selection relationships'
 }
@@ -145,8 +215,17 @@ import_legacy_state() {
     legacy_mode="$(printf '%s' "$legacy_preset" | jq -r .mode)"
     legacy_key="system:$legacy_platform:$legacy_mode"
     printf '%s' "$state" | jq -e --arg key "$legacy_key" '.selections|has($key)|not' >/dev/null || fail 'legacy and modern ownership disagree for the same system selection'
-    jq -e --arg id "$legacy_id" '.schemaVersion==1 and .presetId==$id and (.skills|type)=="array" and
-      all((.skills+(.resources//[]))[]; (.name|test("^[a-z0-9][a-z0-9-]{0,63}$")) and (.treeDigest|test("^sha256:[a-f0-9]{64}$")))' "$legacy_file" >/dev/null || fail 'invalid legacy ownership record'
+    jq -e --arg id "$legacy_id" '
+      def skill_id:
+        type=="string" and length>0 and length<=64 and
+        (explode as $c |
+          (($c[0]>=48 and $c[0]<=57) or ($c[0]>=97 and $c[0]<=122)) and
+          all($c[]; (.>=48 and .<=57) or (.>=97 and .<=122) or .==45));
+      def digest:
+        type=="string" and length==71 and startswith("sha256:") and
+        (.[7:] | explode | all(.[]; (.>=48 and .<=57) or (.>=97 and .<=102)));
+      .schemaVersion==1 and .presetId==$id and (.skills|type)=="array" and
+      all((.skills+(.resources//[]))[]; (.name|skill_id) and (.treeDigest|digest))' "$legacy_file" >/dev/null || fail 'invalid legacy ownership record'
     legacy_members='[]'
     # Validate all old bytes before replacing even one package or ownership file.
     legacy_rows="$(jq -r '(.skills+(.resources//[]))[]|[.name,.treeDigest]|@tsv' "$legacy_file")"
@@ -166,7 +245,7 @@ import_legacy_state() {
     done <<EOF
 $legacy_rows
 EOF
-    state="$(printf '%s' "$state" | jq -c --arg key "$legacy_key" --arg p "$legacy_platform" --arg m "$legacy_mode" --argjson members "$legacy_members" '.selections[$key]={platform:$p,mode:$m,members:$members}')"
+    state="$(printf '%s' "$state" | jq -c --arg key "$legacy_key" --arg p "$legacy_platform" --arg m "$legacy_mode" --arg c "$consumer" --arg s "$scope" --arg r "$release_id" --argjson members "$legacy_members" '.selections[$key]={platform:$p,mode:$m,consumer:$c,scope:$s,release:$r,members:$members}')"
     legacy_virtual_keys="$(printf '%s' "$legacy_virtual_keys" | jq -c --arg key "$legacy_key" '.+[$key]')"
     if [ "$action" = uninstall ]; then
       if [ "$legacy_key" = "$selection" ]; then
@@ -232,9 +311,9 @@ state="$(printf '%s' "$state" | jq -c --argjson migrated "$legacy_desired" 'redu
 if [ "$action" = uninstall ]; then
   next="$(printf '%s' "$state" | jq -c --arg key "$selection" 'del(.selections[$key])')"
 else
-  next="$(printf '%s' "$state" | jq -c --arg key "$selection" --arg p "$platform" --arg m "$usage_mode" --arg mode "$install_mode" --arg root "$root" --argjson members "$incoming" --argjson requested "$requested" --argjson shared "$update_shared" '
+  next="$(printf '%s' "$state" | jq -c --arg key "$selection" --arg p "$platform" --arg m "$usage_mode" --arg c "$consumer" --arg s "$scope" --arg r "$release_id" --arg mode "$install_mode" --arg root "$root" --argjson members "$incoming" --argjson requested "$requested" --argjson shared "$update_shared" '
     if $shared==1 then .selections |= with_entries(.value.members |= map(. as $old | ($members|map(select(.id==$old.id))|.[0]) // $old)) else . end |
-    .selections[$key]={platform:$p,mode:$m,members:($requested|map({id,version,treeDigest}))} |
+    .selections[$key]={platform:$p,mode:$m,consumer:$c,scope:$s,release:$r,members:($requested|map({id,version,treeDigest}))} |
     reduce $members[] as $p (. ; if .packages[$p.id].treeDigest==$p.treeDigest and .packages[$p.id].version==$p.version then . else
       .packages[$p.id]={version:$p.version,treeDigest:$p.treeDigest,installMode:$mode,sourcePath:($root+"/skills/"+$p.id)} end)')"
 fi
@@ -250,7 +329,7 @@ if [ "$action" = uninstall ]; then
     .selections |= with_entries(select(.key as $key|$old|index($key)|not)) |
     ([.selections[].members[].id]|unique) as $ids | .packages |= with_entries(select(.key as $id|$ids|index($id)))')"
 fi
-plan="$(printf '%s' "$plan_packages" | jq -c --arg key "$selection" --arg action "$action" --arg target "$target" --argjson removed "$removed" --argjson migrated "$legacy_manifests" '{schemaVersion:1,selection:$key,action:$action,destination:$target,packages:map({id,version,treeDigest}),removed:$removed,migratedPresets:$migrated,programOperations:[],serviceOperations:false}')"
+plan="$(printf '%s' "$plan_packages" | jq -c --arg key "$selection" --arg action "$action" --arg target "$target" --arg c "$consumer" --arg s "$scope" --arg r "$release_id" --argjson removed "$removed" --argjson migrated "$legacy_manifests" '{schemaVersion:1,selection:$key,action:$action,destination:$target,consumer:$c,scope:$s,release:$r,packages:map({id,version,treeDigest}),removed:$removed,migratedPresets:$migrated,programOperations:[],serviceOperations:false}')"
 }
 build_plan
 if [ "$dry" = 1 ]; then

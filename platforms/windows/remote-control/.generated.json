@@ -22,8 +22,8 @@
     "windows": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:db3adb37082de00053dde0dafb85ca6fde677bad7690b0eeea1a4b0f8616b919",
-  "treeDigest": "sha256:d79fd650bd2ce6a85ab98f820939a9e4132435763d91c7585251c2ca7d28d7aa",
+  "sourceDigest": "sha256:3a683d6d93be838917982aec24ac9fa52eb00437838ff9fe98176a83a88d7bf1",
+  "treeDigest": "sha256:f0b5dfadf033bf9eb6004240942ad71667bae2265c86dbd8d5a9b1b48dcfdc40",
   "resources": [],
   "skillAliases": {}
 }

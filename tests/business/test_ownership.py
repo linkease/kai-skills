@@ -21,9 +21,9 @@ class OwnershipTests(unittest.TestCase):
         self.work = Path(self.temporary.name)
         self.target = self.work / 'skills'
 
-    def call(self, *args, root=ROOT, **env):
-        return subprocess.run(['sh', str(root / 'install.sh'), *args, '--consumer', 'generic',
-            '--target-skills', str(self.target)], env={**os.environ, **env},
+    def call(self, *args, root=ROOT, consumer='generic', scope='user', **env):
+        return subprocess.run(['sh', str(root / 'install.sh'), *args, '--consumer', consumer,
+            '--scope', scope, '--target-skills', str(self.target)], env={**os.environ, **env},
             text=True, capture_output=True, timeout=60)
 
     def ok(self, result):
@@ -55,6 +55,28 @@ class OwnershipTests(unittest.TestCase):
         self.ok(self.call('--skill', 'kai-software'))
         self.assertEqual(before, self.state())
         self.ok(self.call('--skill', 'kai-software', '--uninstall'))
+
+    def test_selection_records_consumer_scope_and_release(self):
+        self.ok(self.call('--skill', 'kai-software', consumer='claude', scope='project',
+                          KAI_SKILLS_RELEASE='9.8.7-test'))
+        selection = self.state()['selections']['skill:kai-software']
+        self.assertEqual(selection['consumer'], 'claude')
+        self.assertEqual(selection['scope'], 'project')
+        self.assertEqual(selection['release'], '9.8.7-test')
+
+    def test_zsetup_checksum_tree_removes_external_hash_dependencies(self):
+        native = os.environ.get('TEST_NATIVE_ZSETUP')
+        if not native:
+            self.skipTest('TEST_NATIVE_ZSETUP is required for native checksum integration')
+        blocked = self.work / 'blocked-tools'
+        blocked.mkdir()
+        for name in ('sha256sum', 'shasum', 'find', 'sort'):
+            tool = blocked / name
+            tool.write_text('#!/bin/sh\nexit 99\n')
+            tool.chmod(0o755)
+        self.ok(self.call('--skill', 'kai-software', ZSETUP_BIN=native,
+                          PATH=str(blocked) + os.pathsep + os.environ['PATH']))
+        self.assertTrue((self.target / 'kai-software/SKILL.md').is_file())
         self.ok(self.call('--skill', 'kai-software', '--uninstall'))
 
     def test_user_modified_and_foreign_skill_remain_untouched_even_with_force(self):

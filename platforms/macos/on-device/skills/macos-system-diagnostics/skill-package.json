@@ -1,6 +1,6 @@
 {
   "id": "macos-system-diagnostics",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "path": "skills/macos-system-diagnostics",
   "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
   "description": "Collect a bounded read-only macOS health summary covering version, architecture, uptime, root disk, memory pressure, and launchd job totals; use for general Mac errors, slowness, or first-pass diagnosis.",
