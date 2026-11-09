@@ -29,6 +29,7 @@ class ZsetupReleaseBuildTest(unittest.TestCase):
             "business-catalog.json",
             "catalog.json",
             "install.sh",
+            "install.ps1",
             "tools/install-business.sh",
             "tools/release/business_release.py",
             "tools/release/zsetup_release.py",
@@ -52,7 +53,7 @@ class ZsetupReleaseBuildTest(unittest.TestCase):
     def test_build_has_one_artifact_per_skill_and_three_locked_systems(self):
         catalog = json.loads((self.source / "business-catalog.json").read_text())
         artifacts = self.manifest["artifacts"]
-        self.assertEqual(len(artifacts), len(catalog["skills"]) + 2)
+        self.assertEqual(len(artifacts), len(catalog["skills"]) + 3)
         self.assertEqual(
             {(item["kind"], item["id"]) for item in artifacts if item["kind"] == "system"},
             {("system", "istoreos"), ("system", "ubuntu"), ("system", "windows")},

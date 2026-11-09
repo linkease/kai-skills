@@ -1,6 +1,6 @@
 {
   "id": "kai-software",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "path": "skills/kai-software",
   "canonicalPath": "components/system-packs/common/skills/kai-software",
   "description": "按目标系统搜索、查询和安装软件，保留原包管理器与来源。",

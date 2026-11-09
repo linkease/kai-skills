@@ -31,7 +31,7 @@ SCHEMA_VERSION = 3
 ARCHIVE_FORMAT = "tar.gz"
 DISTRIBUTION = "kai-skills-zsetup"
 MINIMUM_ZSETUP_VERSION = "0.6.0"
-SYSTEMS = {"istoreos", "ubuntu"}
+SYSTEMS = {"istoreos", "ubuntu", "windows"}
 
 
 def require(condition, reason):
@@ -139,7 +139,7 @@ def verify_manifest(directory, manifest):
         require(len(set(member_ids)) == len(member_ids), "duplicate system member")
         require(system_artifacts.get(identity) == member_ids, "system members differ from artifact")
     require(seen_systems == SYSTEMS and set(system_artifacts) == SYSTEMS,
-            "release must contain iStoreOS and Ubuntu systems")
+            "release must contain iStoreOS, Ubuntu and Windows systems")
     return manifest
 
 
@@ -175,7 +175,7 @@ def _copy_file(root, stage, relative):
 
 
 def _stage_distribution(root, stage, catalog, selected, source, lock=None):
-    for relative in ("install.sh", "tools/install-business.sh"):
+    for relative in ("install.sh", "install.ps1", "tools/install-business.sh"):
         _copy_file(root, stage, relative)
     for package in selected:
         source_path = root / safe_relative(package["path"])
@@ -229,6 +229,7 @@ def build(root, output):
     source_paths = [
         "business-catalog.json",
         "install.sh",
+        "install.ps1",
         "tools/install-business.sh",
         "tools/release/zsetup_release.py",
         "docs/architecture/kai-skills-zsetup-contract.json",
@@ -322,6 +323,7 @@ def verify_release(directory):
                     sum(path.stat().st_size for path in files) == artifact["expandedSize"],
                     "archive expansion bounds mismatch")
             require((root / "install.sh").is_file() and
+                    (root / "install.ps1").is_file() and
                     (root / "tools/install-business.sh").is_file(), "managed installer missing")
             catalog = read(root / "business-catalog.json")
             require([item["id"] for item in catalog["skills"]] == artifact["members"],

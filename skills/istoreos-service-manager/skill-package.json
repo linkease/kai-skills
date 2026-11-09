@@ -1,6 +1,6 @@
 {
   "id": "istoreos-service-manager",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "path": "skills/istoreos-service-manager",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
   "description": "检查和管理 iStoreOS init.d 服务及对应 UCI 启用状态；用于服务未运行、开机未启动、端口未监听或安装后未生效，不负责 LuCI 核心恢复。",

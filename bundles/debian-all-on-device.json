@@ -1,54 +1,54 @@
 {
   "schemaVersion": 1,
   "id": "system:debian:on-device",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "platform": "debian",
   "mode": "on-device",
   "members": [
     {
       "id": "debian-system-diagnostics",
-      "version": "1.2.4",
-      "treeDigest": "sha256:daa287de1bc22346e03305b020bb30c50ede02e1405cf08aebc48b0f2b741698"
+      "version": "1.2.5",
+      "treeDigest": "sha256:2473a93ec0618847169a9a6e397decb034425594179442ab78802ac8b72b14ab"
     },
     {
       "id": "kai-dev-environment",
-      "version": "1.2.4",
-      "treeDigest": "sha256:bfa717bb9bfbb9d278ab9819a83085ef51e57ec0a0aeada26f884bb7a62063ee"
+      "version": "1.2.5",
+      "treeDigest": "sha256:3d18fdded2e026952dd5653576fff3bf61f854780b17caa865fb922a4611fbb6"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.2.4",
-      "treeDigest": "sha256:7a825a95b9d1bc75daf63d13ffe3d048914a5a1774ad48ff39d14b59cc7b4be0"
+      "version": "1.2.5",
+      "treeDigest": "sha256:3de0723896c9dd3fada8db1377668c9cd020a079dca02df6c9ec7c061ca243e9"
     },
     {
       "id": "kai-network-quality",
-      "version": "1.2.4",
-      "treeDigest": "sha256:5d4891fdd2fd7a213e89f4d271c95872057545bf4527c78ee4e199db80cdf314"
+      "version": "1.2.5",
+      "treeDigest": "sha256:55bf509e1123e9f56493610a90553aa8b5bfe975877aaf7643b516863c6f6fe2"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.2.4",
-      "treeDigest": "sha256:4847aff2e92fb30de83276a3b01033492586664800b76e24a3551eb190f3e92a"
+      "version": "1.2.5",
+      "treeDigest": "sha256:8d34468a9517651135c00f66121e1b749b162348263fb50388f6fda5ec9d6fce"
     },
     {
       "id": "kai-project-run",
-      "version": "1.2.4",
-      "treeDigest": "sha256:5abe983d2b322bcf91338c3f0ed3939e93a832655bd6fa292cc7ffccdfeb6d3b"
+      "version": "1.2.5",
+      "treeDigest": "sha256:5a4e2a3d5c4438bf178290ecaf9607d374828f258dace418d30aa33528603a29"
     },
     {
       "id": "kai-software",
-      "version": "1.2.4",
-      "treeDigest": "sha256:d9973104fd768343ae0067324a38523c430af85b921c64a109f9d783b07333a5"
+      "version": "1.2.5",
+      "treeDigest": "sha256:2479676928149085c246c887058d5522e09e245618c8960e42cbde0a18ca01d3"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.2.4",
-      "treeDigest": "sha256:78fd779f58d16f16bf9c59b03eaa24831d30d1d389cd9d8364c4303cf3e2749b"
+      "version": "1.2.5",
+      "treeDigest": "sha256:f86cbcffab37ca46391c05218d2ce29dde3d34575d3fdaeb7cc64915373233a1"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.2.4",
-      "treeDigest": "sha256:db5719a491dffd13c6fbf901a838f3d9539363dbecbdfc3020da466c164b40ac"
+      "version": "1.2.5",
+      "treeDigest": "sha256:df5a16453b7199324f541ed8a76cd463528d71cd50670f545c71580da47ce8a3"
     }
   ]
 }

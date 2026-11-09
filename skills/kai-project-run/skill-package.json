@@ -1,6 +1,6 @@
 {
   "id": "kai-project-run",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "path": "skills/kai-project-run",
   "canonicalPath": "components/system-packs/common/skills/kai-project-run",
   "description": "Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.",
