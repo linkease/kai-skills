@@ -12,10 +12,11 @@ another published, locked mode. Product Configuration selects and verifies the
 Business Installer. The Business Installer owns skill selection, lifecycle,
 conflict handling, upgrade and removal.
 
-The first supported targets are Linux and OpenWrt. The public consumers are
-Codex, Claude and OpenCode at explicit user or project scope. Native Windows and
-macOS entrypoints remain a later compatibility release and cannot be inferred
-from Linux acceptance.
+The first supported targets are Linux and OpenWrt. The normal channel defaults
+to Codex-compatible Agent Skills at user scope, so the user does not choose a
+consumer or scope. Claude, OpenCode, project scope and custom destinations
+remain explicit advanced options. Native Windows and macOS entrypoints remain
+a later compatibility release and cannot be inferred from Linux acceptance.
 
 The public system id `istoreos` deliberately maps to the zsetup runtime selector
 `os=openwrt`, because iStoreOS exposes the OpenWrt operating-system identity to
@@ -58,28 +59,43 @@ and mutable entrypoints; it does not delete immutable releases.
 
 ## Entry and selection
 
-The public current-channel entry is stable and contains no Kai release version:
+The public current-channel entry is stable and contains no Kai release version.
+The normal single-skill command contains only the skill id:
 
 ```sh
 curl -fsSL https://fw.koolcenter.com/binary/kai/kai-skills/setup.sh | \
-  sh -s -- --skill kai-software --consumer codex --scope user
+  sh -s -- kai-software
 ```
 
-The same entry installs a complete locked system collection:
+The same entry auto-detects Ubuntu or iStoreOS/OpenWrt and installs its complete
+locked system collection:
 
 ```sh
 curl -fsSL https://fw.koolcenter.com/binary/kai/kai-skills/setup.sh | \
-  sh -s -- --system istoreos --consumer codex --scope user
+  sh -s -- all
 ```
 
-`ubuntu` is the other supported system id. The mutable channel entry bootstraps
-the current stable zsetup when necessary and delegates selection to Product
-Configuration. `install.sh` is a compatibility alias with identical bytes;
-the documented canonical URL is `setup.sh`, which was introduced after the
-old release-bound `install.sh` cache. The launcher never embeds or exports a
-Kai release identity. Product
+Both commands default to the Codex-compatible Agent Skills location
+`~/.agents/skills`. `--help` and a missing selection return before bootstrap.
+The mutable channel entry bootstraps the current stable zsetup when necessary
+and delegates selection to Product Configuration. `install.sh` is a
+compatibility alias with identical bytes; the documented canonical URL is
+`setup.sh`, which was introduced after the old release-bound `install.sh`
+cache. The launcher never embeds or exports a Kai release identity. Product
 Configuration selects the exact immutable Business Installer, which in turn
 pins the exact release manifest and selected package.
+
+When auto-detection is unavailable, the existing full form is the recovery
+interface:
+
+```sh
+curl -fsSL https://fw.koolcenter.com/binary/kai/kai-skills/setup.sh | \
+  sh -s -- --system ubuntu --consumer codex --scope user
+```
+
+The same full interface supports `--consumer claude|opencode`, project scope
+and `--target-skills`. These are advanced overrides, not required setup
+questions.
 
 For a machine that already has zsetup, the equivalent direct entry is:
 

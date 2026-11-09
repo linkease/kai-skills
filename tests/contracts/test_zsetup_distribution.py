@@ -27,12 +27,29 @@ class ZsetupDistributionContractTest(unittest.TestCase):
         )
 
     def test_one_application_dispatches_all_installable_units(self):
+        self.assertEqual(self.contract["schemaVersion"], 3)
         self.assertEqual(self.contract["application"], "kai-skills")
         self.assertEqual(self.contract["minimumZsetupVersion"], "0.6.0")
         self.assertEqual(self.contract["selectors"]["skill"], "--skill")
         self.assertEqual(self.contract["selectors"]["system"], "--system")
         self.assertEqual(self.contract["selectors"]["defaultSystemMode"], "on-device")
         self.assertEqual(set(self.contract["systems"]), {"istoreos", "ubuntu"})
+
+    def test_public_channel_hides_consumer_and_scope_by_default(self):
+        channel = self.contract["channelInterface"]
+        self.assertEqual(channel["singleSkill"], "SKILL_ID")
+        self.assertEqual(channel["currentSystem"], "all")
+        self.assertEqual(channel["defaultConsumer"], "codex")
+        self.assertEqual(channel["defaultScope"], "user")
+        self.assertEqual(channel["defaultDestination"], "~/.agents/skills")
+        self.assertEqual(channel["autoDetectedSystems"], {
+            "ubuntu": "ubuntu",
+            "istoreos": "istoreos",
+            "openwrt": "istoreos",
+            "lede": "istoreos",
+        })
+        self.assertTrue(channel["helpBeforeBootstrap"])
+        self.assertTrue(channel["advancedSelectorsRetained"])
 
     def test_consumer_scope_destinations_are_explicit(self):
         consumers = self.contract["consumers"]

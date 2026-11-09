@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 2,
+  "schemaVersion": 3,
   "status": "accepted",
   "application": "kai-skills",
   "minimumZsetupVersion": "0.6.0",
@@ -34,6 +34,21 @@
     "dryRun": "--dry-run",
     "upgrade": "--upgrade",
     "uninstall": "--uninstall"
+  },
+  "channelInterface": {
+    "singleSkill": "SKILL_ID",
+    "currentSystem": "all",
+    "autoDetectedSystems": {
+      "ubuntu": "ubuntu",
+      "istoreos": "istoreos",
+      "openwrt": "istoreos",
+      "lede": "istoreos"
+    },
+    "defaultConsumer": "codex",
+    "defaultScope": "user",
+    "defaultDestination": "~/.agents/skills",
+    "helpBeforeBootstrap": true,
+    "advancedSelectorsRetained": true
   },
   "consumers": {
     "codex": {
