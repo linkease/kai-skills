@@ -1,6 +1,6 @@
 {
   "id": "luci-http-controller",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "path": "skills/luci-http-controller",
   "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
   "description": "Send bounded authenticated HTTP requests to a bound LuCI target without embedding device-specific endpoints, credentials, or operating-system repair policy.",

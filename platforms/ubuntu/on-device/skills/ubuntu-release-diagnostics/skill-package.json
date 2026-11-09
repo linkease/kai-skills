@@ -1,6 +1,6 @@
 {
   "id": "ubuntu-release-diagnostics",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "path": "skills/ubuntu-release-diagnostics",
   "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
   "description": "Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.",

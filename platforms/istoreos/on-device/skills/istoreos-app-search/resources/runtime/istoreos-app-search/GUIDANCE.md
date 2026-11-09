@@ -1,6 +1,6 @@
 ---
 name: istoreos-app-search
-description: 从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 istoreos-package-manager。
+description: 从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 kai-software。
 owner: system-pack/istoreos
 systems: istoreos
 invocation: manual

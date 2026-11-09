@@ -27,6 +27,8 @@ class ModelTests(unittest.TestCase):
         for name in ('istoreos-download-acceleration', 'istoreos-mise-runtime',
                      'istoreos-network-quality', 'istoreos-package-manager', 'istoreos-storage-path'):
             self.assertNotIn(name, self.distribution.packages)
+            for package in self.distribution.packages.values():
+                self.assertNotIn(name, package['description'])
             with self.assertRaises(ValueError):
                 self.distribution.select(skill=name)
         self.assertIn('istoreos-download-acceleration',
