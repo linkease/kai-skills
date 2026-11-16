@@ -17,6 +17,12 @@ from package import build_package
 ROOT=Path(os.environ.get('LINKEASE_SKILLS_ROOT',Path(__file__).resolve().parents[1])).resolve()
 
 
+def git_source():
+    commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()
+    dirty=subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],cwd=ROOT,text=True)
+    return commit,'worktree' if dirty else 'committed'
+
+
 def read(path):
     return json.loads(path.read_text())
 
@@ -191,10 +197,11 @@ def layer(component,output):
         resource=item.name in resource_ids(declaration)
         copy(item,output/'skills'/item.name,resource=resource)
         (resources if resource else active).append(item.name)
+    commit,state=git_source()
     write(output/'composition-source.json',{
         'schemaVersion':1,'id':component,'activeSkills':active,'compatibilityResources':resources,
-        'sourceCommit':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),
-        'sourceState':'worktree','sourceDigest':digest([source,ROOT/'components/composition.json',ROOT/'tools/compose.py'],ROOT)})
+        'sourceCommit':commit,'sourceState':state,
+        'sourceDigest':digest([source,ROOT/'components/composition.json',ROOT/'tools/compose.py'],ROOT)})
     print('ok: canonical layer '+component+'; shared skills are inherited, not duplicated')
 
 

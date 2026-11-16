@@ -12,6 +12,10 @@ from generate import generate
 from model import Distribution
 from package import tree_digest
 
+compose_spec = importlib.util.spec_from_file_location('compose', ROOT / 'tools/compose.py')
+compose = importlib.util.module_from_spec(compose_spec)
+compose_spec.loader.exec_module(compose)
+
 
 class GenerationTests(unittest.TestCase):
     def setUp(self):
@@ -54,6 +58,25 @@ class GenerationTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             generate(self.work / 'foreign')
         self.assertEqual((directory / 'keep').read_text(), 'user')
+
+    def test_composition_provenance_reports_the_actual_git_state(self):
+        repository = self.work / 'source'
+        repository.mkdir()
+        subprocess.run(['git', 'init', '-q', str(repository)], check=True)
+        subprocess.run(['git', '-C', str(repository), 'config', 'user.email', 'test@example.invalid'], check=True)
+        subprocess.run(['git', '-C', str(repository), 'config', 'user.name', 'Test'], check=True)
+        (repository / 'tracked').write_text('one')
+        subprocess.run(['git', '-C', str(repository), 'add', 'tracked'], check=True)
+        subprocess.run(['git', '-C', str(repository), 'commit', '-qm', 'fixture'], check=True)
+        original = compose.ROOT
+        self.addCleanup(setattr, compose, 'ROOT', original)
+        compose.ROOT = repository
+        commit, state = compose.git_source()
+        self.assertEqual(state, 'committed')
+        self.assertEqual(commit, subprocess.check_output(
+            ['git', '-C', str(repository), 'rev-parse', 'HEAD'], text=True).strip())
+        (repository / 'untracked').write_text('two')
+        self.assertEqual(compose.git_source()[1], 'worktree')
 
 
 if __name__ == '__main__':

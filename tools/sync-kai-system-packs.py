@@ -17,6 +17,8 @@ parser.add_argument('--apply',action='store_true');args=parser.parse_args()
 consumer=args.reasonix.resolve();registry_file=consumer/'internal/systempack/builtin/registry.json'
 registry=json.loads(registry_file.read_text())
 commit=subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+dirty=subprocess.check_output(['git','status','--porcelain','--untracked-files=all'],cwd=root,text=True)
+source_state='worktree' if dirty else 'committed'
 remote=subprocess.check_output(['git','remote','get-url','origin'],cwd=root,text=True).strip()
 if remote.startswith('git@'):
  host,path=remote[4:].split(':',1);remote='https://'+host+'/'+path
@@ -44,12 +46,12 @@ with tempfile.TemporaryDirectory(prefix='kai-canonical-layers-',dir=os.environ.g
     record.update(version=metadata['version'],layer=metadata['layer'],extends=metadata.get('extends',[]),
         match=metadata.get('match',{}),requires=metadata.get('requires',[]),assetsRoot=relative,
         source={'repository':repository,'commit':commit,'treeDigest':digest})
-    expected[component]={'destination':relative,'sourceCommit':commit,'sourceState':'worktree',
+    expected[component]={'destination':relative,'sourceCommit':commit,'sourceState':source_state,
         'sourceDigest':json.loads((source/'composition-source.json').read_text())['sourceDigest'],'treeDigest':digest}
     staged[component]=(source,consumer/relative)
  # Generic has no independent files; its inherited source is the actual common layer.
  next(item for item in registry if item['id']=='generic')['source']=next(item['source'] for item in registry if item['id']=='common').copy()
- lock={'schemaVersion':1,'repository':repository,'sourceCommit':commit,'sourceState':'worktree',
+ lock={'schemaVersion':1,'repository':repository,'sourceCommit':commit,'sourceState':source_state,
        'sourceLayout':'canonical-layers; no third-party Transports','components':expected}
  lock_path=consumer/'kaiplus-defaults/kai-skills-source.lock.json'
  if args.apply:
