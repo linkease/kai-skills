@@ -39,21 +39,27 @@ class DeploymentTests(unittest.TestCase):
         installer = cls.work / "installer.sh"
         entries = cls.work / "entries"
         channel = cls.work / "channel-install.sh"
+        windows_installer = cls.work / "installer.ps1"
+        windows_channel = cls.work / "setup.ps1"
         subprocess.run([
             sys.executable, "-B", str(SCRIPTS / "kai-skills/build.py"),
             "--release", str(release), "--output", str(installer),
             "--freeze-manifest", str(cls.freeze / "freeze-manifest.json"),
             "--allow-fixture-freeze", "--entrypoints-dir", str(entries),
+            "--windows-output", str(windows_installer),
         ], check=True)
         subprocess.run([
             sys.executable, "-B", str(SCRIPTS / "kai-skills/build.py"),
             "--channel-only", "--channel-entrypoint", str(channel),
+            "--windows-channel-entrypoint", str(windows_channel),
         ], check=True)
         cls.publication = cls.work / "publication"
         subprocess.run([
             sys.executable, "-B", str(ROOT / "tools/release/zsetup_publication.py"), "build",
             "--release", str(release), "--installer", str(installer),
+            "--windows-installer", str(windows_installer),
             "--entrypoints", str(entries), "--channel-entrypoint", str(channel),
+            "--windows-channel-entrypoint", str(windows_channel),
             "--freeze-manifest", str(cls.freeze / "freeze-manifest.json"),
             "--allow-fixture-freeze", "--output", str(cls.publication),
         ], check=True)
@@ -113,6 +119,7 @@ class DeploymentTests(unittest.TestCase):
         destinations = [item["destination"] for item in self.manifest["files"]]
         self.assertFalse(any(item.startswith("zsetup/") for item in destinations))
         self.assertIn("kai-skills/setup.sh", destinations)
+        self.assertIn("kai-skills/setup.ps1", destinations)
         self.assertIn("defaults/snapshot-v2/index.json", destinations)
         self.assertEqual(self.manifest["activationOrder"][-2:], [
             "kai-skills/stable", "defaults/snapshot-v2/index.json",

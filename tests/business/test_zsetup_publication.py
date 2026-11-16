@@ -25,21 +25,27 @@ class PublicationTests(unittest.TestCase):
             installer = work / 'installer.sh'
             entries = work / 'entries'
             channel = work / 'channel-install.sh'
+            windows_installer = work / 'installer.ps1'
+            windows_channel = work / 'setup.ps1'
             subprocess.run([sys.executable, '-B', str(SCRIPTS / 'kai-skills/build.py'),
                             '--release', str(release), '--output', str(installer),
                             '--freeze-manifest', str(freeze_manifest), '--allow-fixture-freeze',
                             '--entrypoints-dir', str(entries),
+                            '--windows-output', str(windows_installer),
                             ], check=True)
             subprocess.run([sys.executable, '-B', str(SCRIPTS / 'kai-skills/build.py'),
-                            '--channel-only', '--channel-entrypoint', str(channel)], check=True)
+                            '--channel-only', '--channel-entrypoint', str(channel),
+                            '--windows-channel-entrypoint', str(windows_channel)], check=True)
             outputs = []
             for index in range(2):
                 output = work / f'public-{index}'
                 subprocess.run([sys.executable, '-B',
                                 str(ROOT / 'tools/release/zsetup_publication.py'), 'build',
                                 '--release', str(release), '--installer', str(installer),
+                                '--windows-installer', str(windows_installer),
                                 '--entrypoints', str(entries),
                                 '--channel-entrypoint', str(channel),
+                                '--windows-channel-entrypoint', str(windows_channel),
                                 '--freeze-manifest', str(freeze_manifest), '--allow-fixture-freeze',
                                 '--output', str(output)], check=True)
                 subprocess.run([sys.executable, '-B',
@@ -57,6 +63,10 @@ class PublicationTests(unittest.TestCase):
             self.assertIn('bootstrap_zsetup', public_entry)
             self.assertEqual((outputs[0] / 'setup.sh').read_bytes(),
                              (outputs[0] / 'install.sh').read_bytes())
+            self.assertEqual((outputs[0] / 'setup.ps1').read_bytes(), windows_channel.read_bytes())
+            publication = json.loads((outputs[0] / 'publication-manifest.json').read_text())
+            self.assertEqual(publication['windowsChannelEntry']['path'], 'setup.ps1')
+            self.assertTrue((outputs[0] / publication['windowsInstaller']['path']).is_file())
 
 
 if __name__ == '__main__':

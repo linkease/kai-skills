@@ -40,12 +40,15 @@ def copy_file(source, destination):
     destination.chmod(0o755 if source.suffix == ".sh" else 0o644)
 
 
-def build(release, installer, entrypoints, channel_entrypoint, freeze_manifest, output,
+def build(release, installer, windows_installer, entrypoints, channel_entrypoint,
+          windows_channel_entrypoint, freeze_manifest, output,
           allow_fixture_freeze=False):
     release = release.resolve()
     installer = installer.resolve()
+    windows_installer = windows_installer.resolve()
     entrypoints = entrypoints.resolve()
     channel_entrypoint = channel_entrypoint.resolve()
+    windows_channel_entrypoint = windows_channel_entrypoint.resolve()
     output = output.absolute()
     require(not output.exists() and not output.is_symlink(), "publication output must be new")
     manifest = zsetup_release.verify_release(release)
@@ -59,9 +62,13 @@ def build(release, installer, entrypoints, channel_entrypoint, freeze_manifest, 
     require(re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?", version),
             "invalid release version")
     require(installer.is_file() and not installer.is_symlink(), "installer is unavailable")
+    require(windows_installer.is_file() and not windows_installer.is_symlink(),
+            "Windows installer is unavailable")
     require((entrypoints / "install.sh").is_file(), "generic entrypoint is unavailable")
     require(channel_entrypoint.is_file() and not channel_entrypoint.is_symlink(),
             "channel entrypoint is unavailable")
+    require(windows_channel_entrypoint.is_file() and not windows_channel_entrypoint.is_symlink(),
+            "Windows channel entrypoint is unavailable")
     expected_entries = {"install.sh"}
     expected_entries.update(f"skills/{item['id']}.sh" for item in manifest["artifacts"]
                             if item["kind"] == "skill")
@@ -76,10 +83,12 @@ def build(release, installer, entrypoints, channel_entrypoint, freeze_manifest, 
         for source in files(release):
             copy_file(source, stage / "releases" / version / source.relative_to(release))
         copy_file(installer, stage / "installers" / version / "kai-skills-install.sh")
+        copy_file(windows_installer, stage / "installers" / version / "kai-skills-install.ps1")
         for source in files(entrypoints):
             copy_file(source, stage / "entrypoints" / version / source.relative_to(entrypoints))
         copy_file(channel_entrypoint, stage / "setup.sh")
         copy_file(channel_entrypoint, stage / "install.sh")
+        copy_file(windows_channel_entrypoint, stage / "setup.ps1")
         copy_file(freeze_manifest.resolve(), stage / "release-freeze.json")
         (stage / "stable").write_text(version + "\n", encoding="utf-8")
         publication = {
@@ -95,12 +104,24 @@ def build(release, installer, entrypoints, channel_entrypoint, freeze_manifest, 
                 "size": installer.stat().st_size,
                 "sha256": "sha256:" + sha(installer),
             },
+            "windowsInstaller": {
+                "path": f"installers/{version}/kai-skills-install.ps1",
+                "size": windows_installer.stat().st_size,
+                "sha256": "sha256:" + sha(windows_installer),
+            },
             "channelEntry": {
                 "path": "setup.sh",
                 "aliases": ["install.sh"],
                 "role": "version-free-current-channel",
                 "size": channel_entrypoint.stat().st_size,
                 "sha256": "sha256:" + sha(channel_entrypoint),
+            },
+            "windowsChannelEntry": {
+                "path": "setup.ps1",
+                "aliases": [],
+                "role": "version-free-current-channel",
+                "size": windows_channel_entrypoint.stat().st_size,
+                "sha256": "sha256:" + sha(windows_channel_entrypoint),
             },
             "entrypoints": sorted(expected_entries),
         }
@@ -141,6 +162,10 @@ def verify(directory):
     require(installer.stat().st_size == publication["installer"]["size"] and
             "sha256:" + sha(installer) == publication["installer"]["sha256"],
             "installer pin mismatch")
+    windows_installer = directory / publication["windowsInstaller"]["path"]
+    require(windows_installer.stat().st_size == publication["windowsInstaller"]["size"] and
+            "sha256:" + sha(windows_installer) == publication["windowsInstaller"]["sha256"],
+            "Windows installer pin mismatch")
     channel = directory / publication["channelEntry"]["path"]
     require(publication["channelEntry"]["role"] == "version-free-current-channel" and
             channel.stat().st_size == publication["channelEntry"]["size"] and
@@ -151,6 +176,14 @@ def verify(directory):
             "public channel alias mismatch")
     require(b"KAI_SKILLS_REQUESTED_RELEASE=" not in channel.read_bytes(),
             "public channel entrypoint must not pin a release")
+    windows_channel = directory / publication["windowsChannelEntry"]["path"]
+    require(publication["windowsChannelEntry"]["role"] == "version-free-current-channel" and
+            publication["windowsChannelEntry"]["aliases"] == [] and
+            windows_channel.stat().st_size == publication["windowsChannelEntry"]["size"] and
+            "sha256:" + sha(windows_channel) == publication["windowsChannelEntry"]["sha256"],
+            "public Windows channel entrypoint mismatch")
+    require(b"KAI_SKILLS_REQUESTED_RELEASE" not in windows_channel.read_bytes(),
+            "public Windows channel entrypoint must not pin a release")
     expected = "".join(
         f"{sha(path)}  {path.relative_to(directory).as_posix()}\n"
         for path in files(directory)
@@ -167,8 +200,10 @@ def main():
     builder = commands.add_parser("build")
     builder.add_argument("--release", required=True, type=Path)
     builder.add_argument("--installer", required=True, type=Path)
+    builder.add_argument("--windows-installer", required=True, type=Path)
     builder.add_argument("--entrypoints", required=True, type=Path)
     builder.add_argument("--channel-entrypoint", required=True, type=Path)
+    builder.add_argument("--windows-channel-entrypoint", required=True, type=Path)
     builder.add_argument("--freeze-manifest", required=True, type=Path)
     builder.add_argument("--allow-fixture-freeze", action="store_true")
     builder.add_argument("--output", required=True, type=Path)
@@ -176,8 +211,9 @@ def main():
     checker.add_argument("directory", type=Path)
     args = parser.parse_args()
     try:
-        result = (build(args.release, args.installer, args.entrypoints,
-                        args.channel_entrypoint, args.freeze_manifest, args.output,
+        result = (build(args.release, args.installer, args.windows_installer, args.entrypoints,
+                        args.channel_entrypoint, args.windows_channel_entrypoint,
+                        args.freeze_manifest, args.output,
                         args.allow_fixture_freeze)
                   if args.command == "build" else verify(args.directory))
         print(json.dumps({"status": "passed", "version": result["version"]}))
