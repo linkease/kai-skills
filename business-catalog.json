@@ -1236,6 +1236,7 @@
     }
   },
   "legacyCatalog": "catalog.json",
+  "capabilityCatalog": "capability-catalog.json",
   "defaultPolicy": {
     "installAll": false
   }

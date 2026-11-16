@@ -33,6 +33,7 @@ def generate(output):
         catalog = distribution.catalog()
         catalog['skills'] = [metadata[name] for name in sorted(metadata)]
         write_json(stage / 'business-catalog.json', catalog)
+        write_json(stage / 'capability-catalog.json', distribution.capability_catalog())
         for name in distribution.bundles:
             selection = distribution.select(bundle=name)
             write_json(stage / 'bundles' / (name + '.json'), lock(distribution, selection, metadata))
@@ -53,6 +54,7 @@ def generate(output):
                 raise ValueError('bundle target is aliased')
             shutil.copy2(source, bundles / source.name)
         shutil.copy2(stage / 'business-catalog.json', output / 'business-catalog.json')
+        shutil.copy2(stage / 'capability-catalog.json', output / 'capability-catalog.json')
     print('ok: generated ' + str(len(metadata)) + ' independent skills and 12 collection locks')
 
 

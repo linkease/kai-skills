@@ -7,4 +7,5 @@ sh "$root/tools/generate-business.sh" "$temporary" >/dev/null
 diff -ru "$root/skills" "$temporary/skills" >/dev/null || { echo 'failed: independent skill packages are stale' >&2; exit 1; }
 diff -ru "$root/bundles" "$temporary/bundles" >/dev/null || { echo 'failed: collection locks are stale' >&2; exit 1; }
 cmp "$root/business-catalog.json" "$temporary/business-catalog.json" >/dev/null || { echo 'failed: business catalog is stale' >&2; exit 1; }
+cmp "$root/capability-catalog.json" "$temporary/capability-catalog.json" >/dev/null || { echo 'failed: capability catalog is stale' >&2; exit 1; }
 echo 'ok: independent packages and collection locks match canonical sources'

@@ -8,21 +8,26 @@ import unittest
 
 
 ROOT = Path(__file__).resolve().parents[2]
-SCRIPTS = ROOT.parents[1] / 'zsetup-scripts'
+SCRIPTS = ROOT.parent / 'zsetup-scripts'
 
 
 class PublicationTests(unittest.TestCase):
     def test_publication_is_complete_verified_and_repeatable(self):
         with tempfile.TemporaryDirectory(prefix='kai publication 中文 ') as name:
             work = Path(name)
-            release = work / 'release'
-            subprocess.run([sys.executable, '-B', str(ROOT / 'tools/release/zsetup_release.py'),
-                            'build', str(release)], check=True)
+            freeze_root = work / 'freeze'
+            subprocess.run([sys.executable, '-B', str(ROOT / 'tools/release/freeze.py'),
+                            'build', '--reasonix-root', str(ROOT.parent / 'reasonix-kai'),
+                            '--output', str(freeze_root), '--version', '1.2.5-test',
+                            '--allow-dirty-fixture'], check=True)
+            release = freeze_root / 'zsetup'
+            freeze_manifest = freeze_root / 'freeze-manifest.json'
             installer = work / 'installer.sh'
             entries = work / 'entries'
             channel = work / 'channel-install.sh'
             subprocess.run([sys.executable, '-B', str(SCRIPTS / 'kai-skills/build.py'),
                             '--release', str(release), '--output', str(installer),
+                            '--freeze-manifest', str(freeze_manifest), '--allow-fixture-freeze',
                             '--entrypoints-dir', str(entries),
                             ], check=True)
             subprocess.run([sys.executable, '-B', str(SCRIPTS / 'kai-skills/build.py'),
@@ -35,6 +40,7 @@ class PublicationTests(unittest.TestCase):
                                 '--release', str(release), '--installer', str(installer),
                                 '--entrypoints', str(entries),
                                 '--channel-entrypoint', str(channel),
+                                '--freeze-manifest', str(freeze_manifest), '--allow-fixture-freeze',
                                 '--output', str(output)], check=True)
                 subprocess.run([sys.executable, '-B',
                                 str(ROOT / 'tools/release/zsetup_publication.py'),
@@ -45,7 +51,7 @@ class PublicationTests(unittest.TestCase):
                              ([], [], []))
             version = json.loads((release / 'release-manifest.json').read_text())['version']
             self.assertEqual(len(list((outputs[0] / f'entrypoints/{version}/skills').glob('*.sh'))), 32)
-            self.assertEqual(len(list((outputs[0] / f'entrypoints/{version}/systems').glob('*.sh'))), 2)
+            self.assertEqual(len(list((outputs[0] / f'entrypoints/{version}/systems').glob('*.sh'))), 3)
             public_entry = (outputs[0] / 'setup.sh').read_text()
             self.assertNotIn('KAI_SKILLS_REQUESTED_RELEASE=', public_entry)
             self.assertIn('bootstrap_zsetup', public_entry)

@@ -34,6 +34,48 @@ class ModelTests(unittest.TestCase):
         self.assertIn('istoreos-download-acceleration',
                       self.distribution.runtime_closure('istoreos-kspeeder-domainfold-fetch'))
 
+    def test_capability_catalog_covers_every_business_package_and_keeps_personal_dynamic(self):
+        catalog = self.distribution.capability_catalog()
+        self.assertEqual([group['id'] for group in catalog['groups']],
+                         ['software', 'istoreos', 'systems', 'personal'])
+        self.assertEqual(len(catalog['capabilities']), 24)
+        personal = next(group for group in catalog['groups'] if group['kind'] == 'personal')
+        self.assertEqual(personal['id'], 'personal')
+        self.assertNotIn('personal', {item['group'] for item in catalog['capabilities']})
+        covered = {module['id'] for item in catalog['capabilities'] for module in item['modules']}
+        expected = {name for name, package in self.distribution.packages.items()
+                    if package['kind'] == 'business'}
+        self.assertEqual(covered & expected, expected)
+        optional = [item for item in catalog['capabilities'] if item['ownership'] == 'optional']
+        self.assertEqual([item['id'] for item in optional], ['download-acceleration'])
+
+    def test_invalid_capability_projection_is_rejected(self):
+        for mutation, expected in (
+            ('dangling', 'invalid capability module'),
+            ('primary-resource', 'primary capability module is not a business package'),
+            ('personal-product', 'invalid group'),
+            ('uncovered', 'coverage mismatch'),
+        ):
+            with self.subTest(mutation=mutation), tempfile.TemporaryDirectory() as directory:
+                root = Path(directory)
+                shutil.copytree(ROOT / 'components', root / 'components')
+                shutil.copy2(ROOT / 'catalog.json', root / 'catalog.json')
+                path = root / 'components/capabilities.json'
+                import json
+                value = json.loads(path.read_text())
+                if mutation == 'dangling':
+                    value['capabilities'][0]['modules'][0]['id'] = 'missing-module'
+                elif mutation == 'primary-resource':
+                    value['capabilities'][0]['modules'][0]['id'] = 'istoreos-storage-path'
+                elif mutation == 'personal-product':
+                    value['capabilities'][0]['group'] = 'personal'
+                else:
+                    value['capabilities'] = [item for item in value['capabilities']
+                                             if item['id'] != 'windows-services']
+                path.write_text(json.dumps(value))
+                with self.assertRaisesRegex(ValueError, expected):
+                    model.Distribution(root)
+
     def test_shared_skill_alias_or_platform_prefix_cannot_be_reintroduced(self):
         for change in ('alias', 'prefix'):
             with self.subTest(change=change), tempfile.TemporaryDirectory() as directory:

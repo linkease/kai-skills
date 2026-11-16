@@ -27,6 +27,7 @@ class ZsetupReleaseBuildTest(unittest.TestCase):
             shutil.copytree(ROOT / name, cls.source / name)
         for name in (
             "business-catalog.json",
+            "capability-catalog.json",
             "catalog.json",
             "install.sh",
             "install.ps1",

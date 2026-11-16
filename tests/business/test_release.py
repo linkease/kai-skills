@@ -27,7 +27,7 @@ class ReleaseTests(unittest.TestCase):
         cls.source = cls.work / 'source'; cls.source.mkdir()
         for name in ('skills', 'bundles'):
             shutil.copytree(ROOT / name, cls.source / name)
-        for name in ('business-catalog.json', 'install.sh', 'install.ps1', 'tools/install-business.sh',
+        for name in ('business-catalog.json', 'capability-catalog.json', 'install.sh', 'install.ps1', 'tools/install-business.sh',
                      'tools/build-release.sh', 'tools/release/business_release.py',
                      'docs/verification/business-bm0-inventory.json'):
             target = cls.source / name; target.parent.mkdir(parents=True, exist_ok=True)

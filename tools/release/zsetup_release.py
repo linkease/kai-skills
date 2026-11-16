@@ -185,6 +185,7 @@ def _stage_distribution(root, stage, catalog, selected, source, lock=None):
     filtered["skills"] = selected
     filtered["bundles"] = {}
     write_json(stage / "business-catalog.json", filtered)
+    _copy_file(root, stage, "capability-catalog.json")
     if lock is not None:
         _copy_file(root, stage, lock["lockPath"])
     write_json(stage / "SOURCE.json", source)
@@ -228,6 +229,7 @@ def build(root, output):
     commit, state = _source_identity(root)
     source_paths = [
         "business-catalog.json",
+        "capability-catalog.json",
         "install.sh",
         "install.ps1",
         "tools/install-business.sh",

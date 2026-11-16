@@ -9,6 +9,7 @@ import shutil
 import tempfile
 
 import zsetup_release
+import freeze as release_freeze
 
 
 SOURCE_ROOTS = [
@@ -39,7 +40,8 @@ def copy_file(source, destination):
     destination.chmod(0o755 if source.suffix == ".sh" else 0o644)
 
 
-def build(release, installer, entrypoints, channel_entrypoint, output):
+def build(release, installer, entrypoints, channel_entrypoint, freeze_manifest, output,
+          allow_fixture_freeze=False):
     release = release.resolve()
     installer = installer.resolve()
     entrypoints = entrypoints.resolve()
@@ -47,6 +49,12 @@ def build(release, installer, entrypoints, channel_entrypoint, output):
     output = output.absolute()
     require(not output.exists() and not output.is_symlink(), "publication output must be new")
     manifest = zsetup_release.verify_release(release)
+    frozen = release_freeze.verify(freeze_manifest.resolve().parent)
+    require(release == (freeze_manifest.resolve().parent / "zsetup").resolve(),
+            "zsetup release must come from the reviewed freeze")
+    require(frozen["sourcePolicy"] == "clean-committed" or
+            (allow_fixture_freeze and frozen["sourcePolicy"] == "explicit-test-fixture"),
+            "publication requires a clean committed freeze")
     version = manifest["version"]
     require(re.fullmatch(r"[0-9]+\.[0-9]+\.[0-9]+(?:[-+][0-9A-Za-z.-]+)?", version),
             "invalid release version")
@@ -72,12 +80,14 @@ def build(release, installer, entrypoints, channel_entrypoint, output):
             copy_file(source, stage / "entrypoints" / version / source.relative_to(entrypoints))
         copy_file(channel_entrypoint, stage / "setup.sh")
         copy_file(channel_entrypoint, stage / "install.sh")
+        copy_file(freeze_manifest.resolve(), stage / "release-freeze.json")
         (stage / "stable").write_text(version + "\n", encoding="utf-8")
         publication = {
             "schemaVersion": 2,
             "distribution": "kai-skills-zsetup-publication",
             "version": version,
             "minimumZsetupVersion": manifest["minimumZsetupVersion"],
+            "freezeReleaseId": frozen["releaseId"],
             "sourceRoots": SOURCE_ROOTS,
             "releaseManifest": f"releases/{version}/release-manifest.json",
             "installer": {
@@ -117,9 +127,16 @@ def verify(directory):
             "invalid publication manifest")
     require(publication["sourceRoots"] == SOURCE_ROOTS, "source root order mismatch")
     version = publication["version"]
+    frozen = release_freeze.verify_identity(json.loads((directory / "release-freeze.json").read_text()))
+    require(publication.get("freezeReleaseId") == frozen["releaseId"], "publication freeze identity mismatch")
     require((directory / "stable").read_text() == version + "\n", "stable mismatch")
     release = directory / "releases" / version
     zsetup_release.verify_release(release)
+    manifest_path = release / "release-manifest.json"
+    record = frozen["files"].get("zsetup/release-manifest.json", {})
+    require(record.get("sha256") == "sha256:" + sha(manifest_path) and
+            record.get("size") == manifest_path.stat().st_size,
+            "publication release differs from freeze")
     installer = directory / publication["installer"]["path"]
     require(installer.stat().st_size == publication["installer"]["size"] and
             "sha256:" + sha(installer) == publication["installer"]["sha256"],
@@ -152,13 +169,16 @@ def main():
     builder.add_argument("--installer", required=True, type=Path)
     builder.add_argument("--entrypoints", required=True, type=Path)
     builder.add_argument("--channel-entrypoint", required=True, type=Path)
+    builder.add_argument("--freeze-manifest", required=True, type=Path)
+    builder.add_argument("--allow-fixture-freeze", action="store_true")
     builder.add_argument("--output", required=True, type=Path)
     checker = commands.add_parser("verify")
     checker.add_argument("directory", type=Path)
     args = parser.parse_args()
     try:
         result = (build(args.release, args.installer, args.entrypoints,
-                        args.channel_entrypoint, args.output)
+                        args.channel_entrypoint, args.freeze_manifest, args.output,
+                        args.allow_fixture_freeze)
                   if args.command == "build" else verify(args.directory))
         print(json.dumps({"status": "passed", "version": result["version"]}))
     except (OSError, ValueError, KeyError, TypeError, json.JSONDecodeError) as error:

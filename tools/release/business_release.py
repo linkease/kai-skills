@@ -121,7 +121,7 @@ def build(root, output):
         units.append({'id': Path(collection['lockPath']).stem, 'kind': collection['kind'],
                       'version': collection['version'], 'members': [m['id'] for m in collection['members']],
                       'platform': collection['platform'], 'mode': collection['mode']})
-    inputs = ['business-catalog.json', 'install.sh', 'install.ps1', 'tools/install-business.sh',
+    inputs = ['business-catalog.json', 'capability-catalog.json', 'install.sh', 'install.ps1', 'tools/install-business.sh',
               'tools/build-release.sh', 'tools/release/business_release.py',
               'skills/kai-tool-bootstrap/scripts/bootstrap-bash.ps1',
               'docs/verification/business-bm0-inventory.json']
@@ -152,6 +152,7 @@ def build(root, output):
                 filtered = dict(catalog, skills=selected,
                     bundles={unit['id']: catalog['bundles'][unit['id']]} if unit['kind'] == 'bundle' else {})
                 write_json(stage / 'business-catalog.json', filtered)
+                shutil.copyfile(root / 'capability-catalog.json', stage / 'capability-catalog.json')
                 collection = next(c for c in collections if Path(c['lockPath']).stem == unit['id'])
                 shutil.copyfile(root / collection['lockPath'], _parent(stage / collection['lockPath']))
                 write_json(stage / 'SOURCE.json', {'schemaVersion': 2, 'sourceCommit': commit,
@@ -175,6 +176,7 @@ def build(root, output):
             shutil.rmtree(stage)
         manifest = {'schemaVersion': 2, 'version': catalog['version'], 'sourceCommit': commit,
                     'sourceState': state, 'sourceFiles': source_files,
+                    'capabilityCatalogSHA256': source_files['capability-catalog.json'],
                     'packages': catalog['skills'], 'collections': collections, 'artifacts': records,
                     'requirements': requirements(root, packages), 'validationStatus': 'unverified',
                     'limitations': ['Native acceptance must match these package digests.',
@@ -263,6 +265,8 @@ def verify(directory):
                         'archive collection lock mismatch')
                 catalog = read(stage / 'business-catalog.json')
                 require(catalog['skills'] == [packages[n] for n in artifact['members']], 'offline catalog mismatch')
+                require(sha(stage / 'capability-catalog.json') == manifest['capabilityCatalogSHA256'],
+                        'offline capability catalog mismatch')
                 for name in ('install.sh', 'install.ps1', 'tools/install-business.sh'):
                     require(sha(stage / name) == manifest['sourceFiles'][name], 'installer source mismatch')
                 require(sha(stage / 'tools/bootstrap-bash.ps1') ==

@@ -41,8 +41,8 @@ def content_digest(files):
     return "sha256:" + digest.hexdigest()
 
 
-def build(reasonix, output, version):
-    reasonix, output = Path(reasonix).resolve(), Path(output).absolute()
+def build(reasonix, output, version, source_root=ROOT):
+    reasonix, output, source_root = Path(reasonix).resolve(), Path(output).absolute(), Path(source_root).resolve()
     if output.exists() or output.is_symlink():
         raise ValueError("output must be a fresh directory")
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._+-]{0,127}", version):
@@ -55,7 +55,7 @@ def build(reasonix, output, version):
         registry_path.parent.mkdir(parents=True)
         shutil.copy2(reasonix / "internal/systempack/builtin/registry.json", registry_path)
         shutil.copytree(reasonix / "kaiplus-defaults", consumer / "kaiplus-defaults")
-        subprocess.run([sys.executable, str(ROOT / "tools/sync-kai-system-packs.py"),
+        subprocess.run([sys.executable, str(source_root / "tools/sync-kai-system-packs.py"),
                         "--reasonix", str(consumer), "--apply"], check=True, stdout=subprocess.DEVNULL)
         stage = temporary / "snapshot"
         shutil.move(consumer / "kaiplus-defaults", stage)
@@ -63,7 +63,8 @@ def build(reasonix, output, version):
             (stage / name).unlink(missing_ok=True)
         registry = json.loads(registry_path.read_text())
         dump(stage / "registry.json", registry)
-        distribution = Distribution(ROOT)
+        distribution = Distribution(source_root)
+        dump(stage / "capability-catalog.json", distribution.capability_catalog())
         packages = []
         for name, metadata in sorted(distribution.packages.items()):
             if metadata["kind"] == "transport":
@@ -94,10 +95,12 @@ def build(reasonix, output, version):
             files[path.relative_to(stage).as_posix()] = {
                 "sha256": hashlib.sha256(path.read_bytes()).hexdigest(),
                 "size": path.stat().st_size, "mode": mode}
+        capability_file = files["capability-catalog.json"]
         manifest = {"schemaVersion": 2, "version": version, "minKaiVersion": (reasonix / "VERSION").read_text().strip(),
                     "contentDigest": content_digest(files),
-                    "sources": {"kai-skills": git_source(ROOT), "reasonix-kai": git_source(reasonix)},
-                    "files": files, "packages": packages, "collections": collections, "registry": registry}
+                    "sources": {"kai-skills": git_source(source_root), "reasonix-kai": git_source(reasonix)},
+                    "files": files, "packages": packages, "collections": collections, "registry": registry,
+                    "capabilityCatalog": {"path": "capability-catalog.json", "sha256": capability_file["sha256"]}}
         dump(stage / "snapshot.json", manifest)
         stage.rename(output)
     return manifest

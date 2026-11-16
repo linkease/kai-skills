@@ -1,0 +1,848 @@
+{
+  "schemaVersion": 1,
+  "groups": [
+    {
+      "id": "software",
+      "order": 10,
+      "kind": "product",
+      "title": {
+        "en": "Software and projects",
+        "zh-CN": "软件与项目"
+      },
+      "description": {
+        "en": "Install software, prepare development environments, run projects, and manage files.",
+        "zh-CN": "安装软件、准备开发环境、运行项目与管理文件。"
+      }
+    },
+    {
+      "id": "istoreos",
+      "order": 20,
+      "kind": "product",
+      "title": {
+        "en": "iStoreOS management",
+        "zh-CN": "iStoreOS 管理"
+      },
+      "description": {
+        "en": "Inspect devices, diagnose applications, adjust networks, and perform system tasks.",
+        "zh-CN": "设备体检、应用诊断、网络调整与系统任务。"
+      }
+    },
+    {
+      "id": "systems",
+      "order": 30,
+      "kind": "product",
+      "title": {
+        "en": "System diagnostics",
+        "zh-CN": "系统诊断"
+      },
+      "description": {
+        "en": "Diagnose common Linux, Debian, Ubuntu, macOS, and Windows problems.",
+        "zh-CN": "覆盖 Linux、Debian、Ubuntu、macOS 与 Windows 的常见问题。"
+      }
+    },
+    {
+      "id": "personal",
+      "order": 40,
+      "kind": "personal",
+      "title": {
+        "en": "My Skills",
+        "zh-CN": "我的 Skills"
+      },
+      "description": {
+        "en": "Skills created or imported by the user; product updates never overwrite them.",
+        "zh-CN": "你创建或导入的个人能力；产品更新不会覆盖。"
+      }
+    }
+  ],
+  "capabilities": [
+    {
+      "id": "software-install",
+      "group": "software",
+      "order": 10,
+      "title": {
+        "en": "Search, install, and update software",
+        "zh-CN": "软件搜索、安装与更新"
+      },
+      "description": {
+        "en": "Choose native package managers and trusted sources for the target, and explain effects before installation.",
+        "zh-CN": "按目标系统选择原生包管理器和可信来源，安装前说明影响。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Help me install the software I need. Explain its source, dependencies, and effects first.",
+        "zh-CN": "帮我安装需要的软件，先说明来源、依赖和影响。"
+      },
+      "modules": [
+        {
+          "id": "kai-software",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "dev-environment",
+      "group": "software",
+      "order": 20,
+      "title": {
+        "en": "Prepare a development environment",
+        "zh-CN": "准备开发环境"
+      },
+      "description": {
+        "en": "Install and verify Python, Node, Go SDKs, and common development CLIs.",
+        "zh-CN": "安装并验证 Python、Node、Go SDK 与常用开发 CLI。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect the development environment this project needs and propose a preparation plan.",
+        "zh-CN": "检查这个项目需要的开发环境，并给出准备计划。"
+      },
+      "modules": [
+        {
+          "id": "kai-dev-environment",
+          "role": "primary"
+        },
+        {
+          "id": "kai-tool-bootstrap",
+          "role": "helper"
+        }
+      ]
+    },
+    {
+      "id": "project-dependencies",
+      "group": "software",
+      "order": 30,
+      "title": {
+        "en": "Install project dependencies",
+        "zh-CN": "安装项目依赖"
+      },
+      "description": {
+        "en": "Use existing lockfiles and install npm, pip, uv, or Go dependencies in the intended environment.",
+        "zh-CN": "遵循项目已有锁文件，在隔离环境中安装 npm、pip、uv 或 Go 依赖。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect and install this project's dependencies while preserving its existing lockfiles.",
+        "zh-CN": "检查并安装这个项目的依赖，保留现有锁文件。"
+      },
+      "modules": [
+        {
+          "id": "kai-project-dependencies",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "project-run",
+      "group": "software",
+      "order": 40,
+      "title": {
+        "en": "Build and run a project",
+        "zh-CN": "构建与运行项目"
+      },
+      "description": {
+        "en": "Recognize Node, Python, or Go projects and run them with the selected SDK.",
+        "zh-CN": "识别已有 Node、Python 或 Go 项目，并使用所选 SDK 运行。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect and run the current project, explaining the commands first.",
+        "zh-CN": "检查并运行当前项目，先说明会执行哪些命令。"
+      },
+      "modules": [
+        {
+          "id": "kai-project-run",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "storage-files",
+      "group": "software",
+      "order": 50,
+      "title": {
+        "en": "Analyze files and storage",
+        "zh-CN": "分析文件与存储"
+      },
+      "description": {
+        "en": "Analyze space, large files, mounts, and persistence within bounded paths without deleting automatically.",
+        "zh-CN": "在限定路径中分析空间、大文件、挂载和持久性，不自动删除。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Analyze storage space and large files without deleting anything.",
+        "zh-CN": "分析存储空间和大文件，不要删除任何内容。"
+      },
+      "modules": [
+        {
+          "id": "kai-storage-files",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-storage-path",
+          "role": "compatibility"
+        }
+      ]
+    },
+    {
+      "id": "download-acceleration",
+      "group": "software",
+      "order": 60,
+      "title": {
+        "en": "Download quality and acceleration",
+        "zh-CN": "下载质量与加速"
+      },
+      "description": {
+        "en": "Inspect file, Git, Docker, and development download paths while preserving gateway and integrity evidence.",
+        "zh-CN": "检查文件、Git、Docker 和开发下载路径，并保留网关与校验证据。"
+      },
+      "ownership": "optional",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect why downloads are slow and explain safe acceleration options.",
+        "zh-CN": "检查下载慢的原因，并说明可用的安全加速方式。"
+      },
+      "modules": [
+        {
+          "id": "kai-download-acceleration",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-kspeeder-domainfold-fetch",
+          "role": "helper"
+        }
+      ]
+    },
+    {
+      "id": "device-diagnostics",
+      "group": "istoreos",
+      "order": 10,
+      "title": {
+        "en": "Device health and fault diagnostics",
+        "zh-CN": "设备健康与故障诊断"
+      },
+      "description": {
+        "en": "Start with minimal read-only evidence about the system, disks, processes, services, and recent errors.",
+        "zh-CN": "从最小只读证据开始检查系统、磁盘、进程、服务和最近错误。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect the iStoreOS runtime status without changing configuration.",
+        "zh-CN": "检查 iStoreOS 的运行状态，不要修改配置。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-logs-and-diagnostics",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-source-introspect",
+          "role": "evidence"
+        },
+        {
+          "id": "istoreos-system-task-router",
+          "role": "router"
+        }
+      ]
+    },
+    {
+      "id": "app-management",
+      "group": "istoreos",
+      "order": 20,
+      "title": {
+        "en": "Application search and installation diagnostics",
+        "zh-CN": "应用搜索与安装诊断"
+      },
+      "description": {
+        "en": "Search iStore applications and diagnose installation failures from task logs, packages, and plugin capabilities.",
+        "zh-CN": "搜索 iStore 应用，安装失败时结合任务日志、包状态和插件能力定位原因。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Find suitable iStore applications and explain candidates and installation effects first.",
+        "zh-CN": "帮我查找适合的 iStore 应用，并先给出候选和安装影响。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-app-search",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-app-diagnostics",
+          "role": "support"
+        },
+        {
+          "id": "kai-software",
+          "role": "support"
+        }
+      ]
+    },
+    {
+      "id": "service-management",
+      "group": "istoreos",
+      "order": 30,
+      "title": {
+        "en": "Services and startup management",
+        "zh-CN": "服务与开机启动管理"
+      },
+      "description": {
+        "en": "Inspect init.d services, UCI enablement, and listening ports before confirmed changes.",
+        "zh-CN": "检查 init.d 服务、UCI 启用状态和监听端口，变更前明确确认。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect why this service is not running and show a plan before changing it.",
+        "zh-CN": "检查这个服务为什么没有运行，修改前先告诉我计划。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-service-manager",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "luci-recovery",
+      "group": "istoreos",
+      "order": 40,
+      "title": {
+        "en": "LuCI management page recovery",
+        "zh-CN": "LuCI 管理页面恢复"
+      },
+      "description": {
+        "en": "Diagnose unreachable, 500, blank, or login-loop pages before restarting or reinstalling.",
+        "zh-CN": "处理打不开、500、空白或登录循环；先采证，重启或重装前确认。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Diagnose the LuCI management page problem with read-only checks first.",
+        "zh-CN": "诊断 LuCI 管理页面异常，先只读检查。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-luci-recovery",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "docker-management",
+      "group": "istoreos",
+      "order": 50,
+      "title": {
+        "en": "Docker inspection and management",
+        "zh-CN": "Docker 检查与管理"
+      },
+      "description": {
+        "en": "Inspect, install, start, stop, and diagnose Docker, dockerd, and containers.",
+        "zh-CN": "检查、安装、启停和排查 Docker、dockerd 与容器。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect Docker status and problems without deleting containers or data.",
+        "zh-CN": "检查 Docker 的状态和问题，先不要删除容器或数据。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-docker-basics",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-docker-acceleration-istoreenhance",
+          "role": "support"
+        }
+      ]
+    },
+    {
+      "id": "docker-migration",
+      "group": "istoreos",
+      "order": 60,
+      "title": {
+        "en": "Migrate the Docker data directory",
+        "zh-CN": "Docker 数据目录迁移"
+      },
+      "description": {
+        "en": "Plan data_root migration after checking capacity, service effects, and rollback paths.",
+        "zh-CN": "规划并迁移 data_root，执行前核对空间、服务影响和回滚路径。"
+      },
+      "ownership": "managed",
+      "risk": "high-risk",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Analyze a Docker data-directory migration plan without executing it.",
+        "zh-CN": "分析 Docker 数据目录迁移方案，先不要执行。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-docker-data-root-migrate",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-storage-path",
+          "role": "compatibility"
+        }
+      ]
+    },
+    {
+      "id": "backup-restore",
+      "group": "istoreos",
+      "order": 70,
+      "title": {
+        "en": "System backup, restore, and rollback",
+        "zh-CN": "系统备份、恢复与回滚"
+      },
+      "description": {
+        "en": "Back up configuration or overlay data and establish a recoverable point before dangerous operations.",
+        "zh-CN": "备份配置或 overlay，并在危险操作前建立可恢复点。"
+      },
+      "ownership": "managed",
+      "risk": "high-risk",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Plan an iStoreOS system backup after checking scope and storage.",
+        "zh-CN": "为 iStoreOS 规划一次系统备份，先核对范围和存储。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-backup-restore",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "network-quality",
+      "group": "istoreos",
+      "order": 80,
+      "title": {
+        "en": "Network quality diagnostics",
+        "zh-CN": "网络质量诊断"
+      },
+      "description": {
+        "en": "Measure Internet, download paths, IPv4/IPv6, NAT, and LAN quality without changing the network.",
+        "zh-CN": "测量公网、下载路径、IPv4/IPv6、NAT 和局域网质量，不修改网络。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect this device's network quality without changing configuration.",
+        "zh-CN": "检查这台设备的网络质量，不要修改配置。"
+      },
+      "modules": [
+        {
+          "id": "kai-network-quality",
+          "role": "primary"
+        },
+        {
+          "id": "istoreos-network-quality",
+          "role": "compatibility"
+        }
+      ]
+    },
+    {
+      "id": "system-tools",
+      "group": "istoreos",
+      "order": 90,
+      "title": {
+        "en": "System tools and post-upgrade repair",
+        "zh-CN": "系统工具与升级后修复"
+      },
+      "description": {
+        "en": "Handle IPv6 modes, disk sleep, app-store, and kernel-module issues.",
+        "zh-CN": "处理 IPv6 模式、硬盘休眠、应用商店及内核模块问题。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect how iStoreOS system tools can address this problem.",
+        "zh-CN": "检查 iStoreOS 系统工具可以如何处理这个问题。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-systools",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "run-package",
+      "group": "istoreos",
+      "order": 100,
+      "title": {
+        "en": "Run a .run installer",
+        "zh-CN": "运行 .run 安装包"
+      },
+      "description": {
+        "en": "Verify source, architecture, and space; recommend backup and require explicit approval.",
+        "zh-CN": "执行前验证来源、架构和空间，提示备份并要求明确确认。"
+      },
+      "ownership": "managed",
+      "risk": "high-risk",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Check whether this .run file suits the current device without executing it.",
+        "zh-CN": "检查这个 .run 文件是否适合当前设备，先不要执行。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-run-executable",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "quickstart",
+      "group": "istoreos",
+      "order": 110,
+      "title": {
+        "en": "QuickStart feature management",
+        "zh-CN": "QuickStart 功能管理"
+      },
+      "description": {
+        "en": "Read or adjust QuickStart features through the device control interface.",
+        "zh-CN": "通过设备控制接口读取或调整 QuickStart 功能。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "istoreos"
+        ],
+        "requirements": [
+          "target-controller:http"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect the QuickStart features on this target.",
+        "zh-CN": "检查 QuickStart 功能。"
+      },
+      "modules": [
+        {
+          "id": "istoreos-quickstart-api",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "linux-network",
+      "group": "systems",
+      "order": 10,
+      "title": {
+        "en": "Linux network quality diagnostics",
+        "zh-CN": "Linux 网络质量诊断"
+      },
+      "description": {
+        "en": "Inspect Internet, download paths, IPv4/IPv6, NAT, and LAN quality.",
+        "zh-CN": "检查公网、下载路径、IPv4/IPv6、NAT 与局域网质量。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect Linux network quality without changing configuration.",
+        "zh-CN": "检查 Linux 设备的网络质量，不要修改配置。"
+      },
+      "modules": [
+        {
+          "id": "kai-network-quality",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "debian-health",
+      "group": "systems",
+      "order": 20,
+      "title": {
+        "en": "Debian system diagnostics",
+        "zh-CN": "Debian 系统诊断"
+      },
+      "description": {
+        "en": "Inspect systemd, apt/dpkg, storage, processes, ports, and bounded service logs.",
+        "zh-CN": "检查 systemd、apt/dpkg、存储、进程、端口和限长服务日志。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "debian"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect the Debian system status.",
+        "zh-CN": "检查 Debian 系统状态。"
+      },
+      "modules": [
+        {
+          "id": "debian-system-diagnostics",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "ubuntu-release",
+      "group": "systems",
+      "order": 30,
+      "title": {
+        "en": "Ubuntu updates and system diagnostics",
+        "zh-CN": "Ubuntu 更新与系统诊断"
+      },
+      "description": {
+        "en": "Inspect sources, phased updates, Snap, Netplan, cloud-init, and service failures.",
+        "zh-CN": "检查软件源、分阶段更新、Snap、Netplan、cloud-init 和服务失败。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "ubuntu"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect Ubuntu updates and system status.",
+        "zh-CN": "检查 Ubuntu 更新和系统状态。"
+      },
+      "modules": [
+        {
+          "id": "ubuntu-release-diagnostics",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "macos-health",
+      "group": "systems",
+      "order": 40,
+      "title": {
+        "en": "macOS system health",
+        "zh-CN": "macOS 系统健康检查"
+      },
+      "description": {
+        "en": "Inspect version, architecture, uptime, disks, memory pressure, and launchd summaries.",
+        "zh-CN": "检查版本、架构、运行时间、磁盘、内存压力和 launchd 概况。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "macos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect this Mac's system health.",
+        "zh-CN": "检查 Mac 的系统健康状态。"
+      },
+      "modules": [
+        {
+          "id": "macos-system-diagnostics",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "macos-services",
+      "group": "systems",
+      "order": 50,
+      "title": {
+        "en": "macOS services and logs",
+        "zh-CN": "macOS 服务与日志"
+      },
+      "description": {
+        "en": "Inspect one launchd job and bounded unified logs before proposing an operation.",
+        "zh-CN": "检查一个 launchd 任务和限长统一日志，操作前给出计划。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "macos"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect this macOS service and its recent logs.",
+        "zh-CN": "检查这个 macOS 服务和最近日志。"
+      },
+      "modules": [
+        {
+          "id": "macos-launchd-logs",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "windows-health",
+      "group": "systems",
+      "order": 60,
+      "title": {
+        "en": "Windows system health",
+        "zh-CN": "Windows 系统健康检查"
+      },
+      "description": {
+        "en": "Inspect system facts, disks, service counts, and recent critical system events.",
+        "zh-CN": "检查系统、磁盘、服务总量和最近严重系统事件。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect Windows system health.",
+        "zh-CN": "检查 Windows 系统健康状态。"
+      },
+      "modules": [
+        {
+          "id": "windows-system-diagnostics",
+          "role": "primary"
+        }
+      ]
+    },
+    {
+      "id": "windows-services",
+      "group": "systems",
+      "order": 70,
+      "title": {
+        "en": "Windows services and events",
+        "zh-CN": "Windows 服务与事件"
+      },
+      "description": {
+        "en": "Diagnose one service and recent system events; start, stop, or restart only after approval.",
+        "zh-CN": "诊断一个服务及最近系统事件，明确批准后才启停或重启。"
+      },
+      "ownership": "managed",
+      "risk": "confirmation",
+      "targets": {
+        "platforms": [
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Inspect this Windows service and its recent system events.",
+        "zh-CN": "检查这个 Windows 服务和最近系统事件。"
+      },
+      "modules": [
+        {
+          "id": "windows-service-eventlog",
+          "role": "primary"
+        }
+      ]
+    }
+  ]
+}
