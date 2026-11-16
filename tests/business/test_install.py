@@ -104,11 +104,16 @@ class InstallationTests(unittest.TestCase):
             self.fail('Set KAI_DESKTOP_PWSH for the native entry contract')
         if not Path(powershell).is_file():
             self.fail('PowerShell executor required for the native entry contract')
+        zsetup = os.environ.get('TEST_NATIVE_ZSETUP')
+        if not zsetup or not Path(zsetup).is_file():
+            self.fail('Set TEST_NATIVE_ZSETUP for the native entry contract')
         result = subprocess.run([powershell, '-NoLogo', '-NoProfile', '-NonInteractive', '-File',
             str(ROOT / 'install.ps1'), '-Action', 'Plan', '-Skill', 'kai-software', '-TargetSkills', str(self.target)],
-            text=True, capture_output=True)
+            env={**os.environ, 'ZSETUP_BIN': zsetup}, text=True, capture_output=True)
         self.assert_ok(result)
-        self.assertEqual(json.loads(result.stdout)['packages'], ['kai-software'])
+        plan = json.loads(result.stdout)
+        self.assertEqual([package['id'] for package in plan['packages']], ['kai-software'])
+        self.assertRegex(plan['packages'][0]['treeDigest'], r'^sha256:[0-9a-f]{64}$')
         self.assertFalse(self.target.exists())
 
     def test_windows_symlink_is_rejected_before_destination_is_created(self):

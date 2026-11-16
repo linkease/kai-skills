@@ -63,19 +63,19 @@ business collection, system all, remote execution and managed upgrade/removal.
   selected target and use its existing authorized transport.
 
 On Windows before Bash exists, run `./install.ps1 -Action Plan -Bundle development
--TargetSkills DIR` through native PowerShell. The receipt locates the selected
-member's embedded bootstrap. Use its Plan, then the explicitly authorized
-`-Action EnsureBash` preparation when needed. A system selection instead uses
-`-Platform windows -All -Mode on-device`. With an existing trusted Git Bash,
-pass `-TrustedBash 'C:/Program Files/Git/bin/bash.exe'` and Plan continues to the
-shell dry-run. Windows managed installation supports copy and rejects symlink
-before any writes. This native entry does not install jq; prepare full jq with
-the bootstrap tool workflow before managed shell installation.
+-TargetSkills DIR` through native PowerShell, with `ZSETUP_BIN` pointing to a
+reviewed zsetup executable that supports `checksum-tree`. A system selection
+instead uses `-Platform windows -All -Mode on-device`. The plan verifies the
+exact package digests and writes nothing; use `-Action Install` only after
+review. The native entry also supports `Upgrade` and `Uninstall`, uses copy
+semantics, and rejects reparse points before writes. Preparing Git Bash remains
+a separate `kai-tool-bootstrap` workflow when the shell installer is desired.
 
 Review the dry-run, then remove `--dry-run`; native PowerShell uses `-Action Install`.
-Keep the same selection and destination for `--upgrade` and `--uninstall` through
-Bash. Shared members survive removal of another selection. Coordinated shared
-updates use `--upgrade --update-shared`. User modifications, foreign directories
+Keep the same selection and destination for native `Upgrade`/`Uninstall`, or for
+`--upgrade`/`--uninstall` through Bash. Shared members survive removal of another
+selection. Coordinated shared updates use `UpdateShared` in PowerShell or
+`--upgrade --update-shared` in Bash. User modifications, foreign directories
 and changed links stop the transaction and remain intact. Do not erase ownership
 records to bypass a conflict. Retain a symlink distribution at its original
 location on supported Unix systems; copying archives is the portable default.

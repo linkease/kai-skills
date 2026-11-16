@@ -47,8 +47,9 @@ class ReleaseTests(unittest.TestCase):
         release.unpack(self.first / artifact['path'], 'zip', destination, artifact['root'])
         return destination / artifact['root']
 
-    def command(self, *args):
-        result = subprocess.run(args, capture_output=True, text=True, timeout=60)
+    def command(self, *args, env=None):
+        result = subprocess.run(args, env={**os.environ, **(env or {})},
+                                capture_output=True, text=True, timeout=60)
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         return result
 
@@ -87,18 +88,26 @@ class ReleaseTests(unittest.TestCase):
                 self.command(*arguments, '--uninstall')
                 self.assertEqual(list(target.glob('*/SKILL.md')), [])
 
-    def test_native_powershell_first_plan_finds_embedded_bootstrap_for_both_business_collections(self):
+    def test_native_powershell_first_plan_resolves_both_business_collections_without_writes(self):
         powershell = os.environ.get('KAI_DESKTOP_PWSH') or shutil.which('pwsh')
         self.assertTrue(powershell, 'PowerShell is required; do not skip native entry contracts')
+        zsetup = os.environ.get('TEST_NATIVE_ZSETUP')
+        self.assertTrue(zsetup and Path(zsetup).is_file(),
+                        'Set TEST_NATIVE_ZSETUP for native package digest verification')
         for identity in ('development', 'software-management'):
             directory = self.extract('bundle', identity)
             target = directory.parent / 'untouched'
             result = self.command(powershell, '-NoLogo', '-NoProfile', '-NonInteractive', '-File',
                                   str(directory / 'install.ps1'), '-Bundle', identity, '-Action', 'Plan',
-                                  '-TargetSkills', str(target))
+                                  '-TargetSkills', str(target), env={'ZSETUP_BIN': zsetup})
             plan = json.loads(result.stdout)
-            self.assertTrue(Path(plan['bootstrap']).is_file())
-            self.assertIn('resources/runtime/kai-tool-bootstrap', plan['bootstrap'].replace('\\', '/'))
+            lock = json.loads((directory / 'bundles' / f'{identity}.json').read_text())
+            self.assertEqual(plan['status'], 'planned')
+            self.assertEqual(plan['selection'], f'bundle:{identity}')
+            self.assertEqual([package['id'] for package in plan['packages']],
+                             [package['id'] for package in lock['members']])
+            self.assertEqual(plan['programOperations'], [])
+            self.assertFalse(plan['serviceOperations'])
             self.assertFalse(target.exists())
 
     def valid_evidence(self):

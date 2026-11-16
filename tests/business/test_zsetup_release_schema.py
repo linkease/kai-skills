@@ -24,9 +24,11 @@ class ZsetupReleaseSchemaTest(unittest.TestCase):
         self.skill = self.root / "skills/kai-software.tar.gz"
         self.system = self.root / "systems/istoreos.tar.gz"
         self.ubuntu = self.root / "systems/ubuntu.tar.gz"
+        self.windows = self.root / "systems/windows.tar.gz"
         self.skill.write_bytes(b"single-skill-fixture")
         self.system.write_bytes(b"system-fixture")
         self.ubuntu.write_bytes(b"ubuntu-system-fixture")
+        self.windows.write_bytes(b"windows-system-fixture")
         self.manifest = {
             "schemaVersion": 3,
             "distribution": "kai-skills-zsetup",
@@ -39,6 +41,7 @@ class ZsetupReleaseSchemaTest(unittest.TestCase):
                 self.artifact("skill", "kai-software", self.skill, ["kai-software"]),
                 self.artifact("system", "istoreos", self.system, ["kai-software"]),
                 self.artifact("system", "ubuntu", self.ubuntu, ["kai-software"]),
+                self.artifact("system", "windows", self.windows, ["kai-software"]),
             ],
             "systems": [
                 {
@@ -55,6 +58,15 @@ class ZsetupReleaseSchemaTest(unittest.TestCase):
                     "platform": "ubuntu",
                     "mode": "on-device",
                     "lockPath": "bundles/ubuntu-all-on-device.json",
+                    "members": [
+                        {"id": "kai-software", "version": "1.2.3", "treeDigest": "sha256:" + "2" * 64}
+                    ],
+                },
+                {
+                    "id": "windows",
+                    "platform": "windows",
+                    "mode": "on-device",
+                    "lockPath": "bundles/windows-all-on-device.json",
                     "members": [
                         {"id": "kai-software", "version": "1.2.3", "treeDigest": "sha256:" + "2" * 64}
                     ],

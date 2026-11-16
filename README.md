@@ -85,10 +85,11 @@ sh install.sh --platform windows --all --mode on-device --consumer codex --dry-r
 Windows 没有 Bash 时可先原生预演：
 
 ```powershell
+$env:ZSETUP_BIN = 'C:\path\to\verified\zsetup.exe'
 ./install.ps1 -Action Plan -Skill kai-software -Consumer codex
 ```
 
-按回执定位受验证的原生 Bash bootstrap；`-Action EnsureBash` 是显式软件准备动作。已有可信 Git Bash 时传入 `-TrustedBash 'C:/Program Files/Git/bin/bash.exe'`，Plan 会继续执行 shell dry-run；Install 才安装技能目录。
+原生入口使用已验证的 zsetup `checksum-tree` 校验每个包，Plan 不写技能目录；审核回执后改用 `-Action Install`。后续使用相同选择和目标执行 `Upgrade` 或 `Uninstall`。如果要使用 shell 安装器，再单独通过 `kai-tool-bootstrap` 的受验证流程准备 Git Bash。
 
 受管单装和集合可以共存：卸载集合不会删除仍被单装或其他集合使用的成员。升级、卸载使用与原安装相同的选择和目的目录：
 
