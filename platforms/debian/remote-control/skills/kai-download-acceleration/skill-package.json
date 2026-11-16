@@ -1,6 +1,6 @@
 {
   "id": "kai-download-acceleration",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "path": "skills/kai-download-acceleration",
   "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
   "description": "检查文件、Git、Docker 和开发下载加速，并核对本次网关与校验证据。",

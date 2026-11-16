@@ -1,6 +1,6 @@
 {
   "id": "kai-storage-files",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "path": "skills/kai-storage-files",
   "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
   "description": "限定路径分析空间与大文件、搜索文件名，核实安装目录的挂载和持久性。",
