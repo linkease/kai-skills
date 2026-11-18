@@ -179,12 +179,12 @@
       "id": "backup-restore",
       "group": "istoreos",
       "order": 70,
-      "title": {"en": "System backup, restore, and rollback", "zh-CN": "系统备份、恢复与回滚"},
-      "description": {"en": "Back up configuration or overlay data and establish a recoverable point before dangerous operations.", "zh-CN": "备份配置或 overlay，并在危险操作前建立可恢复点。"},
+      "title": {"en": "Recovery points, backup, and rollback", "zh-CN": "恢复点、备份与回滚"},
+      "description": {"en": "Use KAIPlus Linkspace recovery points by default; keep full overlay backup as an explicit manual operation.", "zh-CN": "默认使用 KAIPlus Linkspace 恢复点；overlay 全量备份仅作为明确的手动操作。"},
       "ownership": "managed",
       "risk": "high-risk",
       "targets": {"platforms": ["istoreos"]},
-      "prompt": {"en": "Plan an iStoreOS system backup after checking scope and storage.", "zh-CN": "为 iStoreOS 规划一次系统备份，先核对范围和存储。"},
+      "prompt": {"en": "Inspect KAIPlus protection and create a recovery point only when one is not already active.", "zh-CN": "检查 KAIPlus 保护状态，仅在当前没有有效保护时创建恢复点。"},
       "modules": [{"id": "istoreos-backup-restore", "role": "primary"}]
     },
     {

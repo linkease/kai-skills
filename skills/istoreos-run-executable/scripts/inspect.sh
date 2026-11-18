@@ -40,9 +40,9 @@ if [ -n "${bytes:-}" ]; then
   echo "bytes=$bytes"
   echo "mib=$(human_mib "$bytes")"
   if [ "$bytes" -ge 209715200 ] 2>/dev/null; then
-    echo "risk_hint=very_large_file (>=200MiB; likely heavy writes/extraction; backup strongly recommended)"
+    echo "risk_hint=very_large_file (>=200MiB; likely heavy writes/extraction; inspect write scope before execution)"
   elif [ "$bytes" -ge 52428800 ] 2>/dev/null; then
-    echo "risk_hint=large_file (>=50MiB; backup recommended)"
+    echo "risk_hint=large_file (>=50MiB; inspect write scope before execution)"
   fi
 else
   echo "bytes=unknown"
@@ -90,6 +90,6 @@ df -hP "$(dirname "$file")" 2>/dev/null || true
 
 echo ""
 echo "## next"
-echo "1) Treat .run as risky: recommend a full system backup first (istoreos-backup-restore)."
-echo "2) Backup recommended (absolute path on device shell): /usr/libexec/istore/overlay-backup backup <external_mount>/istore_backup"
-echo "3) After backup and explicit confirmation, run with logging (or use the skill run.sh with CONFIRM_* env)."
+echo "1) Treat .run as risky and identify whether it writes system config, external data, firmware, partitions, or databases."
+echo "2) KAIPlus protects covered system writes with a Linkspace recovery point; active protection must be reused, not duplicated."
+echo "3) Direct shell use and out-of-scope data have no automatic protection. After reviewing scope, run only with explicit CONFIRM_RUN_EXEC=YES."

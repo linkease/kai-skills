@@ -19,7 +19,7 @@ cost: medium
 - 先证据：先跑只读诊断脚本再下结论。
 - 先软恢复：清缓存 + 重启 `rpcd/uhttpd` 往往就能恢复。
 - 能不改 `/usr/lib/lua/luci` 源码就不改：优先重装相关包或回退冲突插件。
-- 任何写操作（重启服务/清缓存/重装包/改源码）都需要用户明确确认；重装前强烈建议先做系统全量备份（`istoreos-backup-restore`）。
+- 任何写操作（重启服务/清缓存/重装包/改源码）都需要用户明确确认。KAIPlus 由设备保护门禁建立 Linkspace 恢复点；已经处于有效保护中时不要重复提醒备份。直接 shell 操作没有这项自动保护。
 
 ## 只读诊断（推荐）
 
@@ -29,7 +29,7 @@ cost: medium
 
 - `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; CONFIRM_LUCI_SOFT_RECOVERY=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/soft_recover.sh"`
 
-## 重装核心包（需确认，建议先备份）
+## 重装核心包（需确认）
 
 - `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; CONFIRM_LUCI_REINSTALL=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/reinstall_core.sh"`
 

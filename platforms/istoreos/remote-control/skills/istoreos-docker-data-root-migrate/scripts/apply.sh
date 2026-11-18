@@ -28,10 +28,8 @@ docker_root() {
   echo ""
 }
 
-ts() { date +%Y%m%d-%H%M%S; }
-
 if [ "$confirm" != "YES" ]; then
-  need "this is a risky operation (move docker data_root). Recommended: run a system backup first (istoreos-backup-restore). Rerun with CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES and provide <NEW_DATA_ROOT>."
+  need "this is a risky operation that stops Docker and copies data outside the normal system recovery scope. KAIPlus protects covered config writes; review the migration rollback and rerun with CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES and <NEW_DATA_ROOT>."
 fi
 
 if [ -z "$new" ]; then
@@ -68,11 +66,6 @@ fi
 echo "action: stop dockerd" >&2
 /etc/init.d/dockerd stop >/dev/null 2>&1 || true
 
-echo "action: backup /etc/config/dockerd" >&2
-bk="/etc/config/dockerd.bak.$(ts)"
-cp -a /etc/config/dockerd "$bk" 2>/dev/null || true
-echo "backup_dockerd=$bk" >&2
-
 echo "action: create new root dir: $new" >&2
 mkdir -p "$new" 2>/dev/null || fail "cannot create $new"
 
@@ -103,6 +96,5 @@ df -hP "$new" 2>/dev/null || true
 
 echo "## rollback" >&2
 echo "uci -q set dockerd.globals.data_root='$cur' && uci -q commit dockerd && /etc/init.d/dockerd restart" >&2
-echo "cp -a '$bk' /etc/config/dockerd && /etc/init.d/dockerd restart" >&2
 
 echo "ok: migrate attempted (cur=$cur new=$new)" >&2

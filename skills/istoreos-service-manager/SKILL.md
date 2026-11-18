@@ -11,7 +11,7 @@ the executable resources required by its own workflow.
 
 目标：把“已安装但没生效/服务没起来/插件没启用”的问题收敛到一个通用闭环：**init.d + UCI enable flag + 验证**。
 
-当操作会“覆盖写配置/删除文件/影响核心服务”时，先提醒用户可做系统全量备份：转 `istoreos-backup-restore`。
+在 KAIPlus 中，覆盖配置或影响核心服务的写入由设备保护门禁建立 Linkspace 恢复点；如果当前会话已经处于有效保护中，不要再次提醒备份。直接在普通 shell 执行命令时没有这项自动保护，必须如实说明。
 
 ## 一键确保（推荐）
 

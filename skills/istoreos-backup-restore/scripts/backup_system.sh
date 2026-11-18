@@ -2,6 +2,7 @@
 set -eu
 
 dir="${1:-}"
+confirm="${CONFIRM_FULL_SYSTEM_BACKUP:-}"
 need() {
   echo "need-confirmation: $*" >&2
   exit 2
@@ -10,6 +11,10 @@ need() {
 if [ -z "$dir" ]; then
   echo "usage: $0 <DIR>" >&2
   exit 2
+fi
+
+if [ "$confirm" != "YES" ]; then
+  need "full overlay backup is an explicit, potentially slow operation; use the iStoreOS UI or rerun with CONFIRM_FULL_SYSTEM_BACKUP=YES"
 fi
 
 case "$dir" in

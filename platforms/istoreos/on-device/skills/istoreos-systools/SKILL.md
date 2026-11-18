@@ -15,11 +15,11 @@ Use this skill for the supported system-maintenance cases above. Do not invoke a
 
 1. Run `scripts/inspect.sh <network|storage|store|upgrade|all>` and summarize the evidence in user language.
 2. Say whether the proposed next step only checks the device or changes it.
-3. For a change, state the affected subsystem, likely interruption, backup or rollback path, and verification command. Wait for explicit user confirmation.
+3. For a change, state the affected subsystem, likely interruption, KAIPlus recovery or operation-specific rollback path, and verification command. Wait for explicit user confirmation.
 4. Only after confirmation, run `KAIPLUS_CONFIRMED=1 scripts/apply.sh <action> [argument]`.
 5. Re-run the matching inspection and report success or the remaining problem.
 
-Network measurement belongs to `kai-network-quality`. IPv6 actions here change network and firewall configuration and may interrupt access. Store repair and incompatible-kernel-module repair reinstall packages and require a configuration backup first.
+Network measurement belongs to `kai-network-quality`. IPv6 actions here change network and firewall configuration and may interrupt access. KAIPlus protects covered configuration writes with its existing Linkspace recovery point; do not ask for another generic backup when protection is active. Direct shell use has no automatic protection.
 
 ## Reviewed Actions
 

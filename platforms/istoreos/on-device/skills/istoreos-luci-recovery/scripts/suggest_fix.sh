@@ -62,7 +62,7 @@ fi
 
 section "recommendation"
 echo "priority: do not edit /usr/lib/lua/luci first; prefer soft recovery then reinstall the owning package."
-echo "note: any reinstall/remove/edit is a risky action; recommend full system backup first (istoreos-backup-restore)."
+echo "note: reinstall/remove/edit is risky; KAIPlus enforces its recovery point at the write boundary, while direct shell use has no automatic protection."
 
 section "step 1: soft recovery (recommended first)"
 cat <<EOF

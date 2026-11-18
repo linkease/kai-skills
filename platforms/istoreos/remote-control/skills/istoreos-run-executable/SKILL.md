@@ -1,6 +1,6 @@
 ---
 name: istoreos-run-executable
-description: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构和空间，提示备份并要求明确确认。
+description: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构、空间和影响范围，并要求明确确认。
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
@@ -18,14 +18,14 @@ the executable resources required by its own workflow.
 ## Business workflow
 # iStoreOS `.run` Executable Handler
 
-当用户拿到一个 `*.run`（本地文件或下载链接）并想执行/安装时，按“先获取 → 先检查 → 再备份 → 再确认 → 再执行 → 再留证据”的统一流程走。
+当用户拿到一个 `*.run`（本地文件或下载链接）并想执行/安装时，按“先获取 → 先检查 → 判断影响范围 → 再确认 → 再执行 → 再留证据”的统一流程走。
 
 ## 安全约束（必须遵守）
 
 - `.run` 视为危险操作：未知来源的可执行文件可能改系统配置/覆盖文件/启动服务/导致系统不可用。
-- 在给出任何“执行 `.run`”的命令前，必须先提示做一次系统全量备份（转 `istoreos-backup-restore`），并向用户确认：
-  - 已备份：回复 `已备份`（或在脚本里用 `CONFIRM_BACKUP_DONE=YES`）
-  - 或明确跳过：回复 `跳过备份`（或在脚本里用 `CONFIRM_BACKUP_SKIPPED=YES`）
+- KAIPlus 中的系统范围写入由设备保护门禁建立 Linkspace 恢复点；如果已经处于有效保护中，不要再次提醒备份。
+- `.run` 可能写入外部数据盘、数据库、固件或分区。检查发现超出保护范围时，必须单独说明并确认专项备份或停止执行，不能把系统恢复点说成全覆盖。
+- 直接在普通 shell 中执行没有 KAIPlus 自动保护，必须如实说明。
 - 先做只读检查，不要上来就 `chmod +x` 或直接运行。
 
 ## 只读检查（推荐一键）
@@ -38,8 +38,7 @@ the executable resources required by its own workflow.
 
 ## 执行（危险操作，需确认）
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_RUN_EXEC=YES CONFIRM_BACKUP_DONE=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
-- 或（明确跳过备份）：`SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_RUN_EXEC=YES CONFIRM_BACKUP_SKIPPED=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
+- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_RUN_EXEC=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
 
 提示：
 - 如果用户是在设备的普通 shell 里执行命令：可用 `chmod 755 <FILE.run> && <FILE.run> ...`（或在同目录 `./xxx.run`）。

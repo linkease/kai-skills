@@ -63,7 +63,7 @@ pkg_exists() {
 }
 
 if [ "$confirm" != "YES" ]; then
-  need "this will update package lists and reinstall LuCI core packages (may take time and briefly interrupt web UI). Strongly recommended: do a full system backup first (istoreos-backup-restore). Rerun with CONFIRM_LUCI_REINSTALL=YES."
+  need "this will update package lists and reinstall LuCI core packages (may take time and briefly interrupt web UI). KAIPlus enforces its recovery point at the write boundary; direct shell use has no automatic protection. Rerun with CONFIRM_LUCI_REINSTALL=YES."
 fi
 
 LOG="/tmp/luci-reinstall.$(ts).log"

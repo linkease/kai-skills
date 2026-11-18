@@ -1,59 +1,59 @@
 {
   "schemaVersion": 1,
   "id": "system:windows:remote-control",
-  "version": "1.2.5",
+  "version": "1.2.6",
   "platform": "windows",
   "mode": "remote-control",
   "members": [
     {
       "id": "kai-dev-environment",
-      "version": "1.2.5",
-      "treeDigest": "sha256:3d18fdded2e026952dd5653576fff3bf61f854780b17caa865fb922a4611fbb6"
+      "version": "1.2.6",
+      "treeDigest": "sha256:4ba9eabef400ee10c421449d45e97416e2d9a3d0b596a205be11274d54bfcd9b"
     },
     {
       "id": "kai-download-acceleration",
-      "version": "1.2.5",
-      "treeDigest": "sha256:3de0723896c9dd3fada8db1377668c9cd020a079dca02df6c9ec7c061ca243e9"
+      "version": "1.2.6",
+      "treeDigest": "sha256:03383d7f324969dcb801247c9ea6eff83903cd8b0490d245823fc35f43163411"
     },
     {
       "id": "kai-project-dependencies",
-      "version": "1.2.5",
-      "treeDigest": "sha256:8d34468a9517651135c00f66121e1b749b162348263fb50388f6fda5ec9d6fce"
+      "version": "1.2.6",
+      "treeDigest": "sha256:d450eede705e206f2d54188ab6ba72aa5c995df6541e61c2dc03b247fc8347b8"
     },
     {
       "id": "kai-project-run",
-      "version": "1.2.5",
-      "treeDigest": "sha256:5a4e2a3d5c4438bf178290ecaf9607d374828f258dace418d30aa33528603a29"
+      "version": "1.2.6",
+      "treeDigest": "sha256:650dc4e47f670c3a50267d9b75bf1c7290fbc33d6815bb3a91b698fc661f5e03"
     },
     {
       "id": "kai-software",
-      "version": "1.2.5",
-      "treeDigest": "sha256:2479676928149085c246c887058d5522e09e245618c8960e42cbde0a18ca01d3"
+      "version": "1.2.6",
+      "treeDigest": "sha256:68c7dfdb9c805c9ce1beec873eca9767a2688c19142cba40e9677fd136012876"
     },
     {
       "id": "kai-storage-files",
-      "version": "1.2.5",
-      "treeDigest": "sha256:f86cbcffab37ca46391c05218d2ce29dde3d34575d3fdaeb7cc64915373233a1"
+      "version": "1.2.6",
+      "treeDigest": "sha256:796203910dfe2a02c25f52064b3c3585f6de3f3343959ec8b9069fd69ac55453"
     },
     {
       "id": "kai-tool-bootstrap",
-      "version": "1.2.5",
-      "treeDigest": "sha256:df5a16453b7199324f541ed8a76cd463528d71cd50670f545c71580da47ce8a3"
+      "version": "1.2.6",
+      "treeDigest": "sha256:268359e3af3f6ec32c41d581426c0a869c08ee4b30a2241cfca0c4155e3e5c1a"
     },
     {
       "id": "target-ssh-powershell-controller",
-      "version": "1.2.5",
-      "treeDigest": "sha256:164ce4b3f176fbd92e3b0b8ef7aa51590f02ae9fdcd095a8985c32b33105c8a4"
+      "version": "1.2.6",
+      "treeDigest": "sha256:5c6f80feaa0abbde1c699c7053f8641c0710a53c3bb2ba53d7b1d9cb7e648ad1"
     },
     {
       "id": "windows-service-eventlog",
-      "version": "1.2.5",
-      "treeDigest": "sha256:6a8cc989781d5af1b4e53c6f82f23be104f2e915021f0d3e6195f1c7418ccac7"
+      "version": "1.2.6",
+      "treeDigest": "sha256:dc1bfc05d4fd787c49fc7b87b3af5f2e9d148ffc01f9d36f7008bb265aa5dced"
     },
     {
       "id": "windows-system-diagnostics",
-      "version": "1.2.5",
-      "treeDigest": "sha256:d3335b9870f6c3fdc94bdc4c0f68e062aa60d3b263af3779ad5598750adad2fc"
+      "version": "1.2.6",
+      "treeDigest": "sha256:53acdceae5aeef1b062b8b2c483acacc0d5d00cd1a9e3edd888a60a9ef83c133"
     }
   ]
 }

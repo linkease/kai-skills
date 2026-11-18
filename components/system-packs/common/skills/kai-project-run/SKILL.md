@@ -1,6 +1,7 @@
 ---
 name: kai-project-run
 description: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.
+routing-group: system-primary
 ---
 
 Use the selected target's Bash and full jq. Run `scripts/project.sh project-plan REQUEST.json`,

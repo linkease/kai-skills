@@ -136,5 +136,5 @@ else
 fi
 
 section "next"
-echo "1) If you need to change config or restart services, treat as risky: suggest full system backup first (istoreos-backup-restore)."
+echo "1) If a write is needed, KAIPlus uses its protected Linkspace recovery point; active protection is reused. Direct shell use has no automatic protection."
 echo "2) If outputs include secrets, redact before sharing; only share minimal relevant sections."

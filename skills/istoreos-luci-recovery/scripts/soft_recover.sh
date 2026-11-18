@@ -40,4 +40,4 @@ if [ -x /etc/init.d/uhttpd ]; then
 fi
 
 echo "ok: soft recovery attempted" >&2
-echo "next: retry web UI; if still broken, run diag.sh and consider reinstall_core.sh (after backup + confirmation)." >&2
+echo "next: retry web UI; if still broken, run diag.sh and consider reinstall_core.sh after explicit confirmation." >&2

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-run-executable\ndescription: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构和空间，提示备份并要求明确确认。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: high\n",
+  "originalFrontmatter": "name: istoreos-run-executable\ndescription: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构、空间和影响范围，并要求明确确认。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: high\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-run-executable",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
-      "sourceDigest": "sha256:347bd417955694ccbd7266a21d78bd06e825727c11da9e92bd43e5455fea4b24"
+      "sourceDigest": "sha256:4ac14d7dcec360828f8d99a07bdbfdd019051def88bf253f5ef30e2197380bdd"
     },
     {
       "id": "istoreos-download-acceleration",

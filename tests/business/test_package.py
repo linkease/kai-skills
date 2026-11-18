@@ -88,8 +88,8 @@ class PackageTests(unittest.TestCase):
         executable = self.work / 'failed.run'
         executable.write_text('#!/bin/sh\nprintf "native-failure-fixture\\n"\nexit 7\n')
         result = subprocess.run(['sh', str(directory / 'scripts/run.sh'), str(executable)],
-            env={**os.environ, 'CONFIRM_RUN_EXEC': 'YES', 'CONFIRM_BACKUP_SKIPPED': 'YES',
-                'RUN_VIA_ISTORE_DOTRUN': 'no'}, capture_output=True, text=True, timeout=10)
+            env={**os.environ, 'CONFIRM_RUN_EXEC': 'YES', 'RUN_VIA_ISTORE_DOTRUN': 'no'},
+            capture_output=True, text=True, timeout=10)
         self.assertEqual(result.returncode, 7, result.stdout + result.stderr)
         self.assertIn('native-failure-fixture', result.stdout)
 

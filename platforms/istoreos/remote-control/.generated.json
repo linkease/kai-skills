@@ -24,12 +24,12 @@
     "common": "1.1.0",
     "linux": "1.0.0",
     "openwrt": "1.0.0",
-    "istoreos": "2.0.0",
+    "istoreos": "2.0.1",
     "transport.ssh": "1.1.0",
     "transport.luci-http": "1.0.0"
   },
-  "sourceDigest": "sha256:adde2b8a77e0972b527a1f9dccbc8886757431671f4e8f8b1c27978904128ebb",
-  "treeDigest": "sha256:24afb544b63de0de20cfc5b4939daddc7d97e0da9f94186d0f82c4eb4172d0cc",
+  "sourceDigest": "sha256:fba1f86bb25150a24afa74f4f23e90f7ee3be674cb6012e1fbeb8a070d066d53",
+  "treeDigest": "sha256:01c3e2c402e75b8ccbc20c78cafc513092f3c98c533e90728ef05d714dd09c69",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",

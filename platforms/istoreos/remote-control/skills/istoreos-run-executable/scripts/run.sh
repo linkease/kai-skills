@@ -4,8 +4,6 @@ set -eu
 file="${1:-}"
 confirm="${CONFIRM_RUN_EXEC:-}"
 run_via_dotrun="${RUN_VIA_ISTORE_DOTRUN:-auto}" # auto|yes|no
-backup_done="${CONFIRM_BACKUP_DONE:-}"
-backup_skipped="${CONFIRM_BACKUP_SKIPPED:-}"
 
 need() {
   echo "need-confirmation: $*" >&2
@@ -33,11 +31,7 @@ run_logged() {
 }
 
 if [ "$confirm" != "YES" ]; then
-  need "this will execute a local .run file (risky). Recommended: run a full system backup first (istoreos-backup-restore). Rerun with CONFIRM_RUN_EXEC=YES."
-fi
-
-if [ "$backup_done" != "YES" ] && [ "$backup_skipped" != "YES" ]; then
-  need "confirm backup status first: run a full system backup (istoreos-backup-restore), then rerun with CONFIRM_BACKUP_DONE=YES; or accept risk and rerun with CONFIRM_BACKUP_SKIPPED=YES."
+  need "this executes an untrusted local installer. KAIPlus enforces a recovery point for covered writes, but direct shell use and out-of-scope data have no automatic protection. Rerun with CONFIRM_RUN_EXEC=YES after reviewing the reported scope."
 fi
 
 if [ -z "$file" ]; then

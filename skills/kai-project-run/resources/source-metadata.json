@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-project-run\ndescription: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.\n",
+  "originalFrontmatter": "name: kai-project-run\ndescription: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.\nrouting-group: system-primary\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-project-run",
       "canonicalPath": "components/system-packs/common/skills/kai-project-run",
-      "sourceDigest": "sha256:4944c96a3dd91ebf35e5241493b964803dfa18dcc4f5a28e7afa67b9074c5ea5"
+      "sourceDigest": "sha256:30452af921f61ac25bfe3cd4afd35f59b537e92260bde4cb5d0b86fd07b1814a"
     },
     {
       "id": "kai-dev-environment",

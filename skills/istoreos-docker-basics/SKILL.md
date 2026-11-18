@@ -21,7 +21,7 @@ the executable resources required by its own workflow.
 6) 安装/升级 Docker 类应用前的空间检查（关键）
    - `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-docker-basics/scripts/check_space.sh"`
    - 若输出 `need-confirmation:`（例如 DockerRootDir 可用空间 < 2GiB，或 data_root 在 `/overlay/upper/opt/docker`），先处理空间/迁移 data_root 再继续安装镜像/容器
-   - 迁移 data_root 属于危险写操作：转 `istoreos-docker-data-root-migrate`（必须明确征得用户同意，并先备份再改）
+   - 迁移 data_root 属于危险写操作：转 `istoreos-docker-data-root-migrate`，明确征得用户同意；KAIPlus 保护系统配置，但 Docker 外部数据必须由迁移流程自己的复制、停机和回滚校验负责
 7) 任何可能拉镜像的动作（`docker pull/build/run`）前置：先跑加速闭环
    - `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-docker-acceleration-istoreenhance/scripts/ensure_ready.sh"`
    - 若输出 `need-confirmation:`（例如未安装或 `cache` 未配置），先按提示完成并等待用户确认，再继续 Docker 动作

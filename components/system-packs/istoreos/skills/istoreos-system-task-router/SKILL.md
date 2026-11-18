@@ -24,7 +24,7 @@ Identify the actual target System Pack first. Ubuntu is not iStoreOS: do not app
 5. "服务打不开/端口不通/启动失败/开机自启" -> `istoreos-service-manager`.
 6. "LuCI/网页管理/登录循环/500/空白页" -> `istoreos-luci-recovery`.
 7. "不知道配置字段/不确定脚本行为/要改配置" -> internal helper `istoreos-source-introspect` first.
-8. "恢复/重置/升级/危险修改/迁移前" -> `istoreos-backup-restore` first.
+8. 明确备份、恢复、回滚或重置请求 -> `istoreos-backup-restore`。普通升级和危险修改仍由所属业务 Skill 处理；KAIPlus 的首次写入门禁负责建立 Linkspace 恢复点，不为路由而额外询问备份。
 9. "网速慢/测速/延迟或抖动/NAT 类型/IPv6 是否可用/局域网测速" -> `kai-network-quality`; a specific slow download remains with `kai-download-acceleration`, which may use FastNet target-path evidence.
 10. "修改 IPv6 PD/relay/NAT 模式/硬盘不休眠/iStore 商店损坏/升级后内核模块异常" -> `istoreos-systools`.
 11. "安装 Python/Node.js/Go SDK/选择运行时版本/python-build/预编译/解释器异常" -> `kai-dev-environment`; system facts use check.sh, installed SDK checks use probe.sh, installations use install.sh. These dedicated helpers establish integration for each call and report scoped results.
