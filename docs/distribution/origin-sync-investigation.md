@@ -1,47 +1,41 @@
-# 源目录到公网文件站的同步调查
+# 源目录到公网文件站的自动同步
 
-调查日期：2026-11-18。此记录区分设备实测与待验证推断；服务器地址、账号、密钥和设备具体挂载点留在仓库外运维配置。
+更新日期：2026-11-18。服务器地址、账号、密钥和设备具体挂载点留在仓库外运维配置。
 
-## 结论与证据
+## 已确认的发布机制
 
-- 源数据目录下已有 `a.sh` 和 `b.sh`，均为旧的手动 rsync 命令，没有内置调度。前者使用 `rsync://用户@服务器/share/`，源为相对路径 `public_html/binary`；后者使用 SSH，源为相对路径 `../public_html/*`，目标为 `/data/koolcenter/fw/`。证据：通过源设备 SSH 只读查看两个脚本，文件时间分别为 2025-01-19、2025-01-22。
-- `a.sh` 必须以包含 public_html 的数据目录作为工作目录；其源没有尾斜杠，目标 module 下会包含 binary 这一层。`b.sh` 必须从数据目录的一个子目录执行，才符合 `../public_html/*` 的意图；不应直接从数据目录运行，也不应为发布指南而同步全部站点。脚本的存在不能证明它们仍被使用。
-- 源设备宿主机 PATH 中没有 rsync。运行中的 `pve` 容器具有 `/usr/bin/rsync`（3.2.7）、SSH，并将宿主机 `/mnt` 挂载到容器 `/mnt`。这是实测可用的 rsync 执行环境，但没有证据证明它就是历史发布任务的执行者。
-- 已检查宿主机 crontab、启动入口，以及 pve 容器 cron 配置，没有找到这两条同步脚本的调度引用。iStorePanel 的只读数据库查询显示 cronjobs 表没有任务。未发现运行中的 rsync 同步进程。这些检查不排除公网服务器主动拉取、其他机器调度或其他未检查服务的同步任务。
-- 从执行环境和 pve 容器连接旧脚本所指服务器的 rsync daemon 端口（默认 873）均超时；从 pve 使用 BatchMode、StrictHostKeyChecking 和连接超时检查 SSH 默认端口 22，也超时。未到达认证阶段，因此不能据此断定密码、公钥或 module 权限有问题。
-- 公网指南 URL 仍返回 404；源目录文件存在。尚未证明旧脚本的目标目录与当前 fw.koolcenter.com 的 nginx 根目录仍然对应。脚本目标域名与公网域名解析地址不同本身不代表配置错误，可能存在前置或同步链路。
+维护者已明确：另一个程序每 30 秒将源设备的目录自动同步到 fw.koolcenter.com。发布只需要将文件写入既定源目录，等待同步，并从固定公网 URL 核验内容。不需要手动 rsync，不需要直接登录公网文件服务器，也不应新增重复的同步任务。
 
-## 如何恢复和触发
+30 秒是维护者提供的调度间隔，不是本次测量得到的端到端发布时延保证；同步执行耗时和 HTTP 缓存仍可能影响可见时间。本次未定位或修改该外部程序的配置。
 
-1. 先由文件站维护者确认旧同步地址是否仍有效、当前 SSH/rsync 端口及来源网络限制，以及 nginx 对应目录或 rsync module 的映射。不要猜测端口，也不要关闭主机密钥检查。
-2. 使用已有 SSH 身份；若主机密钥未知或变化，先通过可信运维信息核验。rsync daemon 用户与 SSH 用户是不同认证体系，不互换账号或认证材料。
-3. 网络恢复后，在源设备上通过 pve 容器做单文件 dry-run。以下变量在源设备当前 shell 设置，从仓库外配置读取；`SYNC_SOURCE_ROOT` 是包含 public_html 的绝对目录，`SYNC_SSH_TARGET` 是实际 SSH 用户与主机，`SYNC_PUBLIC_ROOT` 是已经确认的公网 kai-skills 目录，`SYNC_SSH_PORT` 是实际端口。
+## 对此前调查的修正
+
+此前找到的 a.sh、b.sh 是旧的 rsync 脚本，其用途不能代表当前自动同步机制。检查宿主机 cron、pve 容器 cron 和 iStorePanel 未发现对应任务，只能说明这些位置没有找到入口，不能据此判断自动同步不存在。
+
+此前针对 SSH/rsync 端口的连通性检查，只能说明直连上传路径的状态，与当前外部自动同步是否正常无直接关系。因此撤回“恢复旧同步地址或配置手动 rsync 是发布前提”的建议，并移除手动上传命令模板。
+
+## 发布和核验
+
+在仓库根目录执行，源主机和既定源目录从仓库外配置读取：
 
 ```sh
-docker exec pve rsync -rtvin --timeout=20 \
-  -e "ssh -p ${SYNC_SSH_PORT} -o BatchMode=yes -o StrictHostKeyChecking=yes -o ConnectTimeout=10" \
-  "${SYNC_SOURCE_ROOT}/public_html/binary/kai/kai-skills/agent-install.md" \
-  "${SYNC_SSH_TARGET}:${SYNC_PUBLIC_ROOT}/"
+python3 tools/publish-agent-guide.py plan
+python3 tools/publish-agent-guide.py publish --host "$KAI_GUIDE_HOST" --root "$KAI_GUIDE_ROOT"
 ```
 
-这只是待验证模板，不是已经成功执行的发布命令。目标目录须预先存在。核对预览只涉及 agent-install.md 后，正式执行使用 `-rtvi`（去掉 `n`）；不加 `--delete`。历史指南可以随后按明确文件名单独同步。
-
-如继续使用 daemon 路径，先核对 share module 的目录映射及认证，再使用精确文件列表；不能把操作系统绝对路径当作 module 名称。避免直接执行 a.sh 或 b.sh 做全站同步。
-
-4. 在维护机的 linkease-skills 仓库执行：
+脚本将指南原子写入源目录，保留历史副本，然后等待外部程序同步；它本身不负责源服务器到公网的文件传输。默认最多等待 180 秒，对固定公网地址逐字节比对。超过等待窗口仍未一致时，保留源文件并报告实际响应；稍后单独复查：
 
 ```sh
 python3 tools/publish-agent-guide.py verify --timeout 180
 ```
 
-只有固定公网 URL 与本地源码逐字节一致，才可宣布指南发布完成。服务器端 dry-run 或 rsync 成功不代替 HTTPS 验证。
+回滚也通过同一个源目录发布旧指南，再等待自动同步和 HTTPS 校验，不直接修改公网副本。
 
-## 后续自动化边界
+## 本次复查证据
 
-当前 `publish-agent-guide.py publish` 只负责源目录写入和公网读回，未调用以上旧脚本，也未配置同步任务。待真实链路确认后，再添加一个范围受限的同步步骤，或由运维维护固定任务；应保留独立 dry-run、超时退出和公网校验。不要把源文件写入成功当作公网同步成功，也不要未经核实就给设备新增全目录定时同步。
+- 仓库源码与源服务器 agent-install.md 均为 6607 字节，SHA-256 均为 `d018d59d2568449485d4ca26d9ff00bd358d34a77aae7db769c3311b6c7ec057`。
+- 首轮请求中，固定指南地址与带唯一查询参数的地址均返回 404；guides/ 下对应历史副本也返回 404。已有 stable 地址返回 200。
+- 使用发布脚本设置最长 75 秒的观察窗口，最终返回 `Public HTTPS content matches local guide byte for byte`，确认固定公网 URL 正文与上述源码完全一致。公网目录索引也出现 agent-install.md 和 guides/。本次未重新上传或手动同步文件。
+- 观察期间还出现过一次独立目录请求的临时 DNS 解析失败；不改变固定指南正文已通过校验的结果。此次检查证实已有指南已公开可读，但没有测量新文件从写入到公开的精确延迟。
 
-## 依据
-
-设备第一手证据为上述源目录脚本、Docker mounts/command discovery、cron 文件、iStorePanel cronjobs 只读查询及连接探测结果；未保存原始配置、数据库或身份材料。
-
-rsync 参数语义依据 [官方 rsync 手册](https://download.samba.org/pub/rsync/rsync.1)：单冒号路径使用远程 shell，双冒号或 rsync:// 使用 daemon module；`--dry-run` 预览，`--itemize-changes` 列明变更；源目录尾斜杠控制是否保留目录本身；`--files-from` 支持限定相对文件名单。
+如果固定 URL 持续不可见，应检查外部同步程序最近运行结果、实际源目录到公网目录的映射、文件过滤规则，以及 nginx/CDN 对该路径的响应与缓存。以上是待检查项，不是已经确认的故障原因。未核验公网正文前，不宣称指南已上线，也不改走手动 rsync。
