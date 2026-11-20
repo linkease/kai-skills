@@ -1,5 +1,14 @@
 # Homebrew query and installation acceleration
 
+This page describes the legacy Formula-only helper. It does not provide Cask
+market readiness or bootstrap ownership. For the native KAIPlus Formula+Cask
+Provider, use [Homebrew market](homebrew-market.md). Its default is none;
+auto/required are offered only by the selected device's verified runtime and
+native download contracts. Unsupported selections fail before mutation.
+Source-code candidates and
+API doctor results are not evidence of a released complete Mac artifact path.
+
+
 Keep the selected source identity `brew:FORMULA`. By default the helper runs
 native Homebrew. With `KAI_SOFTWARE_ACCELERATION=required`, search, info,
 installation and explicit refresh first run `ks-cli doctor brew --json`, then

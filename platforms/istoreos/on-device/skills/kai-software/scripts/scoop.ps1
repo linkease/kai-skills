@@ -206,6 +206,16 @@ function Invoke-KsCli([string[]]$Arguments, [string[]]$Capabilities) {
     if ($native.exitCode -ne 0) { Fail $native.exitCode 'native-package-failed' 'ks-cli Scoop workflow failed.' @{exitCode=$native.exitCode;output=($native.output -join "`n")} }
     return @($native.output)
 }
+function Assert-KSpeederRuntimeStarted {
+    $client = KsCli
+    $runtime = [string]$request.runtimeBinary
+    $identity = [string]$request.runtimeIdentity
+    Assert-Leaf $runtime 'KSpeeder runtime binary'; Assert-Leaf $identity 'KSpeeder runtime identity'
+    $native = Invoke-NativeCaptured $client @('--json','runtime','exec','--service-binary',$runtime,'--identity',$identity,
+        '--require-capability','download-gateway.v1','--require-capability','route.github-release.v1','--',$client,'--version')
+    if ($native.exitCode -ne 0) { Fail $native.exitCode 'kspeeder-start-failed' 'KSpeeder runtime did not start with the required capabilities.' @{exitCode=$native.exitCode;output=($native.output -join "`n")} }
+    return [ordered]@{state='started';mode='task-scoped';capabilities=@('download-gateway.v1','route.github-release.v1')}
+}
 function Assert-PayloadReceipt($Receipt, [string]$Operation, [string]$Target) {
     if ($Receipt.schema_version -ne 1 -or [string]$Receipt.status -cne 'passed' -or [string]$Receipt.tool -cne 'scoop' -or
         [string]$Receipt.operation -cne $Operation -or [string]$Receipt.target -cne $Target -or
@@ -304,12 +314,40 @@ function Invoke-Files([string]$Root, [string]$Target) {
 try {
     $request = [Console]::In.ReadToEnd() | ConvertFrom-Json
     $action = [string]$request.action; $subject = [string]$request.subject; $version = [string]$request.version
-    if ($action -notin @('search','info','install','remove','refresh','files')) { Fail 2 'usage' 'Unknown Scoop software operation.' }
+    if ($action -notin @('probe','setup','search','info','install','remove','refresh','files')) { Fail 2 'usage' 'Unknown Scoop software operation.' }
     $script:policy = [string]$request.policy; if (!$script:policy) { $script:policy = 'auto' }
     if ($script:policy -notin @('required','auto','none')) { Fail 2 'usage' 'Select required, auto or none.' }
     $script:architecture = Resolve-Architecture
     $root = Scoop-Root; $lock = Read-Lock
     $env:SCOOP = $root; $env:Path = (Join-Path $root 'shims') + [IO.Path]::PathSeparator + $env:Path
+    if ($action -eq 'probe') {
+        $owned = Test-OwnedScoop $root $lock
+        $zsetupPath = [string]$env:KAI_ZSETUP_BIN
+        $ksCliPath = [string]$env:KAI_KSCLI_BIN
+        $zsetupReady = ($zsetupPath -and (Test-Path -LiteralPath $zsetupPath -PathType Leaf)) -or $null -ne (Get-Command zsetup.exe -ErrorAction SilentlyContinue) -or $null -ne (Get-Command zsetup -ErrorAction SilentlyContinue)
+        $ksCliReady = ($ksCliPath -and (Test-Path -LiteralPath $ksCliPath -PathType Leaf)) -or $null -ne (Get-Command ks-cli.exe -ErrorAction SilentlyContinue) -or $null -ne (Get-Command ks-cli -ErrorAction SilentlyContinue)
+        $installedCount = 0
+        if ($owned) {
+            $installedCount = @(Get-ChildItem -LiteralPath (Join-Path $root 'apps') -Directory -Force -ErrorAction SilentlyContinue | Where-Object { $_.Name -cne 'scoop' }).Count
+        }
+        $status = $(if (!$owned) {'absent'} elseif (!$ksCliReady) {'degraded'} else {'ready'})
+        $dependencies = @(
+            [ordered]@{id='zsetup';state=$(if ($zsetupReady) {'ready'} else {'missing'});detail='Owns the locked Scoop installation'},
+            [ordered]@{id='scoop';state=$(if ($owned) {'ready'} else {'missing'});detail='Locked zsetup receipt and runtime'},
+            [ordered]@{id='ks-cli';state=$(if ($ksCliReady) {'ready'} else {'missing'});detail='Managed payload workflow and receipt'},
+            [ordered]@{id='kspeeder';state='optional';detail='Optional authorized acceleration gateway'}
+        )
+        Emit ([ordered]@{schemaVersion=1;status=$status;platform='windows';provider='scoop';root=$root;cache=(Join-Path $root 'cache');installedCount=$installedCount;dependencies=$dependencies;evidenceTime=[DateTime]::UtcNow.ToString('o')})
+        exit 0
+    }
+    if ($action -eq 'setup') {
+        $runtimeState = Assert-KSpeederRuntimeStarted
+        $null = Ensure-OwnedScoop $root $lock
+        Emit ([ordered]@{schemaVersion=1;status='passed';operation='windows-essentials-setup';
+            scoop=[ordered]@{state='ready';root=$root};ksCli=[ordered]@{state='ready'};kspeeder=$runtimeState;
+            evidenceTime=[DateTime]::UtcNow.ToString('o')})
+        exit 0
+    }
     if ($action -eq 'search') {
         if (!$subject -or $subject.StartsWith('-') -or $subject.Length -gt 256) { Fail 2 'usage' 'Supply a bounded literal search term.' }
         if (!(Test-OwnedScoop $root $lock)) { Emit @(); exit 0 }
@@ -330,9 +368,9 @@ try {
                 $haystack = $file.BaseName + ' ' + [string](Property $manifest 'description') + ' ' + [string](Property $manifest 'homepage')
                 if ($haystack.IndexOf($subject, [StringComparison]::OrdinalIgnoreCase) -lt 0) { continue }
                 $row = Scoop-Info $root $bucketDirectory.Name $file.BaseName; $row['matchReason'] = 'matched in the selected Scoop bucket'
-                $rows += $row; if ($rows.Count -ge 5) { break }
+                $rows += $row; if ($rows.Count -ge 30) { break }
             }
-            if ($rows.Count -ge 5) { break }
+            if ($rows.Count -ge 30) { break }
         }
         Emit @($rows); exit 0
     }

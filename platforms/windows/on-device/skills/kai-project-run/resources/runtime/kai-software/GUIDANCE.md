@@ -17,6 +17,23 @@ Use the selected target's Transport for every operation. Never retry a failed re
 operation on the controller. Enabling this skill installs instructions and checked
 resources; preparing tools, installing software and starting services are separate tasks.
 
+On macOS with KAIPlus, first read [Homebrew market](resources/homebrew-market.md).
+Use `bash scripts/homebrew-market.sh` for Formula **and** Cask queries and Typed
+Plan creation through the running native Provider. It verifies the selected
+Mac's CLI contract and explicit loopback endpoint; it never falls back to the
+controller or starts a server. The CLI returns `reviewPath`, withholds the
+confirmation token and has no apply/confirm command. After the user selects an
+exact candidate, create the plan and link its software review page; the user
+confirms there. AI discovery and failure handoff authorize read-only diagnosis,
+not repair or retries. The shared software-task/v1 executor and legacy brew
+helper below remain Formula-only; never send a Cask ID through them. Missing
+native Provider support blocks Cask market/bootstrap readiness. On older clients,
+retain legacy Formula-only routes for an explicitly Formula-only task; disclose
+the limit first. Never switch a selected or failed Native/Cask operation onto
+that legacy route, and never label it full-market readiness.
+
+For other supported task routes, continue below.
+
 Start with the shared scripted task flow in [software tasks](resources/software-tasks.md).
 Prepare Bash/full jq/zsetup through kai-tool-bootstrap; pass its verified executable
 paths to the selected target process. Run `bash scripts/software-task.sh plan REQUEST.json`.
@@ -40,7 +57,7 @@ operations and native Windows Scoop/WinGet integrations; its support and receipt
 
 `bash scripts/software.sh search TERM` returns bounded source-qualified IDs.
 Use the selected `apt:NAME`, `opkg:NAME`, `istore:NAME`, `zsetup:NAME`,
-`brew:FORMULA`, `scoop:BUCKET/APP` or `winget:PACKAGE.ID` with
+`brew:FORMULA` (legacy Formula-only), `scoop:BUCKET/APP` or `winget:PACKAGE.ID` with
 `info`, `install`, `files` and `remove`. A source is part of identity; never merge
 two same-named candidates into one installation ID. Queries use cached indexes;
 `refresh` is an explicit write. Desktop queries
