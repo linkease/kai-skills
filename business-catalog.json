@@ -811,7 +811,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:c5b1faa24b416dac370fc8eff4c15bd2ef350cda7b9f8fe960d6e230652340ce"
+          "sourceDigest": "sha256:744200f0e373cd879153bf495d2d1b9336c6a71981b53f5c0cfc8a02cb27511c"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -819,7 +819,7 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:9f592470d1795d481cce0dcf2027697572175e033230edb0255cd62832f33465"
+      "treeDigest": "sha256:4e1a0ffaac3da39e887846a801662f11e9582be7035aa711c2a75065dfbe6ed1"
     },
     {
       "id": "kai-software",
@@ -865,7 +865,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:c5b1faa24b416dac370fc8eff4c15bd2ef350cda7b9f8fe960d6e230652340ce"
+          "sourceDigest": "sha256:744200f0e373cd879153bf495d2d1b9336c6a71981b53f5c0cfc8a02cb27511c"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -873,7 +873,7 @@
           "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
         }
       ],
-      "treeDigest": "sha256:aa5f6b0e3eda1e283dcd8e0f90500934d5de08b9855cda72b0de3c7e3daea5e3"
+      "treeDigest": "sha256:135ad2f1dd0fa3716275b9fe8468d7b1a860af11d8910752c1bc33502de20768"
     },
     {
       "id": "kai-storage-files",

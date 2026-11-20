@@ -137,7 +137,7 @@ produce a fresh acceleration-setup recovery plan for missing files only. Review
 the exact missing-file list; confirmation rechecks directory/file identity,
 extracts from that owned archive and links only absent files. Existing files
 are never replaced and no archive is redownloaded. Changed payloads, unknown
-files, missing ownership/archive, external installations and unmarked or unverified historical staging
+files, missing ownership/archive, unverified external installations and unmarked or unverified historical staging
 remain blocked; never blanket-remove a user directory or replay an old setup
 confirmation. API and core Bottle candidate probes do not enable
 Cask Artifact or Tap Git acceleration. Homebrew API fallback is independent of
@@ -208,3 +208,8 @@ Unknown/unmarked stages, multiple stages, modified payloads, unknown files,
 symlinks, broad permissions and unmarked destinations (even empty) remain blocked.
 Do not delete them, adopt external runtimes, or infer a published release pin.
 Retained history is not automatically pruned and does not prove acceleration.
+
+
+### Verified external component reuse
+
+Known external directories can supply read-only components only when a complete archive matches the configured product release pin and every native payload and identity matches. Require the reviewed lease-v1 contract. Reject group/other writable files or directories, symlinks, missing archives, changed files and ambiguous sources. Inspection and planning never execute candidates. A new acceleration-setup plan names the exact source and effects; explicit confirmation permits native version checks and saves a private reuse reference. Never copy, reinstall, overwrite or take ownership of external files. Each operation has an owned temporary lease and private workspace/Receipt. Existing external services are not attached, changed or stopped. Recheck source identity, digests and the reference before execution. Changed identity requires fresh review; a missing reviewed source never silently selects another. A simultaneous private install and external reference blocks. No formal pin means no executable reuse/setup route. This component contract is not general existing-service reuse or proof of acceleration.
