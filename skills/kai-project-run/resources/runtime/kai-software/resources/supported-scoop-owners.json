@@ -1,0 +1,109 @@
+[
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.1",
+    "runtime_bundle_id": "0.7.16-08aea475819b8037977684c7fbbde2ae40bb1b96-windows-amd64",
+    "runtime_bundle_sha256": "66fa51769556b8d52289f354d3e43952338814b6ef357b04868f829fc1c5c4dc",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636"
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.61a56368-windows-amd64",
+    "runtime_bundle_sha256": "f9e8f0014b57f6f04e770583e79507c19fa3e3ab4282e7c0f6bc9da30649f4fe",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29114437
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.1b8b7710-windows-amd64",
+    "runtime_bundle_sha256": "14241858cb74c0051dd02adaf4cae06cbfc21fac5dd3c2a5c49b0a5520e88607",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29129797
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.25f83e01-windows-amd64",
+    "runtime_bundle_sha256": "c15aafcf96fd8052bc750bbdfc8de0f1887606e770ea50324380e03777a84a78",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29129797
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.f5fcf4ea-windows-amd64",
+    "runtime_bundle_sha256": "d7e5c99941781506b41aff9da1a4e4415e47d11bfc321fab5ce7fc33e0877ec0",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29130309
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.e3c847dd-windows-amd64",
+    "runtime_bundle_sha256": "605828e8f2810eb495de1fd4c6d1d9963098017f779455f7c2f78afdf18c38cf",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29130309
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.3a1c9bc6-windows-amd64",
+    "runtime_bundle_sha256": "1e370b5cfada382c4fc8d1ddaf87f4230df2042ef67a907bc84275beed4dcc3b",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29143109
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.3a382a41-windows-amd64",
+    "runtime_bundle_sha256": "12c768683ce01c694543638d51da623b742a5e9abbf8ef6e3f2e0c557b9860f4",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29085765
+  },
+  {
+    "schema_version": 1,
+    "owner": "linkease-zsetup",
+    "installer_version": "0.1.2",
+    "runtime_bundle_id": "0.9.1-market.38443292-windows-amd64",
+    "runtime_bundle_sha256": "c4ae105b6a0962d1e7b32ff6a7998dc08848b8f0835cbc028577dcc5b104f9e7",
+    "core_commit": "e6aa3b366bdee8ed138c1e0f7b85192ebdd35d0f",
+    "core_sha256": "fa96b15950f3726d2c9a35493e192eefe56d2eddba718e8121c32f7a19257a0a",
+    "main_commit": "1eca0759af467b38ae87b9579dd545d35f5b9917",
+    "main_sha256": "4287b169ce39f3a6566da666ce3c8b73f450c887d9a71481485b2ad2ca951636",
+    "runtime_bundle_size": 29087301
+  }
+]

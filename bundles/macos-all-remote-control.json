@@ -23,12 +23,12 @@
     {
       "id": "kai-project-run",
       "version": "1.2.6",
-      "treeDigest": "sha256:650dc4e47f670c3a50267d9b75bf1c7290fbc33d6815bb3a91b698fc661f5e03"
+      "treeDigest": "sha256:50585567be92a8d9f2332c465e159f6b78f2d4f54d216dceb9fc039727ff86bb"
     },
     {
       "id": "kai-software",
       "version": "1.2.6",
-      "treeDigest": "sha256:68c7dfdb9c805c9ce1beec873eca9767a2688c19142cba40e9677fd136012876"
+      "treeDigest": "sha256:a099d49d978b2a3fcf7d15af626de3d28af6d62575e8ad51e73c783cfb4b8455"
     },
     {
       "id": "kai-storage-files",

@@ -106,10 +106,18 @@ else:
         self.assertIn(r'apps\scoop\current\bin\scoop.ps1', remove)
         self.assertNotIn(r'shims\scoop.cmd', remove)
 
-    def test_windows_scoop_provider_accepts_the_0_1_1_upgrade_receipt(self):
+    def test_windows_scoop_provider_keeps_current_and_0_1_1_upgrade_receipts(self):
         lock = json.loads(SCOOP_LOCK.read_text())
-        self.assertEqual(lock['installer_version'], '0.1.1')
-        self.assertIn("[string]$lock.installer_version -cne '0.1.1'", SCOOP_SOURCE_ADAPTER.read_text())
+        self.assertEqual(lock['installer_version'], '0.1.2')
+        self.assertIn("[string]$lock.installer_version -cne '0.1.2'", SCOOP_SOURCE_ADAPTER.read_text())
+        supported = json.loads((SCOOP_LOCK.parent / 'supported-scoop-owners.json').read_text())
+        old = next(item for item in supported if item['installer_version'] == '0.1.1')
+        self.assertEqual(old['runtime_bundle_id'], '0.7.16-08aea475819b8037977684c7fbbde2ae40bb1b96-windows-amd64')
+        self.assertEqual(old['core_sha256'], lock['core_sha256'])
+        market = (SCOOP_SOURCE_ADAPTER.parent / 'market.ps1').read_text()
+        self.assertIn('supported-scoop-owners.json', market)
+        self.assertIn('if(Market-CoreOwner $lock){return $true}', market)
+        self.assertIn('Market-CoreOwner $previous', market)
 
     def test_query_is_bounded_source_qualified_and_does_not_refresh(self):
         p, result = self.call('search', 'directory')

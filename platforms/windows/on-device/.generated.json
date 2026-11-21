@@ -17,11 +17,11 @@
     "windows"
   ],
   "componentVersions": {
-    "common": "1.1.0",
+    "common": "1.1.2",
     "windows": "1.0.0"
   },
-  "sourceDigest": "sha256:87a1feac1cc5523f6977b406d0f1485b7273922678dde025efdfb56a11f17c0d",
-  "treeDigest": "sha256:18c33b049ecf48dd44ea4175f4abddbd2dff44332cbdf75b3d8ce6937d90e10d",
+  "sourceDigest": "sha256:cbaa8302b988fe90510b7a7012d3594bdf7d669aeab8b4329deb65ca61457d47",
+  "treeDigest": "sha256:0a571481b2c0010c60ee341b11b64d646f819b5d85c55b6df0747e58f5559a1e",
   "resources": [],
   "skillAliases": {}
 }
