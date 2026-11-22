@@ -33,3 +33,5 @@ KAIPlus 桌面软件页已有独立业务：Windows 优先 `tool:software_catalo
 没有这些宿主能力时，用已选目标 Transport 调用 `scripts/task-entry.sh inspect REQUEST.json`；Windows 用原生 PowerShell 的 `scripts/task-entry.ps1`，无需先假设 Bash 存在。独立包使用它实际分发的运行时资源。脚本路径属于目标，不在控制端重试远程任务。详细输入仅在需要计划/其他安装方式时读 [任务合同](resources/software-tasks.md)。保留现有 `scripts/software.sh` 来源限定接口。
 
 包登记与功能健康分开报告；写后按用户任务验证。SDK/解释器版本走 kai-dev-environment，项目依赖走 kai-project-dependencies，构建运行走 kai-project-run；不要把它们变成系统软件升级。
+
+For a structured transport failure, follow [network handoff](data/network-diagnosis-handoff.md): validate before authorized diagnosis; retry at most once after comparable verification improves. HTTP 401/403/404, dependencies, architecture, postinstall and integrity errors remain software failures. Ordinary installs do not need a general speed test.
