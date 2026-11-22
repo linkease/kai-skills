@@ -3,7 +3,7 @@ name: kai-software
 description: 按目标系统搜索、查询和安装软件，保留原包管理器与来源。
 owner: system-pack/common
 systems: ubuntu, debian, istoreos, openwrt, linux, macos, windows
-triggers: 找软件, 文件管理插件, 找文件管理软件, 查询已安装软件, 升级系统软件包, 安装软件, 软件包, 应用商店, opkg, apk, 找软件安装到硬盘
+triggers: 检查软件更新, 是否有更新, 找软件, 文件管理插件, 找文件管理软件, 查询已安装软件, 升级系统软件包, 安装软件, 软件包, 应用商店, opkg, apk, 找软件安装到硬盘
 negative-triggers: 安装 Python, 安装 Node, 安装 Go, pip install, npm ci, go mod
 auto-use: prefer
 routing-group: system-primary
