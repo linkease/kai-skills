@@ -178,3 +178,5 @@ Kai/Reasonix 已实现精确别名解析；其他 Agent 依据包内 `migration.
 该同步只导出 canonical 层，公共六技能保存一次，不携带第三方 Transport。
 来源锁记录基准提交、工作树状态及实际内容摘要；未提交候选不能当作发布版本。
 详细任务和验收记录见 [`docs/verification/multisystem-execution.md`](docs/verification/multisystem-execution.md)。
+
+正式的 [Agent 安装指南](https://fw.koolcenter.com/binary/kai/kai-skills/agent-install.md) 由本仓库独立维护，见 [指南发布与回滚流程](docs/distribution/README.md)。
