@@ -44,7 +44,7 @@ task_storage_fact() {
             # Native packages cannot be relocated to a portable prefix. An
             # explicit system-root budget remains separate from data volumes.
             [ "$path" = / ] && [ "$role" = system-package ] && \
-                [ "$("$task_jq" -r '.method//""' <<< "$TASK_REQUEST_JSON")" = native-package ] || return 19
+                "$task_jq" -e '.method=="native-package" or .method=="istore"' <<< "$TASK_REQUEST_JSON" >/dev/null || return 19
             persistence=system-root ;;
         *) return 19 ;;
     esac

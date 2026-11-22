@@ -4,19 +4,14 @@ set -u
 set -o pipefail
 task_root=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 . "$task_root/protocol.sh"
-case "$TASK_OPERATION" in search|query|plan|apply|verify|remove|storage-plan|storage-check|backup-plan|backup-run|backup-restore) ;; *) task_stop invalid unknown-operation 2 ;; esac
+case "$TASK_OPERATION" in inspect|search|query|plan|apply|verify|remove|storage-plan|storage-check|backup-plan|backup-run|backup-restore) ;; *) task_stop invalid unknown-operation 2 ;; esac
 task_request "${2:-}"
-. "$task_root/storage.sh"
+. "$task_root/load.sh"
 case "$TASK_OPERATION" in
+    inspect) task_inspect; exit $? ;;
     storage-plan) task_storage_plan; task_result success storage-planned 0 "$TASK_STORAGE_PLAN"; exit 0 ;;
     storage-check) task_storage_check; task_result success storage-verified 0 "$TASK_STORAGE_PLAN"; exit 0 ;;
 esac
-. "$task_root/native.sh"
-. "$task_root/selection.sh"
-. "$task_root/backup.sh"
-. "$task_root/container.sh"
-. "$task_root/artifact.sh"
-. "$task_root/release.sh"
 case "$TASK_OPERATION" in
     backup-plan) task_backup_plan; task_result success backup-planned 0 "$TASK_BACKUP_PLAN" ;;
     backup-run) task_backup_run "$("$task_jq" -c '.backupPlan//empty' <<< "$TASK_REQUEST_JSON")"; task_result success backed-up 0 "$TASK_BACKUP_RECEIPT" "$TASK_EFFECTS" ;;

@@ -8,6 +8,10 @@ fi
 task_jq_binary=$task_jq
 task_jq_native_windows=0
 case "$(uname -s)" in MINGW*|MSYS*|CYGWIN*) task_jq_native_windows=1 ;; esac
+if [ "$task_jq_native_windows" = 1 ] && ! "$task_jq_binary" --binary -ne true >/dev/null 2>&1; then
+    printf '%s\n' '{"protocol":"software-task/v1","schemaVersion":1,"operation":null,"targetId":null,"software":null,"status":"blocked","reason":"missing-native-jq-binary-mode","nativeExitCode":127,"effects":[],"details":{}}'
+    exit 21
+fi
 task_json() {
     # Native jq must receive JSON string arguments literally. MSYS otherwise
     # rewrites --arg /d/path into a Windows path inside the JSON document.
@@ -17,11 +21,31 @@ task_json() {
 }
 task_jq=task_json
 TASK_OPERATION=${1:-}; TASK_SOFTWARE=; TASK_TARGET=${ZSETUP_TASK_TARGET_ID:-local}
+TASK_STORE_CATALOG_FOR=
 task_result() {
-    "$task_jq" -cn --arg operation "$TASK_OPERATION" --arg target "$TASK_TARGET" \
+    local details="${4:-\{\}}" result bytes overflow=0 original=$1
+    bytes=$(printf '%s' "$details" | wc -c)
+    if [ "$bytes" -gt 60000 ]; then
+        overflow=1
+        details=$("$task_jq" -cn --arg status "$original" '{originalStatus:$status,verificationRequired:true}')
+        set -- needs-ai result-too-large "$3" "$details" "${5:-[]}"
+    fi
+    result=$(printf '%s' "$details" | "$task_jq" -c --arg operation "$TASK_OPERATION" --arg target "$TASK_TARGET" \
         --arg software "$TASK_SOFTWARE" --arg status "$1" --arg reason "$2" \
-        --argjson native "$3" --argjson details "${4:-\{\}}" --argjson effects "${5:-[]}" \
-        '{protocol:"software-task/v1",schemaVersion:1,operation:$operation,targetId:$target,software:$software,status:$status,reason:$reason,nativeExitCode:$native,effects:$effects,details:$details}'
+        --argjson native "$3" --argjson effects "${5:-[]}" \
+        '{protocol:"software-task/v1",schemaVersion:1,operation:$operation,targetId:$target,software:$software,status:$status,reason:$reason,nativeExitCode:$native,effects:$effects,details:.}') || return 11
+    bytes=$(printf '%s' "$result" | wc -c)
+    if [ "$bytes" -gt 65535 ]; then
+        overflow=1
+        result=$(printf '%s' "$result" | "$task_jq" -c '
+            .details={originalStatus:.status,verificationRequired:true,metadataOmitted:true}
+            | .status="needs-ai" | .reason="result-too-large" | .effects=[]
+            | .operation|=(if length<=64 then . else null end)
+            | .targetId|=(if length<=128 then . else null end)
+            | .software|=(if length<=128 then . else null end)') || return 11
+    fi
+    printf '%s\n' "$result"
+    [ "$overflow" = 0 ] || exit 20
 }
 task_stop() {
     task_status=$1; task_reason=$2; task_native=$3; task_details=${4:-\{\}}

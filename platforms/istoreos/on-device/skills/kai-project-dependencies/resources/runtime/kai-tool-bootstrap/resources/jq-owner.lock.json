@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "4f5ee92970ac9cf1863a31cb009dbcbc4c26ef42",
+  "sourceCommit": "71365b45953af59f5a4bd22911f859c5d7b65212",
   "sourceState": "local-candidate",
   "protocol": "jq-managed-v1",
   "version": "1.8.2",
   "files": [
     {
-      "source": "jq/jq-install.sh",
+      "source": "apps/jq/0.1.0/installer.sh",
       "file": "jq-install.sh",
       "sha256": "5b0fa3bf551bd17c07b5a9dbcf8a7f7f56484c3fb53a56ba81679f1d6ec663db",
       "size": 23653
     },
     {
-      "source": "jq/jq-install.ps1",
+      "source": "apps/jq/0.1.0/installer.ps1",
       "file": "jq-install.ps1",
       "sha256": "198693a06c38e815a0457751892c81aeb9d23a99739704b7c0c79bf29c3c0b4d",
       "size": 34450

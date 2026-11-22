@@ -19,6 +19,7 @@ if ($git) { $candidates += (Join-Path (Split-Path (Split-Path $git.Source)) 'bin
 $candidates += 'C:\msys64\usr\bin\bash.exe'
 function Find-Bash {
     foreach ($candidate in $candidates) {
+        if ($TrustedPath -and $candidate -ne $TrustedPath) { continue }
         if ($candidate.Replace('/','\') -match '\\(System32|Sysnative)\\bash\.exe$') { continue }
         if (!(Test-Path -LiteralPath $candidate -PathType Leaf)) { continue }
         $absolute = (Resolve-Path -LiteralPath $candidate).Path
@@ -33,6 +34,11 @@ function Find-Bash {
     return $null
 }
 $found = Find-Bash
+if ($TrustedPath -and !$found) {
+    [ordered]@{schemaVersion=1;tool='bash';platform='windows';status='conflict';
+        reason='The explicitly selected Bash is missing or incompatible; preserve that selection';exitCode=17}|ConvertTo-Json -Compress
+    exit 17
+}
 if ($found) { $found | ConvertTo-Json -Compress; exit 0 }
 $manager = Get-Command winget.exe -ErrorAction SilentlyContinue
 $command = @('winget.exe','install','--id','Git.Git','--exact','--source','winget','--disable-interactivity')

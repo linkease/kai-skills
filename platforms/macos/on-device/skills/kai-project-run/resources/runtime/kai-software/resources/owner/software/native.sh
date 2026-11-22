@@ -27,44 +27,16 @@ task_native_search() {
     task_result success searched 0 "$("$task_jq" -cn --arg manager "$manager" --argjson rows "$rows" '{manager:$manager,candidates:$rows,indexPolicy:"existing-provider-cache",limit:20}')"
 }
 task_native_query() {
-    local raw code installed= candidate= manager=
-    case "$(uname -s)" in
-        Darwin) command -v brew >/dev/null 2>&1 && manager=brew ;;
-        Linux)
-            if command -v apt-cache >/dev/null 2>&1; then manager=apt
-            elif command -v opkg >/dev/null 2>&1; then manager=opkg
-            elif command -v apk >/dev/null 2>&1; then manager=apk
-            elif command -v dnf >/dev/null 2>&1; then manager=dnf
-            elif command -v yum >/dev/null 2>&1; then manager=yum; fi ;;
-    esac
+    local native_name=${1:-$TASK_SOFTWARE} installed= candidate= manager= native_extra='{}'
+    . "$task_root/platform.sh"
+    task_platform
+    manager=$TASK_MANAGER
     case "$manager" in
-        apt)
-            raw=$(LC_ALL=C apt-cache policy -- "$TASK_SOFTWARE"); code=$?
-            [ "$code" = 0 ] || task_stop failed provider-query-failed "$code"
-            candidate=$(awk '$1=="Candidate:" && $2!="(none)" {print $2;exit}' <<< "$raw")
-            installed=$(awk '$1=="Installed:" && $2!="(none)" {print $2;exit}' <<< "$raw") ;;
-        opkg)
-            raw=$(opkg info "$TASK_SOFTWARE"); code=$?
-            [ "$code" = 0 ] || task_stop failed provider-query-failed "$code"
-            candidate=$(awk '$1=="Version:" {print $2;exit}' <<< "$raw")
-            installed=$(opkg status "$TASK_SOFTWARE" 2>/dev/null | awk '$1=="Version:"{v=$2} /Status:.* installed/{print v;exit}') ;;
-        apk)
-            raw=$(apk policy "$TASK_SOFTWARE"); code=$?
-            [ "$code" = 0 ] || task_stop failed provider-query-failed "$code"
-            candidate=$(awk '/^  [0-9][^ ]*:$/ {gsub(/:/,"",$1);print $1;exit}' <<< "$raw")
-            if apk info -e "$TASK_SOFTWARE" >/dev/null 2>&1; then installed=$(apk info -v "$TASK_SOFTWARE"); installed=${installed#"$TASK_SOFTWARE"-}; fi ;;
-        dnf|yum)
-            raw=$("$manager" -q -C repoquery --latest-limit 1 --qf '%{version}-%{release}' -- "$TASK_SOFTWARE"); code=$?
-            [ "$code" = 0 ] || task_stop failed provider-query-failed "$code"
-            candidate=$(head -n 1 <<< "$raw")
-            installed=$(rpm -q --qf '%{VERSION}-%{RELEASE}' -- "$TASK_SOFTWARE" 2>/dev/null) || installed= ;;
-        brew)
-            raw=$(HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_ANALYTICS=1 brew info --json=v2 --formula "$TASK_SOFTWARE"); code=$?
-            [ "$code" = 0 ] || task_stop failed provider-query-failed "$code"
-            candidate=$("$task_jq" -r '.formulae[0].versions.stable//""' <<< "$raw")
-            installed=$("$task_jq" -r '.formulae[0].installed[0].version//""' <<< "$raw") ;;
+        apt|opkg|apk|dnf|yum) . "$task_root/native-linux.sh"; task_query_linux ;;
+        brew) . "$task_root/native-brew.sh"; task_query_brew ;;
+        windows) . "$task_root/native-windows.sh"; task_query_windows ;;
     esac
-    TASK_NATIVE=$("$task_jq" -cn --arg manager "$manager" --arg candidate "$candidate" --arg installed "$installed" '{manager:$manager,candidateVersion:$candidate,installedVersion:$installed}')
+    TASK_NATIVE=$("$task_jq" -cn --arg manager "$manager" --arg candidate "$candidate" --arg installed "$installed" --argjson extra "$native_extra" '{manager:$manager,candidateVersion:$candidate,installedVersion:$installed}+$extra')
 }
 task_native_install() {
     local manager=$1 version=$2 code=0
@@ -74,6 +46,7 @@ task_native_install() {
         apk) apk add -- "$TASK_SOFTWARE=$version" >&2 || code=$? ;;
         dnf|yum) "$manager" -y -C install -- "$TASK_SOFTWARE-$version" >&2 || code=$? ;;
         brew) HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_ANALYTICS=1 brew install --formula "$TASK_SOFTWARE" >&2 || code=$? ;;
+        scoop|winget) . "$task_root/windows-operation.sh";task_windows_operation install "$version";return ;;
         *) task_stop blocked unsupported-native-provider 0 ;;
     esac
     [ "$code" = 0 ] || task_stop failed provider-install-failed "$code"
@@ -88,6 +61,7 @@ task_native_remove() {
         dnf) dnf -y --noautoremove remove -- "$TASK_SOFTWARE" >&2 || code=$? ;;
         yum) yum -y --setopt=clean_requirements_on_remove=0 remove -- "$TASK_SOFTWARE" >&2 || code=$? ;;
         brew) HOMEBREW_NO_AUTO_UPDATE=1 HOMEBREW_NO_ANALYTICS=1 brew uninstall --formula "$TASK_SOFTWARE" >&2 || code=$? ;;
+        scoop|winget) . "$task_root/windows-operation.sh";task_windows_operation remove;return ;;
         *) task_stop blocked unsupported-native-provider 0 ;;
     esac
     [ "$code" = 0 ] || task_stop failed provider-remove-failed "$code"

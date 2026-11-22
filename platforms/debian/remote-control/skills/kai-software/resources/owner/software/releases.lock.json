@@ -35,7 +35,7 @@
           "size": 18749952
         }
       },
-      "canonicalSource": "linkspace/backup-release.lock.json"
+      "canonicalSource": "apps/linkspace/backup-release.lock.json"
     }
   }
 }

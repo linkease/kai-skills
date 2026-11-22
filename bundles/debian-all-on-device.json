@@ -13,42 +13,42 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.6",
-      "treeDigest": "sha256:4ba9eabef400ee10c421449d45e97416e2d9a3d0b596a205be11274d54bfcd9b"
+      "treeDigest": "sha256:4034f697d51aae0656db72e377771bc4bf165a39bde9641b89a70f459b221f3d"
     },
     {
       "id": "kai-download-acceleration",
       "version": "1.2.6",
-      "treeDigest": "sha256:03383d7f324969dcb801247c9ea6eff83903cd8b0490d245823fc35f43163411"
+      "treeDigest": "sha256:e967f8896d1951f80e0cafb480a75845866d622fd3ccc73736efddcdb4d245e9"
     },
     {
       "id": "kai-network-quality",
       "version": "1.2.6",
-      "treeDigest": "sha256:7179dc78c048e7a1fc0deae1aed3472b9b202117bcb9c4eb9809591ddf4f2cef"
+      "treeDigest": "sha256:7acd0764e8e18967c89b6305091ac7d46d458f717e97e4cdc38f667cb2eb997d"
     },
     {
       "id": "kai-project-dependencies",
       "version": "1.2.6",
-      "treeDigest": "sha256:d450eede705e206f2d54188ab6ba72aa5c995df6541e61c2dc03b247fc8347b8"
+      "treeDigest": "sha256:70bf2b9f690741e9601306e1a7662bf032bac15d1e3ad1a84d23539be63d7aaf"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.6",
-      "treeDigest": "sha256:633adf73bd07c92fefcee203201c7e63d458224a65ce171f4a1f93de89c801ac"
+      "treeDigest": "sha256:0c4883930bba9d438162580018c10747012817e125f7420d6e9dd94f3166373b"
     },
     {
       "id": "kai-software",
       "version": "1.2.6",
-      "treeDigest": "sha256:d66b3778e8874371b074cd87830e7fddea52be1e0117d69328a10a325f7ccce1"
+      "treeDigest": "sha256:0cdb22f907595a70ef7b9c2df86fa88628edfa94d9aded48a6913620012e75cb"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.6",
-      "treeDigest": "sha256:796203910dfe2a02c25f52064b3c3585f6de3f3343959ec8b9069fd69ac55453"
+      "treeDigest": "sha256:75e0ee5c30fd9b33cbcaaf6a2a93bbd94a2d88ca7a6498aae9d1cfd4d6dcdada"
     },
     {
       "id": "kai-tool-bootstrap",
       "version": "1.2.6",
-      "treeDigest": "sha256:268359e3af3f6ec32c41d581426c0a869c08ee4b30a2241cfca0c4155e3e5c1a"
+      "treeDigest": "sha256:0fdc4b37e47e56f4cc9292532216b81238d0328926650783a01d1efe187c56b3"
     }
   ]
 }

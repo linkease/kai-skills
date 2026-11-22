@@ -7,10 +7,36 @@
 协议 software-task/v1：stdout 单个 JSON，进度和原生诊断到 stderr。
 退出 0 success，20 needs-ai，21 blocked，22 failed，2 invalid；nativeExitCode
 保留实际子程序退出码。查询和计划只读，应用必须绑定计划，不自动启动服务。
+
+入口按 operation/method 只加载需要的模块。stdout 单条结果最多 64 KiB；
+过大返回 needs-ai/result-too-large（退出20），明确要求核实实际状态，不截断 JSON
+或把已发生的变更解释成未执行。版本探测只返回提取后的版本事实，不透传程序任意输出。
+前台截止时间与整个子进程树的取消仍由已选目标 Transport/zsetup 的现有 owner 负责；
+本模块不再建立进程监督器，也不把退出码0当作业务效果的充分证据。
 未知规则不猜下载地址，不将网络、完整性、权限错误解释成无软件候选。
 
 本模块由 kai-skills 以精确摘要的 owner 资源消费，不新增下载器或 zsetup 核心命令。
 已有业务一键入口和公开字节保持原接口，逐项通过适配纳入机器任务。
+
+`inspect` 是软件业务的首个只读入口：在有 iStore 集成的目标上查询实际适用的 Store
+目录，并分别报告业务安装记录和原生依赖包；其他目标走原生包查询。Windows 通过请求的
+`provider: "scoop"` 或 `"winget"` 选择已存在的原生提供者；省略时优先已有原生登记，
+只有单一可用来源时自动选择新来源，多个候选交给调用方。协议保持 software-task/v1。
+`no-update` 只针对已确认归属的 Store 应用元数据；`no-update-in-cache` 不能被解释为
+在线最新。缓存记录修改时间与实际网络获取时间分开；未知的 fetchedAt 保持 null。
+原生 opkg 候选必须来自当前配置的 feed cache，不能用混有安装状态的 list/info 代替。
+同版本不同已知摘要的来源冲突返回 needs-ai；不会自动改源。
+
+`intent: "update"` 区别于默认 install 的已有版本复用：选取原生候选、使用原生比较，
+阻止降级。`method: "istore"` 的 plan/apply 复用已有 is-opkg 生命周期，绑定实际
+目录候选、安装状态、代码摘要和存储预算，执行后核验 Store 元数据及依赖登记。
+没有 Store 安装记录但存在原生包时返回 store-ownership-unconfirmed，不自动接管。
+Store 写适配目前验证 opkg 集成；APK 写适配未验证时明确 needs-ai，不加入绕过签名的参数。
+原生包 hooks 非原子事务，失败保留真实退出码及已尝试效果，不能宣称已回滚或业务健康。
+
+内部职责按小模块分开：platform/native-* 读平台及提供者；store-catalog/state 读业务
+来源和本机状态；inspect 组织事实；plan/apply 及 store-plan/apply 分别处理计划与执行。
+不为一次任务加载全部安装/容器/备份模块。
 
 
 Docker 静态站点配方：`method: "container"`、`software: "nginx-static"`。
@@ -63,3 +89,10 @@ purge、强制依赖删除或额外 autoremove；配置/用户数据仍受原生
 完成并校验；可复用明确的已验证缓存，回执区分缓存与真实下载，不伪称网络通过。
 query 校验归属和程序摘要但不执行应用；verify 执行已记录的精确自检。
 移除保留数据/配置，重新安装仍可核验原版本归属。
+
+Windows 写操作复用消费者提供的既有原生适配入口（`ZSETUP_TASK_WINDOWS_ADAPTER_DIR`）；
+计划绑定该入口及资源锁摘要、原生身份、工具路径和加速策略。查询不安装提供者；
+缺执行工具或适配入口时明确 needs-ai。执行仍由原生适配器负责归属、准备下载、
+卸载及回执，本层只投递计划并重新查询原生登记，不复制这些生命周期规则。
+自动方法在真正具有 Store 集成的系统上按精确业务身份路由 Store；无对应业务时
+继续使用原生包或已有应用维护源。计划执行前重读来源和原生状态，变化时停止。

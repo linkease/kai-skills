@@ -6,7 +6,7 @@
     {
       "id": "kai-storage-files",
       "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
-      "sourceDigest": "sha256:03784dbdd27fb6d49f48e7cec7e31d113c319be3394f91f2f9d22982aa1476c4"
+      "sourceDigest": "sha256:194c54e41c946c3c6af2d04d5a4d81835571af2c99835b46aee1f4ba42fd2ed7"
     },
     {
       "id": "kai-dev-environment",
@@ -16,7 +16,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:8a772e4715787de04085772e6c195ae31ca2f4856c51b945cebfdbb88e8d8526"
+      "sourceDigest": "sha256:f8938aa2b6f0fd9eccfb9b85a7ff36db4aaed9063075ab1cf6d3c311822003de"
     }
   ]
 }

@@ -22,7 +22,8 @@ python_command() {
 }
 if [ "$action" = storage ]; then
     minimum="${3:-1048576}"
-    [[ "$minimum" =~ ^(0|[1-9][0-9]{0,14})$ ]] || fail 2 usage 'minimum free bytes must be a bounded nonnegative integer'
+    minimum_pattern='^(0|[1-9][0-9]{0,14})$'
+    [[ "$minimum" =~ $minimum_pattern ]] || fail 2 usage 'minimum free bytes must be a bounded nonnegative integer'
     code=0
     case "$platform" in
         ubuntu|debian|linux|istoreos|openwrt)

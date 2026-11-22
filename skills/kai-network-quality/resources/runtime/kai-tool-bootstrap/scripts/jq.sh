@@ -62,7 +62,8 @@ if [ -n "$core" ]; then
         # tool.sh itself needs basic jq. Validate an explicitly selected or
         # owner-verified core here without reintroducing the missing-jq cycle.
         core_version="$("$core" --version)"; core_version="${core_version%$'\r'}"
-        [[ "$core_version" =~ ^zsetup\ ([0-9]+)\.([0-9]+)\.([0-9]+)$ ]] || { status=failed;code=4;emit;exit "$code"; }
+        core_pattern='^zsetup ([0-9]+)\.([0-9]+)\.([0-9]+)$'
+        [[ "$core_version" =~ $core_pattern ]] || { status=failed;code=4;emit;exit "$code"; }
         major="${BASH_REMATCH[1]}"; minor="${BASH_REMATCH[2]}"; minimum_minor=5
         case "$(uname -s)" in Darwin|MINGW*|MSYS*|CYGWIN*) minimum_minor=4 ;; esac
         if [ "$major" -eq 0 ] && [ "$minor" -lt "$minimum_minor" ]; then status=failed;code=4;emit;exit "$code";fi

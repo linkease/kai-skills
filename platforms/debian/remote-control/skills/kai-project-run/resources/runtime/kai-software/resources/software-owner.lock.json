@@ -1,10 +1,16 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "4f5ee92970ac9cf1863a31cb009dbcbc4c26ef42",
+  "sourceCommit": "71365b45953af59f5a4bd22911f859c5d7b65212",
   "sourceState": "local-candidate",
   "protocol": "software-task/v1",
   "files": [
+    {
+      "source": "software/apply.sh",
+      "file": "owner/software/apply.sh",
+      "sha256": "2da7efd3f2312f7be77a039c8a498042371fa1907e50863a85d45ffae687b2cc",
+      "size": 6522
+    },
     {
       "source": "software/artifact.sh",
       "file": "owner/software/artifact.sh",
@@ -24,16 +30,76 @@
       "size": 16705
     },
     {
+      "source": "software/inspect.sh",
+      "file": "owner/software/inspect.sh",
+      "sha256": "75854202b15f8c7d2411fdd89277c51fccc8c2876a151df3deb232fd2ff34bdc",
+      "size": 1536
+    },
+    {
+      "source": "software/load.sh",
+      "file": "owner/software/load.sh",
+      "sha256": "b23432c6d7a114d04495ed43a264c51c371d9ea857b7fbb00e351a66534ee302",
+      "size": 1144
+    },
+    {
+      "source": "software/native-brew.sh",
+      "file": "owner/software/native-brew.sh",
+      "sha256": "ed92b2223391043f99ba10c56ec3ba5f9897f2271b95acc6952a297de064de4c",
+      "size": 720
+    },
+    {
+      "source": "software/native-compare.sh",
+      "file": "owner/software/native-compare.sh",
+      "sha256": "4f8bb8d6ccbf7ae26a2c44f1d46732954273237f2d7b995c82caa8e7ffb3218f",
+      "size": 1335
+    },
+    {
+      "source": "software/native-linux.sh",
+      "file": "owner/software/native-linux.sh",
+      "sha256": "050c24cb76bcd8087edf338d9117b8341218f7e91807f11a66c2934cdb7454b0",
+      "size": 1836
+    },
+    {
+      "source": "software/native-opkg.sh",
+      "file": "owner/software/native-opkg.sh",
+      "sha256": "91a2b5ff53fa3f41a163e4decfe850ea6107bb03fdbce16a9ae1ed55d035a4d1",
+      "size": 2848
+    },
+    {
+      "source": "software/native-windows.sh",
+      "file": "owner/software/native-windows.sh",
+      "sha256": "1a64654d88c1d4e9ce6af0a63e92d8b208d71fb4bdf07ea7897f70785e34dd01",
+      "size": 1189
+    },
+    {
       "source": "software/native.sh",
       "file": "owner/software/native.sh",
-      "sha256": "f90838be1032f93b374b00eb52044ffcbdc281b96fa682ecadd0ba861c99da29",
-      "size": 6044
+      "sha256": "6222c257a3f3e7cbb768f9af1a7b921eed7b204a2b0a4e64d53cf9e78cfa14d0",
+      "size": 4300
+    },
+    {
+      "source": "software/observe.sh",
+      "file": "owner/software/observe.sh",
+      "sha256": "2aa7b3b47d212db95555e85318d5a704151d481e6738c59f779589c3bf637df4",
+      "size": 3209
+    },
+    {
+      "source": "software/plan.sh",
+      "file": "owner/software/plan.sh",
+      "sha256": "974dd174506fc7e1c9173703d8b8a0a0831aa3c1580e4904afc218b08943c8a8",
+      "size": 10106
+    },
+    {
+      "source": "software/platform.sh",
+      "file": "owner/software/platform.sh",
+      "sha256": "4ac61ac21bac862316ecb35c51e3f532f186e9034119bfc21a7dba046dc687aa",
+      "size": 1746
     },
     {
       "source": "software/protocol.sh",
       "file": "owner/software/protocol.sh",
-      "sha256": "d6789da8dbf17f95275d2fae88b459c3e52d1b72e206c516f08545ad138f634a",
-      "size": 3277
+      "sha256": "88ab2459cbe64a76a1cfdffcae3d4d8da9513ca1dac3b05686e0926e5d74948c",
+      "size": 4602
     },
     {
       "source": "software/release.sh",
@@ -44,42 +110,102 @@
     {
       "source": "software/selection.sh",
       "file": "owner/software/selection.sh",
-      "sha256": "4905adf69f5eea372794f1d0ece8bad2a1a5061819fc6503c4626f5a28f37921",
-      "size": 18916
+      "sha256": "b1ed430f3d61495d67720b49015036d99cd0980dbe7f0655fc6b78664bb703a5",
+      "size": 1937
     },
     {
       "source": "software/storage.sh",
       "file": "owner/software/storage.sh",
-      "sha256": "dac61fdd94e8f4f1f2b55b18ab6c9672e6000ff7c894f4c69093ec0e6af2db48",
-      "size": 6790
+      "sha256": "456eaa55a41c91912cc92e4ccb592d70ab3299f55964dea91542c2f710c9a662",
+      "size": 6810
+    },
+    {
+      "source": "software/store-apply.sh",
+      "file": "owner/software/store-apply.sh",
+      "sha256": "ca57b6a46d16db9b9109497ae7fa1dad008559ea59f4fc392d272fc95be7d533",
+      "size": 1600
+    },
+    {
+      "source": "software/store-catalog.sh",
+      "file": "owner/software/store-catalog.sh",
+      "sha256": "90a34fe46067c32fa8eb821f6f0df4df77ab483663e907a2c01bff2d1fc672fb",
+      "size": 3166
+    },
+    {
+      "source": "software/store-inspect.sh",
+      "file": "owner/software/store-inspect.sh",
+      "sha256": "19f87fabf38ec50430f9cd79028da052a1fac3a0e6276aef462e42c79da318fb",
+      "size": 2882
+    },
+    {
+      "source": "software/store-plan.sh",
+      "file": "owner/software/store-plan.sh",
+      "sha256": "6dbf093455a68e10813de0436684e3c9a3587a7ba9d5473d4f6bf5afd6ac4f89",
+      "size": 2865
+    },
+    {
+      "source": "software/store-state.sh",
+      "file": "owner/software/store-state.sh",
+      "sha256": "3fd94b349f6391bcb92a7a08048bb45342645adfc2582d435023ea653b63e216",
+      "size": 2013
     },
     {
       "source": "software/task.sh",
       "file": "owner/software/task.sh",
-      "sha256": "6dc285973403445176bb8cceb013ae1ab4ba2990efdddb25f2d3d61f917eb385",
-      "size": 3093
+      "sha256": "42739ad57793c45a95bd006d66b389bfd4665bcc1b816adad5d7639e6bd6b42f",
+      "size": 2977
+    },
+    {
+      "source": "software/windows-operation.sh",
+      "file": "owner/software/windows-operation.sh",
+      "sha256": "43f66912adb2af9861be6184dcfc439249476fd6b6f95023dcccca4650573687",
+      "size": 4719
+    },
+    {
+      "source": "software/native-windows.ps1",
+      "file": "owner/software/native-windows.ps1",
+      "sha256": "b96faa2899150401ec87bbf119cd53829f36f6bfb924f7ab4d563f9027ffc74f",
+      "size": 1893
+    },
+    {
+      "source": "software/windows-auto.ps1",
+      "file": "owner/software/windows-auto.ps1",
+      "sha256": "33c5dbcefd26bb82c107afb91395e3d553b89bfafa2d1fc2016569a5f1726242",
+      "size": 907
+    },
+    {
+      "source": "software/windows-scoop.ps1",
+      "file": "owner/software/windows-scoop.ps1",
+      "sha256": "45e56520124ebd87ff7ce4cff6fae53f2ad50f55e80c8950f8aed6b0e777162f",
+      "size": 3728
+    },
+    {
+      "source": "software/windows-winget.ps1",
+      "file": "owner/software/windows-winget.ps1",
+      "sha256": "bde5d0cffe1dfe6289773543ee3682c06d31ea4735ddb311cc7c5e828c009d04",
+      "size": 1224
     },
     {
       "source": "software/releases.lock.json",
       "file": "owner/software/releases.lock.json",
-      "sha256": "12a881ef2b8627054e764fcebb71841fe4c59e25e29d803db667fbaf9204400b",
-      "size": 1507
+      "sha256": "80da476746421d5f6a90684ce34cb081ce253eb5c571a0565c011f70617b4ce1",
+      "size": 1512
     },
     {
       "source": "software/README.md",
       "file": "owner/software/README.md",
-      "sha256": "5fe309c3eba3905a74ef8167a7b7429c09beee39ad5288c02ae7f9d5ba8435ff",
-      "size": 4839
+      "sha256": "3bef2ae70f0853090026268c4c206687f9d973b985884251ca6b3d5c73317a99",
+      "size": 7816
     },
     {
-      "source": "jq/jq-install.sh",
-      "file": "owner/jq/jq-install.sh",
+      "source": "apps/jq/0.1.0/installer.sh",
+      "file": "owner/apps/jq/0.1.0/installer.sh",
       "sha256": "5b0fa3bf551bd17c07b5a9dbcf8a7f7f56484c3fb53a56ba81679f1d6ec663db",
       "size": 23653
     },
     {
-      "source": "jq/artifacts.lock.json",
-      "file": "owner/jq/artifacts.lock.json",
+      "source": "apps/jq/source/artifacts.lock.json",
+      "file": "owner/apps/jq/source/artifacts.lock.json",
       "sha256": "3496ad7d950abad70b958f5dae05dc8bac1e1ad0c9dea608018ac8a0f19503dd",
       "size": 5799
     }

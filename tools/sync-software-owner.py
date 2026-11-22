@@ -31,8 +31,8 @@ else:
 # bytes intact; distributed helpers never need this sibling checkout.
 jq_dest = root / 'components/system-packs/common/skills/kai-tool-bootstrap/resources'
 jq_files = []
-for source, name in [('jq/jq-install.sh', 'jq-install.sh'),
-                     ('jq/jq-install.ps1', 'jq-install.ps1'),
+for source, name in [('apps/jq/0.1.0/installer.sh', 'jq-install.sh'),
+                     ('apps/jq/0.1.0/installer.ps1', 'jq-install.ps1'),
                      ('lib/bootstrap.ps1', 'bootstrap-windows.ps1')]:
     payload = (args.source / source).read_bytes()
     digest = hashlib.sha256(payload).hexdigest()
@@ -55,9 +55,9 @@ else:
 
 # Preserve the owner's relative layout, including its existing jq recipe.
 task_dest = dest / 'owner'
-task_sources = sorted((args.source / 'software').glob('*.sh'))
-task_sources += [args.source / 'software/releases.lock.json', args.source / 'software/README.md', args.source / 'jq/jq-install.sh',
-                 args.source / 'jq/artifacts.lock.json']
+task_sources = sorted((args.source / 'software').glob('*.sh')) + sorted((args.source / 'software').glob('*.ps1'))
+task_sources += [args.source / 'software/releases.lock.json', args.source / 'software/README.md', args.source / 'apps/jq/0.1.0/installer.sh',
+                 args.source / 'apps/jq/source/artifacts.lock.json']
 task_files = []
 for source in task_sources:
     relative = source.relative_to(args.source).as_posix()

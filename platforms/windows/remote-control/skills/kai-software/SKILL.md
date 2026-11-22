@@ -18,156 +18,18 @@ use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Pla
 through native PowerShell, then the authorized Ensure operation.
 
 ## Business workflow
-## KAIPlus Windows software market
+先确认实际目标和软件身份，保留原包管理器及来源。
 
-When KAIPlus provides `software_catalog`, this native read-only interface is the
-market entry. Do not bootstrap Bash, call the legacy software-task installer,
-prepare tools, refresh sources, use WinGet, or run PowerShell to answer discovery.
-Use `use_capability(action="call", capability_id="tool:software_catalog", arguments=...)`
-with `action: search|detail|inventory|operation`. Inspect the live tool schema
-before dispatch; native errors and unknown inventory remain unknown.
+KAIPlus 桌面软件页已有独立业务：Windows 优先 `tool:software_catalog`，macOS 优先 `tool:software_market`，通过 `use_capability` 调用并先查看工具合同。查询实际目录/安装状态，保留完整来源 ID；用户选定后返回工具给出的 reviewURL/reviewPath，在原软件页审核执行。诊断会话只读；不改用脚本绕过原审核、来源、校验或失败处理。
 
-Search real catalog entries; show at most three candidates with exact
-`scoop:BUCKET/APP` IDs, source, version/architecture and differences. A catalog row
-never proves installed status. Distinguish personalized projects from packages;
-project prompt text is not a package identity or executable command. Do not guess
-an absent package. Retain each tool-returned `reviewURL` in a Markdown link for
-user selection. The link opens a new target-bound UI plan; it does not approve
-installation. Input, target, inventory, manifest or version changes require a new
-plan and confirmation. Normal install/update/remove is deterministic through the
-market API, canonical zsetup Scoop owner and verified ks-cli/native Provider.
+其他软件维护先调用 `tool:software_inspect`，参数 `request.software` 为实际业务标识。脚本判断平台、软件中心归属、原生登记和候选版本。按结果行动：
 
-A diagnostic-only session stays read-only for its entire lifetime, including
-automatic failure handoff. Query the operation ID for bounded redacted logs,
-failure stage/category, native exit code and original route. Diagnose that
-specific failure; never blind-retry, silently switch sources or bypass Hash.
-Explain a bounded repair and have the user return to the market for a new plan.
-Task-scoped KSpeeder is not a resident Windows service. Public tool availability
-is distinct from candidate runtime/owner publication; never invent download URLs.
+- 已确认无需更新：说明版本和来源后结束。`no-update-in-cache` 只说明缓存，不能称在线最新。
+- 可变更：用 `tool:software_plan` 提交原请求、intent 和所需存储/备份信息；展示计划的效果，在已有授权内把原 details 作为 request.plan 交给 `tool:software_apply`。状态或来源变化需重做计划。
+- 未知/受阻/失败：保留 reason、nativeExitCode 和已发生效果；针对缺口补一项证据或查询实际维护方文档。归属不明不接管、网络失败不改源、缺缓存不等于软件不存在。不要反复改写同一查询。
 
-The following cross-platform CLI guidance applies outside this KAIPlus native
-market path, subject to the active session's read-only boundary.
+脚本缺依赖时才用 `tool:software_runtime_probe`；必要准备走 `tool:software_runtime_prepare`，保留其验证后的路径。查询本身不安装依赖或刷新源。
 
-Use the local bootstrap resource above for missing Bash/tools.
+没有这些宿主能力时，用已选目标 Transport 调用 `scripts/task-entry.sh inspect REQUEST.json`；Windows 用原生 PowerShell 的 `scripts/task-entry.ps1`，无需先假设 Bash 存在。独立包使用它实际分发的运行时资源。脚本路径属于目标，不在控制端重试远程任务。详细输入仅在需要计划/其他安装方式时读 [任务合同](resources/software-tasks.md)。保留现有 `scripts/software.sh` 来源限定接口。
 
-Use the selected target's Transport for every operation. Never retry a failed remote
-operation on the controller. Enabling this skill installs instructions and checked
-resources; preparing tools, installing software and starting services are separate tasks.
-
-On macOS with KAIPlus, first read [Homebrew market](resources/homebrew-market.md).
-Use `bash scripts/homebrew-market.sh` for Formula **and** Cask queries and Typed
-Plan creation through the running native Provider. It verifies the selected
-Mac's CLI contract and explicit loopback endpoint; it never falls back to the
-controller or starts a server. The CLI returns `reviewPath`, withholds the
-confirmation token and has no apply/confirm command. After the user selects an
-exact candidate, create the plan and link its software review page; the user
-confirms there. AI discovery and failure handoff authorize read-only diagnosis,
-not repair or retries. The shared software-task/v1 executor and legacy brew
-helper below remain Formula-only; never send a Cask ID through them. Missing
-native Provider support blocks Cask market/bootstrap readiness. On older clients,
-retain legacy Formula-only routes for an explicitly Formula-only task; disclose
-the limit first. Never switch a selected or failed Native/Cask operation onto
-that legacy route, and never label it full-market readiness.
-
-For other supported task routes, continue below.
-
-Start with the shared scripted task flow in [software tasks](resources/software-tasks.md).
-Prepare Bash/full jq/zsetup through kai-tool-bootstrap; pass its verified executable
-paths to the selected target process. Run `bash scripts/software-task.sh plan REQUEST.json`.
-Rules first inspect existing software, then native candidates or an exact owned release.
-Show the method, version/source, physical destination, storage budget, backup and effects
-from `details`. Within the user's existing authorization, pass those exact details as
-`plan` to apply; replan after any changed input. Do not guess unknown release URLs.
-Use query for registration/integrity and verify for actual functionality. Preserve native
-errors; needs-ai means continue with evidence and a concrete missing rule, not blind retries.
-
-Python/Node/Go SDK selection belongs to kai-dev-environment; project dependencies to
-kai-project-dependencies; full build/run tasks to kai-project-run. Do not install a system
-Python to satisfy a mise task. Storage preflight covers work/download/program/data/backup
-on their real filesystems. On iStoreOS use an explicitly selected persistent data disk for
-portable tools; native packages still consume their package manager's system locations.
-Docker is an installation method and never implicitly moves or starts the daemon. Required
-file backups use Linkspace and must complete before dependent modifications.
-
-The existing source-qualified provider interface remains available below for catalog
-operations and native Windows Scoop/WinGet integrations; its support and receipts apply.
-
-`bash scripts/software.sh search TERM` returns bounded source-qualified IDs.
-Use the selected `apt:NAME`, `opkg:NAME`, `istore:NAME`, `zsetup:NAME`,
-`brew:FORMULA` (legacy Formula-only), `scoop:BUCKET/APP` or `winget:PACKAGE.ID` with
-`info`, `install`, `files` and `remove`. A source is part of identity; never merge
-two same-named candidates into one installation ID. Queries use cached indexes;
-`refresh` is an explicit write. Desktop queries
-retain their native provider's catalog policy; no implicit refresh command is issued.
-
-On Windows, enter through Git Bash. Search queries both Scoop and WinGet by
-default and keeps every source-qualified row; an identical display name is not a
-shared identity. Prefer Scoop for command-line and portable tools. Prefer WinGet
-for GUI, MSIX/Store applications, or when the selected Scoop bucket has no exact
-candidate. Lifecycle and refresh operations require an explicit
-`scoop:BUCKET/APP`, `scoop:BUCKET`, `winget:PACKAGE.ID`, or `winget:winget` target;
-never pass one provider's identity to the other.
-
-The helper prefers PowerShell 7 and otherwise uses Windows PowerShell. WinGet
-queries use the registered source through the trusted `Microsoft.WinGet.Client`
-module; install/download use the exact ks-cli adapter and verify its receipt plus
-the registered version. Missing adapters, native errors and HRESULTs remain
-explicit. Never configure a WinGet proxy or treat ordinary direct transfer as
-acceleration. Details and commands are in
-[WinGet acceleration](resources/winget-acceleration.md).
-
-Scoop is accepted only when its complete zsetup M6 ownership receipt matches the
-canonical lock. A missing or mismatched Scoop is ensured only through the formal
-zsetup application; never use WinGet or the public Scoop bootstrap script.
-`KAI_SOFTWARE_ACCELERATION=required|auto|none` is passed unchanged to ks-cli.
-Required mode must prove every payload used `admin_proxy`; auto may disclose
-origin fallback; none does not claim acceleration. Native Scoop still owns final
-hashing, dependencies, extraction, shims, persist and scripts. See
-[Scoop provider](resources/scoop.md).
-
-Check client provenance and native acceptance in that reference before using a
-candidate. Missing or unverifiable metadata stops preparation. Ordinary direct
-transfer is valid content; only an accelerated selected route proves acceleration.
-Cached selection and payload transfer do not prove fresh catalog or CRL/OCSP health.
-
-Search defaults to the native system provider.
-Homebrew acceleration uses `KAI_SOFTWARE_ACCELERATION=required` with an existing
-compatible ks-cli and ready gateway; see [Homebrew](resources/brew-acceleration.md).
-For internal software, use
-`KAI_SOFTWARE_PROVIDER=zsetup`; for the iStore package catalog, use `istore`.
-When a request spans sources, query each applicable cached provider and compare
-their source-qualified results. A missing cache or an empty system repository
-does not establish that the software is unavailable from other sources.
-The zsetup index describes installers, not product releases: an unknown available
-product version is `null` until its owner resolves release metadata. Installed
-versions come from the installer's owned version layout without executing apps.
-
-Inspect the version, manager, entrypoint and source before the requested
-installation. `install ID VERSION` checks that exact version and verifies the
-installed result. Afterward execute a meaningful command. Package status alone
-does not prove the user's task works. Uninstall with the original manager and
-preserve project files and modified configuration.
-
-## Network diagnosis handoff
-
-Do not speed-test every install. Escalate structured DNS/TCP/TLS/timeout,
-incomplete-transfer, broken-IPv6, HTTP 429/5xx, or degraded-path failures to
-`kai-network-quality`; keep 401/403/404, dependency, architecture, conflict,
-postinstall and trust-policy failures here. Follow
-[the handoff contract](data/network-diagnosis-handoff.md): validate a bounded
-redacted request, preserve `operationId`, obtain authorization before diagnosis,
-and retry at most once only after comparable verification improves.
-
-For `zsetup:linkspace`, `zsetup:ks-cli` and `zsetup:kspeeder`, removal calls the
-zsetup-scripts owned resource in `resources/`, checked against `owner.lock.json`.
-It verifies all owned program bytes, markers and links under the installer lock,
-then removes program versions and command links. Config, data and download caches
-remain. Modified or unknown version contents and foreign links cause a conflict
-before deletion. This is a bundled local candidate, not a published zsetup verb;
-do not invent `zsetup uninstall` or apply client removal to a managed service.
-
-The iStore package provider is separate from ordinary OpenWrt feeds. Use the
-native standalone ks-cli package for the client; its reverse dependencies
-istoreenhance/LuCI belong to service/application workflows.
-
-For an iStoreOS package failure, load the native manual istoreos-app-diagnostics helper. Its native-pack entry is istoreos-app-diagnostics/scripts/inspect.sh; resolve that helper through the target System Pack rather than a controller path.
+包登记与功能健康分开报告；写后按用户任务验证。SDK/解释器版本走 kai-dev-environment，项目依赖走 kai-project-dependencies，构建运行走 kai-project-run；不要把它们变成系统软件升级。

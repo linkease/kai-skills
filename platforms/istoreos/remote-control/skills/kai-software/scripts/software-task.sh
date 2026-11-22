@@ -10,4 +10,5 @@ if ! owner=$(kai_software_owner_root);then
     exit 21
 fi
 export ZSETUP_TASK_JQ="$KAI_JQ_BIN"
+export ZSETUP_TASK_WINDOWS_ADAPTER_DIR="$here"
 exec bash "$owner/software/task.sh" "$@"

@@ -1,0 +1,139 @@
+{
+  "schemaVersion": 1,
+  "version": "1.8.2",
+  "source": "https://github.com/jqlang/jq/releases/tag/jq-1.8.2",
+  "artifacts": {
+    "linux:amd64": {
+      "name": "jq-linux-amd64",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-amd64",
+      "sha256": "b1c22172dd303f3be49e935aa56aa48a8b7a46e0bc838b4997d3bb451495870f",
+      "size": 2267912
+    },
+    "linux:arm64": {
+      "name": "jq-linux-arm64",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-arm64",
+      "sha256": "8b85c817833814ddca00a144c33705546355afccf0cf39b188f3cdb48b852309",
+      "size": 1797688
+    },
+    "linux:armel": {
+      "name": "jq-linux-armel",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-armel",
+      "sha256": "d88f6bd640ef8909b3deb587f12c03a0ed38fe8bd5e2e882e2b1bf88f5dab8d2",
+      "size": 1700244
+    },
+    "linux:armhf": {
+      "name": "jq-linux-armhf",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-armhf",
+      "sha256": "78458244fb546469b4042e9e07cf78714ef6848895eb9515df76b4eb0b1dc992",
+      "size": 1340000
+    },
+    "linux:i386": {
+      "name": "jq-linux-i386",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-i386",
+      "sha256": "ba996e8ce436973e2f39e2639405a37e8c81ba8c722b71c83996278ad0af16dd",
+      "size": 2156424
+    },
+    "linux:mips": {
+      "name": "jq-linux-mips",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mips",
+      "sha256": "1e9930ef7c4e69a49c2e5e9a1a5b1240a36d10123fa8524952ddeaedc039ad72",
+      "size": 2007040
+    },
+    "linux:mips64": {
+      "name": "jq-linux-mips64",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mips64",
+      "sha256": "34e53f8df8298fd609f8e3dcc7eae1d8a741976f289909286601443caf64229a",
+      "size": 2081176
+    },
+    "linux:mips64el": {
+      "name": "jq-linux-mips64el",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mips64el",
+      "sha256": "eb382d2419aa99c82b8fb1cbb0d1cfa3da71b0852108f9140ca1ddcfd3d33d81",
+      "size": 2081176
+    },
+    "linux:mips64r6": {
+      "name": "jq-linux-mips64r6",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mips64r6",
+      "sha256": "365c0bcda2e695ab1e6f3372094d812e914784c03aa45ca4b67b93cc54fc78d9",
+      "size": 2015472
+    },
+    "linux:mips64r6el": {
+      "name": "jq-linux-mips64r6el",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mips64r6el",
+      "sha256": "01bfe1a1579cfac74a680870031e1d4bdd500040fae18fd9e2a27ada8e555a80",
+      "size": 2015472
+    },
+    "linux:mipsel": {
+      "name": "jq-linux-mipsel",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mipsel",
+      "sha256": "9570c9dcbd7d0de85b16a00046a3e5a9ba72aabe4b85c8f5f8b5927aed8d664e",
+      "size": 2072576
+    },
+    "linux:mipsr6": {
+      "name": "jq-linux-mipsr6",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mipsr6",
+      "sha256": "d2105ab249e66dc14465982d4b8b3e8cf0e6301eb606fa6116dfe0bfacbfb918",
+      "size": 1941296
+    },
+    "linux:mipsr6el": {
+      "name": "jq-linux-mipsr6el",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-mipsr6el",
+      "sha256": "5e66dcad39eaa2d1e5b2eb01e2f378a3bfdf0ee2ebeb571cc87512ca4f38dec6",
+      "size": 1941296
+    },
+    "linux:powerpc": {
+      "name": "jq-linux-powerpc",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-powerpc",
+      "sha256": "d60c33574fdeab53ae15feb37598249ce4ab6a344adde6f22abba38cf7a8de6e",
+      "size": 2187392
+    },
+    "linux:ppc64el": {
+      "name": "jq-linux-ppc64el",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-ppc64el",
+      "sha256": "0dba61281e525ced2111bc00c8bd8078100e8822c33bfb35feee95314bbeeea2",
+      "size": 2453424
+    },
+    "linux:riscv64": {
+      "name": "jq-linux-riscv64",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-riscv64",
+      "sha256": "a96e5a78a7b2c5a0575bc2a10dda4b20d84efd8c02c8806539ee5f5e57603e8d",
+      "size": 1609208
+    },
+    "linux:s390x": {
+      "name": "jq-linux-s390x",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-linux-s390x",
+      "sha256": "42b3306c786e3352e3097b8aa03ca0e5631bdc7a6bf133bb8ddd9e4b148d20c8",
+      "size": 1990096
+    },
+    "macos:amd64": {
+      "name": "jq-macos-amd64",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-amd64",
+      "sha256": "e94b266e3c26690550006abe63152b782280f4e14374accdf04cbde844f00bc0",
+      "size": 871768
+    },
+    "macos:arm64": {
+      "name": "jq-macos-arm64",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-macos-arm64",
+      "sha256": "2d75340ba57a4b4b4c8708a21c2dc8e958a48aaa8bba13b27f77f6e4c0eca07e",
+      "size": 841504
+    },
+    "windows:amd64": {
+      "name": "jq-windows-amd64.exe",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-amd64.exe",
+      "sha256": "a6fc67fedaf9128a3309a1e2ebb8b986aeccf70122ee46d2cb4849e423f0c627",
+      "size": 1035264
+    },
+    "windows:arm64": {
+      "name": "jq-windows-arm64.exe",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-arm64.exe",
+      "sha256": "083b5377392bc57cf27052b6d20a2d927770683bca844632901ff38b4b7b0ac7",
+      "size": 973312
+    },
+    "windows:i386": {
+      "name": "jq-windows-i386.exe",
+      "url": "https://github.com/jqlang/jq/releases/download/jq-1.8.2/jq-windows-i386.exe",
+      "sha256": "a99cb668f95bdd788d9ee20529613b115e5d2a0d7f9127ee6976607e878558ba",
+      "size": 1082368
+    }
+  }
+}

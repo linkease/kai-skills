@@ -8,7 +8,7 @@ kai_software_owner_root() {
         (.file|test("^owner/[A-Za-z0-9/._-]+$") and (split("/")|all(.[];.!="." and .!=".."))) and
         (.sha256|test("^[a-f0-9]{64}$")) and (.size|type=="number" and .>0)))' \
       "$directory/software-owner.lock.json" >/dev/null || return 11
-    for path in owner owner/software owner/jq;do [ ! -L "$directory/$path" ] || return 11;done
+    for path in owner owner/software owner/apps owner/apps/jq owner/apps/jq/0.1.0 owner/apps/jq/source;do [ ! -L "$directory/$path" ] || return 11;done
     while IFS= read -r path;do
         [ -f "$directory/$path" ] && [ ! -L "$directory/$path" ] || return 11
     done < <(jq -r '.files[].file' "$directory/software-owner.lock.json")

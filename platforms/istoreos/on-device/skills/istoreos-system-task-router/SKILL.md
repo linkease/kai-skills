@@ -13,44 +13,10 @@ the executable resources required by its own workflow.
 - `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
 ## Business workflow
-# iStoreOS System Task Router
+根据实际 iStoreOS 目标和用户意图选一个主能力；明确的软件维护直接走 kai-software，不先做全系统检查。
 
-Use this skill when an iStoreOS request is ambiguous, spans domains, or has no obvious specialist. It is a router, not a second implementation of each specialist.
-Identify the actual target System Pack first. Ubuntu is not iStoreOS: do not apply its opkg/apk, UCI, procd or mise-exec workflow to ordinary Linux.
+容器、服务、LuCI、存储、网络、备份、系统设置和未知可执行文件，按目录描述选择对应业务技能。Docker 数据目录迁移使用专用迁移能力；SDK/解释器走 kai-dev-environment，项目依赖走 kai-project-dependencies，具体下载链路走 kai-download-acceleration。
 
-## Select One Primary Skill
+问题含糊时，在目标上运行 `sh scripts/observe.sh <auto|network|storage|service|package|docker|kai> [subject]`，只选相关模式。该小脚本返回限长脱敏事实；用它形成可验证的原因，再按缺口加载辅助能力，不预读全部文档或重复探测。源码问题先查 `data/code-ownership.tsv` 对应行；仓库资料不能代替设备状态。
 
-1. "安装/卸载/升级/找软件/应用商店/opkg/apk/mise 插件" -> `kai-software`; detect the actual database/tool before choosing commands.
-2. "Docker/容器/dockerd/compose" -> `istoreos-docker-basics`; pull/download failures -> `kai-download-acceleration`.
-3. "GitHub/GitLab/HuggingFace/下载链接/git clone/文件下载慢" -> `kai-download-acceleration`.
-4. "磁盘满/overlay 满/数据目录/装到硬盘/迁移目录" -> `kai-storage-files`; Docker data-root migration routes to `istoreos-docker-data-root-migrate`.
-5. "服务打不开/端口不通/启动失败/开机自启" -> `istoreos-service-manager`.
-6. "LuCI/网页管理/登录循环/500/空白页" -> `istoreos-luci-recovery`.
-7. "不知道配置字段/不确定脚本行为/要改配置" -> internal helper `istoreos-source-introspect` first.
-8. 明确备份、恢复、回滚或重置请求 -> `istoreos-backup-restore`。普通升级和危险修改仍由所属业务 Skill 处理；KAIPlus 的首次写入门禁负责建立 Linkspace 恢复点，不为路由而额外询问备份。
-9. "网速慢/测速/延迟或抖动/NAT 类型/IPv6 是否可用/局域网测速" -> `kai-network-quality`; a specific slow download remains with `kai-download-acceleration`, which may use FastNet target-path evidence.
-10. "修改 IPv6 PD/relay/NAT 模式/硬盘不休眠/iStore 商店损坏/升级后内核模块异常" -> `istoreos-systools`.
-11. "安装 Python/Node.js/Go SDK/选择运行时版本/python-build/预编译/解释器异常" -> `kai-dev-environment`; system facts use check.sh, installed SDK checks use probe.sh, installations use install.sh. These dedicated helpers establish integration for each call and report scoped results.
-12. ".run 文件/未知可执行安装包" -> `istoreos-run-executable`.
-13. "pip install/npm install/npm ci/go mod/依赖下载或安装失败" -> `kai-download-acceleration`; an absent runtime or inactive venv loads mise-runtime as needed. Go SDK and Go modules are separate tasks. System feed packages still use package-manager.
-
-## Loading Budget
-
-- Load only the selected primary skill first.
-- Load at most one internal helper at a time, and only when current evidence requires it. Common helpers are `istoreos-app-search`, `istoreos-logs-and-diagnostics`, `istoreos-source-introspect`, and `istoreos-quickstart-api` when a bound LuCI HTTP capability exists.
-- Do not load every skill named in a route or preload follow-up skills "just in case".
-- Do not expose skill names as choices unless the user asks for implementation details.
-
-## Unknown-Problem Contract
-
-- A missing specialist is not a reason to refuse the task or dump generic advice.
-- Start with one bounded evidence card: `sh "$SKILLS_DIR/istoreos-system-task-router/scripts/observe.sh" <auto|network|storage|service|package|docker|kai> [subject]`. Select one mode; do not run all modes.
-- The observer is read-only, rejects unsafe identifiers, redacts common credentials, and caps output at 8 KB. Collect more only when the first card supports a falsifiable hypothesis.
-- If ownership or behavior remains unclear, load `istoreos-source-introspect`; if a command failed, load `istoreos-logs-and-diagnostics`.
-- For development/source questions, read only the matching row in `data/code-ownership.tsv`, then inspect that repository path at its current revision. Repository knowledge is not device evidence.
-- Form a falsifiable cause, propose the least invasive next step, and preserve the same confirmation and verification rules used by specialist skills.
-- Do not create a new skill during the incident. Add one later only when a workflow recurs and contains non-obvious reusable decisions.
-
-## Safety
-
-Before a write, state target, effects, verification and recovery, then obtain any missing authorization. Reuse already granted authorization for that scope; ask again only for a new effect or product decision. After a write, verify and report current evidence.
+普通升级由所属业务处理；首次写入保护交给 KAIPlus 门禁。明确的备份/恢复请求再走 istoreos-backup-restore。沿用已有授权与审批，写后验证实际效果。
