@@ -18,6 +18,36 @@ use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Pla
 through native PowerShell, then the authorized Ensure operation.
 
 ## Business workflow
+## KAIPlus Windows software market
+
+When KAIPlus provides `software_catalog`, this native read-only interface is the
+market entry. Do not bootstrap Bash, call the legacy software-task installer,
+prepare tools, refresh sources, use WinGet, or run PowerShell to answer discovery.
+Use `use_capability(action="call", capability_id="tool:software_catalog", arguments=...)`
+with `action: search|detail|inventory|operation`. Inspect the live tool schema
+before dispatch; native errors and unknown inventory remain unknown.
+
+Search real catalog entries; show at most three candidates with exact
+`scoop:BUCKET/APP` IDs, source, version/architecture and differences. A catalog row
+never proves installed status. Distinguish personalized projects from packages;
+project prompt text is not a package identity or executable command. Do not guess
+an absent package. Retain each tool-returned `reviewURL` in a Markdown link for
+user selection. The link opens a new target-bound UI plan; it does not approve
+installation. Input, target, inventory, manifest or version changes require a new
+plan and confirmation. Normal install/update/remove is deterministic through the
+market API, canonical zsetup Scoop owner and verified ks-cli/native Provider.
+
+A diagnostic-only session stays read-only for its entire lifetime, including
+automatic failure handoff. Query the operation ID for bounded redacted logs,
+failure stage/category, native exit code and original route. Diagnose that
+specific failure; never blind-retry, silently switch sources or bypass Hash.
+Explain a bounded repair and have the user return to the market for a new plan.
+Task-scoped KSpeeder is not a resident Windows service. Public tool availability
+is distinct from candidate runtime/owner publication; never invent download URLs.
+
+The following cross-platform CLI guidance applies outside this KAIPlus native
+market path, subject to the active session's read-only boundary.
+
 Use the local bootstrap resource above for missing Bash/tools.
 
 Use the selected target's Transport for every operation. Never retry a failed remote

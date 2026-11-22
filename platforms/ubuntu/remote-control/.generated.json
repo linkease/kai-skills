@@ -18,14 +18,14 @@
     "transport.ssh"
   ],
   "componentVersions": {
-    "common": "1.1.0",
+    "common": "1.1.2",
     "linux": "1.0.0",
     "debian": "1.0.0",
     "ubuntu": "1.0.0",
     "transport.ssh": "1.1.0"
   },
-  "sourceDigest": "sha256:f06a075ea9bb0a173365aac73ed9f8f24860128372d61144328de8043ed34511",
-  "treeDigest": "sha256:ceb048c294c610116f6820f3bb3303a3b2e76a5a1265f8cfea69203b2016875a",
+  "sourceDigest": "sha256:02defa25c8cfb6d33bfe3ae581c9f0331f50304f3d0e76d2974ce5e45798c991",
+  "treeDigest": "sha256:7d62974db38adbb7f81ed65f6b85349b63fcd2f722d6ed86e993f9c29f19ca06",
   "resources": [],
   "skillAliases": {}
 }

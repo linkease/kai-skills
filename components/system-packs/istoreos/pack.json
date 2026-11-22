@@ -2,13 +2,17 @@
   "$schema": "../../../schemas/pack.schema.json",
   "schemaVersion": 1,
   "id": "istoreos",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "layer": "distribution",
-  "extends": ["openwrt"],
+  "extends": [
+    "openwrt"
+  ],
   "match": {
     "osFamily": "openwrt",
     "distribution": "istoreos"
   },
   "skillsRoot": "skills",
-  "requires": ["target-shell:posix"]
+  "requires": [
+    "target-shell:posix"
+  ]
 }

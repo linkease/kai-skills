@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "repository": "https://github.com/linkease/zsetup-scripts.git",
+  "sourceCommit": "5b50fb0a7e2f8498d08cd0e6898fc11bac765919",
+  "sourceState": "committed",
+  "path": "owner/scoop/scoop-install.ps1",
+  "sha256": "324ba6bd60bffba4af20eb136df839016a8d32c82f0f207684e3cda2eb27fc9c",
+  "size": 44417,
+  "route": "canonical-zsetup-standalone-owner"
+}

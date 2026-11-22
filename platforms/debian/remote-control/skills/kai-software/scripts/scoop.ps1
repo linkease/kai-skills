@@ -44,9 +44,9 @@ function Property($Value, [string]$Name) {
     if ($null -eq $property) { return $null }
     return $property.Value
 }
-function Effective($Manifest, [string]$Name) {
+function Effective($Manifest, [string]$Name, [string]$Architecture = $script:architecture) {
     $architectures = Property $Manifest 'architecture'
-    $branch = Property $architectures $script:architecture
+    $branch = Property $architectures $Architecture
     $value = Property $branch $Name
     if ($null -eq $value) { $value = Property $Manifest $Name }
     return $value
@@ -62,13 +62,21 @@ function Invoke-NativeCaptured([string]$Executable, [object[]]$Arguments) {
     $previousPreference = $ErrorActionPreference
     try {
         $ErrorActionPreference = 'Continue'
-        $output = @(& $Executable @Arguments 2>&1)
+        $lines=New-Object 'Collections.Generic.List[object]'
+        & $Executable @Arguments 2>&1 | ForEach-Object {
+            $line=[string]$_
+            if($line.StartsWith('KAI_MARKET_STAGE:')){[Console]::Error.WriteLine($line)}else{
+                $lines.Add($_)
+                if($env:KSCLI_SCOOP_EVENTS -eq '1'){[Console]::Error.WriteLine('KAI_MARKET_LOG:'+$line)}
+            }
+        }
+        $output=@($lines.ToArray())
         $code = $LASTEXITCODE
     } finally { $ErrorActionPreference = $previousPreference }
     return [pscustomobject]@{exitCode=$code;output=@($output)}
 }
 function Scoop-Root {
-    $root = [string]$request.root
+    $root = [Environment]::ExpandEnvironmentVariables([string]$request.root)
     if (!$root) { $root = $env:SCOOP }
     if (!$root) {
         $config = Join-Path $env:USERPROFILE '.config\scoop\config.json'
@@ -84,7 +92,7 @@ function Read-Lock {
     $path = Join-Path $PSScriptRoot '..\resources\scoop.lock.json'
     try { $lock = Get-Content -LiteralPath $path -Raw | ConvertFrom-Json } catch { Fail 11 'integrity-failed' 'The Scoop ownership lock is unreadable.' }
     if ($lock.schema_version -ne 1 -or $lock.owner -cne 'linkease-zsetup' -or
-        [string]$lock.installer_version -cne '0.1.1' -or [string]$lock.core_commit -notmatch '^[0-9a-f]{40}$' -or
+        [string]$lock.installer_version -cne '0.1.2' -or [string]$lock.core_commit -notmatch '^[0-9a-f]{40}$' -or
         [string]$lock.main_commit -notmatch '^[0-9a-f]{40}$' -or [string]$lock.runtime_bundle_sha256 -notmatch '^[0-9a-f]{64}$') {
         Fail 11 'integrity-failed' 'The Scoop ownership lock has an unsupported identity.'
     }
@@ -314,12 +322,13 @@ function Invoke-Files([string]$Root, [string]$Target) {
 try {
     $request = [Console]::In.ReadToEnd() | ConvertFrom-Json
     $action = [string]$request.action; $subject = [string]$request.subject; $version = [string]$request.version
-    if ($action -notin @('probe','setup','search','info','install','remove','refresh','files')) { Fail 2 'usage' 'Unknown Scoop software operation.' }
+    if ($action -notin @('probe','setup','search','info','install','remove','refresh','files','plan','inventory','catalog','recovery','apply')) { Fail 2 'usage' 'Unknown Scoop software operation.' }
     $script:policy = [string]$request.policy; if (!$script:policy) { $script:policy = 'auto' }
     if ($script:policy -notin @('required','auto','none')) { Fail 2 'usage' 'Select required, auto or none.' }
     $script:architecture = Resolve-Architecture
     $root = Scoop-Root; $lock = Read-Lock
     $env:SCOOP = $root; $env:Path = (Join-Path $root 'shims') + [IO.Path]::PathSeparator + $env:Path
+    if ($action -in @('probe','plan','inventory','catalog','recovery','apply')) { . (Join-Path $PSScriptRoot 'market.ps1'); Invoke-Market; exit 0 }
     if ($action -eq 'probe') {
         $owned = Test-OwnedScoop $root $lock
         $zsetupPath = [string]$env:KAI_ZSETUP_BIN
