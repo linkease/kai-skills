@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "71365b45953af59f5a4bd22911f859c5d7b65212",
+  "sourceCommit": "8e8315342f7f70c2ef4f82eb720d1fa6ce88a4ca",
   "sourceState": "local-candidate",
   "protocol": "software-task/v1",
   "files": [
@@ -128,8 +128,8 @@
     {
       "source": "software/store-catalog.sh",
       "file": "owner/software/store-catalog.sh",
-      "sha256": "90a34fe46067c32fa8eb821f6f0df4df77ab483663e907a2c01bff2d1fc672fb",
-      "size": 3166
+      "sha256": "1c0e15b9994d98eb0caabad51e5b4f6baee7a650be2f075900ca3b311f312506",
+      "size": 3617
     },
     {
       "source": "software/store-inspect.sh",

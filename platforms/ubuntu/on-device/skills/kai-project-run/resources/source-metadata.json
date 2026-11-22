@@ -21,12 +21,12 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:16b80681802f2841dc48665de91b0e4b10241a8d51b54b93c33452c13abf1d4e"
+      "sourceDigest": "sha256:6fa652499c8e7ec1e025bac544c4d2e9bead593a22b17c60906f39d5c0dfbaec"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:f8938aa2b6f0fd9eccfb9b85a7ff36db4aaed9063075ab1cf6d3c311822003de"
+      "sourceDigest": "sha256:6737cad9ca954d0cbf3d5683ba729c831751de570ee718bb6c05adf6f2f5fc75"
     }
   ]
 }

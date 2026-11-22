@@ -83,42 +83,42 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.6",
-      "treeDigest": "sha256:4034f697d51aae0656db72e377771bc4bf165a39bde9641b89a70f459b221f3d"
+      "treeDigest": "sha256:93fcbf7962244d7398b18fac61914cdc55d93a90672c3d7bbe4eae48c70352b9"
     },
     {
       "id": "kai-download-acceleration",
       "version": "1.2.6",
-      "treeDigest": "sha256:e967f8896d1951f80e0cafb480a75845866d622fd3ccc73736efddcdb4d245e9"
+      "treeDigest": "sha256:2387bb1505ca2edcc00211d3de39d7e0eb23a891b6e049f0420f72abb403b9a4"
     },
     {
       "id": "kai-network-quality",
       "version": "1.2.6",
-      "treeDigest": "sha256:7acd0764e8e18967c89b6305091ac7d46d458f717e97e4cdc38f667cb2eb997d"
+      "treeDigest": "sha256:5d936c4f6550adb906666a5982a6f64141a4d506018e392c4104677e49a90de3"
     },
     {
       "id": "kai-project-dependencies",
       "version": "1.2.6",
-      "treeDigest": "sha256:70bf2b9f690741e9601306e1a7662bf032bac15d1e3ad1a84d23539be63d7aaf"
+      "treeDigest": "sha256:19ce798ceda1f9828e68e52cf87632e67d2503127b58d362fc72dea314043a2c"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.6",
-      "treeDigest": "sha256:8875651af0c2975466ef4f6d6db7b5f5cf06ecc4802b5e3ddfc1d0577a363874"
+      "treeDigest": "sha256:15d90a0db7d9e3993f77695eb923560f1175aa9d211726eee0e2fff8d2a98a70"
     },
     {
       "id": "kai-software",
       "version": "1.2.6",
-      "treeDigest": "sha256:cbc548cda647b7450a547a99b297dd0cd1b7557a2523809d656622d9547344aa"
+      "treeDigest": "sha256:a91df9e3bfeaf204d52271c7947b8e10116470698a0e34d121967a9db0f1385d"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.6",
-      "treeDigest": "sha256:75e0ee5c30fd9b33cbcaaf6a2a93bbd94a2d88ca7a6498aae9d1cfd4d6dcdada"
+      "treeDigest": "sha256:3096ee96cae384886bcf3f64b5de81c994f03daa4c390842b72029cff8b2410b"
     },
     {
       "id": "kai-tool-bootstrap",
       "version": "1.2.6",
-      "treeDigest": "sha256:0fdc4b37e47e56f4cc9292532216b81238d0328926650783a01d1efe187c56b3"
+      "treeDigest": "sha256:8e3f1b74467a0fe8884ed004e29c57b8739bd54a3bf603f8ea2f18bcac47e58c"
     },
     {
       "id": "luci-http-controller",

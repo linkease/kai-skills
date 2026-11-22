@@ -27,7 +27,16 @@ task_store_catalog() {
     # Keep them out of stdout/stderr consumed by the model, including failures.
     "$core" download --quiet --max-bytes 2097152 --min-free-bytes 1048576 --overall-timeout 20s \
         -o "$TASK_STORE_TMP/catalog.json" "$api?$query" >"$TASK_STORE_TMP/native.log" 2>&1 || code=$?
-    [ "$code" = 0 ] || task_stop failed store-catalog-unavailable "$code" '{"stage":"catalog-download","source":"istore-store-api"}'
+    if [ "$code" != 0 ]; then
+        # Stable native categories; do not parse credential-bearing diagnostics.
+        local category=native
+        case "$code" in
+            13) category=dns ;; 14) category=tls ;; 15) category=timeout ;;
+            11) category=integrity ;; 12) category=filesystem ;;
+            10) category=http-or-transfer ;; 130) category=canceled ;;
+        esac
+        task_stop failed store-catalog-unavailable "$code" "$("$task_jq" -cn --arg category "$category" '{stage:"catalog-download",source:"istore-store-api",failureCategory:$category}')"
+    fi
     "$task_jq" -e '.result.apps|type=="array" and length<=2000' "$TASK_STORE_TMP/catalog.json" >/dev/null 2>&1 || task_stop failed invalid-store-catalog 11
     TASK_STORE_APP=$("$task_jq" -c --arg name "$TASK_SOFTWARE" --arg arch "$super_arch" '[.result.apps[]|select(.name==$name)]|if length==1 then .[0]|{name,version,release,depends,arch,compatibility:(if ((.arch//[])|index("all"))!=null or ($arch!="" and ((.arch//[])|index($arch))!=null) then "supported" else "unknown" end)} else null end' "$TASK_STORE_TMP/catalog.json")
     TASK_STORE_SOURCE=$("$task_jq" -cn --arg time "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{id:"istore-store-api",freshness:"live",fetchedAt:$time,authority:"target-filtered-business-catalog"}')
