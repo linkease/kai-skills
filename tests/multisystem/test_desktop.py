@@ -288,8 +288,8 @@ class DesktopTests(unittest.TestCase):
         result = subprocess.run([PWSH, '-NoLogo', '-NoProfile', '-NonInteractive', '-File',
             str(bootstrap), '-Action', 'Probe', '-TrustedPath', str(program)],
             env={**os.environ, 'KAI_WSL_MARKER': str(marker)}, text=True, capture_output=True, timeout=15)
-        self.assertEqual(result.returncode, 18, result.stdout + result.stderr)
-        self.assertEqual(json.loads(result.stdout)['status'], 'unavailable')
+        self.assertEqual(result.returncode, 17, result.stdout + result.stderr)
+        self.assertEqual(json.loads(result.stdout)['status'], 'conflict')
         self.assertFalse(marker.exists())
 
     def test_first_bash_bootstrap_keeps_installer_output_outside_json_and_reports_failure(self):
