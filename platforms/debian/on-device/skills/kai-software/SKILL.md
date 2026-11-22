@@ -22,11 +22,11 @@ through native PowerShell, then the authorized Ensure operation.
 
 KAIPlus 桌面软件页已有独立业务：Windows 优先 `tool:software_catalog`，macOS 优先 `tool:software_market`，通过 `use_capability` 调用并先查看工具合同。查询实际目录/安装状态，保留完整来源 ID；用户选定后返回工具给出的 reviewURL/reviewPath，在原软件页审核执行。诊断会话只读；不改用脚本绕过原审核、来源、校验或失败处理。
 
-其他软件维护先调用 `tool:software_inspect`，参数 `request.software` 为实际业务标识。脚本判断平台、软件中心归属、原生登记和候选版本。按结果行动：
+其他软件维护先调用 `tool:software_inspect`，参数 `request.software` 为实际业务标识。脚本已判断平台、软件中心归属、原生登记和候选版本；不要再用散装命令重做这些检查。查询任务先根据结构化结果答复，按结果行动：
 
 - 已确认无需更新：说明版本和来源后结束。`no-update-in-cache` 只说明缓存，不能称在线最新。
 - 可变更：用 `tool:software_plan` 提交原请求、intent 和所需存储/备份信息；展示计划的效果，在已有授权内把原 details 作为 request.plan 交给 `tool:software_apply`。状态或来源变化需重做计划。
-- 未知/受阻/失败：保留 reason、nativeExitCode 和已发生效果；针对缺口补一项证据或查询实际维护方文档。归属不明不接管、网络失败不改源、缺缓存不等于软件不存在。不要反复改写同一查询。
+- 未知/受阻/失败：报告已知版本/候选、reason、nativeExitCode、已发生效果和缺口，然后结束本次查询。`needs-ai` 表示不能作出确定判断，不要求全系统巡检。归属不明不接管，建议回原软件中心或实际维护方核实；缺缓存不等于不存在。用户要求进一步定位时，只针对缺口选择一项新证据；失败后不改写命令重试。
 
 脚本缺依赖时才用 `tool:software_runtime_probe`；必要准备走 `tool:software_runtime_prepare`，保留其验证后的路径。查询本身不安装依赖或刷新源。
 
