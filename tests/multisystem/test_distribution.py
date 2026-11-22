@@ -10,7 +10,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
 COMMON={'kai-software','kai-dev-environment','kai-project-dependencies',
-        'kai-download-acceleration','kai-storage-files','kai-tool-bootstrap'}
+        'kai-download-acceleration','kai-storage-files','kai-tool-bootstrap','kai-project-run'}
 SCOPE=json.loads((ROOT/'tests/multisystem/scope.json').read_text())
 # Keep the pre-migration fixture stable after the new implementation is committed.
 LEGACY_PRESET_COMMIT='a7c5b1e7a855edcbac21ed25e46515e540fc4fae'
@@ -52,7 +52,9 @@ class DistributionTests(unittest.TestCase):
             self.assertFalse((target/name/'SKILL.md').exists(),name)
         manifest=json.loads((target/'.linkease-skills/istoreos-on-device.json').read_text())
         self.assertEqual({item['name'] for item in manifest['resources']},set(ALIASES))
-        self.assertEqual(manifest['skillAliases'],ALIASES)
+        # Compatibility resources remain owned, but retired public skill aliases
+        # were removed by the independent business package migration.
+        self.assertEqual(manifest['skillAliases'],{})
         protected=target/'unrelated';protected.mkdir();(protected/'keep').write_text('keep')
         result=subprocess.run(['sh',str(preset/'install.sh'),'--target',str(target),'--upgrade'],text=True,capture_output=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
@@ -80,7 +82,8 @@ class DistributionTests(unittest.TestCase):
         edited.write_bytes(original)
         result=subprocess.run(['sh',str(new),'--target',str(target),'--upgrade'],text=True,capture_output=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
-        self.assertEqual(len(list(target.glob('*/SKILL.md'))),22)
+        retained={row['oldId'] for row in SCOPE['migration'] if row['decision']=='retain-platform-specific'}
+        self.assertEqual({p.parent.name for p in target.glob('*/SKILL.md')}, COMMON|retained|{'kai-network-quality'})
         for name in ALIASES:self.assertFalse((target/name/'SKILL.md').exists())
         result=subprocess.run(['sh',str(new),'--target',str(target),'--uninstall'],text=True,capture_output=True)
         self.assertEqual(result.returncode,0,result.stdout+result.stderr)
