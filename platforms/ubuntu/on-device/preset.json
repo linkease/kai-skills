@@ -22,8 +22,8 @@
     "debian": "1.0.1",
     "ubuntu": "1.0.1"
   },
-  "sourceDigest": "sha256:03fe5c8577af8e75e99a5fd1a59c61a2040b88bd0aedb99aca6ba5b8b0e60887",
-  "treeDigest": "sha256:7aeeac9924ac1a2f5296a94b304f9c1f1073bb1bb47fcfd58714022cc4a8929a",
+  "sourceDigest": "sha256:8611ebbe0e45c05f8678f955ea453ffd35794707b9b5a045f399fe2013e74b9c",
+  "treeDigest": "sha256:dde800b292681de71d2ba774ba85f94dd19ec4ab827eaf9455573e737ca5373e",
   "resources": [],
   "skillAliases": {}
 }
