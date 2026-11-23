@@ -20,9 +20,11 @@ through native PowerShell, then the authorized Ensure operation.
 ## Business workflow
 先确认实际目标和软件身份，保留原包管理器及来源。
 
-KAIPlus 桌面软件页已有独立业务：Windows 优先 `tool:software_catalog`，macOS 优先 `tool:software_market`，通过 `use_capability` 调用并先查看工具合同。查询实际目录/安装状态，保留完整来源 ID；用户选定后返回工具给出的 reviewURL/reviewPath，在原软件页审核执行。诊断会话只读；不改用脚本绕过原审核、来源、校验或失败处理。
+只读版本/更新问题，宿主提供时调用 `tool:software_query`，传 `request.software`、`finishQuery: true`，并按用户语言选择 `language: zh|en`。这是明确的查询终点：脚本采集事实，宿主生成最终答复并结束本轮，归属不明也会如实报告。仅当这项查询就是用户本轮完整请求时使用；还有安装、修复或其他后续工作时，使用下面的非终结维护流程。
 
-其他软件维护先调用 `tool:software_inspect`，参数 `request.software` 为实际业务标识。脚本已判断平台、软件中心归属、原生登记和候选版本；不要再用散装命令重做这些检查。查询任务先根据结构化结果答复，按结果行动：
+KAIPlus 桌面软件页的目录发现和安装已有独立业务：Windows 优先 `tool:software_catalog`，macOS 优先 `tool:software_market`，通过 `use_capability` 调用并先查看工具合同。查询实际目录/安装状态，保留完整来源 ID；用户选定后返回工具给出的 reviewURL/reviewPath，在原软件页审核执行。诊断会话只读；不改用脚本绕过原审核、来源、校验或失败处理。
+
+多步骤软件维护先调用 `tool:software_inspect`，参数 `request.software` 为实际业务标识。脚本已判断平台、软件中心归属、原生登记和候选版本；不要再用散装命令重做这些检查。查询任务先根据结构化结果答复，按结果行动：
 
 - 已确认无需更新：说明版本和来源后结束。`no-update-in-cache` 只说明缓存，不能称在线最新。
 - 可变更：用 `tool:software_plan` 提交原请求、intent 和所需存储/备份信息；展示计划的效果，在已有授权内把原 details 作为 request.plan 交给 `tool:software_apply`。状态或来源变化需重做计划。
