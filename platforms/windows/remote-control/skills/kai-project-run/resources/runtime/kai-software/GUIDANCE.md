@@ -9,6 +9,7 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: medium
+resource-discovery: explicit
 ---
 
 先确认实际目标和软件身份，保留原包管理器及来源。

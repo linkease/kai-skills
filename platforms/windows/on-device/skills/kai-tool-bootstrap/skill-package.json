@@ -1,6 +1,6 @@
 {
   "id": "kai-tool-bootstrap",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "path": "skills/kai-tool-bootstrap",
   "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
   "description": "准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。",
@@ -39,7 +39,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:8de5c31427b3a60f920d8e2a4ad3d3ec45b9dc190178cdec4a868c9fb20a2ef6"
+      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
     }
   ]
 }

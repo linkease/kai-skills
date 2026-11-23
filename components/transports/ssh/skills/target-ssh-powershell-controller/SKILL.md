@@ -4,6 +4,7 @@ description: Bind a target through OpenSSH and execute PowerShell scripts with s
 owner: transport/ssh
 systems: any
 requires: ssh-client
+resource-discovery: explicit
 ---
 
 # SSH PowerShell target controller

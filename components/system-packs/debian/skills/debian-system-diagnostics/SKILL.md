@@ -5,6 +5,7 @@ owner: system-pack/debian
 systems: debian, ubuntu
 features: apt-get, systemctl
 invocation: manual
+resource-discovery: explicit
 ---
 
 # Debian System Diagnostics

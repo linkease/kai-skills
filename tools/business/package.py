@@ -7,6 +7,7 @@ import re
 import shutil
 
 from model import Distribution, safe_path
+from software_modules import refresh_modules
 
 
 def members(path):
@@ -129,6 +130,9 @@ def build_package(distribution, name, destination):
         sources.append({'id': resource, 'canonicalPath': distribution.resources[resource],
                         'sourceDigest': tree_digest(resource_source)})
     rewrite_root_scripts(destination, resources)
+    # Relocation changes root bootstrap paths, so bind the final module bytes.
+    for entry in destination.rglob("scripts/market.ps1"):
+        refresh_modules(entry.parent)
     rendered, frontmatter = render_skill((source / 'SKILL.md').read_text(), name, resources)
     (destination / 'SKILL.md').write_text(rendered)
     if re.search(r'^invocation:\s*manual\s*$', frontmatter, re.M) and not (destination / 'agents/openai.yaml').exists():

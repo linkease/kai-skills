@@ -8,6 +8,7 @@ auto-use: suggest
 routing-group: system-primary
 needs-fresh-data: true
 cost: low
+resource-discovery: explicit
 ---
 
 根据实际 iStoreOS 目标和用户意图选一个主能力；明确的软件维护直接走 kai-software，不先做全系统检查。

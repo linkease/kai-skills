@@ -21,53 +21,12 @@ through native PowerShell, then the authorized Ensure operation.
 SDK helpers are local at `resources/runtime/kai-dev-environment/scripts/runtime.sh`.
 
 ## Business workflow
-Use the local bootstrap resource above for missing Bash/tools.
+在实际目标执行；`bash scripts/usage.sh space ROOT [LIMIT [SECONDS]]` 排序空间占用，`search ROOT TERM [LIMIT [SECONDS]]` 搜索字面文件名。ROOT 是已有绝对子目录，默认 20 条/30 秒（上限 1000 条/300 秒），Transport 同样设置期限。
 
-Use the selected target and Transport. `bash scripts/usage.sh space ROOT
-[LIMIT [SECONDS]]` ranks live allocated file usage with Linkspace.
-`search ROOT TERM [LIMIT [SECONDS]]` searches a literal filename term.
-ROOT must be an existing absolute subdirectory. Defaults are 20 results and
-30 seconds, with at most 1,000 results and 300 seconds. Bound the Transport
-deadline as well; filesystem I/O can block inside native tools.
+支持的 Linux 架构复用已发布 Linkspace；缺程序时从 kai-software 的 `zsetup:linkspace` 准备。`KAI_LINKSPACE_BIN` 指定已有客户端。实时扫描使用 ROOT 外临时目录，空间扫描有 64MiB scratch 上限；`KAI_USAGE_TEMP_DIR` 可选已有可写目录。search 的 path 相对结果 root，即使以 / 开头；space 保留 storagePath。
 
-Linux x86_64/arm64/armv7 uses the published Linkspace program. Prepare it with
-kai-software's `zsetup:linkspace` entry and its canonical owner installer, then
-reuse the actual entrypoint. iStore/OpenWrt permits this portable user launcher
-on the declared Linux architectures; native package integration still owns
-mise and ks-cli. `KAI_LINKSPACE_BIN` selects an existing client explicitly.
-Do not substitute a development build and label it published validation.
+Windows/macOS 或无已发布映射时，仅读取已有 Python3 的标准库适配；可指定 `KAI_USAGE_PYTHON`。不为只读查询安装 SDK。报告实际 backend（python-stdlib 不等于 Linkspace）、逻辑/分配字节差异和覆盖范围；适配跳过链接、子挂载并限制时间/条目。
 
-Linkspace always uses live scan, an explicit temporary directory outside ROOT,
-a timeout and result limit; space analysis also has a 64 MiB scratch budget.
-`KAI_USAGE_TEMP_DIR` selects an existing writable temporary directory. These
-queries create no persistent index or source files. A Linkspace search item's
-`path` is relative to its reported `root`, even when it starts with `/`; space
-entries also expose actual `storagePath`. Preserve these native meanings.
+`storage ROOT [MIN_FREE_BYTES]` 读取挂载、容量和权限。可用空间不等于持久性；overlay/内存/未知 backing 不作为安装位置，实际写入前仍需复核。Exit11 是部分观察，保留原生错误和缺失范围，不能称完整扫描。清理、删除及持久索引需要单独任务。
 
-macOS, Windows and architectures without a published Linkspace mapping use an
-existing Python 3 standard-library adapter. Supply its verified path as
-`KAI_USAGE_PYTHON`, for example from an already installed mise SDK. A read-only
-query never installs that prerequisite. The report names `python-stdlib`, its
-actual executable and observed kernel; it is not Linkspace validation. This
-fallback bounds entries (default 10,000), depth, output and elapsed time, skips
-symlinks/reparse points and child mounts, and reports logical sizes where native
-allocation facts are absent. `KAI_USAGE_BACKEND=native` explicitly selects it.
-
-`storage ROOT [MIN_FREE_BYTES]` only reads mount, capacity and permission facts.
-Linux uses `zsetup storage`; macOS uses mount/statvfs; Windows uses Unicode
-Win32 volume APIs. Available bytes alone never establish persistence. Overlay/
-aufs, memory filesystems and unknown backing are ineligible for installation.
-A successful observation can report `eligibleForInstall=false`. Mount-time
-availability and future free space still require checking at installation time.
-
-`cli probe|install|exec uv EXACT_VERSION [-- ARGUMENTS]` delegates to the mise
-development CLI entrypoint in kai-dev-environment. Probe does not install;
-installation leaves global selection unchanged. Verify the version/help and a
-real subcommand, then report the selected executable and actual result. Project
-dependencies still belong to kai-project-dependencies.
-
-Keep native exits and stderr. Exit 11 means partial observations, with unreadable
-ranges or a resource limit; report observed-only rankings and missing coverage.
-It must not become a complete scan. Report the installation location, actual
-command, result and next action. Cleanup, persistent indexing and broadening the
-scope are separate tasks; do not delete files based only on size.
+`cli probe|install|exec uv VERSION [-- ARG...]` 复用 kai-dev-environment，不改变全局选择；项目依赖使用 kai-project-dependencies。

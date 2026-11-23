@@ -7,6 +7,7 @@ invocation: manual
 auto-use: off
 needs-fresh-data: true
 cost: low
+resource-discovery: explicit
 ---
 
 # iStoreOS Logs & Diagnostics

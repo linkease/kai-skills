@@ -7,6 +7,7 @@ invocation: manual
 auto-use: off
 needs-fresh-data: true
 cost: medium
+resource-discovery: explicit
 ---
 
 # Docker Acceleration via iStoreEnhance (kspeeder)

@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-tool-bootstrap\ndescription: 准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 安装 Bash, Git Bash, 完整 jq, 引导工具, 准备 mise, ks-cli 版本\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "originalFrontmatter": "name: kai-tool-bootstrap\ndescription: 准备 Bash、完整 jq、mise 和内部客户端，缺少校验过的原生发布物时明确报告。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 安装 Bash, Git Bash, 完整 jq, 引导工具, 准备 mise, ks-cli 版本\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:8de5c31427b3a60f920d8e2a4ad3d3ec45b9dc190178cdec4a868c9fb20a2ef6"
+      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
     }
   ]
 }

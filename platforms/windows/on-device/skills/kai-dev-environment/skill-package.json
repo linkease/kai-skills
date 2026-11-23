@@ -1,6 +1,6 @@
 {
   "id": "kai-dev-environment",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "path": "skills/kai-dev-environment",
   "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
   "description": "用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。",
@@ -40,12 +40,12 @@
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
+      "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:8de5c31427b3a60f920d8e2a4ad3d3ec45b9dc190178cdec4a868c9fb20a2ef6"
+      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
     }
   ]
 }

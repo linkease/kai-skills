@@ -9,6 +9,7 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: medium
+resource-discovery: explicit
 ---
 
 # iStoreOS Docker Basics

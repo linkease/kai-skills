@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-app-search\ndescription: 从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 kai-software。\nowner: system-pack/istoreos\nsystems: istoreos\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: low\n",
+  "originalFrontmatter": "name: istoreos-app-search\ndescription: 从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 kai-software。\nowner: system-pack/istoreos\nsystems: istoreos\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: low\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:071bbafac27e10ebdcbb04fdd1a8af32f9b1267eca91f6c4e7f4b21815421c73"
+      "sourceDigest": "sha256:affe41f7348868aaf1763bd989a50b3801c584dab2e8758351de2648f96220ba"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:a103bb406e7ae9c44844d7fbfd546570952b7860850853509a4515d2896de95f"
+      "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
     },
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:071bbafac27e10ebdcbb04fdd1a8af32f9b1267eca91f6c4e7f4b21815421c73"
+      "sourceDigest": "sha256:affe41f7348868aaf1763bd989a50b3801c584dab2e8758351de2648f96220ba"
     }
   ]
 }

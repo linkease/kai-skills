@@ -1,6 +1,6 @@
 {
   "id": "istoreos-system-task-router",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "path": "skills/istoreos-system-task-router",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
   "description": "iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。",
@@ -22,12 +22,12 @@
     {
       "id": "istoreos-system-task-router",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-      "sourceDigest": "sha256:3f45257ec53101d41f5d01665af79620517b031cad7fc070eecbb03d89f76547"
+      "sourceDigest": "sha256:c8023a653fa57d96b97746dc41f53da697bee25c9b65d464fb616425876ed9a2"
     },
     {
       "id": "istoreos-package-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
-      "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
     }
   ]
 }

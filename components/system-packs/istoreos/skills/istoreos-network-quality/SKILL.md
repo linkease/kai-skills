@@ -6,6 +6,7 @@ systems: istoreos
 alias-for: kai-network-quality
 invocation: manual
 auto-use: off
+resource-discovery: explicit
 ---
 
 # Compatibility alias

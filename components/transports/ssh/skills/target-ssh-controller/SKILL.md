@@ -4,6 +4,7 @@ description: Bind a specific remote target over SSH and safely execute target sc
 owner: transport/ssh
 systems: any
 requires: ssh-client
+resource-discovery: explicit
 ---
 
 # SSH Target Controller

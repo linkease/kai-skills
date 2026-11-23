@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: target-ssh-powershell-controller\ndescription: Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.\nowner: transport/ssh\nsystems: any\nrequires: ssh-client\n",
+  "originalFrontmatter": "name: target-ssh-powershell-controller\ndescription: Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.\nowner: transport/ssh\nsystems: any\nrequires: ssh-client\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "target-ssh-powershell-controller",
       "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
-      "sourceDigest": "sha256:84be9579af7c6e62ccd487a237988a68ccf026c109d2f1fdde34a81eb5a00ea7"
+      "sourceDigest": "sha256:0bcdc96e7a15bff936b8a7643a3f971ec474a19e3ed0456bcb72a91caccedc52"
     }
   ]
 }

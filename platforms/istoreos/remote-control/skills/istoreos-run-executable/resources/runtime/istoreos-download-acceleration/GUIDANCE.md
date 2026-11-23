@@ -7,6 +7,7 @@ alias-for: kai-download-acceleration
 needs-fresh-data: true
 invocation: manual
 auto-use: off
+resource-discovery: explicit
 ---
 
 Use `kai-download-acceleration` as the unique primary implementation. This retired ID is a migration alias. Native scripts remain only for existing platform helper interfaces; see data/legacy-contract.md when maintaining those interfaces.

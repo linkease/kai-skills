@@ -1,32 +1,32 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-project-run\ndescription: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.\nrouting-group: system-primary\n",
+  "originalFrontmatter": "name: kai-project-run\ndescription: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.\nrouting-group: system-primary\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-project-run",
       "canonicalPath": "components/system-packs/common/skills/kai-project-run",
-      "sourceDigest": "sha256:30452af921f61ac25bfe3cd4afd35f59b537e92260bde4cb5d0b86fd07b1814a"
+      "sourceDigest": "sha256:f4d79d91d6d8dcba49ace9df320d56199c40fe4dd4e70a71567ce6a069dff6fd"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
+      "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
     },
     {
       "id": "kai-project-dependencies",
       "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
-      "sourceDigest": "sha256:779fa3f10d8c75121236491c42b435696ab249054d5022ce06859feff911fa38"
+      "sourceDigest": "sha256:a578834bbdf5ba3b2c73f36234cc1fa2e54c888594d9783f949b139dde15a78e"
     },
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:476e2be3cacb6b3b66f8f8ede95ed972f07901d8231c32ba039d317569604d4f"
+      "sourceDigest": "sha256:f3645641e800d4bcdc99b2c7fb2d6b2382742d42ae34c45c20e25afcb834016c"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:8de5c31427b3a60f920d8e2a4ad3d3ec45b9dc190178cdec4a868c9fb20a2ef6"
+      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
     }
   ]
 }

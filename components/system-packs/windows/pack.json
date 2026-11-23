@@ -2,13 +2,17 @@
   "$schema": "../../../schemas/pack.schema.json",
   "schemaVersion": 1,
   "id": "windows",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "layer": "family",
-  "extends": ["common"],
+  "extends": [
+    "common"
+  ],
   "match": {
     "osFamily": "windows",
     "distribution": "windows"
   },
   "skillsRoot": "skills",
-  "requires": ["target-shell:powershell"]
+  "requires": [
+    "target-shell:powershell"
+  ]
 }

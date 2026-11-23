@@ -1,8 +1,10 @@
 {
   "schemaVersion": 1,
   "id": "transport.luci-http",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "kind": "transport",
   "skillsRoot": "skills",
-  "provides": ["target.http"]
+  "provides": [
+    "target.http"
+  ]
 }

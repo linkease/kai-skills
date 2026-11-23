@@ -70,6 +70,14 @@ for source in task_sources:
     else:
         target.parent.mkdir(parents=True, exist_ok=True)
         target.write_bytes(payload)
+# This subtree is generated exclusively from the owner manifest. Prune obsolete
+# migration bytes, rather than silently shipping a second jq implementation.
+expected = {item['file'].removeprefix('owner/') for item in task_files}
+for old in sorted(task_dest.rglob('*')):
+    if old.is_file() and old.relative_to(task_dest).as_posix() not in expected:
+        if args.check:
+            raise AssertionError('obsolete owner resource: ' + str(old.relative_to(task_dest)))
+        old.unlink()
 task_lock = {'schemaVersion': 1, 'owner': 'zsetup-scripts', 'sourceCommit': commit,
              'sourceState': 'local-candidate', 'protocol': 'software-task/v1',
              'files': task_files}

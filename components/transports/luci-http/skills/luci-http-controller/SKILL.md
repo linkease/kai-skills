@@ -4,6 +4,7 @@ description: Send bounded authenticated HTTP requests to a bound LuCI target wit
 owner: transport/luci-http
 systems: any
 requires: http-client
+resource-discovery: explicit
 ---
 
 # LuCI HTTP Controller

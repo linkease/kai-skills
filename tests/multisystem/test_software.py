@@ -100,7 +100,7 @@ else:
         self.assertEqual(calls[1]['request']['subject'], 'main')
 
     def test_windows_scoop_remove_does_not_run_inside_the_package_being_removed(self):
-        source = SCOOP_ADAPTER.read_text()
+        source = '\n'.join(p.read_text() for p in sorted((SCOOP_ADAPTER.parent / 'scoop').glob('*.ps1')))
         remove = source.split('function Invoke-Remove', 1)[1].split('function Invoke-Files', 1)[0]
         self.assertIn(r'System32\WindowsPowerShell\v1.0\powershell.exe', remove)
         self.assertIn(r'apps\scoop\current\bin\scoop.ps1', remove)
@@ -109,12 +109,12 @@ else:
     def test_windows_scoop_provider_keeps_current_and_0_1_1_upgrade_receipts(self):
         lock = json.loads(SCOOP_LOCK.read_text())
         self.assertEqual(lock['installer_version'], '0.1.2')
-        self.assertIn("[string]$lock.installer_version -cne '0.1.2'", SCOOP_SOURCE_ADAPTER.read_text())
+        self.assertIn("[string]$lock.installer_version -cne '0.1.2'", '\n'.join(p.read_text() for p in sorted((SCOOP_SOURCE_ADAPTER.parent / 'scoop').glob('*.ps1'))))
         supported = json.loads((SCOOP_LOCK.parent / 'supported-scoop-owners.json').read_text())
         old = next(item for item in supported if item['installer_version'] == '0.1.1')
         self.assertEqual(old['runtime_bundle_id'], '0.7.16-08aea475819b8037977684c7fbbde2ae40bb1b96-windows-amd64')
         self.assertEqual(old['core_sha256'], lock['core_sha256'])
-        market = (SCOOP_SOURCE_ADAPTER.parent / 'market.ps1').read_text()
+        market = '\n'.join(p.read_text() for p in sorted((SCOOP_SOURCE_ADAPTER.parent / 'market').glob('*.ps1')))
         self.assertIn('supported-scoop-owners.json', market)
         self.assertIn('if(Market-CoreOwner $lock){return $true}', market)
         self.assertIn('Market-CoreOwner $previous', market)

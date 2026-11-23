@@ -9,6 +9,7 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: low
+resource-discovery: explicit
 ---
 
 # macOS system diagnostics

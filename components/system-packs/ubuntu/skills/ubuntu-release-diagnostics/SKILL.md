@@ -5,6 +5,7 @@ owner: system-pack/ubuntu
 systems: ubuntu
 features: apt-get, systemctl
 invocation: manual
+resource-discovery: explicit
 ---
 
 # Ubuntu Release Diagnostics

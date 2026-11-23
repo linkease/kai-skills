@@ -27,13 +27,13 @@ class PublicationTests(unittest.TestCase):
             channel = work / 'channel-install.sh'
             windows_installer = work / 'installer.ps1'
             windows_channel = work / 'setup.ps1'
-            subprocess.run([sys.executable, '-B', str(SCRIPTS / 'kai-skills/build.py'),
+            subprocess.run([sys.executable, '-B', str(SCRIPTS / 'apps/kai-skills/source/build.py'),
                             '--release', str(release), '--output', str(installer),
                             '--freeze-manifest', str(freeze_manifest), '--allow-fixture-freeze',
                             '--entrypoints-dir', str(entries),
                             '--windows-output', str(windows_installer),
                             ], check=True)
-            subprocess.run([sys.executable, '-B', str(SCRIPTS / 'kai-skills/build.py'),
+            subprocess.run([sys.executable, '-B', str(SCRIPTS / 'apps/kai-skills/source/build.py'),
                             '--channel-only', '--channel-entrypoint', str(channel),
                             '--windows-channel-entrypoint', str(windows_channel)], check=True)
             outputs = []

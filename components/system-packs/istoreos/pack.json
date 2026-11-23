@@ -2,7 +2,7 @@
   "$schema": "../../../schemas/pack.schema.json",
   "schemaVersion": 1,
   "id": "istoreos",
-  "version": "2.0.2",
+  "version": "2.0.3",
   "layer": "distribution",
   "extends": [
     "openwrt"

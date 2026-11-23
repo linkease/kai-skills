@@ -42,14 +42,14 @@ class DeploymentTests(unittest.TestCase):
         windows_installer = cls.work / "installer.ps1"
         windows_channel = cls.work / "setup.ps1"
         subprocess.run([
-            sys.executable, "-B", str(SCRIPTS / "kai-skills/build.py"),
+            sys.executable, "-B", str(SCRIPTS / "apps/kai-skills/source/build.py"),
             "--release", str(release), "--output", str(installer),
             "--freeze-manifest", str(cls.freeze / "freeze-manifest.json"),
             "--allow-fixture-freeze", "--entrypoints-dir", str(entries),
             "--windows-output", str(windows_installer),
         ], check=True)
         subprocess.run([
-            sys.executable, "-B", str(SCRIPTS / "kai-skills/build.py"),
+            sys.executable, "-B", str(SCRIPTS / "apps/kai-skills/source/build.py"),
             "--channel-only", "--channel-entrypoint", str(channel),
             "--windows-channel-entrypoint", str(windows_channel),
         ], check=True)

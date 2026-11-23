@@ -8,6 +8,7 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: high
+resource-discovery: explicit
 ---
 
 # iStoreOS `.run` Executable Handler

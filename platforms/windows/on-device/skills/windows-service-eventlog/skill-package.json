@@ -1,6 +1,6 @@
 {
   "id": "windows-service-eventlog",
-  "version": "1.2.6",
+  "version": "1.2.7",
   "path": "skills/windows-service-eventlog",
   "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
   "description": "Diagnose one Windows service with recent System events, prepare a change plan, apply an explicitly approved start/stop/restart, and verify the resulting service state.",
@@ -21,7 +21,7 @@
     {
       "id": "windows-service-eventlog",
       "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
-      "sourceDigest": "sha256:715bb196aa87cec5e4caf19fb1a374ae21ff8173110f6a32dbd62be9cbe35218"
+      "sourceDigest": "sha256:6f29f0d590a627d17a65352e44c3ff7bc4b08b5ee7f0771bcdbb7b2fcb0a8988"
     }
   ]
 }

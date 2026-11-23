@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-project-dependencies\ndescription: 在所选 mise SDK 和项目隔离环境中安装 npm、pip、uv、Go 依赖。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: pip install, npm install, npm ci, go mod, uv sync, Python 依赖, 项目依赖, 验证 Python 依赖安装流程\nnegative-triggers: 安装 Python, 安装 Node, 安装 Go, 系统软件包\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\n",
+  "originalFrontmatter": "name: kai-project-dependencies\ndescription: 在所选 mise SDK 和项目隔离环境中安装 npm、pip、uv、Go 依赖。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: pip install, npm install, npm ci, go mod, uv sync, Python 依赖, 项目依赖, 验证 Python 依赖安装流程\nnegative-triggers: 安装 Python, 安装 Node, 安装 Go, 系统软件包\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-project-dependencies",
       "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
-      "sourceDigest": "sha256:779fa3f10d8c75121236491c42b435696ab249054d5022ce06859feff911fa38"
+      "sourceDigest": "sha256:a578834bbdf5ba3b2c73f36234cc1fa2e54c888594d9783f949b139dde15a78e"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:73b2e064d37eebe787c748e2ac83d65071fea6242769e2913f1f74e6257258dc"
+      "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:8de5c31427b3a60f920d8e2a4ad3d3ec45b9dc190178cdec4a868c9fb20a2ef6"
+      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
     }
   ]
 }

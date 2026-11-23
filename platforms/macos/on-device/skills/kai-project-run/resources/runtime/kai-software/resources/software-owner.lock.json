@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "7d945789c4b43da9bc457b09436194d6b44e8b40",
+  "sourceCommit": "e07bb59c796718ef23e2496740e27ced00f613a9",
   "sourceState": "local-candidate",
   "protocol": "software-task/v1",
   "files": [

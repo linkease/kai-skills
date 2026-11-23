@@ -1,32 +1,32 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-run-executable\ndescription: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构、空间和影响范围，并要求明确确认。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: high\n",
+  "originalFrontmatter": "name: istoreos-run-executable\ndescription: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构、空间和影响范围，并要求明确确认。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: .run 文件, 执行 run, 运行安装包, dotrun, 可执行文件安装\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: high\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-run-executable",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
-      "sourceDigest": "sha256:4ac14d7dcec360828f8d99a07bdbfdd019051def88bf253f5ef30e2197380bdd"
+      "sourceDigest": "sha256:9d1f0091974bdfbc9040dd1e15c18a3b40f9d672f2c431337a63560cd4b32dcc"
     },
     {
       "id": "istoreos-download-acceleration",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
-      "sourceDigest": "sha256:a75675ca3e5c04c694909650482ff730c335d6f94a103a81b7017d5643b2f444"
+      "sourceDigest": "sha256:77a58e9f849fb34914b7c92a62d04ce68803da873e793ed41a8293332e048413"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
-      "sourceDigest": "sha256:8442a3de0168917c6c3b8994805cba473936b3f3d85a9fb49005c08a3f502de9"
+      "sourceDigest": "sha256:5604975b111e83f7b1baa31baabf761b3962a93300ac5e4bd906b1cd43deb358"
     },
     {
       "id": "istoreos-mise-runtime",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
-      "sourceDigest": "sha256:5f5f2cd2e61e379a6455f223a22250f7520373b73638bfd9dfb59c596164773a"
+      "sourceDigest": "sha256:627b6959299d317cbd41b1c66ceefae14fb89a28e81dd7a90cd415ba944cfecc"
     },
     {
       "id": "istoreos-package-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
-      "sourceDigest": "sha256:3be66dfceae393ae7c78a88d2739124f2b8463a53670ef42c3d4c4361abc3fb3"
+      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
     }
   ]
 }

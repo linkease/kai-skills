@@ -2,13 +2,17 @@
   "$schema": "../../../schemas/pack.schema.json",
   "schemaVersion": 1,
   "id": "macos",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "layer": "family",
-  "extends": ["common"],
+  "extends": [
+    "common"
+  ],
   "match": {
     "osFamily": "macos",
     "distribution": "macos"
   },
   "skillsRoot": "skills",
-  "requires": ["target-shell:posix"]
+  "requires": [
+    "target-shell:posix"
+  ]
 }

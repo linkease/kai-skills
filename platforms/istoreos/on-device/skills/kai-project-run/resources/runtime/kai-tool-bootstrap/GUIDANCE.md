@@ -8,6 +8,7 @@ auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
 cost: medium
+resource-discovery: explicit
 ---
 
 先探测，再准备缺项。KAIPlus 可调用 `tool:software_runtime_probe`；确需准备且已有授权时调用 `tool:software_runtime_prepare`。结果给出 Bash、完整 jq 和原生 zsetup 的实际路径；后续调用继续使用这些路径。
