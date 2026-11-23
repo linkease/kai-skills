@@ -17,7 +17,14 @@ task_store_inspect() {
         '{manager:"istore",installedVersion:$installed,installedRelease:$release,candidateVersion:$candidate,candidateRelease:$candidateRelease,compatibility:$app.compatibility,source:$source,packages:$packages,functionalValidation:"not-run"}')
     [ "$("$task_jq" -r .compatibility <<< "$TASK_STORE_APP")" = supported ] || task_stop needs-ai store-platform-compatibility-unconfirmed 0 "$TASK_INSPECTED"
     if [ -z "$installed" ]; then
-        [ "$any_installed" != true ] || task_stop needs-ai store-ownership-unconfirmed 0 "$TASK_INSPECTED"
+        if [ "$any_installed" = true ]; then
+            # Reading succeeded; an unknown association is an answer, not a
+            # failed query. Plans retain their stronger ownership requirement.
+            if [ "${1:-emit}" != emit ]; then task_stop needs-ai store-ownership-unconfirmed 0 "$TASK_INSPECTED"; fi
+            TASK_INSPECTED=$("$task_jq" -c '.+{decision:"unconfirmed",missingEvidence:["store-ownership"]}' <<< "$TASK_INSPECTED")
+            task_result success inspected 0 "$TASK_INSPECTED"
+            return 0
+        fi
         decision=not-installed
     else
         [ "$missing" != true ] || task_stop needs-ai store-dependency-not-installed 0 "$TASK_INSPECTED"

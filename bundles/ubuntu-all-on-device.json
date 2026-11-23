@@ -13,42 +13,42 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.6",
-      "treeDigest": "sha256:93fcbf7962244d7398b18fac61914cdc55d93a90672c3d7bbe4eae48c70352b9"
+      "treeDigest": "sha256:8601bad441a913be6022961eeab525bc0311fce222e8fc836dc997c4ffe0356d"
     },
     {
       "id": "kai-download-acceleration",
       "version": "1.2.6",
-      "treeDigest": "sha256:2387bb1505ca2edcc00211d3de39d7e0eb23a891b6e049f0420f72abb403b9a4"
+      "treeDigest": "sha256:1ed4228099bb0011470a3e7a94cc0d01389fc5ca054d21c4221dce53b2e37b86"
     },
     {
       "id": "kai-network-quality",
       "version": "1.2.6",
-      "treeDigest": "sha256:5d936c4f6550adb906666a5982a6f64141a4d506018e392c4104677e49a90de3"
+      "treeDigest": "sha256:7cc9b8e54dcc2d22bc8e5d50f2d8bf2c410359cbb321da9292a57a03677109ca"
     },
     {
       "id": "kai-project-dependencies",
       "version": "1.2.6",
-      "treeDigest": "sha256:19ce798ceda1f9828e68e52cf87632e67d2503127b58d362fc72dea314043a2c"
+      "treeDigest": "sha256:f967d3b7685c45248518239192b9cd3dad176e6db536f29a799ab9ed2af16572"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.6",
-      "treeDigest": "sha256:bfcf216677b645f540f7134efe41f8fb1e54796f888e78d775e2d54b4c07c8a9"
+      "treeDigest": "sha256:bfe87b541409bf694c08bf3d8fb83b0ed723550d76bdccf6666b859065616baf"
     },
     {
       "id": "kai-software",
       "version": "1.2.6",
-      "treeDigest": "sha256:06ba034272cfc40d1982780a679f7830bfc385f4494bd8253b7768c12bcb3525"
+      "treeDigest": "sha256:65a5c1f548e61e2b72ef2e230ef21b9222a1759b142a8b4357c2500aab50254d"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.6",
-      "treeDigest": "sha256:3096ee96cae384886bcf3f64b5de81c994f03daa4c390842b72029cff8b2410b"
+      "treeDigest": "sha256:116960ad2dba92b57651d87384f7621ab2db0e79e4b906ed394f7eae93422b9f"
     },
     {
       "id": "kai-tool-bootstrap",
       "version": "1.2.6",
-      "treeDigest": "sha256:8e3f1b74467a0fe8884ed004e29c57b8739bd54a3bf603f8ea2f18bcac47e58c"
+      "treeDigest": "sha256:d38e4f5580d422e8b726d71fc8c0d939b74d4d4093b25a51887c5894ad083caa"
     },
     {
       "id": "ubuntu-release-diagnostics",

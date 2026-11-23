@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "8e8315342f7f70c2ef4f82eb720d1fa6ce88a4ca",
+  "sourceCommit": "060b8448284aa821cbd10426ef6df441b4dbd52d",
   "sourceState": "local-candidate",
   "protocol": "jq-managed-v1",
   "version": "1.8.2",

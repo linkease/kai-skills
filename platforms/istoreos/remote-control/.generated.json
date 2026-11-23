@@ -28,8 +28,8 @@
     "transport.ssh": "1.1.0",
     "transport.luci-http": "1.0.0"
   },
-  "sourceDigest": "sha256:2166310c82659c4080de7452cb620dbb1c4e5ef0ed253d95f0baf23593e21948",
-  "treeDigest": "sha256:f0f1fcdb7c92edd0c70c4bb25613f609f56382ff69d011e364fa7347e4719e5c",
+  "sourceDigest": "sha256:5072232021885932765b345b322456d019325ea4a1270311dd6eadff36b6083c",
+  "treeDigest": "sha256:c9049416cd902ca7c45a369b20eb1b4d4071fc61f8f029b5ac2b1d83d7bc9982",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",
