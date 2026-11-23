@@ -1,9 +1,9 @@
 {
   "id": "kai-software",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "path": "skills/kai-software",
   "canonicalPath": "components/system-packs/common/skills/kai-software",
-  "description": "按目标系统搜索、查询和安装软件，保留原包管理器与来源。",
+  "description": "查询、安装、更新和卸载系统软件；脚本识别平台、软件中心及原来源，返回分层版本和操作结果。",
   "platforms": [
     "debian",
     "istoreos",
@@ -42,12 +42,12 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:3eb217b1716cd323851c45ec9bd4b6eafe548194b98624143e2adc420c285213"
+      "sourceDigest": "sha256:0a81206145c099c00c591bc3f55973552f1b41612632b27edbc179c304b7d629"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:f4516bb9b5ce26664474fe10968b5203b2ea3f8c90c5acc2641b80b2eacd6f62"
+      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
     }
   ]
 }

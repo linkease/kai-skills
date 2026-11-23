@@ -18,12 +18,12 @@
     "transport.ssh"
   ],
   "componentVersions": {
-    "common": "1.1.5",
+    "common": "1.1.6",
     "macos": "1.0.1",
     "transport.ssh": "1.1.1"
   },
-  "sourceDigest": "sha256:26ddd8a993ba805051bfccbcebfd11168b1f6836c58362acbb9eb62501d4ec3e",
-  "treeDigest": "sha256:71ca2caf3c10858bad36f4d21ef921c4c3ad3e28f299c0818a6ebbdf05fbe95a",
+  "sourceDigest": "sha256:5e2abd43f654b0294ad4bb425ec7c89c1d44621a15ca1800f7835bb6ef1d1b08",
+  "treeDigest": "sha256:d4e3c7101392b312681a128a85007f224198368c4cc6dfeb26436d11eff33450",
   "resources": [],
   "skillAliases": {}
 }

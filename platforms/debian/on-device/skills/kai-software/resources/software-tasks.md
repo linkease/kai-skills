@@ -34,8 +34,8 @@ stdout is one software-task/v1 JSON. Exit 0 success,20 needs-ai,21 blocked,22 fa
 network/integrity/permissions are explicit failures and must not silently change source.
 AI output can return as a reviewed artifact; never overwrite an unowned user command.
 
-## Agent 调用绑定
+## 脚本与 Agent
 
-`inspect` / `plan` / `apply` 是软件业务动作，`software-task/v1` 是脚本输入输出合同，不规定 Agent 的工具 API。共享技能源不嵌入某个 Agent 的技能加载工具；技能发现、加载及授权属于实际宿主。
-
-宿主提供绑定时，按它声明的真实工具、参数包装和目标范围调用；没有绑定时用已选 Transport 执行随技能分发的 task-entry 脚本。Windows 可从原生 PowerShell 进入，不要求预装 Bash/jq。两条路径保持 software、intent、plan、targetId 和结构化状态/效果的语义，未知来源、审批和取消不会因更换 Agent 而放宽。
+`inspect` / `plan` / `apply` 是软件业务动作，`software-task/v1` 是脚本输入输出合同，不规定 Agent 的工具 API，也不终结 Agent 任务。
+通过目标已有的 Transport 执行 task-entry 脚本，保留 software、intent、plan、targetId、结构化状态和效果。Windows 可从原生 PowerShell 进入；缺依赖时调用随包原生准备入口，复用返回的已验证路径。
+平台识别和确定性比较由脚本完成，模型根据完整任务组合操作、补充证据或解释缺口；来源、审批、保护和取消仍由现有宿主管理。

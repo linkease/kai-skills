@@ -1,6 +1,6 @@
 {
   "id": "kai-project-run",
-  "version": "1.2.9",
+  "version": "1.2.10",
   "path": "skills/kai-project-run",
   "canonicalPath": "components/system-packs/common/skills/kai-project-run",
   "description": "Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.",
@@ -57,12 +57,12 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:3eb217b1716cd323851c45ec9bd4b6eafe548194b98624143e2adc420c285213"
+      "sourceDigest": "sha256:0a81206145c099c00c591bc3f55973552f1b41612632b27edbc179c304b7d629"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:f4516bb9b5ce26664474fe10968b5203b2ea3f8c90c5acc2641b80b2eacd6f62"
+      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
     }
   ]
 }

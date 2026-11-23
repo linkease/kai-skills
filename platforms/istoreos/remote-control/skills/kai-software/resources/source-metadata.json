@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-software\ndescription: 按目标系统搜索、查询和安装软件，保留原包管理器与来源。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 检查软件更新, 是否有更新, 找软件, 文件管理插件, 找文件管理软件, 查询已安装软件, 升级系统软件包, 安装软件, 软件包, 应用商店, opkg, apk, 找软件安装到硬盘\nnegative-triggers: 安装 Python, 安装 Node, 安装 Go, pip install, npm ci, go mod\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: kai-software\ndescription: 查询、安装、更新和卸载系统软件；脚本识别平台、软件中心及原来源，返回分层版本和操作结果。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 检查软件更新, 是否有更新, 找软件, 文件管理插件, 找文件管理软件, 查询已安装软件, 升级系统软件包, 安装软件, 软件包, 应用商店, opkg, apk, 找软件安装到硬盘\nnegative-triggers: 安装 Python, 安装 Node, 安装 Go, pip install, npm ci, go mod\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:3eb217b1716cd323851c45ec9bd4b6eafe548194b98624143e2adc420c285213"
+      "sourceDigest": "sha256:0a81206145c099c00c591bc3f55973552f1b41612632b27edbc179c304b7d629"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:f4516bb9b5ce26664474fe10968b5203b2ea3f8c90c5acc2641b80b2eacd6f62"
+      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
     }
   ]
 }
