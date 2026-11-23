@@ -73,6 +73,14 @@ for source in task_sources:
 # This subtree is generated exclusively from the owner manifest. Prune obsolete
 # migration bytes, rather than silently shipping a second jq implementation.
 expected = {item['file'].removeprefix('owner/') for item in task_files}
+# The same subtree also carries a separately pinned native Scoop owner. Never
+# prune another resource lock's payload while syncing the shared task owner.
+scoop_owner = json.loads((dest / 'scoop-owner.lock.json').read_text())
+scoop_path = scoop_owner['path']
+assert scoop_path.startswith('owner/') and '..' not in Path(scoop_path).parts
+scoop_payload = (dest / scoop_path).read_bytes()
+assert len(scoop_payload) == scoop_owner['size'] and hashlib.sha256(scoop_payload).hexdigest() == scoop_owner['sha256'], 'pinned Scoop owner resource mismatch'
+expected.add(scoop_path.removeprefix('owner/'))
 for old in sorted(task_dest.rglob('*')):
     if old.is_file() and old.relative_to(task_dest).as_posix() not in expected:
         if args.check:

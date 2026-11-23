@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseVersion": "1.2.7",
+  "releaseVersion": "1.2.8",
   "architectureSupport": {
     "ubuntu": [
       "x64"
