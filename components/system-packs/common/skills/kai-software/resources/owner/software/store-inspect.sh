@@ -14,7 +14,7 @@ task_store_inspect() {
     any_installed=$("$task_jq" -r .anyRegisteredPackage <<< "$TASK_STORE_STATE")
     missing=$("$task_jq" -r .missingPackage <<< "$TASK_STORE_STATE")
     TASK_INSPECTED=$("$task_jq" -cn --arg installed "$installed" --arg candidate "$candidate" --arg release "$release" --arg candidateRelease "$candidate_release" --argjson source "$TASK_STORE_SOURCE" --argjson packages "$packages" --argjson app "$TASK_STORE_APP" \
-        '{manager:"istore",installedVersion:$installed,installedRelease:$release,candidateVersion:$candidate,candidateRelease:$candidateRelease,compatibility:$app.compatibility,source:$source,packages:$packages,functionalValidation:"not-run"}')
+        '{canonicalSoftwareId:$app.name,manager:"istore",installedVersion:$installed,installedRelease:$release,candidateVersion:$candidate,candidateRelease:$candidateRelease,compatibility:$app.compatibility,source:$source,packages:$packages,functionalValidation:"not-run"}')
     [ "$("$task_jq" -r .compatibility <<< "$TASK_STORE_APP")" = supported ] || task_stop needs-ai store-platform-compatibility-unconfirmed 0 "$TASK_INSPECTED"
     if [ -z "$installed" ]; then
         if [ "$any_installed" = true ]; then

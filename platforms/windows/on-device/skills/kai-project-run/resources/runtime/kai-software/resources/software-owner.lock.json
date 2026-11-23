@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "owner": "zsetup-scripts",
-  "sourceCommit": "060b8448284aa821cbd10426ef6df441b4dbd52d",
+  "sourceCommit": "7d945789c4b43da9bc457b09436194d6b44e8b40",
   "sourceState": "local-candidate",
   "protocol": "software-task/v1",
   "files": [
@@ -128,14 +128,14 @@
     {
       "source": "software/store-catalog.sh",
       "file": "owner/software/store-catalog.sh",
-      "sha256": "1c0e15b9994d98eb0caabad51e5b4f6baee7a650be2f075900ca3b311f312506",
-      "size": 3617
+      "sha256": "b54f15736d4278e612b307d2577dea09d96eddc9c6f75a246384722ea9026f4d",
+      "size": 4007
     },
     {
       "source": "software/store-inspect.sh",
       "file": "owner/software/store-inspect.sh",
-      "sha256": "3f9442a1e06587647aa1e7e62fa1464d730d37a87b5fb88c552f1c7e502084e1",
-      "size": 3317
+      "sha256": "fb89a7f88a3d3ac199d84f63344685c90802f404752efc057b464a7fb6e53bde",
+      "size": 3347
     },
     {
       "source": "software/store-plan.sh",
@@ -146,8 +146,8 @@
     {
       "source": "software/store-state.sh",
       "file": "owner/software/store-state.sh",
-      "sha256": "3fd94b349f6391bcb92a7a08048bb45342645adfc2582d435023ea653b63e216",
-      "size": 2013
+      "sha256": "e9041f305e69e1163781fdcf20a5f7ac175b0c9ce4d9d31cfe7a17f389791115",
+      "size": 2070
     },
     {
       "source": "software/task.sh",

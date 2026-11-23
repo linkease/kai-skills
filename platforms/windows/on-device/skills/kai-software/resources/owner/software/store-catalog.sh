@@ -38,7 +38,11 @@ task_store_catalog() {
         task_stop failed store-catalog-unavailable "$code" "$("$task_jq" -cn --arg category "$category" '{stage:"catalog-download",source:"istore-store-api",failureCategory:$category}')"
     fi
     "$task_jq" -e '.result.apps|type=="array" and length<=2000' "$TASK_STORE_TMP/catalog.json" >/dev/null 2>&1 || task_stop failed invalid-store-catalog 11
-    TASK_STORE_APP=$("$task_jq" -c --arg name "$TASK_SOFTWARE" --arg arch "$super_arch" '[.result.apps[]|select(.name==$name)]|if length==1 then .[0]|{name,version,release,depends,arch,compatibility:(if ((.arch//[])|index("all"))!=null or ($arch!="" and ((.arch//[])|index($arch))!=null) then "supported" else "unknown" end)} else null end' "$TASK_STORE_TMP/catalog.json")
+    local matches count
+    matches=$("$task_jq" -c --arg name "$TASK_SOFTWARE" --arg operation "$TASK_OPERATION" '[.result.apps[]|select((.name|type)=="string")|select(if $operation=="inspect" then (.name|ascii_downcase)==($name|ascii_downcase) else .name==$name end)]' "$TASK_STORE_TMP/catalog.json") || task_stop failed invalid-store-catalog 11
+    count=$("$task_jq" -r length <<< "$matches")
+    [ "$count" -le 1 ] || task_stop needs-ai ambiguous-software-identity 0
+    TASK_STORE_APP=$("$task_jq" -c --arg arch "$super_arch" 'if length==1 then .[0]|{name,version,release,depends,arch,compatibility:(if ((.arch//[])|index("all"))!=null or ($arch!="" and ((.arch//[])|index($arch))!=null) then "supported" else "unknown" end)} else null end' <<< "$matches")
     TASK_STORE_SOURCE=$("$task_jq" -cn --arg time "$(date -u +%Y-%m-%dT%H:%M:%SZ)" '{id:"istore-store-api",freshness:"live",fetchedAt:$time,authority:"target-filtered-business-catalog"}')
     TASK_STORE_CATALOG_FOR=$TASK_SOFTWARE
 }

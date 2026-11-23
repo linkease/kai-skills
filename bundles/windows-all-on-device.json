@@ -8,37 +8,37 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.6",
-      "treeDigest": "sha256:8601bad441a913be6022961eeab525bc0311fce222e8fc836dc997c4ffe0356d"
+      "treeDigest": "sha256:c236bb6d3a5b351a986783dbade3c324325e074cde9ff3054fafc778b38d5102"
     },
     {
       "id": "kai-download-acceleration",
       "version": "1.2.6",
-      "treeDigest": "sha256:1ed4228099bb0011470a3e7a94cc0d01389fc5ca054d21c4221dce53b2e37b86"
+      "treeDigest": "sha256:29f5bf621904f7fa0f8dc92f24b8edd76b3ab3754d9dc34e204103e05953a034"
     },
     {
       "id": "kai-project-dependencies",
       "version": "1.2.6",
-      "treeDigest": "sha256:f967d3b7685c45248518239192b9cd3dad176e6db536f29a799ab9ed2af16572"
+      "treeDigest": "sha256:151fc7c93c58a5495b05a9f428a6e7b1d8ea138c4ced5e11235953026347f03a"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.6",
-      "treeDigest": "sha256:b3056e4296f84b0952d21f2dc7320ec40c3ce117302d0559712897d3f97d5746"
+      "treeDigest": "sha256:f526a7c95bcb87820ffd77fb6f17467cfc0d9a979d3264b31f48eca490c8934f"
     },
     {
       "id": "kai-software",
       "version": "1.2.6",
-      "treeDigest": "sha256:b0d5ffe557d219ba1c608d31d8905860004eafd3feb17604b1fbd66166d4c7fb"
+      "treeDigest": "sha256:f9e550786a5df34aedee112961c2646d5ffacecea78c34f15d4f183e59593431"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.6",
-      "treeDigest": "sha256:116960ad2dba92b57651d87384f7621ab2db0e79e4b906ed394f7eae93422b9f"
+      "treeDigest": "sha256:fcdffb2c7bd3ff79fec0c5b9195652c6556491570bbec89cca1e21d12b9691e6"
     },
     {
       "id": "kai-tool-bootstrap",
       "version": "1.2.6",
-      "treeDigest": "sha256:d38e4f5580d422e8b726d71fc8c0d939b74d4d4093b25a51887c5894ad083caa"
+      "treeDigest": "sha256:c91dc39a4796112789b5d76b1ec062fc5988ea9379026ae151c17cc7c264e52d"
     },
     {
       "id": "windows-service-eventlog",
