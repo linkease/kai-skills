@@ -7,7 +7,7 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
-先探测，再准备缺项。KAIPlus 可调用 `tool:software_runtime_probe`；确需准备且已有授权时调用 `tool:software_runtime_prepare`。结果给出 Bash、完整 jq 和原生 zsetup 的实际路径；后续调用继续使用这些路径。
+先探测，再准备缺项。`probe` 只读，`plan` 说明准备内容；确需准备且已有授权时才执行 `ensure`。有宿主调用绑定时使用它，否则执行下方脚本；业务动作不是 Agent 工具名，不猜测入口。结果给出 Bash、完整 jq 和原生 zsetup 的实际路径；后续调用继续使用这些路径。
 
 独立或远程场景在实际目标执行：Unix `sh scripts/prepare.sh probe|plan|ensure`；Windows 原生 PowerShell `scripts/prepare.ps1 -Action Probe|Plan|Ensure`。首次入口不依赖 Bash/jq/zsetup；Probe/Plan 不安装。WSL 属于另一 Linux 目标。
 

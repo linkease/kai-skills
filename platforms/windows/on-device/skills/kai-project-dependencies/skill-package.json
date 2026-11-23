@@ -1,6 +1,6 @@
 {
   "id": "kai-project-dependencies",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "path": "skills/kai-project-dependencies",
   "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
   "description": "在所选 mise SDK 和项目隔离环境中安装 npm、pip、uv、Go 依赖。",
@@ -51,7 +51,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
+      "sourceDigest": "sha256:f4516bb9b5ce26664474fe10968b5203b2ea3f8c90c5acc2641b80b2eacd6f62"
     }
   ]
 }

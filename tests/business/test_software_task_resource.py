@@ -34,6 +34,30 @@ class SoftwareTaskResources(unittest.TestCase):
         self.assertEqual(result['targetId'], 'resource-test')
         self.assertTrue(result['details']['satisfies'])
 
+    def test_shared_guidance_does_not_require_a_specific_agents_tool_names(self):
+        for name in ('kai-software', 'kai-tool-bootstrap'):
+            body = (self.root / name / 'SKILL.md').read_text()
+            for host_name in ('use_capability', 'run_skill', 'read_skill', 'tool:software_'):
+                self.assertNotIn(host_name, body, name)
+        self.assertIn('task-entry.sh', (self.root / 'kai-software/SKILL.md').read_text())
+        self.assertIn('prepare.ps1', (self.root / 'kai-tool-bootstrap/SKILL.md').read_text())
+
+    def test_portable_inspect_entry_needs_no_agent_tool_api(self):
+        actual = subprocess.run(
+            ['sh', str(self.root / 'kai-software/scripts/task-entry.sh'), 'inspect', str(self.request)],
+            cwd=self.root,
+            env={**os.environ, 'ZSETUP_TASK_TARGET_ID': 'resource-test'},
+            text=True, capture_output=True,
+        )
+        self.assertEqual(actual.returncode, 0, actual.stdout + actual.stderr)
+        result = json.loads(actual.stdout)
+        self.assertEqual(result['protocol'], 'software-task/v1')
+        self.assertEqual(result['targetId'], 'resource-test')
+        self.assertEqual(result['effects'], [])
+        self.assertEqual(result['status'], 'success')
+        self.assertIn('decision', result['details'])
+        self.assertIn('installedVersion', result['details'])
+
     def test_changed_owner_is_rejected_before_any_owner_instruction_runs(self):
         marker = self.root / 'unwanted'
         script = self.root / 'kai-software/resources/owner/software/task.sh'

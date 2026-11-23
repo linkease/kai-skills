@@ -13,8 +13,8 @@ explicitly. Never guess port 8198 or run the controller's Provider instead.
 
 ## Read-only KAI conversations
 
-On a native local Mac KAIPlus session, prefer `use_capability` with
-`capability_id: "tool:software_market"`. This host-bound reader supports detect,
+On a native local Mac session, prefer the market reader binding explicitly
+provided by that host. Do not guess an Agent tool name. This reader supports detect,
 search, info, installed, outdated, sources, files, verify and tasks. Pass the
 exact package id or operationId. It accepts no endpoint, Shell, install, apply,
 confirmation or cancellation operation. Remote targets never receive the local

@@ -1,6 +1,6 @@
 {
   "id": "kai-storage-files",
-  "version": "1.2.8",
+  "version": "1.2.9",
   "path": "skills/kai-storage-files",
   "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
   "description": "限定路径分析空间与大文件、搜索文件名，核实安装目录的挂载和持久性。",
@@ -50,7 +50,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:bef309c7bb37b0013b4787148e7f99390beb5138f9f2971e15ff13c41a4ca661"
+      "sourceDigest": "sha256:f4516bb9b5ce26664474fe10968b5203b2ea3f8c90c5acc2641b80b2eacd6f62"
     }
   ]
 }
