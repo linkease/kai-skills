@@ -162,6 +162,18 @@ ConvertTo-Json -InputObject $items -Depth 5 -Compress
         self.assertEqual({i['source'] for i in r['items'][:2]},{'scoop','winget'})
         self.assertTrue(all(i['name']=='tool' for i in r['items'][:2]));self.assertNotIn('never-send',p.stdout)
         self.assertTrue(all(len(i.get('description',''))<=240 for i in r['items']))
+    def test_native_query_overrides_ascii_pipeline_and_preserves_unicode_subject(self):
+        # Emulate Windows PowerShell's ASCII pipeline default using real pwsh.
+        for name in ('scoop','winget'):
+            path=self.scripts/(name+'.ps1')
+            path.write_text(path.read_text().replace("$source=[IO.Path]", "[IO.File]::WriteAllText($env:QUERY_NATIVE_SUBJECT,[string]$request.subject)\n$source=[IO.Path]"))
+        marker=self.root/'subject.txt';self.env['QUERY_NATIVE_SUBJECT']=str(marker)
+        self.request.write_text(json.dumps({'targetId':'local','query':'工具','provider':'scoop'}))
+        entry=str(self.scripts/'query-entry.ps1').replace("'","''");request=str(self.request).replace("'","''")
+        command="$OutputEncoding=[Text.Encoding]::ASCII;& '"+entry+"' -Operation search -RequestFile '"+request+"'"
+        p=subprocess.run([self.pwsh,'-NoProfile','-NonInteractive','-Command',command],env=self.env,text=True,capture_output=True,timeout=25)
+        self.assertEqual(p.returncode,0,p.stdout+p.stderr);self.assertEqual(marker.read_text(),'工具')
+
     def test_actual_scoop_search_module_finds_exact_names_across_buckets(self):
         for bucket in ('a-first','z-last'):
             directory=self.root/'scoop/buckets'/bucket/'bucket';directory.mkdir(parents=True)

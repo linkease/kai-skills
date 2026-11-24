@@ -35,9 +35,11 @@ Docker 结果区分 docker-image 与 docker-container；iStore Docker 应用仍�
 
 ## 验证证据
 
-- 新增查询用例 16 项通过：上万条目录、精确/部分匹配、同名来源、原生 PowerShell 无 Bash/jq、Scoop 多 bucket 精确优先、Bash 3.2、APK 禁止网络、opkg 分派、iStore Top-N、Brew Cask/core 完整身份、Docker 私密字段隔离、独立包无兄弟目录、过长身份/JSON 明确失败。
+- 新增查询用例 17 项通过：上万条目录、精确/部分匹配、同名来源、原生 PowerShell 无 Bash/jq 及 ASCII 管道下的中文传递、Scoop 多 bucket 精确优先、Bash 3.2、APK 禁止网络、opkg 分派、iStore Top-N、Brew Cask/core 完整身份、Docker 私密字段隔离、独立包无兄弟目录、过长身份/JSON 明确失败。
 - 原跨平台套件 163 项：148 通过，15 按原生设备/条件跳过；未关闭测试。
 - 业务全套初次 123 项中有两项缺 TEST_NATIVE_ZSETUP、一项仍按旧正文位置检查网络归属规则，一项原生校验和集成被环境条件跳过。补齐环境并将检查沿显式引用追到原规则后，对应检查通过；最终完整业务套件 125 项全部通过，无跳过。
 - 生成一致性、模块摘要同步和独立技能 Codex 校验通过；最终消费者构建结果见 KaiPlus 验收记录。
 
 不把 Linux 上的 PowerShell/Bash 测试或协议夹具称为原生 Windows/macOS 全流程验收。没有在本轮启动真实模型、修改目标软件或触发设备恢复点，也未解决此前 .93 的保护收尾/重启问题。
+
+125 项业务套件之后追加了 PowerShell ASCII 管道中文传递回归；查询重点集最终 17 项通过。消费者快照的固定版本断言由 iStoreOS 2.0.3 对齐 2.0.4，出处、提交和摘要锁检查继续保留。

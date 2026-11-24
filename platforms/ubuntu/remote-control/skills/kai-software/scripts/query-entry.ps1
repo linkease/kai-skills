@@ -3,6 +3,7 @@ param([ValidateSet('search','detail','inspect')][string]$Operation,
       [Parameter(Mandatory=$true)][string]$RequestFile)
 $ErrorActionPreference='Stop';$ProgressPreference='SilentlyContinue'
 [Console]::OutputEncoding=New-Object Text.UTF8Encoding($false)
+$OutputEncoding=[Console]::OutputEncoding
 $privateLog=$null
 $script:QueryScriptsRoot=$PSScriptRoot
 try {
