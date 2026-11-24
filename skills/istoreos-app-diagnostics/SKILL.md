@@ -23,7 +23,7 @@ the executable resources required by its own workflow.
 ## 快速入口
 
 ```sh
-SKILLS_DIR="<absolute-parent-of-this-skill-directory>"
+SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"
 sh "$SKILLS_DIR/istoreos-app-diagnostics/scripts/inspect.sh" latest
 sh "$SKILLS_DIR/istoreos-app-diagnostics/scripts/inspect.sh" <app-id>
 ```

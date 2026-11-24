@@ -31,7 +31,7 @@ the executable resources required by its own workflow.
 
 ## 最小闭环
 
-1. 定位 skills：`SKILLS_DIR="<absolute-parent-of-this-skill-directory>"`。
+1. 定位 skills：`SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"`。
 2. 只读检查：`sh "$SKILLS_DIR/istoreos-kspeeder-domainfold-fetch/scripts/check_installed.sh"`。
 3. 若服务未运行，说明启用和启动影响并等待确认；确认后：
    `KAIPLUS_CONFIRMED=1 sh "$SKILLS_DIR/istoreos-kspeeder-domainfold-fetch/scripts/ensure_running.sh"`。

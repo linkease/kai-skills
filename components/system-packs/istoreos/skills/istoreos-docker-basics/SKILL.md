@@ -24,11 +24,11 @@ resource-discovery: explicit
 4) 启用启动：`/etc/init.d/dockerd enable && /etc/init.d/dockerd restart`
 5) 验证闭环（至少 2 条）：`docker version`（含 Server）/ `docker info` / `docker ps`
 6) 安装/升级 Docker 类应用前的空间检查（关键）
-   - `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-docker-basics/scripts/check_space.sh"`
+   - `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-docker-basics/scripts/check_space.sh"`
    - 若输出 `need-confirmation:`（例如 DockerRootDir 可用空间 < 2GiB，或 data_root 在 `/overlay/upper/opt/docker`），先处理空间/迁移 data_root 再继续安装镜像/容器
    - 迁移 data_root 属于危险写操作：转 `istoreos-docker-data-root-migrate`，明确征得用户同意；KAIPlus 保护系统配置，但 Docker 外部数据必须由迁移流程自己的复制、停机和回滚校验负责
 7) 任何可能拉镜像的动作（`docker pull/build/run`）前置：先跑加速闭环
-   - `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-docker-acceleration-istoreenhance/scripts/ensure_ready.sh"`
+   - `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-docker-acceleration-istoreenhance/scripts/ensure_ready.sh"`
    - 若输出 `need-confirmation:`（例如未安装或 `cache` 未配置），先按提示完成并等待用户确认，再继续 Docker 动作
 8) 镜像拉取失败（超时/连接重置/TLS 握手超时等）：
    - 不要直接进入“换源/代理/证书”泛化建议；优先回到第 6 步，确保 `istoreenhance/kspeeder` 真正生效

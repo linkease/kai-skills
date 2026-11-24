@@ -6,7 +6,7 @@
     {
       "id": "istoreos-docker-data-root-migrate",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
-      "sourceDigest": "sha256:71e4315d19de8d4b81204a20b47578286b8aa7f6d4735ae63d7d116b58c084c6"
+      "sourceDigest": "sha256:d3d139831367b63eb5f46e3634c0aa19c6ed773f883cbffbcf7abc023acadc3b"
     },
     {
       "id": "istoreos-storage-path",

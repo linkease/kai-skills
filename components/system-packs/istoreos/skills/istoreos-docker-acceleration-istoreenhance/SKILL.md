@@ -20,7 +20,7 @@ resource-discovery: explicit
 
 1) 一键准备（推荐）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-docker-acceleration-istoreenhance/scripts/ensure_ready.sh"`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-docker-acceleration-istoreenhance/scripts/ensure_ready.sh"`
 - 该脚本会优先尝试自动选择 `base path` 并执行 autoconf（复用 `kai-storage-files` 的选盘策略）；若仍输出 `need-confirmation:`（例如无法自动选盘或未安装包管理器），先按提示完成并等待用户确认，再继续 Docker 动作。
 
 1) 检测是否安装：

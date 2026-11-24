@@ -22,7 +22,7 @@ resource-discovery: explicit
 
 ## 一键采集（推荐）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-source-introspect/scripts/collect.sh" <name-or-keyword>`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-source-introspect/scripts/collect.sh" <name-or-keyword>`
 
 提示：
 - `<name-or-keyword>` 通常是 service/uci/meta 名（例如 `dockerd`、`istoreenhance`、`frpc`）。

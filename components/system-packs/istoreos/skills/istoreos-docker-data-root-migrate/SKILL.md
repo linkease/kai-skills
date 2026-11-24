@@ -24,11 +24,11 @@ resource-discovery: explicit
 
 ## 快速检查（只读）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/plan.sh"`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/plan.sh"`
 
 ## 执行迁移（写操作，需确认）
 
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"; CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/apply.sh" <NEW_DATA_ROOT>`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/apply.sh" <NEW_DATA_ROOT>`
 
 提示：
 - `<NEW_DATA_ROOT>` 建议在数据盘上，例如 `/mnt/<disk>/docker`。

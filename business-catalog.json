@@ -58,12 +58,12 @@
         {
           "id": "istoreos-app-diagnostics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-          "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+          "sourceDigest": "sha256:6cb37ebd409b48f6919f3fe354307d7788237fffbd64cb8089a3405acf839ac1"
         },
         {
           "id": "istoreos-app-diagnostics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-          "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+          "sourceDigest": "sha256:6cb37ebd409b48f6919f3fe354307d7788237fffbd64cb8089a3405acf839ac1"
         },
         {
           "id": "istoreos-app-search",
@@ -71,7 +71,7 @@
           "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
         }
       ],
-      "treeDigest": "sha256:289d8503037691ead1c94e721467b3bb2fb0dc5ac51c44b701a307d6f17a5314"
+      "treeDigest": "sha256:1833a82b3c096a012ddb8784f94ee560b389772564914143120783c16fa73809"
     },
     {
       "id": "istoreos-app-search",
@@ -102,7 +102,7 @@
         {
           "id": "istoreos-app-diagnostics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-          "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+          "sourceDigest": "sha256:6cb37ebd409b48f6919f3fe354307d7788237fffbd64cb8089a3405acf839ac1"
         },
         {
           "id": "istoreos-app-search",
@@ -110,7 +110,7 @@
           "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
         }
       ],
-      "treeDigest": "sha256:1ac85d5165fbe12e28eaea981b8941bbeadbdada0ac014f96570f4789255bf93"
+      "treeDigest": "sha256:f66e7e2a454291a37ee463ad0da60bfe36148d257e3fb50846d0c175dec29686"
     },
     {
       "id": "istoreos-backup-restore",
@@ -136,10 +136,10 @@
         {
           "id": "istoreos-backup-restore",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
-          "sourceDigest": "sha256:5913d6b45a2037823f6416e492488199af69dd46135d092b7db2298738ea1192"
+          "sourceDigest": "sha256:c67bb3bb1bd32ae9a0b584a18b4f912d9cf1eb0bc73683a0bbeb1505ee5d1d63"
         }
       ],
-      "treeDigest": "sha256:ad53cd3c395343d3b00244305baee15f75cf7a01522d34a177992a98a3811f4c"
+      "treeDigest": "sha256:2eee61ec4aabd4be82110e1e5345858356d53532bf1e93b55b5ef6c91c329bf3"
     },
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
@@ -165,10 +165,10 @@
         {
           "id": "istoreos-docker-acceleration-istoreenhance",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
-          "sourceDigest": "sha256:a0a0dd976b6447f0cd2dbc0b4bc55695f07c2dd7826373e6b4737d2210566fe4"
+          "sourceDigest": "sha256:c116497c128da0a9de499ad23a23109b6d474164e20896b74046107c43ca3c25"
         }
       ],
-      "treeDigest": "sha256:cdeeefba5e7ee4526e321113c4103bac1756aca361136e80c609857873168dc3"
+      "treeDigest": "sha256:069839738e416b7323e674df23bb5d00d36c539d7611264625dd818d7cea2567"
     },
     {
       "id": "istoreos-docker-basics",
@@ -194,10 +194,10 @@
         {
           "id": "istoreos-docker-basics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
-          "sourceDigest": "sha256:1c92ff6c84ea97226c6afbc5004a869a017ca3c68f00ea67f8655df8595ef5c6"
+          "sourceDigest": "sha256:8772f24d46deec70ab91a4b24118801e291745003b177eedbd91d454f1c56a3f"
         }
       ],
-      "treeDigest": "sha256:ba338d4344f8d5d6703dee93b49510edcc5fffb86241e00a98b1ce90021aedd3"
+      "treeDigest": "sha256:7a46ce6e5fa96381b27c08d69f98b41e31bd36a8ba0dff8d560a54f4876689c5"
     },
     {
       "id": "istoreos-docker-data-root-migrate",
@@ -223,7 +223,7 @@
         {
           "id": "istoreos-docker-data-root-migrate",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
-          "sourceDigest": "sha256:71e4315d19de8d4b81204a20b47578286b8aa7f6d4735ae63d7d116b58c084c6"
+          "sourceDigest": "sha256:d3d139831367b63eb5f46e3634c0aa19c6ed773f883cbffbcf7abc023acadc3b"
         },
         {
           "id": "istoreos-storage-path",
@@ -231,7 +231,7 @@
           "sourceDigest": "sha256:f54fbf74c1365862eb6eaac19190b492025add1efd17147d2f28c0a53280bad2"
         }
       ],
-      "treeDigest": "sha256:b4056b095c8b1e9fd73918c47d8decc6aebe9c87dedf1a3abd3d11b07ab76516"
+      "treeDigest": "sha256:7e3cb9aabfb8b5353d1a0d1525690f30c1669e3894da6a0110da5a5127964c20"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
@@ -257,7 +257,7 @@
         {
           "id": "istoreos-kspeeder-domainfold-fetch",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
-          "sourceDigest": "sha256:5604975b111e83f7b1baa31baabf761b3962a93300ac5e4bd906b1cd43deb358"
+          "sourceDigest": "sha256:8117029c68d4f0acf4a29662bf67ce20756c8a6144cfe7a9f399c8ad884acf57"
         },
         {
           "id": "istoreos-download-acceleration",
@@ -267,7 +267,7 @@
         {
           "id": "istoreos-kspeeder-domainfold-fetch",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
-          "sourceDigest": "sha256:5604975b111e83f7b1baa31baabf761b3962a93300ac5e4bd906b1cd43deb358"
+          "sourceDigest": "sha256:8117029c68d4f0acf4a29662bf67ce20756c8a6144cfe7a9f399c8ad884acf57"
         },
         {
           "id": "istoreos-mise-runtime",
@@ -280,7 +280,7 @@
           "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
         }
       ],
-      "treeDigest": "sha256:7f13ef4f40704b95b43fd31b791bb8312e3afd68ff3b912a79970cb51b6b912a"
+      "treeDigest": "sha256:36ab152fb450a367df1075810ed1c4c37d7d48f454fdf7ab323d66d732c86cec"
     },
     {
       "id": "istoreos-logs-and-diagnostics",
@@ -335,10 +335,10 @@
         {
           "id": "istoreos-luci-recovery",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
-          "sourceDigest": "sha256:ffbb1d92c30779c0edf62a9e9b758878cf785238ccdfed9df7982a6db3768b5f"
+          "sourceDigest": "sha256:6db783f14584e925b1e005942de6c491833685aa14a5a9bbc4229113c781ed55"
         }
       ],
-      "treeDigest": "sha256:cbc8ab0829d344878479694759e3f7c87abe536fe7fd8382a6ba1cf723037c8e"
+      "treeDigest": "sha256:f4505d5e037fd0c85d7ad70f4803135927028ede8913e663875977ed0baacd64"
     },
     {
       "id": "istoreos-quickstart-api",
@@ -398,7 +398,7 @@
         {
           "id": "istoreos-run-executable",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
-          "sourceDigest": "sha256:9d1f0091974bdfbc9040dd1e15c18a3b40f9d672f2c431337a63560cd4b32dcc"
+          "sourceDigest": "sha256:77d6d404a7bebaa5d0738c9868656b01afbb8780ea80500a6ad767aa78883c2e"
         },
         {
           "id": "istoreos-download-acceleration",
@@ -408,7 +408,7 @@
         {
           "id": "istoreos-kspeeder-domainfold-fetch",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
-          "sourceDigest": "sha256:5604975b111e83f7b1baa31baabf761b3962a93300ac5e4bd906b1cd43deb358"
+          "sourceDigest": "sha256:8117029c68d4f0acf4a29662bf67ce20756c8a6144cfe7a9f399c8ad884acf57"
         },
         {
           "id": "istoreos-mise-runtime",
@@ -421,7 +421,7 @@
           "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
         }
       ],
-      "treeDigest": "sha256:6a43d2a6220e31066331466136e6639ef1ec48ace3623be53eb6858583c95f57"
+      "treeDigest": "sha256:85151b164bc8c0b8584de667ddde0e794e11e47611032b0784665fac6e2424ae"
     },
     {
       "id": "istoreos-service-manager",
@@ -476,10 +476,10 @@
         {
           "id": "istoreos-source-introspect",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
-          "sourceDigest": "sha256:cf44d1ca7ffdfbae9412210d9517b9de624ad3b2f81be8414733eba3e5f1fc26"
+          "sourceDigest": "sha256:0f30a010e76cedb66b2bd5c0fbcc51eaf2b2a9a1feb36f33706a6b7ab8006018"
         }
       ],
-      "treeDigest": "sha256:8910878a7991dc456eaf1f2c0282119aab99e41f4b811647756a2d1d0418e0b3"
+      "treeDigest": "sha256:678f966556de5dcf58eb69c141d114552d1b4189bd8cd6dfcfceab2f8af51d31"
     },
     {
       "id": "istoreos-system-task-router",
@@ -801,7 +801,7 @@
         {
           "id": "istoreos-app-diagnostics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-          "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+          "sourceDigest": "sha256:6cb37ebd409b48f6919f3fe354307d7788237fffbd64cb8089a3405acf839ac1"
         },
         {
           "id": "istoreos-app-search",
@@ -821,7 +821,7 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:5044ab44f7a226f66dc179b716770c00364d41b792346321b26cecbca31df1d1"
+          "sourceDigest": "sha256:da979e5e7560f42b3efd138075452d2b744ff817c63a4222ac4648a58e9bc38b"
         },
         {
           "id": "kai-tool-bootstrap",
@@ -829,7 +829,7 @@
           "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
         }
       ],
-      "treeDigest": "sha256:eb2b02c0ec55bdbe2625f59b91c863ddb3361499f02a92adb2e53ec96baa3285"
+      "treeDigest": "sha256:41a7d8adcb896b06241880a4a95479f422252a8372dbb30d8c74b1308e19c743"
     },
     {
       "id": "kai-software",
@@ -875,12 +875,12 @@
         {
           "id": "kai-software",
           "canonicalPath": "components/system-packs/common/skills/kai-software",
-          "sourceDigest": "sha256:5044ab44f7a226f66dc179b716770c00364d41b792346321b26cecbca31df1d1"
+          "sourceDigest": "sha256:da979e5e7560f42b3efd138075452d2b744ff817c63a4222ac4648a58e9bc38b"
         },
         {
           "id": "istoreos-app-diagnostics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-          "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+          "sourceDigest": "sha256:6cb37ebd409b48f6919f3fe354307d7788237fffbd64cb8089a3405acf839ac1"
         },
         {
           "id": "istoreos-app-search",
@@ -893,7 +893,7 @@
           "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
         }
       ],
-      "treeDigest": "sha256:cd253e96f0db09b30df78f2154451ea7eae4d9a123cd1e1d444f9befd5a22dd7"
+      "treeDigest": "sha256:0ae69c8db9a5521eb53fa51e5587fa413af09b31a196ade08b62d044dc02ef30"
     },
     {
       "id": "kai-storage-files",

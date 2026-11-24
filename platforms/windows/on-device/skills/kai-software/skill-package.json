@@ -42,12 +42,12 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:5044ab44f7a226f66dc179b716770c00364d41b792346321b26cecbca31df1d1"
+      "sourceDigest": "sha256:da979e5e7560f42b3efd138075452d2b744ff817c63a4222ac4648a58e9bc38b"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+      "sourceDigest": "sha256:6cb37ebd409b48f6919f3fe354307d7788237fffbd64cb8089a3405acf839ac1"
     },
     {
       "id": "istoreos-app-search",

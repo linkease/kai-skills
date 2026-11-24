@@ -20,24 +20,24 @@ the executable resources required by its own workflow.
 
 ## 只读诊断（推荐）
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/diag.sh"`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/diag.sh"`
 
 ## 软恢复（需确认）
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_LUCI_SOFT_RECOVERY=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/soft_recover.sh"`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_LUCI_SOFT_RECOVERY=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/soft_recover.sh"`
 
 ## 重装核心包（需确认）
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_LUCI_REINSTALL=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/reinstall_core.sh"`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_LUCI_REINSTALL=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/reinstall_core.sh"`
 
 ## 定位坏文件归属包（只读）
 
 当 `logread`/浏览器报错里出现具体 Lua 文件路径时，用它定位属于哪个包，并对照 `/rom` 基线：
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/trace_owner.sh" /usr/lib/lua/luci/<path>.lua`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/trace_owner.sh" /usr/lib/lua/luci/<path>.lua`
 
 ## 生成修复命令候选（只读）
 
 基于“坏文件路径”输出重装/回退的候选命令清单（脚本不执行写操作）：
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/suggest_fix.sh" /usr/lib/lua/luci/<path>.lua`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/suggest_fix.sh" /usr/lib/lua/luci/<path>.lua`

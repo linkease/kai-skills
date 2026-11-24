@@ -22,8 +22,8 @@
     "macos": "1.0.1",
     "transport.ssh": "1.1.1"
   },
-  "sourceDigest": "sha256:9a2d398b6c59378572f9a386938b97d0e601fd4de592f35ae5b7fcbb7ffc9d2c",
-  "treeDigest": "sha256:b1ac04eec28ab0169c779dbba8ba1d38e5b94b477bf4a97a0f23bfb8a4edf700",
+  "sourceDigest": "sha256:96723766e2cc959d4a14b36cab55a9800aa000c489eaffed2c1cc2544f6194ba",
+  "treeDigest": "sha256:c413950e02dbc236cc20f03dc6444cc4e2cc93c528e97e8d949a22bc1e883556",
   "resources": [],
   "skillAliases": {}
 }

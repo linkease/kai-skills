@@ -17,7 +17,7 @@ resource-discovery: explicit
 ## 快速入口
 
 ```sh
-SKILLS_DIR="${KAIPLUS_SKILLS_DIR:-${KAIPLUS_HOME:?KAIPLUS_HOME is required}/config/skills}"
+SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"
 sh "$SKILLS_DIR/istoreos-app-diagnostics/scripts/inspect.sh" latest
 sh "$SKILLS_DIR/istoreos-app-diagnostics/scripts/inspect.sh" <app-id>
 ```

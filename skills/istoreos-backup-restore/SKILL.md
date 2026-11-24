@@ -30,7 +30,7 @@ the executable resources required by its own workflow.
 - 全量备份对象是 `/overlay/upper`（沙箱环境还可能包含 `ext_overlay/upper`），数据量大、耗时更长，恢复后可能重启。
 - 不要因为普通升级、重装或服务调整自动推荐全量备份。
 - 若用户明确要求使用命令行且已经确认目标外部存储，可执行：
-  `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_FULL_SYSTEM_BACKUP=YES sh "$SKILLS_DIR/istoreos-backup-restore/scripts/backup_system.sh" <DIR>`
+  `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_FULL_SYSTEM_BACKUP=YES sh "$SKILLS_DIR/istoreos-backup-restore/scripts/backup_system.sh" <DIR>`
 - `<DIR>` 必须位于外部存储；挂载点根目录会使用 `<DIR>/istore_backup/`。
 
 ## 恢复
@@ -38,9 +38,9 @@ the executable resources required by its own workflow.
 - KAIPlus Linkspace 恢复点：从「设备保护」查看范围、差异和记录，确认后执行恢复。
 - 只有现有文件确实是 `overlay-backup` 全量归档时，才使用对应的全量恢复流程；不要混用两种格式。
 - 命令行全量恢复仍需明确确认：
-  `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; CONFIRM_ISTOREOS_RESTORE=YES sh "$SKILLS_DIR/istoreos-backup-restore/scripts/restore_system.sh" <BACKUP_FILE>`
+  `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_ISTOREOS_RESTORE=YES sh "$SKILLS_DIR/istoreos-backup-restore/scripts/restore_system.sh" <BACKUP_FILE>`
 
 ## 只读检查
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-backup-restore/scripts/check.sh"`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-backup-restore/scripts/check.sh"`
 - 检查只报告 ChangeGuard、Linkspace 和可选全量备份工具是否存在，不创建任何备份。

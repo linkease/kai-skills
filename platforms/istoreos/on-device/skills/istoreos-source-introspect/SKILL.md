@@ -21,7 +21,7 @@ the executable resources required by its own workflow.
 
 ## 一键采集（推荐）
 
-- `SKILLS_DIR="<absolute-parent-of-this-skill-directory>"; sh "$SKILLS_DIR/istoreos-source-introspect/scripts/collect.sh" <name-or-keyword>`
+- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-source-introspect/scripts/collect.sh" <name-or-keyword>`
 
 提示：
 - `<name-or-keyword>` 通常是 service/uci/meta 名（例如 `dockerd`、`istoreenhance`、`frpc`）。

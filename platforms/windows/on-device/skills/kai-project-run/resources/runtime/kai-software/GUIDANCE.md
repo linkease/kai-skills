@@ -3,8 +3,8 @@ name: kai-software
 description: 查询、安装、更新和卸载系统软件；脚本识别平台、软件中心及原来源，返回分层版本和操作结果。
 owner: system-pack/common
 systems: ubuntu, debian, istoreos, openwrt, linux, macos, windows
-triggers: 检查软件更新, 是否有更新, 找软件, 文件管理插件, 找文件管理软件, 查询已安装软件, 升级系统软件包, 安装软件, 软件包, 应用商店, opkg, apk, 找软件安装到硬盘
-negative-triggers: 安装 Python, 安装 Node, 安装 Go, pip install, npm ci, go mod
+triggers: 检查软件更新, 是否有更新, 更新软件, 升级软件, 更新, 升级, 找软件, 文件管理插件, 找文件管理软件, 查询已安装软件, 升级系统软件包, 安装软件, 软件包, 应用商店, opkg, apk, 找软件安装到硬盘
+negative-triggers: 更新 README, 更新文档, 更新代码, 更新项目, 更新配置, 更新模型, 更新会话, 升级代码, 升级项目, 安装 Python, 安装 Node, 安装 Go, pip install, npm ci, go mod
 auto-use: prefer
 routing-group: system-primary
 needs-fresh-data: true
