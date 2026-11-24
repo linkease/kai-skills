@@ -10,6 +10,8 @@ the executable resources required by its own workflow.
 
 ## Local supporting resources
 
+- `istoreos-app-diagnostics`: [local instructions](resources/runtime/istoreos-app-diagnostics/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-app-search`: [local instructions](resources/runtime/istoreos-app-search/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-dev-environment`: [local instructions](resources/runtime/kai-dev-environment/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-project-dependencies`: [local instructions](resources/runtime/kai-project-dependencies/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-software`: [local instructions](resources/runtime/kai-software/GUIDANCE.md); executable helpers under that resource’s `scripts/`.

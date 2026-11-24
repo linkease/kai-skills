@@ -119,9 +119,10 @@ try {
     try { Import-Module Microsoft.WinGet.Client -ErrorAction Stop }
     catch { Fail 18 'native-adapter-unavailable' 'Prepare a trusted Microsoft.WinGet.Client PowerShell module with its original manager; no automatic module installation.' }
     if ($action -eq 'search') {
-        $packages = @(Find-WinGetPackage -Query @($subject) -Source winget -Count 3 -ErrorAction Stop)
+        $searchLimit=3;if($null -ne $request.searchLimit){$searchLimit=[int]$request.searchLimit};if($searchLimit -lt 1 -or $searchLimit -gt 11){Fail 2 'usage' 'Invalid internal search bound.'}
+        $packages = @(Find-WinGetPackage -Query @($subject) -Source winget -Count $searchLimit -ErrorAction Stop)
         $rows = @()
-        foreach ($package in ($packages | Select-Object -First 3)) {
+        foreach ($package in ($packages | Sort-Object @{Expression={if($_.Id -ieq $subject -or $_.Name -ieq $subject){0}else{1}}},Id | Select-Object -First $searchLimit)) {
             Assert-CatalogAvailable $package
             if ($package.Source -ne 'winget') { Fail 4 'source-mismatch' 'Search returned a different source.' }
             $row = Package-Info $package

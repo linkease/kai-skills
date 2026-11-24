@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "releaseVersion": "1.2.10",
+  "releaseVersion": "1.2.11",
   "architectureSupport": {
     "ubuntu": [
       "x64"
@@ -52,7 +52,8 @@
       "kai-dev-environment"
     ],
     "kai-software": [
-      "kai-tool-bootstrap"
+      "kai-tool-bootstrap",
+      "istoreos-app-search"
     ],
     "kai-storage-files": [
       "kai-tool-bootstrap",
@@ -99,7 +100,7 @@
       "native verified zsetup core for managed installation"
     ],
     "kai-software": [
-      "Bash and full jq on the selected target",
+      "Native PowerShell for Windows queries; Bash and full jq for Unix queries and existing lifecycle tasks",
       "verified zsetup rule resources",
       "native package provider or verified artifact recipe",
       "Docker engine and persistent image/data space only for container tasks",

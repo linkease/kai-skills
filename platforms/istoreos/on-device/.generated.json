@@ -19,13 +19,13 @@
     "istoreos"
   ],
   "componentVersions": {
-    "common": "1.1.6",
+    "common": "1.1.7",
     "linux": "1.0.1",
     "openwrt": "1.0.1",
-    "istoreos": "2.0.3"
+    "istoreos": "2.0.4"
   },
-  "sourceDigest": "sha256:7a807ddf799591fac1551782ea9e845495616129b726de0c13fa85f13f3fd480",
-  "treeDigest": "sha256:a1ed14be912decfa9f1c991719bb6d8562aa522821448aebe387f728e9be8709",
+  "sourceDigest": "sha256:b6ad00d702666ebbec9707dbcc13359e2cccb8a794d47bee95a9aed9e9acec24",
+  "treeDigest": "sha256:530f676a4f7922ce0cda445bf03425804e4520bce522e3c74b793ebde59d92c1",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",

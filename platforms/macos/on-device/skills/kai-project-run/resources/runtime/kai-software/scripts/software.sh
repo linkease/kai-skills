@@ -217,7 +217,11 @@ if [ "$action" = search ]; then
         if compatible_application "$candidate"; then printf '%s\n' "$candidate"; fi
     done <<< "$names")"
     if printf '%s\n' "$names" | grep -Fxq -- "$subject"; then names="$subject";
-    else names="$(printf '%s\n' "$names" | head -n 3)"; fi
+    else
+        search_limit=${KAI_SOFTWARE_SEARCH_LIMIT:-3}
+        case "$search_limit" in 1|2|3|4|5|6|7|8|9|10|11) ;; *) fail 2 usage 'search limit must be between 1 and 11' ;; esac
+        names="$(printf '%s\n' "$names" | head -n "$search_limit")"
+    fi
     rows="$(while IFS= read -r name; do [ -n "$name" ] || continue; validate_name "$name"; package_info; done <<< "$names")"
     printf '%s\n' "$rows" | jq -s 'map(. + {matchReason:"matched in the selected provider catalog"})'
     exit 0

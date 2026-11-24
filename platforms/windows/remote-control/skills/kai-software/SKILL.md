@@ -10,6 +10,8 @@ the executable resources required by its own workflow.
 
 ## Local supporting resources
 
+- `istoreos-app-diagnostics`: [local instructions](resources/runtime/istoreos-app-diagnostics/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-app-search`: [local instructions](resources/runtime/istoreos-app-search/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
 Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
@@ -18,22 +20,18 @@ use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Pla
 through native PowerShell, then the authorized Ensure operation.
 
 ## Business workflow
-确认实际目标和软件身份，保留原包管理器及来源。使用随包脚本取得结构化事实，再根据用户的完整任务决定下一步；脚本动作不是 Agent 工具名。
+在实际目标查询，保留完整来源 ID。目录留在脚本内部，只把命中事实交给模型；一次查询完成不代表用户的完整任务完成。
 
-版本和更新信息通常可用一次 `inspect` 取得，不需要预读平台文档或重新猜测商店接口。商店应用、原生包和运行程序的版本分别解释。`no-update` 仅适用于结果里的来源和版本层级；登记信息不能证明实际运行版本、安装来源或组件一致性。未验证的差异保持未知，不自行解释为正常或异常。一次操作完成不代表完整任务完成。
+宿主已提供原生软件查询绑定时优先复用。其他 Agent 通过已有目标 Transport 执行随包入口：Unix `sh scripts/query-entry.sh ACTION REQUEST.json`；Windows 原生 PowerShell `scripts/query-entry.ps1 -Operation ACTION -RequestFile REQUEST.json`，不预设 Bash/jq 已安装。
 
-宿主已有原生软件审核页时，优先使用它提供的目录/审核绑定；查询实际目录和安装状态，保留完整来源 ID，返回 reviewURL/reviewPath 让用户在原软件页审核。诊断会话只读，不改用脚本绕过审核、来源、校验或失败处理。
+- 找软件：`search`，请求 `{"targetId":"<实际目标ID>","query":"<关键词>","limit":3}`。
+- 已知身份：`detail`，请求 `{"targetId":"<实际目标ID>","id":"<来源限定ID>"}`。
+- 检查版本/更新：`inspect`，请求 `{"targetId":"<实际目标ID>","software":"<实际业务ID>"}`；可指定 provider。
 
-任务 JSON 的 `software` 为实际业务标识。`inspect` 返回平台、软件中心归属、原生登记和候选版本；复用这些事实，仅在有具体缺口时选择新证据：
+结果为 `software-query/v1`，默认 3 项、最多 10 项，摘要最多 240 个字符、完整 JSON 最多 8 KiB。`hasMore` 表示还有候选，缩小关键词或选择精确 ID；不读取目录文件或脚本实现来代替查询。同名跨来源候选保留，不自动接管来源。查询不安装依赖或刷新源，缺依赖时才用随包准备入口在已有授权内处理。
 
-- 已确认无需更新：说明版本和来源后结束。`no-update-in-cache` 只说明缓存，不能称在线最新。
-- 可变更：用 `plan` 提交原请求、intent 和所需存储/备份信息；展示计划的效果，在已有授权内把原 details 作为任务 JSON 的 plan 交给 `apply`。状态或来源变化需重做计划。
-- 未知/受阻/失败：报告已知版本/候选、reason、nativeExitCode、已发生效果和缺口。`needs-ai` 表示不能作出确定判断，不要求全系统巡检。归属不明不接管，建议回原软件中心或实际维护方核实；缺缓存不等于不存在。任务需要进一步定位时，只针对缺口选择新证据，避免重复已知事实或盲目重试。
+商店、原生登记与运行程序版本是不同证据；缺缓存、未运行验证、来源不可用分别保留未知，不推断为在线最新或安装异常。Docker 查询需显式 `provider:"docker"`，结果只代表本机镜像/容器，不代表远端软件目录。
 
-入口会校验并选择现有依赖，不需要提前猜测 jq/Bash 路径或读取脚本实现；缺依赖时才使用运行时 `probe`，复用其验证后的路径。必要准备走已有授权内的 `ensure`。查询本身不安装依赖或刷新源。
+只在有具体证据缺口时继续查询。需要实际变更时读 [任务合同](resources/software-tasks.md)，保留原 `task-entry.sh` / `task-entry.ps1` 的 plan/apply 和来源限定 `software.sh` 接口；宿主原生软件页仍由用户审核，不用脚本绕过。查询格式、支持范围和精确 ID 见 [查询合同](resources/software-query.md)。
 
-基本检查只需请求对象 `{"targetId":"<实际目标ID>","software":"<实际业务ID>"}`，不需要 method、intent 或 plan。通过已选目标 Transport 将它写入独立临时请求文件，调用 `sh scripts/task-entry.sh inspect REQUEST.json`；Windows 用原生 PowerShell 的 `scripts/task-entry.ps1`，无需先假设 Bash 存在。独立包使用它实际分发的运行时资源。脚本路径属于目标，不在控制端重试远程任务。详细输入仅在需要计划/其他安装方式时读 [任务合同](resources/software-tasks.md)。保留现有 `scripts/software.sh` 来源限定接口。
-
-包登记与功能健康分开报告；写后按用户任务验证。SDK/解释器版本走 kai-dev-environment，项目依赖走 kai-project-dependencies，构建运行走 kai-project-run；不要把它们变成系统软件升级。
-
-For a structured transport failure, follow [network handoff](data/network-diagnosis-handoff.md): validate before authorized diagnosis; retry at most once after comparable verification improves. HTTP 401/403/404, dependencies, architecture, postinstall and integrity errors remain software failures. Ordinary installs do not need a general speed test.
+仅使用 Mac 原生软件提供者时读 [Homebrew 查询](resources/homebrew-market.md)；仅使用 Windows Scoop 时读 [Scoop](resources/scoop.md)。项目 SDK/依赖走对应开发能力。网络传输失败需要进一步诊断时读 [网络交接](data/network-diagnosis-handoff.md)。

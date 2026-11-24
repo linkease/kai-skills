@@ -1,0 +1,11 @@
+# phrase<TAB>query terms<TAB>preferred app ids
+家庭相册	照片 相册 视频	immich photoprism mtphotos linkease
+家庭照片	照片 相册 视频	immich photoprism mtphotos linkease
+照片自动备份	照片 相册 备份	immich linkease photoprism
+自动备份	备份 同步 照片	linkease immich
+远程文件管理	文件 远程 同步 nas	linkease alist
+异地访问文件	文件 远程 同步 nas	linkease alist
+内网穿透	远程 穿透	ddnsto
+BT下载	下载 bt torrent	aria2 qbittorrent transmission
+广告过滤	广告 dns 过滤	adguardhome
+网络测速	测速 网络	fastnet

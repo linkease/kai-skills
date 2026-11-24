@@ -11,6 +11,7 @@ $softwareModules=[ordered]@{
     'scoop/identity.ps1'='de7a67154f1ad127383638d57ff750775620586ec3e2657f1448eee587a1d40e'
     'scoop/json.ps1'='25d66ab0adf1c4d1cc754187f6ca1b4ffedda1ead5c9dc9874a1ac9345d95f90'
     'scoop/packages.ps1'='0d71f68b1f293dd5f7906dfa1aa85c182fa2a3b85e501c50c71ade964f7ecc9c'
+    'scoop/search.ps1'='6813081286af1bafc785b4f1d6c8e9729fb0c78d390be53bb264c1c96fc89470'
     'market.ps1'='f3c3acd04ba1daa9e8bfe2416765fddce63fce9eec9e33b9169d31d955beb748'
 }
 # END OWNED MODULE HASHES
@@ -23,6 +24,7 @@ foreach($member in $softwareModules.GetEnumerator()) {
 . (Join-Path $script:SoftwareScriptRoot 'scoop/identity.ps1')
 . (Join-Path $script:SoftwareScriptRoot 'scoop/client.ps1')
 . (Join-Path $script:SoftwareScriptRoot 'scoop/packages.ps1')
+. (Join-Path $script:SoftwareScriptRoot 'scoop/search.ps1')
 
 try {
     $request = [Console]::In.ReadToEnd() | ConvertFrom-Json
@@ -65,27 +67,10 @@ try {
     if ($action -eq 'search') {
         if (!$subject -or $subject.StartsWith('-') -or $subject.Length -gt 256) { Fail 2 'usage' 'Supply a bounded literal search term.' }
         if (!(Test-OwnedScoop $root $lock)) { Emit @(); exit 0 }
-        $rows = @()
-        foreach ($bucketDirectory in @(Get-ChildItem -LiteralPath (Join-Path $root 'buckets') -Directory -Force -ErrorAction SilentlyContinue | Sort-Object Name)) {
-            if ($bucketDirectory.Name -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]*$') { continue }
-            $exactName = ''
-            if ($subject -match '^[A-Za-z0-9][A-Za-z0-9._-]*$' -and
-                (Test-Path -LiteralPath (Join-Path $bucketDirectory.FullName ("bucket\$subject.json")) -PathType Leaf)) {
-                $exactName = $subject
-                $row = Scoop-Info $root $bucketDirectory.Name $exactName; $row['matchReason'] = 'exact name in the selected Scoop bucket'
-                $rows += $row
-            }
-            foreach ($file in @(Get-ChildItem -LiteralPath (Join-Path $bucketDirectory.FullName 'bucket') -File -Filter '*.json' -ErrorAction SilentlyContinue | Sort-Object BaseName)) {
-                if ($file.BaseName -notmatch '^[A-Za-z0-9][A-Za-z0-9._-]*$') { continue }
-                if ($file.BaseName -ceq $exactName) { continue }
-                try { $manifest = Get-Content -LiteralPath $file.FullName -Raw | ConvertFrom-Json } catch { continue }
-                $haystack = $file.BaseName + ' ' + [string](Property $manifest 'description') + ' ' + [string](Property $manifest 'homepage')
-                if ($haystack.IndexOf($subject, [StringComparison]::OrdinalIgnoreCase) -lt 0) { continue }
-                $row = Scoop-Info $root $bucketDirectory.Name $file.BaseName; $row['matchReason'] = 'matched in the selected Scoop bucket'
-                $rows += $row; if ($rows.Count -ge 30) { break }
-            }
-            if ($rows.Count -ge 30) { break }
-        }
+        $searchLimit=3
+        if($null -ne $request.searchLimit){$searchLimit=[int]$request.searchLimit}
+        if($searchLimit -lt 1 -or $searchLimit -gt 11){Fail 2 'usage' 'Invalid internal search bound.'}
+        $rows=@(Scoop-Search $root $subject $searchLimit)
         Emit @($rows); exit 0
     }
     if ($action -eq 'install') { $null = Ensure-OwnedScoop $root $lock; Invoke-Install $root $subject $version; exit 0 }

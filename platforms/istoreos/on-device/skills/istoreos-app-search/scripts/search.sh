@@ -77,6 +77,7 @@ while IFS= read -r object; do
   [ -n "$name" ] || continue
 
   score=0; reasons=
+  if [ "$(printf '%s' "$name" | tr '[:upper:]' '[:lower:]')" = "$(printf '%s' "$query" | tr '[:upper:]' '[:lower:]')" ];then score=1000;reasons=name;fi
   if contains "$name" "$query"; then score=$((score + 100)); reasons="$(add_reason "$reasons" name)"; fi
   if contains "$title" "$query"; then score=$((score + 60)); reasons="$(add_reason "$reasons" title)"; fi
   if contains "$tags" "$query"; then score=$((score + 30)); reasons="$(add_reason "$reasons" category)"; fi

@@ -1,6 +1,6 @@
 {
   "id": "kai-project-run",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "path": "skills/kai-project-run",
   "canonicalPath": "components/system-packs/common/skills/kai-project-run",
   "description": "Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.",
@@ -45,6 +45,16 @@
       "sourceDigest": "sha256:f4d79d91d6d8dcba49ace9df320d56199c40fe4dd4e70a71567ce6a069dff6fd"
     },
     {
+      "id": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+    },
+    {
+      "id": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
+    },
+    {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
       "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
@@ -57,7 +67,7 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:a185ce4f2ccc2c1d0c372730cbe20412cf3ae6e942090217e7c4275f463b410a"
+      "sourceDigest": "sha256:4f8a461d52854eaf09c3486978ababd52e5a0033928e7b63336ee98335eb3683"
     },
     {
       "id": "kai-tool-bootstrap",

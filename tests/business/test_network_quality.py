@@ -164,7 +164,11 @@ class NetworkQualityContractTests(unittest.TestCase):
         self.assertNotIn("secret-token", self.call_lines())
 
     def test_software_and_acceleration_contracts_keep_owner_boundaries(self):
-        software = (ROOT / "components/system-packs/common/skills/kai-software/SKILL.md").read_text()
+        software_root = ROOT / "components/system-packs/common/skills/kai-software"
+        entry = (software_root / "SKILL.md").read_text()
+        reference = "data/network-diagnosis-handoff.md"
+        self.assertIn("](" + reference + ")", entry)
+        software = (software_root / reference).read_text()
         acceleration = (ROOT / "components/system-packs/common/skills/kai-download-acceleration/SKILL.md").read_text()
         handoff = (SKILL / "data/install-handoff.md").read_text()
         for phrase in ["401/403/404", "at most once", "validate"]:

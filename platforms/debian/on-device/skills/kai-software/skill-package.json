@@ -1,6 +1,6 @@
 {
   "id": "kai-software",
-  "version": "1.2.10",
+  "version": "1.2.11",
   "path": "skills/kai-software",
   "canonicalPath": "components/system-packs/common/skills/kai-software",
   "description": "查询、安装、更新和卸载系统软件；脚本识别平台、软件中心及原来源，返回分层版本和操作结果。",
@@ -32,7 +32,7 @@
     ]
   },
   "programRequirements": [
-    "Bash and full jq on the selected target",
+    "Native PowerShell for Windows queries; Bash and full jq for Unix queries and existing lifecycle tasks",
     "verified zsetup rule resources",
     "native package provider or verified artifact recipe",
     "Docker engine and persistent image/data space only for container tasks",
@@ -42,7 +42,17 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:a185ce4f2ccc2c1d0c372730cbe20412cf3ae6e942090217e7c4275f463b410a"
+      "sourceDigest": "sha256:4f8a461d52854eaf09c3486978ababd52e5a0033928e7b63336ee98335eb3683"
+    },
+    {
+      "id": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "sourceDigest": "sha256:57145fc55c939b511e2e65d57fc138fc2ab69aaf4fecaed9f2e11138bd21ce72"
+    },
+    {
+      "id": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
     },
     {
       "id": "kai-tool-bootstrap",
