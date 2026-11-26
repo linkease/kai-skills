@@ -91,7 +91,7 @@
       "evidence": [
         "agent-capability-KA8-20261126.json"
       ],
-      "stopReason": "renewed-three-optimization-limit-with-independent-model-failures-and-qualified-QA-admission-limit",
+      "stopReason": "renewed-three-optimization-limit-retains-evidence-fidelity-failures-after-exact-wire-and-three-arm-comparison",
       "additionalRounds": [
         {
           "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
@@ -109,6 +109,17 @@
           "coreRubricFailed": 3,
           "resourceAdmissionUngraded": 2,
           "evidence": "agent-capability-KA8-followup-20261126.md",
+          "nextMilestonesStarted": false
+        },
+        {
+          "authorizedBy": "User: 认可，继续后续的任务 (after goal alignment)",
+          "optimizations": 3,
+          "verificationStatus": "failed",
+          "threeArmPilotSessions": 24,
+          "qualificationSessions": 8,
+          "completeFinals": 32,
+          "resourceAdmissionUngraded": 0,
+          "evidence": "agent-capability-KA8-round7-20261126.md",
           "nextMilestonesStarted": false
         }
       ]
