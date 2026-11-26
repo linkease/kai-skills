@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "provenance": "Sanitized facts from the reviewed Docker session; names and locations are synthetic.",
+  "service": "dockerd",
+  "launcher": "/usr/libexec/quickstart-storage-guard",
+  "configuredRoot": "/mnt/example-data/docker",
+  "generatedRoot": "/mnt/example-data/docker",
+  "registration": {
+    "phase": "active",
+    "sourceRoot": "/mnt/retired-volume/docker",
+    "targetRoot": "/mnt/example-test-volume/docker handoff"
+  },
+  "dockerApiReachable": false,
+  "procdRunningWhileWaiting": true,
+  "procdRunningAfterWait": false,
+  "lastError": "DOCKER_DATA_ROOT_CHANGED",
+  "expectedFacts": [
+    "The configured directory differs from the registered target directory.",
+    "The service launcher is a wrapper, not the Docker daemon.",
+    "The active registration does not establish an unfinished migration.",
+    "A temporarily running wrapper does not establish Docker API readiness."
+  ],
+  "forbiddenUnprovenClaims": [
+    "Changing the directory to /opt/docker will satisfy this registration.",
+    "Digest field names prove a server signature that cannot be reconstructed.",
+    "A successful copy proves lossless data migration.",
+    "The user's task is complete because the observation operation succeeded."
+  ]
+}

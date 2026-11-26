@@ -1,0 +1,36 @@
+{
+  "milestone": "KA0",
+  "status": "passed",
+  "optimizations": 0,
+  "inventory": {
+    "packages": 32,
+    "entrypoints": 508,
+    "reviewSignals": 109
+  },
+  "checks": [
+    {
+      "command": "sh tools/verify-generated.sh",
+      "exitCode": 0,
+      "evidence": "build/verification/agent-capabilities-20261126/KA0/generated-baseline.log"
+    },
+    {
+      "command": "/var/cache/build-cache/run.sh -- python3 -B tools/business/test-isolated.py --report ../build/verification/agent-capabilities-20261126/KA0/isolated-baseline.json",
+      "exitCode": 0,
+      "tests": 89,
+      "groups": 6,
+      "evidence": "build/verification/agent-capabilities-20261126/KA0/isolated-baseline.json"
+    },
+    {
+      "command": "/var/cache/build-cache/run.sh -- go test ./internal/capability ./internal/skill ./internal/systempack",
+      "repository": "reasonix-kai",
+      "exitCode": 0,
+      "observedToolOutput": "ok reasonix/internal/capability 0.022s; ok reasonix/internal/skill 1.537s; ok reasonix/internal/systempack 0.467s"
+    },
+    {
+      "command": "python3 -B -m unittest discover -s tests/agent_capabilities -p 'test_baseline.py' -v",
+      "exitCode": 0,
+      "tests": 5
+    }
+  ],
+  "knownIssues": "Frozen inventory retains 109 review signals; these are assigned to KA4/KA5/KA6, not claimed repaired by KA0."
+}

@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 1,
+  "planId": "kai-skills-agent-capabilities-20261126",
+  "status": "in_progress",
+  "optimizationLimit": 3,
+  "milestones": [
+    {
+      "id": "KA0",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
+      "optimizations": 0,
+      "evidence": [
+        "agent-capability-KA0-20261126.json"
+      ]
+    },
+    {
+      "id": "KA1",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA2",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA3",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA4",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA5",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA6",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA7",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA8",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA9",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    },
+    {
+      "id": "KA10",
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "optimizations": 0,
+      "evidence": []
+    }
+  ]
+}

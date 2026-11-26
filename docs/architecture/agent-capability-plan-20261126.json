@@ -3,12 +3,12 @@
   "planId": "kai-skills-agent-capabilities-20261126",
   "date": "2026-11-26",
   "source": "agent-capability-milestones-20261126.md",
-  "sourceSHA256": "e01af1d24e5b5323276dd2e90871b39ba69c4b9e0f2cc1966d3b56faeb38aed7",
+  "sourceSHA256": "40dd33d2f1c27ac54dddee303e316407b4d35a83da3393a586adaa2c25042d81",
   "scope": [
     "kai-skills canonical sources and distributions",
     "reasonix-kai capability discovery and execution integration"
   ],
-  "implementationStatus": "not_started",
+  "implementationStatus": "in_progress",
   "verificationStatus": "not_run",
   "requirements": [
     {
@@ -207,8 +207,8 @@
       "deliverable": "全量清单、职责合同、脱敏回放材料",
       "exitCriterion": "每个现有入口有归属和处置；测试可识别当前失败",
       "dependsOn": [],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R01",
         "R10",
@@ -220,23 +220,31 @@
         {
           "id": "KA0-T01",
           "assertion": "清单与业务索引、系统集合、KaiPlus 快照和工具入口逐项核对，未归属入口为零。包含软件、开发环境、项目依赖、下载加速、存储文件及系统专属服务、网络、LuCI、备份恢复等能力。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA0-20261126.json"
         },
         {
           "id": "KA0-T02",
           "assertion": "列出任务处方、强制路由、按业务完成任务的宿主分支及失败被吞掉的位置；每项有处置和负责里程碑。接口用法与真实前置条件不误判为任务处方。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA0-20261126.json"
         },
         {
           "id": "KA0-T03",
           "assertion": "冻结脱敏后的 Docker 会话、启动脚本、配置、登记和关键日志；不包含私钥、token、真实用户数据或凭据 URL。回放能够同时呈现目录冲突和 `phase=active`。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA0-20261126.json"
         },
         {
           "id": "KA0-T04",
           "assertion": "冻结平台、证据等级、模型配置、评测输入及效率预算；记录既有测试失败，新增阶段不得将其悄悄忽略。建立全部 R01–R20 的正向、反向和失败用例映射。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA0-20261126.json"
         }
+      ],
+      "optimizations": 0,
+      "evidence": [
+        "../verification/agent-capability-KA0-20261126.json"
       ]
     },
     {

@@ -1,0 +1,125 @@
+{
+  "schemaVersion": 1,
+  "coverage": [
+    {
+      "requirement": "R01",
+      "positive": "KA6-T03",
+      "negative": "KA6-T02",
+      "failure": "KA6-T04"
+    },
+    {
+      "requirement": "R02",
+      "positive": "KA1-T01",
+      "negative": "KA4-T01",
+      "failure": "KA4-T04"
+    },
+    {
+      "requirement": "R03",
+      "positive": "KA7-T01",
+      "negative": "KA7-T02",
+      "failure": "KA7-T03"
+    },
+    {
+      "requirement": "R04",
+      "positive": "KA2-T01",
+      "negative": "KA2-T03",
+      "failure": "KA2-T06"
+    },
+    {
+      "requirement": "R05",
+      "positive": "KA2-T02",
+      "negative": "KA2-T02",
+      "failure": "KA2-T05"
+    },
+    {
+      "requirement": "R06",
+      "positive": "KA2-T04",
+      "negative": "KA6-T05",
+      "failure": "KA8-T05"
+    },
+    {
+      "requirement": "R07",
+      "positive": "KA1-T04",
+      "negative": "KA1-T03",
+      "failure": "KA1-T05"
+    },
+    {
+      "requirement": "R08",
+      "positive": "KA2-T05",
+      "negative": "KA8-T04",
+      "failure": "KA3-T03"
+    },
+    {
+      "requirement": "R09",
+      "positive": "KA4-T02",
+      "negative": "KA4-T01",
+      "failure": "KA4-T04"
+    },
+    {
+      "requirement": "R10",
+      "positive": "KA5-T01",
+      "negative": "KA5-T03",
+      "failure": "KA10-T03"
+    },
+    {
+      "requirement": "R11",
+      "positive": "KA6-T03",
+      "negative": "KA6-T02",
+      "failure": "KA6-T04"
+    },
+    {
+      "requirement": "R12",
+      "positive": "KA5-T02",
+      "negative": "KA6-T02",
+      "failure": "KA6-T04"
+    },
+    {
+      "requirement": "R13",
+      "positive": "KA1-T02",
+      "negative": "KA8-T05",
+      "failure": "KA4-T04"
+    },
+    {
+      "requirement": "R14",
+      "positive": "KA7-T03",
+      "negative": "KA4-T05",
+      "failure": "KA4-T05"
+    },
+    {
+      "requirement": "R15",
+      "positive": "KA9-T01",
+      "negative": "KA2-T03",
+      "failure": "KA7-T05"
+    },
+    {
+      "requirement": "R16",
+      "positive": "KA10-T01",
+      "negative": "KA10-T02",
+      "failure": "KA10-T04"
+    },
+    {
+      "requirement": "R17",
+      "positive": "KA8-T01",
+      "negative": "KA8-T02",
+      "failure": "KA8-T03"
+    },
+    {
+      "requirement": "R18",
+      "positive": "KA9-T05",
+      "negative": "KA9-T04",
+      "failure": "KA9-T06"
+    },
+    {
+      "requirement": "R19",
+      "positive": "KA7-T04",
+      "negative": "KA3-T04",
+      "failure": "KA7-T04"
+    },
+    {
+      "requirement": "R20",
+      "positive": "KA4-T06",
+      "negative": "KA8-T04",
+      "failure": "KA7-T01"
+    }
+  ]
+}
