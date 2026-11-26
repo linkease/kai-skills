@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "milestone": "KA8",
-  "status": "blocked",
+  "status": "failed",
   "implementationStatus": "in_progress",
   "optimizations": 3,
-  "stopReason": "Two usable model configurations and an evaluation cost limit are unavailable; actual model pilot remains unrun. User input requested asynchronously.",
+  "stopReason": "Final resumed pilot retains mandatory semantic/counterevidence/effects failures after the authorized three optimizations. Stop at KA8 under the user limit; KA9 and KA10 remain unstarted.",
   "verification": {
     "capabilityTests": {
       "status": "passed",
@@ -25,7 +25,32 @@
     },
     "generatedConsistency": "passed",
     "actualConsumerDiscovery": "passed",
-    "liveModelPilot": "blocked_not_run",
+    "liveModelPilot": {
+      "status": "failed",
+      "modelConfigurations": [
+        "koolcenter/qwen3.8-flash",
+        "koolcenter/deepseek-v4-flash"
+      ],
+      "finalPilotSessions": 16,
+      "cards": 4,
+      "conditions": [
+        "with-new-capabilities",
+        "capabilities-failed-or-unavailable"
+      ],
+      "repetitions": 1,
+      "coreRubricPassed": 13,
+      "coreRubricFailed": 3,
+      "additionalFidelityConcerns": 4,
+      "readOnlyEvidenceUnchanged": 16,
+      "modelInvokedWriters": 0,
+      "runtimeErrors": 0,
+      "truncatedFinals": 1,
+      "scope": "Actual production Agent loop, provider clients, managed-prompt and skill-body loaders over sanitized isolated scenarios. Canonical service.inspect executes against the scenario root. Other query adapters are scoped scenario-file reads. Not full application/native platform acceptance.",
+      "full216SessionEvaluationExecuted": false,
+      "taskCardsSHA256": "49e1ec872ab8f2b648cb158db9c6cddc0178e68a71e64d932718388d71af479a",
+      "allTrialRecords": 25,
+      "allActualModelCalls": 132
+    },
     "modelAccessProbes": [
       {
         "model": "opencode/qwen3.6-plus-free",
@@ -55,7 +80,8 @@
         "model": "opencode/big-pickle",
         "configured": true,
         "available": false,
-        "failure": "quota-or-credits-exhausted"
+        "failure": "http-429-client-classified-quota-cause-unconfirmed",
+        "note": "HTTP 429 was classified as quota/credits by the client. No upstream monetary-cap cause was established; rate limiting remains possible."
       },
       {
         "model": "opencode/minimax-m2.5-free",
@@ -111,13 +137,56 @@
         "available": false,
         "failure": "upstream-model-unavailable"
       }
-    ]
+    ],
+    "replacementModelAccess": {
+      "status": "passed_connectivity_only",
+      "models": [
+        "koolcenter/qwen3.8-flash",
+        "koolcenter/deepseek-v4-flash"
+      ],
+      "credentialHandling": "Authorized device configuration used in an isolated private profile; no credential in source, command arguments or evidence. Temporary copied profile removed after connectivity verification.",
+      "deviceDefaultChanged": false,
+      "globalReasonixConfigChanged": false,
+      "requests": 2,
+      "maximumRequestedOutputTokensPerRequest": 128,
+      "maximumSecondsPerRequest": 35,
+      "doesNotEstablish": "Tool calling, Agent reasoning quality or the 216-session evaluation acceptance."
+    },
+    "resumedRegression": {
+      "capabilityTests": {
+        "status": "passed",
+        "tests": 73,
+        "seconds": 22.645
+      },
+      "goPackages": {
+        "status": "passed",
+        "packages": [
+          "internal/secrets",
+          "internal/agent",
+          "internal/tool",
+          "internal/skill",
+          "tools/capability-eval"
+        ]
+      },
+      "diffCheck": "passed"
+    },
+    "budget": {
+      "currency": "CNY",
+      "authorizedUpperLimit": 20,
+      "observedSharedCredentialIncrement": 0.396966,
+      "unsettledReservations": false,
+      "credentialProfileRemoved": true,
+      "scope": "Shared token counter delta may include concurrent usage; not an isolated invoice. Native per-request usage is charged conservatively at 10 CNY/M between five-minute account reconciliations; request reserves use 100 CNY/M. No baseline/cap reset."
+    }
   },
   "changes": [
     "Docker start/restart verifies that the selected procd PID or its descendant owns the selected Unix socket before and after the API observation; API identity/root/version must match and ownership must remain stable.",
     "Missing or unreadable ownership, a stopped service, another process, or an unstable identity cannot produce a succeeded receipt. No alternate engine is selected and no init source is rewritten.",
     "Frozen history, an unfamiliar wrapper, opposite evidence and large-log paging have explicit evidence-preservation and no-write tests.",
-    "Follow-up to KA6: an old consumer fixture still asserted exclusive system-primary routing. It now verifies optional discovery policies and exact user resource references without asserting a business route."
+    "Follow-up to KA6: an old consumer fixture still asserted exclusive system-primary routing. It now verifies optional discovery policies and exact user resource references without asserting a business route.",
+    "Fixed a production credential-projection defect that removed paired Markdown emphasis and factual labels as masked credentials. Paired formatting is preserved, masked credentials remain removed, and scans move forward linearly.",
+    "Added opt-in metered real-provider QA, precise bounded scenario observation schemas, production skill loading, before/after evidence hashes, durable reservations and Retry-After handling. No business-intent task takeover is introduced.",
+    "Frozen 12 task cards with withheld rubrics. After the pilot revealed absent historical source and an oversimplified registration shape, input revision 2 adds optional raw historical code and the real nested registration shape. Initial inputs/failures are archived; no full matrix has run or been claimed."
   ],
   "acceptance": {
     "KA8-T01": {
@@ -125,12 +194,12 @@
       "evidence": "Frozen and unfamiliar launchers return configuration, generated root, active registration, native service record and fatal log evidence in the original attributed observations; explicit paging exposes late large-log evidence."
     },
     "KA8-T02": {
-      "status": "blocked",
-      "evidence": "Source facts/rubrics exist; real model interpretation of guard cause versus repair decision has not run."
+      "status": "failed",
+      "evidence": "Direct guard/configuration conflict is generally located, but final pilot retains ungrounded causal/identity/digest assertions. No hard-coded business workflow or forced helper invocation was added to conceal model failures."
     },
     "KA8-T03": {
-      "status": "passed",
-      "evidence": "New wrapper names, changed paths and opposite root/error evidence remain observable; query does not invent the frozen error or prescribe an action."
+      "status": "failed",
+      "evidence": "Deterministic collectors preserve unfamiliar/opposite evidence. Qwen with unavailable capability still assigns a failure to an unexecuted guard/native.Check despite direct-dockerd counterevidence."
     },
     "KA8-T04": {
       "status": "passed",
@@ -141,8 +210,8 @@
       "evidence": "Two newly reproduced false-success cases now fail; owned native Docker engine passes API/ID/root/socket ownership checks and unrelated real process is rejected. Generic process presence does not establish Docker health."
     },
     "KA8-T06": {
-      "status": "blocked",
-      "evidence": "Host optional capability continuation is tested at KA6/KA7; the required real model conclusion/remaining-gap behavior still needs actual accessible models."
+      "status": "failed",
+      "evidence": "Generic analysis continues after helper failure, but one answer is truncated and another erases an explicitly completed native submission effect. Runtime success is not sufficient acceptance."
     }
   },
   "iterations": [
@@ -177,14 +246,12 @@
     }
   ],
   "limitations": [
-    "KA8 is not complete; KA9 and KA10 have not started. The frozen minimum 216-session evaluation remains unchanged.",
-    "No public release, push, installation on user devices or production Docker service modification occurred.",
-    "The engine test uses a native Linux Docker daemon with a procd protocol adapter; real native iStoreOS procd mutation is not claimed."
+    "KA8 has not passed. KA9/KA10 and the full 216-session, three-arm, three-repeat native/platform evaluation are not started.",
+    "Original failures, zero-call admission failures, partial cases and input/harness revisions are retained. Only actual model calls are counted as real Agent evidence.",
+    "The pilot uses scoped scenario observation adapters; its service.inspect call is real canonical code over an isolated root. It is not a live user-device Docker repair or a full KaiPlus UI/bootstrap/native transport matrix.",
+    "No push, release, production Docker modification, default model change or test-device deployment occurred. Temporary copied credentials were removed.",
+    "The earlier owned native Docker run still uses a procd protocol adapter; native iStoreOS procd mutation is not claimed."
   ],
-  "requiredInput": {
-    "models": "Two exact usable provider/model references in trusted existing configuration with credentials in the credential store, not conversation text.",
-    "budget": "Evaluation cost upper limit before real model runs; existing per-session call/time/output limits remain frozen."
-  },
   "rawEvidence": [
     {
       "path": "build/verification/agent-capabilities-20261126/KA8-counterexample-initial.log",
@@ -245,6 +312,132 @@
     {
       "path": "build/verification/agent-capabilities-20261126/native-model-access-opt2.json",
       "sha256": "843c428c5c55df540b9294c63338e5750a6cf9d9de09ace0706a0fd2ef1f9d65"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/native-model-access-koolcenter.json",
+      "sha256": "b9a50332c6f96c1affeb1b6dc5a45fe2a10e8bcbbd6384ef7f916b68c5a4f5bc"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-evidence-index.json",
+      "sha256": "974e54f0871bcfcdb33f86275d117b7859d71b02647e0e64f602dcf4d74cbbf9"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-initial.json",
+      "sha256": "e5ffdce862e75225110566f6422690511b1b3bd043569618f4251ccad6a34012"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round2.json",
+      "sha256": "995b367d67d03a4bf9a4146351e8c986c1ce41e032fce4c6845cc4659ff5c81f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-final.json",
+      "sha256": "71126bac5a47d22d6988ee10c83155c652ec90b6e45f0fd5da28466e5877494b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-plan-frozen.json",
+      "sha256": "fcf41ec71260e0b1ecf45b96c837f31e54911e760000530a866fee4365870350"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-harness-revision-1.json",
+      "sha256": "9ac6c7a86cf33cf219b47b253234bca2f06b99b40bd8d9802e24f59e7af3b746"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-harness-revision-2.json",
+      "sha256": "db1a8a64a7127708434fff09956531b9a83a1e83b81fcceffa6d953fdece8d12"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-harness-revision-3.json",
+      "sha256": "c42bf060bed1d4d439919d38ebda698245e2300102736965ff0c94b55363ce3c"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-harness-revision-final.json",
+      "sha256": "16873307701f0533ed8b08d15fa21b6f02d39b8fc1d89641e280b06850721dcc"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-input-revision-2.json",
+      "sha256": "29fc9b97ec5b0b2ffa4730a4d1e5201ada3ecd2f87740ac354503863d3612611"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-budget-final-private.json",
+      "sha256": "3111dc6719aecd1edf29fb7a4273504f0fd87ff2400f71644579e8f5bd22ab05"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-resume-final-go-linear.log",
+      "sha256": "13ba955607a0df9d144c06600cd7d886ef8721dae45c78c33addf6b94ea5b9d1"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-resume-final-capabilities.log",
+      "sha256": "32026ed476ecfa4514041c6e83e4072bcebadcdce64e45b253012b9b2c299abf"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/native-model-access-koolcenter.json",
+      "sha256": "b9a50332c6f96c1affeb1b6dc5a45fe2a10e8bcbbd6384ef7f916b68c5a4f5bc"
     }
-  ]
+  ],
+  "followups": [
+    {
+      "date": "2026-11-26T06:32:14.934832+00:00",
+      "authorization": "User requested using the configured KaiPlus models on the referenced test device instead of opencode/big-pickle.",
+      "result": "Both KoolCenter replacement models passed connectivity. Earlier blocked runs remain historical; actual Agent evaluation is not claimed."
+    }
+  ],
+  "blockingExamples": [
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "唯一未通过的环节…native.Check…失败点在此",
+      "evidence": "The scenario init and argv start dockerd directly; the guard is not executed. The model subsequently acknowledges this counterevidence but retains its unsupported failure attribution."
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C12-docker-false-success",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "没有任何 effects 层面的完成项",
+      "evidence": "The receipt explicitly records submitted native start in effects.completed; failed health verification does not erase the submitted action."
+    },
+    {
+      "model": "koolcenter/deepseek-v4-flash",
+      "card": "C02-docker-history",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "Incomplete final answer",
+      "evidence": "finish_reason=length at 4096 total output tokens; final text ends mid-sentence."
+    }
+  ],
+  "additionalRounds": [
+    {
+      "authorizedBy": "User: 同意，继续, accepting the preceding CNY20 proposal after replacement model discovery.",
+      "optimizationLimit": 3,
+      "optimizations": 3,
+      "status": "failed",
+      "initial": {
+        "result": "Two Qwen pilot sessions locate the direct guard error but make unsupported path/active-state claims. Original minimal-prompt QA results retained."
+      },
+      "iterations": [
+        {
+          "optimization": 1,
+          "result": "Fixed Markdown redaction and account-endpoint handling/pacing. Account metering returned HTTP429 with Retry-After; no model call in the deferred attempt."
+        },
+        {
+          "optimization": 2,
+          "result": "Use production managed prompt/core policies, add versioned optional historical source and true registration schema, and introduce native usage accounting. Two completed DeepSeek sessions retain semantic errors; a partial session stops at the conservative reserve, not actual CNY20 exhaustion."
+        },
+        {
+          "optimization": 3,
+          "result": "Use actual Store.Load/Render without frontmatter; precise per-tool schemas; reconcile server usage and use conservative 10 CNY/M usage settlement. All 16 final pilot sessions reviewed: 13 meet core rubric, 3 mandatory failures and 4 further fidelity concerns remain."
+        }
+      ],
+      "nextMilestonesStarted": false
+    }
+  ],
+  "requiredDecision": {
+    "reason": "The explicitly authorized three-optimization limit is reached.",
+    "decision": "Further iteration requires renewed authorization; retain current acceptance standards. Candidate directions are model/reasoning configuration and richer fact scope/stage metadata, not a prescribed diagnostic workflow."
+  },
+  "sourceCommits": {
+    "reasonix-kai": "4ad94fa0e8a19ca57a54dfa71a3d7861a030e62c",
+    "productionRedactionFix": "4317f02e6",
+    "pilotHarnessRevision": "build/verification/agent-capabilities-20261126/evaluation-harness-revision-final.json",
+    "note": "Final production projection scan was made linear after the pilot, with identical formatting semantics and all five affected Go package regressions passed. No new live pilot acceptance is claimed."
+  }
 }

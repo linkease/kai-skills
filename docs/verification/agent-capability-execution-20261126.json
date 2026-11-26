@@ -86,12 +86,21 @@
     {
       "id": "KA8",
       "implementationStatus": "in_progress",
-      "verificationStatus": "blocked",
+      "verificationStatus": "failed",
       "optimizations": 3,
       "evidence": [
         "agent-capability-KA8-20261126.json"
       ],
-      "stopReason": "required-model-access-and-budget"
+      "stopReason": "three-authorized-optimizations-retain-real-model-semantic-failures",
+      "additionalRounds": [
+        {
+          "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
+          "optimizations": 3,
+          "verificationStatus": "failed",
+          "finalPilotSessions": 16,
+          "nextMilestonesStarted": false
+        }
+      ]
     },
     {
       "id": "KA9",
