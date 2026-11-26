@@ -91,9 +91,11 @@
       "evidence": [
         "agent-capability-KA8-20261126.json",
         "agent-capability-KA8-controls-20261126.md",
-        "agent-capability-KA8-controls-20261126.json"
+        "agent-capability-KA8-controls-20261126.json",
+        "agent-capability-KA8-jq-preparation-20261126.md",
+        "agent-capability-KA8-jq-preparation-20261126.json"
       ],
-      "stopReason": "renewed-three-optimization-limit-engineering-coverage-and-model-inference-gates-fail",
+      "stopReason": "jq-native-engineering-passed-original-model-and-full-end-to-end-gates-not-cleared",
       "additionalRounds": [
         {
           "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
@@ -148,6 +150,16 @@
           "finalLengthUngraded": 1,
           "actualModelCalls": 217,
           "evidence": "agent-capability-KA8-controls-20261126.md",
+          "nextMilestonesStarted": false
+        },
+        {
+          "authorizedBy": "User: 缺少 jq 一键安装，并继续",
+          "optimizations": 3,
+          "verificationStatus": "failed",
+          "engineeringVerificationStatus": "passed",
+          "newModelSessions": 0,
+          "originalModelGatesCleared": false,
+          "evidence": "agent-capability-KA8-jq-preparation-20261126.md",
           "nextMilestonesStarted": false
         }
       ]

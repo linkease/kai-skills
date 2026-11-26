@@ -1,0 +1,223 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-11-26T23:17:04.556649+00:00",
+  "milestone": "KA8",
+  "scope": "User-requested explicit jq preparation and native evidence acquisition continuation; no new model evaluation.",
+  "implementationStatus": "complete-for-requested-jq-and-bounded-log-interfaces",
+  "engineeringVerificationStatus": "passed",
+  "overallMilestoneStatus": "failed-original-model-gates-not-cleared",
+  "optimizations": 3,
+  "steps": [
+    {
+      "step": 1,
+      "tasks": [
+        "Add jq-only POSIX prepare entry",
+        "Reuse verified installer owner",
+        "Preserve failure receipt/exit code",
+        "Use explicit/PATH/managed jq in query"
+      ],
+      "acceptance": [
+        "probe/plan no installation",
+        "missing => verified owner + functional recheck",
+        "repeat ensure reuses",
+        "checksum/failure/no-op install cannot report installed",
+        "query never installs"
+      ],
+      "status": "passed"
+    },
+    {
+      "step": 2,
+      "tasks": [
+        "Explicit native log message-count/regex selectors",
+        "Keep original unfiltered query",
+        "Attribute selected scope"
+      ],
+      "acceptance": [
+        "no shell interpretation",
+        "invalid/ignored selectors rejected before execution",
+        "original4KiB probe/8KiB receipt/time limits retained",
+        "partial history explicitly marked"
+      ],
+      "status": "passed"
+    },
+    {
+      "step": 3,
+      "tasks": [
+        "Regenerate distributions and locks",
+        "Unit/regression checks",
+        "Native independent-package validation"
+      ],
+      "acceptance": [
+        "93 capability tests",
+        "35 bootstrap-related tests",
+        "generated consistency",
+        "native config/generated/registration/runtime/selected logs available",
+        "synthetic secrets redacted while phase/target preserved",
+        "protected files and existing jq unchanged, owned tmp removed"
+      ],
+      "status": "passed"
+    }
+  ],
+  "correction": {
+    "previousInference": "jq absent on native host",
+    "actualFinding": "Only PATH lookup failed; compatible jq already existed in target user .local/bin. Prior failure receipts are retained, but they did not establish absence from the device.",
+    "resolution": "Verify and reuse the existing managed candidate; explicit KAI_JQ_BIN takes precedence and never silently falls back."
+  },
+  "interfaces": {
+    "jqOnly": "sh scripts/prepare.sh probe|plan|ensure --tool jq",
+    "installedServicePackage": "sh resources/runtime/kai-tool-bootstrap/scripts/prepare.sh ensure --tool jq",
+    "parserSelection": [
+      "explicit absolute KAI_JQ_BIN",
+      "PATH jq",
+      "target user .local/bin/jq"
+    ],
+    "nativeLogs": "sh scripts/inspect.sh --target-id ID --service NAME --sections logs --log-count N --log-pattern REGEX",
+    "logUnit": "1..1000 native logread messages, not physical lines",
+    "logSelection": "tailMessages/pattern/completeHistory:false",
+    "readOnlyQueriesInstallDependencies": false,
+    "globalPATHChanged": false
+  },
+  "verification": {
+    "capabilityTests": {
+      "status": "passed",
+      "tests": 93,
+      "seconds": 34.013
+    },
+    "prepareTests": {
+      "status": "passed",
+      "tests": 8
+    },
+    "jqOwnerTests": {
+      "status": "passed",
+      "tests": 7,
+      "installerBoundary": "controlled verified-owner fixture; actual jq binary used for functional recheck, no network/package-manager install"
+    },
+    "bootstrapRegression": {
+      "status": "passed",
+      "tests": 20
+    },
+    "generatedConsistency": "passed",
+    "native": {
+      "status": "passed-for-explicit-scopes",
+      "preparePlanEnsureEnsure": "reused compatible existing jq",
+      "freshInstallOnNativeHost": false,
+      "combinedQuery": "config,runtime,logs;length4096;log-count5 => succeeded",
+      "registrationBytes": 2250,
+      "selectedRegexQuery": "log-count10/log-pattern dockerd => succeeded, not full history",
+      "structuredSecretFidelity": "native jq masks escaped token key and URL credential, keeps phase/target",
+      "explicitMissingJq": "unknown/REDACTION_UNAVAILABLE; no implicit fallback",
+      "protectedFilesAndJqUnchanged": true,
+      "ownedTemporaryStageRemoved": true,
+      "applicationCandidateDeployed": false
+    }
+  },
+  "limits": [
+    "No new paid model sessions; prior C02/C11 failures are not silently graded passing.",
+    "Default file window2048/unfiltered log stream may still be partial. Explicit length4096 and selected log scope succeeded on the native host; full history has not been claimed.",
+    "Native log selection is not a frozen paginated snapshot; repeated queries may see changing log contents.",
+    "No release/app bundle pin update or old-session snapshot replacement; KA9/KA10 unstarted.",
+    "Original216-session and12native-platform/mode acceptance not executed."
+  ],
+  "sourceBase": "b321057",
+  "sourceHashes": [
+    {
+      "path": "components/business.json",
+      "sha256": "233098c9707d83d5b9cd48d31787c95cccf1d835b701ad55ba969681a5cece80"
+    },
+    {
+      "path": "components/system-packs/common/skills/kai-tool-bootstrap/SKILL.md",
+      "sha256": "f10e565faf5c882f5ea388da62bc62f551e83f8f66c39d514eef70c7ccd33d7c"
+    },
+    {
+      "path": "components/system-packs/common/skills/kai-tool-bootstrap/scripts/prepare.sh",
+      "sha256": "0a3a6f1d27fc3e5fe602e2673970c0f9b044f540c0a0ecb29caf7e4b116e6156"
+    },
+    {
+      "path": "components/system-packs/common/skills/kai-tool-bootstrap/scripts/jq.sh",
+      "sha256": "336d9354b9d8fb50edc1fc706d81b12f1cf891bb5c3bb5ca6f17004fcad58612"
+    },
+    {
+      "path": "components/system-packs/common/skills/kai-tool-bootstrap/scripts/jq-env.sh",
+      "sha256": "805f1ebc48e2ee218cdee5354072290ac3ba7f25a84a7bd31f15dd28b2e5e186"
+    },
+    {
+      "path": "components/system-packs/istoreos/skills/istoreos-service-manager/SKILL.md",
+      "sha256": "a4c3c10d0c98a47ad78d3deaa75beb6d5d72af7649ab71cb6ee583d2c2920306"
+    },
+    {
+      "path": "components/system-packs/istoreos/skills/istoreos-service-manager/scripts/inspect.sh",
+      "sha256": "9b27c080763d03ad07242f0f625ff8ec3b83651130343282de009bcc19647466"
+    }
+  ],
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-bootstrap-corrected-red.log",
+      "sha256": "636f5657323d709ae05b7966a3d7a67046098ecc84d5ecdcd3c275e1a0baf060"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-parser-red.log",
+      "sha256": "f0305f3e0b0fca017770fd9200dd1c40a1f6f3c0c6a591a7ffbcead2ee9e5fa4"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-bootstrap-green.log",
+      "sha256": "1aa6cdfb3f8a9c2be53055a6ccefa0e42266198948e6cfca508ecde5acfee841"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-parser-final.log",
+      "sha256": "76d079160fad73a6e23739c335e2723893a40a8ff969bc546c5479a8ab961091"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-owner-integrity-red.log",
+      "sha256": "700fe54a41a68ca3c7d6112df3367a65c2f1c983839e5acdad9e5a88d35c9763"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-owner-final.log",
+      "sha256": "4d0ce49ecb333b470f9251b8a6ffe2afc17a41590a57a1d36d783fef816636f5"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-native-preparation-private.json",
+      "sha256": "bf105f7afb9a388e5e0967805317b7c19bd01203f5eeaa9f22ecd902603236a5"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round17-log-selection-red.log",
+      "sha256": "aaf24229010a80be9d39e6cdedcdbdd6cec75d52c4d1a8ec2b2fa16b51cbd5ff"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round17-log-selection-green.log",
+      "sha256": "1dc68e10e487d9fe25c95e0ee1fa08865fbe8fb71c131908d4629ed9c36bd06b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-bootstrap-regression.log",
+      "sha256": "d7a2491fd2c135be8b522a38ae6e6e29ac38ed2dfde98e663297f6ef6369c64a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-capabilities-final.log",
+      "sha256": "fe4bb1abcc11ab38c653b9ffc859490f9b5d94f0111b77d65e8d5b8c7c704181"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-message-count-final.log",
+      "sha256": "34c3ffb5962d27b4a1d004acd25903b7aa44e85e1472a372db6d24de6b4e7a2c"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-initial-package-private.tar.gz",
+      "sha256": "f7b51cc3596a3d1cdd8479049dbff2bbc211d5b0689186f74a2cc348e51ad8ef"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-final-private.json",
+      "sha256": "b15c4aca66f78ca85677ea1040bc92522de6c2a50c38ca6790b3083074f3bfc0"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-message-count-final-private.json",
+      "sha256": "5ee35a24e4925aa53c779be20a2122e345d6350595c6bdc76b1955ee221d4d66"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-final-package-private.tar.gz",
+      "sha256": "dee8be03743b2e0cf5edabbfc68f157e9a881960b0f54105170c1263a5342662"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/verify-round18-native-final-private.py",
+      "sha256": "81207f2a9bff38e65e3e9b7f5ba4281fa6016c78862ab04289ae13ab10e934c0"
+    }
+  ],
+  "newPaidModelRequests": 0
+}

@@ -4,13 +4,13 @@
   "status": "failed",
   "implementationStatus": "in_progress",
   "optimizations": 3,
-  "stopReason": "Three renewed optimizations completed: source/reader parity,12 fixed-evidence sessions and24 reader-control sessions. Both engineering coverage/redaction defects and unsupported model inference remain; KA8 failed, KA9/KA10 unstarted.",
+  "stopReason": "Requested explicit jq preparation/native acquisition continuation is implemented and engineering-verified. Original C02/C11 model correctness gates remain uncleared; no new model/full216/native12 acceptance was run. KA9/KA10 remain unstarted.",
   "verification": {
     "capabilityTests": {
       "status": "passed",
-      "tests": 87,
-      "seconds": 46.972,
-      "currentRound": "Final canonical redaction fix including URL key/auth boundary; all87 pass."
+      "tests": 93,
+      "seconds": 34.013,
+      "currentRound": "Final jq discovery/preparation and native log selection regressions."
     },
     "nativeDockerPilot": {
       "status": "passed",
@@ -580,7 +580,8 @@
         "nativeParserSuccessNotEstablished": true,
         "applicationVersionObserved": "1.0.25",
         "applicationCandidateDeployed": false,
-        "finalDefaultCoverage": "Generated configuration now unknown without existing jq due JSON escapes; registration/log size limits remain. Final canonical query partial, protected files unchanged, owned stage removed."
+        "finalDefaultCoverage": "Generated configuration now unknown without existing jq due JSON escapes; registration/log size limits remain. Final canonical query partial, protected files unchanged, owned stage removed.",
+        "laterCorrection": "A compatible target-user .local/bin/jq already existed outside PATH. Prior no-jq claims were lookup-only, not absence proof. Current generated candidate verifies/reuses it and succeeds for explicit native scopes; original model trials are not regraded."
       },
       "fix": {
         "cause": "Line-oriented credential sed swallowed trailing fields in structured JSON; escaped secret key could bypass literal match. Synthetic reproduction only, no production secret disclosure established.",
@@ -599,6 +600,17 @@
         "diffCheck": "passed"
       },
       "details": "agent-capability-KA8-controls-20261126.json"
+    },
+    "jqPreparationContinuation": {
+      "report": "agent-capability-KA8-jq-preparation-20261126.md",
+      "details": "agent-capability-KA8-jq-preparation-20261126.json",
+      "engineeringStatus": "passed",
+      "capabilityTests": 93,
+      "bootstrapRelatedTests": 35,
+      "nativeExplicitScopes": "passed",
+      "nativeFreshInstall": false,
+      "newModelRequests": 0,
+      "originalModelGatesCleared": false
     }
   },
   "changes": [
@@ -624,7 +636,7 @@
     "KA8-T01": {
       "status": "failed",
       "fixtureStatus": "passed",
-      "evidence": "All selected original fixture facts preserve source bytes;24 new admitted-request audits match. Actual native default query lacks oversized registration/log bodies, and no command-log continuation reference exists. Sensitive structured JSON requires an existing parser or explicitly returns unknown. Prior fixture-only pass is retained as historical evidence, not complete native coverage. Final-source native query also returns generatedConfiguration unknown because the existing JSON contains escapes and jq is absent: an explicit completeness regression, not native acceptance."
+      "evidence": "All selected original fixture facts preserve source bytes;24 new admitted-request audits match. Actual native default query lacks oversized registration/log bodies, and no command-log continuation reference exists. Sensitive structured JSON requires an existing parser or explicitly returns unknown. Prior fixture-only pass is retained as historical evidence, not complete native coverage. Final-source native query also returns generatedConfiguration unknown because the existing JSON contains escapes and jq is absent: an explicit completeness regression, not native acceptance. Subsequent correction: target-user managed jq already existed outside PATH; current candidate discovers/reuses it and explicit length4096/log-count scope succeeds. This resolves the demonstrated parser lookup gap, not complete-default-history or model acceptance."
     },
     "KA8-T02": {
       "status": "failed",
@@ -1020,6 +1032,74 @@
     {
       "path": "build/verification/agent-capabilities-20261126/KA8-round15-live-final-canonical-private.json",
       "sha256": "6ad18ffbadbf95ce0b040a76e1883bf7798379dc1963dcd460aaf3da96789196"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-bootstrap-corrected-red.log",
+      "sha256": "636f5657323d709ae05b7966a3d7a67046098ecc84d5ecdcd3c275e1a0baf060"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-parser-red.log",
+      "sha256": "f0305f3e0b0fca017770fd9200dd1c40a1f6f3c0c6a591a7ffbcead2ee9e5fa4"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-bootstrap-green.log",
+      "sha256": "1aa6cdfb3f8a9c2be53055a6ccefa0e42266198948e6cfca508ecde5acfee841"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-parser-final.log",
+      "sha256": "76d079160fad73a6e23739c335e2723893a40a8ff969bc546c5479a8ab961091"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-owner-integrity-red.log",
+      "sha256": "700fe54a41a68ca3c7d6112df3367a65c2f1c983839e5acdad9e5a88d35c9763"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-owner-final.log",
+      "sha256": "4d0ce49ecb333b470f9251b8a6ffe2afc17a41590a57a1d36d783fef816636f5"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round16-native-preparation-private.json",
+      "sha256": "bf105f7afb9a388e5e0967805317b7c19bd01203f5eeaa9f22ecd902603236a5"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round17-log-selection-red.log",
+      "sha256": "aaf24229010a80be9d39e6cdedcdbdd6cec75d52c4d1a8ec2b2fa16b51cbd5ff"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round17-log-selection-green.log",
+      "sha256": "1dc68e10e487d9fe25c95e0ee1fa08865fbe8fb71c131908d4629ed9c36bd06b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-bootstrap-regression.log",
+      "sha256": "d7a2491fd2c135be8b522a38ae6e6e29ac38ed2dfde98e663297f6ef6369c64a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-capabilities-final.log",
+      "sha256": "fe4bb1abcc11ab38c653b9ffc859490f9b5d94f0111b77d65e8d5b8c7c704181"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-message-count-final.log",
+      "sha256": "34c3ffb5962d27b4a1d004acd25903b7aa44e85e1472a372db6d24de6b4e7a2c"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-initial-package-private.tar.gz",
+      "sha256": "f7b51cc3596a3d1cdd8479049dbff2bbc211d5b0689186f74a2cc348e51ad8ef"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-final-private.json",
+      "sha256": "b15c4aca66f78ca85677ea1040bc92522de6c2a50c38ca6790b3083074f3bfc0"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-message-count-final-private.json",
+      "sha256": "5ee35a24e4925aa53c779be20a2122e345d6350595c6bdc76b1955ee221d4d66"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round18-native-final-package-private.tar.gz",
+      "sha256": "dee8be03743b2e0cf5edabbfc68f157e9a881960b0f54105170c1263a5342662"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/verify-round18-native-final-private.py",
+      "sha256": "81207f2a9bff38e65e3e9b7f5ba4281fa6016c78862ab04289ae13ab10e934c0"
     }
   ],
   "followups": [
@@ -1163,11 +1243,72 @@
       ],
       "allEarlierResultsRetained": true,
       "nextMilestonesStarted": false
+    },
+    {
+      "authorizedBy": "User: 能否让脚本在缺少 jq 时候，一键安装脚本？…请继续。",
+      "optimizationLimit": 3,
+      "optimizations": 3,
+      "status": "engineering-passed-original-KA8-not-cleared",
+      "taskTreeAndAcceptance": "agent-capability-KA8-jq-preparation-20261126.md",
+      "iterations": [
+        {
+          "step": 1,
+          "tasks": [
+            "Add jq-only POSIX prepare entry",
+            "Reuse verified installer owner",
+            "Preserve failure receipt/exit code",
+            "Use explicit/PATH/managed jq in query"
+          ],
+          "acceptance": [
+            "probe/plan no installation",
+            "missing => verified owner + functional recheck",
+            "repeat ensure reuses",
+            "checksum/failure/no-op install cannot report installed",
+            "query never installs"
+          ],
+          "status": "passed"
+        },
+        {
+          "step": 2,
+          "tasks": [
+            "Explicit native log message-count/regex selectors",
+            "Keep original unfiltered query",
+            "Attribute selected scope"
+          ],
+          "acceptance": [
+            "no shell interpretation",
+            "invalid/ignored selectors rejected before execution",
+            "original4KiB probe/8KiB receipt/time limits retained",
+            "partial history explicitly marked"
+          ],
+          "status": "passed"
+        },
+        {
+          "step": 3,
+          "tasks": [
+            "Regenerate distributions and locks",
+            "Unit/regression checks",
+            "Native independent-package validation"
+          ],
+          "acceptance": [
+            "93 capability tests",
+            "35 bootstrap-related tests",
+            "generated consistency",
+            "native config/generated/registration/runtime/selected logs available",
+            "synthetic secrets redacted while phase/target preserved",
+            "protected files and existing jq unchanged, owned tmp removed"
+          ],
+          "status": "passed"
+        }
+      ],
+      "newPaidModelRequests": 0,
+      "allEarlierResultsRetained": true,
+      "nextMilestonesStarted": false
     }
   ],
   "requiredDecision": {
-    "reason": "Three renewed optimizations exhausted. Native evidence coverage and critical model inference still fail original gates.",
-    "decision": "Keep critical-fact fidelity gates and model decision authority. Further development requires a renewed round or product-semantics decision; do not silently begin a fourth paid iteration."
+    "reason": "Requested jq/log engineering continuation is complete; original model correctness and full end-to-end gates remain uncleared.",
+    "decision": "Keep original gates and model decision authority. Further KA8 acceptance needs a renewed evaluation round; no automatic host business route or unrequested paid replay."
   },
   "sourceCommits": {
     "reasonix-kai": "e806b5b034db122c8a696ac17fa02d8836e4088f",
@@ -1179,7 +1320,9 @@
     "kaiSkillsBaseBeforeDiagnosis": "2ef0089",
     "reasonixKaiControls": "4b9300f52",
     "kaiSkillsBaseBeforeControls": "b301ee2",
-    "currentQualification": "Previous source notes apply to historical rounds. This round adds QA diagnostics/tests and,after all36 paid cells, canonical JSON redaction plus generated distribution updates; no live app candidate rollout or registry bump."
+    "currentQualification": "Previous source notes apply to historical rounds. This round adds QA diagnostics/tests and,after all36 paid cells, canonical JSON redaction plus generated distribution updates; no live app candidate rollout or registry bump.",
+    "kaiSkillsBaseBeforeJqPreparation": "b321057",
+    "jqPreparationScope": "Canonical common bootstrap and iStoreOS service query updated; distributions regenerated; native generated package staged/tested only, no live app bundle/session replacement."
   },
   "historicalBlockingExamples": [
     {

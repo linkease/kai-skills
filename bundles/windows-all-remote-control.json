@@ -8,32 +8,32 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.11",
-      "treeDigest": "sha256:ab1baa10c0d63040a6085f454d9132f20b4e0aae300184d9ae8ab3ad9e32f28f"
+      "treeDigest": "sha256:44522a31c30202593c8ee282d0ba432d385a7436e0b3ac827162266e5ec40e1f"
     },
     {
       "id": "kai-download-acceleration",
       "version": "1.2.11",
-      "treeDigest": "sha256:289d732df1a35eb0b3f7f520ab2a187ff05e3dad0f77e5963092afa7253ca922"
+      "treeDigest": "sha256:9a782b7ce8c019807024d05a0c923493d52f705aec517ca1972b2637acc07d6e"
     },
     {
       "id": "kai-project-dependencies",
       "version": "1.2.11",
-      "treeDigest": "sha256:cf0fc71bc1421777c4cc3a82f50ea29d28cc330b5786bfe7e2d7ba06f37dca4d"
+      "treeDigest": "sha256:e870c3b8fe2c9350ce3320b1bd166ee3b956804ac0ce358243f6ecf2adf81030"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.11",
-      "treeDigest": "sha256:dea15d538facfee75a9ed6c9bdec42846f277a66f09500cf9cae56d0f0fa89f1"
+      "treeDigest": "sha256:ab086dda74fdff1aa9f25619ef948fbcdd4312102e1cab73a49f0a5b572a2476"
     },
     {
       "id": "kai-software",
       "version": "1.2.11",
-      "treeDigest": "sha256:b1be9befd190dc5a0e581cb75ae0245fef22cc74dbc3cb0988a9d956d61ebc9a"
+      "treeDigest": "sha256:d0b1edeff9b48bd77a2094741eb50ee506cc4e86ac1439af7677e7f02d75b8cd"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.11",
-      "treeDigest": "sha256:73ab7b9921afb4c75ad6f8249eaa213eeea7a83242ddef67250f8b2738904515"
+      "treeDigest": "sha256:5c9f1ebc0a77c290ee6df05c74e987b4dffeb156f84a583e09e5e1bfd2f548b8"
     },
     {
       "id": "kai-system-information",
@@ -43,7 +43,7 @@
     {
       "id": "kai-tool-bootstrap",
       "version": "1.2.11",
-      "treeDigest": "sha256:8fdf8c5ff86940fa4beeb1a8ec62933709159afbda02ae96dcc4e995ba755877"
+      "treeDigest": "sha256:8dc4e0cbb8c40ee2547ccd985c99904a20da25cebac89c1450b213a30b0e1bf0"
     },
     {
       "id": "target-ssh-powershell-controller",

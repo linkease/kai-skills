@@ -29,10 +29,11 @@ case "$(uname -s):${KAI_PLATFORM:-}" in
 esac
 resources="$here/../resources"
 if command -v sha256sum >/dev/null 2>&1; then
-    (cd "$resources" && sha256sum -c jq-owner.sha256) >&2
+    (cd "$resources" && sha256sum -c jq-owner.sha256) >&2 || code=$?
 else
-    (cd "$resources" && shasum -a 256 -c jq-owner.sha256) >&2
+    (cd "$resources" && shasum -a 256 -c jq-owner.sha256) >&2 || code=$?
 fi
+if [ "$code" != 0 ]; then status=failed;emit;exit "$code";fi
 core="${KAI_ZSETUP_BIN:-$(command -v zsetup 2>/dev/null || true)}"
 [ -n "$core" ] || { [ ! -x "$HOME/.local/bin/zsetup" ] || core="$HOME/.local/bin/zsetup"; }
 if [ -z "$core" ]; then
@@ -57,18 +58,22 @@ fi
 if [ -n "$core" ]; then
     # Original manager/ownership and core compatibility checks remain canonical.
     if kai_use_jq basic 2>/dev/null; then
-        bash "$here/tool.sh" ensure zsetup >&2
+        bash "$here/tool.sh" ensure zsetup >&2 || code=$?
+        if [ "$code" != 0 ]; then status=failed;emit;exit "$code";fi
     else
         # tool.sh itself needs basic jq. Validate an explicitly selected or
         # owner-verified core here without reintroducing the missing-jq cycle.
-        core_version="$("$core" --version)"; core_version="${core_version%$'\r'}"
+        core_version="$("$core" --version)" || code=$?
+        if [ "$code" != 0 ]; then status=failed;emit;exit "$code";fi
+        core_version="${core_version%$'\r'}"
         core_pattern='^zsetup ([0-9]+)\.([0-9]+)\.([0-9]+)$'
         [[ "$core_version" =~ $core_pattern ]] || { status=failed;code=4;emit;exit "$code"; }
         major="${BASH_REMATCH[1]}"; minor="${BASH_REMATCH[2]}"; minimum_minor=5
         case "$(uname -s)" in Darwin|MINGW*|MSYS*|CYGWIN*) minimum_minor=4 ;; esac
         if [ "$major" -eq 0 ] && [ "$minor" -lt "$minimum_minor" ]; then status=failed;code=4;emit;exit "$code";fi
     fi
-    arch="$("$core" context get arch)"
+    arch="$("$core" context get arch)" || code=$?
+    if [ "$code" != 0 ]; then status=failed;emit;exit "$code";fi
     arch="${arch%$'\r'}"
     env ZSETUP_BIN="$core" ZSETUP_INSTALLER_MODE=1 ZSETUP_ARCH="$arch" "$core" run -- sh "$resources/jq-install.sh" >&2 || code=$?
 else

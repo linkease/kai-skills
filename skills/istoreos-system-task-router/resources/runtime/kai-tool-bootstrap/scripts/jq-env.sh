@@ -4,7 +4,7 @@ kai_jq_capable() {
     if [ "${2:-full}" = basic ]; then
         "$1" -ne '({a:1}|.a)==1' >/dev/null 2>&1
     else
-        "$1" -ne '("abc"|test("^a")) and (("abc"|match("^a").string)=="a") and (("abc"|sub("^a";"x"))=="xbc") and (({text:"中文"}|tojson|fromjson|.text)=="中文")' >/dev/null 2>&1
+        "$1" -ne '("abc"|test("^a")) and (("abc"|match("^a").string)=="a") and (("abc"|sub("^a";"x"))=="xbc") and (({text:"中文"}|tojson|fromjson|.text)=="中文") and (({a:[1]}|walk(.)|.a[0])==1)' >/dev/null 2>&1
     fi
 }
 

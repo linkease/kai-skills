@@ -1159,5 +1159,9 @@
       "sha256": "6ad18ffbadbf95ce0b040a76e1883bf7798379dc1963dcd460aaf3da96789196"
     }
   ],
-  "nextMilestonesStarted": false
+  "nextMilestonesStarted": false,
+  "laterCorrection": {
+    "report": "agent-capability-KA8-jq-preparation-20261126.md",
+    "finding": "Existing compatible jq was outside PATH; prior probes established query lookup failure only, not physical absence. Current native explicit-scope validation passes; prior model grades stay historical."
+  }
 }

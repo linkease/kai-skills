@@ -196,7 +196,7 @@
       "POSIX sh and standard Unix utilities; native Windows PowerShell 5.1 or newer on Windows"
     ],
     "istoreos-service-manager": [
-      "POSIX sh for readonly inspection; existing Bash/full jq and timeout for explicit writes",
+      "POSIX sh for readonly inspection; full jq for structured redaction (explicit preparation available); existing Bash/full jq and timeout for explicit writes",
       "native procd/UCI commands for selected operations; Docker API only for requested Docker start/restart verification"
     ]
   }

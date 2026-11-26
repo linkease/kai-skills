@@ -12,6 +12,7 @@ kai_operation=service.inspect kai_target= kai_service= kai_sections=init,config,
 kai_deadline=5 kai_facts= kai_evidence= kai_errors= kai_evidence_index=0 kai_status=succeeded
 kai_root=${ISTOREOS_ROOT:-} kai_file= kai_offset=0 kai_length=2048 kai_tmp=
 kai_reader= kai_timer=
+kai_log_count=null kai_log_pattern= kai_log_pattern_set=false kai_log_selection=false
 kai_observed=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 kai_cleanup() {
   if [ -n "$kai_reader" ]; then kill -KILL "$kai_reader" 2>/dev/null || :; wait "$kai_reader" 2>/dev/null || :; fi
@@ -27,7 +28,14 @@ while [ "$#" -gt 0 ]; do
   case "$1" in
     --target-id) kai_target=$2 ;; --service) kai_service=$2 ;; --sections) kai_sections=$2 ;;
     --file) kai_file=$2 ;; --offset) kai_offset=$2 ;; --length) kai_length=$2 ;;
-    --deadline-seconds) kai_deadline=$2 ;; *) kai_invalid 'Unsupported option.' ;;
+    --deadline-seconds) kai_deadline=$2 ;;
+    --log-count)
+      case "$2" in [1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1000) kai_log_count=$2 ;; *) kai_invalid 'Log message count must be between 1 and 1000.' ;; esac
+      kai_log_selection=true ;;
+    --log-pattern)
+      [ "${#2}" -le 256 ] || kai_invalid 'Log pattern exceeds its bound.'
+      kai_log_pattern=$2 kai_log_pattern_set=true kai_log_selection=true ;;
+    *) kai_invalid 'Unsupported option.' ;;
   esac
   shift 2
 done
@@ -42,9 +50,30 @@ kai_old_ifs=$IFS; IFS=,
 for kai_section in $kai_sections; do case "$kai_section" in init|config|runtime|logs|ownership) : ;; *) IFS=$kai_old_ifs; kai_invalid 'Unsupported section.' ;; esac; done
 IFS=$kai_old_ifs
 [ -n "$kai_sections" ] || kai_invalid 'At least one section is required.'
+if [ "$kai_log_selection" = true ]; then
+  [ -z "$kai_file" ] && [ -z "$kai_root" ] || kai_invalid 'Log selectors apply only to the native logread stream.'
+  case ",$kai_sections," in *,logs,*) : ;; *) kai_invalid 'Log selectors require the logs section.' ;; esac
+fi
 kai_tmp=$(mktemp -d "${TMPDIR:-/tmp}/kai-service-inspect.XXXXXX") || exit 2
 kai_started=$(date +%s)
 kai_has_section() { case ",$kai_sections," in *",$1,"*) return 0 ;; *) return 1 ;; esac; }
+kai_jq_capable() {
+  [ -n "$1" ] && [ -x "$1" ] || return 1
+  [ "$("$1" -ne '(({a:[1]}|walk(.)|.a[0])==1) and (("中文"|tojson|fromjson)=="中文") and ("token"|test("token"))' 2>/dev/null)" = true ]
+}
+kai_select_jq() {
+  if [ -n "${KAI_JQ_BIN:-}" ]; then
+    case "$KAI_JQ_BIN" in /*) ;; *) return 1 ;; esac
+    kai_jq_capable "$KAI_JQ_BIN" || return 1
+    kai_json_tool=$KAI_JQ_BIN
+    return 0
+  fi
+  kai_path_jq=$(command -v jq 2>/dev/null || :)
+  for kai_candidate in "$kai_path_jq" "${HOME:-/nonexistent}/.local/bin/jq"; do
+    if kai_jq_capable "$kai_candidate"; then kai_json_tool=$kai_candidate; return 0; fi
+  done
+  return 1
+}
 kai_redact() {
   kai_redact_input=$(cat)
   kai_redact_mode=$(printf '%s' "$kai_redact_input" | LC_ALL=C awk '
@@ -56,8 +85,8 @@ kai_redact() {
           (tolower(text) ~ /(password|passwd|token|secret|api.?key|authorization|private.?key|[?&](key|auth)=)/ || index(text,"\\"))) print "json"
     }')
   if [ "$kai_redact_mode" = json ]; then
-    command -v jq >/dev/null 2>&1 || return 1
-    kai_redact_json=$(printf '%s' "$kai_redact_input" | jq -cs -f "$kai_here/redact-json.jq" 2>/dev/null) || return 1
+    kai_select_jq || return 1
+    kai_redact_json=$(printf '%s' "$kai_redact_input" | "$kai_json_tool" -cs -f "$kai_here/redact-json.jq" 2>/dev/null) || return 1
     if [ -n "$kai_redact_json" ]; then printf '%s' "$kai_redact_json"
     else printf '%s' "$kai_redact_input"; fi
     return 0
@@ -186,6 +215,16 @@ else
   fi
   if kai_has_section logs; then
     if [ -n "$kai_root" ]; then kai_read_file logs "/var/log/$kai_service.log"
+    elif [ "$kai_log_selection" = true ]; then
+      set -- logread
+      [ "$kai_log_count" = null ] || set -- "$@" -l "$kai_log_count"
+      kai_pattern_json=null
+      if [ "$kai_log_pattern_set" = true ]; then
+        set -- "$@" -e "$kai_log_pattern"
+        kai_pattern_json=$(kai_json_string "$kai_log_pattern")
+      fi
+      kai_fact logSelection "{\"tailMessages\":$kai_log_count,\"pattern\":$kai_pattern_json,\"completeHistory\":false}" 'explicit native logread selection; not full history' observed
+      kai_command_fact logs 'logread with explicit selection; original time and byte bounds retained' "$@"
     else kai_command_fact logs 'logread, unfiltered; oversized logs reported explicitly' logread; fi
   fi
   if kai_has_section ownership; then

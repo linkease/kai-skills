@@ -1,5 +1,6 @@
 """jq selection at public helpers; firmware tools are never replaced."""
 import json
+import hashlib
 import os
 from pathlib import Path
 import shutil
@@ -12,6 +13,65 @@ BOOT=ROOT/'components/system-packs/common/skills/kai-tool-bootstrap/scripts'
 
 
 class JqTests(unittest.TestCase):
+    def owner_fixture(self, directory):
+        root = Path(directory)
+        scripts = root / 'scripts'
+        shutil.copytree(BOOT, scripts)
+        resources = root / 'resources'
+        resources.mkdir()
+        bin = root / 'bin'
+        bin.mkdir()
+        firmware = bin / 'jq'
+        firmware.write_text('#!/bin/sh\nexit 5\n')
+        firmware.chmod(0o700)
+        core = bin / 'fixture-core'
+        core.write_text('#!/bin/sh\ncase "$1" in\n--version) echo "zsetup 0.5.4";;\ncontext) echo x86_64;;\nrun) shift 2; exec "$@";;\n*) exit 92;;\nesac\n')
+        core.chmod(0o700)
+        owner = resources / 'jq-install.sh'
+        owner.write_text('#!/bin/sh\nset -eu\necho owner >> "$CALLS"\n'
+                         'case "${TEST_INSTALL_MODE:-install}" in fail) exit 19;; noop) exit 0;; esac\n'
+                         'mkdir -p "$HOME/.local/bin"\ncp "$TEST_JQ_SOURCE" "$HOME/.local/bin/jq"\n')
+        (resources / 'jq-owner.sha256').write_text(hashlib.sha256(owner.read_bytes()).hexdigest() + '  jq-install.sh\n')
+        env = {**os.environ, 'HOME': directory, 'PATH': str(bin) + ':' + os.environ['PATH'],
+               'KAI_ZSETUP_BIN': str(core), 'TEST_JQ_SOURCE': shutil.which('jq'),
+               'KAI_PLATFORM': 'istoreos', 'CALLS': str(root / 'calls')}
+        env.pop('KAI_JQ_BIN', None)
+        return scripts, owner, firmware, env
+
+    def test_missing_jq_installs_through_verified_owner_rechecks_and_reuses(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scripts, owner, firmware, env = self.owner_fixture(directory)
+            before = firmware.read_bytes()
+            for action, expected in [('plan', 'install-needed'), ('ensure', 'installed'), ('ensure', 'reused')]:
+                result = subprocess.run(['sh', str(scripts / 'prepare.sh'), action, '--tool', 'jq'],
+                                        env=env, capture_output=True, text=True, timeout=10)
+                self.assertEqual(result.returncode, 0, result.stderr)
+                self.assertEqual(json.loads(result.stdout)['status'], expected)
+                if action == 'plan':
+                    self.assertFalse(Path(env['CALLS']).exists())
+            self.assertEqual(Path(env['CALLS']).read_text().splitlines(), ['owner'])
+            self.assertEqual(firmware.read_bytes(), before)
+
+    def test_failed_or_ineffective_install_is_not_reported_installed(self):
+        for mode, code in [('fail', 19), ('noop', 11)]:
+            with self.subTest(mode=mode), tempfile.TemporaryDirectory() as directory:
+                scripts, owner, firmware, env = self.owner_fixture(directory)
+                result = subprocess.run(['sh', str(scripts / 'prepare.sh'), 'ensure', '--tool', 'jq'],
+                    env={**env, 'TEST_INSTALL_MODE': mode}, capture_output=True, text=True, timeout=10)
+                self.assertEqual(result.returncode, code, result.stderr)
+                self.assertEqual(json.loads(result.stdout)['status'], 'failed')
+                self.assertFalse((Path(directory) / '.local/bin/jq').exists())
+
+    def test_owner_checksum_failure_returns_a_receipt_without_executing_it(self):
+        with tempfile.TemporaryDirectory() as directory:
+            scripts, owner, firmware, env = self.owner_fixture(directory)
+            owner.write_text(owner.read_text() + '# changed after manifest\n')
+            result = subprocess.run(['sh', str(scripts / 'prepare.sh'), 'ensure', '--tool', 'jq'],
+                                    env=env, capture_output=True, text=True, timeout=10)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertEqual(json.loads(result.stdout)['status'], 'failed')
+            self.assertFalse(Path(env['CALLS']).exists())
+
     def test_windows_install_request_on_linux_stops_before_any_installer(self):
         with tempfile.TemporaryDirectory() as directory:
             home=Path(directory);bin=home/'bin';bin.mkdir();marker=home/'unexpected-installer'

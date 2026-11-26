@@ -40,7 +40,7 @@ class RedactionFidelityTests(unittest.TestCase):
                 self.assertTrue(field['redacted'])
                 self.assertEqual(before, self.fixture.fingerprint())
 
-    def test_missing_parser_is_unknown_without_install_or_secret_output(self):
+    def test_missing_selected_parser_is_unknown_without_install_or_secret_output(self):
         fixture = self.fixture
         fixture.file('/etc/quickstart/storage/docker.json', '{"token":"synthetic-private","phase":"active"}')
         for name in ['sh', 'dirname', 'awk', 'date', 'sed', 'mktemp', 'head', 'wc', 'tr', 'dd', 'sleep', 'cat', 'rm', 'mv']:
@@ -52,7 +52,8 @@ class RedactionFidelityTests(unittest.TestCase):
             fixture.fake(name, 'touch ' + shlex.quote(str(marker)) + '\nexit 99\n')
         before = fixture.fingerprint()
         process, receipt = fixture.query('--service', 'dockerd', '--sections', 'config',
-                                         env={**fixture.env, 'PATH': str(fixture.bin)})
+                                         env={**fixture.env, 'PATH': str(fixture.bin),
+                                              'KAI_JQ_BIN': str(fixture.root / 'absent-jq')})
         self.assertNotEqual(process.returncode, 0)
         self.assertIsNone(receipt['facts']['storageRegistration'])
         self.assertIn('REDACTION_UNAVAILABLE', json.dumps(receipt['errors']))
@@ -83,6 +84,32 @@ class RedactionFidelityTests(unittest.TestCase):
         self.assertNotIn('synthetic-private', json.dumps(receipt))
         self.assertEqual(json.loads(field['output'])['target']['path'], '/mnt/selected/docker')
         self.assertTrue(field['redacted'])
+
+    def test_prepared_jq_path_is_used_without_changing_path_or_installing(self):
+        marker = self.fixture.root / 'WRONG_JQ'
+        self.fixture.fake('jq', 'touch ' + shlex.quote(str(marker)) + '\nexit 99\n')
+        self.fixture.file('/etc/quickstart/storage/docker.json',
+                          '{"token":"synthetic-private","phase":"active"}')
+        before = self.fixture.fingerprint()
+        process, receipt = self.fixture.query('--service', 'dockerd', '--sections', 'config',
+            env={**self.fixture.env, 'KAI_JQ_BIN': shutil.which('jq')})
+        self.assertEqual(process.returncode, 0, receipt)
+        self.assertEqual(json.loads(receipt['facts']['storageRegistration']['content'])['phase'], 'active')
+        self.assertNotIn('synthetic-private', json.dumps(receipt))
+        self.assertFalse(marker.exists())
+        self.assertEqual(before, self.fixture.fingerprint())
+
+    def test_incompatible_explicit_parser_is_not_silently_replaced(self):
+        incompatible = self.fixture.bin / 'selected-jq'
+        incompatible.write_text('#!/bin/sh\nexit 0\n')
+        incompatible.chmod(0o700)
+        self.fixture.file('/etc/quickstart/storage/docker.json',
+                          '{"token":"synthetic-private","phase":"active"}')
+        process, receipt = self.fixture.query('--service', 'dockerd', '--sections', 'config',
+            env={**self.fixture.env, 'KAI_JQ_BIN': str(incompatible)})
+        self.assertNotEqual(process.returncode, 0)
+        self.assertIsNone(receipt['facts']['storageRegistration'])
+        self.assertNotIn('synthetic-private', json.dumps(receipt))
 
 
 if __name__ == '__main__':
