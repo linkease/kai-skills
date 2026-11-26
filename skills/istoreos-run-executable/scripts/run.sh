@@ -1,154 +1,43 @@
-#!/bin/sh
-set -eu
-
-file="${1:-}"
-confirm="${CONFIRM_RUN_EXEC:-}"
-run_via_dotrun="${RUN_VIA_ISTORE_DOTRUN:-auto}" # auto|yes|no
-
-need() {
-  echo "need-confirmation: $*" >&2
-  exit 2
-}
-
-have() { command -v "$1" >/dev/null 2>&1; }
-
-ts() { date +%Y%m%d-%H%M%S 2>/dev/null || echo now; }
-
-run_logged() {
-  # POSIX pipelines return tee's status; preserve the program's status separately.
-  status_file="$(mktemp)"
-  trap 'rm -f "$status_file"' EXIT HUP INT TERM
-  (
-    code=0
-    "$@" 2>&1 || code=$?
-    printf '%s\n' "$code" > "$status_file"
-  ) | tee "$log"
-  code="$(cat "$status_file")"
-  rm -f "$status_file"
-  trap - EXIT HUP INT TERM
-  echo "log: $log" >&2
-  return "$code"
-}
-
-if [ "$confirm" != "YES" ]; then
-  need "this executes an untrusted local installer. KAIPlus enforces a recovery point for covered writes, but direct shell use and out-of-scope data have no automatic protection. Rerun with CONFIRM_RUN_EXEC=YES after reviewing the reported scope."
-fi
-
-if [ -z "$file" ]; then
-  echo "usage: $0 <FILE.run> [args...]" >&2
-  exit 2
-fi
-
-shift || true
-
-is_url() {
-  case "${1:-}" in
-    *://*) return 0 ;;
-    *) return 1 ;;
-  esac
-}
-
-fetch_if_url() {
-  in="$1"
-  if is_url "$in"; then
-    skills_dir="$(resolve_skills_dir || true)"
-    fetch="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/scripts/fetch.sh"
-    if [ ! -f "$fetch" ]; then
-      need "fetch script not found: $fetch (ensure skills are installed)"
-    fi
-    sh "$fetch" "$in"
-    return 0
-  fi
-  printf '%s\n' "$in"
-}
-
-resolve_skills_dir() {
-  if [ -n "${KAIPLUS_SKILLS_DIR:-}" ] && [ -d "$KAIPLUS_SKILLS_DIR" ]; then
-    printf '%s\n' "$KAIPLUS_SKILLS_DIR"
-    return 0
-  fi
-  if [ -n "${KAIPLUS_HOME:-}" ] && [ -d "$KAIPLUS_HOME/config/skills" ]; then
-    printf '%s\n' "$KAIPLUS_HOME/config/skills"
-    return 0
-  fi
-  script_dir="$(cd "$(dirname "$0")" 2>/dev/null && pwd -P || true)"
-  if [ -n "$script_dir" ]; then
-    script_skill_dir="$(dirname "$(dirname "$script_dir")")"
-    skills_dir="$(dirname "$script_skill_dir")"
-    if [ -d "$skills_dir" ]; then
-      printf '%s\n' "$skills_dir"
-      return 0
-    fi
-  fi
-  return 1
-}
-
-if is_url "$file"; then
-  echo "action: fetch url -> local file" >&2
-  file="$(fetch_if_url "$file")"
-  echo "fetched: $file" >&2
-fi
-
-if [ ! -f "$file" ]; then
-  need "file not found: $file"
-fi
-
-echo "## preflight" >&2
-ls -la "$file" 2>/dev/null >&2 || true
-if command -v wc >/dev/null 2>&1; then
-  bytes="$(wc -c <"$file" 2>/dev/null | tr -d ' ' || true)"
-  [ -n "${bytes:-}" ] && echo "bytes=$bytes" >&2
-fi
-if command -v file >/dev/null 2>&1; then
-  file "$file" 2>/dev/null >&2 || true
-fi
-
-base="$(basename "$file" 2>/dev/null || echo runfile)"
-log="/tmp/${base}.log.$(ts)"
-
-prefer_dotrun=0
-case "$run_via_dotrun" in
-  yes) prefer_dotrun=1 ;;
-  no) prefer_dotrun=0 ;;
-  auto)
-    if have is-opkg; then
-      prefer_dotrun=1
-    fi
-    ;;
-  *)
-    prefer_dotrun=0
-    ;;
+#!/usr/bin/env bash
+# Execute a locally reviewed immutable artifact; never fetch or select an installer backend.
+set -euo pipefail
+op_name=artifact.execute
+op_here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+. "$op_here/../resources/runtime/istoreos-service-manager/scripts/write-lib.sh"
+[ "$#" = 1 ] || op_fail INVALID_ARGUMENT 'Usage: run.sh REQUEST_JSON; source hash, runner, arguments and working directory must be explicit.' 2
+op_init "$1"
+jq -e '.parameters|((keys-["operationId","path","sha256","runner","arguments","workingDirectory","timeoutSeconds"])|length==0) and
+ (.path|type=="string" and startswith("/") and length<=512 and (test("[[:cntrl:]]")|not)) and
+ (.sha256|type=="string" and test("^[a-f0-9]{64}$")) and
+ (.workingDirectory|type=="string" and startswith("/") and length<=512 and (test("[[:cntrl:]]")|not)) and
+ (.runner as $r|["native","sh","bash","dotrun"]|index($r)!=null) and
+ (.arguments|type=="array" and length<=100 and all(.[];type=="string" and length<=512 and (contains("\u0000")|not)))' <<< "$op_request" >/dev/null || op_fail INVALID_ARGUMENT 'Only an explicit local artifact execution request is supported; URLs are not executable inputs.' 2
+[ "${KAIPLUS_CONFIRMED:-}" = 1 ] || [ "${CONFIRM_RUN_EXEC:-}" = YES ] || op_fail AUTHORIZATION_REQUIRED 'An existing scoped execution authorization marker is required; it does not grant host permissions.' 2
+op_executor
+artifact_path=$(jq -r .parameters.path <<< "$op_request")
+artifact_sha=$(jq -r .parameters.sha256 <<< "$op_request")
+artifact_runner=$(jq -r .parameters.runner <<< "$op_request")
+artifact_directory=$(jq -r .parameters.workingDirectory <<< "$op_request")
+[ -d "$artifact_directory" ] && [ ! -L "$artifact_directory" ] && [ "$(CDPATH= cd -- "$artifact_directory" && pwd -P)" = "$artifact_directory" ] || op_fail INVALID_ARGUMENT 'Working directory must be an existing physical directory.' 2
+op_expected_hash "$artifact_path" "$artifact_sha"
+mkdir -- "$op_job/artifact"
+artifact_staged="$op_job/artifact/$(basename -- "$artifact_path")"
+cp -p -- "$artifact_path" "$artifact_staged" || op_fail PRECONDITION_UNAVAILABLE 'Cannot stage an owned copy of the selected self-contained artifact.'
+op_expected_hash "$artifact_staged" "$artifact_sha"
+artifact_args=()
+while IFS= read -r -d '' argument; do artifact_args+=("$argument"); done < <(jq -j '.parameters.arguments[]|.,"\u0000"' <<< "$op_request")
+case "$artifact_runner" in
+ native) [ -x "$artifact_staged" ] || op_fail PRECONDITION_UNAVAILABLE 'Native execution requires an existing executable mode; the source was not chmodded.'; artifact_command=("$artifact_staged") ;;
+ sh|bash) command -v "$artifact_runner" >/dev/null 2>&1 || op_fail DEPENDENCY_UNAVAILABLE 'The selected interpreter is unavailable.' 2; artifact_command=(env -u BASH_ENV -u ENV "$artifact_runner" -- "$artifact_staged") ;;
+ dotrun)
+  command -v is-opkg >/dev/null 2>&1 || op_fail DEPENDENCY_UNAVAILABLE 'The explicitly selected dotrun integration is unavailable; no other runner was selected.' 2
+  [ "${#artifact_args[@]}" = 0 ] || op_fail INVALID_ARGUMENT 'This native dotrun interface does not support artifact arguments.' 2
+  artifact_command=(is-opkg dotrun "$artifact_staged") ;;
 esac
-
-if [ "$prefer_dotrun" -eq 1 ] && [ $# -eq 0 ]; then
-  tmpdir="/tmp/is-root/tmp"
-  mkdir -p "$tmpdir" 2>/dev/null || true
-  tmp="$tmpdir/$base.dotrun.$(ts)"
-  echo "action: install via is-opkg dotrun (will record pkg diff; args not supported)" >&2
-  echo "note: using a temp copy to avoid dotrun removing user's original file" >&2
-  cp -f "$file" "$tmp"
-  cd "$(dirname "$tmp")" 2>/dev/null || true
-  if have tee; then
-    run_logged is-opkg dotrun "$tmp"
-  else
-    is-opkg dotrun "$tmp"
-    echo "log: skipped (tee not found)" >&2
-  fi
-else
-  echo "action: chmod 755 $file" >&2
-  chmod 755 "$file" 2>/dev/null || chmod +x "$file"
-
-  exec_path="$file"
-  case "$exec_path" in
-    */*) : ;;
-    *) exec_path="./$exec_path" ;;
-  esac
-
-  echo "action: execute $exec_path $*" >&2
-  if have tee; then
-    run_logged "$exec_path" "$@"
-  else
-    "$exec_path" "$@"
-    echo "log: skipped (tee not found)" >&2
-  fi
-fi
+op_fact artifact "$(jq -cn --arg path "$artifact_path" --arg executed "$artifact_staged" --arg sha "$artifact_sha" --arg runner "$artifact_runner" '{path:$path,executedCopy:$executed,sha256:$sha,runner:$runner,applicationHealth:"not-inferred",filesystemEffects:"not-inferred-from-exit-code"}')" 'explicit artifact identity and verified owned copy; no download or package backend selection'
+op_effect artifact-execution execute-reviewed-artifact "$artifact_path"
+cd -- "$artifact_directory"
+op_expected_hash "$artifact_staged" "$artifact_sha"
+op_run_effect artifact-execution "${artifact_command[@]}" "${artifact_args[@]}"
+op_check native-exit-code true 'selected artifact process exited zero; this is not application health or user-task completion'
+op_success

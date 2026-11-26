@@ -13,7 +13,7 @@
     {
       "id": "kai-download-acceleration",
       "version": "1.2.11",
-      "treeDigest": "sha256:de866744fef1542b2fca0688a3833396e966ff8b2152998e10cf1b4dd955c15e"
+      "treeDigest": "sha256:949eb841aab8ba4cef265ed53db2de7e50eed68bf602ecd5e929eb1616ea341b"
     },
     {
       "id": "kai-project-dependencies",
@@ -23,7 +23,7 @@
     {
       "id": "kai-project-run",
       "version": "1.2.11",
-      "treeDigest": "sha256:ea20990bcb652273b8f6fc4f9fb2124e87857a0eb8e1bd6216ac5106567eb94a"
+      "treeDigest": "sha256:8c0b68b01119a874486d66ee5ceb73f015e446220774e3eb66cdc7b994a25b93"
     }
   ]
 }

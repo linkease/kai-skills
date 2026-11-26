@@ -11,12 +11,14 @@ function Add-Error([string]$Code,[string]$Message) {
     if ($script:operationStatus -ne 'failed') { $script:operationStatus='partial' }
 }
 
-function Write-Observation([string]$OperationName) {
+function Write-Observation([string]$OperationName, [bool]$ReadOnly=$true, $Effects=$null, $Verification=$null) {
+if($ReadOnly -or $null -eq $Effects){$Effects=@{requested=@();completed=@();unknown=@();remaining=@()}}
+if($null -eq $Verification){$Verification=@{status='not_required';checks=@()}}
 $result=[ordered]@{
     schemaVersion=1;operation=$OperationName;operationStatus=$operationStatus;targetId=$TargetId
-    readOnly=$true;observedAt=$now;facts=$facts;evidence=@($evidence.ToArray())
-    effects=@{requested=@();completed=@();unknown=@();remaining=@()}
-    verification=@{status='not_required';checks=@()};errors=@($errors.ToArray());truncated=$false
+    readOnly=$ReadOnly;observedAt=$now;facts=$facts;evidence=@($evidence.ToArray())
+    effects=$Effects
+    verification=$Verification;errors=@($errors.ToArray());truncated=$false
 }
 $json=$result | ConvertTo-Json -Depth 24 -Compress
 if ($utf8.GetByteCount($json) -gt 8192) {

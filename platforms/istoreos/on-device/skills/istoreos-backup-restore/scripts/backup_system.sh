@@ -1,38 +1,6 @@
-#!/bin/sh
-set -eu
-
-dir="${1:-}"
-confirm="${CONFIRM_FULL_SYSTEM_BACKUP:-}"
-need() {
-  echo "need-confirmation: $*" >&2
-  exit 2
-}
-
-if [ -z "$dir" ]; then
-  echo "usage: $0 <DIR>" >&2
-  exit 2
-fi
-
-if [ "$confirm" != "YES" ]; then
-  need "full overlay backup is an explicit, potentially slow operation; use the iStoreOS UI or rerun with CONFIRM_FULL_SYSTEM_BACKUP=YES"
-fi
-
-case "$dir" in
-  /|/tmp|/tmp/*|/overlay|/overlay/*|/ext_overlay|/ext_overlay/*)
-    need "invalid backup dir: $dir (must be on external storage; refuse /, /tmp, /overlay, /ext_overlay)"
-    ;;
-esac
-
-if [ ! -x /usr/libexec/istore/overlay-backup ]; then
-  need "missing /usr/libexec/istore/overlay-backup (system full backup not supported on this device)"
-fi
-
-mp="$(findmnt -T "$dir" -o TARGET 2>/dev/null | sed -n 2p || true)"
-if [ -n "${mp:-}" ] && [ "$mp" = "$dir" ]; then
-  dir="$dir/istore_backup"
-fi
-
-mkdir -p "$dir" 2>/dev/null || need "cannot create backup dir: $dir"
-
-echo "action: system backup to $dir" >&2
-/usr/libexec/istore/overlay-backup backup "$dir"
+#!/usr/bin/env bash
+# Explicit native checkpoint interface; no legacy archive/backend fallback.
+set -euo pipefail
+op_name=recovery.backup
+here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
+. "$here/recovery-operation.sh"

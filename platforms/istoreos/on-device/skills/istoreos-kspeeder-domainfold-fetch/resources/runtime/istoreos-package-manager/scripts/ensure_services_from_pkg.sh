@@ -23,7 +23,7 @@ ensure() {
   svc="$1"
   cfg="${2:-}"
   root="$(skills_root)"
-  script="$root/istoreos-service-manager/scripts/ensure.sh"
+  script="$(CDPATH= cd -- "$(dirname "$0")/../../istoreos-service-manager" && pwd -P)/scripts/ensure.sh"
   if [ ! -f "$script" ]; then
     need "missing dependency skill script: $script"
   fi

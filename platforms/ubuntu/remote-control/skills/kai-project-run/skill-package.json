@@ -42,12 +42,12 @@
     {
       "id": "kai-project-run",
       "canonicalPath": "components/system-packs/common/skills/kai-project-run",
-      "sourceDigest": "sha256:f4d79d91d6d8dcba49ace9df320d56199c40fe4dd4e70a71567ce6a069dff6fd"
+      "sourceDigest": "sha256:ae86c2a8c8e3ad65a4bfd7f95a73a5939cec91ff0dcc7129d973751af4b439b9"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:a92d44eecd885b322c7533405682ff5c8925e534fa4c5d039c4f9645ee5a7b86"
+      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
     },
     {
       "id": "istoreos-app-search",
@@ -67,7 +67,7 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:18a9df5961bf41e894a85f985cbe3dfe0b64c524b3e2b88c384220a2867e1d54"
+      "sourceDigest": "sha256:45549c068daa9131b9c7e34a6cb53bc818638008997cdee863a863a3609950af"
     },
     {
       "id": "kai-tool-bootstrap",

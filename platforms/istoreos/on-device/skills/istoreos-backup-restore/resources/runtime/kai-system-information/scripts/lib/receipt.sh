@@ -54,13 +54,24 @@ kai_error() {
   [ "$kai_status" = failed ] || kai_status=partial
 }
 
-kai_emit_observation() {
-  kai_receipt="{\"schemaVersion\":1,\"operation\":$(kai_json_string "${kai_operation:-system.inspect}"),\"operationStatus\":$(kai_json_string "$kai_status"),\"targetId\":$(kai_json_string "$kai_target"),\"readOnly\":true,\"observedAt\":$(kai_json_string "$kai_observed"),\"facts\":{$kai_facts},\"evidence\":[$kai_evidence],\"effects\":{\"requested\":[],\"completed\":[],\"unknown\":[],\"remaining\":[]},\"verification\":{\"status\":\"not_required\",\"checks\":[]},\"errors\":[$kai_errors],\"truncated\":false}"
+kai_emit_observation() { kai_emit_result true; }
+# Serialization only. The caller records effects; this function performs no
+# operation and never grants permissions. Observations always force empty effects.
+kai_emit_operation() { kai_emit_result false; }
+kai_emit_result() {
+  kai_emit_read_only=$1
+  kai_emit_effects='{"requested":[],"completed":[],"unknown":[],"remaining":[]}'
+  kai_emit_verification='{"status":"not_required","checks":[]}'
+  if [ "$kai_emit_read_only" = false ]; then
+    kai_emit_effects="{\"requested\":$kai_effects_requested,\"completed\":$kai_effects_completed,\"unknown\":$kai_effects_unknown,\"remaining\":$kai_effects_remaining}"
+    kai_emit_verification=$kai_verification
+  fi
+  kai_receipt="{\"schemaVersion\":1,\"operation\":$(kai_json_string "${kai_operation:-system.inspect}"),\"operationStatus\":$(kai_json_string "$kai_status"),\"targetId\":$(kai_json_string "$kai_target"),\"readOnly\":$kai_emit_read_only,\"observedAt\":$(kai_json_string "$kai_observed"),\"facts\":{$kai_facts},\"evidence\":[$kai_evidence],\"effects\":$kai_emit_effects,\"verification\":$kai_emit_verification,\"errors\":[$kai_errors],\"truncated\":false}"
   kai_receipt_bytes=$(printf '%s' "$kai_receipt" | wc -c | tr -d ' ')
   if [ "$kai_receipt_bytes" -gt 8192 ]; then
     kai_facts= kai_evidence= kai_evidence_index=0 kai_errors= kai_status=failed
     kai_error RESULT_LIMIT 'Selected facts exceed the default byte limit; query fewer sections.'
-    kai_emit_observation
+    kai_emit_result "$kai_emit_read_only"
     return 2
   fi
   printf '%s\n' "$kai_receipt"

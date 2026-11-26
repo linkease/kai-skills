@@ -11,7 +11,8 @@ usage:
 
 Environment:
   KAIPLUS_HOME or KAIPLUS_SKILLS_DIR locates the installed skills directory.
-  CONFIRM_ISTOREENHANCE_APPLY=YES permits iStoreEnhance install/autoconf/UCI/service changes.
+  KSGET_MODE explicitly selects download routing (default direct).
+  KAI_DOCKER_ENDPOINT explicitly selects the engine for docker-pull.
 EOF
 }
 
@@ -85,9 +86,9 @@ dispatch_url_download() {
   fi
   if [ -n "$kspeeder_bin" ]; then
     if [ -n "$out" ]; then
-      exec "$kspeeder_bin" download --mode auto --json --events ndjson -O "$out" "$url"
+      exec "$kspeeder_bin" download --allow-start=false --mode "${KSGET_MODE:-direct}" --json --events ndjson -O "$out" "$url"
     fi
-    exec "$kspeeder_bin" download --mode auto "$url"
+    exec "$kspeeder_bin" download --allow-start=false --mode "${KSGET_MODE:-direct}" "$url"
   fi
   ksget="$root/istoreos-kspeeder-domainfold-fetch/scripts/ksget.sh"
   [ -f "$ksget" ] || need "kspeeder binary and ksget wrapper are both unavailable; upgrade iStoreEnhance/KSpeeder first."
@@ -109,7 +110,7 @@ dispatch_git_clone() {
   accelerated_url="$(sh "$remap" "$repo")"
   [ -n "$accelerated_url" ] || need "KSpeeder returned an empty Git repository URL."
 
-  echo "action: git clone via KSpeeder: $accelerated_url" >&2
+  echo "action: git clone through the explicitly selected remap integration" >&2
   if [ -n "$directory" ]; then
     exec git clone -- "$accelerated_url" "$directory"
   fi
@@ -129,15 +130,11 @@ case "$mode" in
   docker-pull)
     image="${1:-}"
     [ -n "$image" ] || { usage; exit 2; }
-    space="$root/istoreos-docker-basics/scripts/check_space.sh"
-    ready="$root/istoreos-docker-acceleration-istoreenhance/scripts/ensure_ready.sh"
-    [ -f "$ready" ] || need "KSpeeder readiness script not found at $ready."
-    if [ -f "$space" ]; then
-      sh "$space"
-    fi
-    sh "$ready"
-    echo "action: docker pull $image" >&2
-    exec docker pull "$image"
+    [ "$#" = 1 ] || { usage; exit 2; }
+    case "$image" in -*) usage; exit 2 ;; esac
+    endpoint=${KAI_DOCKER_ENDPOINT:-}
+    [ -n "$endpoint" ] || { echo 'failed: explicit KAI_DOCKER_ENDPOINT is required; no service was installed or started' >&2; exit 2; }
+    exec docker --host "$endpoint" pull -- "$image"
     ;;
   *)
     usage

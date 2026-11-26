@@ -1,0 +1,101 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA4",
+  "status": "passed",
+  "optimizations": 2,
+  "reviewInventory": "../architecture/write-capability-surfaces.json",
+  "reviewedResources": 38,
+  "verification": {
+    "contractAndOperations": {
+      "tests": 61,
+      "status": "passed"
+    },
+    "isolatedPackages": {
+      "tests": 91,
+      "groups": 6,
+      "status": "passed"
+    },
+    "projectTask": {
+      "tests": 8,
+      "status": "passed"
+    },
+    "distributionConsumers": {
+      "tests": 2,
+      "status": "passed"
+    },
+    "istoreosFixtures": {
+      "suites": 11,
+      "status": "passed"
+    },
+    "nativeAdapters": [
+      {
+        "platform": "windows",
+        "tests": 5,
+        "status": "passed",
+        "scope": "native PowerShell SCM adapter mocks, no live service mutation"
+      },
+      {
+        "platform": "istoreos-opkg",
+        "tests": 1,
+        "status": "passed",
+        "scope": "real native UCI private candidate commit, no system configuration activation"
+      },
+      {
+        "platform": "istoreos-apk",
+        "tests": 1,
+        "status": "passed",
+        "scope": "real native UCI private candidate commit, no system configuration activation"
+      }
+    ],
+    "generatedConsistency": "passed"
+  },
+  "acceptance": {
+    "KA4-T01": "Explicit identities, source/target, digest, runner/arguments and caller-selected verification; missing parameters reject without native mutation.",
+    "KA4-T02": "Init/config hashes, expected native service state, package artifact identity and mount identities reject stale requests.",
+    "KA4-T03": "Real isolated rsync preserves/verifies hardlinks, symlinks, ownership, modes, times, ACLs and xattrs; rejects nonempty destination, changed mount and UCI-only shortcut.",
+    "KA4-T04": "Stop error, interrupted copy, insufficient preflight capacity, UCI commit failure, launchd fast exit and Docker API/engine/root mismatch never succeed.",
+    "KA4-T05": "Owned persistent journals preserve pending/completed/unknown effects; same operation ID returns historical evidence, no replay; residual data retained, no global rollback.",
+    "KA4-T06": "Service/copy/artifact/package fixtures preserve unselected configuration and init source; no native service wrapping or persistent guard added."
+  },
+  "corrections": [
+    "Register KA3 legacy diagnostic schema additions and validate the full output.",
+    "Functional readonly fixtures use an explicit 30 second budget under shared build load; production query default remains 5 seconds.",
+    "Native Windows mock needs the actual System.ServiceProcess assembly loaded; genuine SCM cmdlet execution loads its native assembly."
+  ],
+  "remainingMilestones": [
+    "Host-bound authorization and durable local/SSH/native lifecycle are KA7, not conferred by helper flags.",
+    "Canonical skill instructions and legacy fixed-routing architecture tests are KA5.",
+    "Live model credentials are not required for KA4 fixture suites; live reasoning/routing tests were attempted, lack their legacy environment bindings, and are not counted as passes.",
+    "Native positive platform operations and Agent evaluation remain KA9."
+  ],
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-checks-initial.json",
+      "sha256": "9e464515a49976ab92908f78e71cd5f91f3b25fb24458e7243575a33fb9e1e1b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-checks-final.json",
+      "sha256": "a57c4bcfa6ebe3e3a6353178b373034b1b9570b618641109ab8ad1c85df05113"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-istore-initial.json",
+      "sha256": "e2546695bf1a8340985c6c6fd3a7a24df830845cbcc4f2251d1a4afe61bfb41b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-istore-final.json",
+      "sha256": "f49561bec47d792f6d32c4b499188e26feba110443d96f3e6cec5d21b7dc32ed"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-native-write-contracts.json",
+      "sha256": "c65cd7f3ca970942eaa878a6d624aeac3d14b6d4710bce1ea770b54a00f22bef"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-native-write-contracts-opt1.json",
+      "sha256": "2a30e2762ccf87f5ad30f3f4f45606da2a61a11175188f2180be428357d1bdcf"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA4-native-write-contracts-opt2.json",
+      "sha256": "d5504c416dbef69779fa183d751e921bb3049bd670f3057b9668a8997fdfe1cf"
+    }
+  ]
+}

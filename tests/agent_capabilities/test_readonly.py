@@ -43,7 +43,7 @@ class ReadOnlyTests(unittest.TestCase):
                 for p in self.target.rglob('*') if p.is_file()}
 
     def query(self, *args, script=None, env=None):
-        p = subprocess.run(['sh', str(script or self.script), '--target-id', 'fixture', *args],
+        p = subprocess.run(['sh', str(script or self.script), '--target-id', 'fixture', '--deadline-seconds', '30', *args],
                            env=env or self.env, text=True, capture_output=True, timeout=10)
         self.assertTrue(p.stdout, p.stderr)
         value = json.loads(p.stdout)
@@ -59,6 +59,20 @@ class ReadOnlyTests(unittest.TestCase):
         data = json.loads((ROOT / 'docs/architecture/readonly-capability-surfaces.json').read_text())
         self.assertEqual({r['resource'] for r in data['resources']}, set(Distribution().resources))
         self.assertTrue(all(r['scope'] and r['queryInterface'] and r['disposition'] == 'reviewed' for r in data['resources']))
+
+    def test_complete_legacy_diagnostic_schema_accepts_all_produced_fields(self):
+        skill = PACKS / 'istoreos/skills/istoreos-app-diagnostics'
+        fixtures = PACKS / 'istoreos/tests/fixtures/app-diagnostics'
+        schema = json.loads((skill / 'data/report-schema.json').read_text())
+        for case in fixtures.glob('*/task-status.json'):
+            env = {**os.environ, 'ISTORE_DIAG_TASK_STATUS_FILE': str(case),
+                   'ISTORE_DIAG_LOG_FILE': str(case.with_name('istore.log')), 'ISTORE_DIAG_ROOT': str(case.parent / 'rootfs'),
+                   'ISTORE_DIAG_NOW': '1789173400'}
+            p = subprocess.run(['sh', str(skill / 'scripts/inspect.sh'), 'latest', '--detail', 'all'], env=env, text=True, capture_output=True, timeout=10)
+            self.assertEqual(p.returncode, 0, p.stderr)
+            result = json.loads(p.stdout)
+            contract._shape(result, schema)
+            self.assertEqual(result['next'], {'skill': None, 'detail': None})
 
     def test_service_query_runs_as_one_independent_installed_package(self):
         import sys

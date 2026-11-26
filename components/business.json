@@ -78,10 +78,12 @@
       "luci-http-controller"
     ],
     "istoreos-run-executable": [
-      "istoreos-kspeeder-domainfold-fetch"
+      "kai-download-acceleration",
+      "istoreos-service-manager"
     ],
     "istoreos-kspeeder-domainfold-fetch": [
-      "istoreos-download-acceleration"
+      "istoreos-download-acceleration",
+      "istoreos-service-manager"
     ],
     "istoreos-download-acceleration": [
       "istoreos-mise-runtime",
@@ -97,7 +99,8 @@
       "kai-project-dependencies"
     ],
     "istoreos-service-manager": [
-      "kai-system-information"
+      "kai-system-information",
+      "kai-tool-bootstrap"
     ],
     "istoreos-docker-basics": [
       "istoreos-service-manager",
@@ -135,7 +138,8 @@
       "istoreos-service-manager"
     ],
     "istoreos-backup-restore": [
-      "kai-system-information"
+      "kai-system-information",
+      "istoreos-service-manager"
     ]
   },
   "programRequirements": {
@@ -187,6 +191,10 @@
     ],
     "kai-system-information": [
       "POSIX sh and standard Unix utilities; native Windows PowerShell 5.1 or newer on Windows"
+    ],
+    "istoreos-service-manager": [
+      "POSIX sh for readonly inspection; existing Bash/full jq and timeout for explicit writes",
+      "native procd/UCI commands for selected operations; Docker API only for requested Docker start/restart verification"
     ]
   }
 }

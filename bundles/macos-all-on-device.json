@@ -13,7 +13,7 @@
     {
       "id": "kai-download-acceleration",
       "version": "1.2.11",
-      "treeDigest": "sha256:de866744fef1542b2fca0688a3833396e966ff8b2152998e10cf1b4dd955c15e"
+      "treeDigest": "sha256:949eb841aab8ba4cef265ed53db2de7e50eed68bf602ecd5e929eb1616ea341b"
     },
     {
       "id": "kai-project-dependencies",
@@ -23,12 +23,12 @@
     {
       "id": "kai-project-run",
       "version": "1.2.11",
-      "treeDigest": "sha256:ea20990bcb652273b8f6fc4f9fb2124e87857a0eb8e1bd6216ac5106567eb94a"
+      "treeDigest": "sha256:8c0b68b01119a874486d66ee5ceb73f015e446220774e3eb66cdc7b994a25b93"
     },
     {
       "id": "kai-software",
       "version": "1.2.11",
-      "treeDigest": "sha256:3281175bc0035f36c31b4776be667b922668ba3fbb73de2d485c5a6cca36f68f"
+      "treeDigest": "sha256:df74b8f84676d2b2b58d211ac369139f372406dd3a78c1e5992ea981a1bf8a55"
     },
     {
       "id": "kai-storage-files",
@@ -38,7 +38,7 @@
     {
       "id": "kai-system-information",
       "version": "1.2.11",
-      "treeDigest": "sha256:423b2cdf8d5f712bffaaf536a7eafc45360214cc0f4c5948477b8502b468e9fa"
+      "treeDigest": "sha256:34e9bb99382bda53f4acfb94aac7777bd72624086fe08d3560c8b5c085889d32"
     },
     {
       "id": "kai-tool-bootstrap",
@@ -48,12 +48,12 @@
     {
       "id": "macos-launchd-logs",
       "version": "1.2.11",
-      "treeDigest": "sha256:af29e652103195af1a407630e89f0b9f2a91ed8556c8a1dfbf76d3eda616cf93"
+      "treeDigest": "sha256:28861edab86c28acdf97c54498d210cfad98a70b348dd9e97771fe86be2daba3"
     },
     {
       "id": "macos-system-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:2b9a9efc273574ab2ab0e16fed4045a2a499a759116c65723f4b933104ac27bf"
+      "treeDigest": "sha256:b338fc728e0364081c1da62df1ca34009b678b2b6ecf3070a80b5e57658b35a3"
     }
   ]
 }

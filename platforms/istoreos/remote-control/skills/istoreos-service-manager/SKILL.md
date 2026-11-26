@@ -11,6 +11,12 @@ the executable resources required by its own workflow.
 ## Local supporting resources
 
 - `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
+through native PowerShell, then the authorized Ensure operation.
 
 ## Business workflow
 # iStoreOS Service Manager

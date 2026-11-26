@@ -3,7 +3,8 @@ set -eu
 
 raw="${1:-}"
 tool="${2:-curl}"
-shift 2 2>/dev/null || true
+[ "$#" -eq 0 ] || shift
+[ "$#" -eq 0 ] || shift
 
 if [ -z "$raw" ]; then
   echo "usage: $0 <ORIGIN_URL> [curl|wget] [extra args...]" >&2
@@ -20,10 +21,9 @@ fi
 json_escape() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g'; }
 payload="{\"url\":\"$(json_escape "$raw")\"}"
 
-resp="$(curl -fsS -H "Content-Type: application/json" -d "$payload" "http://127.0.0.1:${admin_port}/api/domainfold/remap" 2>/dev/null || true)"
+resp="$(curl --connect-timeout 5 --max-time 30 -fsS -H "Content-Type: application/json" -d "$payload" "http://127.0.0.1:${admin_port}/api/domainfold/remap")" || { echo "failed: selected remap request failed" >&2; exit 1; }
 if [ -z "$resp" ]; then
   echo "failed: cannot query remap API at http://127.0.0.1:${admin_port}/api/domainfold/remap" >&2
-  echo "hint: run ensure_running.sh and confirm admin port" >&2
   exit 1
 fi
 
@@ -31,11 +31,11 @@ admin_path="$(printf '%s' "$resp" | tr -d '\n' | sed -n 's/.*"admin_path":"\\([^
 err="$(printf '%s' "$resp" | tr -d '\n' | sed -n 's/.*"error":"\\([^"]*\\)".*/\\1/p' | head -n 1)"
 
 if [ -n "$err" ] && [ -z "$admin_path" ]; then
-  echo "failed: remap error: $err" >&2
+  echo "failed: remap provider returned an error" >&2
   exit 1
 fi
 if [ -z "$admin_path" ]; then
-  echo "failed: admin_path missing. raw response: $resp" >&2
+  echo "failed: admin_path missing" >&2
   exit 1
 fi
 
@@ -50,10 +50,7 @@ case "$tool" in
     if command -v wget >/dev/null 2>&1; then
       exec wget "$@" "$proxy_url"
     fi
-    if command -v uclient-fetch >/dev/null 2>&1; then
-      exec uclient-fetch "$@" "$proxy_url"
-    fi
-    echo "need-confirmation: neither wget nor uclient-fetch found" >&2
+    echo "failed: the explicitly selected wget executable is unavailable" >&2
     exit 2
     ;;
   *)

@@ -36,7 +36,7 @@ else
   exit 127
 fi
 
-mode="${KSGET_MODE:-auto}"
+mode="${KSGET_MODE:-direct}"
 json="${KSGET_JSON:-0}"
 events="${KSGET_EVENTS:-}"
 out=""
@@ -88,7 +88,7 @@ fi
 
 [ -n "$url" ] || { usage; exit 2; }
 
-set -- download --mode "$mode"
+set -- download --allow-start=false --mode "$mode"
 if [ "$json" = "1" ]; then
   set -- "$@" --json
   [ -n "$events" ] || events="ndjson"

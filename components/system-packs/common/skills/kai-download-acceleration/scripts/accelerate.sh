@@ -116,7 +116,7 @@ case "$action" in
     download)
         [ "$#" = 3 ] || fail 2 usage 'download URL DESTINATION SHA256'
         url="$1"; dest="$2"; expected="$3"
-        download_mode="${KAI_DOWNLOAD_MODE:-auto}"
+        download_mode="${KAI_DOWNLOAD_MODE:-direct}"
         case "$download_mode" in auto|direct|accelerated|race) ;; *) fail 2 usage 'KAI_DOWNLOAD_MODE must be auto, direct, accelerated or race' ;; esac
         https_public_url "$url" || fail 2 source-scope 'a public HTTPS URL without embedded credentials is required'
         [[ "$expected" =~ ^[a-f0-9]{64}$ ]] || fail 2 integrity 'a complete expected SHA256 is required'

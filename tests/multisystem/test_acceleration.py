@@ -61,7 +61,7 @@ class AccelerationTests(unittest.TestCase):
         calls = self.calls.read_text()
         args = json.loads(calls)
         self.assertIn('--allow-start=false', args)
-        self.assertIn('--mode=auto', args)
+        self.assertIn('--mode=direct', args)
         self.assertEqual(args[-1], self.url)
         again = self.call('download', self.url, self.dest, self.sha)
         self.assertEqual(again.returncode, 0, again.stderr)
@@ -89,7 +89,7 @@ class AccelerationTests(unittest.TestCase):
                 self.assertEqual(target.read_bytes(), b'hello\n')
 
     def test_auto_direct_selection_passes_content_without_claiming_acceleration(self):
-        result = self.call('download', self.url, self.dest, self.sha, TEST_SELECTED='origin')
+        result = self.call('download', self.url, self.dest, self.sha, KAI_DOWNLOAD_MODE='auto', TEST_SELECTED='origin')
         self.assertEqual(result.returncode, 0, result.stderr + result.stdout)
         receipt = json.loads(result.stdout)
         self.assertEqual(receipt['download']['mode'], 'auto')
@@ -98,7 +98,7 @@ class AccelerationTests(unittest.TestCase):
         self.assertEqual(receipt['contentValidation'], 'passed')
 
     def test_auto_keeps_origin_probe_bytes_separate_from_the_selected_gateway(self):
-        result = self.call('download', self.url, self.dest, self.sha, TEST_ORIGIN_BYTES='131072')
+        result = self.call('download', self.url, self.dest, self.sha, KAI_DOWNLOAD_MODE='auto', TEST_ORIGIN_BYTES='131072')
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         receipt = json.loads(result.stdout)
         self.assertEqual(receipt['download']['selected'], 'admin_proxy')

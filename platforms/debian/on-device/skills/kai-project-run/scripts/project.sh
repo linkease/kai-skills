@@ -45,12 +45,7 @@ project_make_plan() {
     [ -d "$PROJECT_PATH" ] && [ ! -L "$PROJECT_PATH" ] || task_stop blocked unsafe-project-directory 0
     physical=$(CDPATH= cd -- "$PROJECT_PATH" && pwd -P);[ "$PROJECT_PATH" = "$physical" ] || task_stop blocked unsafe-project-directory 0
     kind=$("$task_jq" -r '.project.kind//""' <<< "$TASK_REQUEST_JSON")
-    if [ -z "$kind" ]; then
-        if [ -f "$PROJECT_PATH/package.json" ];then kind=node;count=$((count+1));fi
-        if [ -f "$PROJECT_PATH/requirements.txt" ];then kind=python;count=$((count+1));fi
-        if [ -f "$PROJECT_PATH/go.mod" ];then kind=go;count=$((count+1));fi
-        [ "$count" -le 1 ] || task_stop needs-ai ambiguous-project-kind 0 '{"attempted":["manifest-detection"],"required":["choose-project-kind"]}'
-    fi
+    [ -n "$kind" ] || task_stop invalid project-kind-required 2
     PROJECT_CRYPTO_POLICY=$("$task_jq" -r '.project.cryptoPolicy//"inherit-target"' <<< "$TASK_REQUEST_JSON")
     case "$PROJECT_CRYPTO_POLICY" in inherit-target|sdk-default) ;; *) task_stop needs-ai unknown-project-crypto-policy 0 ;; esac
     PROJECT_FILES='[]';entry=;run=;build=
@@ -60,7 +55,8 @@ project_make_plan() {
         [ -f "$PROJECT_PATH/package-lock.json" ] || task_stop needs-ai project-lock-required 0 '{"attempted":["manifest-detection","npm-lock"],"required":["review-existing-package-manager-and-lock"]}'
         project_source package-lock.json
         "$task_jq" -e '(.packageManager//"npm")|test("^npm(@.*)?$")' < "$PROJECT_PATH/package.json" >/dev/null || task_stop needs-ai project-package-manager-required 0
-        run=$("$task_jq" -r '.project.runScript//"start"' <<< "$TASK_REQUEST_JSON");build=$("$task_jq" -r '.project.buildScript//""' <<< "$TASK_REQUEST_JSON")
+        run=$("$task_jq" -r '.project.runScript//""' <<< "$TASK_REQUEST_JSON");build=$("$task_jq" -r '.project.buildScript//""' <<< "$TASK_REQUEST_JSON")
+        [ -n "$run" ] || task_stop invalid project-run-script-required 2
         "$task_jq" -e --arg run "$run" --arg build "$build" '(.scripts[$run]|type=="string") and ($build=="" or (.scripts[$build]|type=="string"))' < "$PROJECT_PATH/package.json" >/dev/null || task_stop needs-ai project-run-script-required 0 ;;
       python)
         manager=pip;project_source requirements.txt

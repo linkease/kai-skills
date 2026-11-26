@@ -63,7 +63,7 @@ grep -F 'kai-network-quality' "$root/skills/istoreos-system-task-router/SKILL.md
 
 for script in "$root"/skills/*/scripts/*.sh; do
   [ -f "$script" ] || continue
-  sh -n "$script"
+  if head -n 1 "$script" | grep -q bash; then bash -n "$script"; else sh -n "$script"; fi
 done
 
 sh "$root/tests/test_download_acceleration_dispatch.sh"

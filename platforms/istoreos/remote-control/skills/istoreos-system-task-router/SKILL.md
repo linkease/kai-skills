@@ -13,6 +13,12 @@ the executable resources required by its own workflow.
 - `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `istoreos-service-manager`: [local instructions](resources/runtime/istoreos-service-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
+through native PowerShell, then the authorized Ensure operation.
 
 ## Business workflow
 根据实际 iStoreOS 目标和用户意图选一个主能力；明确的软件维护直接走 kai-software，不先做全系统检查。

@@ -431,8 +431,8 @@
         "KA1",
         "KA3"
       ],
-      "implementationStatus": "in_progress",
-      "verificationStatus": "in_progress",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R02",
         "R09",
@@ -444,33 +444,43 @@
         {
           "id": "KA4-T01",
           "assertion": "请求必须明确目标和实际变更参数。缺少关键来源、软件身份、数据源或目的地时返回缺少参数，不自动选一个方案；现有授权范围内的确定操作不重复制造业务确认。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA4-20261126.json"
         },
         {
           "id": "KA4-T02",
           "assertion": "操作开始前检查自身前置条件；状态变化时拒绝过时请求，不额外引入全局业务工作流。参数合法、操作获准和实际成功分别记录。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA4-20261126.json"
         },
         {
           "id": "KA4-T03",
           "assertion": "目录复制针对真实来源和挂载身份执行，非空目标不自动混合不同数据集；所承诺的内容和属性均有验证。UCI 已等于目标、目录存在或复制命令退出 0 不能单独证明迁移完成。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA4-20261126.json"
         },
         {
           "id": "KA4-T04",
           "assertion": "注入停止失败、复制中断、空间不足、配置提交失败、后台进程退出和启动后 API 失败，回执均不得报完全成功。删除吞错的 `|| true` 成功路径和无验证的 best-effort 成功声明。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA4-20261126.json"
         },
         {
           "id": "KA4-T05",
           "assertion": "超时或取消后保留已发生的效果，重试不重复破坏数据。只清理本操作拥有的临时材料；内部回退仅限接口已经声明且获准的事务范围，不擅自恢复整机或覆盖用户后续修改。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA4-20261126.json"
         },
         {
           "id": "KA4-T06",
           "assertion": "所有适用操作前后第三方 init 脚本、服务二进制和未声明配置保持一致；不因调用能力而安装持久拦截器。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA4-20261126.json"
         }
+      ],
+      "optimizations": 2,
+      "evidence": [
+        "../verification/agent-capability-KA4-20261126.json"
       ]
     },
     {

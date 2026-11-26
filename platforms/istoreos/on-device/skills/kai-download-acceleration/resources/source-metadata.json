@@ -6,7 +6,7 @@
     {
       "id": "kai-download-acceleration",
       "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
-      "sourceDigest": "sha256:d7f48c4df0a02b5e4a56b847f0568b80eb74e1e4c347654eb2498839929fde9a"
+      "sourceDigest": "sha256:c2c7b467489d167bf2712312e42ac87ba39b55fc7e942acb476b8636ecbbf2e7"
     },
     {
       "id": "kai-tool-bootstrap",

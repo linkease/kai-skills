@@ -20,7 +20,7 @@ fail() {
 }
 case "$action" in search|info|install|download|remove|files|owner|refresh) ;; *) fail 2 usage 'software.sh search|info|install|download|remove|files|owner|refresh SUBJECT [VERSION]' ;; esac
 if [ "$platform" = windows ]; then
-    destination=; architecture="${KAI_WINGET_ARCH:-}"; policy="${KAI_SOFTWARE_ACCELERATION:-auto}"
+    destination=; architecture="${KAI_WINGET_ARCH:-}"; policy="${KAI_SOFTWARE_ACCELERATION:-none}"
     case "$policy" in required|auto|none) ;; *) fail 2 usage 'KAI_SOFTWARE_ACCELERATION must be required, auto or none on Windows' ;; esac
     if [ "$action" = download ]; then
         [ "$#" -ge 4 ] && [ "$#" -le 5 ] && [ -n "$requested" ] || fail 2 usage 'software.sh download winget:ID VERSION ABSOLUTE_DIRECTORY [ARCH]'

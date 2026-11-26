@@ -6,12 +6,12 @@
     {
       "id": "windows-service-eventlog",
       "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
-      "sourceDigest": "sha256:e83d868e553d00a611a967aad58fccd7eb6e25d7af599d3fa76dd6be0080b7ac"
+      "sourceDigest": "sha256:369482c93d3ddca95b7a288654fdd30653956b20163bf0cfa9f7ebd5e8e6cf1e"
     },
     {
       "id": "kai-system-information",
       "canonicalPath": "components/system-packs/common/skills/kai-system-information",
-      "sourceDigest": "sha256:f56c3838c3a9f72cb9b6780445b84fddb3e1e3e5009b700d8f39267700f72909"
+      "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
     }
   ]
 }

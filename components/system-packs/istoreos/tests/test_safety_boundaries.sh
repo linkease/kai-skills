@@ -29,32 +29,19 @@ printf '%s\n' "$out" | grep -Fq '[REDACTED]'
 
 printf '%s\n' '#!/bin/sh' 'printf "%s\\n" "$1" >>"${SERVICE_MARKER:?}"' >"$rootfs/etc/init.d/demo"
 chmod +x "$rootfs/etc/init.d/demo"
-if ISTOREOS_ROOT="$rootfs" SERVICE_MARKER="$tmp/service.marker" sh "$ensure" demo >"$tmp/out" 2>"$tmp/err"; then
+if ISTOREOS_ROOT="$rootfs" SERVICE_MARKER="$tmp/service.marker" bash "$ensure" demo >"$tmp/out" 2>"$tmp/err"; then
   echo 'failed: service mutation ran without confirmation' >&2
   exit 1
 fi
 [ ! -e "$tmp/service.marker" ]
-grep -q 'KAIPLUS_CONFIRMED=1' "$tmp/err"
-
-if KAIPLUS_CONFIRMED=1 ISTOREOS_ROOT="$rootfs" SERVICE_MARKER="$tmp/service.marker" sh "$ensure" '../demo' >"$tmp/out" 2>"$tmp/err"; then
-  echo 'failed: service manager accepted a traversal name' >&2
-  exit 1
-fi
-grep -q 'invalid identifier' "$tmp/err"
-
-KAIPLUS_CONFIRMED=1 ISTOREOS_ROOT="$rootfs" SERVICE_MARKER="$tmp/service.marker" sh "$ensure" demo >/dev/null 2>&1
-grep -qx 'enable' "$tmp/service.marker"
-grep -qx 'restart' "$tmp/service.marker"
-grep -qx 'status' "$tmp/service.marker"
-
-rm -f "$tmp/service.marker"
-cp "$rootfs/etc/init.d/demo" "$rootfs/etc/init.d/istoreenhance"
-if ISTOREOS_ROOT="$rootfs" SERVICE_MARKER="$tmp/service.marker" sh "$ensure_kspeeder" >"$tmp/out" 2>"$tmp/err"; then
-  echo 'failed: iStoreEnhance service mutation ran without confirmation' >&2
-  exit 1
-fi
+jq -e '.operationStatus=="failed" and .errors[0].code=="INVALID_ARGUMENT"' "$tmp/out" >/dev/null
+# Full explicit request/precondition/authorization and failure-path coverage lives
+# in test_writes.py; these legacy aliases must reject implicit service workflows.
+if KAIPLUS_CONFIRMED=1 ISTOREOS_ROOT="$rootfs" bash "$ensure" '../demo' >"$tmp/out" 2>"$tmp/err"; then exit 1; fi
 [ ! -e "$tmp/service.marker" ]
-grep -q 'KAIPLUS_CONFIRMED=1' "$tmp/err"
+if ISTOREOS_ROOT="$rootfs" bash "$ensure_kspeeder" >"$tmp/out" 2>"$tmp/err"; then exit 1; fi
+[ ! -e "$tmp/service.marker" ]
+jq -e '.operationStatus=="failed"' "$tmp/out" >/dev/null
 
 missing="$tmp/not-created/by-detect"
 observation_code=0
@@ -70,8 +57,10 @@ fi
 [ ! -e "$missing" ]
 grep -q 'KAIPLUS_CONFIRMED=1' "$tmp/err"
 
+if KAIPLUS_CONFIRMED=1 sh "$probe" "$missing" >/dev/null 2>&1; then exit 1; fi
+[ ! -e "$missing" ]
+mkdir -p "$missing"
 KAIPLUS_CONFIRMED=1 sh "$probe" "$missing" >/dev/null
-[ -d "$missing" ]
-[ ! -e "$missing/.istore_write_test" ]
+[ -z "$(ls -A "$missing")" ]
 
 echo 'ok: safety boundaries reject unsafe names, redact secrets, and gate writes'

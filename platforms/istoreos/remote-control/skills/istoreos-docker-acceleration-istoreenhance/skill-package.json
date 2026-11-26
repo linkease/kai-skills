@@ -22,17 +22,22 @@
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
-      "sourceDigest": "sha256:2b75651acdc2b6a1f73c0e9a5b2bedd0c5b46c82f1c51fe57cc8efd9950ab3f7"
+      "sourceDigest": "sha256:d9f3820ed652e3c35332e2fe628424b573dc95e78dad60499a86a985d729036e"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:a0e58d1f8a1633b3859ec8f469ec6a842689e688dba2e18fb4fc30bcbc88ce54"
+      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
     },
     {
       "id": "kai-system-information",
       "canonicalPath": "components/system-packs/common/skills/kai-system-information",
-      "sourceDigest": "sha256:f56c3838c3a9f72cb9b6780445b84fddb3e1e3e5009b700d8f39267700f72909"
+      "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
     }
   ]
 }

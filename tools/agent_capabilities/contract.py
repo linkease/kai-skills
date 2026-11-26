@@ -42,9 +42,17 @@ def _shape(value, rule):
     if 'enum' in rule:
         _require(value in rule['enum'], 'invalid enum value')
     kind = rule.get('type')
-    types = {'object': dict, 'array': list, 'string': str, 'boolean': bool}
+    types = {'object': dict, 'array': list, 'string': str, 'boolean': bool,
+             'integer': int, 'number': (int, float), 'null': type(None)}
+    if isinstance(kind, list):
+        matching = [k for k in kind if type(value) in (types[k] if isinstance(types[k], tuple) else (types[k],))]
+        _require(bool(matching), 'invalid union type')
+        return _shape(value, {**rule, 'type': matching[0]})
     if kind in types:
-        _require(type(value) is types[kind], 'invalid type for '+kind)
+        _require(type(value) in (types[kind] if isinstance(types[kind], tuple) else (types[kind],)), 'invalid type for '+kind)
+    if kind in ('integer', 'number'):
+        _require(value >= rule.get('minimum', -float('inf')), 'value below minimum')
+        _require(value <= rule.get('maximum', float('inf')), 'value above maximum')
     if kind == 'object':
         properties = rule.get('properties', {})
         _require(set(rule.get('required', [])) <= value.keys(), 'missing required fields')
@@ -54,6 +62,8 @@ def _shape(value, rule):
             if key in value:
                 _shape(value[key], child)
     elif kind == 'array':
+        _require(len(value) >= rule.get('minItems', 0), 'too few array items')
+        _require(len(value) <= rule.get('maxItems', 1 << 20), 'too many array items')
         for item in value:
             _shape(item, rule.get('items', {}))
     elif kind == 'string':

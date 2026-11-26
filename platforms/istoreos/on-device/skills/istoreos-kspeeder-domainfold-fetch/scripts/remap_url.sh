@@ -17,10 +17,9 @@ fi
 json_escape() { printf '%s' "$1" | sed -e 's/\\/\\\\/g' -e 's/"/\\"/g'; }
 payload="{\"url\":\"$(json_escape "$raw")\"}"
 
-resp="$(curl -fsS -H "Content-Type: application/json" -d "$payload" "http://127.0.0.1:${admin_port}/api/domainfold/remap" 2>/dev/null || true)"
+resp="$(curl --connect-timeout 5 --max-time 30 -fsS -H "Content-Type: application/json" -d "$payload" "http://127.0.0.1:${admin_port}/api/domainfold/remap")" || { echo "failed: selected remap request failed" >&2; exit 1; }
 if [ -z "$resp" ]; then
   echo "failed: cannot query remap API at http://127.0.0.1:${admin_port}/api/domainfold/remap" >&2
-  echo "hint: ensure iStoreEnhance is running and admin port is reachable" >&2
   exit 1
 fi
 
@@ -34,12 +33,12 @@ admin_path="$(json_get admin_path)"
 err="$(json_get error)"
 
 if [ -n "$err" ] && [ -z "$out" ]; then
-  echo "failed: remap error: $err" >&2
+  echo "failed: remap provider returned an error" >&2
   exit 1
 fi
 
 if [ -z "$out" ]; then
-  echo "failed: remap output missing. raw response: $resp" >&2
+  echo "failed: remap output missing" >&2
   exit 1
 fi
 

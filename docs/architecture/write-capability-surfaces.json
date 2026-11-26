@@ -1,0 +1,461 @@
+{
+  "schemaVersion": 1,
+  "kind": "write-interface-review",
+  "note": "Review evidence, not runtime intent routing or an authorization allowlist. Native interfaces retain named compatibility formats. No helper marker grants host permissions.",
+  "resources": [
+    {
+      "resource": "debian-system-diagnostics",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {}
+    },
+    {
+      "resource": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/catalog.sh": "71787a851ac3ec1b505672cd0d7b27e6575b5b6eba38227e4c9fa647e4d4e3c7",
+        "scripts/classify.sh": "c7ae11145fc70a7ede39aabd40cf07c82c5e09275234ee872b384ead38c465ce",
+        "scripts/collect.sh": "cadf273848c611805234dde7a9b4d03d2bef4bcb7525bcac2efe7ad3c68d5d72",
+        "scripts/detail-log.sh": "847f932a5cc31bbe6ae093350f003ae67a2de36fe7adfeb90d6ef18e284d966d",
+        "scripts/inspect.sh": "6cebacf3e0aebcefd506e39bd5c18577badde91d68b211547b0690f0f7e4d13e",
+        "scripts/sanitize-log.sh": "ba502d6a46d3b841f5659fd480883c57e6e9de8109529f714595036d388ce98a",
+        "scripts/state.sh": "43f7e4b286d842c5016ca1e0f6507c5c239ff73c83451f81067fa8373e628850",
+        "scripts/store-app.sh": "45d38bb26bf7f44aa46fd969a69b86f873678009632ac443059d4501fc58cfac",
+        "scripts/system-log.sh": "b5bfe287029d7f8ff0994240fc8d1d20ecea24d9577c38b8bef0ea9b5651ec2f"
+      }
+    },
+    {
+      "resource": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/fetch-store.sh": "b05e0558a65e13825c48980206d85dc6cc2278b91e5a0b7c654742a27d45cacb",
+        "scripts/search.sh": "301403f32615b1baafd0a1ed9ea47d32ac98906be7c08b716ab706cb9f0cab29"
+      }
+    },
+    {
+      "resource": "istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+      "review": "changed-explicit-operation",
+      "scope": "recovery.backup/recovery.restore: exact native template/checkpoint/immutable preview/job identities; native provider owns storage and /tmp workers",
+      "sourceFiles": {
+        "scripts/backup_system.sh": "c59d27c095e8812502f2fbdad070effbcff68dd940eb80f7c136b4eb28ff894e",
+        "scripts/check.sh": "8d4d19b48f6de2b097ba1cafe444a88bdcec8fd078b919cb38362a69ffec2eb7",
+        "scripts/recovery-operation.sh": "8428ad772ea8b87bdc07d7f66a4217f7603876f9f76fa25b3ae15a1fb2a7b8e2",
+        "scripts/restore_system.sh": "720962876231ac665a977e989f364ab515db03f26b36813c3caa0ff6bdb50a49"
+      }
+    },
+    {
+      "resource": "istoreos-docker-acceleration-istoreenhance",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
+      "review": "changed-explicit-operation",
+      "scope": "service.apply alias only, no package install/autoconf/config selection",
+      "sourceFiles": {
+        "scripts/check.sh": "51271f648d12cefc6304f80ef041ef19394cd9fa3e838bf6c6585394c51c48bd",
+        "scripts/ensure_ready.sh": "8e2ce2334ef2e849a27a322ea3646843a58b2eb047b7e882bec0bbb1d9f2951b"
+      }
+    },
+    {
+      "resource": "istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/check.sh": "e9e30bf8538b7b98c82f6da09dc3ed192b669e47bd8a05da8d0ba2858e4768e3",
+        "scripts/check_space.sh": "d99b466c16f91fe65a49811769770b66e5f22f740000fc100e45de66065eaa35"
+      }
+    },
+    {
+      "resource": "istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+      "review": "changed-explicit-operation",
+      "scope": "docker.data.copy: explicit physical source/empty destination, mount identities, quiescence, metadata/checksum verification; no configure/start/stop",
+      "sourceFiles": {
+        "scripts/apply.sh": "683b303fc299f674cd8d17ce914eb06fe53058ed5c9b626d23f7e90098d9a04b",
+        "scripts/plan.sh": "49d94feecb80ae151a10872dda105185ed9b4234fc5e9e36a39959779aad8230"
+      }
+    },
+    {
+      "resource": "istoreos-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+      "review": "changed-explicit-operation",
+      "scope": "explicit dependency/git/download adapters; default direct, no start; docker pull requires selected endpoint",
+      "sourceFiles": {
+        "scripts/dependency.sh": "1f9514ad89d4b530da007538abc8910b15b5adc748458a9a792c4bf65bdba490",
+        "scripts/dispatch.sh": "13c753e2ed27b633e71981bec5af128f123bf319e2fead37d339738899da0242",
+        "scripts/evidence.sh": "615e298ead43482d2a558df868a2b9cfedec0f95b22fa0d294e5d0a472d49fa9",
+        "scripts/smoke.sh": "0a99485533fd17a83d56ba363b519a227ec3e2d18ec45220453b2070814507c6"
+      }
+    },
+    {
+      "resource": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "review": "changed-explicit-operation",
+      "scope": "explicit download/remap; no automatic service start, no downloader fallback; service alias requires full request",
+      "sourceFiles": {
+        "scripts/check_installed.sh": "6c06fd0fdbadcbc30360755952b4275c48138be17195ab4e4fc0052edb7fdfad",
+        "scripts/ensure_running.sh": "8e2ce2334ef2e849a27a322ea3646843a58b2eb047b7e882bec0bbb1d9f2951b",
+        "scripts/fetch_via_domainfold.sh": "b155925db1d202311e37af56beaa4cf3b860195ddef015c1446c231062df3e50",
+        "scripts/ksget.sh": "35aa4d35e6cbb8f3ed34afcb0352f201128ad6b586e5bfe066d8e3b3823e3b50",
+        "scripts/remap_url.sh": "9b0bcd5cd1ed734fca9023218bb93758495c2fd4f85e23b7f6d885cb8a2c7b4a"
+      }
+    },
+    {
+      "resource": "istoreos-logs-and-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/min-diag.sh": "df7f6e3b698447b7e6c796d5f9327504b6645eea175738cc368672d6d9a01021"
+      }
+    },
+    {
+      "resource": "istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+      "review": "changed-explicit-operation",
+      "scope": "compatibility service.apply and package.reinstall for one SHA256-verified local opkg artifact; no feed refresh, group reinstall, caches or restarts",
+      "sourceFiles": {
+        "scripts/diag.sh": "3c7b996301ff3714538d8f264004b9bd7dc082f0e736e6a0c1a1f9e446a0c575",
+        "scripts/reinstall_core.sh": "53fc0a5101b2e7744b65d5b33798bfb871ef7d9161f082d33aefef2090347047",
+        "scripts/soft_recover.sh": "8e2ce2334ef2e849a27a322ea3646843a58b2eb047b7e882bec0bbb1d9f2951b",
+        "scripts/suggest_fix.sh": "553cf3eb73d2d4ae88e921bb7cfa871a320017018ab6751be24aadf8d815a661",
+        "scripts/trace_owner.sh": "652a62df6ede0541894c822fa5265db4fb8a83d29e8584491013fafea8998cda"
+      }
+    },
+    {
+      "resource": "istoreos-mise-runtime",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/check.sh": "d0de7844762266ad6c890bf240b39b5c18682ad3d028cbcc80c58b3d079bbab9",
+        "scripts/diagnose.sh": "28775dd6dc62be142cc5a11b71d21bfcfda4cb323756cb35ed92a6b65aa2e5d9",
+        "scripts/environment.sh": "66d69ef5f73a847eaae1262f32d8760fa71ba4a8e75802ea5cd8fb0c22141f2c",
+        "scripts/exec.sh": "56dd7ccc0ff2568a3bda580295b301984e50e2c190839cdf267d0432f6801bc4",
+        "scripts/install.sh": "6a3134c4f4f4cdb0ca861eb39201995391e990b6829eab0bfa9260df2658dc63",
+        "scripts/probe.sh": "89a0ec1755f951c0661307d86b10fe45ab9b68dab98557e5bf1c8ff2b6b1fa1a",
+        "scripts/result.sh": "3a6365941c7c426ddb3d776bf315e350615041d15db8ac9a705f08a385a20ca3",
+        "scripts/verify.sh": "05a23dbeca0b9222a0484e9671438ad2813336f00f6028828839a6ae98f32ab3"
+      }
+    },
+    {
+      "resource": "istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/inspect.sh": "7ed2a88e302e6baf315052e4eae0a9858e573414b1ec7790bf7ca7308839d14a",
+        "scripts/run.sh": "fd013fa02f632fe0f96bfc26a1c9ec1470816a0d8fd16cef6ee6ac74a6ba6b18"
+      }
+    },
+    {
+      "resource": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/ensure_services_from_pkg.sh": "62e5c86b383a5fe849790a1087c8dbaf653b8bf4f2ebd474cf444e5d8c2ec308",
+        "scripts/legacy-query.sh": "b6d1737eb8ffc76b0b61fa366ab2ddbe7617cedf01f9585240fdb7431bc57d14",
+        "scripts/meta-query.sh": "6bc083d8606bbf2556ea03c39d68126f4aa7336eaf8ece08ee21a79f6fecfb00",
+        "scripts/opkg-find.sh": "d8cca8613f54aaa309b04ce0465060803413bc1b09764ff0a1117a0a92bdf1e9",
+        "scripts/opkg-info.sh": "14ddbb96e219c564e75b96d18b9180a0ef1bb1542eab7cd01fd4c0a8635eff50",
+        "scripts/opkg-search-file.sh": "57907cfda8fe99367fadd64a8575db79a258c3ffe7e9a495c3c16e1c29da34ae",
+        "scripts/package.sh": "abf3d35a866d195338036ceb137afef9f61f0a4351ba94b5f3d42a3b74ec0955",
+        "scripts/registry-search.sh": "57205f31f8228101c10a280afcb3d85bb6322e1b0573ee9d1790833d27169692"
+      }
+    },
+    {
+      "resource": "istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/request.sh": "363ee3e923eeb5bd29dba2789a6082cea0acf51cfb10d3974f41ea8dee825cd8"
+      }
+    },
+    {
+      "resource": "istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+      "review": "changed-explicit-operation",
+      "scope": "separate verified HTTPS download and local artifact.execute: digest/runner/arguments/cwd, owned execution copy, no fallback runner",
+      "sourceFiles": {
+        "scripts/fetch.sh": "d7c271b4b41fcf89fb80b77ff0be4d83ba66dc1a2a569b18cb64df0b2c71bf15",
+        "scripts/inspect.sh": "61bc397dd318cd9a7d640125b66430d9a61d8948e2d0c8f84f6a773c6d0d2859",
+        "scripts/run.sh": "e60a4f527528ea1b5eb9766a6a27d9e252397692f912a5cf2062f346082df7f3"
+      }
+    },
+    {
+      "resource": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "review": "changed-explicit-operation",
+      "scope": "service.apply: exact action, init/config digests, private native UCI candidate, selected postcondition, owned idempotency journal",
+      "sourceFiles": {
+        "scripts/apply.sh": "7b3d0dd3dc1f591981c83baa5d3abb1fbdb31dd6500e29d1bbd7d804353cd6f5",
+        "scripts/ensure.sh": "b81a8c24b07bf6f891796fea62f5f7e30755373fd371cc207d0c86e2c73e2be1",
+        "scripts/inspect.sh": "3dca1e8b67967d947c6664911a330283469e2ff0cd17a980c0aaa0e7595e7c73",
+        "scripts/write-lib.sh": "a6b7272b615d6072e4b38cfb8a113143e832f0239d95af66da2891cf4cbc3aaf"
+      }
+    },
+    {
+      "resource": "istoreos-source-introspect",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/collect.sh": "4366f6101acaba9e3aab7f882f413a89b2baed86ca8f75c812e91963f7fe1bbc"
+      }
+    },
+    {
+      "resource": "istoreos-storage-path",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
+      "review": "changed-explicit-operation",
+      "scope": "write probe only in existing physical selected directory, exclusively owned mktemp file, no directory creation",
+      "sourceFiles": {
+        "scripts/detect.sh": "a1d32a6b546ecc3e12012ae0524bb8080c4ee2165379b85750d9909408d21ab6",
+        "scripts/probe.sh": "93a9adc3f88b16262e5bc7761ff6ca067f09f5704f7f4012ae3325779bdd330c",
+        "scripts/quick-view.sh": "1f22e038c042fc3e6d91925395f7345ce02a47b7fbf9e77e65e6a47155b74d99"
+      }
+    },
+    {
+      "resource": "istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/observe.sh": "6b5df035b5605245a652dc0f19ee740538d824ffb3fe99d143a5a8b68bd29961"
+      }
+    },
+    {
+      "resource": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/apply.sh": "4753aa3e4e31b6c907fba3545f5a70d8b99e14c57309da8b131f49b9ee5f3218",
+        "scripts/inspect.sh": "4fb7e24871b08867168fe0e9056125358d355d62143505ecb82decd2f48a4d98"
+      }
+    },
+    {
+      "resource": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/check-node.cjs": "54a7b731d890f6a1f359ae01a2f8fa3581fe374dbdeea34cb27c7e50d671be63",
+        "scripts/check-python.py": "56366a9c5a921bf5ada857c2b0aa84535d3185e875cb2bffda7c6ea1ea0b5135",
+        "scripts/check-tls.py": "1af706b4528769598e2978a2b94ebd5c0c4f40e49b8abda2901a6c5e40100801",
+        "scripts/dev-cli.sh": "33506a290fb7c5dde046662631604f6a58b9a0c2c87b6c180600290c57de22b9",
+        "scripts/diagnose.sh": "fd665838d467040f6032ea79519edb82e86ad0bf951aa0e5fff9114b5453193f",
+        "scripts/enter.sh": "fd56b4f37c1bcd7a5b0fc2cdf45d469ad55fb101a5b6666794dc08c95ff3b0b6",
+        "scripts/python-openssl.sh": "7a28433010d19ed1cffaabc7460e4b6c42eb2370e18f4c3cc4056001cb5b374c",
+        "scripts/runtime-adapter.sh": "db823061d2a105fee0fc5bad0d1f277bf608904fc4f94f733094f8b3a9c91d3d",
+        "scripts/runtime.sh": "7eae2b392eea2c1726148d5acdf5f92bbcfc29f4aa57c53deddf51ffbaf90587"
+      }
+    },
+    {
+      "resource": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "review": "changed-explicit-operation",
+      "scope": "existing verified candidate/atomic artifact activation; direct default, automatic racing only explicit mode",
+      "sourceFiles": {
+        "scripts/accelerate.sh": "30bf67ebd52704b966d8dca3069936336f4d91250ae983f5939bf61203c622ee",
+        "scripts/evidence.jq": "dbc99917aa7f487023e52782b1853e764156992b5f08841cbaf3f5dd59b2868a",
+        "scripts/evidence.sh": "320f962ebfaa267b68bd7b5d90a58ed787f14b33d609d4b426485da83e1f593e"
+      }
+    },
+    {
+      "resource": "kai-network-quality",
+      "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/network.sh": "6ccb764aa728ba317d3b5eed555860ba5c4095139279cf61571d2628023a7243"
+      }
+    },
+    {
+      "resource": "kai-project-dependencies",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/dependencies.sh": "2b7b4738e391e3262d04b92014309c748be979a6dd775db13f46e456fc503e8d"
+      }
+    },
+    {
+      "resource": "kai-project-run",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-run",
+      "review": "changed-explicit-operation",
+      "scope": "existing explicit transaction requires project.kind and node runScript; no inferred project/launch command",
+      "sourceFiles": {
+        "scripts/project.sh": "340cf28960de43126d32cf987e127addf1ab29c27bcf965143b1199e945fd698"
+      }
+    },
+    {
+      "resource": "kai-software",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "review": "changed-explicit-operation",
+      "scope": "source-qualified native operations and existing owner transactions; optional acceleration default none, no host business selection",
+      "sourceFiles": {
+        "scripts/homebrew-market.sh": "b157c3fb77bec21211198c63c1d58a6df1258fec80e7f40c122a42bedbac05bb",
+        "scripts/market/dispatch.ps1": "699adb75a9d6d680f955ae21c431e68481bee792deca7ba6afe685b395863ccc",
+        "scripts/market/inventory.ps1": "90638d15a746a0ac3b6e7b2f8c62f34f491c648387a9b99d31829f506ae96a19",
+        "scripts/market/packages.ps1": "685f8ba07670983f22140e56eef05d47ab53ef361d817ce7d021a293a16ad59e",
+        "scripts/market/plan.ps1": "e74eda1b3505138a9591ab31f3eb3b71beb377e20796d0c0d5f74be5a63f1249",
+        "scripts/market/setup.ps1": "1ff7337c244237ef19703d7ce681fa97294302f30752e3d2396a95c245b0b1dd",
+        "scripts/market/sources.ps1": "d12480b635b30d5ffae169d95c2cdd417bb926afdc1e1ba726f3ecc9603d0ff1",
+        "scripts/market.ps1": "f3c3acd04ba1daa9e8bfe2416765fddce63fce9eec9e33b9169d31d955beb748",
+        "scripts/owner-env.sh": "30419a918ff5168482c8ec0c727b787f84bd8a77c8deed9101a577497de290c3",
+        "scripts/query/apk.sh": "4933e10217ee290a3e5ce59b80d7e2fa27eb585f2f73c90e8d676ac72c8a1347",
+        "scripts/query/brew.sh": "7ce192c8b787bb682d552a22d598029312888bd1f30cd5f1fe1a250cbe176c8a",
+        "scripts/query/docker.sh": "1096b2309036cca27ad6f3ed0cbf4e56e412ce1569f71956fcac3ac78db15f49",
+        "scripts/query/result.jq": "23cd7a83242f681570bea50c93d227b07ef78e1026df66a322e53022469083ea",
+        "scripts/query/result.ps1": "84992d540f28de40b36e84ba06e26904d1de5dfc6983c52df756c6ba6ecd4d07",
+        "scripts/query/windows.ps1": "0d0971db5464f971a7ae389638501bfdc93dbe8ea548403f4d4af65dd30ac79e",
+        "scripts/query-entry.ps1": "1c1368a4e8f1549b82efdcdf7e8fe5286c0ada11c16c21a733d15b554c9b7048",
+        "scripts/query-entry.sh": "6fe223e3a3ad2dfec4b5a8a32370724d4cac72d6b34be94af021cbbdf5b68c2e",
+        "scripts/query.sh": "20c7ecb32f25bdbd5dae1d8d9f677e2d34d36e117c348d79eb91edc520e0130f",
+        "scripts/scoop/client.ps1": "bc6505d224b66b10520636a110e90198369672394aa185eb3ec4b1256dc17f31",
+        "scripts/scoop/identity.ps1": "de7a67154f1ad127383638d57ff750775620586ec3e2657f1448eee587a1d40e",
+        "scripts/scoop/json.ps1": "25d66ab0adf1c4d1cc754187f6ca1b4ffedda1ead5c9dc9874a1ac9345d95f90",
+        "scripts/scoop/packages.ps1": "0d71f68b1f293dd5f7906dfa1aa85c182fa2a3b85e501c50c71ade964f7ecc9c",
+        "scripts/scoop/search.ps1": "6813081286af1bafc785b4f1d6c8e9729fb0c78d390be53bb264c1c96fc89470",
+        "scripts/scoop.ps1": "adeb4f4aaab97be09f52c2bb2ca16cbc947e4c4a846f6194922cea4d5c8110b9",
+        "scripts/software-task.sh": "75c737985e98d2bbc01ae672969e8907cebc42d2b1fcc2272649d9c3775f126d",
+        "scripts/software.sh": "076a2412f2150a8d3d8ae547f4c5d09817c7a197f276d1a53f648c94d2fc5bc5",
+        "scripts/task-entry.ps1": "0731a3b33c1b4cdc9c7846092ae0147cc586762f81f59421f12c1b9276803a85",
+        "scripts/task-entry.sh": "fd22411240f5dc6edd6a32a32dce6888fe64fefffb6b261909acb3d230ea66e5",
+        "scripts/winget.ps1": "afe99ba5101a6d20f6ca781c61773e40ba9fb67457b601074f69b9c7868b4148"
+      }
+    },
+    {
+      "resource": "kai-storage-files",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/native.py": "c45f5313bc395c9bd1cb0a4d2fafaf7efeaacf7e31087b570c789202f4af69eb",
+        "scripts/usage.sh": "3f200a846ce0a14714fd4e31e35f736af24bfd68185ce8cd6ea7ae1d74ba626c"
+      }
+    },
+    {
+      "resource": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/inspect.ps1": "d2870d30f685e7d867c82183c83d1e8ed14c147abd6c4bf7ef8cebf90645bd23",
+        "scripts/inspect.sh": "db466df96a339fa542a73f542e012890921fe7d7295d77c208f09d4399f67fd0",
+        "scripts/lib/probe.sh": "477e4834001357cae4709f8aa73ab0422fc1ddb694a90f724b5f7aa7b0642f76",
+        "scripts/lib/receipt.ps1": "f1d7e10c71fc4d1ef515f40ff33b724f02ddfacbbbfbcb74a083de6c80719a84",
+        "scripts/lib/receipt.sh": "577ede1a3ff2359bc148a240081c38e2dc3885818a4d631bf7acbbf852c85c35",
+        "scripts/observe.sh": "4f985750ba87dc8aefa0418d57611fbba2135bb2ab41f44cc3fdf3502221ebb9"
+      }
+    },
+    {
+      "resource": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/bootstrap-bash.ps1": "79cefc606ef14ddb2dc865f4294dcbceb689d517f73fc9c0166559c84a3568fe",
+        "scripts/bootstrap-core-windows.ps1": "de62d182ffdd3df4fe463bbbe7a6993858a9bb809d0a91793eaa782932e43606",
+        "scripts/bootstrap-core.sh": "703c2cf22e0a0ff0278d5186a6c8297420e0dcfb79246d321becaa28d6673ecc",
+        "scripts/install-mise-windows.ps1": "4f6a455aeb0b8ea7973e19fc9cdb4be0d3006cd9629ca735d03896cb68a32b40",
+        "scripts/install-mise.sh": "cda14a58f23d7c723080741d69200c2fb931db3950a1737d864fa7f8c56aee00",
+        "scripts/jq-env.sh": "0861c456947d74dbb9440541b33849e0a38b817a74450959d9bb9354382237b3",
+        "scripts/jq.sh": "000453ae6cc01e4f65e2ae49d795896db6e65c892dfc44169de84734f210fa1a",
+        "scripts/prepare-bash.sh": "c5317e7a77a1d2325f2f2c9c20b1eea6fbb6ffcd0d799dfe75cbc067452cb87f",
+        "scripts/prepare-runtime.sh": "c7a303764871e9db42ab7c8589bd95bf87c13576e6c2fa53f5f6323071c46b43",
+        "scripts/prepare-windows-pki.py": "300db15c288c177b8efee0621babb900f64d221f4205d962c2fad9de6a0a1c37",
+        "scripts/prepare.ps1": "684edca18abd77e2944d2c8e75f0bf50ea38e0cee651171d993cbe24dd68c8d8",
+        "scripts/prepare.sh": "fed5e15d945b4733c561607778335343510cc3a790585e3a2adb480c43c2c066",
+        "scripts/tool.sh": "439de4137b892be94c89eed990b98a5665dad1e6b67fd4a2736ff87716573fce",
+        "scripts/windows-pki.ps1": "9429c4a7fdab0c980c5ab6b5305b2dc4edbee58541cd0837d571476d2eebd7f2"
+      }
+    },
+    {
+      "resource": "luci-http-controller",
+      "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/build-lucihttp.sh": "20b17fca6af778434f2f98f891e45573c06203a098ccf93dcc4acc3bfbcac2c3",
+        "scripts/lucihttp.go": "de49b8a147f8c740da6bc74564a5ac2fa368e783c2f79bd76a3fe9fc2a54560b",
+        "scripts/lucihttp_test.go": "99d3e97038ec6e4ae0b6ead3428d01cb78b33da05c7771bc0a59741d506baf9b"
+      }
+    },
+    {
+      "resource": "macos-launchd-logs",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "review": "changed-explicit-operation",
+      "scope": "explicit action and expected native state, bounded launchctl, actual process state verification; host durable lifecycle KA7",
+      "sourceFiles": {
+        "scripts/apply.sh": "e9ea64dc7833e44cfdd19515915d5173b1620c42b45ffe0dab3e8553a859542a",
+        "scripts/common.sh": "c676b7ecf7b6fb533dfe303cd7b78276b8d5b9e26886031d3900a7f61c7bab50",
+        "scripts/inspect.sh": "4617958fa0cc089b65ef04f93cdccf16592da3815dffa69aa86fa9f752c2ed1e",
+        "scripts/plan.sh": "fb3ce48f1f06158276d40d578b2b80ec9f4baea4bcf824e494a8cc339c573aa6",
+        "scripts/verify.sh": "251cc490c43d63d23cbdea097869983195f817362ac38835a889eafc4969e4b6"
+      }
+    },
+    {
+      "resource": "macos-system-diagnostics",
+      "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/inspect.sh": "b59bbc130ad4be903d408634d4d18b4da97cbc7c3ece0c720f992f219ad3a436"
+      }
+    },
+    {
+      "resource": "target-ssh-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/target-ssh.sh": "e34a2f94ca1011fd05851f3bbc343466d7af135785abe6f39ea711d200848b54"
+      }
+    },
+    {
+      "resource": "target-ssh-powershell-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/supervise.ps1": "e38bf3e66a0fa3dede040e67f6c8760d60339b352bafd71a7f25a372087cb717",
+        "scripts/target-ssh-powershell.sh": "bd3cd09b8f12d9003c146d676ed9793b9f7d1d6094c34eec7c1eff91d0bfc66e"
+      }
+    },
+    {
+      "resource": "ubuntu-release-diagnostics",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {}
+    },
+    {
+      "resource": "windows-service-eventlog",
+      "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+      "review": "changed-explicit-operation",
+      "scope": "explicit action and ExpectedStatus, native SCM WaitForStatus+Refresh, effects and errors; host durable lifecycle KA7",
+      "sourceFiles": {
+        "scripts/apply.ps1": "cf4772ea5442fd6c8b3fc7fef83870935c34ce71fcf847e9cb504ff0f15b6920",
+        "scripts/inspect.ps1": "5bba31c16cce42cff825c9164796cf8b511c13713600adc9ca723eb9f00d1d15",
+        "scripts/plan.ps1": "3812b5af7df7b5cdb9a45f29d0cc7213477576635acba7b3d38b64ea35ecf2bc",
+        "scripts/verify.ps1": "e973cb6d23a7b07243c68e328f895828372f02401e7527267ee682c3ec2cb38d"
+      }
+    },
+    {
+      "resource": "windows-system-diagnostics",
+      "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+      "review": "retained-native-or-no-write-interface",
+      "scope": "Existing concrete native interface retained; query-only resources have no mutation entry. Transport/host permission and durable execution are checked separately in KA7.",
+      "sourceFiles": {
+        "scripts/inspect.ps1": "8053d7ce0844c82971ab1d051ce36cc0ee8022e99c86a1a50a87fd36c248182b"
+      }
+    }
+  ]
+}

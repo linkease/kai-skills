@@ -27,7 +27,7 @@
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:a92d44eecd885b322c7533405682ff5c8925e534fa4c5d039c4f9645ee5a7b86"
+      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
     },
     {
       "id": "istoreos-app-search",

@@ -42,10 +42,12 @@
     },
     {
       "id": "KA4",
-      "implementationStatus": "in_progress",
-      "verificationStatus": "in_progress",
-      "optimizations": 0,
-      "evidence": []
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
+      "optimizations": 2,
+      "evidence": [
+        "agent-capability-KA4-20261126.json"
+      ]
     },
     {
       "id": "KA5",

@@ -178,5 +178,12 @@
     "Compatibility query formats remain named and are not silently redefined as the shared result schema.",
     "Native iStoreOS partial results explicitly preserve file-size and bounded CLI-executor gaps; they are not full-health success claims.",
     "Host routing, permissions, lifecycle and model evaluation are subsequent milestones; this is not their acceptance."
+  ],
+  "followUpCorrections": [
+    {
+      "milestone": "KA4",
+      "issue": "Full legacy report schema omitted added diagnostic classification/scope and package observation fields; prior contract tests covered only core fields.",
+      "fix": "Register the fields and validate complete generated reports; retain original KA3 evidence as historical."
+    }
   ]
 }
