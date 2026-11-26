@@ -1,0 +1,292 @@
+#!/bin/sh /etc/rc.common
+
+USE_PROCD=1
+START=99
+
+extra_command "uciadd" "<ignored> <device> <zone> Add docker bridge configuration to firewall uci config"
+extra_command "ucidel" "<ignored> <device> <zone> Delete docker bridge configuration from firewall uci config"
+
+DOCKER_CONF_DIR="/tmp/dockerd"
+DOCKERD_CONF="${DOCKER_CONF_DIR}/daemon.json"
+
+uci_quiet() {
+	uci -q "${@}" >/dev/null
+}
+
+json_add_array_string() {
+	json_add_string "" "${1}"
+}
+
+uciadd() {
+	local iface="${1}"
+	local device="${2}"
+	local zone="${3}"
+
+	[ -z "${device}" ] && {
+		device="docker0"
+		zone="docker"
+	}
+
+	# Add firewall zone
+	if ! uci_quiet get firewall.${zone}; then
+		logger -t "dockerd-init" -p notice "Adding firewall zone '${zone}' to firewall config"
+		uci_quiet add firewall zone
+		uci_quiet rename firewall.@zone[-1]="${zone}"
+		uci_quiet set firewall.@zone[-1].name="${zone}"
+		uci_quiet set firewall.@zone[-1].input="ACCEPT"
+		uci_quiet set firewall.@zone[-1].output="ACCEPT"
+		uci_quiet set firewall.@zone[-1].forward="ACCEPT"
+		uci_quiet commit firewall
+	fi
+
+	# Add device to firewall zone
+	if uci_quiet get firewall.${zone}; then
+		uci_quiet del_list firewall.${zone}.device="${device}"
+		if [ docker0 = "$device" ]; then
+			uci_quiet del_list firewall.${zone}.subnet="172.16.0.0/12"
+			uci_quiet add_list firewall.${zone}.subnet="172.16.0.0/12"
+		else
+			uci_quiet add_list firewall.${zone}.device="${device}"
+		fi
+		uci_quiet commit firewall
+	fi
+
+	# Add forwarding rules
+	local forwarding_section
+	check_forwarding() {
+		local cfg="${1}"
+		local srcm="${2}"
+		local destm="${3}"
+
+		local src dest
+		config_get src "${cfg}" src
+		config_get dest "${cfg}" dest
+
+		[[ "${src}" = "${srcm}" && "${dest}" = "${destm}" ]] \
+			&& forwarding_section="${cfg}"
+	}
+
+	config_load firewall
+	forwarding_section=""
+	config_foreach check_forwarding forwarding ${zone} wan
+	[[ -n "${forwarding_section}" ]] || {
+		uci_quiet set firewall.${zone}_to_wan=forwarding
+		uci_quiet set firewall.${zone}_to_wan.src=${zone}
+		uci_quiet set firewall.${zone}_to_wan.dest=wan
+	}
+
+	forwarding_section=""
+	config_foreach check_forwarding forwarding ${zone} lan
+	[[ -n "${forwarding_section}" ]] || {
+		uci_quiet set firewall.${zone}_to_lan=forwarding
+		uci_quiet set firewall.${zone}_to_lan.src=${zone}
+		uci_quiet set firewall.${zone}_to_lan.dest=lan
+	}
+
+	forwarding_section=""
+	config_foreach check_forwarding forwarding lan ${zone}
+	[[ -n "${forwarding_section}" ]] || {
+		uci_quiet set firewall.lan_to_${zone}=forwarding
+		uci_quiet set firewall.lan_to_${zone}.src=lan
+		uci_quiet set firewall.lan_to_${zone}.dest=${zone}
+	}
+	uci_quiet commit firewall
+
+	/etc/init.d/firewall reload
+}
+
+ucidel() {
+	local iface="${1}"
+	local device="${2}"
+	local zone="${3}"
+
+	[ -z "${device}" ] && {
+		device="docker0"
+		zone="docker"
+	}
+
+	# Remove interface from firewall zone
+	if uci_quiet get firewall.${zone}; then
+		logger -t "dockerd-init" -p notice "Deleting network device '${device}' in zone '${zone}' from firewall config"
+		uci_quiet del_list firewall.${zone}.device="${device}"
+		uci_quiet commit firewall
+		# Remove Firewall zone if network is empty
+		if ! uci_quiet get firewall.${zone}.device; then
+			logger -t "dockerd-init" -p notice "Deleting firewall zone '${zone}' from firewall config"
+			uci_quiet delete firewall.${zone}
+			uci_quiet delete firewall.${zone}_to_wan
+			uci_quiet delete firewall.${zone}_to_lan
+			uci_quiet delete firewall.lan_to_${zone}
+		fi
+		uci_quiet commit firewall
+	fi
+
+	/etc/init.d/firewall reload
+}
+
+process_config() {
+	local alt_config_file data_root log_level iptables ip6tables bip
+
+	[ -f /etc/config/dockerd ] || {
+		# Use the daemon default configuration
+		DOCKERD_CONF=""
+		return 0
+	}
+
+	# reset configuration
+	rm -fr "${DOCKER_CONF_DIR}"
+	mkdir -p "${DOCKER_CONF_DIR}"
+
+	config_load 'dockerd'
+	config_get alt_config_file globals alt_config_file
+	[ -n "${alt_config_file}" ] && [ -f "${alt_config_file}" ] && {
+		ln -s "${alt_config_file}" "${DOCKERD_CONF}"
+		return 0
+	}
+
+	config_get data_root globals data_root "/opt/docker/"
+	config_get log_level globals log_level "warn"
+	config_get_bool iptables globals iptables "0"
+	config_get_bool ip6tables globals ip6tables "0"
+
+	# Don't add these options by default
+	# omission == docker defaults
+	config_get log_driver globals log_driver ""
+	config_get bip globals bip ""
+	config_get registry_mirrors globals registry_mirrors ""
+	config_get hosts globals hosts ""
+	config_get dns globals dns ""
+	config_get_bool ipv6 globals ipv6 ""
+	config_get ip globals ip ""
+	config_get fixed_cidr globals fixed_cidr ""
+	config_get fixed_cidr_v6 globals fixed_cidr_v6 ""
+	# Use the *_proxy environment variable as the default value
+	config_get http_proxy proxies http_proxy "${http_proxy}"
+	config_get https_proxy proxies https_proxy "${https_proxy}"
+	config_get no_proxy proxies no_proxy "${no_proxy}"
+	config_get storage_driver globals storage_driver ""
+	config_get max_concurrent_downloads globals max_concurrent_downloads ""
+
+	. /usr/share/libubox/jshn.sh
+	json_init
+	json_add_string "data-root" "${data_root}"
+	json_add_string "log-level" "${log_level}"
+	json_add_boolean "iptables" "${iptables}"
+	json_add_boolean "ip6tables" "${ip6tables}"
+	[ -z "${log_driver}" ] || json_add_string "log-driver" "${log_driver}"
+	[ -z "${bip}" ] || json_add_string "bip" "${bip}"
+	[ -z "${registry_mirrors}" ] || json_add_array "registry-mirrors"
+	[ -z "${registry_mirrors}" ] || config_list_foreach globals registry_mirrors json_add_array_string
+	[ -z "${registry_mirrors}" ] || json_close_array
+	[ -z "${hosts}" ] || json_add_array "hosts"
+	[ -z "${hosts}" ] || config_list_foreach globals hosts json_add_array_string
+	[ -z "${hosts}" ] || json_close_array
+	[ -z "${dns}" ] || json_add_array "dns"
+	[ -z "${dns}" ] || config_list_foreach globals dns json_add_array_string
+	[ -z "${dns}" ] || json_close_array
+	[ -z "${ipv6}" ] || json_add_boolean "ipv6" "${ipv6}"
+	[ -z "${ip}" ] || json_add_string "ip" "${ip}"
+	[ -z "${fixed_cidr}" ] || json_add_string "fixed-cidr" "${fixed_cidr}"
+	[ -z "${fixed_cidr_v6}" ] || json_add_string "fixed-cidr-v6" "${fixed_cidr_v6}"
+	if [ -n "${http_proxy}" ] || [ -n "${https_proxy}" ] || [ -n "${no_proxy}" ]; then
+		json_add_object "proxies"
+		[ -z "${http_proxy}" ] || json_add_string "http-proxy" "${http_proxy}"
+		[ -z "${https_proxy}" ] || json_add_string "https-proxy" "${https_proxy}"
+		[ -z "${no_proxy}" ] || json_add_string "no-proxy" "${no_proxy}"
+		json_close_object
+	fi
+	[ -z "${storage_driver}" ] || json_add_string "storage-driver" "${storage_driver}"
+
+	[ "${max_concurrent_downloads:-0}" -eq "0" ] || json_add_int "max-concurrent-downloads" "${max_concurrent_downloads}"
+	json_add_string "log-driver" "json-file"
+	json_add_object "log-opts"
+	json_add_string "max-size" "50m"
+	json_add_string "max-file" "2"
+	json_close_object
+
+	json_dump > "${DOCKERD_CONF}"
+
+	[ "${iptables}" -eq "1" ] && config_foreach iptables_add_blocking_rule firewall
+}
+
+start_service() {
+	local nofile=$(cat /proc/sys/fs/nr_open)
+
+	process_config
+
+	procd_open_instance
+	procd_set_param stderr 1
+	if [ -z "${DOCKERD_CONF}" ]; then
+		procd_set_param command /usr/bin/dockerd
+	else
+		procd_set_param command /usr/bin/dockerd --config-file="${DOCKERD_CONF}"
+	fi
+	procd_set_param limits nofile="${nofile} ${nofile}"
+	procd_close_instance
+}
+
+reload_service() {
+	if [ -f "${DOCKERD_CONF}" -a -f /etc/config/dockerd ]; then
+		local oldroot=`jsonfilter -i "${DOCKERD_CONF}" -e @[\"data-root\"]`
+		local newroot=`uci get dockerd.globals.data_root`
+		if [ "$oldroot" != "$newroot" ]; then
+			restart
+			return 0
+		fi
+	fi
+	process_config
+	procd_send_signal dockerd
+}
+
+service_triggers() {
+	procd_add_reload_trigger 'dockerd'
+}
+
+iptables_add_blocking_rule() {
+	local cfg="${1}"
+
+	local device=""
+	local extra_iptables_args=""
+
+	handle_iptables_rule() {
+		local interface="${1}"
+		local outbound="${2}"
+		local extra_iptables_args="${3}"
+
+		local inbound=""
+
+		. /lib/functions/network.sh
+		network_get_physdev inbound "${interface}"
+
+		[ -z "${inbound}" ] && {
+			logger -t "dockerd-init" -p notice "Unable to get physical device for interface ${interface}"
+			return
+		}
+
+		# Wait for a maximum of 10 second per command, retrying every millisecond
+		local iptables_wait_args="--wait 10 --wait-interval 1000"
+
+		# Ignore errors as it might already be present
+		iptables ${iptables_wait_args} --table filter --new DOCKER-USER 2>/dev/null
+		if ! iptables ${iptables_wait_args} --table filter --check DOCKER-USER --in-interface "${inbound}" --out-interface "${outbound}" ${extra_iptables_args} --jump REJECT 2>/dev/null; then
+			logger -t "dockerd-init" -p notice "Drop traffic from ${inbound} to ${outbound}"
+			iptables ${iptables_wait_args} --table filter --insert DOCKER-USER --in-interface "${inbound}" --out-interface "${outbound}" ${extra_iptables_args} --jump REJECT
+		fi
+	}
+
+	config_get device "${cfg}" device
+
+	[ -z "${device}" ] && {
+		logger -t "dockerd-init" -p notice "No device configured for ${cfg}"
+		return
+	}
+
+	config_get extra_iptables_args "${cfg}" extra_iptables_args
+	config_list_foreach "${cfg}" blocked_interfaces handle_iptables_rule "${device}" "${extra_iptables_args}"
+}
+
+stop_service() {
+	if /etc/init.d/dockerd running; then
+		service_stop "/usr/bin/dockerd"
+	fi
+}

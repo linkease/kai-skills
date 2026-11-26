@@ -31,7 +31,7 @@
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:1b08851d70f37dd8ad613ea09ccceb0490f84147e22e039b38da80e461b7babb"
+      "sourceDigest": "sha256:a915def0cfc0fb073a740bdd6334d0dda71252aabf3d42e9d497ecb82147094c"
     },
     {
       "id": "kai-system-information",

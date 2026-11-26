@@ -13,6 +13,8 @@ resource-discovery: explicit
 
 `sh scripts/inspect.sh --target-id ID --service NAME --sections init,config,runtime,logs,ownership` 读取所选范围。大文件可指定 `--file PATH --offset N --length N`；hasMore、未知、权限错误、超时和不可信原文保留。查询从不执行被检查的 init 脚本。
 
+来源文本与执行记录是不同证据：源码包含的分支不表示该分支执行过；采集时间不等于文本中事件的发生时间。不同阶段或范围的值不同，只表示观测差异。回执 effects.completed 表示这项操作已经确认发生的效果（也包括原生请求提交），不等于服务健康；验证失败不会消除该历史效果。
+
 `bash scripts/apply.sh REQUEST.json`（或 ensure.sh 兼容入口）执行 service.apply。外层为 schemaVersion:1、operation、targetId、parameters；参数为 operationId、service、action（start|stop|restart|enable|disable|none）、configName、expectedInitSHA256、expectedConfigSHA256（或 absent）、verification、timeoutSeconds；可选 uci:{key,expectedValue,value}。不推断启用字段或补充动作。
 
 verification.kind 明确为 procd-running|procd-stopped|init-enabled|init-disabled|uci-value。Docker start/restart 则要求 docker-api，并给出 endpoint、expectedEngineId、expectedDataRoot；仅 procd running 不能通过 Docker API 验证。还需原生 procd PID 与 /proc Unix socket 归属证据：所选服务进程或其子进程须在 API 采证前后持有该 endpoint；无法读取、归属不同或身份变化时返回未验证，不操作另一个引擎。

@@ -91,13 +91,24 @@
       "evidence": [
         "agent-capability-KA8-20261126.json"
       ],
-      "stopReason": "three-authorized-optimizations-retain-real-model-semantic-failures",
+      "stopReason": "renewed-three-optimization-limit-with-independent-model-failures-and-qualified-QA-admission-limit",
       "additionalRounds": [
         {
           "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
           "optimizations": 3,
           "verificationStatus": "failed",
           "finalPilotSessions": 16,
+          "nextMilestonesStarted": false
+        },
+        {
+          "authorizedBy": "User: 同意，继续 (renewed round)",
+          "optimizations": 3,
+          "verificationStatus": "failed",
+          "finalPilotSessions": 16,
+          "completeFinals": 14,
+          "coreRubricFailed": 3,
+          "resourceAdmissionUngraded": 2,
+          "evidence": "agent-capability-KA8-followup-20261126.md",
           "nextMilestonesStarted": false
         }
       ]

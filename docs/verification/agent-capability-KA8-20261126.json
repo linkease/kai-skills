@@ -4,12 +4,12 @@
   "status": "failed",
   "implementationStatus": "in_progress",
   "optimizations": 3,
-  "stopReason": "Final resumed pilot retains mandatory semantic/counterevidence/effects failures after the authorized three optimizations. Stop at KA8 under the user limit; KA9 and KA10 remain unstarted.",
+  "stopReason": "The newly authorized three optimizations are exhausted. Final pilot has three mandatory reasoning failures, eight overlapping fidelity concerns, and two ungraded QA resource-admission stops. KA9/KA10 remain unstarted.",
   "verification": {
     "capabilityTests": {
       "status": "passed",
-      "tests": 71,
-      "seconds": 29.986
+      "tests": 75,
+      "seconds": 18.769
     },
     "nativeDockerPilot": {
       "status": "passed",
@@ -28,28 +28,42 @@
     "liveModelPilot": {
       "status": "failed",
       "modelConfigurations": [
-        "koolcenter/qwen3.8-flash",
-        "koolcenter/deepseek-v4-flash"
+        "koolcenter/deepseek-v4.1-flash (deepseek protocol, low)",
+        "koolcenter/qwen3.8-flash (trusted default)"
       ],
       "finalPilotSessions": 16,
+      "completeFinals": 14,
       "cards": 4,
       "conditions": [
         "with-new-capabilities",
         "capabilities-failed-or-unavailable"
       ],
       "repetitions": 1,
-      "coreRubricPassed": 13,
+      "coreRubricPassed": 11,
       "coreRubricFailed": 3,
-      "additionalFidelityConcerns": 4,
+      "additionalFidelityConcerns": 8,
+      "fidelityCountScope": "Number of sessions with additional concerns; overlaps core failures.",
+      "resourceAdmissionUngraded": 2,
       "readOnlyEvidenceUnchanged": 16,
       "modelInvokedWriters": 0,
-      "runtimeErrors": 0,
-      "truncatedFinals": 1,
-      "scope": "Actual production Agent loop, provider clients, managed-prompt and skill-body loaders over sanitized isolated scenarios. Canonical service.inspect executes against the scenario root. Other query adapters are scoped scenario-file reads. Not full application/native platform acceptance.",
+      "runtimeErrors": 2,
+      "runtimeErrorCause": "Provider-neutral projected-message byte admission; Qwen wire client omits some counted reasoning fields. No complete final or reasoning grade for these two sessions.",
+      "truncatedFinals": 0,
+      "actualModelCalls": 144,
+      "scope": "Production Agent/provider/managed-prompt/skill loading with isolated scenario adapters. Canonical service.inspect actually executes against the scenario root; full native init is read-only input, not executed. Other query adapters are scoped file reads. Not full app/native-platform acceptance.",
       "full216SessionEvaluationExecuted": false,
-      "taskCardsSHA256": "49e1ec872ab8f2b648cb158db9c6cddc0178e68a71e64d932718388d71af479a",
-      "allTrialRecords": 25,
-      "allActualModelCalls": 132
+      "taskCardsRevision": 4,
+      "taskCardsSHA256": "db225bf2b937c8f51fcb60feacd69328a80a917bb307214972ecfd427f41bdc7",
+      "allTrialRecords": 61,
+      "allActualModelCalls": 404,
+      "thisAuthorizedRound": {
+        "sessions": 36,
+        "actualModelCalls": 272,
+        "round4": "16 sessions; wire-valid receipts but incomplete startup fragments, diagnostic only.",
+        "round5": "2 sessions; interrupted by local durable-snapshot size admission defect.",
+        "candidateQualification": "2 sessions; Pro rejected for unsupported executable-replacement claim.",
+        "round6": "16 preserved cells including two ungraded admission stops; no failed cell replay."
+      }
     },
     "modelAccessProbes": [
       {
@@ -155,6 +169,73 @@
     "resumedRegression": {
       "capabilityTests": {
         "status": "passed",
+        "tests": 75,
+        "seconds": 18.769
+      },
+      "goPackages": {
+        "status": "passed",
+        "packages": [
+          "tools/capability-eval",
+          "internal/provider",
+          "internal/agent",
+          "internal/config",
+          "internal/skill"
+        ]
+      },
+      "generatedConsistency": "passed",
+      "diffCheck": "passed"
+    },
+    "budget": {
+      "currency": "CNY",
+      "authorizedUpperLimit": 20,
+      "observedSharedCredentialIncrement": 1.471076,
+      "unsettledReservations": false,
+      "credentialProfileRemoved": true,
+      "originalBaselinePreserved": true,
+      "meteredRequests": 404,
+      "scope": "Trusted shared credential cumulative counter may include concurrent usage; not an isolated invoice. Current round uses conservative 20 CNY/M usage/reservation accounting against verified rates including the Pro candidate (maximum component 12 CNY/M). Cumulative CNY20 cap/baseline unchanged; counter reconciliation respects five-minute pacing."
+    },
+    "historicalLiveModelPilots": [
+      {
+        "status": "failed",
+        "modelConfigurations": [
+          "koolcenter/qwen3.8-flash",
+          "koolcenter/deepseek-v4-flash"
+        ],
+        "finalPilotSessions": 16,
+        "cards": 4,
+        "conditions": [
+          "with-new-capabilities",
+          "capabilities-failed-or-unavailable"
+        ],
+        "repetitions": 1,
+        "coreRubricPassed": 13,
+        "coreRubricFailed": 3,
+        "additionalFidelityConcerns": 4,
+        "readOnlyEvidenceUnchanged": 16,
+        "modelInvokedWriters": 0,
+        "runtimeErrors": 0,
+        "truncatedFinals": 1,
+        "scope": "Actual production Agent loop, provider clients, managed-prompt and skill-body loaders over sanitized isolated scenarios. Canonical service.inspect executes against the scenario root. Other query adapters are scoped scenario-file reads. Not full application/native platform acceptance.",
+        "full216SessionEvaluationExecuted": false,
+        "taskCardsSHA256": "49e1ec872ab8f2b648cb158db9c6cddc0178e68a71e64d932718388d71af479a",
+        "allTrialRecords": 25,
+        "allActualModelCalls": 132
+      }
+    ],
+    "historicalBudgets": [
+      {
+        "currency": "CNY",
+        "authorizedUpperLimit": 20,
+        "observedSharedCredentialIncrement": 0.396966,
+        "unsettledReservations": false,
+        "credentialProfileRemoved": true,
+        "scope": "Shared token counter delta may include concurrent usage; not an isolated invoice. Native per-request usage is charged conservatively at 10 CNY/M between five-minute account reconciliations; request reserves use 100 CNY/M. No baseline/cap reset."
+      }
+    ],
+    "previousRegression": {
+      "capabilityTests": {
+        "status": "passed",
         "tests": 73,
         "seconds": 22.645
       },
@@ -170,13 +251,25 @@
       },
       "diffCheck": "passed"
     },
-    "budget": {
-      "currency": "CNY",
-      "authorizedUpperLimit": 20,
-      "observedSharedCredentialIncrement": 0.396966,
-      "unsettledReservations": false,
-      "credentialProfileRemoved": true,
-      "scope": "Shared token counter delta may include concurrent usage; not an isolated invoice. Native per-request usage is charged conservatively at 10 CNY/M between five-minute account reconciliations; request reserves use 100 CNY/M. No baseline/cap reset."
+    "nativeFixtureValidation": {
+      "status": "passed",
+      "initSource": "Full firmware rc.common/procd source, read-only capture; not executed.",
+      "initSHA256": "385e9f9ad76bcdec7ddfcf9462020124d101b8e763e77ac6c09bccdd78883f89",
+      "nativeUCI": "Three valid private fixture configurations parsed by native uci; system configuration and services unchanged.",
+      "receiptContract": "C09/C10/C12 validate against published operation-result contract; C12 uses actual native-operation effect/verification structure."
+    },
+    "candidateModels": {
+      "koolcenter/deepseek-v4-pro": {
+        "available": true,
+        "selected": false,
+        "reason": "Actual C11 probe invents that /usr/bin/dockerd was replaced by GuardExec."
+      },
+      "koolcenter/deepseek-v4.1-flash": {
+        "available": true,
+        "selected": true,
+        "effort": "low",
+        "note": "Accessible candidate, not a passing acceptance claim; final failures retained."
+      }
     }
   },
   "changes": [
@@ -186,7 +279,11 @@
     "Follow-up to KA6: an old consumer fixture still asserted exclusive system-primary routing. It now verifies optional discovery policies and exact user resource references without asserting a business route.",
     "Fixed a production credential-projection defect that removed paired Markdown emphasis and factual labels as masked credentials. Paired formatting is preserved, masked credentials remain removed, and scans move forward linearly.",
     "Added opt-in metered real-provider QA, precise bounded scenario observation schemas, production skill loading, before/after evidence hashes, durable reservations and Retry-After handling. No business-intent task takeover is introduced.",
-    "Frozen 12 task cards with withheld rubrics. After the pilot revealed absent historical source and an oversimplified registration shape, input revision 2 adds optional raw historical code and the real nested registration shape. Initial inputs/failures are archived; no full matrix has run or been claimed."
+    "Frozen 12 task cards with withheld rubrics. After the pilot revealed absent historical source and an oversimplified registration shape, input revision 2 adds optional raw historical code and the real nested registration shape. Initial inputs/failures are archived; no full matrix has run or been claimed.",
+    "Preserve existing production output-limit notices and effective model settings in QA without adding automatic continuation.",
+    "Replace invalid receipt/startup fragments with contract-valid receipts, complete native init, valid UCI sections and native-shaped service command captures; preserve all earlier evidence with qualified scope.",
+    "Expose bounded literal file search in all evaluation arms and measure provider-neutral message projection instead of local diagnostic copies. Exact per-adapter wire sizing remains a documented limitation.",
+    "Clarify general observation/source/effect semantics in canonical iStoreOS docs and result-schema descriptions; regenerate distributions. No prescribed diagnostic tool order or business task takeover."
   ],
   "acceptance": {
     "KA8-T01": {
@@ -195,11 +292,11 @@
     },
     "KA8-T02": {
       "status": "failed",
-      "evidence": "Direct guard/configuration conflict is generally located, but final pilot retains ungrounded causal/identity/digest assertions. No hard-coded business workflow or forced helper invocation was added to conceal model failures."
+      "evidence": "Both final V4.1 C02 answers locate the mismatch but infer unfinished migration from an allowed active record, including a directive to advance it out of an in-progress state."
     },
     "KA8-T03": {
       "status": "failed",
-      "evidence": "Deterministic collectors preserve unfamiliar/opposite evidence. Qwen with unavailable capability still assigns a failure to an unexecuted guard/native.Check despite direct-dockerd counterevidence."
+      "evidence": "Final Qwen C11 unavailable-helper answer identifies read-only filesystem as cause but still claims the guard has already passed; observed init/argv execute dockerd directly."
     },
     "KA8-T04": {
       "status": "passed",
@@ -207,11 +304,11 @@
     },
     "KA8-T05": {
       "status": "passed",
-      "evidence": "Two newly reproduced false-success cases now fail; owned native Docker engine passes API/ID/root/socket ownership checks and unrelated real process is rejected. Generic process presence does not establish Docker health."
+      "evidence": "Two newly reproduced false-success cases now fail; owned native Docker engine passes API/ID/root/socket ownership checks and unrelated real process is rejected. Generic process presence does not establish Docker health. All four final live C12 sessions also reject false success while preserving submitted native start as completed effect."
     },
     "KA8-T06": {
       "status": "failed",
-      "evidence": "Generic analysis continues after helper failure, but one answer is truncated and another erases an explicitly completed native submission effect. Runtime success is not sufficient acceptance."
+      "evidence": "Generic analysis survives helper unavailability in completed cases, but two Qwen cases have no complete final under a provider-neutral QA admission limit. They remain unaccepted and ungraded, not fabricated reasoning failures."
     }
   },
   "iterations": [
@@ -250,7 +347,8 @@
     "Original failures, zero-call admission failures, partial cases and input/harness revisions are retained. Only actual model calls are counted as real Agent evidence.",
     "The pilot uses scoped scenario observation adapters; its service.inspect call is real canonical code over an isolated root. It is not a live user-device Docker repair or a full KaiPlus UI/bootstrap/native transport matrix.",
     "No push, release, production Docker modification, default model change or test-device deployment occurred. Temporary copied credentials were removed.",
-    "The earlier owned native Docker run still uses a procd protocol adapter; native iStoreOS procd mutation is not claimed."
+    "The earlier owned native Docker run still uses a procd protocol adapter; native iStoreOS procd mutation is not claimed.",
+    "Provider-neutral byte sizing is conservative rather than exact per-adapter wire size; two ungraded final Qwen cases hit it. Original failure records and all qualification probes remain preserved."
   ],
   "rawEvidence": [
     {
@@ -372,6 +470,30 @@
     {
       "path": "build/verification/agent-capabilities-20261126/native-model-access-koolcenter.json",
       "sha256": "b9a50332c6f96c1affeb1b6dc5a45fe2a10e8bcbbd6384ef7f916b68c5a4f5bc"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-round6-evidence-index.json",
+      "sha256": "bc7f5fddbf4ca5653b5d474e2421cd1aaa5b882646eb7bd765579291c4acfe61"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round6-final.json",
+      "sha256": "5ffae56eebea420cbb7069f7540c2ad3962efea4c996702169f157c8b49f5e4f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-native-input-final-tests.log",
+      "sha256": "9a82b1959a4cf4dfd0f84e73392129b4749826436cc61ec9f9da05c6024bcf63"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-projection-final-go.log",
+      "sha256": "1526c1b821e96f997cf9e5cb24d30b636358cc55816ddf359fafaa83b0f7d538"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-budget-round6-final-private.json",
+      "sha256": "093ce218ce0d45b831c023580caff26e72ced84aef6ef79c8e07a3a68c05ca39"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round6-cleanup-private.json",
+      "sha256": "539fbfcee6253da14b03167f2af2639a1c93f84386207ee71a9e56c1501dde30"
     }
   ],
   "followups": [
@@ -383,25 +505,28 @@
   ],
   "blockingExamples": [
     {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "迁移的残留登记",
+      "evidence": "Locates the direct conflict, but infers a leftover unfinished migration from an active record and historical source/target paths.",
+      "raw": "build/verification/agent-capabilities-20261126/live-evaluation-round6-final/koolcenter_deepseek-v4.1-flash--C02-docker-history--capabilities-failed-or-unavailable--1.json"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "claim": "并让迁移状态机推进到非进行中的终态",
+      "evidence": "Locates the root mismatch and pre-exec rejection, but prescribes advancing migration out of an in-progress state despite active being an allowed state.",
+      "raw": "build/verification/agent-capabilities-20261126/live-evaluation-round6-final/koolcenter_deepseek-v4.1-flash--C02-docker-history--with-new-capabilities--1.json"
+    },
+    {
       "model": "koolcenter/qwen3.8-flash",
       "card": "C11-docker-counterevidence",
       "condition": "capabilities-failed-or-unavailable",
-      "claim": "唯一未通过的环节…native.Check…失败点在此",
-      "evidence": "The scenario init and argv start dockerd directly; the guard is not executed. The model subsequently acknowledges this counterevidence but retains its unsupported failure attribution."
-    },
-    {
-      "model": "koolcenter/qwen3.8-flash",
-      "card": "C12-docker-false-success",
-      "condition": "capabilities-failed-or-unavailable",
-      "claim": "没有任何 effects 层面的完成项",
-      "evidence": "The receipt explicitly records submitted native start in effects.completed; failed health verification does not erase the submitted action."
-    },
-    {
-      "model": "koolcenter/deepseek-v4-flash",
-      "card": "C02-docker-history",
-      "condition": "capabilities-failed-or-unavailable",
-      "claim": "Incomplete final answer",
-      "evidence": "finish_reason=length at 4096 total output tokens; final text ends mid-sentence."
+      "claim": "即已经通过了守卫",
+      "evidence": "Primary read-only-filesystem cause is correct, but the final answer infers an executed guard that passed instead of recognizing the direct-dockerd startup chain.",
+      "raw": "build/verification/agent-capabilities-20261126/live-evaluation-round6-final/koolcenter_qwen3.8-flash--C11-docker-counterevidence--capabilities-failed-or-unavailable--1.json"
     }
   ],
   "additionalRounds": [
@@ -428,16 +553,69 @@
         }
       ],
       "nextMilestonesStarted": false
+    },
+    {
+      "authorizedBy": "User: 同意，继续 (renewed authorization after the previous three-optimization stop; original cumulative CNY20 cap retained)",
+      "optimizationLimit": 3,
+      "optimizations": 3,
+      "status": "failed",
+      "taskTreeAndAcceptance": "agent-capability-KA8-followup-20261126.md",
+      "iterations": [
+        {
+          "optimization": 1,
+          "result": "Preserved production notices, clarified general data semantics and corrected three wire-invalid receipts. Round4 retained as diagnostic because startup source was still incomplete."
+        },
+        {
+          "optimization": 2,
+          "result": "Complete native init/UCI/runtime captures, provenance without answer hints and generic literal search. Native UCI and 75 capability tests pass. Round5 exposes durable-snapshot admission defect."
+        },
+        {
+          "optimization": 3,
+          "result": "Exclude local diagnostic copies from byte admission; qualify actual Pro/V4.1 models, reject Pro and freeze final pair. Final16 has 14 complete answers, 11 core passes, 3 failures, 8 overlapping fidelity concerns, 2 QA admission stops. Exact wire sizing remains unresolved; no fourth fix."
+        }
+      ],
+      "allEarlierResultsRetained": true,
+      "nextMilestonesStarted": false
     }
   ],
   "requiredDecision": {
-    "reason": "The explicitly authorized three-optimization limit is reached.",
-    "decision": "Further iteration requires renewed authorization; retain current acceptance standards. Candidate directions are model/reasoning configuration and richer fact scope/stage metadata, not a prescribed diagnostic workflow."
+    "reason": "Newly authorized three optimizations are exhausted; KA8 mandatory acceptance still fails.",
+    "decision": "Further iteration requires renewed authorization. Concrete remaining work: align QA admission with each provider actual wire projection and improve evidence fidelity under supported model/reasoning configurations. Keep model decision authority and acceptance standards; do not add a prescribed diagnostic workflow."
   },
   "sourceCommits": {
-    "reasonix-kai": "4ad94fa0e8a19ca57a54dfa71a3d7861a030e62c",
-    "productionRedactionFix": "4317f02e6",
-    "pilotHarnessRevision": "build/verification/agent-capabilities-20261126/evaluation-harness-revision-final.json",
-    "note": "Final production projection scan was made linear after the pilot, with identical formatting semantics and all five affected Go package regressions passed. No new live pilot acceptance is claimed."
+    "reasonix-kai": "d42e3647071d88d227a510922e26f44390be5026",
+    "evaluationImplementation": "2619a7e9e",
+    "wireBoundQualification": "d42e36470",
+    "kai-skillsBaseBeforeThisRound": "4cfec21",
+    "frozenPilot": "build/verification/agent-capabilities-20261126/evaluation-round6-final-frozen.json",
+    "note": "This report and canonical/generated input changes are committed together; the kai-skills source revision is the commit containing this report. The frozen implementation/input hashes match every final cell, including independent-cell resumes."
+  },
+  "historicalBlockingExamples": [
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "唯一未通过的环节…native.Check…失败点在此",
+      "evidence": "The scenario init and argv start dockerd directly; the guard is not executed. The model subsequently acknowledges this counterevidence but retains its unsupported failure attribution."
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C12-docker-false-success",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "没有任何 effects 层面的完成项",
+      "evidence": "The receipt explicitly records submitted native start in effects.completed; failed health verification does not erase the submitted action."
+    },
+    {
+      "model": "koolcenter/deepseek-v4-flash",
+      "card": "C02-docker-history",
+      "condition": "capabilities-failed-or-unavailable",
+      "claim": "Incomplete final answer",
+      "evidence": "finish_reason=length at 4096 total output tokens; final text ends mid-sentence."
+    }
+  ],
+  "historicalEvidenceQualification": {
+    "oldResultsRetained": true,
+    "reason": "Earlier incomplete init/UCI and simplified noncontract receipts weaken attribution of their failures to production behavior. In particular old C12 cannot alone establish production effect loss. New contract-valid C12 passes all four final sessions. New completed C02/C11 failures independently establish that KA8 still fails.",
+    "ungradedAdmissionStops": "Provider-neutral projection still counts Qwen reasoning omitted by the OpenAI wire client. Retained as QA resource limitation, not model reasoning failure or CNY quota exhaustion."
   }
 }

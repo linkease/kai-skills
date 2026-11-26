@@ -10,7 +10,7 @@
     "operationStatus": {"enum": ["succeeded", "failed", "partial", "cancelled", "unknown"]},
     "targetId": {"type": "string", "minLength": 1, "maxLength": 200},
     "readOnly": {"type": "boolean"},
-    "observedAt": {"type": "string", "format": "date-time"},
+    "observedAt": {"type": "string", "format": "date-time", "description": "Time this observation was collected; not proof of the time of an event described in a source file."},
     "facts": {"type": "object"},
     "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
     "effects": {"$ref": "#/$defs/effects"},
@@ -25,7 +25,7 @@
       "required": ["id", "source", "status", "observedAt"],
       "properties": {
         "id": {"type": "string", "minLength": 1},
-        "source": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1, "description": "Origin of an observation. Reading code establishes its contents, not execution of its branches. A historical source is not a current execution record."},
         "status": {"enum": ["observed", "absent", "denied", "timeout", "unsupported", "unknown"]},
         "observedAt": {"type": "string", "format": "date-time"},
         "factPaths": {"type": "array", "items": {"type": "string"}},
@@ -37,7 +37,7 @@
       "required": ["requested", "completed", "unknown", "remaining"],
       "properties": {
         "requested": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
-        "completed": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "completed": {"type": "array", "description": "Effects confirmed to have occurred for this operation, including a submitted native request. Failed health verification does not erase them. This list does not assert overall service health or user-task completion.", "items": {"$ref": "#/$defs/effect"}},
         "unknown": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
         "remaining": {"type": "array", "items": {"$ref": "#/$defs/effect"}}
       }
