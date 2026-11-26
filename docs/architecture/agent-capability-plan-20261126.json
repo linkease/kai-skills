@@ -1,0 +1,767 @@
+{
+  "schemaVersion": 1,
+  "planId": "kai-skills-agent-capabilities-20261126",
+  "date": "2026-11-26",
+  "source": "agent-capability-milestones-20261126.md",
+  "sourceSHA256": "e01af1d24e5b5323276dd2e90871b39ba69c4b9e0f2cc1966d3b56faeb38aed7",
+  "scope": [
+    "kai-skills canonical sources and distributions",
+    "reasonix-kai capability discovery and execution integration"
+  ],
+  "implementationStatus": "not_started",
+  "verificationStatus": "not_run",
+  "requirements": [
+    {
+      "id": "R01",
+      "goal": "模型保留分析、工具选择、任务规划和完成判断",
+      "milestones": [
+        "KA0",
+        "KA5",
+        "KA6",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R02",
+      "goal": "脚本执行明确且有界的操作，允许固定内部事务",
+      "milestones": [
+        "KA1",
+        "KA3",
+        "KA4"
+      ]
+    },
+    {
+      "id": "R03",
+      "goal": "宿主拥有目标、授权、设备保护及生命周期",
+      "milestones": [
+        "KA1",
+        "KA6",
+        "KA7"
+      ]
+    },
+    {
+      "id": "R04",
+      "goal": "系统、发行版、架构、内核及容器/WSL 等环境事实",
+      "milestones": [
+        "KA2",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R05",
+      "goal": "实际发现多个包管理器，区分下载工具及别名",
+      "milestones": [
+        "KA2",
+        "KA3",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R06",
+      "goal": "发现 Docker 客户端、引擎、上下文与可用性，不默认选择 Docker",
+      "milestones": [
+        "KA2",
+        "KA3",
+        "KA8",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R07",
+      "goal": "统一返回来源、时间、未知、冲突、错误与可展开证据",
+      "milestones": [
+        "KA1",
+        "KA2",
+        "KA3"
+      ]
+    },
+    {
+      "id": "R08",
+      "goal": "查询无隐含写入和自动依赖安装",
+      "milestones": [
+        "KA2",
+        "KA3",
+        "KA7",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R09",
+      "goal": "写操作参数明确，验证目标和前置状态，不擅自补业务决策",
+      "milestones": [
+        "KA4",
+        "KA7",
+        "KA8"
+      ]
+    },
+    {
+      "id": "R10",
+      "goal": "所有 skill、系统提示和生成说明移除任务处方",
+      "milestones": [
+        "KA0",
+        "KA5",
+        "KA10"
+      ]
+    },
+    {
+      "id": "R11",
+      "goal": "业务匹配不产生强制调用、强制解释拒用或自动结束任务",
+      "milestones": [
+        "KA6",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R12",
+      "goal": "能力缺失、失败、被拒用时，通用分析继续可用",
+      "milestones": [
+        "KA3",
+        "KA5",
+        "KA6",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R13",
+      "goal": "采证成功、操作完成、服务健康和任务完成分别验收",
+      "milestones": [
+        "KA1",
+        "KA4",
+        "KA6",
+        "KA8",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R14",
+      "goal": "失败、超时、取消、中断和重试不掩盖已发生的效果",
+      "milestones": [
+        "KA4",
+        "KA7",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R15",
+      "goal": "公共与系统专属实现共享接口，目标与控制端系统分开",
+      "milestones": [
+        "KA2",
+        "KA3",
+        "KA9",
+        "KA10"
+      ]
+    },
+    {
+      "id": "R16",
+      "goal": "canonical 生成、独立分发、更新、兼容与回退保持正确",
+      "milestones": [
+        "KA0",
+        "KA5",
+        "KA10"
+      ]
+    },
+    {
+      "id": "R17",
+      "goal": "Docker 历史会话可重放，识别真实启动链和登记冲突",
+      "milestones": [
+        "KA0",
+        "KA3",
+        "KA8",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R18",
+      "goal": "以事实正确性、自主性和效率测量验收，不固化模型工具路径",
+      "milestones": [
+        "KA0",
+        "KA9",
+        "KA10"
+      ]
+    },
+    {
+      "id": "R19",
+      "goal": "凭据不进入上下文，外部结果不获得指令或授权效力",
+      "milestones": [
+        "KA1",
+        "KA2",
+        "KA7",
+        "KA9"
+      ]
+    },
+    {
+      "id": "R20",
+      "goal": "不接管第三方启动脚本，不附加持久守卫或自动修复",
+      "milestones": [
+        "KA3",
+        "KA4",
+        "KA7",
+        "KA8"
+      ]
+    }
+  ],
+  "milestones": [
+    {
+      "id": "KA0",
+      "title": "范围与基线",
+      "deliverable": "全量清单、职责合同、脱敏回放材料",
+      "exitCriterion": "每个现有入口有归属和处置；测试可识别当前失败",
+      "dependsOn": [],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R01",
+        "R10",
+        "R16",
+        "R17",
+        "R18"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA0-T01",
+          "assertion": "清单与业务索引、系统集合、KaiPlus 快照和工具入口逐项核对，未归属入口为零。包含软件、开发环境、项目依赖、下载加速、存储文件及系统专属服务、网络、LuCI、备份恢复等能力。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA0-T02",
+          "assertion": "列出任务处方、强制路由、按业务完成任务的宿主分支及失败被吞掉的位置；每项有处置和负责里程碑。接口用法与真实前置条件不误判为任务处方。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA0-T03",
+          "assertion": "冻结脱敏后的 Docker 会话、启动脚本、配置、登记和关键日志；不包含私钥、token、真实用户数据或凭据 URL。回放能够同时呈现目录冲突和 `phase=active`。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA0-T04",
+          "assertion": "冻结平台、证据等级、模型配置、评测输入及效率预算；记录既有测试失败，新增阶段不得将其悄悄忽略。建立全部 R01–R20 的正向、反向和失败用例映射。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA1",
+      "title": "操作与结果接口",
+      "deliverable": "最小共享接口和兼容规则",
+      "exitCriterion": "状态、事实、证据、效果及错误语义可验证",
+      "dependsOn": [
+        "KA0"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R02",
+        "R03",
+        "R07",
+        "R13",
+        "R19"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA1-T01",
+          "assertion": "合法和非法参数、未知版本、错误目标和不支持的平台分别有确定结果。请求不接受一段用户业务意图后自行展开整套任务；可选查询范围只表示要收集哪些事实。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA1-T02",
+          "assertion": "成功采集“Docker API 不可达”时，采证操作可以成功，但健康事实必须为不可达；加载 skill、启动请求受理、进程存在均不能冒充服务可用。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA1-T03",
+          "assertion": "区分已观察到、已确认不存在、权限不足、超时、不支持和未知。没有读取到版本不返回“已是最新”；证据冲突保留双方来源，不自行选定权威。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA1-T04",
+          "assertion": "事实包含 targetId、采集时间、来源和必要作用域。派生值可定位到输入事实；默认摘要最多 8 KiB，较大输出可显式展开，截断必须可见，致命错误不能被摘要过滤。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA1-T05",
+          "assertion": "写操作回执区分已请求的效果、已完成的效果、实际验证、残留状态及是否适合重试。遇到无法确认的写入结果返回不确定，不能简单声称“未执行”。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA2",
+      "title": "系统事实查询",
+      "deliverable": "各系统可调用的只读查询",
+      "exitCriterion": "正确识别真实目标及工具，不自动选择业务方案",
+      "dependsOn": [
+        "KA1"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R04",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R15",
+        "R19"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA2-T01",
+          "assertion": "Ubuntu、Debian、iStoreOS opkg、iStoreOS apk、macOS、Windows 原生查询准确；RPM Linux 的 yum/dnf 分支使用真实隔离环境验证，不能因现有分发预设没有该发行版就误报不存在。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA2-T02",
+          "assertion": "同机多包管理器、只有命令无可读数据库、包装脚本、同名别名、缺工具和权限拒绝均正确区分；不返回脚本自行选择的“推荐安装器”。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA2-T03",
+          "assertion": "Ubuntu 控制端查询 iStoreOS/Windows 目标，事实和探测进程只来自目标。容器和 WSL 的内核来源不被当作完整宿主发行版事实；缓存跨目标、跨环境不得混用。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA2-T04",
+          "assertion": "覆盖 Docker 无客户端、仅客户端、引擎停止、权限拒绝、远端 context、多引擎和 Podman 等兼容实现。目标不明确时只报告 endpoint，不擅自操作另一个引擎；发现 Docker 不导致普通安装自动选择容器方案。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA2-T05",
+          "assertion": "查询前后配置、包数据库、服务状态和受保护文件不变；不刷新仓库、不拉镜像、不安装探测依赖。缺 jq/Python/Bash 的适用设备仍有原生读取路径，或明确报告不支持。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA2-T06",
+          "assertion": "最小查询按 KA0 的固定目标预算有界结束；慢探针超时保留其他已采事实。相同事实集合通常只需一次调用；时效要求明确时重新查询，不以旧缓存冒充当前状态。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA3",
+      "title": "只读能力改造",
+      "deliverable": "软件、服务、日志、网络、存储等查询能力",
+      "exitCriterion": "返回可追溯事实，不升级为修复",
+      "dependsOn": [
+        "KA1",
+        "KA2"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R02",
+        "R05",
+        "R06",
+        "R07",
+        "R08",
+        "R12",
+        "R15",
+        "R17",
+        "R20"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA3-T01",
+          "assertion": "软件查询保留软件中心、包数据库、运行程序、容器镜像等不同来源的完整身份和版本；同名候选不自动合并或选择，不自动刷新源或转入安装。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA3-T02",
+          "assertion": "服务查询返回真实 procd/原生服务命令、启动脚本归属、包装入口、生成配置及相关日志。未知包装程序照常报告，不凭名称授予其规则权威。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA3-T03",
+          "assertion": "网络、存储、文件、SDK 和项目依赖查询在缺依赖、无权限、损坏输入和离线时返回事实与缺口；不隐含装工具、换源、改代理或迁移目录。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA3-T04",
+          "assertion": "脚本返回的说明不包含“下一步必须调用某能力”或“用户任务已经完成”的控制指令。外部输出即使包含这类文本，也只能作为不可信数据展示。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA3-T05",
+          "assertion": "已加载或未加载其他 skill 不改变同一查询结果；独立安装能运行声明的接口。通用日志、文件、shell 和文档访问不因 helper 失败而被屏蔽。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA4",
+      "title": "写入能力改造",
+      "deliverable": "安装、下载、复制、配置等有界操作",
+      "exitCriterion": "明确参数和真实效果验证，故障不报成功",
+      "dependsOn": [
+        "KA1",
+        "KA3"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R02",
+        "R09",
+        "R13",
+        "R14",
+        "R20"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA4-T01",
+          "assertion": "请求必须明确目标和实际变更参数。缺少关键来源、软件身份、数据源或目的地时返回缺少参数，不自动选一个方案；现有授权范围内的确定操作不重复制造业务确认。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA4-T02",
+          "assertion": "操作开始前检查自身前置条件；状态变化时拒绝过时请求，不额外引入全局业务工作流。参数合法、操作获准和实际成功分别记录。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA4-T03",
+          "assertion": "目录复制针对真实来源和挂载身份执行，非空目标不自动混合不同数据集；所承诺的内容和属性均有验证。UCI 已等于目标、目录存在或复制命令退出 0 不能单独证明迁移完成。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA4-T04",
+          "assertion": "注入停止失败、复制中断、空间不足、配置提交失败、后台进程退出和启动后 API 失败，回执均不得报完全成功。删除吞错的 `|| true` 成功路径和无验证的 best-effort 成功声明。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA4-T05",
+          "assertion": "超时或取消后保留已发生的效果，重试不重复破坏数据。只清理本操作拥有的临时材料；内部回退仅限接口已经声明且获准的事务范围，不擅自恢复整机或覆盖用户后续修改。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA4-T06",
+          "assertion": "所有适用操作前后第三方 init 脚本、服务二进制和未声明配置保持一致；不因调用能力而安装持久拦截器。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA5",
+      "title": "Skills 说明与发现",
+      "deliverable": "简短接口说明及生成产物",
+      "exitCriterion": "不规定解题顺序；模型可以自主组合",
+      "dependsOn": [
+        "KA0",
+        "KA1"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R01",
+        "R10",
+        "R12",
+        "R16"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA5-T01",
+          "assertion": "KA0 中全部条目完成处置；不再包含强制主 skill、固定诊断次序、先加速才能处理任意下载等任务处方。必要的调用语法、权限要求及数据完整性前置条件保留；旧文档和测试中要求固定业务路由的预期同时更新，不能保留相互矛盾的规范。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA5-T02",
+          "assertion": "同一任务允许模型选择一个或多个能力、直接使用通用工具，或不用 skill；不存在“只能先加载某路由器才能继续”的业务要求。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA5-T03",
+          "assertion": "检索描述准确说明能够返回什么和会改什么。关键词只辅助发现，不生成必须执行的业务步骤；移除旧强制条目后，生成包和内嵌提示没有残留。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA5-T04",
+          "assertion": "保留公共实现与系统适配、独立安装、资源归属和精确 ID。旧 ID 的兼容只映射接口，不注入旧任务流程；不新增两份人工维护实现。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA6",
+      "title": "KaiPlus 决策权",
+      "deliverable": "自主调用与任务结束语义",
+      "exitCriterion": "推荐能力可不用，工具成功不自动结束任务",
+      "dependsOn": [
+        "KA1",
+        "KA5"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R01",
+        "R03",
+        "R11",
+        "R12",
+        "R13"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA6-T01",
+          "assertion": "宿主收到用户文本后不能自行执行业务脚本并替模型完成整项任务。构造多个同义业务描述，执行记录中的操作只能来自模型的显式调用或用户直接操作。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA6-T02",
+          "assertion": "模型忽略推荐能力或选择通用工具时，不因 prefer/require 业务路由而被打回、强制 decline 或额外添加“必须使用”提示；明确要求使用某能力的用户指令仍被正确传达。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA6-T03",
+          "assertion": "加载 skill 只提供能力说明和资源入口，不顺带执行诊断或修复；实际操作必须来自明确调用。一次查询、skill 加载或具体操作成功后，结果继续返回模型。混合请求“查软件版本并解释服务为何未运行”不得在版本查询后自动结束。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA6-T04",
+          "assertion": "缺能力、能力报错、模型改变假设、发现反证时，通用工具及后续模型调用继续可用；不得把没有专用 skill 解释为任务不可处理。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA6-T05",
+          "assertion": "只按真实 Target 和兼容性筛选可用工具，不由本地系统覆盖远端事实；宿主不替模型选择包管理器、软件来源、Docker 安装方式或修复路径。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA7",
+      "title": "权限与生命周期",
+      "deliverable": "宿主统一执行检查和回执",
+      "exitCriterion": "授权、保护、取消与目标隔离不可绕过",
+      "dependsOn": [
+        "KA1",
+        "KA4",
+        "KA6"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R03",
+        "R08",
+        "R09",
+        "R14",
+        "R19",
+        "R20"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA7-T01",
+          "assertion": "相同操作通过 skill、通用 shell 或其他适配入口执行时，目标和授权约束一致。授权不足的操作未执行；已有有效授权不重复询问；输入变化超出原范围时重新检查。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA7-T02",
+          "assertion": "保护点失败或保护不覆盖外部数据时，返回准确的阻断与范围，不假称已经备份，也不因换一个 helper 自动绕过。Docker 数据复制的专项一致性不能由系统恢复点冒充。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA7-T03",
+          "assertion": "取消、超时、断线和宿主重启后，执行状态及实际副作用可查询；不自动重放安装、迁移或恢复。必要回执只属于该项操作，不替模型判定用户任务完成。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA7-T04",
+          "assertion": "日志、错误、原始证据和会话上下文均脱敏；模型看不到凭据值。恶意工具输出、安装日志和外部文档不能扩大授权、替换 Target 或发起新操作。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA7-T05",
+          "assertion": "Local、SSH 和已支持的原生平台执行路径遵循相同语义；控制端与目标端的文件、进程和清理范围分别验证。工具未安装时不能静默装到控制端。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA8",
+      "title": "Docker 完整试点",
+      "deliverable": "历史回放和隔离执行验收",
+      "exitCriterion": "定位守卫冲突，保留模型判断，不修改第三方 init",
+      "dependsOn": [
+        "KA2",
+        "KA3",
+        "KA4",
+        "KA5",
+        "KA6",
+        "KA7"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R06",
+        "R09",
+        "R13",
+        "R17",
+        "R20"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA8-T01",
+          "assertion": "单次服务采证可看到 QuickStart 包装命令、`DOCKER_DATA_ROOT_CHANGED`、UCI/生成配置/登记目标冲突及 `active` 状态；证据不被固定日志过滤器或 head 截断隐藏。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA8-T02",
+          "assertion": "模型必须区分“守卫拒绝启动”的直接证据与“是否应移除守卫”的修复决策；不得建议改成不匹配的 `/opt/docker` 就能通过守卫，不把 active 当成未完成迁移，不凭摘要字段名称声称它是不可重建的服务端签名。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA8-T03",
+          "assertion": "用未见过名称的包装程序、不同路径、其他 init 系统及相反证据重复测试；能力输出保持事实化。不能只匹配 QuickStart 名字或固定错误字符串才能定位启动链。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA8-T04",
+          "assertion": "只读问题不发生迁移、合并目录、重启和脚本改写。用户明确选择数据操作后，源和目标仍须被验证；不将另一份历史数据自动合入目标。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA8-T05",
+          "assertion": "“procd 暂时 running 但 Docker API 不可达、随后退出”的场景必须失败；只有该操作承诺的引擎、API、数据目录及其他后置条件验证通过才返回对应操作成功。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA8-T06",
+          "assertion": "守卫不改或正式入口暂不可用时，模型仍可说明已确认原因和剩余缺口；不得以找不到登记同步接口为由掩盖已得到的诊断结论。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA9",
+      "title": "多系统及 Agent 验收",
+      "deliverable": "平台矩阵、行为评测、效率报告",
+      "exitCriterion": "必测用例通过，效果与自主性可复核",
+      "dependsOn": [
+        "KA0",
+        "KA1",
+        "KA2",
+        "KA3",
+        "KA4",
+        "KA5",
+        "KA6",
+        "KA7",
+        "KA8"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R01",
+        "R04",
+        "R05",
+        "R06",
+        "R08",
+        "R11",
+        "R12",
+        "R13",
+        "R14",
+        "R15",
+        "R17",
+        "R18",
+        "R19"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA9-T01",
+          "assertion": "Ubuntu、Debian、iStoreOS opkg、iStoreOS apk、macOS、Windows 各覆盖 on-device 与现有远程执行方式，共 12 个目标/方式组合。RPM Linux 补充真实包管理器查询验证；平台不适用操作明确标记，不扩大安装支持声明。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA9-T02",
+          "assertion": "全部已声明的查询及变更接口完成成功、缺依赖、无权限、离线、错误目标、状态冲突、超时和取消测试。未安装的可选提供者可在原生机测试“缺失”，但其正向支持仍需相应真实环境证据。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA9-T03",
+          "assertion": "冻结至少 12 张任务卡，覆盖系统识别、多包管理器、Docker、软件查询加日志分析、网络异常、文件查找、项目依赖、未知包装程序、权限拒绝、超时、冲突和反证。比较无 kai-skills、提供新能力、能力失败/不可用三种条件；至少两种实际支持的模型配置，每组运行三次，共至少 216 个会话。记录模型及采样设置、输入、工具结果、效果和人工判分依据。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA9-T04",
+          "assertion": "自主性不按模型是否调用指定 skill 或调用顺序评分。确定性宿主接管/越权/错误目标用例零失败；Docker 关键事实、虚假成功和只读变写入用例在全部回放中通过；其他任务按同一正确性规则与基线逐模型比较，准确率不得低于基线。失败保留，不只报告表现较好的模型或轮次。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA9-T05",
+          "assertion": "用固定事实集合比较查询往返数、模型输入量、总耗时和资源消耗。默认摘要符合 8 KiB 上限；系统事实查询一次返回完整所选事实，替代至少三次原始采证往返。批量报告中位数和 P95，不把减少步骤导致的漏证据当成加速；总任务时延和 token 是否改善分别报告。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA9-T06",
+          "assertion": "必测项的 failed、blocked、skipped 或缺原生证据均不能计为阶段通过。模型评测需预先核定资源预算；资源不足时如实保持待验，不改用固定答案夹具宣称 Agent 自主性已通过。",
+          "status": "not_run"
+        }
+      ]
+    },
+    {
+      "id": "KA10",
+      "title": "分发与交付候选",
+      "deliverable": "完整候选包、更新及回退证据",
+      "exitCriterion": "内容、兼容、更新和回退通过，范围无遗漏",
+      "dependsOn": [
+        "KA9"
+      ],
+      "implementationStatus": "not_started",
+      "verificationStatus": "not_run",
+      "requirements": [
+        "R10",
+        "R15",
+        "R16",
+        "R18"
+      ],
+      "requiredTests": [
+        {
+          "id": "KA10-T01",
+          "assertion": "生成结果可重现，索引、归属、版本及摘要一致；KA0 中所有条目均有最终处置和验收证据。生成目录、旧别名、资源副本和内嵌提示不存在旧任务处方残留。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA10-T02",
+          "assertion": "独立安装、通用 Agent 安装以及每个系统集合仅包含声明的成员和资源；公共能力不重复人工维护。普通单系统安装不会安装其他系统全部能力，KaiPlus 完整快照仍包含全部系统并保留启用选择。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA10-T03",
+          "assertion": "已有会话的快照不被静默替换；新旧接口不兼容时明确报告或使用版本适配。新会话使用新能力说明，旧会话继续使用其固定资源，不能将旧会话错误当成新版本验收结果。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA10-T04",
+          "assertion": "验证受信来源、HTTPS/摘要校验、候选下载、更新失败、原子切换、回退及断电/中断恢复。禁止降低下载校验来完成升级；旧版本回退不破坏配置、会话及用户修改。",
+          "status": "not_run"
+        },
+        {
+          "id": "KA10-T05",
+          "assertion": "交付候选制品、发布说明、逐平台证据和全部测试结果。只有 KA0–KA9 的必测目标通过且候选下载验证完成，才标记整体完成；实际发布和测试机部署作为明确的后续动作执行，不由“计划完成”自动触发。",
+          "status": "not_run"
+        }
+      ]
+    }
+  ],
+  "platformMatrix": {
+    "systems": [
+      "ubuntu",
+      "debian",
+      "istoreos-opkg",
+      "istoreos-apk",
+      "macos",
+      "windows"
+    ],
+    "modes": [
+      "on-device",
+      "remote-control"
+    ],
+    "requiredCombinations": 12,
+    "additionalQueryProvider": "rpm-linux-yum-dnf"
+  },
+  "agentEvaluation": {
+    "minimumTaskCards": 12,
+    "conditions": [
+      "without-kai-skills",
+      "with-new-capabilities",
+      "capabilities-failed-or-unavailable"
+    ],
+    "minimumModelConfigurations": 2,
+    "repetitions": 3,
+    "minimumSessions": 216
+  }
+}
