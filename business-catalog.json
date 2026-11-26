@@ -440,7 +440,7 @@
         {
           "id": "istoreos-luci-recovery",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
-          "sourceDigest": "sha256:75ecad9558fefe307f9c7ae189109304902162d06ba9e8787d13280e25e2fa85"
+          "sourceDigest": "sha256:f4c8871cab16a6a9b9cb95cd834f201620b92e74ecdc616009376d5fc8d184e9"
         },
         {
           "id": "istoreos-package-manager",
@@ -463,7 +463,7 @@
           "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
         }
       ],
-      "treeDigest": "sha256:b6f7cc5c8d93649b50dde1180174735c5220ec33327c1677eff3f92db22a3578"
+      "treeDigest": "sha256:8eef6c0bd7034c93785818e356c742b89bb7e1f8d214f8ee34323bef481ca829"
     },
     {
       "id": "istoreos-quickstart-api",

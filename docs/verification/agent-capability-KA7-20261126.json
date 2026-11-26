@@ -1,0 +1,158 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA7",
+  "status": "blocked",
+  "optimizations": 3,
+  "implementationStatus": "implemented_native_validation_pending",
+  "stopReason": "User-requested three-optimization limit reached; native Windows host journal tests have not executed.",
+  "changes": [
+    "KaiPlus factory binds actual Target and private persistent operation state under recovery/runtime/operations; read-only classified shell commands do not provision a journal.",
+    "Native workspace-helper supplies target-local context only after lease validation; direct SSH remains read-only and installs no helper.",
+    "POSIX journal ownership/mode and Windows owner/DACL/reparse-point checks; Windows source cross-compiles, native correctness remains unverified.",
+    "KaiPlus credential projection covers new history, provider requests, tool evidence/raw recovery, progress and shell failure tails without altering actual executor arguments.",
+    "Existing device protection, permission, cancellation and recovery mechanisms retained; untrusted receipt fields cannot grant host rights or rebind Target.",
+    "Exact installed package version is now a precondition of package.reinstall; no implicit upgrade/downgrade/install.",
+    "KA6 Bash and PowerShell optional-interface system-prompt golden baselines refreshed; tool schemas unchanged."
+  ],
+  "verification": {
+    "capabilityTests": {
+      "tests": 66,
+      "status": "passed",
+      "seconds": 27.3
+    },
+    "generatedConsistency": "passed",
+    "diffCheck": "passed",
+    "hostRegression": {
+      "status": "passed",
+      "packages": 17,
+      "noTestFiles": [
+        "internal/remoteworkspace/protocol"
+      ],
+      "log": "build/verification/agent-capabilities-20261126/KA7-final-opt3.log"
+    },
+    "windowsCrossCompile": "passed",
+    "nativeWindowsHostJournal": "blocked_not_executed",
+    "liveAgentEvaluation": "not_run"
+  },
+  "acceptance": {
+    "KA7-T01": {
+      "status": "passed",
+      "evidence": "Existing authorization/remote lease/target regressions plus adversarial output test: forged targetId/readOnly/confirmation hints still result in zero denied writer executions."
+    },
+    "KA7-T02": {
+      "status": "passed",
+      "evidence": "Existing deviceguard admission, resource lease, scope sealing and recovery-fence regressions. External data-copy verification remains a separate operation; no system checkpoint is asserted to cover Docker data."
+    },
+    "KA7-T03": {
+      "status": "passed",
+      "evidence": "Existing session generation fencing, cancellation, jobs, remote no-retry and deviceguard report persistence tests; script cancellation/pending effects/same-ID replay regressions; private journal continuity test."
+    },
+    "KA7-T04": {
+      "status": "passed",
+      "evidence": "New credential message/progress/private-key/quoted-value/durable-ack tests, all-split progress tests, actual Agent provider-message inspection and forged external receipt test. Ordinary hashes, versions and numeric counters retained."
+    },
+    "KA7-T05": {
+      "status": "blocked",
+      "evidence": "Local and SSH transport regressions pass. Windows compiled host journal tests could not be uploaded; cannot claim native Windows execution or count it as skipped/pass."
+    }
+  },
+  "iterations": [
+    {
+      "iteration": "initial",
+      "status": "failed",
+      "findings": [
+        "Host operation state and ordinary KaiPlus credential projection were missing. Full host self-check exposed stale KA6 golden prompt baseline."
+      ]
+    },
+    {
+      "iteration": "optimization-1",
+      "status": "failed",
+      "findings": [
+        "Host regressions passed after golden refresh. Initial native Windows test artifact delivery over framed PowerShell stdin timed out (124); no native result."
+      ]
+    },
+    {
+      "iteration": "optimization-2",
+      "status": "failed",
+      "findings": [
+        "Added platform-specific private directory checks and compressed test delivery. Compressed stdin delivery also timed out (124); no native result.",
+        "One concurrent capability suite reported an explicit file probe timeout; isolated read-only suite passed 11 tests and final complete suite passed all 66 without changing production deadlines."
+      ]
+    },
+    {
+      "iteration": "optimization-3",
+      "status": "blocked",
+      "findings": [
+        "Small PowerShell create/cleanup commands succeeded and SSH banners were reachable for all four existing targets. Strict pinned SFTP artifact upload returned 1; remote owned directory cleanup returned 0. Native test process did not run.",
+        "Read-only shell fixture was corrected to use a command actually classified read-only (pwd); opaque environment interpolation remains conservatively classified and was not whitelisted.",
+        "No fourth transfer attempt or weaker SSH/download validation was made."
+      ]
+    }
+  ],
+  "limitations": [
+    "This milestone is not passed and KA8-KA10 were not started; dependency order is retained.",
+    "Credential projection does not rewrite target files, actual backup content or immutable old source history. Unknown unlabelled secrets/images require host credential-store and sensitive-file boundaries; no universal secret detector is claimed.",
+    "Native Windows positive ACL/junction tests must execute on the current candidate before KA7 can pass. Cross-compilation is not native evidence.",
+    "Two configured free model connectivity probes were unavailable; they are access preflight only, not KA9 model evaluation. Frozen 216-session acceptance remains unchanged.",
+    "No public publication, push or device deployment occurred."
+  ],
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-go.log",
+      "sha256": "d5ab86f0c69371812db4b7e79ab10b02a02b72a324a2ae654d66b6eaa6849155"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-go-opt1.log",
+      "sha256": "cffa02eef197cf94e50b3ea1f81d32812226ee0d813b4f0400c912cb0f7bdc5b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-go-final.log",
+      "sha256": "d2dd2881ef89408f065347c3b845222c4cb3a2811f61f3c23d897e99e579b919"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-final-verification.log",
+      "sha256": "21f23c2f87f425dc04977921049557641d3fc1a003dafd6e146bb5c9989d511f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-bash-final.log",
+      "sha256": "19c23dc2dc36f2d3e8cf57d72b65883037b0dcbb305657f486181736573a6c87"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-readonly-serial.log",
+      "sha256": "df673d57fcc024d59d675a5260f77cf5fe0c52b44c73d4078ae8a2586a192405"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-capabilities-final.log",
+      "sha256": "7db8f96a2d45147c52b598ed87b68a865ffdcea173a773b4981787fd3280909e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-windows-host-boundary-initial.json",
+      "sha256": "60a18a05765ad3a9108b7edf59d08e780ecd743a5e7e9d9819573fd5eda89d98"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-windows-host-boundary-compressed-stdin.json",
+      "sha256": "60a18a05765ad3a9108b7edf59d08e780ecd743a5e7e9d9819573fd5eda89d98"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-windows-host-boundary.json",
+      "sha256": "c56a6a5fa2f9a057f1031c03fb081413447aa6853ce09645683c12b461bb13f1"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-target-connectivity.json",
+      "sha256": "43b9ffc7c83d1eaad467fac29df212de2d1c469fc3579e69a843d747540ddd44"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-final-opt3.log",
+      "sha256": "ea7b6bb6e901985ca6c040a7a14b294c0271eb632147ea6253aa614358604bd3"
+    }
+  ],
+  "nextAuthorizedWorkAfterUserDecision": [
+    "Diagnose artifact transfer using retained private target binding and strict host keys; capture transport errors before any new native attempt.",
+    "Complete native Windows host journal tests, then resume KA8 Docker pilot, KA9 native/model matrix and KA10 delivery candidate."
+  ],
+  "implementationCommit": {
+    "repository": "reasonix-kai",
+    "commit": "0669e234c895bd4047e3586ffb73ec74be512bdd",
+    "acceptance": "native-validation-pending"
+  }
+}

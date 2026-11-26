@@ -69,10 +69,13 @@
     },
     {
       "id": "KA7",
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
-      "optimizations": 0,
-      "evidence": []
+      "implementationStatus": "in_progress",
+      "verificationStatus": "blocked",
+      "optimizations": 3,
+      "evidence": [
+        "agent-capability-KA7-20261126.json"
+      ],
+      "stopReason": "optimization-limit-reached-native-windows-validation-pending"
     },
     {
       "id": "KA8",

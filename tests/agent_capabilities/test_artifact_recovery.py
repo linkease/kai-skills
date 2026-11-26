@@ -73,12 +73,16 @@ print(json.dumps({'schemaVersion':1,'status':'succeeded','result':r}))
 args=sys.argv[1:]
 with open(os.environ['TEST_CALLS'],'a') as log:log.write(' '.join(args)+'\\n')
 if args[0]=='install':sys.exit(int(os.environ.get('TEST_INSTALL_EXIT','0')))
-print('Package: selected\\nVersion: 1.2.3\\nStatus: install ok installed\\n')
+version=os.environ.get('TEST_STATUS_VERSION','1.2.3') if args[0]=='status' else '1.2.3'
+print('Package: selected\\nVersion: '+version+'\\nStatus: install ok installed\\n')
 ''')
         def req():return self.operation('package.reinstall',manager='opkg',package='selected',version='1.2.3',artifact=str(artifact),sha256=hashlib.sha256(artifact.read_bytes()).hexdigest())
         p,result=self.apply(req());self.assertEqual(p.returncode,0,result)
         self.assertNotIn('update',self.calls.read_text());self.assertNotIn('service:',self.calls.read_text())
         p,result=self.apply(req(),TEST_INSTALL_EXIT='17');self.assertNotEqual(p.returncode,0);self.assertTrue(result['effects']['unknown'])
+        self.calls.write_text('')
+        p,result=self.apply(req(),TEST_STATUS_VERSION='9.0');self.assertNotEqual(p.returncode,0)
+        self.assertEqual(result['errors'][0]['code'],'PRECONDITION_CHANGED');self.assertNotIn('install --force-reinstall',self.calls.read_text())
 
 
 class LaunchdOperationTests(WriteFixture, unittest.TestCase):

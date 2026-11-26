@@ -596,8 +596,8 @@
         "KA4",
         "KA6"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "in_progress",
+      "verificationStatus": "blocked",
       "requirements": [
         "R03",
         "R08",
@@ -610,29 +610,39 @@
         {
           "id": "KA7-T01",
           "assertion": "相同操作通过 skill、通用 shell 或其他适配入口执行时，目标和授权约束一致。授权不足的操作未执行；已有有效授权不重复询问；输入变化超出原范围时重新检查。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA7-20261126.json"
         },
         {
           "id": "KA7-T02",
           "assertion": "保护点失败或保护不覆盖外部数据时，返回准确的阻断与范围，不假称已经备份，也不因换一个 helper 自动绕过。Docker 数据复制的专项一致性不能由系统恢复点冒充。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA7-20261126.json"
         },
         {
           "id": "KA7-T03",
           "assertion": "取消、超时、断线和宿主重启后，执行状态及实际副作用可查询；不自动重放安装、迁移或恢复。必要回执只属于该项操作，不替模型判定用户任务完成。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA7-20261126.json"
         },
         {
           "id": "KA7-T04",
           "assertion": "日志、错误、原始证据和会话上下文均脱敏；模型看不到凭据值。恶意工具输出、安装日志和外部文档不能扩大授权、替换 Target 或发起新操作。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA7-20261126.json"
         },
         {
           "id": "KA7-T05",
           "assertion": "Local、SSH 和已支持的原生平台执行路径遵循相同语义；控制端与目标端的文件、进程和清理范围分别验证。工具未安装时不能静默装到控制端。",
-          "status": "not_run"
+          "status": "blocked",
+          "evidence": "../verification/agent-capability-KA7-20261126.json"
         }
-      ]
+      ],
+      "optimizations": 3,
+      "evidence": [
+        "../verification/agent-capability-KA7-20261126.json"
+      ],
+      "stopReason": "optimization-limit-reached-native-windows-validation-pending"
     },
     {
       "id": "KA8",

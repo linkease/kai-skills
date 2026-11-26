@@ -48,7 +48,7 @@
     {
       "id": "istoreos-luci-recovery",
       "version": "1.2.11",
-      "treeDigest": "sha256:b6f7cc5c8d93649b50dde1180174735c5220ec33327c1677eff3f92db22a3578"
+      "treeDigest": "sha256:8eef6c0bd7034c93785818e356c742b89bb7e1f8d214f8ee34323bef481ca829"
     },
     {
       "id": "istoreos-quickstart-api",

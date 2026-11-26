@@ -6,7 +6,7 @@
     {
       "id": "istoreos-luci-recovery",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
-      "sourceDigest": "sha256:75ecad9558fefe307f9c7ae189109304902162d06ba9e8787d13280e25e2fa85"
+      "sourceDigest": "sha256:f4c8871cab16a6a9b9cb95cd834f201620b92e74ecdc616009376d5fc8d184e9"
     },
     {
       "id": "istoreos-package-manager",
