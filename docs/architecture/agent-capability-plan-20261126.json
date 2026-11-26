@@ -540,8 +540,8 @@
         "KA1",
         "KA5"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R01",
         "R03",
@@ -553,28 +553,37 @@
         {
           "id": "KA6-T01",
           "assertion": "宿主收到用户文本后不能自行执行业务脚本并替模型完成整项任务。构造多个同义业务描述，执行记录中的操作只能来自模型的显式调用或用户直接操作。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA6-20261126.json"
         },
         {
           "id": "KA6-T02",
           "assertion": "模型忽略推荐能力或选择通用工具时，不因 prefer/require 业务路由而被打回、强制 decline 或额外添加“必须使用”提示；明确要求使用某能力的用户指令仍被正确传达。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA6-20261126.json"
         },
         {
           "id": "KA6-T03",
           "assertion": "加载 skill 只提供能力说明和资源入口，不顺带执行诊断或修复；实际操作必须来自明确调用。一次查询、skill 加载或具体操作成功后，结果继续返回模型。混合请求“查软件版本并解释服务为何未运行”不得在版本查询后自动结束。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA6-20261126.json"
         },
         {
           "id": "KA6-T04",
           "assertion": "缺能力、能力报错、模型改变假设、发现反证时，通用工具及后续模型调用继续可用；不得把没有专用 skill 解释为任务不可处理。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA6-20261126.json"
         },
         {
           "id": "KA6-T05",
           "assertion": "只按真实 Target 和兼容性筛选可用工具，不由本地系统覆盖远端事实；宿主不替模型选择包管理器、软件来源、Docker 安装方式或修复路径。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA6-20261126.json"
         }
+      ],
+      "optimizations": 1,
+      "evidence": [
+        "../verification/agent-capability-KA6-20261126.json"
       ]
     },
     {

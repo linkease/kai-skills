@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA6",
+  "status": "passed",
+  "optimizations": 1,
+  "implementationCommit": {
+    "repository": "reasonix-kai",
+    "commit": "25b35a7d299719f14c7e61ca239edaf70140fb25"
+  },
+  "verification": {
+    "goPackages": [
+      "internal/capability",
+      "internal/skill",
+      "internal/control",
+      "internal/agent"
+    ],
+    "packageRegression": "passed",
+    "ledgerPolicyOutcomeCases": 24,
+    "agentLoopContinuationScenarios": 4,
+    "controllerZeroImplicitExecutionScenarios": 4,
+    "existingAuthorizationAndReadOnlyRegressions": "passed",
+    "diffCheck": "passed"
+  },
+  "acceptance": {
+    "KA6-T01": "Controller and turn orchestrator pass original requests without route injection, seeding an execution preference, semantic classification or helper dispatch; four message scenarios observe zero classifier/tool calls.",
+    "KA6-T02": "All 24 legacy policy/outcome combinations allow answering without calling or declining; exact user names/aliases remain correctly represented. Optional voluntary audit does not grant execution rights.",
+    "KA6-T03": "Skill loading remains explicit and returns resources. Agent-loop mixed requests continue through generic evidence after the first tool; no host task finalization follows from a query.",
+    "KA6-T04": "Unused, failed, missing and denied optional capability scenarios all retain generic tool execution and further model turns. A permanent missing dependency uses the native nonretryable error contract; ordinary safe transient transport retry behavior was preserved.",
+    "KA6-T05": "Target/compatibility filtering and actual permission/read-only execution gates remain unchanged and their regression packages pass. No package manager, Docker installation path or repair is selected by the new controller code."
+  },
+  "iterations": [
+    {
+      "iteration": "initial",
+      "status": "failed",
+      "findings": [
+        "Legacy tests required primary-group collapse, forced call/decline, semantic user classification or require policies.",
+        "New fixture initially used an internal gate field instead of the public SetGate interface."
+      ]
+    },
+    {
+      "iteration": "optimization-1",
+      "status": "passed",
+      "findings": [
+        "Tests assert unchanged requests, composable discovery, exact user references and preserved audit state instead of preference gates.",
+        "Permanent dependency failure fixture uses RetryableToolError=false; it no longer models a transient transport error.",
+        "Four Go packages plus dedicated controller scenarios pass."
+      ]
+    }
+  ],
+  "scopeNotes": [
+    "The legacy CheckFinalGate function was not in the baseline main Agent finalization path. It is now inert for compatibility; the active automatic route prompt injection was removed.",
+    "Mock providers establish host control flow, not live model reasoning quality. KA9 still requires real model evaluation.",
+    "Real operation verification, Target authorization, protection, lifecycle and redaction remain separate KA7 acceptance; capability metadata is not an authority source.",
+    "Optional packaged-snapshot/native opt-in tests are not counted as passed here; candidate/source compatibility belongs to KA10."
+  ],
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA6-initial-go.log",
+      "sha256": "dbf02776a9ddbe5a6c3a7e21c916fcfaec36097c4cf8bc0581fc8638ad419775"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA6-development-go.log",
+      "sha256": "0f1433aed1430760ad1d08ad077501e20b0c073cab1d886d53e7bb4f5192cc0f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA6-selfcheck-initial.log",
+      "sha256": "ccd22e4a6c2084ae8164c9bdcf5917fb167ad8df6ac7ed20b3a2b2edecd5de26"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA6-autonomy-focused.log",
+      "sha256": "db111980b517c2da59cd7c8fe9db5e631b2aeeeee26f366b66c623dc26654c10"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA6-selfcheck-opt1.log",
+      "sha256": "7d48bb0d9344ca097406bb992a083242400e452f693823d804eae845a712d300"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA6-controller-autonomy.log",
+      "sha256": "6f160575144531409fc0f8ad8e33bf34b0b868df8c3adb37a1c1401f746adacc"
+    }
+  ]
+}

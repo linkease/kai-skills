@@ -60,10 +60,12 @@
     },
     {
       "id": "KA6",
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
-      "optimizations": 0,
-      "evidence": []
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
+      "optimizations": 1,
+      "evidence": [
+        "agent-capability-KA6-20261126.json"
+      ]
     },
     {
       "id": "KA7",
