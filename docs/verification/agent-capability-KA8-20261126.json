@@ -4,7 +4,7 @@
   "status": "failed",
   "implementationStatus": "in_progress",
   "optimizations": 3,
-  "stopReason": "After renewed goal alignment, three optimizations completed: exact wire sizing + full three-arm pilot, native high qualification, and native disabled qualification. Accurate evidence interpretation still fails; KA9/KA10 remain unstarted.",
+  "stopReason": "Three renewed diagnostic optimizations completed: actual-delivery audit plus Pro qualification, source ablation, and label invariance. Critical text is delivered, but unsupported causal and coverage claims persist. KA9/KA10 remain unstarted.",
   "verification": {
     "capabilityTests": {
       "status": "passed",
@@ -203,13 +203,15 @@
     "budget": {
       "currency": "CNY",
       "authorizedUpperLimit": 20,
-      "observedSharedCredentialIncrement": 2.359358,
+      "observedSharedCredentialIncrement": 3.15432,
+      "permanentlyRetainedUnknownUpperCNY": 1.55648,
+      "accountPlusRetainedUpperCNY": 4.7108,
       "unsettledReservations": false,
       "credentialProfileRemoved": true,
-      "credentialProfilesRemoved": 3,
+      "credentialProfilesRemoved": 1,
       "originalBaselinePreserved": true,
-      "meteredRequests": 682,
-      "scope": "Shared cumulative counter may include concurrent usage; not an isolated invoice. Original baseline and CNY20 cap preserved. Exact body bounded to original64KiB; previous8KiB protocol margin remains reserved, not added to admission. Native usage remains conservatively charged at20 CNY/M between account reconciliations; Retry-After/pacing/crash no-replay retained."
+      "meteredRequests": 746,
+      "scope": "Shared account increment may include concurrent usage, not an isolated invoice. Full single-attempt missing-usage reservation is permanently retained and may double count billed cost; future account reconciliation cannot release it. Native-output/body/call/time limits and originalCNY20 baseline/cap unchanged."
     },
     "historicalLiveModelPilots": [
       {
@@ -297,6 +299,17 @@
         "originalBaselinePreserved": true,
         "meteredRequests": 404,
         "scope": "Trusted shared credential cumulative counter may include concurrent usage; not an isolated invoice. Current round uses conservative 20 CNY/M usage/reservation accounting against verified rates including the Pro candidate (maximum component 12 CNY/M). Cumulative CNY20 cap/baseline unchanged; counter reconciliation respects five-minute pacing."
+      },
+      {
+        "currency": "CNY",
+        "authorizedUpperLimit": 20,
+        "observedSharedCredentialIncrement": 2.359358,
+        "unsettledReservations": false,
+        "credentialProfileRemoved": true,
+        "credentialProfilesRemoved": 3,
+        "originalBaselinePreserved": true,
+        "meteredRequests": 682,
+        "scope": "Shared cumulative counter may include concurrent usage; not an isolated invoice. Original baseline and CNY20 cap preserved. Exact body bounded to original64KiB; previous8KiB protocol margin remains reserved, not added to admission. Native usage remains conservatively charged at20 CNY/M between account reconciliations; Retry-After/pacing/crash no-replay retained."
       }
     ],
     "previousRegression": {
@@ -493,6 +506,47 @@
           "koolcenter/deepseek-v4-flash"
         ]
       }
+    },
+    "diagnosisTrials": {
+      "status": "failed",
+      "report": "agent-capability-KA8-diagnosis-20261126.md",
+      "optimizations": 3,
+      "sessions": 8,
+      "completeFinals": 7,
+      "coreRubricPassed": 2,
+      "coreRubricFailed": 5,
+      "runtimeUngraded": 1,
+      "actualModelCalls": 64,
+      "maximumAdmittedBodyBytes": 60661,
+      "readOnlyEvidenceUnchanged": 8,
+      "modelInvokedWriters": 0,
+      "lengthFinishes": 0,
+      "deliveryAudit": {
+        "previousSessions": 32,
+        "newSessions": 8,
+        "allSelectedCriticalNeedlesDelivered": 40,
+        "sourceWindowMismatches": 0,
+        "scope": "Actual model-visible read/query/search prefixes only. No full-file, semantic-correctness or native-platform claim."
+      },
+      "models": [
+        "koolcenter/deepseek-v4-pro",
+        "koolcenter/deepseek-v4.1-flash"
+      ],
+      "protocolQualification": "Native DeepSeek adapter defaults empty effort to high. Local effort omission retained; upstream internal honoring not independently verified.",
+      "inputVariants": [
+        "original frozen revision4",
+        "remove historical source archive only",
+        "opaque path/digest labels with spaces/equality/conflicts/active/digest differences preserved"
+      ],
+      "inferenceLimits": "One repetition per cell; diagnostic variants cannot replace original acceptance cases or establish a population causal effect. Graded by coding agent, not independent human review.",
+      "tests": {
+        "goPackage": "tools/capability-eval passed after eligibility tightening",
+        "pythonDeliveryAudit": 5,
+        "pythonEvaluationMaterials": 4,
+        "pythonDockerObservations": 3,
+        "nativePlatformOrFull216Rerun": false
+      },
+      "productionBehaviorChanged": false
     }
   },
   "changes": [
@@ -509,20 +563,23 @@
     "Clarify general observation/source/effect semantics in canonical iStoreOS docs and result-schema descriptions; regenerate distributions. No prescribed diagnostic tool order or business task takeover.",
     "Fix false QA byte admission by extending the existing request gate with an optional exact-request hook and adapter serialization sizer. Concrete provider/optional interfaces and existing auth observation remain intact. Unknown sizing/serialization fails before reservation/network.",
     "Execute and preserve the complete four-card three-arm comparison under identical requested configuration and bounds; report actual admitted body sizes, native usage and per-model latency/tool/model-call tradeoffs.",
-    "Qualify native high and disabled modes without changing device/global defaults; preserve all failed outputs and do not expand unqualified candidates. No business-specific diagnostic prompt or host task takeover added."
+    "Qualify native high and disabled modes without changing device/global defaults; preserve all failed outputs and do not expand unqualified candidates. No business-specific diagnostic prompt or host task takeover added.",
+    "Add developer-side delivery audit over actual model-visible tool messages; sources and UTF8 byte positions are checked, clipped search suffixes and local logs do not prove delivery. No runtime prompts or canonical capability implementations changed.",
+    "Add opt-in QA interrupted-result accounting with permanently retained full unknown reservation and artifact hash; ordinary unsettled admission still blocks and no failed case is replayed. Original4096/single-provider-attempt qualification rejects retry aggregates and other bounds.",
+    "Preserve original inputs/results and all eight model diagnostic cases, including one timeout. Pro/source removal/neutral labels do not satisfy original critical-fact acceptance."
   ],
   "acceptance": {
     "KA8-T01": {
       "status": "passed",
-      "evidence": "Frozen and unfamiliar launchers return configuration, generated root, active registration, native service record and fatal log evidence in the original attributed observations; explicit paging exposes late large-log evidence."
+      "evidence": "Frozen and unfamiliar launchers return configuration, generated root, active registration, native service record and fatal log evidence in the original attributed observations; explicit paging exposes late large-log evidence. Actual-delivery audits of32 previous plus8 new sessions preserve all selected critical text with zero source-window mismatches; this is not full-file proof."
     },
     "KA8-T02": {
       "status": "failed",
-      "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained."
+      "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained. Source removal and Pro still produce unfinished-handoff/digest/path assertions; neutral-label C02 passes core rubric without waiving original failures."
     },
     "KA8-T03": {
       "status": "failed",
-      "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims."
+      "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims. Pro source-ablation C11 invents a read-only mount by a guard; neutral-label Flash C11 invents an outer wrapper. No corresponding runtime evidence is emitted by tools."
     },
     "KA8-T04": {
       "status": "passed",
@@ -574,7 +631,8 @@
     "The pilot uses scoped scenario observation adapters; its service.inspect call is real canonical code over an isolated root. It is not a live user-device Docker repair or a full KaiPlus UI/bootstrap/native transport matrix.",
     "No push, release, production Docker modification, default model change or test-device deployment occurred. Temporary copied credentials were removed.",
     "The earlier owned native Docker run still uses a procd protocol adapter; native iStoreOS procd mutation is not claimed.",
-    "Exact sizing is implemented for the OpenAI adapter used here; unsupported adapters fail closed. Three-arm results are one-repeat/four-card diagnostics, not full216/native-platform or independent human acceptance. Native mode honoring remains qualified by observed API output, not assumed internal computation."
+    "Exact sizing is implemented for the OpenAI adapter used here; unsupported adapters fail closed. Three-arm results are one-repeat/four-card diagnostics, not full216/native-platform or independent human acceptance. Native mode honoring remains qualified by observed API output, not assumed internal computation.",
+    "Current diagnostic code changes only QA accounting/auditing. Changing model, removing archives or replacing opaque names did not establish reliable original-case reasoning. Implementation correctness, factual fidelity and whole-task success are recorded separately; original full216/native and delivery requirements remain mandatory."
   ],
   "rawEvidence": [
     {
@@ -752,6 +810,58 @@
     {
       "path": "build/verification/agent-capabilities-20261126/evaluation-round9-cleanup-private.json",
       "sha256": "68b553efd5beaaf34748f757cc653782f89a95e26d3dde6618418c556b5a3fca"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-round12-evidence-index.json",
+      "sha256": "bef4b04d8ed5245ed74711abdfd3094afc53c3ae9010a0846dadc0c98d434c29"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round10-diagnosis.json",
+      "sha256": "5e33248d5a7298af49d29d00be5ebffc74e8e18bdaaf86c8f24257456998c914"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round11-diagnosis.json",
+      "sha256": "e9b7c08edb00a27cd1919fc59a0ff00a6573f5b88471749d25619cca8a30b41c"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round12-diagnosis.json",
+      "sha256": "35fa690b5fb93bc7338c8810ab00c49596d625a8e215801b95b0034ee88fd873"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round10-delivery-audit-final-private.json",
+      "sha256": "7f961f409bbf79661788e6a1ddf98a49826edf700973d3c357b3f2592ac4d64f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round12-delivery-audit-private.json",
+      "sha256": "9163c0e81de22eb18e3cb4a510644669471940725a80b759dca4948aa0ccb2a9"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-budget-round12-final-private.json",
+      "sha256": "af3d817f65af8a942662a76924c88a2812a127bbffaa6cdc00bcc85faf546d09"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round12-metering-private.json",
+      "sha256": "b1bda0f977e75cbe9f7f36439850dd89ff6485678bbd6988124820434b918995"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round12-cleanup-private.json",
+      "sha256": "b66b8e148ee3b0eb64069a0b34f7d58b4c083708e3b4d7931279ef844186bfc7"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round12-final-source-private.json",
+      "sha256": "ad623c2caa3600f859a8442a73ca9b97003b5a31cf3982ef51ddc91907d03c34"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round12-final-accounting-qualification-private.json",
+      "sha256": "361a16097b935d7917a9c17b16bf5e28274f0a38ec9aa5739dd3b2eae66a6bff"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round12-accounting-final-go.log",
+      "sha256": "5ce3b5066c50a52316bfb6cb9c9712d1e039e0a4a06507ec881ca7d8658907d9"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round12-idempotent-recovery.log",
+      "sha256": "07a38d7bd894b9021abd02b8d26a47df7d433947bb3c7f4cd38495b705c32c96"
     }
   ],
   "followups": [
@@ -849,18 +959,43 @@
       ],
       "allEarlierResultsRetained": true,
       "nextMilestonesStarted": false
+    },
+    {
+      "authorizedBy": "User: 继续优化，看看出问题的地方在哪里？",
+      "optimizationLimit": 3,
+      "optimizations": 3,
+      "status": "failed",
+      "taskTreeAndAcceptance": "agent-capability-KA8-diagnosis-20261126.md",
+      "iterations": [
+        {
+          "optimization": 1,
+          "result": "Auditactual tool-message delivery of previous32 cases; all selected critical text present. Pro original-input probe:one core failure andone deadline-ungraded result. No billing uncertainty erased."
+        },
+        {
+          "optimization": 2,
+          "result": "Remove only historical archives; four complete outputs,one core pass/three failures. Pro invents guard-controlled read-only mounting. QA explicit retention retainsCNY1.55648 permanently."
+        },
+        {
+          "optimization": 3,
+          "result": "Neutral labels retain all relationships;two complete outputs,one core pass/one failure. Current outer-guard execution still fabricated; no original fixtures replaced."
+        }
+      ],
+      "allEarlierResultsRetained": true,
+      "nextMilestonesStarted": false
     }
   ],
   "requiredDecision": {
-    "reason": "Renewed three-optimization allowance is exhausted; key evidence fidelity still fails under the tested configurations.",
-    "decision": "Further work needs a renewed round or a concrete product-semantics decision. Retain current failures and standards; do not substitute fixed Docker workflows, force tool choices or assume a mode/model guarantees correctness."
+    "reason": "Three diagnostic optimizations are exhausted. Model evidence interpretation and stated observation scope still fail despite delivered critical text.",
+    "decision": "Keep the existing critical-fact gate. Any further round must be renewed or a concrete product-semantics decision made; do not force Docker recipes, hide counterevidence or count variant successes as replacing original failures."
   },
   "sourceCommits": {
     "reasonix-kai": "e806b5b034db122c8a696ac17fa02d8836e4088f",
     "wireAdmissionImplementation": "e806b5b03",
     "kai-skillsBaseBeforeThisRound": "e0293d8",
     "frozenComparison": "build/verification/agent-capabilities-20261126/evaluation-round7-frozen.json",
-    "note": "This round changes only verification documents in kai-skills; canonical/distributions remain unchanged. This report is committed with its audit. Every evaluated implementation/input hash matches the frozen plan."
+    "note": "This round changes only verification documents in kai-skills; canonical/distributions remain unchanged. This report is committed with its audit. Every evaluated implementation/input hash matches the frozen plan.",
+    "diagnosticAccounting": "39005d2bc",
+    "kaiSkillsBaseBeforeDiagnosis": "2ef0089"
   },
   "historicalBlockingExamples": [
     {

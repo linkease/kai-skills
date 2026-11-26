@@ -91,7 +91,7 @@
       "evidence": [
         "agent-capability-KA8-20261126.json"
       ],
-      "stopReason": "renewed-three-optimization-limit-retains-evidence-fidelity-failures-after-exact-wire-and-three-arm-comparison",
+      "stopReason": "renewed-three-optimization-limit-retains-model-causal-and-coverage-failures-after-delivery-and-ablation-audits",
       "additionalRounds": [
         {
           "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
@@ -120,6 +120,18 @@
           "completeFinals": 32,
           "resourceAdmissionUngraded": 0,
           "evidence": "agent-capability-KA8-round7-20261126.md",
+          "nextMilestonesStarted": false
+        },
+        {
+          "authorizedBy": "User: 继续优化，看看出问题的地方在哪里？",
+          "optimizations": 3,
+          "verificationStatus": "failed",
+          "diagnosticSessions": 8,
+          "completeFinals": 7,
+          "coreRubricFailed": 5,
+          "runtimeUngraded": 1,
+          "deliveryAuditSessions": 40,
+          "evidence": "agent-capability-KA8-diagnosis-20261126.md",
           "nextMilestonesStarted": false
         }
       ]
