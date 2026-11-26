@@ -1,10 +1,9 @@
 {
   "schemaVersion": 1,
   "milestone": "KA7",
-  "status": "blocked",
+  "status": "passed",
   "optimizations": 3,
-  "implementationStatus": "implemented_native_validation_pending",
-  "stopReason": "User-requested three-optimization limit reached; native Windows host journal tests have not executed.",
+  "implementationStatus": "complete",
   "changes": [
     "KaiPlus factory binds actual Target and private persistent operation state under recovery/runtime/operations; read-only classified shell commands do not provision a journal.",
     "Native workspace-helper supplies target-local context only after lease validation; direct SSH remains read-only and installs no helper.",
@@ -25,13 +24,10 @@
     "hostRegression": {
       "status": "passed",
       "packages": 17,
-      "noTestFiles": [
-        "internal/remoteworkspace/protocol"
-      ],
-      "log": "build/verification/agent-capabilities-20261126/KA7-final-opt3.log"
+      "log": "build/verification/agent-capabilities-20261126/KA7-resume-go.log"
     },
     "windowsCrossCompile": "passed",
-    "nativeWindowsHostJournal": "blocked_not_executed",
+    "nativeWindowsHostJournal": "passed",
     "liveAgentEvaluation": "not_run"
   },
   "acceptance": {
@@ -52,8 +48,8 @@
       "evidence": "New credential message/progress/private-key/quoted-value/durable-ack tests, all-split progress tests, actual Agent provider-message inspection and forged external receipt test. Ordinary hashes, versions and numeric counters retained."
     },
     "KA7-T05": {
-      "status": "blocked",
-      "evidence": "Local and SSH transport regressions pass. Windows compiled host journal tests could not be uploaded; cannot claim native Windows execution or count it as skipped/pass."
+      "status": "passed",
+      "evidence": "Local and strict SSH regressions pass; actual Windows private directory, broad DACL rejection and junction rejection all pass with no skips. Owned remote artifacts cleaned after digest verification and tests."
     }
   },
   "iterations": [
@@ -90,9 +86,7 @@
     }
   ],
   "limitations": [
-    "This milestone is not passed and KA8-KA10 were not started; dependency order is retained.",
     "Credential projection does not rewrite target files, actual backup content or immutable old source history. Unknown unlabelled secrets/images require host credential-store and sensitive-file boundaries; no universal secret detector is claimed.",
-    "Native Windows positive ACL/junction tests must execute on the current candidate before KA7 can pass. Cross-compilation is not native evidence.",
     "Two configured free model connectivity probes were unavailable; they are access preflight only, not KA9 model evaluation. Frozen 216-session acceptance remains unchanged.",
     "No public publication, push or device deployment occurred."
   ],
@@ -144,15 +138,50 @@
     {
       "path": "build/verification/agent-capabilities-20261126/KA7-final-opt3.log",
       "sha256": "ea7b6bb6e901985ca6c040a7a14b294c0271eb632147ea6253aa614358604bd3"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-resume-initial.json",
+      "sha256": "c45c87ea689d6d3b4cc94297379480a29957d1ff62a2b19a063f4a316a640f39"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-resume-opt1.json",
+      "sha256": "908ec8f0b11c61a7642b4408bbed6d9f374ebff89aacaaff517377f68625ac5a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-resume-opt2.json",
+      "sha256": "f65765abbdbbb615396735686cb04227847639b410898eb4f3f8cd6e73ea0be2"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-resume-opt3.json",
+      "sha256": "f86ce1accc4f44260fd1f180e29d21cf0998388ab2a39c6156abc6da832a5fcb"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA7-resume-go.log",
+      "sha256": "9cece65bd5fbc4f5e4b085294a7ee251c0669744be30077a8811f1fa9aefd55e"
     }
-  ],
-  "nextAuthorizedWorkAfterUserDecision": [
-    "Diagnose artifact transfer using retained private target binding and strict host keys; capture transport errors before any new native attempt.",
-    "Complete native Windows host journal tests, then resume KA8 Docker pilot, KA9 native/model matrix and KA10 delivery candidate."
   ],
   "implementationCommit": {
     "repository": "reasonix-kai",
-    "commit": "0669e234c895bd4047e3586ffb73ec74be512bdd",
-    "acceptance": "native-validation-pending"
+    "commit": "5fb107b56c89e2c308c86c03d3675b8b7669e4e3"
+  },
+  "initialStop": {
+    "status": "blocked",
+    "reason": "User-requested three-optimization limit reached; native Windows host journal tests have not executed.",
+    "optimizations": 3
+  },
+  "totalOptimizations": 6,
+  "resume": {
+    "authorizedBy": "User: 同意，继续",
+    "optimizations": 3,
+    "status": "passed",
+    "findings": [
+      "SFTP treated C:/ paths as relative; /C:/ native SFTP absolute paths fixed upload without changing host-key policy.",
+      "PowerShell 5.1 native argument handling required literal test arguments.",
+      "Actual native regression then found Lstat did not identify junctions; every existing ancestor now checks FILE_ATTRIBUTE_REPARSE_POINT."
+    ],
+    "nativeTests": 3,
+    "nativeSkipped": 0,
+    "digestVerified": true,
+    "cleanupExitCode": 0
   }
 }

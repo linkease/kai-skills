@@ -23,11 +23,11 @@ def main():
    if cfg.get('port'):args+=['-P',str(cfg['port'])]
    args += [cfg['user']+'@'+cfg['host']]
    quote=lambda s:'"'+str(s).replace('\\','\\\\').replace('"','\\"')+'"'
-   uploaded=subprocess.run(args,input=('put '+quote(artifact)+' '+quote(remote+'/probe.gz')+'\n').encode(),capture_output=True,timeout=80)
-   record['steps'].append({'step':'sftp','exitCode':uploaded.returncode})
+   uploaded=subprocess.run(args,input=('put '+quote(artifact)+' '+quote(('/' if len(remote)>2 and remote[1]==':' else '')+remote+'/probe.gz')+'\n').encode(),capture_output=True,timeout=80)
+   record['steps'].append({'step':'sftp','exitCode':uploaded.returncode,'stdout':uploaded.stdout.decode(errors='replace'),'stderr':uploaded.stderr.decode(errors='replace')})
    if uploaded.returncode:raise RuntimeError('pinned artifact upload failed')
   literal=remote.replace("'","''")
-  script="$ErrorActionPreference='Stop';$t='"+literal+"';$p=Join-Path $t 'probe.test.exe';$input=[IO.File]::OpenRead((Join-Path $t 'probe.gz'));$gzip=New-Object IO.Compression.GzipStream($input,[IO.Compression.CompressionMode]::Decompress);$file=[IO.File]::Create($p);try{$gzip.CopyTo($file)}finally{$file.Dispose();$gzip.Dispose();$input.Dispose()};if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() -cne '"+digest+"'){throw 'test binary digest mismatch'};& $p -test.run '^TestOperationContext(IsExplicit|RejectsBroadWindows|RejectsWindowsJunction)' -test.v;if($LASTEXITCODE -ne 0){throw 'native boundary tests failed'}"
+  script="$ErrorActionPreference='Stop';$t='"+literal+"';$p=Join-Path $t 'probe.test.exe';$input=[IO.File]::OpenRead((Join-Path $t 'probe.gz'));$gzip=New-Object IO.Compression.GzipStream($input,[IO.Compression.CompressionMode]::Decompress);$file=[IO.File]::Create($p);try{$gzip.CopyTo($file)}finally{$file.Dispose();$gzip.Dispose();$input.Dispose()};if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLower() -cne '"+digest+"'){throw 'test binary digest mismatch'};& $p @('-test.run=^TestOperationContext(IsExplicit|RejectsBroadWindows|RejectsWindowsJunction)','-test.v');if($LASTEXITCODE -ne 0){throw 'native boundary tests failed'}"
   out=ps(script);record.update(exitCode=out.returncode,stdout=out.stdout.decode(errors='replace'),stderr=out.stderr.decode(errors='replace'))
  except Exception as error:record.update(exitCode=1,errorType=type(error).__name__,error=str(error))
  finally:

@@ -596,8 +596,8 @@
         "KA4",
         "KA6"
       ],
-      "implementationStatus": "in_progress",
-      "verificationStatus": "blocked",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R03",
         "R08",
@@ -634,7 +634,7 @@
         {
           "id": "KA7-T05",
           "assertion": "Local、SSH 和已支持的原生平台执行路径遵循相同语义；控制端与目标端的文件、进程和清理范围分别验证。工具未安装时不能静默装到控制端。",
-          "status": "blocked",
+          "status": "passed",
           "evidence": "../verification/agent-capability-KA7-20261126.json"
         }
       ],
@@ -642,7 +642,13 @@
       "evidence": [
         "../verification/agent-capability-KA7-20261126.json"
       ],
-      "stopReason": "optimization-limit-reached-native-windows-validation-pending"
+      "additionalRounds": [
+        {
+          "authorizedBy": "User: 同意，继续",
+          "optimizations": 3,
+          "verificationStatus": "passed"
+        }
+      ]
     },
     {
       "id": "KA8",
@@ -657,8 +663,8 @@
         "KA6",
         "KA7"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "in_progress",
+      "verificationStatus": "in_progress",
       "requirements": [
         "R06",
         "R09",

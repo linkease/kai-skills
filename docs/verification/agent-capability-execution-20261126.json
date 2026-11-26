@@ -69,18 +69,24 @@
     },
     {
       "id": "KA7",
-      "implementationStatus": "in_progress",
-      "verificationStatus": "blocked",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "optimizations": 3,
       "evidence": [
         "agent-capability-KA7-20261126.json"
       ],
-      "stopReason": "optimization-limit-reached-native-windows-validation-pending"
+      "additionalRounds": [
+        {
+          "authorizedBy": "User: 同意，继续",
+          "optimizations": 3,
+          "verificationStatus": "passed"
+        }
+      ]
     },
     {
       "id": "KA8",
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "in_progress",
+      "verificationStatus": "in_progress",
       "optimizations": 0,
       "evidence": []
     },
