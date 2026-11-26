@@ -1,12 +1,13 @@
 ---
 name: istoreos-run-executable
-description: 安全检查并执行 iStoreOS 上的本地或 URL `.run` 文件；执行前验证来源、架构、空间和影响范围，并要求明确确认。
+description: 分别检查本地文件、下载经过摘要校验的文件，或使用明确 runner 执行选定的本地程序副本。
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 
 ## Local supporting resources
 
@@ -15,37 +16,14 @@ the executable resources required by its own workflow.
 - `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
-Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
-and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+Optional tool preparation: `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+or the separately authorized `ensure TOOL` operation. The native Windows preparation interface is
 use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
-through native PowerShell, then the authorized Ensure operation.
+through existing native PowerShell. Querying this skill does not install missing tools.
 
-## Business workflow
-# iStoreOS `.run` Executable Handler
+## Operation interfaces
+`sh scripts/inspect.sh LOCAL_FILE` 读取文件信息，不执行文件。`bash scripts/fetch.sh HTTPS_URL ABSOLUTE_DEST SHA256` 只下载及校验，不运行。
 
-当用户拿到一个 `*.run`（本地文件或下载链接）并想执行/安装时，按“先获取 → 先检查 → 判断影响范围 → 再确认 → 再执行 → 再留证据”的统一流程走。
+`bash scripts/run.sh REQUEST.json` 执行 artifact.execute；参数为 operationId、path、sha256、runner（native|sh|bash|dotrun）、arguments 数组、workingDirectory、timeoutSeconds，外层为 schemaVersion:1、operation、实际 targetId、parameters。执行需要既有授权和宿主私有 KAI_OPERATION_STATE_DIR。
 
-## 安全约束（必须遵守）
-
-- `.run` 视为危险操作：未知来源的可执行文件可能改系统配置/覆盖文件/启动服务/导致系统不可用。
-- KAIPlus 中的系统范围写入由设备保护门禁建立 Linkspace 恢复点；如果已经处于有效保护中，不要再次提醒备份。
-- `.run` 可能写入外部数据盘、数据库、固件或分区。检查发现超出保护范围时，必须单独说明并确认专项备份或停止执行，不能把系统恢复点说成全覆盖。
-- 直接在普通 shell 中执行没有 KAIPlus 自动保护，必须如实说明。
-- 先做只读检查，不要上来就 `chmod +x` 或直接运行。
-
-## 只读检查（推荐一键）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-run-executable/scripts/inspect.sh" <FILE.run>`
-
-## 获取（当输入是 URL）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-run-executable/scripts/fetch.sh" -o /tmp/<name>.run <URL>`
-
-## 执行（危险操作，需确认）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_RUN_EXEC=YES sh "$SKILLS_DIR/istoreos-run-executable/scripts/run.sh" <FILE.run|URL> [args...]`
-
-提示：
-- 如果用户是在设备的普通 shell 里执行命令：可用 `chmod 755 <FILE.run> && <FILE.run> ...`（或在同目录 `./xxx.run`）。
-- 建议先尝试 `--help/--version` 获取参数；执行时把输出保存为日志便于回溯。
-- 如果你希望 iStoreOS 记录本次安装并支持后续 `is-opkg unrun` 回滚：不带参数执行时优先使用 `is-opkg dotrun`（脚本会自动拷贝到临时文件，避免 dotrun 删除用户原文件）。
+源文件是已有常规文件，摘要必须匹配；执行的是拥有的校验副本。runner 不会自动选择，不 chmod 原文件；native 需已有执行位，dotrun 需已有 is-opkg 且无附加参数。失败不自动改后端或重试。退出零只证明所选进程结果，不证明应用健康或任意脚本的所有副作用；系统恢复点也不自动覆盖外部磁盘、数据库、固件和分区。

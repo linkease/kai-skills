@@ -8,22 +8,22 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.11",
-      "treeDigest": "sha256:535a485e09fc7ec66097e8d1c2ac4e580983b6eb31478800a5a7006c38734c5f"
+      "treeDigest": "sha256:ab1baa10c0d63040a6085f454d9132f20b4e0aae300184d9ae8ab3ad9e32f28f"
     },
     {
       "id": "kai-download-acceleration",
       "version": "1.2.11",
-      "treeDigest": "sha256:949eb841aab8ba4cef265ed53db2de7e50eed68bf602ecd5e929eb1616ea341b"
+      "treeDigest": "sha256:289d732df1a35eb0b3f7f520ab2a187ff05e3dad0f77e5963092afa7253ca922"
     },
     {
       "id": "kai-project-dependencies",
       "version": "1.2.11",
-      "treeDigest": "sha256:7e58540d261ce365f5a2d3c10b5c89ad7fcea208f522135b8f50d5a91d5acf86"
+      "treeDigest": "sha256:cf0fc71bc1421777c4cc3a82f50ea29d28cc330b5786bfe7e2d7ba06f37dca4d"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.11",
-      "treeDigest": "sha256:8c0b68b01119a874486d66ee5ceb73f015e446220774e3eb66cdc7b994a25b93"
+      "treeDigest": "sha256:dea15d538facfee75a9ed6c9bdec42846f277a66f09500cf9cae56d0f0fa89f1"
     }
   ]
 }

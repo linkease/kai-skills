@@ -171,11 +171,12 @@ class NetworkQualityContractTests(unittest.TestCase):
         software = (software_root / reference).read_text()
         acceleration = (ROOT / "components/system-packs/common/skills/kai-download-acceleration/SKILL.md").read_text()
         handoff = (SKILL / "data/install-handoff.md").read_text()
-        for phrase in ["401/403/404", "at most once", "validate"]:
+        for phrase in ["401/403/404", "operationId", "caller decides"]:
             self.assertIn(phrase, software)
-        self.assertIn("Broad WAN degradation", acceleration)
+        self.assertIn("默认 direct", acceleration)
         self.assertIn("operationId", handoff)
-        self.assertIn("do not retry installation", handoff)
+        self.assertIn("does not select a repair", handoff)
+        self.assertNotIn("## Outcome routing", handoff)
 
 
 if __name__ == "__main__":

@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-logs-and-diagnostics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
-  "description": "iStoreOS 故障诊断最小信息集与分流（opkg/is-opkg、init.d、df/mount、docker/dockerd、istoreenhance、DNS/网络）；用于失败时先采证据再结论。",
+  "description": "按显式范围读取 iStoreOS 服务、网络、存储或包登记事实；保留未知、拒绝与超时。",
   "platforms": [
     "istoreos"
   ],
@@ -22,17 +22,17 @@
     {
       "id": "istoreos-logs-and-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
-      "sourceDigest": "sha256:e93920c1779b868213a2cc4e8d7d509091134bd48a926a21ea0b6cb6438b804e"
+      "sourceDigest": "sha256:c02204a2cb0a549c697cc65c76e4c8f2abfaaf2afdd52e550fd793fca1d6ff25"
     },
     {
       "id": "istoreos-package-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
-      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
+      "sourceDigest": "sha256:e9c86466dec9a9bbbf7f5e0597897afd091007f5034c46d8c8986e2f23c3f6a6"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-system-information",
@@ -42,7 +42,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

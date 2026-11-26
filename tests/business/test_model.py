@@ -19,7 +19,8 @@ class ModelTests(unittest.TestCase):
         self.assertEqual(self.distribution.composition['aliases'], {})
         shared = [p for p in self.distribution.packages.values()
                   if p['component'] in ('common', 'linux')]
-        self.assertEqual(len(shared), 8)
+        self.assertEqual(len(shared), 9)
+        self.assertIn("kai-system-information", {p["id"] for p in shared})
         for package in shared:
             self.assertTrue(package['id'].startswith('kai-'))
             body = (ROOT / package['canonicalPath'] / 'SKILL.md').read_text()
@@ -38,7 +39,7 @@ class ModelTests(unittest.TestCase):
         catalog = self.distribution.capability_catalog()
         self.assertEqual([group['id'] for group in catalog['groups']],
                          ['software', 'istoreos', 'systems', 'personal'])
-        self.assertEqual(len(catalog['capabilities']), 24)
+        self.assertEqual(len(catalog['capabilities']), 25)
         personal = next(group for group in catalog['groups'] if group['kind'] == 'personal')
         self.assertEqual(personal['id'], 'personal')
         self.assertNotIn('personal', {item['group'] for item in catalog['capabilities']})

@@ -140,6 +140,9 @@
     "istoreos-backup-restore": [
       "kai-system-information",
       "istoreos-service-manager"
+    ],
+    "istoreos-package-manager": [
+      "istoreos-service-manager"
     ]
   },
   "programRequirements": {

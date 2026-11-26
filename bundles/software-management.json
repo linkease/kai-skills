@@ -8,12 +8,12 @@
     {
       "id": "kai-download-acceleration",
       "version": "1.2.11",
-      "treeDigest": "sha256:949eb841aab8ba4cef265ed53db2de7e50eed68bf602ecd5e929eb1616ea341b"
+      "treeDigest": "sha256:289d732df1a35eb0b3f7f520ab2a187ff05e3dad0f77e5963092afa7253ca922"
     },
     {
       "id": "kai-software",
       "version": "1.2.11",
-      "treeDigest": "sha256:df74b8f84676d2b2b58d211ac369139f372406dd3a78c1e5992ea981a1bf8a55"
+      "treeDigest": "sha256:b1be9befd190dc5a0e581cb75ae0245fef22cc74dbc3cb0988a9d956d61ebc9a"
     }
   ]
 }

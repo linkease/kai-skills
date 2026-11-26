@@ -1,12 +1,13 @@
 ---
 name: istoreos-docker-data-root-migrate
-description: 安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。
+description: 验证并复制明确的静止 Docker 数据集到空目标；保留挂载身份、元数据与实际复制结果。
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 
 ## Local supporting resources
 
@@ -15,31 +16,16 @@ the executable resources required by its own workflow.
 - `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
-Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
-and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+Optional tool preparation: `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+or the separately authorized `ensure TOOL` operation. The native Windows preparation interface is
 use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
-through native PowerShell, then the authorized Ensure operation.
+through existing native PowerShell. Querying this skill does not install missing tools.
 
-## Business workflow
-# Docker data_root Migration (Safe)
+## Operation interfaces
+`sh scripts/plan.sh` 只返回现有 dockerd 配置及运行时证据，不选择源或目标。`bash scripts/apply.sh REQUEST.json` 执行 docker.data.copy，不自动完成整套迁移。
 
-目标：当 Docker 数据目录在 `/overlay`（例如 `/overlay/upper/opt/docker`）或空间不足时，把 `dockerd.globals.data_root` 迁移到数据盘，避免把系统盘打满。
+请求含 schemaVersion:1、operation、targetId、parameters。参数为 operationId、source、destination、sourceIdentity、destinationIdentity（或 absent）、destinationParentIdentity、serviceName、endpoint、maxSourceBytes、reserveBytes、timeoutSeconds。路径是物理绝对路径；identity 为 stat 的设备/inode 与文件系统类型/ID。endpoint 明确为所选本地 unix 引擎。需要既有授权、私有 KAI_OPERATION_STATE_DIR、原生 rsync 和有界执行器。
 
-## 安全约束（必须遵守）
+前置条件要求引擎静止、来源及挂载身份仍匹配，目标不存在或为空；非空目标不会合并。复制保留并校验内容、所有者、模式、时间、硬/软链接、ACL、xattr；容量只是预检估计，不是配额预留。失败保留已复制数据及不确定效果，不自动删除或回滚。UCI 等于目标或目录存在均不能证明复制完成。
 
-- 不要“自动修改用户 Docker 数据目录”。只有用户明确回复确认（例如“确认迁移”）后才执行写入/迁移。
-- KAIPlus 由设备保护门禁建立 Linkspace 恢复点；已处于有效保护中时不要重复提醒备份。
-- Docker 数据通常位于系统保护范围之外。迁移流程必须停止 `dockerd`、复制数据、保留原目录并输出基于原 `data_root` 的回滚命令；需要应用一致性时另行制定专项备份，不能用系统恢复点代替。
-- 迁移前必须停止 `dockerd`，迁移后必须验证 `docker info` 的 `Docker Root Dir` 与 `df` 空间。
-
-## 快速检查（只读）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/plan.sh"`
-
-## 执行迁移（写操作，需确认）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_DOCKER_DATA_ROOT_MIGRATE=YES sh "$SKILLS_DIR/istoreos-docker-data-root-migrate/scripts/apply.sh" <NEW_DATA_ROOT>`
-
-提示：
-- `<NEW_DATA_ROOT>` 建议在数据盘上，例如 `/mnt/<disk>/docker`。
-- 若你只知道“要放到哪个盘”，可先用 `kai-storage-files` 选出 `base path`，再拼接子目录。
+本接口不启停服务、不修改 UCI、不重写第三方 init；服务/API/数据目录切换是其他明确操作，不能把复制成功当作完整迁移成功。

@@ -5,6 +5,7 @@ import hashlib
 import json
 from pathlib import Path
 import subprocess
+import re
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--source', required=True, type=Path)
@@ -13,8 +14,24 @@ args = parser.parse_args()
 root = Path(__file__).resolve().parents[1]
 dest = root / 'components/system-packs/common/skills/kai-software/resources'
 relative = 'scripts/remove-managed.sh'
-payload = (args.source / relative).read_bytes()
-commit = subprocess.check_output(['git', '-C', str(args.source), 'rev-parse', 'HEAD'], text=True).strip()
+def pinned_bytes(relative, commit):
+    if not re.fullmatch(r'[a-f0-9]{40}', commit):
+        raise ValueError('owner sourceCommit must be an exact Git revision')
+    return subprocess.check_output(['git', '-C', str(args.source), 'show', commit + ':' + relative])
+
+
+def owner_source_commit(lock_path):
+    if args.check:
+        return json.loads(lock_path.read_text())['sourceCommit']
+    return subprocess.check_output(['git', '-C', str(args.source), 'rev-parse', 'HEAD'], text=True).strip()
+
+
+def source_bytes(relative, commit):
+    return pinned_bytes(relative, commit) if args.check else (args.source / relative).read_bytes()
+
+
+commit = owner_source_commit(dest / 'owner.lock.json')
+payload = source_bytes(relative, commit)
 lock = {'schemaVersion': 1, 'owner': 'zsetup-scripts', 'path': relative,
         'sourceCommit': commit, 'sourceState': 'local-candidate',
         'sha256': hashlib.sha256(payload).hexdigest(), 'size': len(payload),
@@ -30,11 +47,12 @@ else:
 # jq has its own portable managed layout and removal policy. Keep its owner
 # bytes intact; distributed helpers never need this sibling checkout.
 jq_dest = root / 'components/system-packs/common/skills/kai-tool-bootstrap/resources'
+commit = owner_source_commit(jq_dest / 'jq-owner.lock.json')
 jq_files = []
 for source, name in [('apps/jq/0.1.0/installer.sh', 'jq-install.sh'),
                      ('apps/jq/0.1.0/installer.ps1', 'jq-install.ps1'),
                      ('lib/bootstrap.ps1', 'bootstrap-windows.ps1')]:
-    payload = (args.source / source).read_bytes()
+    payload = source_bytes(source, commit)
     digest = hashlib.sha256(payload).hexdigest()
     jq_files.append({'source': source, 'file': name, 'sha256': digest, 'size': len(payload)})
     if args.check:
@@ -55,13 +73,17 @@ else:
 
 # Preserve the owner's relative layout, including its existing jq recipe.
 task_dest = dest / 'owner'
-task_sources = sorted((args.source / 'software').glob('*.sh')) + sorted((args.source / 'software').glob('*.ps1'))
-task_sources += [args.source / 'software/releases.lock.json', args.source / 'software/README.md', args.source / 'apps/jq/0.1.0/installer.sh',
-                 args.source / 'apps/jq/source/artifacts.lock.json']
+commit = owner_source_commit(dest / 'software-owner.lock.json')
+if args.check:
+    # Validate the explicitly pinned owner, not an unrelated moving upstream HEAD.
+    task_sources = [args.source / item['source'] for item in json.loads((dest / 'software-owner.lock.json').read_text())['files']]
+else:
+    task_sources = sorted((args.source / 'software').glob('*.sh')) + sorted((args.source / 'software').glob('*.ps1'))
+    task_sources += [args.source / 'software/releases.lock.json', args.source / 'software/README.md', args.source / 'apps/jq/0.1.0/installer.sh', args.source / 'apps/jq/source/artifacts.lock.json']
 task_files = []
 for source in task_sources:
     relative = source.relative_to(args.source).as_posix()
-    payload = source.read_bytes()
+    payload = source_bytes(relative, commit)
     target = task_dest / relative
     task_files.append({'source': relative, 'file': 'owner/' + relative,
                        'sha256': hashlib.sha256(payload).hexdigest(), 'size': len(payload)})

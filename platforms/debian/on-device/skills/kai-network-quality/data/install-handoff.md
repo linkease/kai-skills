@@ -1,7 +1,6 @@
 # Software installation network handoff
 
-The owning software workflow retains authority over installation, credentials,
-package policy, and retries. FastNet receives only a bounded observation request.
+The model chooses observations and any remediation or retry. The host owns credentials, target and authorization. FastNet receives only a bounded observation request.
 
 ## Required input
 
@@ -10,7 +9,7 @@ package policy, and retries. FastNet receives only a bounded observation request
 - Stable, non-secret target IDs and explicit HTTP(S) endpoints from the install
   plan or structured native failure.
 - A shared opaque `metadata.operationId` for plan, install attempt, diagnosis,
-  remediation, verification, and the optional single retry.
+  remediation and verification, without prescribing any retry.
 - A timeout in `budget.timeoutSeconds` and response-byte limit in
   `budget.maxResponseBytes`.
 
@@ -34,7 +33,7 @@ The example URL is a placeholder, not an authorized endpoint. A top-level
 `operationId`, `targets[].operationId` or `budget.maxTransferBytes` is invalid.
 Keep `metadata.operationId` when correcting a request: never remove correlation
 to work around a schema failure. Create the request as a private mode-0600 file,
-validate without network traffic, then execute the skill wrapper with
+optionally validate without network traffic. Execution validates again; run with
 `KAIPLUS_CONFIRMED=1` only under the existing endpoint/budget authorization.
 Require `command="fastnet agent execute"` and matching `result.operationId` in
 the result. Report findings even when the network condition is unhealthy; a
@@ -44,7 +43,7 @@ URL userinfo is forbidden. Query strings may be necessary for the local request,
 but must never be repeated in model context, logs, reports, or evidence. Prefer
 an equivalent unsigned metadata endpoint when it answers the same question.
 
-## Escalate to FastNet
+## Observable transport findings
 
 - DNS resolution failure or timeout.
 - TCP connect failure or timeout.
@@ -54,7 +53,7 @@ an equivalent unsigned metadata endpoint when it answers the same question.
 - HTTP 429 or 5xx suggesting endpoint/path availability.
 - Measured target transfer below the relevant network baseline.
 
-## Do not classify as network quality
+## Findings that alone do not establish network quality
 
 - HTTP 401, 403, or 404 without separate transport evidence.
 - Missing dependency, unsupported architecture, package conflict, or postinstall
@@ -62,12 +61,6 @@ an equivalent unsigned metadata endpoint when it answers the same question.
 - Signature, hash, trust-policy, or package-manager acceptance failure.
 - Invalid package name/version or unavailable catalog entry.
 
-## Outcome routing
+## Outcome scope
 
-- Base WAN and multiple unrelated targets degraded: target system-network owner.
-- Base WAN healthy but one target path degraded: `kai-download-acceleration`.
-- Endpoint policy status: owning software/provider workflow.
-- TLS trust/clock finding: target system diagnostics.
-- No comparable improvement after remediation: do not retry installation.
-- Comparable improvement: the software owner may perform one retry with the
-  original package identity and policy.
+Base WAN, selected target path, endpoint policy and TLS trust/clock findings have different scopes. Comparison needs equivalent target, profile, budget and time context. This interface does not select a repair, route to another skill or automatically retry an installation. Native installation receipts and application postconditions are separate evidence.

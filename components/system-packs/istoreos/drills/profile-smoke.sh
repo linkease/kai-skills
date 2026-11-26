@@ -59,7 +59,7 @@ fi
 need_skill "istoreos-app-diagnostics"
 
 grep -F 'kai-network-quality' "$root/TASK_ROUTING.md" >/dev/null
-grep -F 'kai-network-quality' "$root/skills/istoreos-system-task-router/SKILL.md" >/dev/null
+[ -f "$root/skills/istoreos-system-task-router/data/code-ownership.tsv" ]
 
 for script in "$root"/skills/*/scripts/*.sh; do
   [ -f "$script" ] || continue

@@ -492,8 +492,8 @@
         "KA0",
         "KA1"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R01",
         "R10",
@@ -504,23 +504,31 @@
         {
           "id": "KA5-T01",
           "assertion": "KA0 中全部条目完成处置；不再包含强制主 skill、固定诊断次序、先加速才能处理任意下载等任务处方。必要的调用语法、权限要求及数据完整性前置条件保留；旧文档和测试中要求固定业务路由的预期同时更新，不能保留相互矛盾的规范。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA5-20261126.json"
         },
         {
           "id": "KA5-T02",
           "assertion": "同一任务允许模型选择一个或多个能力、直接使用通用工具，或不用 skill；不存在“只能先加载某路由器才能继续”的业务要求。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA5-20261126.json"
         },
         {
           "id": "KA5-T03",
           "assertion": "检索描述准确说明能够返回什么和会改什么。关键词只辅助发现，不生成必须执行的业务步骤；移除旧强制条目后，生成包和内嵌提示没有残留。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA5-20261126.json"
         },
         {
           "id": "KA5-T04",
           "assertion": "保留公共实现与系统适配、独立安装、资源归属和精确 ID。旧 ID 的兼容只映射接口，不注入旧任务流程；不新增两份人工维护实现。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA5-20261126.json"
         }
+      ],
+      "optimizations": 2,
+      "evidence": [
+        "../verification/agent-capability-KA5-20261126.json"
       ]
     },
     {

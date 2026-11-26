@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-app-diagnostics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-  "description": "只读分析最近一次 iStore 安装任务，将任务日志、当前包状态和插件能力合并为紧凑诊断报告；由应用安装流程在失败或安装后异常时按需调用。",
+  "description": "读取已记录的 iStore 安装日志、包数据库和目录信息；返回有范围与来源的事实及启发式分类。",
   "platforms": [
     "istoreos"
   ],
@@ -22,17 +22,17 @@
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
+      "sourceDigest": "sha256:b793d8b5e45aab45e4ac45eb5f8adea33235922e084de1419d21507f8d01443d"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
+      "sourceDigest": "sha256:b793d8b5e45aab45e4ac45eb5f8adea33235922e084de1419d21507f8d01443d"
     },
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
+      "sourceDigest": "sha256:bfe197ff39e518903eefd126e49ce293b72df0e3aed15ebc36e39c002f871471"
     }
   ]
 }

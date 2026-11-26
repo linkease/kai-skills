@@ -22,7 +22,7 @@
     {
       "id": "luci-http-controller",
       "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
-      "sourceDigest": "sha256:8306927cf3c95ff3f5ebd0e3a04a2eeda8ea0fd9aaec6edf16938aac29125c1a"
+      "sourceDigest": "sha256:5ab7b0938eb89724b5991337e1ebc2b7b5fe93e0e19aba1dacac5dac2c12bd59"
     }
   ]
 }

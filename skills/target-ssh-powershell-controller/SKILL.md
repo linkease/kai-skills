@@ -1,15 +1,16 @@
 ---
 name: target-ssh-powershell-controller
 description: Bind a target through OpenSSH and execute PowerShell scripts with strict host-key checking, bounded timeouts, target identity, and explicit apply approval.
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 # SSH PowerShell target controller
 
-Use this only for a target that exposes PowerShell through OpenSSH. System-specific diagnosis and changes remain in the selected System Pack.
+Use this only for a target that exposes PowerShell through OpenSSH. The model chooses the program and compatible execution path; this Transport does not route a task.
 
 Set `TARGET_ID`, `TARGET_SSH_HOST`, `TARGET_SSH_USER`, and `TARGET_SSH_KNOWN_HOSTS`; optionally set port, identity, and timeout. Credentials stay in an SSH agent or protected key file. Unknown or changed host keys are a hard stop.
 
@@ -20,7 +21,7 @@ TARGET_CHANGE_APPROVED=YES sh scripts/target-ssh-powershell.sh apply < apply.ps1
 sh scripts/target-ssh-powershell.sh verify < verify.ps1
 ```
 
-The script is sent over stdin and executes only on the bound target. `apply` requires fresh user approval. Timeout, cancellation, authentication, and shell startup failures are transport errors, not operating-system conclusions.
+The script is sent over stdin and executes only on the bound target. `apply` requires an existing scoped executor authorization; the marker does not grant host permission. Timeout, cancellation, authentication, and shell startup failures are transport errors, not operating-system conclusions.
 
 The controller needs `iconv`, `base64`, `awk`, and `mktemp`. It sends UTF-8 scripts over stdin, uses a temporary BOM script on the target, and removes it after execution. A per-call status frame preserves the child exit code when the SSH default PowerShell would normalize it. This does not change the target default shell or persistent execution policy.
 

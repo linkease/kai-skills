@@ -9,7 +9,7 @@ resource-discovery: explicit
 
 # SSH Target Controller
 
-Use this skill only when the current Agent has no built-in target runtime and must reach a bound target through SSH. System diagnosis and repair belong to the selected system skill; this controller only transports its script to the target shell.
+This optional Transport sends an explicitly supplied program to a bound SSH target. It does not select skills, diagnose the system or decide a repair. Built-in target tools and other compatible transports remain available.
 
 ## Binding contract
 
@@ -28,7 +28,7 @@ TARGET_CHANGE_APPROVED=YES sh scripts/target-ssh.sh apply < apply.sh
 sh scripts/target-ssh.sh verify < verify.sh
 ```
 
-`inspect`, `plan`, and `verify` must be read-only. `apply` is rejected without explicit approval. Scripts execute through the bound remote shell via stdin, so controller-host paths and commands are never treated as target state. Prefer scripts that emit bounded structured output and clean any target-side temporary assets with a trap.
+`inspect`, `plan`, and `verify` must be read-only. `apply` requires an existing target-scoped executor authorization. The marker does not grant host permission. Scripts execute through the bound remote shell via stdin, so controller-host paths and commands are never treated as target state. Prefer scripts that emit bounded structured output and clean any target-side temporary assets with a trap.
 
 Use `facts` for the controller's fixed, read-only target capability probe:
 

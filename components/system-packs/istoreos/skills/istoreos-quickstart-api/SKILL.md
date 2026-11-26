@@ -1,6 +1,6 @@
 ---
 name: istoreos-quickstart-api
-description: Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.
+description: Send one explicitly selected QuickStart API request through a bound LuCI transport; return its actual response envelope.
 owner: system-pack/istoreos
 systems: istoreos
 requires: target.http
@@ -11,17 +11,6 @@ cost: medium
 resource-discovery: explicit
 ---
 
-# iStoreOS QuickStart API
+`sh scripts/request.sh GET PATH` queries the selected endpoint. `TARGET_HTTP_WRITE_APPROVED=YES sh scripts/request.sh POST PATH JSON` sends one selected write. [API reference](data/api-summary.md) describes endpoint schemas; it does not choose a repair or sequence.
 
-Use this helper when another iStoreOS skill needs QuickStart status or a user explicitly requests a QuickStart-backed operation. It owns endpoint semantics; `$luci-http-controller` owns authentication and HTTP transport.
-
-Read `data/api-summary.md` only for the relevant endpoint family. Start with GET. Before POST, show the endpoint, body, expected effect, verification GET, and rollback if available. Reboot, poweroff, password, network, Wi-Fi, disk, RAID, package, share, or data deletion also requires `QUICKSTART_DANGER_APPROVED=YES` immediately before execution.
-
-Run the deterministic wrapper from the control environment:
-
-```sh
-sh scripts/request.sh GET /system/status/
-TARGET_HTTP_WRITE_APPROVED=YES sh scripts/request.sh POST /system/auto-check-update/ '{"enable":true}'
-```
-
-The wrapper resolves the sibling transport skill from `SKILLS_DIR`, checks the QuickStart response envelope, and fails when `success` is non-zero. Never put the LuCI password in arguments or files.
+Transport owns credentials and binding. Existing executor authorization must cover the exact target, method, endpoint and body; dangerous endpoints also require QUICKSTART_DANGER_APPROVED=YES. These markers grant no host permission. Native success is checked; request acceptance is not an application postcondition. No init file is rewritten. Passwords do not belong in arguments, model context or returned evidence.

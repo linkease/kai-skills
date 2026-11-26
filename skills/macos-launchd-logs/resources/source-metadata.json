@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: macos-launchd-logs\ndescription: Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.\nowner: system-pack/macos\nsystems: macos\nrequires: target-shell:posix\ntriggers: launchd 服务失败, LaunchAgent, LaunchDaemon, macOS 服务未运行, macOS 日志, 重启 Mac 服务\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: macos-launchd-logs\ndescription: Read one launchd registration or log window; apply an explicitly selected action with before/after native state checks.\nowner: system-pack/macos\nsystems: macos\nrequires: target-shell:posix\ntriggers: launchd 服务失败, LaunchAgent, LaunchDaemon, macOS 服务未运行, macOS 日志, 重启 Mac 服务\nauto-use: suggest\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "macos-launchd-logs",
       "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
-      "sourceDigest": "sha256:4acddcaf678f17f2dfa4ae8b427c1f16c2e8402b3ad542b9628b273217f5d6db"
+      "sourceDigest": "sha256:36f914d0d71af66816beed14d9b4b3dc65bc81e5f97a2ff37d2e541e8a9c10ee"
     },
     {
       "id": "kai-system-information",

@@ -1,3 +1,4 @@
+import hashlib
 import importlib.util
 import json
 import os
@@ -87,11 +88,20 @@ class PackageTests(unittest.TestCase):
         directory, _ = self.build('istoreos-run-executable')
         executable = self.work / 'failed.run'
         executable.write_text('#!/bin/sh\nprintf "native-failure-fixture\\n"\nexit 7\n')
-        result = subprocess.run(['sh', str(directory / 'scripts/run.sh'), str(executable)],
-            env={**os.environ, 'CONFIRM_RUN_EXEC': 'YES', 'RUN_VIA_ISTORE_DOTRUN': 'no'},
-            capture_output=True, text=True, timeout=10)
-        self.assertEqual(result.returncode, 7, result.stdout + result.stderr)
-        self.assertIn('native-failure-fixture', result.stdout)
+        state = self.work / 'operations'; state.mkdir(mode=0o700)
+        request = self.work / 'execution.json'
+        request.write_text(json.dumps({'schemaVersion':1,'operation':'artifact.execute','targetId':'local','parameters':{
+            'operationId':'failed-artifact','path':str(executable),'sha256':hashlib.sha256(executable.read_bytes()).hexdigest(),
+            'runner':'sh','arguments':[],'workingDirectory':str(self.work),'timeoutSeconds':2}}))
+        result = subprocess.run(['bash', str(directory / 'scripts/run.sh'), str(request)],
+            env={**os.environ, 'CONFIRM_RUN_EXEC':'YES','KAI_OPERATION_STATE_DIR':str(state)},
+            capture_output=True,text=True,timeout=10)
+        self.assertNotEqual(result.returncode,0,result.stdout+result.stderr)
+        receipt=json.loads(result.stdout)
+        self.assertEqual(receipt['operationStatus'],'unknown')
+        self.assertTrue(receipt['effects']['unknown'])
+        self.assertIn('code 7',receipt['errors'][0]['message'])
+        self.assertIn('native-failure-fixture',(state/'failed-artifact/native.stdout').read_text())
 
     def test_relocation_has_no_build_directory_dependency(self):
         directory, metadata = self.build('kai-tool-bootstrap')

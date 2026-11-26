@@ -51,10 +51,12 @@
     },
     {
       "id": "KA5",
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
-      "optimizations": 0,
-      "evidence": []
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
+      "optimizations": 2,
+      "evidence": [
+        "agent-capability-KA5-20261126.json"
+      ]
     },
     {
       "id": "KA6",

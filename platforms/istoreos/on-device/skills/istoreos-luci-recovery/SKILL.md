@@ -1,12 +1,13 @@
 ---
 name: istoreos-luci-recovery
-description: 诊断和恢复 iStoreOS LuCI 管理页面打不开、500、空白或登录循环；先只读采证，修改、重启或重装前必须确认。
+description: 读取 LuCI 相关服务和文件归属；对明确服务或单个本地 opkg 包执行有界操作。
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 
 ## Local supporting resources
 
@@ -15,43 +16,14 @@ the executable resources required by its own workflow.
 - `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
-Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
-and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+Optional tool preparation: `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+or the separately authorized `ensure TOOL` operation. The native Windows preparation interface is
 use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
-through native PowerShell, then the authorized Ensure operation.
+through existing native PowerShell. Querying this skill does not install missing tools.
 
-## Business workflow
-# LuCI Recovery (iStoreOS/OpenWrt)
+## Operation interfaces
+`sh scripts/diag.sh [SERVICE]` 返回只读证据；`trace_owner.sh ABSOLUTE_FILE` 查询原生包归属。兼容 `suggest_fix.sh` 只返回观察，不生成修复处方。
 
-用于处理“安装插件后 LuCI 异常（打不开/500/空白页/登录循环）”。
+`bash scripts/soft_recover.sh REQUEST.json` 是 service.apply 接口。`bash scripts/reinstall_core.sh REQUEST.json` 执行 package.reinstall，显式参数为 operationId、manager:"opkg"、package、version、artifact、sha256、timeoutSeconds。外层为 schemaVersion:1、operation、实际 targetId、parameters；需要既有授权和私有操作目录。
 
-## 核心原则
-
-- 先证据：先跑只读诊断脚本再下结论。
-- 先软恢复：清缓存 + 重启 `rpcd/uhttpd` 往往就能恢复。
-- 能不改 `/usr/lib/lua/luci` 源码就不改：优先重装相关包或回退冲突插件。
-- 任何写操作（重启服务/清缓存/重装包/改源码）都需要用户明确确认。KAIPlus 由设备保护门禁建立 Linkspace 恢复点；已经处于有效保护中时不要重复提醒备份。直接 shell 操作没有这项自动保护。
-
-## 只读诊断（推荐）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/diag.sh"`
-
-## 软恢复（需确认）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_LUCI_SOFT_RECOVERY=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/soft_recover.sh"`
-
-## 重装核心包（需确认）
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; CONFIRM_LUCI_REINSTALL=YES sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/reinstall_core.sh"`
-
-## 定位坏文件归属包（只读）
-
-当 `logread`/浏览器报错里出现具体 Lua 文件路径时，用它定位属于哪个包，并对照 `/rom` 基线：
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/trace_owner.sh" /usr/lib/lua/luci/<path>.lua`
-
-## 生成修复命令候选（只读）
-
-基于“坏文件路径”输出重装/回退的候选命令清单（脚本不执行写操作）：
-
-- `SKILLS_DIR="${KAIPLUS_SKILLS_DIR:?KAIPLUS_SKILLS_DIR is required}"; sh "$SKILLS_DIR/istoreos-luci-recovery/scripts/suggest_fix.sh" /usr/lib/lua/luci/<path>.lua`
+重装只接受摘要与原生元数据都匹配的本地包；不刷新源、不选一组核心包、不删缓存、不重启服务。其他管理器不被自动替代。包已登记不证明 LuCI/Web/API 可用，副作用与实际验证分别返回。

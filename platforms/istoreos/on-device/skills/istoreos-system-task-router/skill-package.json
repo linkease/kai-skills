@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-system-task-router",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-  "description": "iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。",
+  "description": "按调用者明确选择的范围查询 iStoreOS 设备事实；历史 ID 保留，不再进行任务分流。",
   "platforms": [
     "istoreos"
   ],
@@ -22,17 +22,17 @@
     {
       "id": "istoreos-system-task-router",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-      "sourceDigest": "sha256:81e875d2b4039644848b2ba1094d1676366436a14d0af4b7146e8fe23ec0fd40"
+      "sourceDigest": "sha256:9c12ed8b612127cbb4978dc31c99c4ee8379096d113967c0185bca99472b60ed"
     },
     {
       "id": "istoreos-package-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
-      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
+      "sourceDigest": "sha256:e9c86466dec9a9bbbf7f5e0597897afd091007f5034c46d8c8986e2f23c3f6a6"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-system-information",
@@ -42,7 +42,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

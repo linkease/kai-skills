@@ -56,7 +56,7 @@ class PublicationTests(unittest.TestCase):
             self.assertEqual((comparison.left_only, comparison.right_only, comparison.diff_files),
                              ([], [], []))
             version = json.loads((release / 'release-manifest.json').read_text())['version']
-            self.assertEqual(len(list((outputs[0] / f'entrypoints/{version}/skills').glob('*.sh'))), 32)
+            self.assertEqual(len(list((outputs[0] / f'entrypoints/{version}/skills').glob('*.sh'))), 33)
             self.assertEqual(len(list((outputs[0] / f'entrypoints/{version}/systems').glob('*.sh'))), 3)
             public_entry = (outputs[0] / 'setup.sh').read_text()
             self.assertNotIn('KAI_SKILLS_REQUESTED_RELEASE=', public_entry)

@@ -1,37 +1,27 @@
 ---
 name: istoreos-systools
-description: 诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。
+description: 查询明确的系统范围，或执行所选原生 systools 动作；返回原生退出结果。
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 
 ## Local supporting resources
 
 - `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-service-manager`: [local instructions](resources/runtime/istoreos-service-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
-## Business workflow
-# iStoreOS System Tools
+Optional tool preparation: `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+or the separately authorized `ensure TOOL` operation. The native Windows preparation interface is
+use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
+through existing native PowerShell. Querying this skill does not install missing tools.
 
-Use this skill for the supported system-maintenance cases above. Do not invoke arbitrary files under `/usr/share/systools`; the official `/usr/libexec/systools.sh` dispatcher accepts more actions than KaiPlus has reviewed.
+## Operation interfaces
+`sh scripts/inspect.sh SCOPE` 返回所选事实，支持范围以参数说明为准。`KAIPLUS_CONFIRMED=1 sh scripts/apply.sh ACTION [ARGUMENT]` 仅执行已登记的具体动作：ipv6_pd、ipv6_relay、ipv6_nat、ipv6_half、ipv6_off、istore-reinstall、reinstall_incompatible_kmods。
 
-## Workflow
-
-1. Run `scripts/inspect.sh <network|storage|store|upgrade|all>` and summarize the evidence in user language.
-2. Say whether the proposed next step only checks the device or changes it.
-3. For a change, state the affected subsystem, likely interruption, KAIPlus recovery or operation-specific rollback path, and verification command. Wait for explicit user confirmation.
-4. Only after confirmation, run `KAIPLUS_CONFIRMED=1 scripts/apply.sh <action> [argument]`.
-5. Re-run the matching inspection and report success or the remaining problem.
-
-Network measurement belongs to `kai-network-quality`. IPv6 actions here change network and firewall configuration and may interrupt access. KAIPlus protects covered configuration writes with its existing Linkspace recovery point; do not ask for another generic backup when protection is active. Direct shell use has no automatic protection.
-
-## Reviewed Actions
-
-- `ipv6_pd`, `ipv6_relay`, `ipv6_nat`, `ipv6_half`, `ipv6_off`
-- `istore-reinstall`
-- `reinstall_incompatible_kmods`
-
-If the official dispatcher or requested action is unavailable, stop and explain the missing component. Never substitute a similarly named source-tree script or invent an action.
+这些动作可修改网络、包或服务并中断连接，需要既有目标授权；标记不是宿主授权。原生动作内部可能是固定事务，其成功只代表该接口结果。未支持的动作、缺 dispatcher 和原生失败均明确返回，不替换为源码树中同名脚本，不安装持久守卫。

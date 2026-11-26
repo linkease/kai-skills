@@ -1,0 +1,105 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA5",
+  "status": "passed",
+  "optimizations": 2,
+  "reviewInventory": "../architecture/discovery-capability-surfaces.json",
+  "reviewedResources": 38,
+  "verification": {
+    "discoveryTests": {
+      "tests": 5,
+      "status": "passed"
+    },
+    "businessRegression": {
+      "tests": 126,
+      "passed": 125,
+      "skipped": 1,
+      "status": "passed-with-explicit-optional-gap",
+      "gap": "Optional local Bash 3.2 query case; not counted as passed, native follow-up in KA9."
+    },
+    "isolatedPackageInterfaces": {
+      "tests": 8,
+      "status": "passed"
+    },
+    "repeatableGeneration": {
+      "tests": 3,
+      "status": "passed"
+    },
+    "istoreosProfileSmoke": "passed",
+    "consumerGoPackages": {
+      "packages": [
+        "internal/skill",
+        "internal/systempack"
+      ],
+      "status": "passed"
+    },
+    "generatedConsistency": "passed"
+  },
+  "acceptance": {
+    "KA5-T01": "Reviewed all canonical entry/resource instructions; removed primary/helper quotas, mandatory routing, acceleration prerequisites and fixed repair/retry recipes. Concrete transaction, integrity and permission preconditions retained. Legacy matching tests updated to factual interface contracts.",
+    "KA5-T02": "Resident prompts and catalog explicitly allow one/several/no skills and generic tools. Missing or failed capabilities do not forbid analysis. Host enforcement is separately implemented/tested in KA6.",
+    "KA5-T03": "Descriptions state facts/effects; canonical auto-use is suggest/off with no system-primary routing group. Generated entrypoints use Operation interfaces and explicit resource discovery, without reintroducing workflows.",
+    "KA5-T04": "33 independent entries, 12 collection locks, 10 presets; native resource closure and exact IDs preserved. Owner resources checked against their declared Git revision, not moving upstream HEAD; separate Scoop owner remains pinned."
+  },
+  "iterations": [
+    {
+      "iteration": "initial",
+      "status": "failed",
+      "findings": [
+        "Old interface/count/routing/retry assertions and absent native test tools.",
+        "A broad release-fixture run overlapped source generation and is not reproducibility evidence."
+      ]
+    },
+    {
+      "iteration": "optimization-1",
+      "status": "failed",
+      "findings": [
+        "Interface/package/generation regressions passed; a capability-count assertion still expected 24 instead of 25."
+      ]
+    },
+    {
+      "iteration": "optimization-2",
+      "status": "passed",
+      "findings": [
+        "Explicit new system-information membership/count assertions.",
+        "Pinned-owner checks and complete operation interface tests.",
+        "Verified private PowerShell/zsetup QA bindings; fixed candidate full regression and Go provenance checks passed."
+      ]
+    }
+  ],
+  "scopeNotes": [
+    "Canonical scope is the frozen 38 resources/eight source layers and six-platform matrix. External pinned ASUS snapshot was restored unchanged after direct-edit trial; no false provenance is published. Generic host autonomy applies in KA6.",
+    "Linux PowerShell fixtures are not claimed as native Windows execution. Native platform/model behavior remains KA9.",
+    "Release candidate versioning, program compatibility and immutable final locks are KA10; no public release or device deployment performed."
+  ],
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA5-business-initial-summary.json",
+      "sha256": "d91a1783263a46a7e192a60b4dda27dd4b9a814d5b5bfb0c9da5c594b06a1818"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA5-targeted-checks.json",
+      "sha256": "2e22377408d8f618c1d50d5bca81c343a19562171950e3e205200e5a2bfaae37"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA5-followup-checks.json",
+      "sha256": "8b75e259002ebc195310f2d6d359f5ce0b8f93383c6e0b208f923d31653207dd"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA5-install-final.json",
+      "sha256": "053c3d4f6c399df254e55ab843fe8f0e3d4ae06411ade0a652f9ab957fd1e811"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA5-business-final.json",
+      "sha256": "6361a1eebc8955963aa057ac34c0d99f8ae4042dd9f75a35985d1ebbc829dcdc"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/powershell-test-binding.json",
+      "sha256": "442d7ff9ccc0863801cff02f1ad9ba0bc702310c55ba75bd0927babb4a761964"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/zsetup-test-binding.json",
+      "sha256": "625a2b2583abfb1b7c208e0f859bf9453ae81ce6426c44172abf5e6275eb4e64"
+    }
+  ]
+}

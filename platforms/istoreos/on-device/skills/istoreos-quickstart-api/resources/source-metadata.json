@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-quickstart-api\ndescription: Inspect or change iStoreOS QuickStart functions through their LuCI API when an HTTP target controller is available; endpoint selection and dangerous-operation policy stay in this system skill.\nowner: system-pack/istoreos\nsystems: istoreos\nrequires: target.http\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: istoreos-quickstart-api\ndescription: Send one explicitly selected QuickStart API request through a bound LuCI transport; return its actual response envelope.\nowner: system-pack/istoreos\nsystems: istoreos\nrequires: target.http\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-quickstart-api",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
-      "sourceDigest": "sha256:5615c3dc981865cc3fb3d0ed917fe1b751e75bb31a280cd84810b92e8f449270"
+      "sourceDigest": "sha256:5b86103b5c36065739d7500e916e9a8c0bbea70e8b061987afa7a1d31307dbf5"
     },
     {
       "id": "luci-http-controller",
       "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
-      "sourceDigest": "sha256:8306927cf3c95ff3f5ebd0e3a04a2eeda8ea0fd9aaec6edf16938aac29125c1a"
+      "sourceDigest": "sha256:5ab7b0938eb89724b5991337e1ebc2b7b5fe93e0e19aba1dacac5dac2c12bd59"
     }
   ]
 }

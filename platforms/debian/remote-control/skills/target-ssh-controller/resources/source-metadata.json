@@ -6,7 +6,7 @@
     {
       "id": "target-ssh-controller",
       "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
-      "sourceDigest": "sha256:c45d1707c08285f91a384ffd11b03a13af73c821fa5c69671492f11fb0abed99"
+      "sourceDigest": "sha256:f70eddeec43abbbe5297dfcc0141a91bff0358510c12f317f46fdf56c0787a63"
     }
   ]
 }

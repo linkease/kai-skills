@@ -13,7 +13,7 @@ explicitly. Never guess port 8198 or run the controller's Provider instead.
 
 ## Read-only KAI conversations
 
-On a native local Mac session, prefer the market reader binding explicitly
+On a native local Mac session, the optional market reader binding is explicitly
 provided by that host. Do not guess an Agent tool name. This reader supports detect,
 search, info, installed, outdated, sources, files, verify and tasks. Pass the
 exact package id or operationId. It accepts no endpoint, Shell, install, apply,
@@ -26,12 +26,11 @@ install/upgrade/uninstall request returns a real native plan preview and
 `reviewPath`. It stores no plan/operation and contains no confirmation token.
 Give the link to the user. Opening it rechecks current facts and saves a fresh
 formal plan in the software page; changed fingerprints are explained and risk
-confirmation is still required. The model cannot confirm or apply it. Diagnosis
-uses tasks/installed first; do not preview a repair until the user selects it.
+confirmation is still required. The model cannot confirm or apply it. Tasks and installed state are available as independent evidence. Preview requires an explicitly selected package operation.
 The CLI below remains available to authorized host workflows; it is not a way
 to bypass the read-only conversation boundary.
 
-## Read first
+## Query interfaces
 
 ```sh
 bash scripts/homebrew-market.sh detect

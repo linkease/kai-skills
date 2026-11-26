@@ -1,6 +1,6 @@
 # Kai / LinkEase Device Skills
 
-为 Ubuntu、Debian、iStoreOS、macOS、Windows 提供按业务选择的独立 skills：软件查询安装、下载加速、mise 开发环境、项目依赖、空间分析和文件查找。可以只安装一个 skill、选择业务集合，或下载某个系统全部适用 skills。
+为 Ubuntu、Debian、iStoreOS、macOS、Windows 提供可由模型组合使用的独立 skills：软件查询安装、下载加速、mise 开发环境、项目依赖、空间分析和文件查找。可以只安装一个 skill、选择业务集合，或下载某个系统全部适用 skills。
 
 独立目录位于 [`skills/`](skills)，业务索引为 [`business-catalog.json`](business-catalog.json)，精确集合锁位于 [`bundles/`](bundles)。`components/` 是维护源码，不是安装入口。当前业务分发处于 BM0–BM10 实施验收阶段，正式发布状态以[执行记录](docs/verification/business-distribution-execution.md)为准。
 
@@ -15,6 +15,8 @@
 | 安装和运行 npm、pip、uv、Go 项目依赖 | [`kai-project-dependencies`](skills/kai-project-dependencies) |
 | 查空间、定位大文件、搜索文件 | [`kai-storage-files`](skills/kai-storage-files) |
 | 准备 Bash、完整 jq 和内部工具 | [`kai-tool-bootstrap`](skills/kai-tool-bootstrap) |
+
+模型决定分析、工具选择和任务完成；Skills 提供具体执行能力，宿主管理目标、授权、保护和生命周期。没有强制主技能、固定业务流程或调用后自动结束任务。
 
 每个目录都携带自己需要的执行资源，可以直接复制给支持标准 SKILL.md 的 Agent；不要求同时安装其他 Kai skills。目标设备上的 mise、ks-cli 等程序仍需按任务探测和准备。直接复制不建立本仓库安装器的归属记录，后续由复制者管理；使用下列安装器才有受管升级与卸载。
 

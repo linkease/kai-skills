@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/kai-storage-files",
   "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
-  "description": "限定路径分析空间与大文件、搜索文件名，核实安装目录的挂载和持久性。",
+  "description": "在明确路径查询容量、空间占用和文件名；返回实际后端、范围、错误及持久性证据。",
   "platforms": [
     "debian",
     "istoreos",
@@ -40,17 +40,17 @@
     {
       "id": "kai-storage-files",
       "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
-      "sourceDigest": "sha256:1514db7c229f4e76b7b621e3210428b7af120df59d17ffdef41fea3ed736cbb0"
+      "sourceDigest": "sha256:07434b13dfe678bdc47c2c4b3e999759b8406ba65c8c840c6cbc8ce21be8ce29"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
+      "sourceDigest": "sha256:8190be0c2863497f40e1939e12af98cfba8716a081e2ba970fb8e89aea26c555"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

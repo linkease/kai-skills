@@ -1,6 +1,6 @@
 ---
 name: istoreos-package-manager
-description: 旧 ID 兼容入口；主实现为 kai-software。
+description: 兼容旧 ID 的明确接口；公共能力为 kai-software，不执行任务分流。
 owner: system-pack/istoreos
 systems: istoreos
 alias-for: kai-software
@@ -10,4 +10,6 @@ auto-use: off
 resource-discovery: explicit
 ---
 
-Use `kai-software` as the unique primary implementation. This retired ID is a migration alias. Native scripts remain only for existing platform helper interfaces; see data/legacy-contract.md when maintaining those interfaces.
+兼容标识对应 `kai-software`。Legacy package.sh retains source-qualified native package actions. ensure_services_from_pkg.sh now accepts an explicit service.apply request; no package-wide service selection.
+
+原生事实、错误和接口效果保留；公共实现保持唯一来源。兼容映射不要求模型加载或优先使用另一技能。

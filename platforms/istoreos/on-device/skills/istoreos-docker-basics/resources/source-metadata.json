@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-docker-basics\ndescription: 检查、安装、启停和排查 iStoreOS Docker/dockerd 与容器；镜像或文件下载慢由下载加速能力处理，数据目录迁移由专用 skill 处理。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: Docker 异常, Docker 安装, Docker 启动失败, dockerd, 容器异常, compose, 容器服务\nnegative-triggers: Docker 镜像慢, Docker 拉取失败, docker pull, Docker 数据目录, data_root\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: istoreos-docker-basics\ndescription: 只读查询 Docker 启动入口、各配置来源和运行时；分别呈现目录冲突与 API 可用性。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: Docker 异常, Docker 安装, Docker 启动失败, dockerd, 容器异常, compose, 容器服务\nnegative-triggers: Docker 镜像慢, Docker 拉取失败, docker pull, Docker 数据目录, data_root\nauto-use: suggest\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-docker-basics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
-      "sourceDigest": "sha256:19f3ab6d578d848317bda2118ba90e6174a7e302e0c5c16cc576529982438203"
+      "sourceDigest": "sha256:669b18d36b43a026b32d1c45428c62e0d78274b8a60540037aa17399d3cfdebd"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
+      "sourceDigest": "sha256:8190be0c2863497f40e1939e12af98cfba8716a081e2ba970fb8e89aea26c555"
     },
     {
       "id": "kai-storage-files",
       "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
-      "sourceDigest": "sha256:1514db7c229f4e76b7b621e3210428b7af120df59d17ffdef41fea3ed736cbb0"
+      "sourceDigest": "sha256:07434b13dfe678bdc47c2c4b3e999759b8406ba65c8c840c6cbc8ce21be8ce29"
     },
     {
       "id": "kai-system-information",
@@ -31,7 +31,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

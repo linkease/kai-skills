@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-app-search",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-  "description": "从 iStore 全量 Store 目录搜索 iStoreOS 应用/插件并输出 Top3 候选；本地 meta/内置索引只作离线降级，用户确认 name 后交给 kai-software。",
+  "description": "查询 iStore 聚合目录，返回有来源标识的应用候选、精确名称和摘要。",
   "platforms": [
     "istoreos"
   ],
@@ -22,17 +22,17 @@
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
+      "sourceDigest": "sha256:bfe197ff39e518903eefd126e49ce293b72df0e3aed15ebc36e39c002f871471"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
+      "sourceDigest": "sha256:b793d8b5e45aab45e4ac45eb5f8adea33235922e084de1419d21507f8d01443d"
     },
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
+      "sourceDigest": "sha256:bfe197ff39e518903eefd126e49ce293b72df0e3aed15ebc36e39c002f871471"
     }
   ]
 }

@@ -54,9 +54,10 @@ class ReleaseTests(unittest.TestCase):
         return result
 
     def test_all_units_have_two_identical_builds_and_exact_single_skill_bytes(self):
-        self.assertEqual(len(self.manifest['packages']), 32)
+        self.assertEqual(len(self.manifest['packages']), 33)
+        self.assertIn('kai-system-information', {p['id'] for p in self.manifest['packages']})
         self.assertEqual(len(self.manifest['collections']), 12)
-        self.assertEqual(len(self.manifest['artifacts']), 88)
+        self.assertEqual(len(self.manifest['artifacts']), 90)
         self.assertEqual({p.name: release.sha(p) for p in self.first.iterdir()},
                          {p.name: release.sha(p) for p in self.second.iterdir()})
         for package in self.manifest['packages']:

@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-docker-acceleration-istoreenhance",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
-  "description": "Docker 镜像下载慢/失败时的 iStoreOS 加速闭环（istoreenhance/kspeeder：安装→autoconf→启用→registry_mirrors→search API 验证→降级策略）。",
+  "description": "查询既有 iStoreEnhance/KSpeeder 服务证据；对明确服务请求执行经过验证的原生动作。",
   "platforms": [
     "istoreos"
   ],
@@ -22,12 +22,12 @@
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
-      "sourceDigest": "sha256:d9f3820ed652e3c35332e2fe628424b573dc95e78dad60499a86a985d729036e"
+      "sourceDigest": "sha256:34d594596968f8fdcea81fbdca97ccb37403794a291484a34f13a5ee5f7d4ced"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-system-information",
@@ -37,7 +37,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

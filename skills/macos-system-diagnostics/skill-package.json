@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/macos-system-diagnostics",
   "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
-  "description": "Collect a bounded read-only macOS health summary covering version, architecture, uptime, root disk, memory pressure, and launchd job totals; use for general Mac errors, slowness, or first-pass diagnosis.",
+  "description": "Read bounded native macOS system, tool and optional Docker facts from the actual target.",
   "platforms": [
     "macos"
   ],
@@ -21,7 +21,7 @@
     {
       "id": "macos-system-diagnostics",
       "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
-      "sourceDigest": "sha256:fa7c193452d24e8d71937084dcff9b71a51cf63eedc029fc10f6045fff02081e"
+      "sourceDigest": "sha256:a5e9315197261a3b400a29e7405e552421cee8b83689955d2e054a6473ae595a"
     },
     {
       "id": "kai-system-information",

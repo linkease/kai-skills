@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/kai-dev-environment",
   "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-  "description": "用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。",
+  "description": "查询、安装、验证和执行明确选择的 mise SDK 或 uv；保留精确版本、来源和原生错误。",
   "platforms": [
     "debian",
     "istoreos",
@@ -40,12 +40,12 @@
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
+      "sourceDigest": "sha256:8190be0c2863497f40e1939e12af98cfba8716a081e2ba970fb8e89aea26c555"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

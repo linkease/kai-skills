@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/kai-project-run",
   "canonicalPath": "components/system-packs/common/skills/kai-project-run",
-  "description": "Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.",
+  "description": "Plan or execute an explicitly selected Node, Python or Go project transaction with exact SDK, source hashes, locks and expected output.",
   "platforms": [
     "debian",
     "istoreos",
@@ -42,37 +42,37 @@
     {
       "id": "kai-project-run",
       "canonicalPath": "components/system-packs/common/skills/kai-project-run",
-      "sourceDigest": "sha256:ae86c2a8c8e3ad65a4bfd7f95a73a5939cec91ff0dcc7129d973751af4b439b9"
+      "sourceDigest": "sha256:8683acc3ff8f5ce6c7bed3ee9077784a2cf64cc028d01d3cb798a1bac2ab3f4b"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
+      "sourceDigest": "sha256:b793d8b5e45aab45e4ac45eb5f8adea33235922e084de1419d21507f8d01443d"
     },
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
+      "sourceDigest": "sha256:bfe197ff39e518903eefd126e49ce293b72df0e3aed15ebc36e39c002f871471"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
+      "sourceDigest": "sha256:8190be0c2863497f40e1939e12af98cfba8716a081e2ba970fb8e89aea26c555"
     },
     {
       "id": "kai-project-dependencies",
       "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
-      "sourceDigest": "sha256:b763388f5923a7094adb0a653bec47b6e8b0f0a6da643668ea5ea27461bbd2e3"
+      "sourceDigest": "sha256:f1a69438d6331398aef432b3682864e1a3fad38a945be4dc93720617313e0cdb"
     },
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:45549c068daa9131b9c7e34a6cb53bc818638008997cdee863a863a3609950af"
+      "sourceDigest": "sha256:9111717f94e798b89b0a77cf69dee830d46a1d846b537d5681f988434994d4cf"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

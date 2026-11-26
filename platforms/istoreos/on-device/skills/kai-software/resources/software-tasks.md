@@ -9,7 +9,7 @@ KAI_JQ_BIN (or ZSETUP_TASK_JQ) to those verified target paths.
 A basic request: `{ "targetId":"local", "software":"linkspace", "method":"release",
 "version":"0.2.0-sim.3", "features":["backup-file-level"], "prefixBase":"/chosen/data/tools" }`.
 The path must already exist on a persistent writable executable filesystem. Do not copy
-example paths blindly. Query storage-plan first when choosing locations. Full owner
+example paths blindly. storage-plan can return location evidence; it does not choose a location. Full owner
 protocol and supported fields are in [owner rules](owner/software/README.md).
 
 - plan returns a read-only `details` object; apply requires that object in request.plan.

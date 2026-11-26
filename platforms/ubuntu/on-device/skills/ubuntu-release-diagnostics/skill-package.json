@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/ubuntu-release-diagnostics",
   "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
-  "description": "Ubuntu-specific read-only checks for release pockets, phased updates, snaps, netplan, cloud-init, and service failures; use only after the shared Debian evidence pass.",
+  "description": "Read Ubuntu release pockets, phased update metadata, snap, netplan and cloud-init facts without prerequisite skill routing.",
   "platforms": [
     "ubuntu"
   ],
@@ -21,7 +21,7 @@
     {
       "id": "ubuntu-release-diagnostics",
       "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
-      "sourceDigest": "sha256:762969290800152e373d8711fd6e4baae0356749b1ccc5adc5d609401837ee5f"
+      "sourceDigest": "sha256:3f4c0dd267a71533c0297b53bd3e9fee681686b36c9bf8e06253a7dc2dc54322"
     }
   ]
 }

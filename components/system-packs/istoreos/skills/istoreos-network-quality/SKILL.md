@@ -1,6 +1,6 @@
 ---
 name: istoreos-network-quality
-description: 旧 iStoreOS ID 兼容入口；主实现为跨 Linux 的 kai-network-quality。
+description: 兼容旧 ID 的明确接口；公共能力为 kai-network-quality，不执行任务分流。
 owner: system-pack/istoreos
 systems: istoreos
 alias-for: kai-network-quality
@@ -9,8 +9,6 @@ auto-use: off
 resource-discovery: explicit
 ---
 
-# Compatibility alias
+兼容标识对应 `kai-network-quality`。Legacy inspect/run adapters retain explicit native network profile semantics; no automatic repair or business retry.
 
-Use `kai-network-quality` as the unique primary implementation. Existing native
-scripts remain packaged as compatibility resources for older installations;
-new routing, AI diagnosis and measurement use the canonical Linux skill.
+原生事实、错误和接口效果保留；公共实现保持唯一来源。兼容映射不要求模型加载或优先使用另一技能。

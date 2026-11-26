@@ -6,7 +6,7 @@
     {
       "id": "target-ssh-powershell-controller",
       "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
-      "sourceDigest": "sha256:0bcdc96e7a15bff936b8a7643a3f971ec474a19e3ed0456bcb72a91caccedc52"
+      "sourceDigest": "sha256:253983717d29fe44b5fec4bfc831fdfe5bc4b237c2eb24ce4cf24b8d029fa609"
     }
   ]
 }

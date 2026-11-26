@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/debian-system-diagnostics",
   "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
-  "description": "Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.",
+  "description": "Read Debian release, package database, systemd registration, journal, mounts and sockets through existing native tools.",
   "platforms": [
     "debian",
     "ubuntu"
@@ -25,7 +25,7 @@
     {
       "id": "debian-system-diagnostics",
       "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
-      "sourceDigest": "sha256:34b9ddcdd99c196c1b1dadb2489706bf4e40fef62fb9e591d436c0ac58d74b5b"
+      "sourceDigest": "sha256:3afd8e8b549a0dc1d55bb57ec0b08ff6a3cd648ac3d2cb1f2a72ac61bda542be"
     }
   ]
 }

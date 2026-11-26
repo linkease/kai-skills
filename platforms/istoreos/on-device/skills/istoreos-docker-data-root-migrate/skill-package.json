@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-docker-data-root-migrate",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
-  "description": "安全规划并迁移 iStoreOS Docker data_root；用于 Docker 占满 overlay、数据目录放错磁盘或用户明确要求迁移，执行前必须确认并保留回滚路径。",
+  "description": "验证并复制明确的静止 Docker 数据集到空目标；保留挂载身份、元数据与实际复制结果。",
   "platforms": [
     "istoreos"
   ],
@@ -22,17 +22,17 @@
     {
       "id": "istoreos-docker-data-root-migrate",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
-      "sourceDigest": "sha256:7ca449076394abaf89ca83267ecdb3c8cd2bc2fbd9646ee517fa57a2c4bf6678"
+      "sourceDigest": "sha256:31c500dfdaf350e3da316354ee4ff5df77c0e0bfc8931c0e359b89f83ede5df7"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "istoreos-storage-path",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
-      "sourceDigest": "sha256:bdf895f609fc26e94dda4fc20490152e6d01a483767cf9e7465387274f94c253"
+      "sourceDigest": "sha256:d1d8a4a3f31eb118901c89e9548f42a9713c3536c0545a5cf41d909975b128a9"
     },
     {
       "id": "kai-system-information",
@@ -42,7 +42,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

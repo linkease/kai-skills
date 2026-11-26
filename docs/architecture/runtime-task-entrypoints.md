@@ -1,5 +1,7 @@
 # Scoped iStore runtime task entrypoints
 
+Historical implementation/test notes. The current Agent/skill/host responsibility and optional discovery contract is [KA0–KA10](agent-capability-milestones-20261126.md); older routing descriptions below are not runtime policy.
+
 ## Goal and boundaries
 
 Make iStoreOS runtime and dependency operations correct through skill-owned scripts, without changing Kai's general command executor, ordinary Linux/Ubuntu behavior, global HOME/PATH, client configuration or system Python packages. Extra system-shell observations are permitted; conclusions about mise SDKs and downloads must use the selected SDK and scoped verification results. Arbitrary commands outside these entrypoints are not intercepted.

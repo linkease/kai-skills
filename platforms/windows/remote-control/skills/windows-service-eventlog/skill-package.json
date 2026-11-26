@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/windows-service-eventlog",
   "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
-  "description": "Diagnose one Windows service with recent System events, prepare a change plan, apply an explicitly approved start/stop/restart, and verify the resulting service state.",
+  "description": "Read native SCM registration and events for one service; apply an explicit action and verify actual SCM state.",
   "platforms": [
     "windows"
   ],
@@ -21,7 +21,7 @@
     {
       "id": "windows-service-eventlog",
       "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
-      "sourceDigest": "sha256:369482c93d3ddca95b7a288654fdd30653956b20163bf0cfa9f7ebd5e8e6cf1e"
+      "sourceDigest": "sha256:dd3a8905818c31237c88b90088b42a323e1de4a4a2875700bf2eb3f85b4c5601"
     },
     {
       "id": "kai-system-information",

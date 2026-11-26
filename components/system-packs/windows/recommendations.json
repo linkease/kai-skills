@@ -6,67 +6,88 @@
       "id": "windows-health-check",
       "title": "一键体检",
       "description": "只检查，不修改任何内容，适合第一次体验。",
-      "prompt": "请给当前 Windows 做一次只读体检，检查系统版本、资源、磁盘、网络、关键服务和最近的系统事件，用普通用户能理解的话总结，不执行修改、安装或重启。",
+      "prompt": "请给当前 Windows 做一次只读体检，检查系统版本、资源、磁盘、网络、关键服务和最近的系统事件，用普通用户能理解的话总结，不执行修改、安装或重启。本次仅查询和分析，不执行修改、安装、重启、删除或清理。请说明依据、未知和结论，不预设工具或诊断顺序。",
       "category": "common",
       "priority": 1,
       "risk": "low",
       "executionIntent": "read_only",
       "workspaceRequirement": "none",
-      "systems": ["windows"],
-      "features": ["powershell", "windows-service", "eventlog"],
+      "systems": [
+        "windows"
+      ],
+      "features": [
+        "powershell",
+        "windows-service",
+        "eventlog"
+      ],
       "skill": "windows-system-diagnostics"
     },
     {
       "id": "windows-service-failure",
       "title": "服务启动失败",
       "description": "检查服务状态和相关系统事件。",
-      "prompt": "帮我诊断当前 Windows 上启动失败或异常的服务。先只读检查服务状态、依赖和相关 Event Log；启动、停止、重启服务或修改启动方式前必须让我确认。",
+      "prompt": "帮我诊断当前 Windows 上启动失败或异常的服务。请基于实际目标证据分析原因，说明已确认事实与未知；本次诊断不自动执行修复。涉及变更时说明范围，并遵循宿主的目标授权与保护约束。",
       "category": "common",
       "priority": 10,
       "risk": "medium",
       "executionIntent": "may_modify",
       "workspaceRequirement": "none",
-      "systems": ["windows"],
-      "features": ["windows-service", "eventlog"],
+      "systems": [
+        "windows"
+      ],
+      "features": [
+        "windows-service",
+        "eventlog"
+      ],
       "skill": "windows-service-eventlog"
     },
     {
       "id": "windows-storage-low",
       "title": "磁盘空间不够",
       "description": "先列出占用和可清理项。",
-      "prompt": "帮我只读检查当前 Windows 各磁盘的可用空间和主要占用来源，列出可以安全处理的项目、风险和预计收益；删除或迁移前必须让我确认。",
+      "prompt": "帮我只读检查当前 Windows 各磁盘的可用空间和主要占用来源，列出可以安全处理的项目、风险和预计收益。请基于实际目标证据分析原因，说明已确认事实与未知；本次诊断不自动执行修复。涉及变更时说明范围，并遵循宿主的目标授权与保护约束。",
       "category": "storage",
       "priority": 20,
       "risk": "medium",
       "executionIntent": "may_modify",
       "workspaceRequirement": "none",
-      "systems": ["windows"]
+      "systems": [
+        "windows"
+      ]
     },
     {
       "id": "windows-network-access",
       "title": "网络或端口访问不了",
       "description": "检查地址、DNS、监听和防火墙。",
-      "prompt": "帮我诊断当前 Windows 的网络或端口访问问题。先只读检查网络配置、DNS、路由、监听进程和防火墙规则；修改网络、防火墙或重启服务前必须让我确认。",
+      "prompt": "帮我诊断当前 Windows 的网络或端口访问问题。请基于实际目标证据分析原因，说明已确认事实与未知；本次诊断不自动执行修复。涉及变更时说明范围，并遵循宿主的目标授权与保护约束。",
       "category": "network",
       "priority": 30,
       "risk": "medium",
       "executionIntent": "may_modify",
       "workspaceRequirement": "none",
-      "systems": ["windows"],
-      "features": ["powershell"]
+      "systems": [
+        "windows"
+      ],
+      "features": [
+        "powershell"
+      ]
     },
     {
       "id": "windows-event-errors",
       "title": "查看最近系统错误",
       "description": "只读取限量的 Event Log。",
-      "prompt": "请只读检查当前 Windows 最近的关键系统事件，限制返回数量，隐藏敏感信息，并说明哪些错误值得处理；不要清除日志或修改服务。",
+      "prompt": "请只读检查当前 Windows 最近的关键系统事件，限制返回数量，隐藏敏感信息，并说明哪些错误值得处理。本次仅查询和分析，不执行修改、安装、重启、删除或清理。请说明依据、未知和结论，不预设工具或诊断顺序。",
       "category": "maintenance",
       "priority": 40,
       "risk": "low",
       "executionIntent": "read_only",
       "workspaceRequirement": "none",
-      "systems": ["windows"],
-      "features": ["eventlog"],
+      "systems": [
+        "windows"
+      ],
+      "features": [
+        "eventlog"
+      ],
       "skill": "windows-service-eventlog"
     }
   ]

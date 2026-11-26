@@ -1,20 +1,15 @@
 ---
 name: istoreos-system-task-router
-description: iStoreOS 用户问题的轻量分流与未知问题回退入口；任务含糊、跨多个子系统或没有明显专用 skill 时，选择一个主能力并从最小只读证据开始。
+description: 按调用者明确选择的范围查询 iStoreOS 设备事实；历史 ID 保留，不再进行任务分流。
 owner: system-pack/istoreos
 systems: istoreos
 triggers: iStoreOS, 路由器问题, 系统问题, 帮我检查, 帮我修复, 不知道怎么办, 不确定, 报错, 异常, 执行这个 .run 文件
 auto-use: suggest
-routing-group: system-primary
 needs-fresh-data: true
 cost: low
 resource-discovery: explicit
 ---
 
-根据实际 iStoreOS 目标和用户意图选一个主能力；明确的软件维护直接走 kai-software，不先做全系统检查。
+`sh scripts/observe.sh SCOPE [SUBJECT]` 读取明确范围的系统、网络、存储、服务、包或 Docker 事实；支持范围以脚本参数为准。auto 不再按用户业务意图展开动作，也不选择主技能。
 
-容器、服务、LuCI、存储、网络、备份、系统设置和未知可执行文件，按目录描述选择对应业务技能。Docker 数据目录迁移使用专用迁移能力；SDK/解释器走 kai-dev-environment，项目依赖走 kai-project-dependencies，具体下载链路走 kai-download-acceleration。
-
-问题含糊时，在目标上运行 `sh scripts/observe.sh <auto|network|storage|service|package|docker|kai> [subject]`，只选相关模式。该小脚本返回限长脱敏事实；用它形成可验证的原因，再按缺口加载辅助能力，不预读全部文档或重复探测。源码问题先查 `data/code-ownership.tsv` 对应行；仓库资料不能代替设备状态。
-
-普通升级由所属业务处理；首次写入保护交给 KAIPlus 门禁。明确的备份/恢复请求再走 istoreos-backup-restore。沿用已有授权与审批，写后验证实际效果。
+只读观察保留原始来源、未知、冲突和错误；不会执行修复或自动加载其他能力。[代码归属](data/code-ownership.tsv) 是静态索引，不是设备事实。模型可直接使用本能力、其他能力、多个能力或通用工具。没有专用 skill 不代表任务无法处理。

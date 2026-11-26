@@ -1,0 +1,630 @@
+{
+  "schemaVersion": 1,
+  "kind": "discovery-interface-review",
+  "resources": [
+    {
+      "resource": "debian-system-diagnostics",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "entrySHA256": "5afff514d6fd29089b1d516759f7232efbc66447f7c1771b286519fc1a2ca1ac",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5afff514d6fd29089b1d516759f7232efbc66447f7c1771b286519fc1a2ca1ac",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "entrySHA256": "9e303f26018586d23f0db9b2cb101c7c0c057fa36ab63ac1965e54b3c627099b",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9e303f26018586d23f0db9b2cb101c7c0c057fa36ab63ac1965e54b3c627099b",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "entrySHA256": "accadb22cd651581cce844c8f2aa822c39b6b740b28ba8f6fa66d3a807fb423e",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "accadb22cd651581cce844c8f2aa822c39b6b740b28ba8f6fa66d3a807fb423e",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+      "entrySHA256": "2cfcc5c48c1d1b7a83f762a1ca02b2989f1d8d0f78a0d9790e8d7d31b68f8701",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2cfcc5c48c1d1b7a83f762a1ca02b2989f1d8d0f78a0d9790e8d7d31b68f8701",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-docker-acceleration-istoreenhance",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
+      "entrySHA256": "2e6ba2ccd49bc0b87b965c7bf73068ebb55bf9d48e716d750029a596709ac05e",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2e6ba2ccd49bc0b87b965c7bf73068ebb55bf9d48e716d750029a596709ac05e",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+      "entrySHA256": "3d53eb6d2405169e67ac03d7ce8bc673e1ec07d42e8694e7076a9356772871d1",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3d53eb6d2405169e67ac03d7ce8bc673e1ec07d42e8694e7076a9356772871d1",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+      "entrySHA256": "d4b29680f4b1aeb42abe3ff717103111cf618a68c42ea4c5f650d65b71f7cbd2",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "d4b29680f4b1aeb42abe3ff717103111cf618a68c42ea4c5f650d65b71f7cbd2",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+      "entrySHA256": "94ab0cdc99a2ee283bea4d685ed1ffa8e70e7cf2a06dc646a3c27991a24f7fe7",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "94ab0cdc99a2ee283bea4d685ed1ffa8e70e7cf2a06dc646a3c27991a24f7fe7",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/dependencies.md",
+          "sha256": "eb941f892737a35a14f810482e6701d9643a8454c8dec30268b4921efb49c083",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "1f4a4f02ab231dd99bfa5b3d9574b10f3f6230e753cca9d2b84323ead7059027",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "entrySHA256": "fee1efec49960b5eb36504d1bb8f23c4a1656f1c902e44531ae6cd77e9639eca",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "fee1efec49960b5eb36504d1bb8f23c4a1656f1c902e44531ae6cd77e9639eca",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/advanced-routes.md",
+          "sha256": "ef2fc0c7af176d0d38d64af2270ecdc8956742e2549f755e2d62066ddbf0a620",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/implementation-evidence.md",
+          "sha256": "400d502a60a943becb96687e1f6bc39a8abfde7aab8ca2204d73e5f0337d486b",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-logs-and-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
+      "entrySHA256": "1e97e9526b4ba6bb565978dd404976fcda7d63a2efbc24e1e43f3543b3e6f876",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1e97e9526b4ba6bb565978dd404976fcda7d63a2efbc24e1e43f3543b3e6f876",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+      "entrySHA256": "858ee9e20a966a647cee8c1990196640e43ae154ac08fce00e3e077e0aede7b0",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "858ee9e20a966a647cee8c1990196640e43ae154ac08fce00e3e077e0aede7b0",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-mise-runtime",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+      "entrySHA256": "b0ade980148d6c47ebe4d3ffc6c26cc4fa07756e28f26e8e2094b30c1a3677f8",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "b0ade980148d6c47ebe4d3ffc6c26cc4fa07756e28f26e8e2094b30c1a3677f8",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/execution.md",
+          "sha256": "190429dcc4f09adab8eb1343caed54678f07ba598804269be316978bb804688a",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "fdfe1198911775be3011a41ae85544788c8a7d8c6f0152730e9d5b10738cad16",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/runtimes.md",
+          "sha256": "5c91c530168234cc2fe52e70b106fc0c1dae6b3d2240835664c42f0de326730f",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+      "entrySHA256": "7b852215c1b500e23f77618af1b8ec65837d421bf013b08f73ad0202bd8646a9",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7b852215c1b500e23f77618af1b8ec65837d421bf013b08f73ad0202bd8646a9",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "entrySHA256": "791e6fbfdf6ed07f38d87951449d22554fa5ad91565d748c4b22b83c8003e344",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "791e6fbfdf6ed07f38d87951449d22554fa5ad91565d748c4b22b83c8003e344",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "5467b4fbfa2f2ca06e031b5166400894bd5e10b6a0b3eca04e82f12b10b9e6b4",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+      "entrySHA256": "5c4a6e43f27b56cd4446b729963814e7af77ff22237b0bc04369d26976d00df7",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "5c4a6e43f27b56cd4446b729963814e7af77ff22237b0bc04369d26976d00df7",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/api-summary.md",
+          "sha256": "8d66fb054942660c4dd4873af21c3e080a4a19afb090ecbfe84e5fb185896cdf",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+      "entrySHA256": "70577bf6bfa1b88d54f840cd71df5f3abaf7b0860cb3131775b8e280ed97f164",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "70577bf6bfa1b88d54f840cd71df5f3abaf7b0860cb3131775b8e280ed97f164",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "entrySHA256": "c550f423b16034fa6456a66b6ad861ca1e8e0847fd9f8840f75c4564977fa9c9",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "c550f423b16034fa6456a66b6ad861ca1e8e0847fd9f8840f75c4564977fa9c9",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-source-introspect",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
+      "entrySHA256": "7478344d59ad47403ccd6094186a5c07ba9a8d7a287933692b2c378fab0540de",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "7478344d59ad47403ccd6094186a5c07ba9a8d7a287933692b2c378fab0540de",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-storage-path",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
+      "entrySHA256": "3f06be47e9c913c972f2cb480b90b3daf7f40246c71288294a16f2a7cb0408bf",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3f06be47e9c913c972f2cb480b90b3daf7f40246c71288294a16f2a7cb0408bf",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/legacy-contract.md",
+          "sha256": "1edd6e4a67fcd549fd0f07c9a49cc423c9605647fb81bb41815320da437c824b",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+      "entrySHA256": "3cf2bf32904fa6e3651944bb34bbcaddd1d8ed637680abb3d1acd2e1bc8a5fda",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "3cf2bf32904fa6e3651944bb34bbcaddd1d8ed637680abb3d1acd2e1bc8a5fda",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "entrySHA256": "2c3ad99c337f25201638f7137a2893c1878bc6c6e3e70d1a30c4e0fee8f945fe",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "2c3ad99c337f25201638f7137a2893c1878bc6c6e3e70d1a30c4e0fee8f945fe",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "entrySHA256": "6d71bda8fad8df1506f01fe0e50a6e056df0568575d6a8feb9826990cf54ffcd",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "6d71bda8fad8df1506f01fe0e50a6e056df0568575d6a8feb9826990cf54ffcd",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/python-openssl.md",
+          "sha256": "6f08fc575889f8ea73eab810c682bf24ef71e86bd8aa7d4fe0e9df10d180eccf",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "entrySHA256": "ac96923b6b70fb5f2330fa4d7dc5b80b0f01c27e38ff17fb5df8842c1c58a97f",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ac96923b6b70fb5f2330fa4d7dc5b80b0f01c27e38ff17fb5df8842c1c58a97f",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/evidence.md",
+          "sha256": "cb93d93ddbc6e33ebde27674ce69d4ef9a85f3655e0dd313b3aee168164bc1f5",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-network-quality",
+      "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
+      "entrySHA256": "066e442f1b9d0145fdf620e9c256becbb94380a1ab3b6e960b9c5b6f9cdcf360",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "066e442f1b9d0145fdf620e9c256becbb94380a1ab3b6e960b9c5b6f9cdcf360",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/install-handoff.md",
+          "sha256": "2bb66ff15877bb6bff7d54df0bd66392dbcb13338b6e08cc165fd055400eb8ef",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-project-dependencies",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+      "entrySHA256": "002d37dcdc641ac14f2f688a92c3cc290fe523c0e7d03b1aba2a5e419fa85298",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "002d37dcdc641ac14f2f688a92c3cc290fe523c0e7d03b1aba2a5e419fa85298",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-project-run",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-run",
+      "entrySHA256": "358849d0561c51e5f531d73dce2aff063bcfe41343ca8e3045d8373689c90468",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "358849d0561c51e5f531d73dce2aff063bcfe41343ca8e3045d8373689c90468",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-software",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "entrySHA256": "af92117c58be59cc4ba8ea2108fd82a8da8cfc1983968e4b76b6ab1f39b6db4f",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "af92117c58be59cc4ba8ea2108fd82a8da8cfc1983968e4b76b6ab1f39b6db4f",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/network-diagnosis-handoff.md",
+          "sha256": "ffd1d1afa77e9a6c8574d9b05a2040ae92e5de839f78126a001029fa91b1e8d7",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/brew-acceleration.md",
+          "sha256": "a327fe401e17957c903a7b954cad6c0dae337a3eb8bdfa796b107d17794c1fe4",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/homebrew/operations.md",
+          "sha256": "e5c5270dcddbb8eb0b8a90ea4f20d8929cfd4d534acc3631832fc9d6c3fcb3b8",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/homebrew/private-runtime.md",
+          "sha256": "ad5b73aa558cf6549ce3da176684dafb7d8f9b9170d2c88580b577db8b6718cc",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/homebrew-market.md",
+          "sha256": "7afa7f854b820adb6405221006f608b917badc3e645c7b1ecfa363eceb957fcb",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/owner/software/README.md",
+          "sha256": "3bef2ae70f0853090026268c4c206687f9d973b985884251ca6b3d5c73317a99",
+          "scope": "locked native owner transaction contract retained"
+        },
+        {
+          "path": "resources/scoop.md",
+          "sha256": "79ac61f95f709d96e2bdc05c03e95469c8a94b2ccb53a1895103d3a750dfd8f9",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/software-query.md",
+          "sha256": "81b4ef9ed73ce990098d6ba5ea61a13c348f5e771fa0b830f3d22287d9c3b5f5",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/software-tasks.md",
+          "sha256": "0061c5f2fcec7650f863eb7f0bd8b54d8e9b99084eaf1ea8bb9ba814fd714108",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/winget-acceleration.md",
+          "sha256": "b5ffda920f869d6ca2132023fc09f61be57d2c6614066d45c6ec20f44f6f80f7",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-storage-files",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "entrySHA256": "645d061a6faa78fc07dd6f30f0c7cea90c8a3f68aabcaba771bc7f018950871e",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "645d061a6faa78fc07dd6f30f0c7cea90c8a3f68aabcaba771bc7f018950871e",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "entrySHA256": "ecab4d90dc6a734ac48cc499323b24c86f1d3bb411ba13da30bf2518ac7f0d50",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ecab4d90dc6a734ac48cc499323b24c86f1d3bb411ba13da30bf2518ac7f0d50",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "entrySHA256": "24fa1917eedc77c81b698370921529c20b059470f577a7c286d61d198bc51358",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "24fa1917eedc77c81b698370921529c20b059470f577a7c286d61d198bc51358",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "data/platforms.md",
+          "sha256": "3cb49bb6f415302625d7c1848b638262e346d0ea7de0356c9ea5c1638509729c",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        },
+        {
+          "path": "resources/windows-pki.md",
+          "sha256": "25dcde39c32e0ed9eda41a86f9e86880b8b10a3ddb8e8839356014ddc6c10b2b",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "luci-http-controller",
+      "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+      "entrySHA256": "4bf4953b713736a22da65348388c873468aeb983fa2b680604f9b0f4cb5e2abb",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "4bf4953b713736a22da65348388c873468aeb983fa2b680604f9b0f4cb5e2abb",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "macos-launchd-logs",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "entrySHA256": "1815029ba86083548e99643a2764a33da1741244ca6cd8eb8bf48a326dc7731b",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1815029ba86083548e99643a2764a33da1741244ca6cd8eb8bf48a326dc7731b",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "macos-system-diagnostics",
+      "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+      "entrySHA256": "df38acb9b7c1820da970646763e30ddbdf3f89c89d16833f70d2de7b3432011e",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "df38acb9b7c1820da970646763e30ddbdf3f89c89d16833f70d2de7b3432011e",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "target-ssh-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+      "entrySHA256": "9d2191b9b7f6bc49358b206b8facfdd87496004062e4bfcb033a0d7d7e5243cd",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "9d2191b9b7f6bc49358b206b8facfdd87496004062e4bfcb033a0d7d7e5243cd",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "target-ssh-powershell-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+      "entrySHA256": "edb50ceb71ba66d3bd84a657511ad6720c67351feda8f32181e23ad30cd77b50",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "edb50ceb71ba66d3bd84a657511ad6720c67351feda8f32181e23ad30cd77b50",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "ubuntu-release-diagnostics",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "entrySHA256": "e14a27a52f7cb2ff54b9ed394100e48999706dbcc866d719f9d7f3dcfdfaa793",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "e14a27a52f7cb2ff54b9ed394100e48999706dbcc866d719f9d7f3dcfdfaa793",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "windows-service-eventlog",
+      "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+      "entrySHA256": "ad73a256c044fd2f0ddc2b5f387e3f95c756ccea60256c8dd4a40763cdc08813",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "ad73a256c044fd2f0ddc2b5f387e3f95c756ccea60256c8dd4a40763cdc08813",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    },
+    {
+      "resource": "windows-system-diagnostics",
+      "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+      "entrySHA256": "1f3882d237038ccdff4a6a06eedb6d9aaafaddc79fb30463ae0d801e1d924fab",
+      "disposition": "exact interface, advisory discovery, no task workflow",
+      "documents": [
+        {
+          "path": "SKILL.md",
+          "sha256": "1f3882d237038ccdff4a6a06eedb6d9aaafaddc79fb30463ae0d801e1d924fab",
+          "scope": "operation syntax, facts, effects, scope or optional source reference"
+        }
+      ]
+    }
+  ],
+  "residentPrompts": [
+    "components/system-packs/istoreos/agents/istoreos.md",
+    "components/system-packs/istoreos/agents/system.md"
+  ],
+  "compatibility": "IDs and concrete native transaction constraints retained; legacy business task recipes removed; distribution module roles describe packaging, not execution routing."
+}

@@ -49,7 +49,7 @@ Gateway-selected origin traffic is still gateway traffic. A client's direct fall
 
 Codex/OpenCode use one generated preset selected by target platform and execution mode. Reasonix accepts directory-layout SKILL.md through its configured `.reasonix/skills`, `.agents/skills` or custom roots; the current installer uses `generic --target-skills DIR`, not an invented reasonix consumer. Kai's built-in System Packs use canonical snapshots with separate source locks and its own target transport; editing canonical skills does not update an installed snapshot automatically.
 
-Keep concise descriptions/trigger metadata in primary skills. Detailed material lives under `data/`: Reasonix eagerly inlines `references/*.md`. Keep one primary and at most one currently necessary helper; no new primary skill is needed here. Generated presets must be regenerated, not hand-edited.
+Current discovery uses optional composable capability descriptions and `resource-discovery: explicit`; referenced resources are loaded on demand. There is no primary-skill or helper-count policy and no mandated workflow. The model chooses its analysis and tools. Generated presets come from canonical sources. See agent-capability-milestones-20261126.md for the current responsibility boundary.
 
 ## Implementation and verification sequence
 

@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/istoreos-source-introspect",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
-  "description": "iStoreOS/OpenWrt 只读证据采集：定向读取 /etc/config、/etc/init.d 与 /usr/lib/lua/luci 相关源码片段（默认脱敏），用于未知问题定位与“以证据为准”的分流。",
+  "description": "读取指定 iStoreOS 服务的启动源码、配置及原生文件归属；输出脱敏且可展开的证据。",
   "platforms": [
     "istoreos"
   ],
@@ -22,12 +22,12 @@
     {
       "id": "istoreos-source-introspect",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
-      "sourceDigest": "sha256:bb27c0110f3cdffb5b36116b7ad3c22347325e8ae201b526bf99667617112c47"
+      "sourceDigest": "sha256:860ce2c1e8e75bfa7b6b1324e8e921ac29f6644b2df121a2abf46e7a420b4503"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-system-information",
@@ -37,7 +37,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

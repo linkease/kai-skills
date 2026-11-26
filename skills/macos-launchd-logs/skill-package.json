@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/macos-launchd-logs",
   "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
-  "description": "Inspect one macOS launchd job and bounded unified logs, prepare a change plan, apply an explicitly approved kickstart or stop, and verify the resulting job state.",
+  "description": "Read one launchd registration or log window; apply an explicitly selected action with before/after native state checks.",
   "platforms": [
     "macos"
   ],
@@ -21,7 +21,7 @@
     {
       "id": "macos-launchd-logs",
       "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
-      "sourceDigest": "sha256:4acddcaf678f17f2dfa4ae8b427c1f16c2e8402b3ad542b9628b273217f5d6db"
+      "sourceDigest": "sha256:36f914d0d71af66816beed14d9b4b3dc65bc81e5f97a2ff37d2e541e8a9c10ee"
     },
     {
       "id": "kai-system-information",

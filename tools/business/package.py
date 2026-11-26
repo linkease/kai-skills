@@ -82,11 +82,11 @@ def render_skill(source_body, name, resources):
     description = re.search(r'^description:\s*(.+)$', frontmatter, re.M)
     if not title or title.group(1) != name or not description:
         raise ValueError('skill identity/description mismatch: ' + name)
-    lines = ['---', 'name: ' + name, 'description: ' + description.group(1), '---', '',
+    lines = ['---', 'name: ' + name, 'description: ' + description.group(1), 'resource-discovery: explicit', '---', '',
         'This directory is an independent skill. Resolve paths relative to this SKILL.md,',
         'and run commands on the selected target through its existing authorized Transport.',
         'Other Kai skills named below are optional specialists; this directory contains',
-        'the executable resources required by its own workflow.', '']
+        'the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.', '']
     if re.search(r'^invocation:\s*manual\s*$', frontmatter, re.M):
         lines[3:3] = ['metadata:', '  opencode/autoinvoke: "false"']
     if resources:
@@ -95,13 +95,13 @@ def render_skill(source_body, name, resources):
             lines.append('- `' + resource + '`: [local instructions](resources/runtime/' +
                          resource + '/GUIDANCE.md); executable helpers under that resource’s `scripts/`.')
         if 'kai-tool-bootstrap' in resources:
-            lines += ['', 'Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`',
-                      'and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,',
+            lines += ['', 'Optional tool preparation: `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`',
+                      'or the separately authorized `ensure TOOL` operation. The native Windows preparation interface is',
                       'use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`',
-                      'through native PowerShell, then the authorized Ensure operation.']
+                      'through existing native PowerShell. Querying this skill does not install missing tools.']
         if 'kai-dev-environment' in resources:
             lines += ['', 'SDK helpers are local at `resources/runtime/kai-dev-environment/scripts/runtime.sh`.']
-        lines += ['', '## Business workflow', '']
+        lines += ['', '## Operation interfaces', '']
     body = re.sub(r'Before calling Bash scripts, prepare an existing compatible Bash with kai-tool-bootstrap\.[^\n]*\n',
         'Use the local bootstrap resource above for missing Bash/tools.\n' if 'kai-tool-bootstrap' in resources else
         'Prepare compatible Bash; the native Windows first entry is in this skill’s scripts/bootstrap-bash.ps1.\n', body)

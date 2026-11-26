@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: kai-dev-environment\ndescription: 用 mise 安装、验证和执行 Python、Node、Go SDK 与开发 CLI。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 安装 Python, 安装 Node, 安装 node, 安装 Go, 安装 golang, 开发环境, 安装开发 CLI, SDK, python-build, 解释器异常\nnegative-triggers: pip install, npm ci, go mod, uv sync\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: kai-dev-environment\ndescription: 查询、安装、验证和执行明确选择的 mise SDK 或 uv；保留精确版本、来源和原生错误。\nowner: system-pack/common\nsystems: ubuntu, debian, istoreos, openwrt, linux, macos, windows\ntriggers: 安装 Python, 安装 Node, 安装 node, 安装 Go, 安装 golang, 开发环境, 安装开发 CLI, SDK, python-build, 解释器异常\nnegative-triggers: pip install, npm ci, go mod, uv sync\nauto-use: suggest\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
+      "sourceDigest": "sha256:8190be0c2863497f40e1939e12af98cfba8716a081e2ba970fb8e89aea26c555"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

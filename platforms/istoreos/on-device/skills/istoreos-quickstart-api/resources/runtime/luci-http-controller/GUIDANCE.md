@@ -9,7 +9,7 @@ resource-discovery: explicit
 
 # LuCI HTTP Controller
 
-Use this transport only when a selected system skill names the endpoint, method, body, expected response, and safety class. This skill handles LuCI login, in-memory cookies, timeout, TLS policy, response bounds, and the generic write gate; it does not decide what an endpoint means.
+The caller explicitly supplies the endpoint, method, body and expected response for an already bound target. This skill handles LuCI login, in-memory cookies, timeout, TLS policy, response bounds, and the generic write gate; it does not decide what an endpoint means.
 
 Keep the password in an environment variable named by `--password-env`. For example:
 
@@ -19,4 +19,4 @@ go run scripts/lucihttp.go \
   --prefix /cgi-bin/luci/example GET /status
 ```
 
-Every non-GET/HEAD method requires `--approve-write` or `TARGET_HTTP_WRITE_APPROVED=YES` after the system skill's own approval policy has passed. Use `--insecure` only after the user accepts the exact target certificate risk. Responses larger than 8 MiB and timeouts longer than five minutes are rejected.
+Every non-GET/HEAD method requires `--approve-write` or `TARGET_HTTP_WRITE_APPROVED=YES` under an existing scoped host authorization; flags do not grant host permission. Use `--insecure` only after the user accepts the exact target certificate risk. Responses larger than 8 MiB and timeouts longer than five minutes are rejected.

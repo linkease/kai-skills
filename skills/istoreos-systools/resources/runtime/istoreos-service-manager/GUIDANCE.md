@@ -1,0 +1,20 @@
+---
+name: istoreos-service-manager
+description: 读取 init、UCI、生成配置、procd、日志和文件归属；执行有明确前置状态与后置验证的单项服务操作。
+owner: system-pack/istoreos
+systems: istoreos
+triggers: 服务没启动, 服务启动失败, 服务状态, 开机自启, 端口没监听, 安装后没生效, init.d
+negative-triggers: LuCI 打不开, LuCI 500, Docker 数据目录
+auto-use: suggest
+needs-fresh-data: true
+cost: medium
+resource-discovery: explicit
+---
+
+`sh scripts/inspect.sh --target-id ID --service NAME --sections init,config,runtime,logs,ownership` 读取所选范围。大文件可指定 `--file PATH --offset N --length N`；hasMore、未知、权限错误、超时和不可信原文保留。查询从不执行被检查的 init 脚本。
+
+`bash scripts/apply.sh REQUEST.json`（或 ensure.sh 兼容入口）执行 service.apply。外层为 schemaVersion:1、operation、targetId、parameters；参数为 operationId、service、action（start|stop|restart|enable|disable|none）、configName、expectedInitSHA256、expectedConfigSHA256（或 absent）、verification、timeoutSeconds；可选 uci:{key,expectedValue,value}。不推断启用字段或补充动作。
+
+verification.kind 明确为 procd-running|procd-stopped|init-enabled|init-disabled|uci-value。Docker start/restart 则要求 docker-api，并给出 endpoint、expectedEngineId、expectedDataRoot；仅 procd running 不能通过 Docker API 验证。
+
+宿主提供既有授权和私有 KAI_OPERATION_STATE_DIR；相同 operationId 只返回历史回执。UCI 在唯一私有包中提交，复核原摘要后原子激活。任何失败都保留 completed/unknown/remaining；不自动 fallback start、不安装、不重写第三方 init。

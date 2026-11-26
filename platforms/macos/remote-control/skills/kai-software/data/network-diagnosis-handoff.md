@@ -1,26 +1,7 @@
-# FastNet installation handoff
+# Optional installation-path observations
 
-The software workflow owns the install plan, package identity, credentials and
-retry decision. Do not run a general speed test before every installation. When
-the plan exposes HTTP(S) metadata or artifact endpoints, retain bounded,
-redacted target identities and one opaque `operationId` outside model context.
+FastNet accepts a bounded observation request with explicit endpoint IDs, metadata.operationId and time/response-byte budgets. Its input may use authorized endpoints from a native install plan or structured failure. URL credentials and signed query values stay outside model context; request files are private.
 
-Escalate to `kai-network-quality` only after a structured native failure shows
-DNS resolution/timeout, TCP connect/timeout, TLS negotiation or certificate
-failure, transport reset/incomplete transfer, advertised-but-broken IPv6, HTTP
-429/5xx, or target throughput degradation. HTTP 401/403/404, missing
-dependencies, unsupported architecture, package conflicts, postinstall errors,
-and signature/hash/trust-policy failures remain with the software owner unless
-separate transport evidence exists.
+DNS, TCP, TLS, reset, incomplete transfer, IPv6 comparison, HTTP status and throughput are evidence categories. A 401/403/404, missing package, architecture mismatch, hash/signature failure or postinstall error does not by itself prove a network-quality cause. Multiple sources may conflict.
 
-Build a `software-install` FastNet request from the owning plan rather than
-scraping unbounded logs. Reject URL credentials; never put signed queries or
-complete request files in the response. Run FastNet `validate` before the
-user-authorized `diagnose`. Route target-only path degradation to
-`kai-download-acceleration`; route broad WAN or TLS trust/clock findings to the
-target system owner.
-
-After remediation, repeat the same profile, target IDs, budget and operation ID.
-Retry the original installation at most once and only when comparable
-verification improved. A successful install still requires the native receipt
-and meaningful-command verification.
+The caller decides whether to collect network evidence, compare profiles, remediate or retry. No FastNet pass, acceleration setup, fixed retry count or skill handoff is required by this reference. The host owns target/endpoint/budget authorization and credentials; FastNet observes only the selected request. Operation success and complete user-task success remain distinct.

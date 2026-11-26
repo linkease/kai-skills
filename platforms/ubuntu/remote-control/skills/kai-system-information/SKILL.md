@@ -1,12 +1,13 @@
 ---
 name: kai-system-information
 description: 返回实际目标的系统、包管理器、下载工具与容器运行时事实；按所选范围只读查询，保留未知项和证据来源。
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 提供 `system.inspect` 操作。查询范围和是否使用本能力由调用者选择；结果不选择安装方式或修复方案。
 
 Unix：`sh scripts/inspect.sh --target-id TARGET [--sections os,tools,docker] [--deadline-seconds 5]`。

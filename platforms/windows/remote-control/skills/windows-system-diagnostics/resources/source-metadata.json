@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: windows-system-diagnostics\ndescription: Collect a bounded read-only Windows health summary covering OS, uptime, fixed disks, service totals, and recent critical System events; use for general Windows errors, slowness, or first-pass diagnosis.\nowner: system-pack/windows\nsystems: windows\nrequires: target-shell:powershell\ntriggers: Windows 异常, Windows 诊断, 系统变慢, 磁盘空间, 蓝屏后检查, Windows health\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: low\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: windows-system-diagnostics\ndescription: Read native Windows OS and bounded diagnostic facts, preserving native collection errors.\nowner: system-pack/windows\nsystems: windows\nrequires: target-shell:powershell\ntriggers: Windows 异常, Windows 诊断, 系统变慢, 磁盘空间, 蓝屏后检查, Windows health\nauto-use: suggest\nneeds-fresh-data: true\ncost: low\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "windows-system-diagnostics",
       "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
-      "sourceDigest": "sha256:28c7c60f74b77b6dd27d4d3d23fa65bda303cb9e643f41b9e6d6a20212ce29eb"
+      "sourceDigest": "sha256:54f1e9304762080a943a409e2762ca7bf10f282ab905d34fbaf200bda9b58759"
     }
   ]
 }

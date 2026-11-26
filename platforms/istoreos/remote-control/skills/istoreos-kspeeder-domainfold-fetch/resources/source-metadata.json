@@ -1,37 +1,37 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-kspeeder-domainfold-fetch\ndescription: 通过设备内 iStoreEnhance/KSpeeder 加速受支持的外部文件和公开 HTTPS Git 仓库；仅作为下载加速主 skill 按证据调用的内部执行 helper。\nowner: system-pack/istoreos\nsystems: istoreos\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: istoreos-kspeeder-domainfold-fetch\ndescription: 使用已有本地 KSpeeder 接口映射或下载明确 URL；不安装或自动启动服务。\nowner: system-pack/istoreos\nsystems: istoreos\ninvocation: manual\nauto-use: off\nneeds-fresh-data: true\ncost: medium\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
-      "sourceDigest": "sha256:35f33b117823ab634c8709fe7d568dba694094ca166ee99388aa204eb4dfe9e8"
+      "sourceDigest": "sha256:ee5592b13162a3e68755e33829d741d49d0086ae8beaa9ab29e0771a15f2baee"
     },
     {
       "id": "istoreos-download-acceleration",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
-      "sourceDigest": "sha256:c3320313a77e65cbc27069486534b9306c3446590265c23c0953cd97f1b4da4f"
+      "sourceDigest": "sha256:033dc34aaad94e321430a490b986bf29ffbcc1315349abaef73705fa51766caa"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
-      "sourceDigest": "sha256:35f33b117823ab634c8709fe7d568dba694094ca166ee99388aa204eb4dfe9e8"
+      "sourceDigest": "sha256:ee5592b13162a3e68755e33829d741d49d0086ae8beaa9ab29e0771a15f2baee"
     },
     {
       "id": "istoreos-mise-runtime",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
-      "sourceDigest": "sha256:37fb19d2ffa6facdfc46f24736a2683ff51da7c80047459f90e8b0c515c7fd63"
+      "sourceDigest": "sha256:d5dc012cea5a85d43e290a0de81fb8271f6dd1c45fb6ce4edb347887348a09dd"
     },
     {
       "id": "istoreos-package-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
-      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
+      "sourceDigest": "sha256:e9c86466dec9a9bbbf7f5e0597897afd091007f5034c46d8c8986e2f23c3f6a6"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:7aa4a1852f326dff8d16ae5b587df64268ee1346c942de0778211a5d925ed6f1"
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-system-information",
@@ -41,7 +41,7 @@
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

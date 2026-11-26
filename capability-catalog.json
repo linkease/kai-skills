@@ -280,8 +280,8 @@
         "zh-CN": "设备健康与故障诊断"
       },
       "description": {
-        "en": "Start with minimal read-only evidence about the system, disks, processes, services, and recent errors.",
-        "zh-CN": "从最小只读证据开始检查系统、磁盘、进程、服务和最近错误。"
+        "en": "Return bounded read-only observations about the selected system, disks, processes, services or recent errors.",
+        "zh-CN": "返回所选系统、磁盘、进程、服务或最近错误的有界只读观察。"
       },
       "ownership": "managed",
       "risk": "read-only",
@@ -305,7 +305,7 @@
         },
         {
           "id": "istoreos-system-task-router",
-          "role": "router"
+          "role": "evidence"
         }
       ]
     },

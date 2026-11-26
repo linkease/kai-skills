@@ -1,12 +1,13 @@
 ---
 name: kai-project-run
-description: Build and run an existing Node, Python or Go project using a selected SDK and its existing dependency locks; hand unsupported build recipes to AI.
+description: Plan or execute an explicitly selected Node, Python or Go project transaction with exact SDK, source hashes, locks and expected output.
+resource-discovery: explicit
 ---
 
 This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
-the executable resources required by its own workflow.
+the executable resources for its explicitly selected operations. The model decides analysis, composition and task completion.
 
 ## Local supporting resources
 
@@ -17,35 +18,18 @@ the executable resources required by its own workflow.
 - `kai-software`: [local instructions](resources/runtime/kai-software/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `kai-tool-bootstrap`: [local instructions](resources/runtime/kai-tool-bootstrap/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
-Prepare tools locally with `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
-and its explicit `ensure TOOL` operation when needed. Before Bash exists on Windows,
+Optional tool preparation: `bash resources/runtime/kai-tool-bootstrap/scripts/tool.sh plan TOOL`
+or the separately authorized `ensure TOOL` operation. The native Windows preparation interface is
 use `resources/runtime/kai-tool-bootstrap/scripts/bootstrap-bash.ps1 -Action Plan`
-through native PowerShell, then the authorized Ensure operation.
+through existing native PowerShell. Querying this skill does not install missing tools.
 
 SDK helpers are local at `resources/runtime/kai-dev-environment/scripts/runtime.sh`.
 
-## Business workflow
-Use the selected target's Bash and full jq. Run `scripts/project.sh project-plan REQUEST.json`,
-then pass the returned `details` as `plan` to `project-apply` within the user's project authorization.
-Requests use `software: "project"`, the actual `targetId`, and `project` with physical `path`,
-exact `runtimeVersion`, reviewed `sourceFiles`, `budgetBytes` and `expectedOutput`.
-Node uses an existing npm lock and `runScript` (default `start`), plus optional `buildScript`.
-Python uses the existing hashed requirements.txt, a project venv and relative `entry`.
-Go uses go.mod/go.sum, builds an owned workspace artifact and runs that artifact.
+## Operation interfaces
+`bash scripts/project.sh project-plan REQUEST.json` produces an immutable operation plan. `project-apply` accepts that returned `details` as `plan`; this is the transaction API's stale-state boundary, not a prescribed Agent workflow.
 
-SDK installation is a separate preparation through kai-dev-environment. Project dependencies
-reuse kai-project-dependencies. Plans identify SDK, source/lock hashes, disk budget and effects.
-Keep project/global configuration and lock formats. Work/cache/output belongs in the project's
-`.kai-project`; preserve a pre-existing unowned directory.
+Requests specify `software:"project"`, actual `targetId`, and `project.kind`, physical `path`, exact `runtimeVersion`, reviewed `sourceFiles`, `budgetBytes`, and `expectedOutput`. Node requires explicit `runScript` with optional `buildScript` and its existing npm lock. Python uses existing hashed requirements, a project venv and relative `entry`. Go uses go.mod/go.sum and an owned workspace artifact. No project kind or launch command is guessed.
 
-On `needs-ai`, use the returned attempted/required facts to choose a build recipe or make an
-explicit source change, then generate a new plan. Do not repeat an unchanged failed recipe.
-An AI-produced binary is a candidate until its platform, SHA256, functional check and install
-ownership have passed the software task's artifact flow; building alone does not install it.
+The transaction records SDK/source/lock identities and declared effects. Work belongs to `.kai-project`; foreign pre-existing directories are preserved. SDK installation is separate. `needs-ai` reports unsupported facts without deciding a recipe. Building an artifact does not install it or prove the user task complete.
 
-Python inherits target crypto configuration by default. If that policy is incompatible,
-return its failure. A project that needs the SDK's default provider may explicitly set
-`project.cryptoPolicy: "sdk-default"`; the plan records the exact config hash, and execution
-creates that config in owned project space and exports it only to the SDK process tree.
-This choice does not enable firmware legacy algorithms inside the SDK or change firmware,
-CA paths, certificate checks or other programs' crypto policy.
+Crypto configuration is inherited by default. Explicit `project.cryptoPolicy:"sdk-default"` pins the exact configuration hash and creates a process-local copy in owned project space; firmware/CA/TLS policy is unchanged.

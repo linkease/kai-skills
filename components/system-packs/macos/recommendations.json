@@ -6,66 +6,84 @@
       "id": "macos-health-check",
       "title": "一键体检",
       "description": "只检查，不修改任何内容，适合第一次体验。",
-      "prompt": "请给当前 Mac 做一次只读体检，检查 macOS 版本、CPU 和内存、磁盘、网络、launchd 服务和最近系统错误，用普通用户能理解的话总结，不执行修改、安装或重启。",
+      "prompt": "请给当前 Mac 做一次只读体检，检查 macOS 版本、CPU 和内存、磁盘、网络、launchd 服务和最近系统错误，用普通用户能理解的话总结，不执行修改、安装或重启。本次仅查询和分析，不执行修改、安装、重启、删除或清理。请说明依据、未知和结论，不预设工具或诊断顺序。",
       "category": "common",
       "priority": 1,
       "risk": "low",
       "executionIntent": "read_only",
       "workspaceRequirement": "none",
-      "systems": ["macos"],
-      "features": ["launchctl", "unified-log"],
+      "systems": [
+        "macos"
+      ],
+      "features": [
+        "launchctl",
+        "unified-log"
+      ],
       "skill": "macos-system-diagnostics"
     },
     {
       "id": "macos-service-failure",
       "title": "后台服务异常",
       "description": "检查 launchd 状态和限长日志。",
-      "prompt": "帮我诊断当前 Mac 的 launchd 后台服务异常。先只读检查服务状态、配置位置和限长统一日志；加载、卸载、重启或修改配置前必须让我确认。",
+      "prompt": "帮我诊断当前 Mac 的 launchd 后台服务异常。请基于实际目标证据分析原因，说明已确认事实与未知；本次诊断不自动执行修复。涉及变更时说明范围，并遵循宿主的目标授权与保护约束。",
       "category": "common",
       "priority": 10,
       "risk": "medium",
       "executionIntent": "may_modify",
       "workspaceRequirement": "none",
-      "systems": ["macos"],
-      "features": ["launchctl", "unified-log"],
+      "systems": [
+        "macos"
+      ],
+      "features": [
+        "launchctl",
+        "unified-log"
+      ],
       "skill": "macos-launchd-logs"
     },
     {
       "id": "macos-storage-low",
       "title": "磁盘空间不够",
       "description": "检查卷和占用，删除前会确认。",
-      "prompt": "帮我只读检查当前 Mac 的磁盘、卷和主要占用来源，列出可以安全处理的项目、风险和预计收益；删除文件或修改卷前必须让我确认。",
+      "prompt": "帮我只读检查当前 Mac 的磁盘、卷和主要占用来源，列出可以安全处理的项目、风险和预计收益。请基于实际目标证据分析原因，说明已确认事实与未知；本次诊断不自动执行修复。涉及变更时说明范围，并遵循宿主的目标授权与保护约束。",
       "category": "storage",
       "priority": 20,
       "risk": "medium",
       "executionIntent": "may_modify",
       "workspaceRequirement": "none",
-      "systems": ["macos"]
+      "systems": [
+        "macos"
+      ]
     },
     {
       "id": "macos-network-access",
       "title": "网络或访问异常",
       "description": "检查接口、路由、DNS 和监听。",
-      "prompt": "帮我诊断当前 Mac 的网络或访问异常。先只读检查网络接口、路由、DNS、监听进程和相关日志；修改网络配置或重启服务前必须让我确认。",
+      "prompt": "帮我诊断当前 Mac 的网络或访问异常。请基于实际目标证据分析原因，说明已确认事实与未知；本次诊断不自动执行修复。涉及变更时说明范围，并遵循宿主的目标授权与保护约束。",
       "category": "network",
       "priority": 30,
       "risk": "medium",
       "executionIntent": "may_modify",
       "workspaceRequirement": "none",
-      "systems": ["macos"]
+      "systems": [
+        "macos"
+      ]
     },
     {
       "id": "macos-recent-errors",
       "title": "查看最近系统错误",
       "description": "只读取限量的统一日志。",
-      "prompt": "请只读检查当前 Mac 最近的重要统一日志，限制时间、行数和字节数，隐藏敏感信息，并说明哪些错误值得处理；不要清除日志或修改服务。",
+      "prompt": "请只读检查当前 Mac 最近的重要统一日志，限制时间、行数和字节数，隐藏敏感信息，并说明哪些错误值得处理。本次仅查询和分析，不执行修改、安装、重启、删除或清理。请说明依据、未知和结论，不预设工具或诊断顺序。",
       "category": "maintenance",
       "priority": 40,
       "risk": "low",
       "executionIntent": "read_only",
       "workspaceRequirement": "none",
-      "systems": ["macos"],
-      "features": ["unified-log"],
+      "systems": [
+        "macos"
+      ],
+      "features": [
+        "unified-log"
+      ],
       "skill": "macos-launchd-logs"
     }
   ]

@@ -3,7 +3,7 @@
   "version": "1.2.11",
   "path": "skills/kai-software",
   "canonicalPath": "components/system-packs/common/skills/kai-software",
-  "description": "查询、安装、更新和卸载系统软件；脚本识别平台、软件中心及原来源，返回分层版本和操作结果。",
+  "description": "按来源限定身份查询软件候选、登记版本和文件归属；对明确选择的软件执行安装或移除事务。",
   "platforms": [
     "debian",
     "istoreos",
@@ -42,22 +42,22 @@
     {
       "id": "kai-software",
       "canonicalPath": "components/system-packs/common/skills/kai-software",
-      "sourceDigest": "sha256:45549c068daa9131b9c7e34a6cb53bc818638008997cdee863a863a3609950af"
+      "sourceDigest": "sha256:9111717f94e798b89b0a77cf69dee830d46a1d846b537d5681f988434994d4cf"
     },
     {
       "id": "istoreos-app-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
-      "sourceDigest": "sha256:e3cf72ef9d3d44f53e9c9bdb44d647a8bbffb2da7899d7c7749f11f6d5a415f6"
+      "sourceDigest": "sha256:b793d8b5e45aab45e4ac45eb5f8adea33235922e084de1419d21507f8d01443d"
     },
     {
       "id": "istoreos-app-search",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
-      "sourceDigest": "sha256:d82a17a16deb361513ba68fe972e0e2f86a0dfc18de9add899e39abd3a82508a"
+      "sourceDigest": "sha256:bfe197ff39e518903eefd126e49ce293b72df0e3aed15ebc36e39c002f871471"
     },
     {
       "id": "kai-tool-bootstrap",
       "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }

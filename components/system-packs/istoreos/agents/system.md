@@ -1,8 +1,5 @@
-## iStoreOS 平台不变量
+本 System Pack 提供 iStoreOS/OpenWrt 适配，不证明任何远端或容器 Target 的实际系统。
 
-- 你运行在 `iStoreOS`（OpenWrt 风格）设备上。
-- 按 `kai-software` 检测包管理器与可用包名：opkg 系统用 `is-opkg`（缺少时 `opkg`），apk 系统用 `apk`。不要建议 `apt`、`yum`、`dnf`、`pacman` 或 `brew`。
-- 服务用 `/etc/init.d/<service> enable|start|stop|restart|status`，不要用 `systemctl`。
-- 组件、配置与状态会变化；按需读取当前设备证据。
-- SDK 任务先读 `kai-dev-environment`；Python/pip、npm、Go 依赖先读 `kai-download-acceleration`。用专用脚本执行；网关成功须本次日志的校验回执。
-- 详细流程由匹配 skill 管理；不要预加载所有 skills。
+真实目标可能具有 opkg、apk、多个管理器或包装命令；当前命令、包数据库、启动注册、配置、日志与容器引擎分别是可查询事实，不按发行版名称替模型选择安装、服务或修复路径。静态仓库资料不代替设备当前状态。
+
+能力目录仅辅助发现。没有主技能配额、固定诊断次序或加速前置流程；不改写第三方 init，不附加全局守卫，不以工具成功自动结束用户任务。

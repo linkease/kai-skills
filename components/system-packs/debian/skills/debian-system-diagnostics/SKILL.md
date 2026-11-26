@@ -1,6 +1,6 @@
 ---
 name: debian-system-diagnostics
-description: Read-only Debian diagnosis using os-release, systemd journal, apt/dpkg state, storage, processes, sockets, and bounded service logs before proposing a repair.
+description: Read Debian release, package database, systemd registration, journal, mounts and sockets through existing native tools.
 owner: system-pack/debian
 systems: debian, ubuntu
 features: apt-get, systemctl
@@ -8,14 +8,6 @@ invocation: manual
 resource-discovery: explicit
 ---
 
-# Debian System Diagnostics
+This documentation adapter describes native read interfaces: `/etc/os-release`, `dpkg-query`, `apt-cache`, `systemctl show`, bounded `journalctl`, `df`, `mount`, `ps` and `ss`. Commands run on the bound target; unsupported tools and permission failures remain unknown rather than triggering installation.
 
-Collect a small evidence set before recommending changes:
-
-1. Read `/etc/os-release`, architecture, uptime, memory, filesystems, and mounts.
-2. Inspect the relevant `dpkg-query`, `apt-cache policy`, and `systemctl status` output.
-3. Read only the affected unit's bounded journal excerpt; never inject the full journal into context.
-4. Explain the observed failure and the smallest proposed action.
-5. Ask for confirmation before `apt install/remove/upgrade`, changing files, or changing service state.
-
-Do not assume OpenWrt, `opkg`, `procd`, iStore, ASUSWRT, or Koolshare conventions.
+No prescribed diagnostic sequence or repair is implied. Package cache and installed versions differ; systemd running and an application's actual API health differ. Queries do not refresh feeds, install packages, start services or change network/storage configuration. Generic tools remain available.

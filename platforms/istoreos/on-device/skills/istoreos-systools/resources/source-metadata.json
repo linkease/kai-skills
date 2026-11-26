@@ -1,22 +1,32 @@
 {
   "schemaVersion": 1,
-  "originalFrontmatter": "name: istoreos-systools\ndescription: 诊断和修复 iStoreOS 的 IPv6 模式、硬盘休眠、应用商店及升级后内核模块问题；只通过设备自带系统工具的受控入口执行，不负责网络测速。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: IPv6 模式, IPv6 PD, IPv6 relay, IPv6 NAT, 硬盘不休眠, 硬盘唤醒, 应用商店损坏, iStore 修复, 升级后异常, 内核模块不兼容\nnegative-triggers: 网络测速, 网速慢, NAT 类型, 局域网测速, 普通软件安装, Docker 镜像下载, overlay 空间不足\nauto-use: prefer\nrouting-group: system-primary\nneeds-fresh-data: true\ncost: low\nresource-discovery: explicit\n",
+  "originalFrontmatter": "name: istoreos-systools\ndescription: 查询明确的系统范围，或执行所选原生 systools 动作；返回原生退出结果。\nowner: system-pack/istoreos\nsystems: istoreos\ntriggers: IPv6 模式, IPv6 PD, IPv6 relay, IPv6 NAT, 硬盘不休眠, 硬盘唤醒, 应用商店损坏, iStore 修复, 升级后异常, 内核模块不兼容\nnegative-triggers: 网络测速, 网速慢, NAT 类型, 局域网测速, 普通软件安装, Docker 镜像下载, overlay 空间不足\nauto-use: suggest\nneeds-fresh-data: true\ncost: low\nresource-discovery: explicit\n",
   "transform": "business-self-contained-v1",
   "sources": [
     {
       "id": "istoreos-systools",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
-      "sourceDigest": "sha256:e5dd9c73f4204eb2e454980dfb5da0fc21eedc88e7f33c2240d7fea02de370c3"
+      "sourceDigest": "sha256:c6348589d778fe7caecf554714d798775d65ff7502d76b067b48578906e4f449"
     },
     {
       "id": "istoreos-package-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
-      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
+      "sourceDigest": "sha256:e9c86466dec9a9bbbf7f5e0597897afd091007f5034c46d8c8986e2f23c3f6a6"
+    },
+    {
+      "id": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "sourceDigest": "sha256:8d6d05869f756dfcd580912a1bdcf7c9607a45caa7c3b90f22cf8d3020b52939"
     },
     {
       "id": "kai-system-information",
       "canonicalPath": "components/system-packs/common/skills/kai-system-information",
       "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:697efa2b3698cc43dcfde0ce0efc5dce6a500c23dcb39d2ac9e0c23f11239c71"
     }
   ]
 }
