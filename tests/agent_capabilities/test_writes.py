@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import signal
+import socket
 import subprocess
 import tempfile
 import time
@@ -191,6 +192,33 @@ class ServiceWriteTests(WriteFixture, unittest.TestCase):
         p, result = self.apply(self.request(service='dockerd'))
         self.assertNotEqual(p.returncode, 0)
         self.assertEqual(result['errors'][0]['code'], 'INVALID_ARGUMENT')
+
+    def docker_request(self, **values):
+        docker_init = self.init.with_name('dockerd')
+        docker_init.write_bytes(self.init.read_bytes());docker_init.chmod(0o700)
+        return self.request(service='dockerd', verification={'kind': 'docker-api', 'endpoint': 'unix:///unrelated/docker.sock',
+                            'expectedEngineId': 'engine-one', 'expectedDataRoot': '/chosen/docker'}, **values)
+
+    def test_unrelated_api_does_not_hide_selected_service_exit(self):
+        self.fake('ubus', "print('{\"dockerd\":{\"instances\":{\"one\":{\"running\":false}}}}')\n")
+        p, result = self.apply(self.docker_request())
+        self.assertNotEqual(p.returncode, 0, result)
+        self.assertNotEqual(result['operationStatus'], 'succeeded')
+
+    def test_unrelated_api_does_not_validate_another_running_process(self):
+        sleeper = subprocess.Popen(['sleep', '20'])
+        self.addCleanup(lambda: (sleeper.terminate(), sleeper.wait()))
+        self.fake('ubus', 'print(\'{"dockerd":{"instances":{"one":{"running":true,"pid":' + str(sleeper.pid) + '}}}}\')\n')
+        short = tempfile.TemporaryDirectory(prefix='kai-sock-', dir='/tmp')
+        self.addCleanup(short.cleanup)
+        endpoint = Path(short.name) / 'real-unrelated.sock'
+        listener = socket.socket(socket.AF_UNIX, socket.SOCK_STREAM)
+        self.addCleanup(listener.close);listener.bind(str(endpoint));listener.listen(1)
+        request = self.docker_request()
+        data = json.loads(request.read_text());data['parameters']['verification']['endpoint']='unix://'+str(endpoint);request.write_text(json.dumps(data))
+        p, result = self.apply(request)
+        self.assertNotEqual(p.returncode, 0, result)
+        self.assertNotEqual(result['operationStatus'], 'succeeded')
 
     def test_cancellation_keeps_pending_effect_and_does_not_replay(self):
         request = self.request(timeoutSeconds=1)

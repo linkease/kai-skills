@@ -1,0 +1,250 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA8",
+  "status": "blocked",
+  "implementationStatus": "in_progress",
+  "optimizations": 3,
+  "stopReason": "Two usable model configurations and an evaluation cost limit are unavailable; actual model pilot remains unrun. User input requested asynchronously.",
+  "verification": {
+    "capabilityTests": {
+      "status": "passed",
+      "tests": 71,
+      "seconds": 29.986
+    },
+    "nativeDockerPilot": {
+      "status": "passed",
+      "serverVersion": "27.4.0",
+      "storageDriver": "vfs",
+      "apiIdentityAndRoot": "passed",
+      "selectedServiceSocketOwner": "passed",
+      "unrelatedProcessRejected": "passed",
+      "sameOperationNotReplayed": "passed",
+      "initAndConfigPreserved": true,
+      "cleanup": "passed",
+      "procdEvidence": "protocol adapter reading the actual owned native Docker PID; not native procd deployment evidence"
+    },
+    "generatedConsistency": "passed",
+    "actualConsumerDiscovery": "passed",
+    "liveModelPilot": "blocked_not_run",
+    "modelAccessProbes": [
+      {
+        "model": "opencode/qwen3.6-plus-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "opencode/glm-4.7-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "deepseek-flash/deepseek-v4-flash",
+        "configured": false,
+        "available": false,
+        "failure": "credential-unavailable"
+      },
+      {
+        "model": "mimo-flash/mimo-v2.5",
+        "configured": false,
+        "available": false,
+        "failure": "credential-unavailable"
+      },
+      {
+        "model": "opencode/big-pickle",
+        "configured": true,
+        "available": false,
+        "failure": "quota-or-credits-exhausted"
+      },
+      {
+        "model": "opencode/minimax-m2.5-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "opencode/mimo-v2-flash-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "opencode/trinity-large-preview-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "mimo-pro/mimo-v2.5-pro",
+        "configured": false,
+        "available": false,
+        "failure": "credential-unavailable"
+      },
+      {
+        "model": "deepseek-pro/deepseek-v4-pro",
+        "configured": false,
+        "available": false,
+        "failure": "credential-unavailable"
+      },
+      {
+        "model": "opencode/kimi-k2.5-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "opencode/minimax-m3-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "opencode/ring-2.6-1t-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      },
+      {
+        "model": "opencode/nemotron-3-ultra-free",
+        "configured": true,
+        "available": false,
+        "failure": "upstream-model-unavailable"
+      }
+    ]
+  },
+  "changes": [
+    "Docker start/restart verifies that the selected procd PID or its descendant owns the selected Unix socket before and after the API observation; API identity/root/version must match and ownership must remain stable.",
+    "Missing or unreadable ownership, a stopped service, another process, or an unstable identity cannot produce a succeeded receipt. No alternate engine is selected and no init source is rewritten.",
+    "Frozen history, an unfamiliar wrapper, opposite evidence and large-log paging have explicit evidence-preservation and no-write tests.",
+    "Follow-up to KA6: an old consumer fixture still asserted exclusive system-primary routing. It now verifies optional discovery policies and exact user resource references without asserting a business route."
+  ],
+  "acceptance": {
+    "KA8-T01": {
+      "status": "passed",
+      "evidence": "Frozen and unfamiliar launchers return configuration, generated root, active registration, native service record and fatal log evidence in the original attributed observations; explicit paging exposes late large-log evidence."
+    },
+    "KA8-T02": {
+      "status": "blocked",
+      "evidence": "Source facts/rubrics exist; real model interpretation of guard cause versus repair decision has not run."
+    },
+    "KA8-T03": {
+      "status": "passed",
+      "evidence": "New wrapper names, changed paths and opposite root/error evidence remain observable; query does not invent the frozen error or prescribe an action."
+    },
+    "KA8-T04": {
+      "status": "passed",
+      "evidence": "Read-only fixture fingerprints and empty effects remain unchanged; existing copy tests validate selected source/mount identities, data/metadata and reject nonempty-target merge."
+    },
+    "KA8-T05": {
+      "status": "passed",
+      "evidence": "Two newly reproduced false-success cases now fail; owned native Docker engine passes API/ID/root/socket ownership checks and unrelated real process is rejected. Generic process presence does not establish Docker health."
+    },
+    "KA8-T06": {
+      "status": "blocked",
+      "evidence": "Host optional capability continuation is tested at KA6/KA7; the required real model conclusion/remaining-gap behavior still needs actual accessible models."
+    }
+  },
+  "iterations": [
+    {
+      "iteration": "initial",
+      "status": "failed",
+      "findings": [
+        "Two counterexamples reproduced succeeded receipts for an unrelated API while the chosen service had exited or was a different process."
+      ]
+    },
+    {
+      "iteration": "optimization-1",
+      "status": "failed",
+      "findings": [
+        "Added native procd/kernel socket ownership binding; counterexamples pass. Native harness initially accepted empty formatted docker info fields despite CLI exit 0. Positive readiness now requires actual ID/root/version."
+      ]
+    },
+    {
+      "iteration": "optimization-2",
+      "status": "failed",
+      "findings": [
+        "Native harness exposed deep Unix socket path limits and transient owned data-root bind-mount cleanup. These setup/lifecycle failures are retained; neither counted as service success."
+      ]
+    },
+    {
+      "iteration": "optimization-3",
+      "status": "blocked",
+      "findings": [
+        "Short owned runtime paths and bounded cleanup produce a fully passing native engine run. All 71 capability tests, generation consistency and optional consumer discovery pass.",
+        "Three native provider access batches found no usable pair. Public models return unavailable or quota errors; configured private providers have no accessible credentials. No simulated provider is counted as a live model result."
+      ]
+    }
+  ],
+  "limitations": [
+    "KA8 is not complete; KA9 and KA10 have not started. The frozen minimum 216-session evaluation remains unchanged.",
+    "No public release, push, installation on user devices or production Docker service modification occurred.",
+    "The engine test uses a native Linux Docker daemon with a procd protocol adapter; real native iStoreOS procd mutation is not claimed."
+  ],
+  "requiredInput": {
+    "models": "Two exact usable provider/model references in trusted existing configuration with credentials in the credential store, not conversation text.",
+    "budget": "Evaluation cost upper limit before real model runs; existing per-session call/time/output limits remain frozen."
+  },
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-counterexample-initial.log",
+      "sha256": "eee3e8475623059fd08c766904831922afcac9599cab760b5f11c310d2dfe1df"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-capabilities.log",
+      "sha256": "ba9e3556467c6056fbc28511fcbc8679c71a83bf71a061897ce08018947ed526"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-native-docker-initial.json",
+      "sha256": "3cda7ffad5cb8740017173c26586ee568ac5702e39e4127f970a3a34859e59ab"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-native-docker-observation.json",
+      "sha256": "aee69a068a6d430e7bda16eef75e0d94baf667064e15b45b793ffe5031cc0d87"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-native-docker-opt2.json",
+      "sha256": "bcc15b352e9f7f0cf7850eeeb7e0a992b1322541f0818d21c7838a8eab69ca55"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-native-docker-opt3.json",
+      "sha256": "66d2f3d4d0326a1c77b5891b7e69d2e651228bf26fc232d6ae584898b1006bc2"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-cleanup-diagnosis.json",
+      "sha256": "866fcce7e598faf7c793a8472c691b6aa4f8dbdc073d38dd545dc992c0beac7b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-cleanup-final.json",
+      "sha256": "9b20cfc5c624c36e00d2632cbe7efee812bb0fb397770e23b366cdda1aaeed9e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-native-docker-final.json",
+      "sha256": "f3d559cae2b65afb6af871daabc05f51ce959e3322a9dbc3a0661d5a671f133b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-consumers.log",
+      "sha256": "0906aaaf62457275fb15e00628ba1da10d521da4aa5fb3a9d0b09e54ccd2c668"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-consumers-fixed.log",
+      "sha256": "0bc9aafc1458c8c1ab874f2e1331627610495b437ef67fbad5aa98c578839422"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-consumers-final.log",
+      "sha256": "18e3a3b23c2405a6e603c28eee45585e5d0647e415f740bd7f312366c4b66daa"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/native-model-access.json",
+      "sha256": "fc9364431663647199c7100418fa5c251ee573ec31b13db0ba77d4c89337f810"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/native-model-access-opt1.json",
+      "sha256": "7adf3c052eb8f1cb194d2cccc3b780f83a8f37724eeea8db3050f3cef8f47296"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/native-model-access-opt2.json",
+      "sha256": "843c428c5c55df540b9294c63338e5750a6cf9d9de09ace0706a0fd2ef1f9d65"
+    }
+  ]
+}

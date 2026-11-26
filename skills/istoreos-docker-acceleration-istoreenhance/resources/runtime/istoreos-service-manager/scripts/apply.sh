@@ -106,10 +106,22 @@ case "$op_kind" in
         ;;
     docker-api)
         op_endpoint=$(jq -r .parameters.verification.endpoint <<< "$op_request")
+        op_native ubus call service list "$(jq -cn --arg service "$op_service" '{name:$service}')" || op_fail VERIFICATION_UNAVAILABLE 'Selected service process identity could not be observed.'
+        cp -- "$op_job/native.stdout" "$op_job/procd-before.json"
+        op_native bash "$op_here/docker-owner.sh" "$op_job/procd-before.json" "$op_service" "$op_endpoint" || op_fail VERIFICATION_UNAVAILABLE 'The selected procd service could not be bound to the local Docker socket owner.'
+        cp -- "$op_job/native.stdout" "$op_job/owner-before.json"
         op_native env -u DOCKER_HOST -u DOCKER_CONTEXT docker --host "$op_endpoint" info --format '{{json .}}' || op_fail VERIFICATION_UNAVAILABLE 'The selected Docker API is unavailable; process presence does not establish success.'
         op_pass=false
         jq -e --arg id "$(jq -r .parameters.verification.expectedEngineId <<< "$op_request")" --arg root "$(jq -r .parameters.verification.expectedDataRoot <<< "$op_request")" '.ID==$id and .DockerRootDir==$root and (.ServerVersion|type=="string" and length>0)' "$op_job/native.stdout" >/dev/null && op_pass=true
         op_check selected-docker-api-and-root "$op_pass" 'explicit local Docker engine API, engine ID, ServerVersion and DockerRootDir'
+        op_native ubus call service list "$(jq -cn --arg service "$op_service" '{name:$service}')" || op_fail VERIFICATION_UNAVAILABLE 'Selected service could not be rechecked after API verification.'
+        cp -- "$op_job/native.stdout" "$op_job/procd-after.json"
+        op_native bash "$op_here/docker-owner.sh" "$op_job/procd-after.json" "$op_service" "$op_endpoint" || op_fail VERIFICATION_UNAVAILABLE 'The selected service no longer owns the verified engine endpoint.'
+        op_owner=$(cat "$op_job/native.stdout")
+        op_same=false
+        jq -e --argjson after "$op_owner" '.==$after' "$op_job/owner-before.json" >/dev/null && op_same=true
+        op_check selected-service-owns-endpoint "$op_same" 'native procd PID and kernel socket ownership stable across the Docker API observation'
+        op_fact dockerEndpointOwner "$op_owner" 'native procd snapshots and kernel /proc socket ownership; no task completion inference'
         ;;
     uci-value) [ "$op_has_uci" = true ] || op_fail VERIFICATION_INCOMPLETE 'No explicit configuration operation was selected.' ;;
 esac

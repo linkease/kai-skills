@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Exercise actual Reasonix discovery/routing against temporary installations."""
+"""Exercise actual Reasonix optional discovery against temporary installations."""
 import argparse
 import json
 import os
