@@ -1,5 +1,6 @@
 import importlib.util
 import json
+import hashlib
 from pathlib import Path
 import unittest
 
@@ -14,6 +15,26 @@ def message(body):
 
 
 class DeliveryAuditTests(unittest.TestCase):
+    def test_a_logged_result_not_admitted_to_a_request_does_not_prove_delivery(self):
+        tool_message=message({'observations':[{'source':'/state','offset':0,'content':'active'}]})
+        tool_message['tool_call_id']='read-1'
+        result={'messages':[tool_message],'requestInputs':[]}
+        self.assertFalse(delivery.audit(result,{'/state':'active'},[('/state','active')])['checks'][0]['delivered'])
+        result['requestInputs']=[{'messages':[{'role':'tool','name':'query_capability',
+            'toolCallId':'read-1','contentSHA256':hashlib.sha256(tool_message['content'].encode()).hexdigest()}]}]
+        self.assertTrue(delivery.audit(result,{'/state':'active'},[('/state','active')])['checks'][0]['delivered'])
+
+    def test_native_line_reader_requires_bound_call_and_exact_source_line(self):
+        text='中文\nexec chosen\n'
+        result={'messages':[{'role':'assistant','tool_calls':[{'id':'r1','name':'read_file',
+            'arguments':json.dumps({'path':'/init','offset':1,'limit':1})}]},
+            {'role':'tool','name':'read_file','tool_call_id':'r1','content':'2→exec chosen\n'},
+            {'role':'tool','name':'read_file','tool_call_id':'unbound','content':'1→中文\n'}]}
+        report=delivery.audit(result,{'/init':text},[('/init','exec chosen'),('/init','中文')])
+        self.assertTrue(report['checks'][0]['delivered'])
+        self.assertFalse(report['checks'][1]['delivered'])
+        self.assertEqual(report['checks'][0]['matches'][0]['sourceByteOffset'],len('中文\n'.encode()))
+
     def test_local_observations_and_model_claims_do_not_establish_delivery(self):
         result = {'observations': [{'result': 'active'}], 'messages': [
             {'role': 'system', 'content': 'active'},

@@ -89,9 +89,11 @@
       "verificationStatus": "failed",
       "optimizations": 3,
       "evidence": [
-        "agent-capability-KA8-20261126.json"
+        "agent-capability-KA8-20261126.json",
+        "agent-capability-KA8-controls-20261126.md",
+        "agent-capability-KA8-controls-20261126.json"
       ],
-      "stopReason": "renewed-three-optimization-limit-retains-model-causal-and-coverage-failures-after-delivery-and-ablation-audits",
+      "stopReason": "renewed-three-optimization-limit-engineering-coverage-and-model-inference-gates-fail",
       "additionalRounds": [
         {
           "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
@@ -132,6 +134,20 @@
           "runtimeUngraded": 1,
           "deliveryAuditSessions": 40,
           "evidence": "agent-capability-KA8-diagnosis-20261126.md",
+          "nextMilestonesStarted": false
+        },
+        {
+          "authorizedBy": "User: 同意，继续 (after quality attribution discussion)",
+          "optimizations": 3,
+          "verificationStatus": "failed",
+          "diagnosticSessions": 36,
+          "completeFinals": 34,
+          "coreRubricPassed": 25,
+          "coreRubricFailed": 9,
+          "runtimeUngraded": 1,
+          "finalLengthUngraded": 1,
+          "actualModelCalls": 217,
+          "evidence": "agent-capability-KA8-controls-20261126.md",
           "nextMilestonesStarted": false
         }
       ]

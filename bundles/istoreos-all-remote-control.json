@@ -18,37 +18,37 @@
     {
       "id": "istoreos-backup-restore",
       "version": "1.2.11",
-      "treeDigest": "sha256:5075ed3068f5433ce3f1f56e925bdc57cf5d649270ded5db05cea92e55cdb15b"
+      "treeDigest": "sha256:5fc69fda04c75d2510ad6a9f72228f7069a21023180f8ef40dcda7c220b5801f"
     },
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
       "version": "1.2.11",
-      "treeDigest": "sha256:4e745d0f91f612fe8b5b9db9cbeb6a4b3d70ed74d04bbb240bbb44f7157b44ff"
+      "treeDigest": "sha256:b9465182d89d1d61e3efe53a7bd92d631e44ed0b67fe24e84705466d7a021a2d"
     },
     {
       "id": "istoreos-docker-basics",
       "version": "1.2.11",
-      "treeDigest": "sha256:dcc67165d30d52ec336e796fdaaf27e4d36409282760bf23f5d967da6d40d827"
+      "treeDigest": "sha256:534910ae1f0fe2b44a3bf13fcab3fc5862fcbc4908fe82db32ed0c23588f85f7"
     },
     {
       "id": "istoreos-docker-data-root-migrate",
       "version": "1.2.11",
-      "treeDigest": "sha256:6a27a4f1c30947347835148989dd4f95ef5661673a1d9bc9b794f470b71ac397"
+      "treeDigest": "sha256:fca8070f01098261b9dd0600f60d01f2f6c05d3bdb8a6d966642326c50ae2a49"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
       "version": "1.2.11",
-      "treeDigest": "sha256:53430531a9cecf4a4bc359cdf47dd77448c205d809ac632742bd081f1e68157b"
+      "treeDigest": "sha256:2d8efdc02dfbe2102de244494bbaaa9f44db7e475782e905847f8dc4bd8a08f5"
     },
     {
       "id": "istoreos-logs-and-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:84f9199e16425559ea0ca9565ddb1ca003adedbcd5325921c969b51a23d13ba0"
+      "treeDigest": "sha256:df7e52ef85df03a1680416675fe20f8878b7486aef6e1530b704e5b03685421a"
     },
     {
       "id": "istoreos-luci-recovery",
       "version": "1.2.11",
-      "treeDigest": "sha256:6df868856620d4085db0145ab1863aadb9270448b0d2aa2885e100670b47263e"
+      "treeDigest": "sha256:ae5535009601e3002f0642f8ea7a35f806c9fac01135a0c63daf920ea8ec319d"
     },
     {
       "id": "istoreos-quickstart-api",
@@ -58,27 +58,27 @@
     {
       "id": "istoreos-run-executable",
       "version": "1.2.11",
-      "treeDigest": "sha256:9aae741db792ea49065d8adcec09241e7fd8d671cfa4c3528eb362b22121982f"
+      "treeDigest": "sha256:c42df40e2062413e3cf278d4f866489f0d5b9b88395473e2b1f87ff0b790ad61"
     },
     {
       "id": "istoreos-service-manager",
       "version": "1.2.11",
-      "treeDigest": "sha256:3ccb83bd37bd224ee728a37b72c117c4749dd92b5b503817c855fbc507149ed9"
+      "treeDigest": "sha256:4c2513a86bcf79268530aa9881290dcb45939fce49c9c43a8a41e17d0577e39c"
     },
     {
       "id": "istoreos-source-introspect",
       "version": "1.2.11",
-      "treeDigest": "sha256:1b58a9aad738404c0438e81da7467c6ecc3dbaf6d89e424e319ae32bcd52d8fd"
+      "treeDigest": "sha256:ba210d294107589956c0228fe4783994dedaf2d2475793dcdf5f50245f8f3415"
     },
     {
       "id": "istoreos-system-task-router",
       "version": "1.2.11",
-      "treeDigest": "sha256:29318003050055110b7187b195a2fe3e18d0c52e5232f44b137464385c3d67e2"
+      "treeDigest": "sha256:0aa7f985b04582d2e71203f89cc0a0df92232de956f7198f23f8713635efc7f4"
     },
     {
       "id": "istoreos-systools",
       "version": "1.2.11",
-      "treeDigest": "sha256:2100690d983773d7ef9b849d3ca2d5aeb50086baadddb68a7fdf3d6780b0d7a3"
+      "treeDigest": "sha256:8178689878c9b574d28c21d22df1c6d3b8ebd35e24dbaabd39fd7acde1e65463"
     },
     {
       "id": "kai-dev-environment",

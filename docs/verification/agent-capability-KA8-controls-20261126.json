@@ -1,0 +1,1163 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-11-26T15:24:49.395751+00:00",
+  "milestone": "KA8",
+  "status": "failed",
+  "optimizationLimit": 3,
+  "optimizations": 3,
+  "report": "agent-capability-KA8-controls-20261126.md",
+  "taskCardsSHA256": "db225bf2b937c8f51fcb60feacd69328a80a917bb307214972ecfd427f41bdc7",
+  "sessions": 36,
+  "completeFinals": 34,
+  "coreRubricPassed": 25,
+  "coreRubricFailed": 9,
+  "finalLengthUngraded": 1,
+  "runtimeUngraded": 1,
+  "actualModelCalls": 217,
+  "evidenceUnchanged": 36,
+  "modelWriterInvocations": 0,
+  "maximumAdmittedBodyBytes": 60862,
+  "reviewer": "Coding agent, exact final claims against frozen rubric; no independent human review.",
+  "gradingQualification": "Qualified uncertainty/suspicion alone is not a categorical hallucination or automatic core failure. Critical omissions and explicit unsupported state conclusions are separate. Core passes can retain ancillary fidelity concerns; neither passes milestone accuracy. No magic words or tool order required.",
+  "comparisons": [
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "condition": "fixed-evidence-reasoning-only",
+      "attempts": 6,
+      "corePassed": 2,
+      "coreFailed": 3,
+      "ungraded": 1,
+      "additionalConcerns": 5,
+      "calls": 10,
+      "toolCalls": 0,
+      "medianSeconds": 43.139,
+      "p95Seconds": 47.366,
+      "promptTokens": 96604,
+      "completionTokens": 34525,
+      "reasoningTokensSubset": 29321,
+      "maximumAdmittedBytes": 52893,
+      "runtimeErrors": 0,
+      "evidenceUnchanged": 6,
+      "modelWriterInvocations": 0,
+      "authoritativeUsageRecords": 10,
+      "estimatedUsageRecords": 0,
+      "finalLengthUngraded": 1
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "condition": "native-reader-diagnostic",
+      "attempts": 6,
+      "corePassed": 5,
+      "coreFailed": 1,
+      "ungraded": 0,
+      "additionalConcerns": 6,
+      "calls": 43,
+      "toolCalls": 73,
+      "medianSeconds": 39.349,
+      "p95Seconds": 54.376,
+      "promptTokens": 334977,
+      "completionTokens": 33807,
+      "reasoningTokensSubset": 19924,
+      "maximumAdmittedBytes": 60862,
+      "runtimeErrors": 0,
+      "evidenceUnchanged": 6,
+      "modelWriterInvocations": 0,
+      "authoritativeUsageRecords": 43,
+      "estimatedUsageRecords": 0,
+      "finalLengthUngraded": 0
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "condition": "with-new-capabilities",
+      "attempts": 6,
+      "corePassed": 6,
+      "coreFailed": 0,
+      "ungraded": 0,
+      "additionalConcerns": 6,
+      "calls": 51,
+      "toolCalls": 84,
+      "medianSeconds": 43.595,
+      "p95Seconds": 52.616,
+      "promptTokens": 401164,
+      "completionTokens": 34958,
+      "reasoningTokensSubset": 21088,
+      "maximumAdmittedBytes": 59030,
+      "runtimeErrors": 0,
+      "evidenceUnchanged": 6,
+      "modelWriterInvocations": 0,
+      "authoritativeUsageRecords": 51,
+      "estimatedUsageRecords": 0,
+      "finalLengthUngraded": 0
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "condition": "fixed-evidence-reasoning-only",
+      "attempts": 6,
+      "corePassed": 3,
+      "coreFailed": 3,
+      "ungraded": 0,
+      "additionalConcerns": 4,
+      "calls": 6,
+      "toolCalls": 0,
+      "medianSeconds": 67.297,
+      "p95Seconds": 146.234,
+      "promptTokens": 52602,
+      "completionTokens": 36128,
+      "reasoningTokensSubset": 24077,
+      "maximumAdmittedBytes": 35108,
+      "runtimeErrors": 0,
+      "evidenceUnchanged": 6,
+      "modelWriterInvocations": 0,
+      "authoritativeUsageRecords": 6,
+      "estimatedUsageRecords": 0,
+      "finalLengthUngraded": 0
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "condition": "native-reader-diagnostic",
+      "attempts": 6,
+      "corePassed": 4,
+      "coreFailed": 1,
+      "ungraded": 1,
+      "additionalConcerns": 5,
+      "calls": 45,
+      "toolCalls": 79,
+      "medianSeconds": 94.791,
+      "p95Seconds": 180.002,
+      "promptTokens": 305194,
+      "completionTokens": 36933,
+      "reasoningTokensSubset": 27555,
+      "maximumAdmittedBytes": 46414,
+      "runtimeErrors": 1,
+      "evidenceUnchanged": 6,
+      "modelWriterInvocations": 0,
+      "authoritativeUsageRecords": 44,
+      "estimatedUsageRecords": 1,
+      "finalLengthUngraded": 0
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "condition": "with-new-capabilities",
+      "attempts": 6,
+      "corePassed": 5,
+      "coreFailed": 1,
+      "ungraded": 0,
+      "additionalConcerns": 5,
+      "calls": 62,
+      "toolCalls": 122,
+      "medianSeconds": 112.435,
+      "p95Seconds": 176.305,
+      "promptTokens": 390721,
+      "completionTokens": 49023,
+      "reasoningTokensSubset": 35181,
+      "maximumAdmittedBytes": 59057,
+      "runtimeErrors": 0,
+      "evidenceUnchanged": 6,
+      "modelWriterInvocations": 0,
+      "authoritativeUsageRecords": 62,
+      "estimatedUsageRecords": 0,
+      "finalLengthUngraded": 0
+    }
+  ],
+  "trials": [
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "repetition": 1,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "ungraded-final-length",
+      "rubricChecks": null,
+      "classification": "ungraded-final-length",
+      "reason": "Final ends mid-sentence after native4096 output;3937 reasoning tokens. Not a reasoning-error grade.",
+      "fidelityConcerns": [],
+      "quote": null,
+      "calls": 1,
+      "seconds": 27.800293191,
+      "lastFinish": "length",
+      "lengthRequests": 1,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--fixed-evidence-reasoning-only--1.json",
+      "sha256": "86f51e7156365f36b9a5972c868c7b2e90ae39e3b3d6dd1406a2159a5dc21edc"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "repetition": 2,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "classification": "unsupported-state-inference",
+      "reason": "Direct conflict/refusal found, but treats active registration as an intermediate/invalid write from path labels and different-stage digests.",
+      "fidelityConcerns": [
+        "Declares no valid path can equal a valid space-containing value; asserts record was not saved by successful verification or later modified without temporal evidence."
+      ],
+      "quote": "不是由一次成功的校验写入的",
+      "calls": 1,
+      "seconds": 25.089883981,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--fixed-evidence-reasoning-only--2.json",
+      "sha256": "16e29989ff53469a5a7ba983924237e5f3cd437951376127641e46a45a739694"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "repetition": 3,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "classification": "core-passed-with-concerns",
+      "reason": "Finds direct mismatch and does not categorically assert active means unfinished migration. Qualified suspicions are not automatically scored as facts.",
+      "fidelityConcerns": [
+        "Calls digest inequality an attached anomaly without input-scope definitions; infers process_config succeeded from root equality and definite modifying actor; counterfactual second-check claim is unverified."
+      ],
+      "quote": "该登记记录本身可能已过期或写入不完整",
+      "calls": 2,
+      "seconds": 46.6932231,
+      "lastFinish": "stop",
+      "lengthRequests": 1,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--fixed-evidence-reasoning-only--3.json",
+      "sha256": "24645bb2b715636d6e27ba9f82a9b1a8afed21b2377909bf01fd43dd324a275a"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "repetition": 1,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "classification": "unsupported-executed-guard",
+      "reason": "Primary conclusion makes guard native.Check the current failure despite direct init/argv and own-dockerd log.",
+      "fidelityConcerns": [
+        "Infers retired volume from name and digest differences as configuration drift."
+      ],
+      "quote": "native.Check",
+      "calls": 2,
+      "seconds": 45.218650432,
+      "lastFinish": "stop",
+      "lengthRequests": 1,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--fixed-evidence-reasoning-only--1.json",
+      "sha256": "937709bbf870c47507c413611c24dbd0f89adfe2afc03dc847317c0022dc4add"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "repetition": 2,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "classification": "core-passed-with-concerns",
+      "reason": "Recognizes own-daemon runtime failure rather than guard rejection and unchanged native init; preserves unknown mount cause and source correspondence. No executed guard asserted.",
+      "fidelityConcerns": [
+        "Labels two digest fields the only obvious anomaly despite missing scopes."
+      ],
+      "quote": null,
+      "calls": 2,
+      "seconds": 41.059455929,
+      "lastFinish": "stop",
+      "lengthRequests": 1,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--fixed-evidence-reasoning-only--2.json",
+      "sha256": "470e84fdbd56a7d84a46528d1ebcacfd3f87b41833fc06b0215a858f50c616aa"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "repetition": 3,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        false
+      ],
+      "classification": "unsupported-executed-guard",
+      "reason": "Asserts a guard check must be the failure and that all its preceding conditions passed, without a current guard invocation.",
+      "fidelityConcerns": [
+        "Uses different digest stages as a change-history clue; writable probe is suggested under a read-only heading without specifying no writes."
+      ],
+      "quote": "守卫只能卡在最后一步",
+      "calls": 2,
+      "seconds": 47.366419207,
+      "lastFinish": "stop",
+      "lengthRequests": 1,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--fixed-evidence-reasoning-only--3.json",
+      "sha256": "834ffa0554b9f154a8c7dc3f77278f3ba62a7e5541a062466c1969f104794fec"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "repetition": 1,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "classification": "core-passed",
+      "reason": "Finds path mismatch/refusal, treats active as accepted rather than unfinished, preserves unverified provenance and decision gaps.",
+      "fidelityConcerns": [],
+      "quote": null,
+      "calls": 1,
+      "seconds": 96.293430493,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_qwen3.8-flash--C02-docker-history--fixed-evidence-reasoning-only--1.json",
+      "sha256": "8934f3692641bc823bd4b590fa8575bf3549ee3ddfc07ba30b0865c2745b3662"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "repetition": 2,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "classification": "core-passed-with-concerns",
+      "reason": "Finds mismatch/refusal and does not assert active means an unfinished migration.",
+      "fidelityConcerns": [
+        "Calls active/current-path difference a semantic conflict and infers configuration changed after registration from undefined digest scopes."
+      ],
+      "quote": "提示配置可能在登记后被改动",
+      "calls": 1,
+      "seconds": 51.873454061,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_qwen3.8-flash--C02-docker-history--fixed-evidence-reasoning-only--2.json",
+      "sha256": "62a4c022c0ad9f3c083d60f89d49c80ce8efb81721d32541dd9a19b7f99e1bc4"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "repetition": 3,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "classification": "core-passed",
+      "reason": "Finds mismatch/refusal while distinguishing historical source from executable proof and preserving unknown intended path/migration state.",
+      "fidelityConcerns": [],
+      "quote": null,
+      "calls": 1,
+      "seconds": 146.234098533,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_qwen3.8-flash--C02-docker-history--fixed-evidence-reasoning-only--3.json",
+      "sha256": "2fdc8c25119346e892065798209ef745a6aa3c6bc7c32f3cd4e26414fe337393"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "repetition": 1,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "classification": "critical-chain-not-resolved",
+      "reason": "Correct primary EROFS direction, but does not resolve the observed direct init/procd chain and retains current guard native.Check as an unexplained alternative. This is a critical omission, not a categorical claim of execution.",
+      "fidelityConcerns": [
+        "Using undefined digest checks as an alternative is unsupported; merely preserving an explicitly unknown binary file type would not itself be a failure."
+      ],
+      "quote": null,
+      "calls": 1,
+      "seconds": 57.497476384,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--fixed-evidence-reasoning-only--1.json",
+      "sha256": "bb2ba9bf98b6022d351b58c1c6feac496bd686b5922dcbd62437bc0aa0ecca64"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "repetition": 2,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "classification": "unsupported-executed-guard",
+      "reason": "Correct own-daemon/read-only direction but categorically places the event after a guard passed, despite no observed guard call.",
+      "fidelityConcerns": [
+        "Labels unknown-stage digest differences configuration drift."
+      ],
+      "quote": "失败发生在守卫放行之后",
+      "calls": 1,
+      "seconds": 33.369720755,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--fixed-evidence-reasoning-only--2.json",
+      "sha256": "ecd1c6ebd2133d60005312363548202922f4ebdc2cd312dc20756fc6d06a608e"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "repetition": 3,
+      "condition": "fixed-evidence-reasoning-only",
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "classification": "critical-chain-not-resolved",
+      "reason": "Correct primary EROFS and unknown mount cause, but treats direct versus guard-started instance as still unresolved rather than identifying the recorded direct launch chain.",
+      "fidelityConcerns": [
+        "Unknown hypotheticals are not automatically hallucinations; the failure here is omission of the available direct-chain evidence."
+      ],
+      "quote": null,
+      "calls": 1,
+      "seconds": 77.096526821,
+      "lastFinish": "stop",
+      "lengthRequests": 0,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round14-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--fixed-evidence-reasoning-only--3.json",
+      "sha256": "e41f9b817ca9ce9d8f02b83545107800097a93e9e6e9d1af8b4b8f889d0e5d76"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "native-reader-diagnostic",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct immediate refusal; unfinished-record suggestion explicitly suspect, not a categorical current migration state.",
+      "quote": "不是 phase 拦的",
+      "fidelityConcerns": [
+        "Claims repeated-character SHA256 impossible; speculative uncompleted/dirty record from labels and differently scoped digests; missing GuardReady limits mechanism certainty."
+      ],
+      "calls": 5,
+      "seconds": 38.076784894,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--native-reader-diagnostic--1.json",
+      "sha256": "50da8a121d3691eb9de9f463e8d94f34f538cfcef71d1bf641d4fdb673032baf",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "native-reader-diagnostic",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct refusal; says missing store/workflow prevents deciding incomplete vs external edit.",
+      "quote": "无法判定 digest 不一致是“迁移未完成”还是“被外部手工改写”",
+      "fidelityConcerns": [
+        "Calls active plus unlike digests a textual contradiction; treats target as stale/placeholder and asserts one-sided update chronology without evidence."
+      ],
+      "calls": 8,
+      "seconds": 54.376174895,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--native-reader-diagnostic--2.json",
+      "sha256": "9f094c58388d97de1ca3e732da6ab02050d3815f009a6298947bb429f8994331",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "native-reader-diagnostic",
+      "repetition": 3,
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        true,
+        true,
+        false,
+        true
+      ],
+      "reason": "Categorically converts active/space path/unscoped digest difference into an unfinished migration state.",
+      "quote": "现在这套状态是\"迁移中途或回退未完成\"的残留，却被标成了 active",
+      "fidelityConcerns": [
+        "Also says data directory has no problem then later admits no filesystem evidence; declares space path illegal/nonexistent and forces registration-side remedy; claims short log was overwritten without evidence."
+      ],
+      "calls": 7,
+      "seconds": 49.529273108,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--native-reader-diagnostic--3.json",
+      "sha256": "f241c86c52fb95762c35ecd5a1182bdb8588e515df9c92ba0073ca530ac7d2f0",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Observed mismatch and pre-exec refusal; explicitly separates active from incomplete migration and procd from health.",
+      "quote": "\"迁移未完成\"：登记 `phase:\"active\"`",
+      "fidelityConcerns": [
+        "Infers successful process_config execution from matching files; calls path comparison the last check despite later native.Check."
+      ],
+      "calls": 9,
+      "seconds": 44.970722671,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--with-new-capabilities--1.json",
+      "sha256": "273cfbd16b321620644e2a19ca22228a639b8884ba51e612a06b419029ebda40",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Conflict/refusal found; record doubts are qualified rather than proof of unfinished migration.",
+      "quote": "phase` 为 `active`（能过 `GuardCheck` 的 phase 检查）",
+      "fidelityConcerns": [
+        "Labels valid space path unlikely legal; treats different-scope digests as inconsistent with a normal final state; unproven update direction."
+      ],
+      "calls": 7,
+      "seconds": 45.301473239,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--with-new-capabilities--2.json",
+      "sha256": "e38bb8208c3530ce474d3cc365d9737297cc2580e272b85f3a0f1e966ec45002",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "repetition": 3,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct immediate conflict/refusal. Incomplete/manual-write suspicion explicitly labelled inference, not observed completion state.",
+      "quote": "合理推断是登记文件被人工写入或写入不完整，但这是推断，不是观测。",
+      "fidelityConcerns": [
+        "Unsupported suspicious-path/digest and past-verification inference; declares configuration generation correct from equal values alone."
+      ],
+      "calls": 9,
+      "seconds": 52.616204889,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C02-docker-history--with-new-capabilities--3.json",
+      "sha256": "1ffb97bef55cd6983efb6f6f166c1f14fb3e674afc9a790ba73abb5c13963d02",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "native-reader-diagnostic",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Direct init/procd source recognized; possible wrapper at binary path is conditional, not an assertion it exists.",
+      "quote": "守卫若在工作，位置在 `/usr/bin/dockerd` 这一层",
+      "fidelityConcerns": [
+        "Unscoped digest difference called contradiction/config drift; name used to infer retired volume."
+      ],
+      "calls": 8,
+      "seconds": 35.483539969,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--native-reader-diagnostic--1.json",
+      "sha256": "ccd381d34a7071c9c097f05dd6051933a555a830480f03f94bd3ad52288dfaec",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "native-reader-diagnostic",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Direct command explicitly linked to native init; actual EROFS and mount unknown. Historical Check alternative is conditional.",
+      "quote": "这条命令与 `/etc/init.d/dockerd` 中 `start_service` 的 `procd_set_param command` 完全一致。",
+      "fidelityConcerns": [
+        "Overstates static conditions sufficient for every named branch despite missing native.config/Check; historical Check scenario unverified but not categorical error."
+      ],
+      "calls": 6,
+      "seconds": 35.470978309,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--native-reader-diagnostic--2.json",
+      "sha256": "f365d1880c8048b4682806466dd25f56337a6c60879b3f04a9d59f535a2f4f5c",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "native-reader-diagnostic",
+      "repetition": 3,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Explicit native direct command and no observed guard invocation; own-daemon EROFS, mount reason unknown.",
+      "quote": "脚本内没有任何 guard 调用",
+      "fidelityConcerns": [
+        "Source path name treated as retired volume; missing GuardReady limits all-branch conclusions."
+      ],
+      "calls": 9,
+      "seconds": 40.621777952,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--native-reader-diagnostic--3.json",
+      "sha256": "ceae9e1d00f648f60c35e6d7300816090249898eb0db4674c51ef41d6b29bed0",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "with-new-capabilities",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Direct init/procd chain and actual own-daemon EROFS identified; underlying reason unknown.",
+      "quote": "本机 init 脚本里没有调用守卫",
+      "fidelityConcerns": [
+        "Treats different-scope digests as real alignment fault and name as retired volume; overstates exhaustive guard error fingerprints."
+      ],
+      "calls": 9,
+      "seconds": 40.195559457,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--with-new-capabilities--1.json",
+      "sha256": "4085c11156c9214add56a0cc0539a08fae746eb3299684ecb192b034d5f0e7a3",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "with-new-capabilities",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Direct init/procd startup plus EROFS; explicitly conditional guard possibilities, no assertion of current wrapper.",
+      "quote": "运行实例记录里没有守卫包装。",
+      "fidelityConcerns": [
+        "Claims log cannot come from guard despite missing Check implementation; phase/config source observations not all native guard checks."
+      ],
+      "calls": 10,
+      "seconds": 42.219243679,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--with-new-capabilities--2.json",
+      "sha256": "ca7cc53621846018e6a92c74399db8b34806131d89c1317a660cc197821c272b",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/deepseek-v4.1-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "with-new-capabilities",
+      "repetition": 3,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Explicit direct startup and no current guard; EROFS reason unknown.",
+      "quote": "设备上的 init 脚本也不含守卫包装",
+      "fidelityConcerns": [
+        "Calls unscoped digests independent hazard and source retired by name; recommends guard-side evidence without observed invocation, qualified not categorical."
+      ],
+      "calls": 7,
+      "seconds": 38.125705564,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_deepseek-v4.1-flash--C11-docker-counterevidence--with-new-capabilities--3.json",
+      "sha256": "89fbba0bc57e73783f4b08f7b1ee540f754b6663dd1ab31613e9b1194f690a94",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "condition": "native-reader-diagnostic",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct conflict/refusal; explicitly active not interrupted migration.",
+      "quote": "**`phase` 是 `active`，不是迁移中断。**",
+      "fidelityConcerns": [
+        "Asserts registration stale/last migration not refreshed without chronology; exact GuardCheck-to-GuardReady execution link not supplied."
+      ],
+      "calls": 7,
+      "seconds": 92.985071817,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C02-docker-history--native-reader-diagnostic--1.json",
+      "sha256": "1a26c7afdb4ba19fe988f6309eb7f60ced30fd7424a9ecefee18cc26208f098b",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "condition": "native-reader-diagnostic",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct conflict/refusal; missing actual migration completion listed as unknown.",
+      "quote": "当前失败发生在字符串比较阶段，与空格无关",
+      "fidelityConcerns": [
+        "Asserts UCI-only actor/update chronology without evidence; infers old-target verification occurred rather than recording historical unknown."
+      ],
+      "calls": 5,
+      "seconds": 54.169217692,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C02-docker-history--native-reader-diagnostic--2.json",
+      "sha256": "7a2dbdda74827a0518a58da9d6262932639f179eb664d69726490fa2b9058ea7",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "condition": "native-reader-diagnostic",
+      "repetition": 3,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct refusal; suspicious-record alternatives are qualified and completion not categorically asserted.",
+      "quote": "两个必须点出的疑点（不要当成已证实）",
+      "fidelityConcerns": [
+        "Space path deemed unlike legal path; declares updating registration only safe remedy without filesystem/intent; unproven exact30s exit and update actor."
+      ],
+      "calls": 6,
+      "seconds": 96.5968442,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C02-docker-history--native-reader-diagnostic--3.json",
+      "sha256": "f8f1900b5d3782643a365026ea39b731215e030c0fc391daa20c25220b1ad641",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct direct conflict/refusal; explicitly active excludes incomplete-phase branch.",
+      "quote": "phase` 是 `active`（因此没走 `DOCKER_MIGRATION_INCOMPLETE` 分支）",
+      "fidelityConcerns": [
+        "Claims true repeated digest probability zero; infers retired volume from name, successful generation and inevitable30s delay/self-heal behavior without GuardReady implementation."
+      ],
+      "calls": 11,
+      "seconds": 113.282214472,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C02-docker-history--with-new-capabilities--1.json",
+      "sha256": "db06039634cd21275a9ecbafddba45733a1705081f452b6f20ce26114edee145",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct immediate conflict/refusal; questions historical completion instead of declaring unfinished phase.",
+      "quote": "configured=/mnt/example-data/docker registered=/mnt/example-test-volume/docker handoff",
+      "fidelityConcerns": [
+        "Infers unique registration source from equal values; different-stage digests as evidence of no re-registration; suggests likely correct path by deleting valid space suffix; no update timeline evidence."
+      ],
+      "calls": 9,
+      "seconds": 111.587986387,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C02-docker-history--with-new-capabilities--2.json",
+      "sha256": "3804348175cf772978abd30a88387dfb4a2f8b4faffd1f8ae79ff8de0dac8946",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C02-docker-history",
+      "condition": "with-new-capabilities",
+      "repetition": 3,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct refusal and explicitly excludes incomplete-phase rejection.",
+      "quote": "**迁移未完成**：`phase = \"active\"`",
+      "fidelityConcerns": [
+        "Categorically calls space path malformed; unsupported manual-pollution/version-difference and digest-order claims; source text/logger wrapping not proof of binary mismatch."
+      ],
+      "calls": 8,
+      "seconds": 102.084109093,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C02-docker-history--with-new-capabilities--3.json",
+      "sha256": "9c5c967430cec6652afb22726a86c998c7278dbc04a0c107feddc2268c292f52",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "native-reader-diagnostic",
+      "repetition": 1,
+      "coreRubricStatus": "ungraded-runtime",
+      "rubricChecks": null,
+      "reason": "Runtime deadline/missing-authoritative-usage; no complete final, no reasoning grade. Full request upper retained.",
+      "quote": null,
+      "fidelityConcerns": [],
+      "calls": 13,
+      "seconds": 180.001620131,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--native-reader-diagnostic--1.json",
+      "sha256": "6456f1ba07344da38c19804b09f0513cd5ed1188dc8a2c7d24f909ae981abf21",
+      "lastFinish": "interrupted"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "native-reader-diagnostic",
+      "repetition": 2,
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "reason": "Correct EROFS but final never identifies direct dockerd/no-wrapper observed chain: it states init equals ROM and validates only argument form. Same omission criterion as fixed-evidence C11; unknown hypotheticals alone do not fail.",
+      "quote": "守卫这条路径**根本没有理由拒绝**",
+      "fidelityConcerns": [
+        "Absolute no-reason-to-refuse lacks Check; current running:false not proof about historical verification; volume retired by name."
+      ],
+      "calls": 7,
+      "seconds": 72.451188829,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--native-reader-diagnostic--2.json",
+      "sha256": "d200e97df5f87e3366ebb0009b0fbfa90f01dd74c60655037f2501f15721001f",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "native-reader-diagnostic",
+      "repetition": 3,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Explicit direct init/procd/no observed guard, EROFS and underlying unknown.",
+      "quote": "没有任何目标侧证据显示它被调用过。",
+      "fidelityConcerns": [
+        "Overstates cannot-guard fingerprints despite missing Check, later qualifies; proposes cat as writeability probe without execution."
+      ],
+      "calls": 7,
+      "seconds": 109.847107595,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--native-reader-diagnostic--3.json",
+      "sha256": "2f5656a3e773a0c140e0d528e7a0ecaa0d7ab2a6bee21dfb813541ba3291b7f2",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "with-new-capabilities",
+      "repetition": 1,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Direct init/procd/no guard explicitly recognized. Check possibility correctly conditional with no current invocation evidence.",
+      "quote": "没有证据表明本次执行经过了守卫",
+      "fidelityConcerns": [],
+      "calls": 11,
+      "seconds": 77.439672177,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--with-new-capabilities--1.json",
+      "sha256": "e0751851e7dff25c6e4f6410047000e7341e70f560bee94ba331e98c5062f776",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "with-new-capabilities",
+      "repetition": 2,
+      "coreRubricStatus": "passed",
+      "rubricChecks": [
+        true,
+        true,
+        true,
+        true
+      ],
+      "reason": "Direct init/procd/no invocation established; binary-path possibility explicitly unknown.",
+      "quote": "读到源码文本只说明文本存在，不说明该分支执行过。",
+      "fidelityConcerns": [
+        "Misstates verification fragment as comparing both digest fields; overstates full init read8192bytes vs actual9224; selected path label not mount evidence."
+      ],
+      "calls": 12,
+      "seconds": 176.305067048,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--with-new-capabilities--2.json",
+      "sha256": "2d9754af17da579c533bc4e895fd004b281b65b41a157bf1d7d502eb34b5e4e7",
+      "lastFinish": "stop"
+    },
+    {
+      "model": "koolcenter/qwen3.8-flash",
+      "card": "C11-docker-counterevidence",
+      "condition": "with-new-capabilities",
+      "repetition": 3,
+      "coreRubricStatus": "failed",
+      "rubricChecks": [
+        false,
+        true,
+        true,
+        true
+      ],
+      "reason": "EROFS attribution correct, but final does not resolve observed direct init/procd startup; replaces that counterevidence with archived guard-branch analysis. This is a critical omission, not a categorical current guard-execution assertion.",
+      "quote": "设备端**当前**守卫实现与 `GuardReady` 逻辑",
+      "fidelityConcerns": [
+        "Continues guard-centric evidence request despite available direct chain; speculative config generation conflict not proof of writer/history."
+      ],
+      "calls": 11,
+      "seconds": 139.199977045,
+      "rawPath": "build/verification/agent-capabilities-20261126/live-evaluation-round15-controlled/koolcenter_qwen3.8-flash--C11-docker-counterevidence--with-new-capabilities--3.json",
+      "sha256": "c598f38bd70f6d26805543ff4c8aaf871e0cdcf2c68a964fd54b58e5a4d84bb0",
+      "lastFinish": "stop"
+    }
+  ],
+  "delivery": {
+    "readerSessions": 24,
+    "allSelectedCriticalNeedlesAdmitted": 24,
+    "sourceWindowMismatches": 0,
+    "nativeReadEnvelopeSessions": 11,
+    "nativeSessionsWithoutReadFileInvocation": 1,
+    "initialInputHashesStableWithinCardCondition": true,
+    "basis": "Admitted-client-request content hashes, validated by real adapter/local HTTP receiver. Admission alone does not prove a response; timeout remains ungraded. Fixed12 attachments checked byte-exact separately. Prior40 session-only audits lack request-admission trace."
+  },
+  "nativeProbe": {
+    "defaultCoverage": "partial; registration exceeds2048-byte default, native logread exceeds4096-byte probe limit; logs unknown and no command-output paging reference",
+    "finalSynthetic": "Sensitive JSON without existing jq => unknown/REDACTION_UNAVAILABLE; ordinary JSON preserved. Protected files unchanged; owned stage removed.",
+    "nativeParserSuccessNotEstablished": true,
+    "applicationVersionObserved": "1.0.25",
+    "applicationCandidateDeployed": false,
+    "finalDefaultCoverage": "partial after fix: generatedConfiguration unknown (escaped JSON + no existing jq), oversized registration body absent, native logread unknown; protected files unchanged, owned stage removed."
+  },
+  "fix": {
+    "cause": "Line-oriented credential sed swallowed trailing fields in structured JSON; escaped secret key could bypass literal match. Synthetic reproduction only, no production secret disclosure established.",
+    "behavior": "Existing jq recursively redacts sensitive fields and preserves sibling facts; redacted:true when changed, fail closed on missing parser/malformed/multiple documents. URL key/auth selectors included after a second boundary red-to-green. No installation, recipe or host routing.",
+    "sourceChangedAfterAllModelTrials": true,
+    "frozenSecretFreeReceiptDifferentialCases": 3,
+    "frozenSecretFreeReceiptEqualExceptObservationTime": true,
+    "doesNotEstablish": "Current fixed candidate end-to-end216 or native12 acceptance",
+    "nativeCompatibilityLimit": "Any escaped JSON selected for conservative structured redaction needs existing jq even when later parsing would find no credentials. On the native host the normal generated configuration is consequently unknown. Completeness regression is explicit; do not release as native acceptance."
+  },
+  "checks": {
+    "capabilityTests": 87,
+    "capabilityTestsStatus": "passed",
+    "goPackage": "tools/capability-eval passed",
+    "generatedConsistency": "passed",
+    "diffCheck": "passed"
+  },
+  "budget": {
+    "at": "2026-11-26T15:17:59.466021+00:00",
+    "originalBaseline": 6040629,
+    "requests": 963,
+    "observedSharedIncrementCNY": 4.298766,
+    "permanentlyRetainedUnknownCNY": 3.11296,
+    "accountPlusRetainedUpperCNY": 7.411726,
+    "limitCNY": 20,
+    "unsettled": false,
+    "scope": "Shared account may include concurrent usage; retained missing-usage upper bounds can double count billed requests and are never released.",
+    "credentialProfileRemoved": true
+  },
+  "sourceVersions": {
+    "reasonixKaiQACommit": "4b9300f52",
+    "kaiSkillsBaseBeforeRound": "b301ee2",
+    "evaluatedCanonicalScriptSHA256": "3dca1e8b67967d947c6664911a330283469e2ff0cd17a980c0aaa0e7595e7c73",
+    "finalCanonicalScriptSHA256": "7b65279145afc27d03ac864a30f36658e79142faa6e7f845fc07cbb17593ba36",
+    "builtInRegistryStillPins": "84b37ca4af60585841b5ac147fb65a8df02ba3dc"
+  },
+  "limits": [
+    "Only C02/C11 and2gateway configurations; thinking defaults differ and upstream honoring unverified; not a base-model ranking.",
+    "Native reader changes tool schema/name, line windows, formatting/envelope together; no attribution to justone component.",
+    "Fixed evidence includes all original documents and unrelated init sections; it is not a minimal production summary or autonomous acquisition.",
+    "All attempts retained; n6/config-condition, nearest-rankP95=max; token totals exclude unknown estimated usage, reasoning subset not added twice.",
+    "Full216 and native12 matrix not executed; original acceptance gates unchanged.",
+    "No app deployment, version release, push, fixed Docker recipe or host business takeover."
+  ],
+  "rawEvidence": [
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-parity-private.json",
+      "sha256": "1416ce284169db896324b06aae05067599d9df0c4dade07238ec180c37551f0c"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-live-version-followup-private.json",
+      "sha256": "fdc5a632fac510bd113504aa76fb2416e9502b996906800fd626701a425d985f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-live-canonical-private.json",
+      "sha256": "7c7096af51c477b2bb7d8b2ea6ca68f16a59e1e0ad5382ebf899ccee01761609"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-json-redaction-boundary-private.json",
+      "sha256": "2759b24931ca75c8d2e613e9550a8abb190f6bdeb75a3b98fba8fa8d7bb7211a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round14-frozen.json",
+      "sha256": "0ef97e7f37cca5cf35435f393746f3cfcd87045b4a9218b19359dc1a945fad8a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round14-source-snapshot-private.json",
+      "sha256": "0bc43e87425ae7b63ec22b3935e684b87e07b6eda69562c4c13736ad3d5beb0e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round13-binary-private.json",
+      "sha256": "2dae97ae100482bee1b4dfd363bd19f41e226692a3532a8645fba862d9d869de"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round14-input-integrity-private.json",
+      "sha256": "94622fd823fa9889abd00af5f7ddae9d6f3e1466be2c812b158b5663291028a8"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-frozen.json",
+      "sha256": "a4908d308913e8a6c17b9ed875cca5d417ff51e1b982706af1af0851db6b6ba2"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-revision-frozen.json",
+      "sha256": "fed8712cda01e76e3897570cf02cb57b721a2297c534a70fe3af13e03a2f807e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-binary-private.json",
+      "sha256": "a334d40fc339482724600d5a00c1748378dbbc6dacf920b4babb4ab3bd51f4ff"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-adapter-red-private.json",
+      "sha256": "6a740ec9f17171473ba82da413b414c60f7604788f6c5ec8581a65858c62806a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-adapter-green-go.log",
+      "sha256": "4920310090db4c98340b0a14393f8c3fbfdbf8eac3bae0ae990e06485ae09bca"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-canonical-baseline-private.json",
+      "sha256": "adb34615d2936221e78eeba458678c62538a37f96e3eca6e98c7695ae2364d2a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-redaction-url-red.log",
+      "sha256": "6ca9a15bfa03b6255bbbfbb6fa5859de6e5c4fd663e964291e5d54feec20c516"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-verification-final.log",
+      "sha256": "dc42ee7544a692ced5c6e6f450041aba78d1b3998b0a62c475f83add20a73f92"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-go-final.log",
+      "sha256": "4920310090db4c98340b0a14393f8c3fbfdbf8eac3bae0ae990e06485ae09bca"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-native-final-private.json",
+      "sha256": "3ea8a74156ff3a3d4c80de2681a8e5dbdcb1d11332926040c89209c55205ac0e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-canonical-final-differential-private.json",
+      "sha256": "5ead616992dd25d8947fb6fcd8d53a2627c91fb68fd27ed265c11871162cc7f8"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-input-delivery-private.json",
+      "sha256": "212a4d42f4762f9486ad05881d729075f0dbde615dba222582366137b4a4b690"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-comparison-private.json",
+      "sha256": "2c4e1799446766d86409d5df19f0ccd92325e3c14777f0288d936b97a76a0546"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-final-budget-private.json",
+      "sha256": "5321ed0308bd4c8283fe79fc936d6cc55f0cb1722c8d73e350a72b73d341144a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-all-raw-index-private.json",
+      "sha256": "c5c3f035c186779c9940dbd153c60e72bae848c05e3aee68cfcbb29b63de2b2b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round14-controlled.json",
+      "sha256": "9731761378eae68d94b17d4e8961ec68bc913c6325724e0c9f76737cbc207b1d"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round15-controlled.json",
+      "sha256": "88664f5858b4dcbb854e0711d275c1a4c04ec55c7dd51918f837e8cceb71d323"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-live-final-canonical-private.json",
+      "sha256": "6ad18ffbadbf95ce0b040a76e1883bf7798379dc1963dcd460aaf3da96789196"
+    }
+  ],
+  "nextMilestonesStarted": false
+}

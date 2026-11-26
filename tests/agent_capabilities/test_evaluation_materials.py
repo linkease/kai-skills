@@ -6,6 +6,7 @@ from pathlib import Path
 import tempfile
 import subprocess
 import unittest
+import test_readonly
 
 ROOT = Path(__file__).resolve().parents[2]
 spec = importlib.util.spec_from_file_location('prepare_capability_evaluation', ROOT / 'tools/agent_capabilities/prepare_evaluation.py')
@@ -17,6 +18,30 @@ contract_spec.loader.exec_module(contract)
 
 
 class EvaluationMaterialsTests(unittest.TestCase):
+    def test_real_service_query_preserves_frozen_documents_without_state_interpretation(self):
+        cards=json.loads((ROOT/'tests/agent_capabilities/task-cards.json').read_text())['cards']
+        fields={'configuration':'/etc/config/dockerd','generatedConfiguration':'/tmp/dockerd/daemon.json',
+                'storageRegistration':'/etc/quickstart/storage/docker.json',
+                'nativeServiceRecord':'/run/kai-service/dockerd.json','logs':'/var/log/dockerd.log'}
+        for card in cards:
+            if not card.get('service'):continue
+            with self.subTest(card=card['id']):
+                fixture=test_readonly.ReadOnlyTests(methodName='runTest')
+                fixture.setUp()
+                try:
+                    for path,text in card['documents'].items():fixture.file(path,text)
+                    before=fixture.fingerprint()
+                    process,result=fixture.query('--service','dockerd','--sections','config,runtime,logs')
+                    self.assertEqual(process.returncode,0,result)
+                    for name,path in fields.items():
+                        self.assertEqual(result['facts'][name]['content'],card['documents'][path].rstrip('\n'))
+                        self.assertFalse(result['facts'][name]['hasMore'])
+                    self.assertEqual(result['effects'],{'requested':[],'completed':[],'unknown':[],'remaining':[]})
+                    self.assertNotIn('nextAction',result['facts'])
+                    self.assertNotIn('taskComplete',result['facts'])
+                    self.assertEqual(before,fixture.fingerprint())
+                finally:fixture.doCleanups()
+
     def test_startup_scenarios_have_complete_native_structure_and_valid_uci_sections(self):
         cards=json.loads((ROOT/'tests/agent_capabilities/task-cards.json').read_text())['cards']
         native=(ROOT/'tests/agent_capabilities/fixtures/dockerd-native-init.sh').read_text()

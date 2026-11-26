@@ -8,12 +8,53 @@ This diagnostic never executes scenario files or changes runtime prompts.
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 
-def delivered_windows(result):
+def delivered_windows(result, documents=None):
     """Yield source windows from supported tool result envelopes, not prose."""
+    documents = documents or {}
+    calls = {}
+    admitted = {(m.get('toolCallId', ''), m.get('name', ''), m.get('contentSHA256'))
+                for request in result.get('requestInputs', []) or []
+                for m in request.get('messages', []) if m.get('role') == 'tool'}
     for index, message in enumerate(result.get('messages', [])):
+        if message.get('role') == 'assistant':
+            for call in message.get('tool_calls', []):
+                calls[call.get('id')] = call
+        if message.get('role') == 'tool' and 'requestInputs' in result:
+            identity = (message.get('tool_call_id', ''), message.get('name', ''),
+                        hashlib.sha256(message.get('content', '').encode('utf-8')).hexdigest())
+            if identity not in admitted:
+                continue
+        if message.get('role') == 'tool' and message.get('name') == 'read_file':
+            # Native reader evidence uses the preceding call's bound path and
+            # its numbered output lines. Never infer source identity from prose.
+            call = calls.get(message.get('tool_call_id'), {})
+            try:
+                args = call.get('arguments', {})
+                args = json.loads(args) if isinstance(args, str) else args
+                source = args.get('path')
+            except (ValueError, TypeError, AttributeError):
+                continue
+            if source not in documents:
+                continue
+            lines = documents[source].splitlines(keepends=True)
+            offsets = [0]
+            for line in lines:
+                offsets.append(offsets[-1] + len(line.encode('utf-8')))
+            for line in message.get('content', '').splitlines():
+                match = re.fullmatch(r'\s*([0-9]+)→(.*)', line)
+                if not match:
+                    continue
+                number = int(match[1])
+                if number < 1 or number > len(lines):
+                    continue
+                yield {'messageIndex': index, 'tool': 'read_file', 'source': source,
+                       'offset': offsets[number-1], 'content': match[2],
+                       'hasMore': None}
+            continue
         if (message.get('role') != 'tool' or message.get('name') not in
                 {'read_evidence', 'query_capability', 'search_evidence'}):
             continue
@@ -50,7 +91,7 @@ def delivered_windows(result):
 
 
 def audit(result, documents, needles=()):
-    windows = list(delivered_windows(result))
+    windows = list(delivered_windows(result, documents))
     sources = {}
     for source, text in documents.items():
         expected = text.encode('utf-8')
@@ -92,7 +133,9 @@ def audit(result, documents, needles=()):
                        'matches': matches})
     return {'schemaVersion': 1, 'card': result.get('card'), 'model': result.get('model'),
             'condition': result.get('condition'), 'sources': sources, 'checks': checks,
-            'scope': 'Model-visible text delivery only; no reasoning, diagnosis or native-platform grade.'}
+            'deliveryBasis': ('admitted-client-request content hashes' if 'requestInputs' in result
+                              else 'session tool messages; no admitted-request trace available'),
+            'scope': 'Text delivery only; no reasoning, diagnosis or native-platform grade.'}
 
 
 def main():

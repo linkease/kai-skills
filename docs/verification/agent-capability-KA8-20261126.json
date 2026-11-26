@@ -4,13 +4,13 @@
   "status": "failed",
   "implementationStatus": "in_progress",
   "optimizations": 3,
-  "stopReason": "Three renewed diagnostic optimizations completed: actual-delivery audit plus Pro qualification, source ablation, and label invariance. Critical text is delivered, but unsupported causal and coverage claims persist. KA9/KA10 remain unstarted.",
+  "stopReason": "Three renewed optimizations completed: source/reader parity,12 fixed-evidence sessions and24 reader-control sessions. Both engineering coverage/redaction defects and unsupported model inference remain; KA8 failed, KA9/KA10 unstarted.",
   "verification": {
     "capabilityTests": {
       "status": "passed",
-      "tests": 75,
-      "seconds": 18.769,
-      "currentRound": "not rerun; canonical source unchanged, prior 75-case evidence retained"
+      "tests": 87,
+      "seconds": 46.972,
+      "currentRound": "Final canonical redaction fix including URL key/auth boundary; all87 pass."
     },
     "nativeDockerPilot": {
       "status": "passed",
@@ -28,7 +28,7 @@
     "actualConsumerDiscovery": "passed",
     "liveModelPilot": {
       "status": "failed",
-      "label": "Latest complete three-arm comparison; subsequent four-cell qualifications are reported separately.",
+      "label": "Latest complete three-arm comparison; subsequent four-cell qualifications are reported separately. Historical counts unchanged; current36 diagnostic sessions and final137 records/963requests are documented separately in controlledDiagnosis.",
       "modelConfigurations": [
         "koolcenter/deepseek-v4.1-flash (requested low via private metadata; upstream honoring unverified)",
         "koolcenter/qwen3.8-flash (trusted default)"
@@ -201,17 +201,22 @@
       "diffCheck": "passed"
     },
     "budget": {
+      "at": "2026-11-26T15:17:59.466021+00:00",
+      "originalBaseline": 6040629,
+      "requests": 963,
+      "observedSharedIncrementCNY": 4.298766,
+      "permanentlyRetainedUnknownCNY": 3.11296,
+      "accountPlusRetainedUpperCNY": 7.411726,
+      "limitCNY": 20,
+      "unsettled": false,
+      "scope": "Shared account may include concurrent usage; retained missing-usage upper bounds can double count billed requests and are never released.",
       "currency": "CNY",
       "authorizedUpperLimit": 20,
-      "observedSharedCredentialIncrement": 3.15432,
-      "permanentlyRetainedUnknownUpperCNY": 1.55648,
-      "accountPlusRetainedUpperCNY": 4.7108,
-      "unsettledReservations": false,
       "credentialProfileRemoved": true,
       "credentialProfilesRemoved": 1,
       "originalBaselinePreserved": true,
-      "meteredRequests": 746,
-      "scope": "Shared account increment may include concurrent usage, not an isolated invoice. Full single-attempt missing-usage reservation is permanently retained and may double count billed cost; future account reconciliation cannot release it. Native-output/body/call/time limits and originalCNY20 baseline/cap unchanged."
+      "meteredRequests": 963,
+      "unsettledReservations": false
     },
     "historicalLiveModelPilots": [
       {
@@ -526,7 +531,7 @@
         "newSessions": 8,
         "allSelectedCriticalNeedlesDelivered": 40,
         "sourceWindowMismatches": 0,
-        "scope": "Actual model-visible read/query/search prefixes only. No full-file, semantic-correctness or native-platform claim."
+        "scope": "Historical session tool-message text audit, no admitted-request trace. Selected source windows match; does not independently prove actual-wire delivery, full file coverage or native acceptance."
       },
       "models": [
         "koolcenter/deepseek-v4-pro",
@@ -547,6 +552,53 @@
         "nativePlatformOrFull216Rerun": false
       },
       "productionBehaviorChanged": false
+    },
+    "controlledDiagnosis": {
+      "report": "agent-capability-KA8-controls-20261126.md",
+      "sessions": 36,
+      "completeFinals": 34,
+      "coreRubricPassed": 25,
+      "coreRubricFailed": 9,
+      "runtimeUngraded": 1,
+      "finalLengthUngraded": 1,
+      "actualModelCalls": 217,
+      "maximumAdmittedBodyBytes": 60862,
+      "evidenceUnchanged": 36,
+      "modelWriterInvocations": 0,
+      "delivery": {
+        "readerSessions": 24,
+        "allSelectedCriticalNeedlesAdmitted": 24,
+        "sourceWindowMismatches": 0,
+        "nativeReadEnvelopeSessions": 11,
+        "nativeSessionsWithoutReadFileInvocation": 1,
+        "initialInputHashesStableWithinCardCondition": true,
+        "basis": "Admitted-client-request content hashes, validated by real adapter/local HTTP receiver. Admission alone does not prove a response; timeout remains ungraded. Fixed12 attachments checked byte-exact separately. Prior40 session-only audits lack request-admission trace."
+      },
+      "nativeProbe": {
+        "defaultCoverage": "partial; registration exceeds2048-byte default, native logread exceeds4096-byte probe limit; logs unknown and no command-output paging reference",
+        "finalSynthetic": "Sensitive JSON without existing jq => unknown/REDACTION_UNAVAILABLE; ordinary JSON preserved. Protected files unchanged; owned stage removed.",
+        "nativeParserSuccessNotEstablished": true,
+        "applicationVersionObserved": "1.0.25",
+        "applicationCandidateDeployed": false,
+        "finalDefaultCoverage": "Generated configuration now unknown without existing jq due JSON escapes; registration/log size limits remain. Final canonical query partial, protected files unchanged, owned stage removed."
+      },
+      "fix": {
+        "cause": "Line-oriented credential sed swallowed trailing fields in structured JSON; escaped secret key could bypass literal match. Synthetic reproduction only, no production secret disclosure established.",
+        "behavior": "Existing jq recursively redacts sensitive fields and preserves sibling facts; redacted:true when changed, fail closed on missing parser/malformed/multiple documents. URL key/auth selectors included after a second boundary red-to-green. No installation, recipe or host routing.",
+        "sourceChangedAfterAllModelTrials": true,
+        "frozenSecretFreeReceiptDifferentialCases": 3,
+        "frozenSecretFreeReceiptEqualExceptObservationTime": true,
+        "doesNotEstablish": "Current fixed candidate end-to-end216 or native12 acceptance",
+        "nativeCompatibilityLimit": "Escaped structured JSON requires existing jq even if a parser would find no credentials; actual generated config is unknown on the tested no-jq host. Not release-ready native coverage."
+      },
+      "checks": {
+        "capabilityTests": 87,
+        "capabilityTestsStatus": "passed",
+        "goPackage": "tools/capability-eval passed",
+        "generatedConsistency": "passed",
+        "diffCheck": "passed"
+      },
+      "details": "agent-capability-KA8-controls-20261126.json"
     }
   },
   "changes": [
@@ -570,16 +622,17 @@
   ],
   "acceptance": {
     "KA8-T01": {
-      "status": "passed",
-      "evidence": "Frozen and unfamiliar launchers return configuration, generated root, active registration, native service record and fatal log evidence in the original attributed observations; explicit paging exposes late large-log evidence. Actual-delivery audits of32 previous plus8 new sessions preserve all selected critical text with zero source-window mismatches; this is not full-file proof."
+      "status": "failed",
+      "fixtureStatus": "passed",
+      "evidence": "All selected original fixture facts preserve source bytes;24 new admitted-request audits match. Actual native default query lacks oversized registration/log bodies, and no command-log continuation reference exists. Sensitive structured JSON requires an existing parser or explicitly returns unknown. Prior fixture-only pass is retained as historical evidence, not complete native coverage. Final-source native query also returns generatedConfiguration unknown because the existing JSON contains escapes and jq is absent: an explicit completeness regression, not native acceptance."
     },
     "KA8-T02": {
       "status": "failed",
-      "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained. Source removal and Pro still produce unfinished-handoff/digest/path assertions; neutral-label C02 passes core rubric without waiving original failures."
+      "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained. Source removal and Pro still produce unfinished-handoff/digest/path assertions; neutral-label C02 passes core rubric without waiving original failures. Fixed complete evidence still produces unsupported state claims. New reader-control categorical incomplete-state assertion remains; qualified suspicions alone are ancillary, not automatic failures."
     },
     "KA8-T03": {
       "status": "failed",
-      "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims. Pro source-ablation C11 invents a read-only mount by a guard; neutral-label Flash C11 invents an outer wrapper. No corresponding runtime evidence is emitted by tools."
+      "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims. Pro source-ablation C11 invents a read-only mount by a guard; neutral-label Flash C11 invents an outer wrapper. No corresponding runtime evidence is emitted by tools. New fixed-evidence cases still assert executed guard; reader controls retain two critical observed-chain omissions. Conditional binary-wrapper hypotheses alone are not counted as executed-guard claims."
     },
     "KA8-T04": {
       "status": "passed",
@@ -632,7 +685,8 @@
     "No push, release, production Docker modification, default model change or test-device deployment occurred. Temporary copied credentials were removed.",
     "The earlier owned native Docker run still uses a procd protocol adapter; native iStoreOS procd mutation is not claimed.",
     "Exact sizing is implemented for the OpenAI adapter used here; unsupported adapters fail closed. Three-arm results are one-repeat/four-card diagnostics, not full216/native-platform or independent human acceptance. Native mode honoring remains qualified by observed API output, not assumed internal computation.",
-    "Current diagnostic code changes only QA accounting/auditing. Changing model, removing archives or replacing opaque names did not establish reliable original-case reasoning. Implementation correctness, factual fidelity and whole-task success are recorded separately; original full216/native and delivery requirements remain mandatory."
+    "Current diagnostic code changes only QA accounting/auditing. Changing model, removing archives or replacing opaque names did not establish reliable original-case reasoning. Implementation correctness, factual fidelity and whole-task success are recorded separately; original full216/native and delivery requirements remain mandatory.",
+    "Current source redaction fix is not model/full216/native12 acceptance. Real default native log/registration coverage and missing parser remain explicit gaps; current app registry pin is still KA5."
   ],
   "rawEvidence": [
     {
@@ -862,6 +916,110 @@
     {
       "path": "build/verification/agent-capabilities-20261126/KA8-round12-idempotent-recovery.log",
       "sha256": "07a38d7bd894b9021abd02b8d26a47df7d433947bb3c7f4cd38495b705c32c96"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-parity-private.json",
+      "sha256": "1416ce284169db896324b06aae05067599d9df0c4dade07238ec180c37551f0c"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-live-version-followup-private.json",
+      "sha256": "fdc5a632fac510bd113504aa76fb2416e9502b996906800fd626701a425d985f"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-live-canonical-private.json",
+      "sha256": "7c7096af51c477b2bb7d8b2ea6ca68f16a59e1e0ad5382ebf899ccee01761609"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round13-json-redaction-boundary-private.json",
+      "sha256": "2759b24931ca75c8d2e613e9550a8abb190f6bdeb75a3b98fba8fa8d7bb7211a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round14-frozen.json",
+      "sha256": "0ef97e7f37cca5cf35435f393746f3cfcd87045b4a9218b19359dc1a945fad8a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round14-source-snapshot-private.json",
+      "sha256": "0bc43e87425ae7b63ec22b3935e684b87e07b6eda69562c4c13736ad3d5beb0e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round13-binary-private.json",
+      "sha256": "2dae97ae100482bee1b4dfd363bd19f41e226692a3532a8645fba862d9d869de"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round14-input-integrity-private.json",
+      "sha256": "94622fd823fa9889abd00af5f7ddae9d6f3e1466be2c812b158b5663291028a8"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-frozen.json",
+      "sha256": "a4908d308913e8a6c17b9ed875cca5d417ff51e1b982706af1af0851db6b6ba2"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-revision-frozen.json",
+      "sha256": "fed8712cda01e76e3897570cf02cb57b721a2297c534a70fe3af13e03a2f807e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-binary-private.json",
+      "sha256": "a334d40fc339482724600d5a00c1748378dbbc6dacf920b4babb4ab3bd51f4ff"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-adapter-red-private.json",
+      "sha256": "6a740ec9f17171473ba82da413b414c60f7604788f6c5ec8581a65858c62806a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-adapter-green-go.log",
+      "sha256": "4920310090db4c98340b0a14393f8c3fbfdbf8eac3bae0ae990e06485ae09bca"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/evaluation-round15-canonical-baseline-private.json",
+      "sha256": "adb34615d2936221e78eeba458678c62538a37f96e3eca6e98c7695ae2364d2a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-redaction-url-red.log",
+      "sha256": "6ca9a15bfa03b6255bbbfbb6fa5859de6e5c4fd663e964291e5d54feec20c516"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-verification-final.log",
+      "sha256": "dc42ee7544a692ced5c6e6f450041aba78d1b3998b0a62c475f83add20a73f92"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-go-final.log",
+      "sha256": "4920310090db4c98340b0a14393f8c3fbfdbf8eac3bae0ae990e06485ae09bca"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-native-final-private.json",
+      "sha256": "3ea8a74156ff3a3d4c80de2681a8e5dbdcb1d11332926040c89209c55205ac0e"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-canonical-final-differential-private.json",
+      "sha256": "5ead616992dd25d8947fb6fcd8d53a2627c91fb68fd27ed265c11871162cc7f8"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-input-delivery-private.json",
+      "sha256": "212a4d42f4762f9486ad05881d729075f0dbde615dba222582366137b4a4b690"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-comparison-private.json",
+      "sha256": "2c4e1799446766d86409d5df19f0ccd92325e3c14777f0288d936b97a76a0546"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-final-budget-private.json",
+      "sha256": "5321ed0308bd4c8283fe79fc936d6cc55f0cb1722c8d73e350a72b73d341144a"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-all-raw-index-private.json",
+      "sha256": "c5c3f035c186779c9940dbd153c60e72bae848c05e3aee68cfcbb29b63de2b2b"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round14-controlled.json",
+      "sha256": "9731761378eae68d94b17d4e8961ec68bc913c6325724e0c9f76737cbc207b1d"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/live-evaluation-review-round15-controlled.json",
+      "sha256": "88664f5858b4dcbb854e0711d275c1a4c04ec55c7dd51918f837e8cceb71d323"
+    },
+    {
+      "path": "build/verification/agent-capabilities-20261126/KA8-round15-live-final-canonical-private.json",
+      "sha256": "6ad18ffbadbf95ce0b040a76e1883bf7798379dc1963dcd460aaf3da96789196"
     }
   ],
   "followups": [
@@ -982,11 +1140,34 @@
       ],
       "allEarlierResultsRetained": true,
       "nextMilestonesStarted": false
+    },
+    {
+      "authorizedBy": "User: 同意，继续 (after model-quality attribution discussion)",
+      "optimizationLimit": 3,
+      "optimizations": 3,
+      "status": "failed",
+      "taskTreeAndAcceptance": "agent-capability-KA8-controls-20261126.md",
+      "iterations": [
+        {
+          "optimization": 1,
+          "result": "Deterministic fixture fidelity and real native coverage probe; QA/production reader semantics differ, native default incomplete."
+        },
+        {
+          "optimization": 2,
+          "result": "12 exact fixed-input sessions:5corepass/6fail/1final-length ungraded; all original attachment bytes retained."
+        },
+        {
+          "optimization": 3,
+          "result": "24 matched reader-control sessions:20corepass/3fail/1runtime ungraded; all selected critical text admitted; final canonical JSON redaction fix and87-case regression after frozen paid trials finished."
+        }
+      ],
+      "allEarlierResultsRetained": true,
+      "nextMilestonesStarted": false
     }
   ],
   "requiredDecision": {
-    "reason": "Three diagnostic optimizations are exhausted. Model evidence interpretation and stated observation scope still fail despite delivered critical text.",
-    "decision": "Keep the existing critical-fact gate. Any further round must be renewed or a concrete product-semantics decision made; do not force Docker recipes, hide counterevidence or count variant successes as replacing original failures."
+    "reason": "Three renewed optimizations exhausted. Native evidence coverage and critical model inference still fail original gates.",
+    "decision": "Keep critical-fact fidelity gates and model decision authority. Further development requires a renewed round or product-semantics decision; do not silently begin a fourth paid iteration."
   },
   "sourceCommits": {
     "reasonix-kai": "e806b5b034db122c8a696ac17fa02d8836e4088f",
@@ -995,7 +1176,10 @@
     "frozenComparison": "build/verification/agent-capabilities-20261126/evaluation-round7-frozen.json",
     "note": "This round changes only verification documents in kai-skills; canonical/distributions remain unchanged. This report is committed with its audit. Every evaluated implementation/input hash matches the frozen plan.",
     "diagnosticAccounting": "39005d2bc",
-    "kaiSkillsBaseBeforeDiagnosis": "2ef0089"
+    "kaiSkillsBaseBeforeDiagnosis": "2ef0089",
+    "reasonixKaiControls": "4b9300f52",
+    "kaiSkillsBaseBeforeControls": "b301ee2",
+    "currentQualification": "Previous source notes apply to historical rounds. This round adds QA diagnostics/tests and,after all36 paid cells, canonical JSON redaction plus generated distribution updates; no live app candidate rollout or registry bump."
   },
   "historicalBlockingExamples": [
     {
@@ -1053,5 +1237,36 @@
         "raw": "build/verification/agent-capabilities-20261126/live-evaluation-round6-final/koolcenter_qwen3.8-flash--C11-docker-counterevidence--capabilities-failed-or-unavailable--1.json"
       }
     ]
+  ],
+  "historicalAcceptances": [
+    {
+      "before": "round13-15",
+      "acceptance": {
+        "KA8-T01": {
+          "status": "passed",
+          "evidence": "Frozen and unfamiliar launchers return configuration, generated root, active registration, native service record and fatal log evidence in the original attributed observations; explicit paging exposes late large-log evidence. Actual-delivery audits of32 previous plus8 new sessions preserve all selected critical text with zero source-window mismatches; this is not full-file proof."
+        },
+        "KA8-T02": {
+          "status": "failed",
+          "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained. Source removal and Pro still produce unfinished-handoff/digest/path assertions; neutral-label C02 passes core rubric without waiving original failures."
+        },
+        "KA8-T03": {
+          "status": "failed",
+          "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims. Pro source-ablation C11 invents a read-only mount by a guard; neutral-label Flash C11 invents an outer wrapper. No corresponding runtime evidence is emitted by tools."
+        },
+        "KA8-T04": {
+          "status": "passed",
+          "evidence": "Read-only fixture fingerprints and empty effects remain unchanged; existing copy tests validate selected source/mount identities, data/metadata and reject nonempty-target merge."
+        },
+        "KA8-T05": {
+          "status": "passed",
+          "evidence": "Two newly reproduced false-success cases now fail; owned native Docker engine passes API/ID/root/socket ownership checks and unrelated real process is rejected. Generic process presence does not establish Docker health. All four final live C12 sessions also reject false success while preserving submitted native start as completed effect. All six C12 cases in the new three-arm comparison reject false success while preserving the completed native submission."
+        },
+        "KA8-T06": {
+          "status": "failed",
+          "evidence": "All three-arm unavailable-helper cases now reach complete finals through generic tools; the old false byte admission is fixed. Some complete explanations still make unsupported guard/API/field-scope assertions, so end-to-end acceptance remains unmet."
+        }
+      }
+    }
   ]
 }

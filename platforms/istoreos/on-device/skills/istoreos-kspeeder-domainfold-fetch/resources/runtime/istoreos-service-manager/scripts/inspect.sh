@@ -46,13 +46,30 @@ kai_tmp=$(mktemp -d "${TMPDIR:-/tmp}/kai-service-inspect.XXXXXX") || exit 2
 kai_started=$(date +%s)
 kai_has_section() { case ",$kai_sections," in *",$1,"*) return 0 ;; *) return 1 ;; esac; }
 kai_redact() {
-  # Values remain untrusted evidence, including source comments and embedded logs.
+  kai_redact_input=$(cat)
+  kai_redact_mode=$(printf '%s' "$kai_redact_input" | LC_ALL=C awk '
+    { text=text (NR>1 ? "\n" : "") $0 }
+    END {
+      sub(/^[[:space:]]*/, "", text)
+      first=substr(text,1,1)
+      if ((first=="{" || first=="[") &&
+          (tolower(text) ~ /(password|passwd|token|secret|api.?key|authorization|private.?key|[?&](key|auth)=)/ || index(text,"\\"))) print "json"
+    }')
+  if [ "$kai_redact_mode" = json ]; then
+    command -v jq >/dev/null 2>&1 || return 1
+    kai_redact_json=$(printf '%s' "$kai_redact_input" | jq -cs -f "$kai_here/redact-json.jq" 2>/dev/null) || return 1
+    if [ -n "$kai_redact_json" ]; then printf '%s' "$kai_redact_json"
+    else printf '%s' "$kai_redact_input"; fi
+    return 0
+  fi
+  printf '%s' "$kai_redact_input" |
   sed -E \
     -e 's#(://)[^/@[:space:]]+:[^/@[:space:]]+@#\1[REDACTED]@#g' \
     -e 's#([?&](token|password|secret|key|auth)=)[^&[:space:]]+#\1[REDACTED]#gI' \
     -e 's#((password|passwd|token|secret|api_key|apikey|authorization|private_key)["\x27]?[[:space:]]*[:=][[:space:]]*).*#\1[REDACTED]#gI' \
     -e 's#(option[[:space:]]+(password|passwd|token|secret|key|username)[[:space:]]+).*#\1[REDACTED]#gI'
 }
+
 kai_text_file() {
   command -v awk >/dev/null 2>&1 || return 2
   # Reject binary/NUL and incomplete UTF-8 windows before shell variables can
@@ -122,16 +139,28 @@ kai_read_file() {
   fi
   if ! kai_text_file "$kai_tmp/out"; then kai_fact "$kai_name" null "$kai_path" unknown; kai_error TEXT_ENCODING_UNAVAILABLE 'The selected window is not NUL-free UTF-8 text or its native validator is unavailable; no altered text was accepted.'; return; fi
   kai_probe_output=$(cat "$kai_tmp/out")
-  kai_text=$(printf '%s' "$kai_probe_output" | kai_redact)
-  kai_fact "$kai_name" "{\"path\":$(kai_json_string "$kai_path"),\"offset\":$kai_offset,\"limit\":$kai_length,\"hasMore\":$kai_more,\"untrusted\":true,\"content\":$(kai_json_string "$kai_text")}" "$kai_path" observed
+  if ! kai_text=$(printf '%s' "$kai_probe_output" | kai_redact); then
+    kai_fact "$kai_name" null "$kai_path" unknown
+    kai_error REDACTION_UNAVAILABLE 'Structured source could not be safely redacted using an existing jq; no source content was returned and nothing was installed.'
+    return
+  fi
+  kai_redaction_field=
+  [ "$kai_text" = "$kai_probe_output" ] || kai_redaction_field=',"redacted":true'
+  kai_fact "$kai_name" "{\"path\":$(kai_json_string "$kai_path"),\"offset\":$kai_offset,\"limit\":$kai_length,\"hasMore\":$kai_more,\"untrusted\":true$kai_redaction_field,\"content\":$(kai_json_string "$kai_text")}" "$kai_path" observed
 }
 kai_command_fact() {
   kai_name=$1 kai_source=$2; shift 2
   kai_probe "$@"
   if [ "$kai_probe_rc" -eq 0 ]; then
     if ! kai_text_file "$kai_tmp/out"; then kai_fact "$kai_name" null "$kai_source" unknown; kai_error TEXT_ENCODING_UNAVAILABLE 'The native observation is not supported text; no altered text was accepted.'; return; fi
-    kai_text=$(printf '%s' "$kai_probe_output" | kai_redact)
-    kai_fact "$kai_name" "{\"untrusted\":true,\"output\":$(kai_json_string "$kai_text"),\"exitCode\":0}" "$kai_source" observed
+    if ! kai_text=$(printf '%s' "$kai_probe_output" | kai_redact); then
+      kai_fact "$kai_name" null "$kai_source" unknown
+      kai_error REDACTION_UNAVAILABLE 'Structured source could not be safely redacted using an existing jq; no source content was returned and nothing was installed.'
+      return
+    fi
+    kai_redaction_field=
+    [ "$kai_text" = "$kai_probe_output" ] || kai_redaction_field=',"redacted":true'
+    kai_fact "$kai_name" "{\"untrusted\":true$kai_redaction_field,\"output\":$(kai_json_string "$kai_text"),\"exitCode\":0}" "$kai_source" observed
   else kai_probe_unknown "$kai_name" "$kai_source" NATIVE_QUERY_FAILED; fi
 }
 kai_fact service "$(kai_json_string "$kai_service")" 'explicit query parameter; not a health verdict' observed
