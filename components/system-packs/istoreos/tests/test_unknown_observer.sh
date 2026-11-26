@@ -1,28 +1,13 @@
 #!/bin/sh
 set -eu
-
-root="$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)"
-observe="$root/skills/istoreos-system-task-router/scripts/observe.sh"
-tmp="$(mktemp -d)"
+pack=$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)
+observe="$pack/skills/istoreos-system-task-router/scripts/observe.sh"
+tmp=$(mktemp -d)
 trap 'rm -rf "$tmp"' EXIT HUP INT TERM
-
-if sh "$observe" unknown >"$tmp/out" 2>"$tmp/err"; then
-  echo 'failed: observer accepted an unknown mode' >&2
-  exit 1
-fi
-grep -q 'supported modes' "$tmp/err"
-
-if sh "$observe" service '../shadow' >"$tmp/out" 2>"$tmp/err"; then
-  echo 'failed: observer accepted a traversal subject' >&2
-  exit 1
-fi
-grep -q 'invalid identifier' "$tmp/err"
-
+if sh "$observe" unknown >"$tmp/out" 2>"$tmp/err"; then exit 1; fi
+if sh "$observe" service ../shadow >"$tmp/out" 2>"$tmp/err"; then exit 1; fi
+jq -e '.operationStatus=="failed" and .errors[0].code=="INVALID_ARGUMENT"' "$tmp/out" >/dev/null
 sh "$observe" auto >"$tmp/auto"
-grep -q '^evidence_version=1$' "$tmp/auto"
-grep -q '^mode=auto$' "$tmp/auto"
-grep -q '^observed_at=' "$tmp/auto"
-grep -q '^source=current-device$' "$tmp/auto"
-[ "$(wc -c <"$tmp/auto" | tr -d ' ')" -le 8192 ]
-
-echo 'ok: unknown-problem observer emits a bounded read-only evidence card'
+jq -e '.operation=="system.inspect" and .readOnly==true and .targetId=="local" and (.observedAt|length>0) and (.facts.os.distribution|length>0) and .effects.requested==[]' "$tmp/auto" >/dev/null
+[ "$(wc -c < "$tmp/auto")" -le 8192 ]
+printf '%s\n' 'ok: explicit observation returns a bounded read-only receipt'

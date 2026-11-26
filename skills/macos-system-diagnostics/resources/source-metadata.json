@@ -6,7 +6,12 @@
     {
       "id": "macos-system-diagnostics",
       "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
-      "sourceDigest": "sha256:bbbd7d27b1c73c9147024e2ec01fb9e9cb92dc2d1a9da7a0d569395d34862d16"
+      "sourceDigest": "sha256:fa7c193452d24e8d71937084dcff9b71a51cf63eedc029fc10f6045fff02081e"
+    },
+    {
+      "id": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "sourceDigest": "sha256:f56c3838c3a9f72cb9b6780445b84fddb3e1e3e5009b700d8f39267700f72909"
     }
   ]
 }

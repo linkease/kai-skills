@@ -7,6 +7,12 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # macOS system diagnostics
 
 Run `scripts/inspect.sh`. It uses macOS-native evidence, is read-only, and caps every variable-length field.

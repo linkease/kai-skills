@@ -7,6 +7,12 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS Backup / Restore
 
 目标：日常变更复用 KAIPlus 的 Linkspace 恢复点；只在用户明确要求时进入独立全量备份或恢复流程。

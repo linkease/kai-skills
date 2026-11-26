@@ -31,7 +31,7 @@ def run(platform,image,output,docker):
         'exitCode':result.returncode,'stdout':result.stdout.decode(errors='replace'),
         'stderr':result.stderr.decode(errors='replace'),'executionArguments':argv,
         'sourceFiles':{name:hashlib.sha256((SCRIPT/name).read_bytes()).hexdigest()
-                       for name in ('inspect.sh','lib/receipt.sh')},
+                       for name in ('inspect.sh','lib/receipt.sh','lib/probe.sh')},
         'payloadSHA256':hashlib.sha256(script).hexdigest(),
         'driverSHA256':hashlib.sha256(Path(__file__).read_bytes()).hexdigest()}
     try:

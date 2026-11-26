@@ -14,7 +14,9 @@ $fixedDisks = @(Get-CimInstance -ClassName Win32_LogicalDisk -Filter 'DriveType 
     }
 })
 $services = @(Get-Service)
-$events = @(Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2; StartTime=(Get-Date).AddHours(-24)} -MaxEvents $MaxEvents -ErrorAction SilentlyContinue | ForEach-Object {
+$queryErrors = @()
+try {
+$events = @(Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2; StartTime=(Get-Date).AddHours(-24)} -MaxEvents $MaxEvents -ErrorAction Stop | ForEach-Object {
     [ordered]@{
         time = $_.TimeCreated.ToUniversalTime().ToString('o')
         id = $_.Id
@@ -23,8 +25,17 @@ $events = @(Get-WinEvent -FilterHashtable @{LogName='System'; Level=1,2; StartTi
     }
 })
 
+} catch {
+    if($_.FullyQualifiedErrorId -like 'NoMatchingEventsFound*'){$events=@()}
+    else {$events=$null;$queryErrors+=@{code='EVENT_QUERY_FAILED';message='System event logs could not be read; no absence was inferred.'}}
+}
+
 $result = [ordered]@{
     schemaVersion = 1
+    readOnly = $true
+    observedAt = [DateTimeOffset]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ')
+    errors = $queryErrors
+    untrustedData = $true
     os = [ordered]@{
         caption = $os.Caption
         version = $os.Version
@@ -42,11 +53,8 @@ $result = [ordered]@{
 
 $json = $result | ConvertTo-Json -Depth 6 -Compress
 if ([Text.Encoding]::UTF8.GetByteCount($json) -gt 8192) {
-    $result.recentCriticalEvents = @()
-    $result.truncated = $true
-    $json = $result | ConvertTo-Json -Depth 6 -Compress
-}
-if ([Text.Encoding]::UTF8.GetByteCount($json) -gt 8192) {
-    throw 'diagnostic output exceeds 8 KiB after truncation'
+    # Keep failure visible rather than deleting all critical events and claiming a full result.
+    @{schemaVersion=1;readOnly=$true;operationStatus='failed';errors=@(@{code='RESULT_LIMIT';message='Selected diagnostics exceed 8192 bytes; no truncated event set was accepted.'});truncated=$false}|ConvertTo-Json -Compress
+    exit 1
 }
 $json

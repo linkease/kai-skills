@@ -40,7 +40,7 @@
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
+      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
     },
     {
       "id": "kai-tool-bootstrap",

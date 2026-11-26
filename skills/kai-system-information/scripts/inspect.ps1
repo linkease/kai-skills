@@ -16,17 +16,7 @@ $errors = New-Object System.Collections.ArrayList
 $operationStatus = 'succeeded'
 $clock = [Diagnostics.Stopwatch]::StartNew()
 
-function Add-Fact([string]$Name, $Value, [string]$Source, [string]$Status='observed') {
-    $script:facts[$Name] = $Value
-    [void]$script:evidence.Add([ordered]@{
-        id = 'fact-' + ($script:evidence.Count+1); source = $Source; status = $Status
-        observedAt = $script:now; factPaths = @('/facts/'+$Name)
-    })
-}
-function Add-Error([string]$Code,[string]$Message) {
-    [void]$script:errors.Add(@{code=$Code;message=$Message})
-    if ($script:operationStatus -ne 'failed') { $script:operationStatus='partial' }
-}
+. (Join-Path $PSScriptRoot "lib/receipt.ps1")
 function Find-Programs([string[]]$Names) {
     $records = New-Object System.Collections.ArrayList
     foreach ($name in $Names) {
@@ -161,17 +151,4 @@ if ($TargetId.Length -gt 200 -or @($selected | Where-Object { $_ -notin @('os','
         }
     }
 }
-$result=[ordered]@{
-    schemaVersion=1;operation='system.inspect';operationStatus=$operationStatus;targetId=$TargetId
-    readOnly=$true;observedAt=$now;facts=$facts;evidence=@($evidence.ToArray())
-    effects=@{requested=@();completed=@();unknown=@();remaining=@()}
-    verification=@{status='not_required';checks=@()};errors=@($errors.ToArray());truncated=$false
-}
-$json=$result | ConvertTo-Json -Depth 24 -Compress
-if ($utf8.GetByteCount($json) -gt 8192) {
-    $result.operationStatus='failed';$result.facts=@{};$result.evidence=@()
-    $result.errors=@(@{code='RESULT_LIMIT';message='Selected facts exceed the default byte limit; query fewer sections.'})
-    $json=$result | ConvertTo-Json -Depth 24 -Compress
-}
-[Console]::WriteLine($json)
-if ($result.operationStatus -ne 'succeeded') { exit 1 }
+if (-not (Write-Observation 'system.inspect')) { exit 1 }

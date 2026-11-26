@@ -372,8 +372,8 @@
         "KA1",
         "KA2"
       ],
-      "implementationStatus": "in_progress",
-      "verificationStatus": "in_progress",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R02",
         "R05",
@@ -389,28 +389,37 @@
         {
           "id": "KA3-T01",
           "assertion": "软件查询保留软件中心、包数据库、运行程序、容器镜像等不同来源的完整身份和版本；同名候选不自动合并或选择，不自动刷新源或转入安装。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA3-20261126.json"
         },
         {
           "id": "KA3-T02",
           "assertion": "服务查询返回真实 procd/原生服务命令、启动脚本归属、包装入口、生成配置及相关日志。未知包装程序照常报告，不凭名称授予其规则权威。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA3-20261126.json"
         },
         {
           "id": "KA3-T03",
           "assertion": "网络、存储、文件、SDK 和项目依赖查询在缺依赖、无权限、损坏输入和离线时返回事实与缺口；不隐含装工具、换源、改代理或迁移目录。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA3-20261126.json"
         },
         {
           "id": "KA3-T04",
           "assertion": "脚本返回的说明不包含“下一步必须调用某能力”或“用户任务已经完成”的控制指令。外部输出即使包含这类文本，也只能作为不可信数据展示。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA3-20261126.json"
         },
         {
           "id": "KA3-T05",
           "assertion": "已加载或未加载其他 skill 不改变同一查询结果；独立安装能运行声明的接口。通用日志、文件、shell 和文档访问不因 helper 失败而被屏蔽。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA3-20261126.json"
         }
+      ],
+      "optimizations": 2,
+      "evidence": [
+        "../verification/agent-capability-KA3-20261126.json"
       ]
     },
     {
@@ -422,8 +431,8 @@
         "KA1",
         "KA3"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "in_progress",
+      "verificationStatus": "in_progress",
       "requirements": [
         "R02",
         "R09",

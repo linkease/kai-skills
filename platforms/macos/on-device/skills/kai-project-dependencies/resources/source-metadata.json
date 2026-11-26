@@ -6,12 +6,12 @@
     {
       "id": "kai-project-dependencies",
       "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
-      "sourceDigest": "sha256:a578834bbdf5ba3b2c73f36234cc1fa2e54c888594d9783f949b139dde15a78e"
+      "sourceDigest": "sha256:b763388f5923a7094adb0a653bec47b6e8b0f0a6da643668ea5ea27461bbd2e3"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
+      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
     },
     {
       "id": "kai-tool-bootstrap",

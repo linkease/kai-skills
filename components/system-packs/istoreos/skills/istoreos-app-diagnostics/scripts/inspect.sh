@@ -36,8 +36,8 @@ correlation="$(field "$tmp/collected" correlation)"
 log_available="$(field "$tmp/collected" log_available)"
 historical=false
 if [ "$correlation" = exact ] && [ "$log_available" = true ]; then historical=true; fi
-next_skill="$(field "$tmp/classified" next_skill)"
-next_detail="$detail_phase"
+next_skill=
+next_detail=
 
 printf '{'
 printf '"schema_version":1,'
@@ -53,13 +53,15 @@ printf '"target_path":'; json_nullable_string "$(field "$tmp/collected" target_p
 printf '"started_at":'; json_nullable_int "$(field "$tmp/collected" start)"; printf ','
 printf '"stopped_at":'; json_nullable_int "$(field "$tmp/collected" stop)"; printf ','
 printf '"age_seconds":'; json_nullable_int "$(field "$tmp/collected" age_seconds)"; printf '},'
-printf '"result":{'
+printf '"result":{"scope":"recorded-installation-process","classification":"heuristic-pattern-match",'
 printf '"outcome":'; json_string "$(field "$tmp/classified" outcome)"; printf ','
 printf '"primary_code":'; json_string "$(field "$tmp/classified" primary_code)"; printf ','
 printf '"summary":'; json_string "$(field "$tmp/classified" summary)"; printf ','
 printf '"confidence":'; json_string "$(field "$tmp/classified" confidence)"; printf '},'
 printf '"device":{'
 printf '"package_installed":'; json_nullable_bool "$(field "$tmp/state" package_installed)"; printf ','
+printf '"package_database":'; json_string "$(field "$tmp/state" package_database)"; printf ','
+printf '"package_observations":{"opkg":%s,"apk":%s},' "$(field "$tmp/state" opkg_package_installed)" "$(field "$tmp/state" apk_package_installed)"
 printf '"meta_present":%s,' "$(field "$tmp/state" meta_present)"
 printf '"autoconf_present":%s,' "$(field "$tmp/state" autoconf_present)"
 printf '"istorec_present":%s,' "$(field "$tmp/state" istorec_present)"

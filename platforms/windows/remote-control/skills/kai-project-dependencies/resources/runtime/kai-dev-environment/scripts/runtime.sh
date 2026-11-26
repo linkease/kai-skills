@@ -86,7 +86,10 @@ spec="$runtime@$version"
 case "$platform:$runtime:$action" in
     istoreos:python:install|istoreos:python:verify|istoreos:python:exec|openwrt:python:install|openwrt:python:verify|openwrt:python:exec)
         . "$here/python-openssl.sh"
-        python_openssl_environment "$here" ;;
+        if [ "$action" = verify ]; then
+            export PYTHONDONTWRITEBYTECODE=1
+            python_openssl_environment "$here" temporary
+        else python_openssl_environment "$here" persistent; fi ;;
 esac
 if [ "$action" = resolve ]; then
     resolved="$("$mise" latest "$spec")" || fail "$?" version-selection 'mise version resolution failed'

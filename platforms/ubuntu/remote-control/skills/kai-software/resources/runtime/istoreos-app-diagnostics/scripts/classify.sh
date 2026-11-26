@@ -20,9 +20,9 @@ log="$(sed -n '/^--LOG--$/,$p' "$input" | sed '1d')"
 outcome=unknown
 code=NO_RECENT_TASK
 confidence=low
-  next_skill=
-  next_skill=istoreos-logs-and-diagnostics
-  summary='没有可归因于目标应用的近期 iStore 安装任务；请继续采集该应用的受限运行日志。'
+
+
+  summary='没有可归因于目标应用的近期 iStore 安装任务；运行日志未包含在本次观察中。'
 
 if [ "$correlation" = mismatch ]; then
   code=TASK_APP_MISMATCH
@@ -58,14 +58,14 @@ elif [ "$correlation" = exact ]; then
       outcome=package_install_failed
       code=OPKG_FAILED
       confidence=medium
-      next_skill=kai-software
+
       summary='安装任务非零退出，但紧凑规则库未识别出更具体原因。'
       while IFS="$(printf '\t')" read -r rule_code rule_outcome rule_skill pattern; do
         case "$rule_code" in ''|'#'*) continue ;; esac
         if printf '%s\n' "$log" | grep -Eiq "$pattern"; then
           code="$rule_code"
           outcome="$rule_outcome"
-          next_skill="$rule_skill"
+
           confidence=high
           case "$code" in
             DEPENDENCY_MISSING) summary='安装依赖无法满足。' ;;
@@ -104,19 +104,19 @@ if [ -n "$state_input" ] && [ "$correlation" = exact ] && [ "$state" = finished 
     outcome=package_install_failed
     code=APP_NOT_INSTALLED
     confidence=high
-    next_skill=kai-software
+
     summary='任务退出成功，但设备当前未安装目标 meta 包。'
   elif [ "$autoconf_requested" = true ] && [ "$autoconf_present" = false ]; then
     outcome=autoconf_failed
     code=AUTOCONF_SCRIPT_MISSING
     confidence=high
-    next_skill=istoreos-source-introspect
+
     summary='任务请求了自动配置，但设备上缺少对应 autoconf 脚本。'
   elif [ "$target_path_available" = false ]; then
     outcome=autoconf_failed
     code=TARGET_PATH_UNAVAILABLE
     confidence=high
-    next_skill=kai-storage-files
+
     summary='自动配置使用的目标路径当前不可用。'
   elif [ "$enable_requested" = 0 ] && {
     { [ "$init_script_present" = true ] && [ -n "$service_state" ] && ! printf '%s\n' "$service_state" | grep -Eiq '(^|[^a-z])(running|active|up)([^a-z]|$)'; } ||
@@ -125,19 +125,19 @@ if [ -n "$state_input" ] && [ "$correlation" = exact ] && [ "$state" = finished 
     outcome=success
     code=EXPECTED_STOPPED
     confidence=high
-    next_skill=
+
     summary='用户请求 enable=0，服务或容器停止属于预期状态。'
   elif [ "$enable_requested" = 1 ] && [ "$istorec_present" = true ] && [ -n "$container_state" ] && ! printf '%s\n' "$container_state" | grep -Eiq '^(running|up)$'; then
     outcome=runtime_failed
     code=CONTAINER_NOT_RUNNING
     confidence=high
-    next_skill=istoreos-docker-basics
+
     summary='安装与自动配置已完成，但请求启用的容器当前未运行。'
   elif [ "$enable_requested" = 1 ] && [ "$init_script_present" = true ] && [ -n "$service_state" ] && ! printf '%s\n' "$service_state" | grep -Eiq '(^|[^a-z])(running|active|up)([^a-z]|$)'; then
     outcome=runtime_failed
     code=SERVICE_NOT_RUNNING
     confidence=high
-    next_skill=istoreos-service-manager
+
     summary='安装与自动配置已完成，但请求启用的服务当前未运行。'
   fi
 fi
@@ -154,5 +154,5 @@ esac
 printf 'outcome\t%s\n' "$outcome"
 printf 'primary_code\t%s\n' "$code"
 printf 'confidence\t%s\n' "$confidence"
-printf 'next_skill\t%s\n' "$next_skill"
+printf 'next_skill\t\n'
 printf 'summary\t%s\n' "$summary"

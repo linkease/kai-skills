@@ -21,7 +21,7 @@
     {
       "id": "windows-system-diagnostics",
       "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
-      "sourceDigest": "sha256:3ca21edea54ed606dfa2b2831e7ded3613c257f268036f9099d08003c2e165b0"
+      "sourceDigest": "sha256:28c7c60f74b77b6dd27d4d3d23fa65bda303cb9e643f41b9e6d6a20212ce29eb"
     }
   ]
 }

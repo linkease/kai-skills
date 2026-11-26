@@ -8,47 +8,47 @@
     {
       "id": "istoreos-app-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:1833a82b3c096a012ddb8784f94ee560b389772564914143120783c16fa73809"
+      "treeDigest": "sha256:cdc05b206d1ff69b95b88eb4d2dc4844707b623c024f1a33cbda34ed2902c216"
     },
     {
       "id": "istoreos-app-search",
       "version": "1.2.11",
-      "treeDigest": "sha256:f66e7e2a454291a37ee463ad0da60bfe36148d257e3fb50846d0c175dec29686"
+      "treeDigest": "sha256:47b89ecfd42f8f580a8e6f38dce3de2fdcd12a5a8c982d278ddcca7fa3d9e402"
     },
     {
       "id": "istoreos-backup-restore",
       "version": "1.2.11",
-      "treeDigest": "sha256:2eee61ec4aabd4be82110e1e5345858356d53532bf1e93b55b5ef6c91c329bf3"
+      "treeDigest": "sha256:5da50cd63b78631313fa3b62515e6b15d979d103dd040e6ed8fe5285f8c0a434"
     },
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
       "version": "1.2.11",
-      "treeDigest": "sha256:069839738e416b7323e674df23bb5d00d36c539d7611264625dd818d7cea2567"
+      "treeDigest": "sha256:5b0521063dee774d8d8c0fad54129ed7e6988caea1d3d07dab58f2717e582606"
     },
     {
       "id": "istoreos-docker-basics",
       "version": "1.2.11",
-      "treeDigest": "sha256:7a46ce6e5fa96381b27c08d69f98b41e31bd36a8ba0dff8d560a54f4876689c5"
+      "treeDigest": "sha256:2518de964d61fa2bd81ed74fc20f34f2a7b77b1305958e0354ce563f29db0dd5"
     },
     {
       "id": "istoreos-docker-data-root-migrate",
       "version": "1.2.11",
-      "treeDigest": "sha256:7e3cb9aabfb8b5353d1a0d1525690f30c1669e3894da6a0110da5a5127964c20"
+      "treeDigest": "sha256:f9e43421208dc492bd4ebd95bbfe30c74469832fa5033fbac1d465415cef6aee"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
       "version": "1.2.11",
-      "treeDigest": "sha256:36ab152fb450a367df1075810ed1c4c37d7d48f454fdf7ab323d66d732c86cec"
+      "treeDigest": "sha256:2c534e65456fa97cba21766f038642824f483d8c6517f8e0af2438dcf5f47d26"
     },
     {
       "id": "istoreos-logs-and-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:8a5ad30dc1266af11a1d4c0d30fb719ef28ff2cad5ad93a73a53de4d91a305a3"
+      "treeDigest": "sha256:22b45bf61148a0d27a8dbbfe3c0022ec41873f8551179670aca91125ef0884f3"
     },
     {
       "id": "istoreos-luci-recovery",
       "version": "1.2.11",
-      "treeDigest": "sha256:f4505d5e037fd0c85d7ad70f4803135927028ede8913e663875977ed0baacd64"
+      "treeDigest": "sha256:936494aa1b1723ad32c42cecaebe0e61c4b12f52b8d4e59ad35059d96815b0f1"
     },
     {
       "id": "istoreos-quickstart-api",
@@ -58,32 +58,32 @@
     {
       "id": "istoreos-run-executable",
       "version": "1.2.11",
-      "treeDigest": "sha256:85151b164bc8c0b8584de667ddde0e794e11e47611032b0784665fac6e2424ae"
+      "treeDigest": "sha256:6b346e8c714f37b4d9a3e2e50a2d3c25745467a7bb7b017baf19172cce77dfb5"
     },
     {
       "id": "istoreos-service-manager",
       "version": "1.2.11",
-      "treeDigest": "sha256:47421fb9af7a4247aa4a3e440c21b3439a1555c40d70cebe3a0b923f697245e6"
+      "treeDigest": "sha256:27513c7233c3da7bde44bdb6756e949624f7910629f13023270a0dd5a1adf512"
     },
     {
       "id": "istoreos-source-introspect",
       "version": "1.2.11",
-      "treeDigest": "sha256:678f966556de5dcf58eb69c141d114552d1b4189bd8cd6dfcfceab2f8af51d31"
+      "treeDigest": "sha256:07793596669833e89fa9369c0ad2b2ca5b0ec79cc938d3f72bb656aaa1edf442"
     },
     {
       "id": "istoreos-system-task-router",
       "version": "1.2.11",
-      "treeDigest": "sha256:4f6c240879f35bfd27935d3dd5f37cbb4b255f7e7a683837d68bf4440f4fbbde"
+      "treeDigest": "sha256:e3c6ebb7246792f4521498e46bc839b2ee3cfd703d674995780474610c331222"
     },
     {
       "id": "istoreos-systools",
       "version": "1.2.11",
-      "treeDigest": "sha256:275c9727040897abea2da18366b31d75fe4a7241181be1fe4101a3150657dfb5"
+      "treeDigest": "sha256:b0834a3dcdc5e58ffb64f0f7aac20b993dfb9cb88909ce8ea00893f7154c234f"
     },
     {
       "id": "kai-dev-environment",
       "version": "1.2.11",
-      "treeDigest": "sha256:b0550fe0ec8210edfd3477b633504d64b58a54010e22c85731b90d3e5ed13a50"
+      "treeDigest": "sha256:535a485e09fc7ec66097e8d1c2ac4e580983b6eb31478800a5a7006c38734c5f"
     },
     {
       "id": "kai-download-acceleration",
@@ -98,27 +98,27 @@
     {
       "id": "kai-project-dependencies",
       "version": "1.2.11",
-      "treeDigest": "sha256:8b093285932fc6f20f6c92e4e947d9d3393d4f04aa2829bc53b8603952aa01e8"
+      "treeDigest": "sha256:7e58540d261ce365f5a2d3c10b5c89ad7fcea208f522135b8f50d5a91d5acf86"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.11",
-      "treeDigest": "sha256:41a7d8adcb896b06241880a4a95479f422252a8372dbb30d8c74b1308e19c743"
+      "treeDigest": "sha256:ea20990bcb652273b8f6fc4f9fb2124e87857a0eb8e1bd6216ac5106567eb94a"
     },
     {
       "id": "kai-software",
       "version": "1.2.11",
-      "treeDigest": "sha256:0ae69c8db9a5521eb53fa51e5587fa413af09b31a196ade08b62d044dc02ef30"
+      "treeDigest": "sha256:3281175bc0035f36c31b4776be667b922668ba3fbb73de2d485c5a6cca36f68f"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.11",
-      "treeDigest": "sha256:1c106af8a8bfa72b94fdbd8cacf05791ccf5ee78fbc586bb97432bc63eb4060e"
+      "treeDigest": "sha256:ef356eb7969f3381ceacc96050bfe71ab7815be70f3a37cd63067acb28a331db"
     },
     {
       "id": "kai-system-information",
       "version": "1.2.11",
-      "treeDigest": "sha256:d6db622a9182a8461cd6b0cb2a9bf61f16686e23a9f1a9d79c9850ac498cd2b1"
+      "treeDigest": "sha256:423b2cdf8d5f712bffaaf536a7eafc45360214cc0f4c5948477b8502b468e9fa"
     },
     {
       "id": "kai-tool-bootstrap",

@@ -8,7 +8,7 @@
     {
       "id": "kai-dev-environment",
       "version": "1.2.11",
-      "treeDigest": "sha256:b0550fe0ec8210edfd3477b633504d64b58a54010e22c85731b90d3e5ed13a50"
+      "treeDigest": "sha256:535a485e09fc7ec66097e8d1c2ac4e580983b6eb31478800a5a7006c38734c5f"
     },
     {
       "id": "kai-download-acceleration",
@@ -18,27 +18,27 @@
     {
       "id": "kai-project-dependencies",
       "version": "1.2.11",
-      "treeDigest": "sha256:8b093285932fc6f20f6c92e4e947d9d3393d4f04aa2829bc53b8603952aa01e8"
+      "treeDigest": "sha256:7e58540d261ce365f5a2d3c10b5c89ad7fcea208f522135b8f50d5a91d5acf86"
     },
     {
       "id": "kai-project-run",
       "version": "1.2.11",
-      "treeDigest": "sha256:41a7d8adcb896b06241880a4a95479f422252a8372dbb30d8c74b1308e19c743"
+      "treeDigest": "sha256:ea20990bcb652273b8f6fc4f9fb2124e87857a0eb8e1bd6216ac5106567eb94a"
     },
     {
       "id": "kai-software",
       "version": "1.2.11",
-      "treeDigest": "sha256:0ae69c8db9a5521eb53fa51e5587fa413af09b31a196ade08b62d044dc02ef30"
+      "treeDigest": "sha256:3281175bc0035f36c31b4776be667b922668ba3fbb73de2d485c5a6cca36f68f"
     },
     {
       "id": "kai-storage-files",
       "version": "1.2.11",
-      "treeDigest": "sha256:1c106af8a8bfa72b94fdbd8cacf05791ccf5ee78fbc586bb97432bc63eb4060e"
+      "treeDigest": "sha256:ef356eb7969f3381ceacc96050bfe71ab7815be70f3a37cd63067acb28a331db"
     },
     {
       "id": "kai-system-information",
       "version": "1.2.11",
-      "treeDigest": "sha256:d6db622a9182a8461cd6b0cb2a9bf61f16686e23a9f1a9d79c9850ac498cd2b1"
+      "treeDigest": "sha256:423b2cdf8d5f712bffaaf536a7eafc45360214cc0f4c5948477b8502b468e9fa"
     },
     {
       "id": "kai-tool-bootstrap",
@@ -48,12 +48,12 @@
     {
       "id": "macos-launchd-logs",
       "version": "1.2.11",
-      "treeDigest": "sha256:165faee3261607fba9da17d6b26a9d822ff82c6659616fa55da83905b1a68c77"
+      "treeDigest": "sha256:af29e652103195af1a407630e89f0b9f2a91ed8556c8a1dfbf76d3eda616cf93"
     },
     {
       "id": "macos-system-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:5e124e1f2ed7685b657195a9e2e5d13513c95c2bcbb72b8d35a9d22d688c73ca"
+      "treeDigest": "sha256:2b9a9efc273574ab2ab0e16fed4045a2a499a759116c65723f4b933104ac27bf"
     },
     {
       "id": "target-ssh-controller",

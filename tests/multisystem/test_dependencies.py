@@ -207,11 +207,26 @@ else printf '%s\\n' "$*" >> "$TEST_CALLS"; exit 47; fi''')
         self.assertEqual(p.returncode, 0, p.stderr)
         result = json.loads(p.stdout)
         self.assertEqual({r['type'] for r in result['sources']}, {'registry','git','url'})
-        self.assertTrue(result['requiresSourceReview'])
+        self.assertTrue(result['readOnly'])
         (self.project / 'go.mod').write_text('module example.invalid/demo\nrequire github.com/google/uuid v1.6.0\nreplace example.invalid/private => ../private\n')
         p = self.call('sources', 'go', '1.24.1', str(self.project), TEST_MISSING='1')
         self.assertEqual(p.returncode, 0, p.stderr)
         self.assertIn('local', {r['type'] for r in json.loads(p.stdout)['sources']})
+
+    def test_source_query_preserves_corrupt_input_and_reports_output_limit(self):
+        manifest = self.project / 'package.json'
+        manifest.write_text('{broken')
+        p = self.call('sources', 'npm', '22.14.0', str(self.project), TEST_MISSING='1')
+        self.assertNotEqual(p.returncode, 0)
+        self.assertEqual(json.loads(p.stdout)['category'], 'invalid-manifest')
+        self.assertEqual(manifest.read_text(), '{broken')
+        manifest.write_text(json.dumps({'dependencies': {'dependency-' + str(i): '1' for i in range(1000)}}))
+        before = manifest.read_bytes()
+        p = self.call('sources', 'npm', '22.14.0', str(self.project), TEST_MISSING='1')
+        self.assertNotEqual(p.returncode, 0)
+        self.assertEqual(json.loads(p.stdout)['category'], 'source-result-limit')
+        self.assertEqual(manifest.read_bytes(), before)
+        self.assertFalse(self.log.exists())
 
 
 if __name__ == '__main__':

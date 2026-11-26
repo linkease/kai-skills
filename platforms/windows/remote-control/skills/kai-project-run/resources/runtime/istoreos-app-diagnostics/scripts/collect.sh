@@ -8,9 +8,9 @@ now="${ISTORE_DIAG_NOW:-$(date +%s)}"
 script_dir="$(CDPATH= cd -- "$(dirname "$0")" && pwd -P)"
 
 case "$requested" in
-  latest|[A-Za-z0-9][A-Za-z0-9._+-]*) ;;
-  *) echo "usage: collect.sh <latest|app-id> [--detail]" >&2; exit 2 ;;
+  ''|-*|*[!A-Za-z0-9._+-]*|*..*) echo 'invalid app identifier' >&2; exit 2 ;;
 esac
+[ "${#requested}" -le 128 ] || { echo 'invalid app identifier' >&2; exit 2; }
 case "$now" in ''|*[!0-9]*) now=0 ;; esac
 
 tmp="$(mktemp -d)"

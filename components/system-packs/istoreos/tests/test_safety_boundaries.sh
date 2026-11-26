@@ -17,7 +17,7 @@ if ISTOREOS_ROOT="$rootfs" sh "$collect" '../shadow' >"$tmp/out" 2>"$tmp/err"; t
   echo 'failed: source introspection accepted a traversal name' >&2
   exit 1
 fi
-grep -q 'invalid identifier' "$tmp/err"
+jq -e '.operationStatus=="failed" and .errors[0].code=="INVALID_ARGUMENT"' "$tmp/out" >/dev/null
 
 printf '%s\n' '#!/bin/sh' 'TOKEN=source-secret' 'endpoint="https://alice:secret@example.invalid/api"' >"$rootfs/etc/init.d/demo"
 out="$(ISTOREOS_ROOT="$rootfs" sh "$collect" demo 2>/dev/null)"
@@ -25,7 +25,7 @@ if printf '%s\n' "$out" | grep -qE 'source-secret|alice:secret'; then
   echo 'failed: source introspection leaked a credential' >&2
   exit 1
 fi
-printf '%s\n' "$out" | grep -q '\*\*\*'
+printf '%s\n' "$out" | grep -Fq '[REDACTED]'
 
 printf '%s\n' '#!/bin/sh' 'printf "%s\\n" "$1" >>"${SERVICE_MARKER:?}"' >"$rootfs/etc/init.d/demo"
 chmod +x "$rootfs/etc/init.d/demo"
@@ -57,10 +57,10 @@ fi
 grep -q 'KAIPLUS_CONFIRMED=1' "$tmp/err"
 
 missing="$tmp/not-created/by-detect"
-if KAIPLUS_HOME="$missing" sh "$detect" >"$tmp/out" 2>"$tmp/err"; then
-  echo 'failed: read-only detection unexpectedly accepted a missing directory' >&2
-  exit 1
-fi
+observation_code=0
+KAIPLUS_HOME="$missing" sh "$detect" >"$tmp/out" 2>"$tmp/err" || observation_code=$?
+[ "$observation_code" -eq 0 ] || [ "$observation_code" -eq 1 ]
+jq -e '.operation=="system.observe" and .readOnly==true and (has("chosen")|not)' "$tmp/out" >/dev/null
 [ ! -e "$missing" ]
 
 if sh "$probe" "$missing" >"$tmp/out" 2>"$tmp/err"; then

@@ -6,12 +6,12 @@
     {
       "id": "kai-storage-files",
       "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
-      "sourceDigest": "sha256:6272b1cfa3109453e4231f57bc3d9c3a5ce818efd06c46e228cfce6347b0fd59"
+      "sourceDigest": "sha256:1514db7c229f4e76b7b621e3210428b7af120df59d17ffdef41fea3ed736cbb0"
     },
     {
       "id": "kai-dev-environment",
       "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
-      "sourceDigest": "sha256:3df86c0ce7311f46d0be1bb0b39cb01288d2cf86307877200ae350a6e21c5a43"
+      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
     },
     {
       "id": "kai-tool-bootstrap",

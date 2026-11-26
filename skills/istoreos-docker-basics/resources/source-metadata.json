@@ -6,7 +6,32 @@
     {
       "id": "istoreos-docker-basics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
-      "sourceDigest": "sha256:8772f24d46deec70ab91a4b24118801e291745003b177eedbd91d454f1c56a3f"
+      "sourceDigest": "sha256:19f3ab6d578d848317bda2118ba90e6174a7e302e0c5c16cc576529982438203"
+    },
+    {
+      "id": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "sourceDigest": "sha256:a0e58d1f8a1633b3859ec8f469ec6a842689e688dba2e18fb4fc30bcbc88ce54"
+    },
+    {
+      "id": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "sourceDigest": "sha256:349bc78ebdf740cf6745a4d95803ed843ef42cb06e9965c36907538d9a8622bf"
+    },
+    {
+      "id": "kai-storage-files",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "sourceDigest": "sha256:1514db7c229f4e76b7b621e3210428b7af120df59d17ffdef41fea3ed736cbb0"
+    },
+    {
+      "id": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "sourceDigest": "sha256:f56c3838c3a9f72cb9b6780445b84fddb3e1e3e5009b700d8f39267700f72909"
+    },
+    {
+      "id": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "sourceDigest": "sha256:ad6cbfecc17f36f25f510241a647978f22faaedf92f0241b864fe6288848f9d5"
     }
   ]
 }

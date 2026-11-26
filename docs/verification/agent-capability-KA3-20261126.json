@@ -1,0 +1,182 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA3",
+  "status": "passed",
+  "optimizations": 2,
+  "iterations": [
+    {
+      "iteration": "initial",
+      "outcome": "Local service observations passed; native carrier failed on firmware without cksum."
+    },
+    {
+      "iteration": "optimization-1",
+      "outcome": "SHA256 preservation carrier fixed; real firmware exposed missing external bounded executor and large startup-source expansion."
+    },
+    {
+      "iteration": "optimization-2",
+      "outcome": "Owned POSIX leaf reader/timer, explicit file windows/UTF-8 validation, unknown native CLI gaps, compatibility query assertions, and temporary-only Python verification; final required checks passed."
+    }
+  ],
+  "reviewInventory": "../architecture/readonly-capability-surfaces.json",
+  "reviewedResources": 38,
+  "verification": {
+    "operationTests": {
+      "tests": 38,
+      "exitCode": 0,
+      "evidence": "build/verification/agent-capabilities-20261126/KA3-final-checks.json"
+    },
+    "isolatedPackages": {
+      "tests": 91,
+      "groups": 6,
+      "skipped": 0,
+      "status": "passed"
+    },
+    "istoreosFixtureSuites": {
+      "suites": 11,
+      "exitCode": 0,
+      "evidence": "build/verification/agent-capabilities-20261126/KA3-istore-tests-final.json"
+    },
+    "softwareQueries": {
+      "localTests": 17,
+      "localSkipped": 5,
+      "nativeWindowsTests": 4,
+      "nativeWindowsSkipped": 0,
+      "nativeWindowsPowerShell": "5.1",
+      "note": "4 native Windows cases are proved on the native target; the optional Bash 3.2 local case remains not run here and is not counted as passed."
+    },
+    "nativeServiceQueries": [
+      {
+        "platform": "istoreos-apk",
+        "status": "passed",
+        "operationStatus": "partial",
+        "nativeExitCode": 1,
+        "evidenceTypes": [
+          "observed",
+          "observed",
+          "observed",
+          "observed",
+          "observed",
+          "absent",
+          "unsupported"
+        ],
+        "errorCodes": [
+          "FILE_WINDOW_LIMIT",
+          "FILE_WINDOW_LIMIT",
+          "BOUNDED_EXECUTION_UNAVAILABLE"
+        ],
+        "protectedFiles": "fingerprints unchanged",
+        "rawEvidence": "build/verification/agent-capabilities-20261126/KA3-native-final/istoreos-apk.json",
+        "rawEvidenceSHA256": "b1b6e0132aab1c83b782265d4b9d0d22a8bfc58d8ab4ea06f11c100c944de437",
+        "sourceFiles": {
+          "scripts/inspect.sh": "1e85b5fb1a126224bb88a18efcdef7981a85912964b74bb9911b686f138c4c4b",
+          "resources/runtime/kai-system-information/scripts/lib/receipt.sh": "2e9aa95ae3bcbd5c740ac6bce96fad509b8ab46f866f0f8245fb153c1c7a62bf",
+          "resources/runtime/kai-system-information/scripts/lib/probe.sh": "477e4834001357cae4709f8aa73ab0422fc1ddb694a90f724b5f7aa7b0642f76"
+        }
+      },
+      {
+        "platform": "istoreos-opkg",
+        "status": "passed",
+        "operationStatus": "partial",
+        "nativeExitCode": 1,
+        "evidenceTypes": [
+          "observed",
+          "observed",
+          "observed",
+          "observed",
+          "observed",
+          "absent",
+          "observed"
+        ],
+        "errorCodes": [
+          "FILE_WINDOW_LIMIT",
+          "FILE_WINDOW_LIMIT"
+        ],
+        "protectedFiles": "fingerprints unchanged",
+        "rawEvidence": "build/verification/agent-capabilities-20261126/KA3-native-final/istoreos-opkg.json",
+        "rawEvidenceSHA256": "05ad477d2a032fd0109d829b98d2fe152b976364c560416b11618f9c3e269a55",
+        "sourceFiles": {
+          "scripts/inspect.sh": "1e85b5fb1a126224bb88a18efcdef7981a85912964b74bb9911b686f138c4c4b",
+          "resources/runtime/kai-system-information/scripts/lib/receipt.sh": "2e9aa95ae3bcbd5c740ac6bce96fad509b8ab46f866f0f8245fb153c1c7a62bf",
+          "resources/runtime/kai-system-information/scripts/lib/probe.sh": "477e4834001357cae4709f8aa73ab0422fc1ddb694a90f724b5f7aa7b0642f76"
+        }
+      },
+      {
+        "platform": "macos",
+        "status": "passed",
+        "operationStatus": "succeeded",
+        "nativeExitCode": 0,
+        "evidenceTypes": [
+          "observed",
+          "observed"
+        ],
+        "errorCodes": [],
+        "protectedFiles": "fingerprints unchanged",
+        "rawEvidence": "build/verification/agent-capabilities-20261126/KA3-native-final/macos.json",
+        "rawEvidenceSHA256": "320935bfc79de4a6d01d92191d695281b464d025151950387402491ea2a90a55",
+        "sourceFiles": {
+          "scripts/inspect.sh": "194267374474c73ed0440d12f398be32abe31454ef7fb90de4754d78e70f7d31",
+          "resources/runtime/kai-system-information/scripts/lib/receipt.sh": "2e9aa95ae3bcbd5c740ac6bce96fad509b8ab46f866f0f8245fb153c1c7a62bf",
+          "resources/runtime/kai-system-information/scripts/lib/probe.sh": "477e4834001357cae4709f8aa73ab0422fc1ddb694a90f724b5f7aa7b0642f76",
+          "scripts/common.sh": "0d94b2dc4d34ac9ce13c0e6ee742c2889c168f1d244a197136e8ee9d7f528012"
+        }
+      },
+      {
+        "platform": "windows",
+        "status": "passed",
+        "operationStatus": "succeeded",
+        "nativeExitCode": 0,
+        "evidenceTypes": [
+          "observed",
+          "observed",
+          "observed"
+        ],
+        "errorCodes": [],
+        "protectedFiles": "fingerprints unchanged",
+        "rawEvidence": "build/verification/agent-capabilities-20261126/KA3-native-final/windows.json",
+        "rawEvidenceSHA256": "a7b8ccc0313b2f5d56e3ba89a00536b0d2418ea25bf9bd61f279bda3a4bdfcb2",
+        "sourceFiles": {
+          "scripts/inspect.ps1": "0ea3911b7af4563b2fc66669c452db18e92c7a8fbd2fa0cc0629821a1da59379",
+          "resources/runtime/kai-system-information/scripts/lib/receipt.ps1": "8be510ca4edeb1e78d45966766b3032fcdd943603ac65125246954ba0111b957"
+        }
+      }
+    ],
+    "generatedConsistency": "passed",
+    "distributionRegression": {
+      "tests": 6,
+      "exitCode": 0,
+      "elapsedSeconds": 59.559,
+      "scope": "consumer layouts and resource ownership, not native OS proof"
+    }
+  },
+  "acceptance": {
+    "KA3-T01": [
+      "source-qualified apt/opkg/apk/brew/docker candidates, versions and scope retained",
+      "query lifecycle decision removed",
+      "real Windows multi-provider native query tests passed"
+    ],
+    "KA3-T02": [
+      "native procd/SCM/launchd startup registration plus source files",
+      "unknown wrappers remain untrusted evidence; no init script executes during observation",
+      "configuration sources/conflicts retained; large files explicitly expandable"
+    ],
+    "KA3-T03": [
+      "network/storage/runtime/dependency negative cases and isolated package tests",
+      "corrupt input, output limit, timeouts and UTF-8 windows are visible",
+      "Python readonly verification no longer creates persistent crypto cache"
+    ],
+    "KA3-T04": [
+      "next-skill compatibility fields null, no repair recipes",
+      "injected instructions stay inside untrusted fact strings"
+    ],
+    "KA3-T05": [
+      "new service query tested in one generated independent package",
+      "skill discovery paths do not change facts",
+      "generic tools are not disabled by these helpers"
+    ]
+  },
+  "limitations": [
+    "Compatibility query formats remain named and are not silently redefined as the shared result schema.",
+    "Native iStoreOS partial results explicitly preserve file-size and bounded CLI-executor gaps; they are not full-health success claims.",
+    "Host routing, permissions, lifecycle and model evaluation are subsequent milestones; this is not their acceptance."
+  ]
+}

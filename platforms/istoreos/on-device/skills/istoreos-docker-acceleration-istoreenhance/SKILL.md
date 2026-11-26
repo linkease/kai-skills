@@ -9,6 +9,13 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-service-manager`: [local instructions](resources/runtime/istoreos-service-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # Docker Acceleration via iStoreEnhance (kspeeder)
 
 当用户进行镜像拉取/构建或出现“下载慢/失败”，先确保加速链路可用，再继续 Docker 动作。

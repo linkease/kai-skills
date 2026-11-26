@@ -6,7 +6,22 @@
     {
       "id": "istoreos-luci-recovery",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
-      "sourceDigest": "sha256:6db783f14584e925b1e005942de6c491833685aa14a5a9bbc4229113c781ed55"
+      "sourceDigest": "sha256:4d4f4345b4885df77ae9fe26000fba701ce29861ba91e3fba25109b8ebe1ef54"
+    },
+    {
+      "id": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
+    },
+    {
+      "id": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "sourceDigest": "sha256:a0e58d1f8a1633b3859ec8f469ec6a842689e688dba2e18fb4fc30bcbc88ce54"
+    },
+    {
+      "id": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "sourceDigest": "sha256:f56c3838c3a9f72cb9b6780445b84fddb3e1e3e5009b700d8f39267700f72909"
     }
   ]
 }

@@ -87,9 +87,3 @@ echo ""
 echo "## disk"
 df -hP / 2>/dev/null || true
 df -hP "$(dirname "$file")" 2>/dev/null || true
-
-echo ""
-echo "## next"
-echo "1) Treat .run as risky and identify whether it writes system config, external data, firmware, partitions, or databases."
-echo "2) KAIPlus protects covered system writes with a Linkspace recovery point; active protection must be reused, not duplicated."
-echo "3) Direct shell use and out-of-scope data have no automatic protection. After reviewing scope, run only with explicit CONFIRM_RUN_EXEC=YES."

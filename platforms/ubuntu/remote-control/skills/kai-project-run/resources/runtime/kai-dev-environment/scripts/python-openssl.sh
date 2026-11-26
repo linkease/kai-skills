@@ -26,7 +26,16 @@ python_openssl_environment() {
         fi
     done
     pc_expected="$(jq -er .pythonSha256 "$pc_here/../references/python-openssl.lock.json")"
-    pc_dir="$HOME/.local/share/kai/python-openssl"
+    if [ "${2:-persistent}" = temporary ]; then
+        kai_policy_temporary="$(mktemp -d "${TMPDIR:-/tmp}/kai-python-policy-query.XXXXXX")" || fail 12 filesystem-failed 'cannot create owned query materials'
+        python_policy_cleanup() { [ -z "${kai_policy_temporary:-}" ] || rm -rf -- "$kai_policy_temporary"; }
+        trap python_policy_cleanup EXIT
+        trap 'exit 130' INT
+        trap 'exit 143' TERM HUP
+        pc_dir="$kai_policy_temporary"
+    else
+        pc_dir="$HOME/.local/share/kai/python-openssl"
+    fi
     [ ! -L "$pc_dir" ] || fail 11 openssl-config-conflict 'Python configuration cache is an external link'
     (umask 077; mkdir -p "$pc_dir") || fail 12 filesystem-failed 'cannot prepare the private Python configuration cache'
     pc_target="$pc_dir/$pc_expected.cnf"

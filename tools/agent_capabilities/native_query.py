@@ -28,6 +28,7 @@ def payload(platform,target_id,sections='os,tools'):
         raise ValueError('Invalid native query sections')
     if platform=='windows':
         encoded=base64.b64encode((SCRIPT/'inspect.ps1').read_bytes()).decode()
+        receipt=base64.b64encode((SCRIPT/'lib/receipt.ps1').read_bytes()).decode()
         return r'''$ErrorActionPreference='Stop'
 $temporary=Join-Path ([IO.Path]::GetTempPath()) ('kai-system-inspect-KA2-'+[Guid]::NewGuid().ToString('N'))
 [IO.Directory]::CreateDirectory($temporary)|Out-Null
@@ -45,6 +46,8 @@ function Query-Fingerprint {
 try {
  $before=Query-Fingerprint
  $file=Join-Path $temporary 'inspect.ps1'
+ [IO.Directory]::CreateDirectory((Join-Path $temporary 'lib'))|Out-Null
+ [IO.File]::WriteAllBytes((Join-Path $temporary 'lib/receipt.ps1'),[Convert]::FromBase64String('__RECEIPT__'))
  [IO.File]::WriteAllBytes($file,[Convert]::FromBase64String('__SCRIPT__'))
  & powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -File $file -TargetId '__TARGET__' -Sections '__SECTIONS__'
  $code=$LASTEXITCODE
@@ -55,7 +58,7 @@ try {
  if(Test-Path -LiteralPath $temporary){throw 'Own query materials were not cleaned'}
 }
 exit $code
-'''.replace('__SCRIPT__',encoded).replace('__TARGET__',target_id).replace('__SECTIONS__',sections)
+'''.replace('__SCRIPT__',encoded).replace('__RECEIPT__',receipt).replace('__TARGET__',target_id).replace('__SECTIONS__',sections)
     script='''set -eu
 umask 077
 temporary=$(mktemp -d "${TMPDIR:-/tmp}/kai-system-inspect-KA2.XXXXXX")
@@ -73,7 +76,7 @@ query_fingerprint() {
 before=$(query_fingerprint)
 '''
     # Quoted heredocs need no base64/tar on minimal OpenWrt targets.
-    for name in ('inspect.sh','lib/receipt.sh'):
+    for name in ('inspect.sh','lib/receipt.sh','lib/probe.sh'):
         body=(SCRIPT/name).read_text()
         delimiter='KAI_QUERY_'+hashlib.sha256(body.encode()).hexdigest()
         assert delimiter not in body.splitlines()
@@ -108,7 +111,7 @@ def run(platform,config,output,sections='os,tools'):
              'stdout':process.stdout.decode('utf-8',errors='replace'),
              'stderr':process.stderr.decode('utf-8',errors='replace'),
              'sourceSHA256':hashlib.sha256((SCRIPT/('inspect.ps1' if platform=='windows' else 'inspect.sh')).read_bytes()).hexdigest()}
-    files=['inspect.ps1'] if platform=='windows' else ['inspect.sh','lib/receipt.sh']
+    files=['inspect.ps1','lib/receipt.ps1'] if platform=='windows' else ['inspect.sh','lib/receipt.sh','lib/probe.sh']
     receipt['sourceFiles']={name:hashlib.sha256((SCRIPT/name).read_bytes()).hexdigest() for name in files}
     receipt['payloadSHA256']=hashlib.sha256(script).hexdigest()
     receipt['driverSHA256']=hashlib.sha256(Path(__file__).read_bytes()).hexdigest()

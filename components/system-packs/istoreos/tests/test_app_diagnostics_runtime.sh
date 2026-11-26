@@ -42,11 +42,11 @@ jq -e '.result.outcome == "success" and .result.primary_code == "EXPECTED_STOPPE
 
 make_case stopped-service demo-service 1 service stopped
 run_case stopped-service demo-service >"$tmp/service.json"
-jq -e '.result.outcome == "runtime_failed" and .result.primary_code == "SERVICE_NOT_RUNNING" and .next.skill == "istoreos-service-manager"' "$tmp/service.json" >/dev/null
+jq -e '.result.outcome == "runtime_failed" and .result.primary_code == "SERVICE_NOT_RUNNING" and .next.skill == null' "$tmp/service.json" >/dev/null
 
 make_case stopped-container demo-container 1 container exited
 run_case stopped-container demo-container >"$tmp/container.json"
-jq -e '.result.outcome == "runtime_failed" and .result.primary_code == "CONTAINER_NOT_RUNNING" and .next.skill == "istoreos-docker-basics"' "$tmp/container.json" >/dev/null
+jq -e '.result.outcome == "runtime_failed" and .result.primary_code == "CONTAINER_NOT_RUNNING" and .next.skill == null' "$tmp/container.json" >/dev/null
 
 # Precise evidence must not invoke the broader system-log fallback.
 mkdir -p "$tmp/bin"
@@ -66,7 +66,7 @@ printf 'daemon.err thirdparty: failed token=fixture-token https://example.test/a
 mkdir -p "$tmp/unknown/rootfs"
 ISTORE_DIAG_ROOT="$tmp/unknown/rootfs" ISTORE_DIAG_TASK_STATUS_FILE=/dev/null ISTORE_DIAG_LOG_FILE=/dev/null \
 ISTORE_DIAG_SYSTEM_LOG_FILE="$tmp/system.log" "$inspect" thirdparty --detail runtime >"$tmp/unknown.json"
-jq -e '.result.outcome == "unknown" and .next.skill == "istoreos-logs-and-diagnostics" and (.detail.log_excerpt | contains("thirdparty"))' "$tmp/unknown.json" >/dev/null
+jq -e '.result.outcome == "unknown" and .next.skill == null and (.detail.log_excerpt | contains("thirdparty"))' "$tmp/unknown.json" >/dev/null
 if grep -E 'must-not-appear|fixture-token|fixture-query' "$tmp/unknown.json" >/dev/null; then
   echo 'failed: unknown-app fallback leaked unrelated or credential data' >&2
   exit 1

@@ -7,6 +7,14 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-service-manager`: [local instructions](resources/runtime/istoreos-service-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # LuCI Recovery (iStoreOS/OpenWrt)
 
 用于处理“安装插件后 LuCI 异常（打不开/500/空白页/登录循环）”。

@@ -91,7 +91,7 @@ info) printf '%s\\n' '{"casks":[{"token":"viewer","tap":"homebrew/cask","name":[
 
     def test_inspect_uses_existing_owner_and_marks_runtime_unknown(self):
         p,r=self.call('inspect',software='bash');self.assertEqual(p.returncode,0,r)
-        self.assertIn('decision',r['items'][0]);self.assertNotIn('runtimeVersion',r['items'][0])
+        self.assertNotIn('decision',r['items'][0]);self.assertNotIn('runtimeVersion',r['items'][0])
     def test_istore_fuzzy_query_keeps_catalog_private_and_exact_name_first(self):
         for name in ('istoreos-app-search','istoreos-app-diagnostics'):
             shutil.copytree(ROOT/'components/system-packs/istoreos/skills'/name,self.root/name)
@@ -150,7 +150,7 @@ for($i=0;$i -lt 40;$i++){$items+=@{id=($source+':main/tool'+$i);name=('tool'+$i)
 $items+=@{id=($source+':main/tool');name='tool';description='exact';source=$source;type='package';rawManifest='never-send'}
 ConvertTo-Json -InputObject $items -Depth 5 -Compress
 '''
-        for name in ('scoop','winget'):(self.scripts/(name+'.ps1')).write_text(fake)
+        for name in ('scoop','winget'):(self.scripts/(name+'.ps1')).write_text(fake, encoding='utf-8-sig')
     def call(self,**req):
         self.request.write_text(json.dumps({'targetId':'local','query':'tool',**req}))
         p=subprocess.run([self.pwsh,'-NoProfile','-NonInteractive','-File',str(self.scripts/'query-entry.ps1'),'-Operation','search','-RequestFile',str(self.request)],env=self.env,text=True,capture_output=True,timeout=25)
@@ -166,7 +166,7 @@ ConvertTo-Json -InputObject $items -Depth 5 -Compress
         # Emulate Windows PowerShell's ASCII pipeline default using real pwsh.
         for name in ('scoop','winget'):
             path=self.scripts/(name+'.ps1')
-            path.write_text(path.read_text().replace("$source=[IO.Path]", "[IO.File]::WriteAllText($env:QUERY_NATIVE_SUBJECT,[string]$request.subject)\n$source=[IO.Path]"))
+            path.write_text(path.read_text(encoding='utf-8-sig').replace("$source=[IO.Path]", "[IO.File]::WriteAllText($env:QUERY_NATIVE_SUBJECT,[string]$request.subject)\n$source=[IO.Path]"),encoding='utf-8-sig')
         marker=self.root/'subject.txt';self.env['QUERY_NATIVE_SUBJECT']=str(marker)
         self.request.write_text(json.dumps({'targetId':'local','query':'工具','provider':'scoop'}))
         entry=str(self.scripts/'query-entry.ps1').replace("'","''");request=str(self.request).replace("'","''")

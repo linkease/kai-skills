@@ -15,13 +15,26 @@ package="app-meta-$app"
 status_file="${ISTORE_DIAG_OPKG_STATUS_FILE:-${root}/usr/lib/opkg/status}"
 
 package_installed=null
-if [ -f "$status_file" ]; then
+opkg_installed=null
+apk_installed=null
+apk_status="${ISTORE_DIAG_APK_STATUS_FILE:-${root}/lib/apk/db/installed}"
+[ -f "$apk_status" ] || apk_status="${root}/usr/lib/apk/db/installed"
+if [ -r "$status_file" ]; then
   if awk -v package="$package" '
     BEGIN { RS=""; FS="\n" }
-    $0 ~ "(^|\\n)Package: " package "(\\n|$)" && $0 ~ "(^|\\n)Status: .* installed(\\n|$)" { found=1 }
+    index("\n" $0 "\n", "\nPackage: " package "\n") && $0 ~ "(^|\\n)Status: .* installed(\\n|$)" { found=1 }
     END { exit !found }
-  ' "$status_file"; then package_installed=true; else package_installed=false; fi
+  ' "$status_file"; then opkg_installed=true; else opkg_installed=false; fi
 fi
+if [ -r "$apk_status" ]; then
+  if awk -v package="$package" '$0 == "P:" package {found=1} END {exit !found}' "$apk_status"; then apk_installed=true; else apk_installed=false; fi
+fi
+case "$opkg_installed:$apk_installed" in
+  null:null) package_database=unavailable ;;
+  null:*) package_database=apk; package_installed=$apk_installed ;;
+  *:null) package_database=opkg; package_installed=$opkg_installed ;;
+  *) package_database=ambiguous ;;
+esac
 
 bool_path() { if [ -e "${root}$1" ]; then printf true; else printf false; fi; }
 meta_present="$(bool_path "/usr/lib/opkg/meta/$app.json")"
@@ -38,13 +51,7 @@ container_state=
 if [ -n "$root" ]; then
   [ -f "$root/run/istore-diag/service-$app.state" ] && service_state="$(head -n 1 "$root/run/istore-diag/service-$app.state")"
   [ -f "$root/run/istore-diag/container-$app.state" ] && container_state="$(head -n 1 "$root/run/istore-diag/container-$app.state")"
-else
-  if [ -x "/etc/init.d/$app" ]; then
-    service_state="$(/etc/init.d/"$app" status 2>&1 | head -n 1 || :)"
-  fi
-  if [ "$istorec_present" = true ] && command -v docker >/dev/null 2>&1; then
-    container_state="$(docker inspect -f '{{.State.Status}}' "$app" 2>/dev/null | head -n 1 || :)"
-  fi
+# Live service/API health is not inferred or probed through an arbitrary init wrapper.
 fi
 
 printf 'package_installed\t%s\n' "$package_installed"
@@ -56,3 +63,7 @@ printf 'config_present\t%s\n' "$config_present"
 printf 'target_path_available\t%s\n' "$target_path_available"
 printf 'service_state\t%s\n' "$service_state"
 printf 'container_state\t%s\n' "$container_state"
+
+printf 'package_database\t%s\n' "$package_database"
+printf 'opkg_package_installed\t%s\n' "$opkg_installed"
+printf 'apk_package_installed\t%s\n' "$apk_installed"

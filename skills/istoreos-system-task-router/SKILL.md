@@ -11,6 +11,8 @@ the executable resources required by its own workflow.
 ## Local supporting resources
 
 - `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `istoreos-service-manager`: [local instructions](resources/runtime/istoreos-service-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
 ## Business workflow
 根据实际 iStoreOS 目标和用户意图选一个主能力；明确的软件维护直接走 kai-software，不先做全系统检查。

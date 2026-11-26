@@ -10,7 +10,9 @@ the executable resources required by its own workflow.
 
 ## Local supporting resources
 
+- `istoreos-service-manager`: [local instructions](resources/runtime/istoreos-service-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 - `istoreos-storage-path`: [local instructions](resources/runtime/istoreos-storage-path/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
 
 ## Business workflow
 # Docker data_root Migration (Safe)

@@ -41,7 +41,7 @@ section fastnet
 fastnet_bin="$(resolve_fastnet)"
 if [ -z "$fastnet_bin" ]; then
   printf 'fastnet=unavailable\n'
-  printf 'next_action=install app-meta-fastnet through istoreos-package-manager\n'
+
   exit 0
 fi
 
@@ -56,7 +56,7 @@ fi
 
 if [ -x "$fastnet_init" ]; then
   printf 'service_init=available\n'
-  "$fastnet_init" status 2>&1 || true
+  printf 'service_status=not-probed (init scripts are not executed by this observation)\n'
 else
   printf 'service_init=unavailable\n'
 fi

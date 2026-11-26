@@ -1,0 +1,14 @@
+{
+  "schemaVersion": 1,
+  "owner": "system-pack/istoreos",
+  "sourceCommit": "76207fafa29f1b362f68de763055b622346ba1f6",
+  "sourceState": "committed",
+  "sourcePaths": [
+    "components/system-packs/istoreos/skills/istoreos-mise-runtime/scripts/exec.sh",
+    "components/system-packs/istoreos/skills/istoreos-mise-runtime/scripts/environment.sh"
+  ],
+  "files": {
+    "exec.sh": "56dd7ccc0ff2568a3bda580295b301984e50e2c190839cdf267d0432f6801bc4",
+    "environment.sh": "66d69ef5f73a847eaae1262f32d8760fa71ba4a8e75802ea5cd8fb0c22141f2c"
+  }
+}

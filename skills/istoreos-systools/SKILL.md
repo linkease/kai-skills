@@ -7,6 +7,13 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `istoreos-package-manager`: [local instructions](resources/runtime/istoreos-package-manager/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS System Tools
 
 Use this skill for the supported system-maintenance cases above. Do not invoke arbitrary files under `/usr/share/systools`; the official `/usr/libexec/systools.sh` dispatcher accepts more actions than KaiPlus has reviewed.

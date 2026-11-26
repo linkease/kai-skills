@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "zsetup": {
+    "version": "0.5.1",
+    "source": "https://fw.koolcenter.com/binary/zsetup/config.json",
+    "artifacts": {
+      "x86_64": {
+        "url": "https://fw.koolcenter.com/binary/zsetup/0.5.1/zsetup-linux-x86_64",
+        "sha256": "3df3166dada1f044b3d7d8fd944022f7d63f3a359ed9dbe1163d2a6aa3db1cf8",
+        "size": 952836
+      },
+      "aarch64": {
+        "url": "https://fw.koolcenter.com/binary/zsetup/0.5.1/zsetup-linux-aarch64",
+        "sha256": "3defb708b33fa27bb40bc4c5fa7c48afcec70d982c40e7cf157bb82180e3a7d0",
+        "size": 1902848
+      },
+      "armv7": {
+        "url": "https://fw.koolcenter.com/binary/zsetup/0.5.1/zsetup-linux-armv7",
+        "sha256": "327a329e58568215f11a5de60b38b89c4d330e5434090805a0ec8048b1a21cd1",
+        "size": 671024
+      }
+    }
+  },
+  "mise": {
+    "version": "2026.8.14",
+    "source": "https://api.github.com/repos/jdx/mise/releases/tags/v2026.8.14",
+    "artifacts": {
+      "linux-arm64": {
+        "url": "https://github.com/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-linux-arm64.tar.gz",
+        "size": 37112901,
+        "sha256": "940639580227bd838e3b3ea5b2084ea397399b0db162c2e4dd90b5730850e48e",
+        "mirrors": [
+          "https://gh.d4ctech.com/gh/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-linux-arm64.tar.gz",
+          "https://ph.limblimb.com/gh/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-linux-arm64.tar.gz"
+        ]
+      },
+      "linux-x64": {
+        "url": "https://github.com/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-linux-x64.tar.gz",
+        "size": 37664580,
+        "sha256": "64d5f34aeb7a4e0e327dc1c9be66cd8162e14899a47b11901154a100285a3d61",
+        "mirrors": [
+          "https://gh.d4ctech.com/gh/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-linux-x64.tar.gz",
+          "https://ph.limblimb.com/gh/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-linux-x64.tar.gz"
+        ]
+      },
+      "macos-arm64": {
+        "url": "https://github.com/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-macos-arm64.tar.gz",
+        "size": 29258035,
+        "sha256": "e3ba526b629c41fa7b0918f78e746ca71a7a4b0c78dbfaca9fb25676a318762e"
+      },
+      "macos-x64": {
+        "url": "https://github.com/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-macos-x64.tar.gz",
+        "size": 38139287,
+        "sha256": "6085d0b7c7bf8e176397c48e3f1e2025bd41d69dd50f05c08cb7ae89fb7f77b1"
+      },
+      "windows-x64": {
+        "url": "https://github.com/jdx/mise/releases/download/v2026.8.14/mise-v2026.8.14-windows-x64.zip",
+        "size": 33633582,
+        "sha256": "dfae38ae7c782ef2f0255aa2cd7f8d2c242559f94c491fb59182c7ad36c2bf79"
+      }
+    },
+    "mirrorPolicy": "Existing KSpeeder upstreams; official frozen archive SHA256 and size remain authoritative. Native zsetup races at most three HTTPS sources."
+  }
+}

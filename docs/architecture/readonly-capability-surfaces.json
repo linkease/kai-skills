@@ -1,0 +1,387 @@
+{
+  "schemaVersion": 1,
+  "kind": "readonly-interface-review",
+  "note": "Compatibility formats remain named; this inventory is not a runtime intent router, execution allowlist, or native platform pass claim. Per-operation proof is in KA3 verification evidence.",
+  "resources": [
+    {
+      "resource": "debian-system-diagnostics",
+      "canonicalPath": "components/system-packs/debian/skills/debian-system-diagnostics",
+      "queryInterface": "SKILL.md native read interfaces",
+      "scope": "Documentation-only existing system adapter; interface descriptions refactored in KA5.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-app-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
+      "queryInterface": "inspect.sh; collect.sh; state.sh; classify.sh",
+      "scope": "Recorded installer-process outcome/heuristic patterns, actual database observations and null compatibility next fields; no live init script execution.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-app-search",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
+      "queryInterface": "search.sh/fetch-store.sh",
+      "scope": "Catalog queries retain origin and compatibility; catalog text is untrusted, candidates remain separate.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-backup-restore",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
+      "queryInterface": "check.sh",
+      "scope": "Installed changeguard/linkspace presence and bounded native status/capabilities; presence is not protected data coverage.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-docker-acceleration-istoreenhance",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-acceleration-istoreenhance",
+      "queryInterface": "check.sh",
+      "scope": "Existing acceleration service observations; no install/restart/DNS probe implicit.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-docker-basics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
+      "queryInterface": "check.sh; check_space.sh EXPLICIT_DIRECTORY",
+      "scope": "Service startup/configuration evidence; selected directory storage facts; health and configuration sources remain separate.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-docker-data-root-migrate",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-data-root-migrate",
+      "queryInterface": "plan.sh",
+      "scope": "Current service/configuration observation; no automatic source/destination selection. Transaction interface follows in KA4.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-download-acceleration",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-download-acceleration",
+      "queryInterface": "evidence.sh",
+      "scope": "Existing download/gateway evidence only; dispatch actions are KA4 write operations.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-kspeeder-domainfold-fetch",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-kspeeder-domainfold-fetch",
+      "queryInterface": "check_installed.sh; remap_url.sh",
+      "scope": "Presence and explicit URL translation only; fetch/ensure-running are writes/active operations, KA4.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-logs-and-diagnostics",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
+      "queryInterface": "min-diag.sh base/disk/pkg/docker",
+      "scope": "Explicit query scopes delegated to canonical native observations; no unbounded filtered composite support transcript.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-luci-recovery",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
+      "queryInterface": "diag.sh SERVICE; trace_owner.sh PATH; suggest_fix.sh PATH",
+      "scope": "Service evidence and native file ownership; historical suggest name aliases facts, never a repair prescription.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-mise-runtime",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
+      "queryInterface": "check.sh; probe.sh; diagnose.sh",
+      "scope": "Existing integrated runtime/SDK query and tagged log patterns; no automatic preparation or retry.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-network-quality",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-network-quality",
+      "queryInterface": "inspect.sh",
+      "scope": "Observed tools/configuration only, init script presence does not cause execution; no next installer directive.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "queryInterface": "package.sh detect/search/info/installed/files/owner/available; legacy aliases",
+      "scope": "Actual opkg/apk database and explicit cached queries; no automatic refresh or installer operation.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-quickstart-api",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
+      "queryInterface": "request.sh METHOD PATH",
+      "scope": "Transport only. GET/HEAD are not proof of endpoint safety; host authorization is KA7.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-run-executable",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
+      "queryInterface": "inspect.sh FILE",
+      "scope": "File/type/checksum facts only; no prescribed next workflow or execution.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-service-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
+      "queryInterface": "inspect.sh --target-id ID --service NAME",
+      "scope": "Startup/firmware sources, native procd registration, generated config/registration and unfiltered bounded logs. Window expansion is explicit.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-source-introspect",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-source-introspect",
+      "queryInterface": "collect.sh SERVICE",
+      "scope": "Startup/config/ownership facts; no next-repair directives, untrusted init is read instead of executed.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-storage-path",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
+      "queryInterface": "quick-view.sh SOURCE; detect.sh",
+      "scope": "All observed filesystem facts, no chosen mount. probe.sh is an explicit write operation in KA4.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-system-task-router",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
+      "queryInterface": "observe.sh MODE SUBJECT",
+      "scope": "Compatibility name for explicit observation modes; no user intent recognition or task routing.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "istoreos-systools",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
+      "queryInterface": "inspect.sh SCOPE",
+      "scope": "Native observations only; no execution of opaque systools disk-power helpers or init wrappers.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-dev-environment",
+      "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
+      "queryInterface": "runtime.sh resolve/probe/verify; dev-cli.sh probe; diagnose.sh",
+      "scope": "Exact SDK/provenance and heuristic saved-log patterns; verify uses owned temporary crypto policy.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-download-acceleration",
+      "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
+      "queryInterface": "accelerate.sh doctor/explain; evidence.sh",
+      "scope": "Explicit selected tool and gateway observations; no gateway starts.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-network-quality",
+      "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
+      "queryInterface": "network.sh inspect/capabilities/validate",
+      "scope": "Native bounded FastNet machine observations; endpoint tests require separate explicit operations.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-project-dependencies",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
+      "queryInterface": "dependencies.sh sources MANAGER VERSION PROJECT",
+      "scope": "Bounded existing metadata; no SDK/project commands; no registry refresh.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-project-run",
+      "canonicalPath": "components/system-packs/common/skills/kai-project-run",
+      "queryInterface": "project.sh project-plan REQUEST",
+      "scope": "Selected project operation plan; apply is a separate write interface audited in KA4.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-software",
+      "canonicalPath": "components/system-packs/common/skills/kai-software",
+      "queryInterface": "query-entry.sh/ps1 search/detail/inspect; software.sh search/info/files/owner",
+      "scope": "Qualified identities, provider/version sources, local image/container identity; no lifecycle decision in query result.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-storage-files",
+      "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
+      "queryInterface": "usage.sh space/search/storage",
+      "scope": "Explicit bounded root/query; no automatic storage choice.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "queryInterface": "inspect.sh/ps1; observe.sh",
+      "scope": "Versioned native system and named source observations; no installation/provider selection.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "kai-tool-bootstrap",
+      "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
+      "queryInterface": "tool.sh probe/plan; bootstrap-bash.ps1 Plan",
+      "scope": "Existing tool facts/explicit operation plan; Ensure is a write operation.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "luci-http-controller",
+      "canonicalPath": "components/transports/luci-http/skills/luci-http-controller",
+      "queryInterface": "explicit transport request",
+      "scope": "Execution transport only; inspect/method labels do not prove read-only. Actual target, authorization and lifecycle remain host responsibilities in KA7.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "macos-launchd-logs",
+      "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
+      "queryInterface": "inspect.sh DOMAIN LABEL startup|logs",
+      "scope": "Explicit native launchd state/startup or scoped logs; failures/output limits visible; no launchd mutation.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "macos-system-diagnostics",
+      "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
+      "queryInterface": "inspect.sh",
+      "scope": "Native OS/tools observation delegated to common implementation; other observations are explicitly selected.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "target-ssh-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-controller",
+      "queryInterface": "explicit transport request",
+      "scope": "Execution transport only; inspect/method labels do not prove read-only. Actual target, authorization and lifecycle remain host responsibilities in KA7.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "target-ssh-powershell-controller",
+      "canonicalPath": "components/transports/ssh/skills/target-ssh-powershell-controller",
+      "queryInterface": "explicit transport request",
+      "scope": "Execution transport only; inspect/method labels do not prove read-only. Actual target, authorization and lifecycle remain host responsibilities in KA7.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "ubuntu-release-diagnostics",
+      "canonicalPath": "components/system-packs/ubuntu/skills/ubuntu-release-diagnostics",
+      "queryInterface": "SKILL.md native read interfaces",
+      "scope": "Documentation-only existing system adapter; interface descriptions refactored in KA5.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "windows-service-eventlog",
+      "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
+      "queryInterface": "inspect.ps1 -ServiceName NAME",
+      "scope": "Native SCM state, startup command/process registration and explicitly scoped event window; no running-to-API-health inference.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    },
+    {
+      "resource": "windows-system-diagnostics",
+      "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
+      "queryInterface": "inspect.ps1 -MaxEvents N",
+      "scope": "Native OS/disks/services/event observations; event errors remain unknown, oversized results fail visibly.",
+      "disposition": "reviewed",
+      "writeOperationsMilestone": "KA4",
+      "discoveryDescriptionsMilestone": "KA5",
+      "hostPermissionsMilestone": "KA7"
+    }
+  ]
+}

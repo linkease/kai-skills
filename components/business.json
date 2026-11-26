@@ -66,10 +66,13 @@
       "istoreos-app-diagnostics"
     ],
     "istoreos-docker-data-root-migrate": [
-      "istoreos-storage-path"
+      "istoreos-storage-path",
+      "istoreos-service-manager"
     ],
     "istoreos-system-task-router": [
-      "istoreos-package-manager"
+      "istoreos-package-manager",
+      "istoreos-service-manager",
+      "kai-system-information"
     ],
     "istoreos-quickstart-api": [
       "luci-http-controller"
@@ -92,6 +95,47 @@
       "kai-software",
       "kai-dev-environment",
       "kai-project-dependencies"
+    ],
+    "istoreos-service-manager": [
+      "kai-system-information"
+    ],
+    "istoreos-docker-basics": [
+      "istoreos-service-manager",
+      "kai-storage-files"
+    ],
+    "istoreos-logs-and-diagnostics": [
+      "istoreos-service-manager",
+      "kai-system-information",
+      "istoreos-package-manager"
+    ],
+    "istoreos-storage-path": [
+      "kai-system-information"
+    ],
+    "istoreos-source-introspect": [
+      "istoreos-service-manager"
+    ],
+    "windows-service-eventlog": [
+      "kai-system-information"
+    ],
+    "macos-launchd-logs": [
+      "kai-system-information"
+    ],
+    "macos-system-diagnostics": [
+      "kai-system-information"
+    ],
+    "istoreos-luci-recovery": [
+      "istoreos-service-manager",
+      "istoreos-package-manager"
+    ],
+    "istoreos-systools": [
+      "kai-system-information",
+      "istoreos-package-manager"
+    ],
+    "istoreos-docker-acceleration-istoreenhance": [
+      "istoreos-service-manager"
+    ],
+    "istoreos-backup-restore": [
+      "kai-system-information"
     ]
   },
   "programRequirements": {

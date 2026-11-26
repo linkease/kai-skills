@@ -21,7 +21,7 @@
     {
       "id": "istoreos-mise-runtime",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-mise-runtime",
-      "sourceDigest": "sha256:627b6959299d317cbd41b1c66ceefae14fb89a28e81dd7a90cd415ba944cfecc"
+      "sourceDigest": "sha256:37fb19d2ffa6facdfc46f24736a2683ff51da7c80047459f90e8b0c515c7fd63"
     },
     {
       "id": "istoreos-package-manager",

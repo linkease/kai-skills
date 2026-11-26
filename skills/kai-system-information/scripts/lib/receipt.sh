@@ -55,7 +55,7 @@ kai_error() {
 }
 
 kai_emit_observation() {
-  kai_receipt="{\"schemaVersion\":1,\"operation\":\"system.inspect\",\"operationStatus\":$(kai_json_string "$kai_status"),\"targetId\":$(kai_json_string "$kai_target"),\"readOnly\":true,\"observedAt\":$(kai_json_string "$kai_observed"),\"facts\":{$kai_facts},\"evidence\":[$kai_evidence],\"effects\":{\"requested\":[],\"completed\":[],\"unknown\":[],\"remaining\":[]},\"verification\":{\"status\":\"not_required\",\"checks\":[]},\"errors\":[$kai_errors],\"truncated\":false}"
+  kai_receipt="{\"schemaVersion\":1,\"operation\":$(kai_json_string "${kai_operation:-system.inspect}"),\"operationStatus\":$(kai_json_string "$kai_status"),\"targetId\":$(kai_json_string "$kai_target"),\"readOnly\":true,\"observedAt\":$(kai_json_string "$kai_observed"),\"facts\":{$kai_facts},\"evidence\":[$kai_evidence],\"effects\":{\"requested\":[],\"completed\":[],\"unknown\":[],\"remaining\":[]},\"verification\":{\"status\":\"not_required\",\"checks\":[]},\"errors\":[$kai_errors],\"truncated\":false}"
   kai_receipt_bytes=$(printf '%s' "$kai_receipt" | wc -c | tr -d ' ')
   if [ "$kai_receipt_bytes" -gt 8192 ]; then
     kai_facts= kai_evidence= kai_evidence_index=0 kai_errors= kai_status=failed

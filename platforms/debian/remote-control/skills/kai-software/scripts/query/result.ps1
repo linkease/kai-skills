@@ -21,7 +21,7 @@ function Query-Emit($rows,[string]$status='success',[string]$reason='') {
         }
         $items+=,$item
     }
-    $result=[ordered]@{protocol='software-query/v1';schemaVersion=1;targetId=$target;action=$Operation;status=$status;items=@($items);limit=$limit;hasMore=($ordered.Count -gt $limit);reason=$reason;effects=@()}
+    $result=[ordered]@{protocol='software-query/v1';schemaVersion=1;targetId=$target;action=$Operation;status=$status;readOnly=$true;untrustedData=$true;observedAt=[DateTimeOffset]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ');truncated=(@($items|Where-Object { $_.name -like ('*'+[char]0x2026) -or $_.description -like ('*'+[char]0x2026) -or $_.matchReason -like ('*'+[char]0x2026) }).Count -gt 0);items=@($items);limit=$limit;hasMore=($ordered.Count -gt $limit);reason=$reason;effects=@()}
     $json=$result|ConvertTo-Json -Depth 12 -Compress
     if([Text.Encoding]::UTF8.GetByteCount($json)+[Text.Encoding]::UTF8.GetByteCount([Environment]::NewLine) -gt 8192){throw 'query-result-too-large'}
     [Console]::WriteLine($json)

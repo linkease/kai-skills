@@ -11,11 +11,21 @@ case "$manager" in npm) runtime=node ;; pip|uv) runtime=python ;; go) runtime=go
 [[ "$version" =~ ^[0-9]+\.[0-9]+\.[0-9]+$ ]] || fail 2 version-selection 'a complete runtime version is required'
 [ -d "$project" ] || fail 4 project-unavailable 'project directory must already exist'
 project="$(CDPATH= cd -- "$project" && pwd -P)"
+source_file() {
+    [ -f "$1" ] && [ ! -L "$1" ] || fail 4 source-unreadable 'source metadata must be a regular file in the selected project'
+    [ "$(wc -c < "$1")" -le 1048576 ] || fail 20 source-limit 'source metadata exceeds the 1 MiB per-file query limit; no project tools were executed'
+}
+emit_sources() {
+    source_result="$(printf '%s' "$1" | jq -c --arg target "${ZSETUP_TASK_TARGET_ID:-local}" --arg observed "$(date -u '+%Y-%m-%dT%H:%M:%SZ')" --arg project "$project" '.+{readOnly:true,targetId:$target,observedAt:$observed,sourceProject:$project,untrustedData:true}')" || fail 4 source-unreadable 'cannot encode the source observation'
+    [ "$(printf '%s' "$source_result" | wc -c)" -le 8192 ] || fail 20 source-result-limit 'source observation exceeds 8192 bytes; no truncated source list was accepted'
+    printf '%s\n' "$source_result"
+}
 if [ "$action" = sources ] && [ "$manager" = npm ]; then
     [ -f "$project/package.json" ] || fail 4 manifest-required 'source inspection requires package.json'
     json_files=("$project/package.json")
     [ ! -f "$project/package-lock.json" ] || json_files+=("$project/package-lock.json")
-    jq -s '
+    for source in "${json_files[@]}"; do source_file "$source"; done
+    source_json="$(jq -s '
       def kind:
         if test("^(git[+:]|ssh:|github:|gitlab:|bitbucket:)") then "git"
         elif test("^(file:|link:|workspace:|\\./|\\.\\./)") then "local"
@@ -23,10 +33,11 @@ if [ "$action" = sources ] && [ "$manager" = npm ]; then
         elif test("^https?://") then "url"
         elif test("^[^@ /]+/[^ /]+") then "git" else "registry" end;
       .[0] as $manifest | (.[1] // {}) as $lock | $manifest |
-      {schemaVersion:1,accelerationValidation:"not-tested",privateRegistryPolicy:"requires-separate-review",
+      {schemaVersion:1,accelerationValidation:"not-tested",privateRegistryAuthentication:"not-observed",
        sources: (((.dependencies // {}) + (.devDependencies // {}) + (.optionalDependencies // {})) | to_entries |
         map(. as $entry | {name:.key,type:(($lock.packages["node_modules/" + $entry.key].resolved // $entry.value) | tostring | kind)}))}
-    ' "${json_files[@]}" || fail 4 invalid-manifest 'cannot inspect the npm manifest or lock'
+    ' "${json_files[@]}")" || fail 4 invalid-manifest 'cannot inspect the npm manifest or lock'
+    emit_sources "$source_json"
     exit 0
 fi
 if [ "$action" = sources ]; then
@@ -40,6 +51,7 @@ if [ "$action" = sources ]; then
         [ ! -f "$project/$candidate" ] || source_files+=("$project/$candidate")
     done
     [ "${#source_files[@]}" -gt 0 ] || fail 4 manifest-required 'no supported project metadata was found for source inspection'
+    for source in "${source_files[@]}"; do source_file "$source"; done
     source_rows="$(awk -v manager="$manager" '
       /^[[:space:]]*(#|$)/ {next}
       {
@@ -60,7 +72,8 @@ if [ "$action" = sources ]; then
         name=FILENAME; sub(/^.*\//,"",name)
         printf "%s:%d\t%s\n",name,FNR,kind
       }' "${source_files[@]}")" || fail 4 source-unreadable 'cannot inspect the existing source metadata'
-    printf '%s\n' "$source_rows" | jq -Rsc '{schemaVersion:1,requiresSourceReview:true,accelerationValidation:"not-tested",sources:(split("\n")|map(select(length>0)|split("\t")|{name:.[0],type:.[1]}))}'
+    source_json="$(printf '%s\n' "$source_rows" | jq -Rsc '{schemaVersion:1,readOnly:true,accelerationValidation:"not-tested",sources:(split("\n")|map(select(length>0)|split("\t")|{name:.[0],type:.[1]}))}')" || fail 4 source-unreadable 'cannot encode source rows'
+    emit_sources "$source_json"
     exit 0
 fi
 if [ "${KAI_DEP_ENTERED:-0}" != 1 ]; then

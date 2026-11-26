@@ -7,6 +7,12 @@ This directory is an independent skill. Resolve paths relative to this SKILL.md,
 and run commands on the selected target through its existing authorized Transport.
 Other Kai skills named below are optional specialists; this directory contains
 the executable resources required by its own workflow.
+
+## Local supporting resources
+
+- `kai-system-information`: [local instructions](resources/runtime/kai-system-information/GUIDANCE.md); executable helpers under that resource’s `scripts/`.
+
+## Business workflow
 # iStoreOS Service Manager
 
 目标：把“已安装但没生效/服务没起来/插件没启用”的问题收敛到一个通用闭环：**init.d + UCI enable flag + 验证**。
@@ -34,3 +40,7 @@ the executable resources required by its own workflow.
 4) 验证：
    - `/etc/init.d/<service> status || true`
    - `logread | tail -n 200 | grep -iE '<service>|error|fail' || true`
+
+## Read-only service evidence
+
+`sh scripts/inspect.sh --target-id ID --service NAME [--sections init,config,runtime,logs,ownership]` returns an operation receipt with target/time/source, raw untrusted startup text, native procd command/state, generated Docker configuration and storage registration when applicable. It never executes inspected init scripts. `--file /ABSOLUTE/PATH --offset 0 --length 2048` reads an explicit bounded file window. Oversized or unavailable evidence is reported; running processes do not establish API health. Existing POSIX tools and an existing bounded executor are required; no dependencies are installed.

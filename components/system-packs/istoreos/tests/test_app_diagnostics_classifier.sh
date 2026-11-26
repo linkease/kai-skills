@@ -30,7 +30,7 @@ while IFS="$(printf '\t')" read -r case_name requested expected_outcome expected
     echo "failed: $case_name correlation=$actual_correlation expected=$expected_correlation" >&2; exit 1;
   }
   next_count="$(awk -F '\t' '$1 == "next_skill" && $2 != "" { count++ } END { print count + 0 }' "$tmp/classified")"
-  [ "$next_count" -le 1 ]
+  [ "$next_count" -eq 0 ]
   count=$((count + 1))
 done <"$fixtures/cases.tsv"
 

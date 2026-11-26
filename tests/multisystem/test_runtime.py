@@ -241,6 +241,26 @@ esac
         self.assertEqual(p.stdout, '/explicit/policy.cnf')
         self.assertEqual(source.read_bytes(), before)
 
+    def test_readonly_python_verification_does_not_create_a_persistent_crypto_cache(self):
+        system = self.work / 'system'
+        source = system / 'etc/ssl/openssl.cnf'
+        source.parent.mkdir(parents=True)
+        source.write_bytes((ROOT / 'tests/multisystem/fixtures/istoreos-openssl-default.cnf').read_bytes())
+        before = source.read_bytes()
+        sdk = self.work / 'selected-sdk'
+        (sdk / 'bin').mkdir(parents=True)
+        shutil.copy2(Path(sys.executable).resolve(), sdk / 'bin/python')
+        (sdk / 'lib').symlink_to(Path(sys.base_prefix) / 'lib', target_is_directory=True)
+        (self.bin / 'mise').write_text('#!/bin/bash\ncase "$1" in where) printf "%s\\n" "$TEST_SDK";; exec) shift 3;exec "$@";; *) exit 29;; esac\n')
+        scratch = self.work / 'query-scratch'
+        scratch.mkdir()
+        p = self.call('verify', 'python', sys.version.split()[0], KAI_PLATFORM='istoreos',
+                      ISTORE_RUNTIME_ENTERED='1', ISTORE_SYSTEM_ROOT=str(system), TEST_SDK=str(sdk), TMPDIR=str(scratch))
+        self.assertEqual(p.returncode, 0, p.stdout + p.stderr)
+        self.assertEqual(source.read_bytes(), before)
+        self.assertFalse((self.work / '.local/share/kai/python-openssl').exists())
+        self.assertEqual(list(scratch.iterdir()), [])
+
     def test_tls_validator_rejects_untrusted_certificates_and_wrong_hostnames(self):
         cert = self.work / 'cert.pem'; key = self.work / 'key.pem'
         subprocess.run(['openssl', 'req', '-x509', '-newkey', 'ec', '-pkeyopt', 'ec_paramgen_curve:P-256',

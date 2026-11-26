@@ -22,7 +22,17 @@
     {
       "id": "istoreos-systools",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
-      "sourceDigest": "sha256:73c40fd8b45b001ad983be87f25dbe0faafb41dcb5168eb20f1e7101f8883491"
+      "sourceDigest": "sha256:e5dd9c73f4204eb2e454980dfb5da0fc21eedc88e7f33c2240d7fea02de370c3"
+    },
+    {
+      "id": "istoreos-package-manager",
+      "canonicalPath": "components/system-packs/istoreos/skills/istoreos-package-manager",
+      "sourceDigest": "sha256:604c8f7d6af8dff2860d6a5f2f5a8e8dd67a8f9100c257f0f4ac446d4e65f91e"
+    },
+    {
+      "id": "kai-system-information",
+      "canonicalPath": "components/system-packs/common/skills/kai-system-information",
+      "sourceDigest": "sha256:f56c3838c3a9f72cb9b6780445b84fddb3e1e3e5009b700d8f39267700f72909"
     }
   ]
 }

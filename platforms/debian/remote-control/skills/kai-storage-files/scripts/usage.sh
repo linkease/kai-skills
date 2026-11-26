@@ -49,7 +49,7 @@ if [ "$action" = storage ]; then
        else "unknown" end) as $p |
       {schemaVersion:1,status:"passed",operation:"storage",tool:$tool,path:$root,facts:$f,persistence:$p,
        eligibleForInstall:($p=="persistent" and .read_only==false and .noexec==false and .writable==true and .available_bytes >= $minimum),
-       minimumFreeBytes:$minimum,nextStep:(if $p=="persistent" then "verify the intended directory and budget before installation" else "choose storage with verified persistent backing" end),exitCode:0}'
+       minimumFreeBytes:$minimum,exitCode:0}'
     exit 0
 fi
 term=''
@@ -107,5 +107,5 @@ jq -cn --arg action "$action" --arg root "$root" --arg tool "$tool" --arg execut
     --argjson code "$code" --argjson native "$native" --argjson argv "$argv" \
     '{schemaVersion:1,status:$status,operation:$action,scope:$root,tool:$tool,executable:$executable,argv:$argv,
       nativeExitCode:$code,nativeResult:$native,data:($native.result//$native.error.details),
-      nextStep:(if $status=="partial" then "review unavailable ranges and observed-only results" else "review the scoped result; cleanup is a separate action" end),exitCode:$code}'
+      exitCode:$code}'
 exit "$code"
