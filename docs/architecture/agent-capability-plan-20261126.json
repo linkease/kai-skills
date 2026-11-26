@@ -255,8 +255,8 @@
       "dependsOn": [
         "KA0"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R02",
         "R03",
@@ -268,28 +268,37 @@
         {
           "id": "KA1-T01",
           "assertion": "合法和非法参数、未知版本、错误目标和不支持的平台分别有确定结果。请求不接受一段用户业务意图后自行展开整套任务；可选查询范围只表示要收集哪些事实。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA1-20261126.json"
         },
         {
           "id": "KA1-T02",
           "assertion": "成功采集“Docker API 不可达”时，采证操作可以成功，但健康事实必须为不可达；加载 skill、启动请求受理、进程存在均不能冒充服务可用。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA1-20261126.json"
         },
         {
           "id": "KA1-T03",
           "assertion": "区分已观察到、已确认不存在、权限不足、超时、不支持和未知。没有读取到版本不返回“已是最新”；证据冲突保留双方来源，不自行选定权威。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA1-20261126.json"
         },
         {
           "id": "KA1-T04",
           "assertion": "事实包含 targetId、采集时间、来源和必要作用域。派生值可定位到输入事实；默认摘要最多 8 KiB，较大输出可显式展开，截断必须可见，致命错误不能被摘要过滤。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA1-20261126.json"
         },
         {
           "id": "KA1-T05",
           "assertion": "写操作回执区分已请求的效果、已完成的效果、实际验证、残留状态及是否适合重试。遇到无法确认的写入结果返回不确定，不能简单声称“未执行”。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA1-20261126.json"
         }
+      ],
+      "optimizations": 1,
+      "evidence": [
+        "agent-capability-KA1-20261126.json"
       ]
     },
     {

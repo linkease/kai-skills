@@ -1,0 +1,71 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "kai-operation-result/v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "operation", "operationStatus", "targetId", "readOnly", "observedAt", "facts", "evidence", "effects", "verification", "errors", "truncated"],
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "operation": {"type": "string", "pattern": "^[a-z][a-z0-9._-]{0,95}$"},
+    "operationStatus": {"enum": ["succeeded", "failed", "partial", "cancelled", "unknown"]},
+    "targetId": {"type": "string", "minLength": 1, "maxLength": 200},
+    "readOnly": {"type": "boolean"},
+    "observedAt": {"type": "string", "format": "date-time"},
+    "facts": {"type": "object"},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "effects": {"$ref": "#/$defs/effects"},
+    "verification": {"$ref": "#/$defs/verification"},
+    "errors": {"type": "array", "items": {"$ref": "#/$defs/error"}},
+    "truncated": {"type": "boolean"},
+    "artifacts": {"type": "array", "items": {"type": "object"}}
+  },
+  "$defs": {
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "source", "status", "observedAt"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "source": {"type": "string", "minLength": 1},
+        "status": {"enum": ["observed", "absent", "denied", "timeout", "unsupported", "unknown"]},
+        "observedAt": {"type": "string", "format": "date-time"},
+        "factPaths": {"type": "array", "items": {"type": "string"}},
+        "detail": {"type": "string"}
+      }
+    },
+    "effects": {
+      "type": "object", "additionalProperties": false,
+      "required": ["requested", "completed", "unknown", "remaining"],
+      "properties": {
+        "requested": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "completed": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "unknown": {"type": "array", "items": {"$ref": "#/$defs/effect"}},
+        "remaining": {"type": "array", "items": {"$ref": "#/$defs/effect"}}
+      }
+    },
+    "effect": {
+      "type": "object", "required": ["id", "kind", "target"],
+      "properties": {
+        "id": {"type": "string", "minLength": 1},
+        "kind": {"type": "string", "minLength": 1},
+        "target": {"type": "string", "minLength": 1}
+      }
+    },
+    "verification": {
+      "type": "object", "additionalProperties": false,
+      "required": ["status", "checks"],
+      "properties": {
+        "status": {"enum": ["not_required", "not_run", "passed", "failed", "unknown"]},
+        "checks": {"type": "array", "items": {"type": "object"}}
+      }
+    },
+    "error": {
+      "type": "object", "additionalProperties": false,
+      "required": ["code", "message"],
+      "properties": {
+        "code": {"type": "string", "minLength": 1},
+        "message": {"type": "string", "minLength": 1},
+        "evidenceId": {"type": "string"}
+      }
+    }
+  }
+}

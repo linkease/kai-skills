@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA1",
+  "status": "passed",
+  "optimizations": 1,
+  "iterations": [
+    {
+      "round": "initial",
+      "tests": 6,
+      "result": "passed"
+    },
+    {
+      "round": "self-review-regression",
+      "tests": 8,
+      "result": "failed",
+      "failures": [
+        "unattributed fact accepted",
+        "effect outside requested scope accepted"
+      ]
+    },
+    {
+      "round": "optimization-1",
+      "tests": 9,
+      "result": "passed",
+      "checks": [
+        "every fact attributed",
+        "effect scope matches request",
+        "exact UTF-8 byte budget",
+        "bounded JSON depth",
+        "RFC3339 timestamps"
+      ]
+    }
+  ],
+  "command": "python3 -B -m unittest discover -s tests/agent_capabilities -p 'test_contract.py' -v",
+  "exitCode": 0,
+  "integrationRegression": {
+    "command": "python3 -B -m unittest discover -s tests/agent_capabilities -p 'test_*.py' -v",
+    "tests": 13,
+    "exitCode": 0,
+    "note": "Before adding the final byte-boundary test; that changed test and contract were then checked in the 9-case contract run."
+  },
+  "contract": "../architecture/agent-operation-contract.md",
+  "schema": "../../schemas/operation-result.schema.json",
+  "limits": "The receipt does not authorize execution or establish user-task completion; native adapters and host integration follow in KA2–KA7."
+}
