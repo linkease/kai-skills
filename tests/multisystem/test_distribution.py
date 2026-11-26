@@ -10,7 +10,7 @@ import unittest
 
 ROOT=Path(__file__).resolve().parents[2]
 COMMON={'kai-software','kai-dev-environment','kai-project-dependencies',
-        'kai-download-acceleration','kai-storage-files','kai-tool-bootstrap','kai-project-run'}
+        'kai-download-acceleration','kai-storage-files','kai-tool-bootstrap','kai-project-run','kai-system-information'}
 SCOPE=json.loads((ROOT/'tests/multisystem/scope.json').read_text())
 # Keep the pre-migration fixture stable after the new implementation is committed.
 LEGACY_PRESET_COMMIT='a7c5b1e7a855edcbac21ed25e46515e540fc4fae'

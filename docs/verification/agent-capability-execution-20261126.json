@@ -24,15 +24,17 @@
     },
     {
       "id": "KA2",
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
-      "optimizations": 0,
-      "evidence": []
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
+      "optimizations": 3,
+      "evidence": [
+        "agent-capability-KA2-20261126.json"
+      ]
     },
     {
       "id": "KA3",
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "in_progress",
+      "verificationStatus": "in_progress",
       "optimizations": 0,
       "evidence": []
     },

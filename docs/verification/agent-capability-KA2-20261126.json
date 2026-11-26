@@ -1,0 +1,245 @@
+{
+  "schemaVersion": 1,
+  "milestone": "KA2",
+  "status": "passed",
+  "optimizations": 3,
+  "iterations": [
+    {
+      "round": "initial",
+      "localCases": 7,
+      "localStatus": "passed",
+      "nativeIssues": [
+        "minimal apk test carrier incorrectly required base64",
+        "full engine probe on the opkg target returned an accurate partial timeout rather than a healthy-engine result"
+      ]
+    },
+    {
+      "round": "optimization-1",
+      "changes": [
+        "dependency-free Unix test staging",
+        "native configuration/database preservation checks",
+        "explicit unknown OS facts and observed Darwin init",
+        "corrected pre-existing consumer test expectation for explicit resources"
+      ],
+      "nativeStatus": "passed",
+      "localCases": 9
+    },
+    {
+      "round": "optimization-2",
+      "regressionsBeforeFix": [
+        "missing awk produced invalid JSON",
+        "missing bounded executor was reported as unknown"
+      ],
+      "changes": [
+        "POSIX shell serialization/OS parsing fallback",
+        "unsupported executor evidence"
+      ],
+      "localCases": 11,
+      "localStatus": "passed"
+    },
+    {
+      "round": "optimization-3",
+      "regressionBeforeFix": "oversized external probe output was silently truncated and reported as a successful engine response",
+      "changes": [
+        "explicit probe byte-limit failure",
+        "file-size limits",
+        "kill escalation and supervised Perl process groups",
+        "WSL scope and term-ignoring process cases"
+      ],
+      "finalLocalCases": 14,
+      "status": "passed"
+    }
+  ],
+  "verification": {
+    "agentCapabilityTests": {
+      "tests": 28,
+      "exitCode": 0,
+      "logSHA256": "b62c298106ed58fe01f0b7a939911398408bf5fece6276c4c65177a7c7d0226e",
+      "log": "build/verification/agent-capabilities-20261126/KA2-unit-opt3-final.log"
+    },
+    "distributionRegression": {
+      "command": "/var/cache/build-cache/run.sh -- python3 -B -m unittest discover -s tests/multisystem -p test_distribution.py -v",
+      "tests": 6,
+      "exitCode": 0,
+      "scope": "20 installed consumer layouts plus preset ownership and native-resource isolation; these are not native desktop runtime evidence"
+    },
+    "generatedConsistency": {
+      "command": "sh tools/generate-business.sh && sh tools/generate-platforms.sh && sh tools/verify-generated.sh",
+      "status": "passed"
+    },
+    "native": [
+      {
+        "platform": "istoreos-apk",
+        "evidenceType": "native-target-execution",
+        "mode": "remote-control",
+        "status": "passed",
+        "os": {
+          "family": "linux",
+          "distribution": "istoreos",
+          "version": "25.12.6",
+          "name": "iStoreOS 25.12.6"
+        },
+        "providerNames": [
+          "is-opkg",
+          "apk"
+        ],
+        "sourceFiles": {
+          "inspect.sh": "687a7fb07d8feebb43689828b8fe076d5c48a4177e684a0fc721c5bcb21b0165",
+          "lib/receipt.sh": "aba6b3bdb3dc14dd7ed17354ca64f6df487c1bea1d64571c2637f8c80de12d3f"
+        },
+        "rawEvidenceSHA256": "5573f371a0b4eb446bcd0edfe6391d14d5e7a33d063ffc97d01d7455682659bb",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-native-final/istoreos-apk.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 0.716
+      },
+      {
+        "platform": "istoreos-opkg",
+        "evidenceType": "native-target-execution",
+        "mode": "remote-control",
+        "status": "passed",
+        "os": {
+          "family": "linux",
+          "distribution": "istoreos",
+          "version": "24.10.8",
+          "name": "iStoreOS 24.10.8"
+        },
+        "providerNames": [
+          "opkg",
+          "is-opkg"
+        ],
+        "sourceFiles": {
+          "inspect.sh": "687a7fb07d8feebb43689828b8fe076d5c48a4177e684a0fc721c5bcb21b0165",
+          "lib/receipt.sh": "aba6b3bdb3dc14dd7ed17354ca64f6df487c1bea1d64571c2637f8c80de12d3f"
+        },
+        "rawEvidenceSHA256": "f5d31761db9c999adc0a809d33a3e30c33f6d0a578afd6fc0bc76d60d8a0b0af",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-native-final/istoreos-opkg.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 1.041
+      },
+      {
+        "platform": "macos",
+        "evidenceType": "native-target-execution",
+        "mode": "remote-control",
+        "status": "passed",
+        "os": {
+          "family": "darwin",
+          "distribution": "macos",
+          "version": "26.6.2"
+        },
+        "providerNames": [
+          "brew"
+        ],
+        "sourceFiles": {
+          "inspect.sh": "687a7fb07d8feebb43689828b8fe076d5c48a4177e684a0fc721c5bcb21b0165",
+          "lib/receipt.sh": "aba6b3bdb3dc14dd7ed17354ca64f6df487c1bea1d64571c2637f8c80de12d3f"
+        },
+        "rawEvidenceSHA256": "aeab83d9f7d388fee8eb0260a6382bb0b2601e6390bda4e8e2108db31125ee79",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-native-final/macos.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 0.644
+      },
+      {
+        "platform": "windows",
+        "evidenceType": "native-target-execution",
+        "mode": "remote-control",
+        "status": "passed",
+        "os": {
+          "family": "windows",
+          "distribution": "windows",
+          "name": "Windows 10 Pro",
+          "version": "10.0.19044.0",
+          "build": "19044"
+        },
+        "providerNames": [
+          "winget"
+        ],
+        "sourceFiles": {
+          "inspect.ps1": "5531d460369e9b4fda7f5e49c3c79218ecf7390ad010481ba08ce7ff2080adc4"
+        },
+        "rawEvidenceSHA256": "b5554342a784e5546f191180eb633f25ce1479e8f340cfbaf8f70b16e4faa2dd",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-native-final/windows.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 3.141
+      },
+      {
+        "platform": "debian",
+        "evidenceType": "native-linux-container",
+        "mode": "on-device",
+        "status": "passed",
+        "os": {
+          "family": "linux",
+          "distribution": "debian",
+          "version": "13",
+          "name": "Debian GNU/Linux 13 (trixie)"
+        },
+        "providerNames": [
+          "apt",
+          "apt-get"
+        ],
+        "sourceFiles": {
+          "inspect.sh": "687a7fb07d8feebb43689828b8fe076d5c48a4177e684a0fc721c5bcb21b0165",
+          "lib/receipt.sh": "aba6b3bdb3dc14dd7ed17354ca64f6df487c1bea1d64571c2637f8c80de12d3f"
+        },
+        "rawEvidenceSHA256": "c2a6af32513cf80a8e97d7c718289db99ac34b107987a0aa19872689d0abc2b4",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-containers-final/debian.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 0.99
+      },
+      {
+        "platform": "fedora",
+        "evidenceType": "native-linux-container",
+        "mode": "on-device",
+        "status": "passed",
+        "os": {
+          "family": "linux",
+          "distribution": "fedora",
+          "version": "43",
+          "name": "Fedora Linux 43 (Container Image)"
+        },
+        "providerNames": [
+          "yum",
+          "dnf"
+        ],
+        "sourceFiles": {
+          "inspect.sh": "687a7fb07d8feebb43689828b8fe076d5c48a4177e684a0fc721c5bcb21b0165",
+          "lib/receipt.sh": "aba6b3bdb3dc14dd7ed17354ca64f6df487c1bea1d64571c2637f8c80de12d3f"
+        },
+        "rawEvidenceSHA256": "b682e522fb9690211a416d76d99f506fadb4bfa7978777a1126272038b6a0a71",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-containers-final/fedora.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 1.096
+      },
+      {
+        "platform": "ubuntu",
+        "evidenceType": "native-linux-container",
+        "mode": "on-device",
+        "status": "passed",
+        "os": {
+          "family": "linux",
+          "distribution": "ubuntu",
+          "version": "24.04",
+          "name": "Ubuntu 24.04.5 LTS"
+        },
+        "providerNames": [
+          "apt",
+          "apt-get"
+        ],
+        "sourceFiles": {
+          "inspect.sh": "687a7fb07d8feebb43689828b8fe076d5c48a4177e684a0fc721c5bcb21b0165",
+          "lib/receipt.sh": "aba6b3bdb3dc14dd7ed17354ca64f6df487c1bea1d64571c2637f8c80de12d3f"
+        },
+        "rawEvidenceSHA256": "19650709f2fafc879b36dccd77e1ba83e5a8239420bdd37ada6473280ad8bb8e",
+        "rawEvidencePath": "build/verification/agent-capabilities-20261126/KA2-opt3-containers-final/ubuntu.json",
+        "protectedConfigurationFingerprints": "unchanged",
+        "elapsedSeconds": 0.808
+      }
+    ]
+  },
+  "scopeNotes": [
+    "Linux query evidence uses real Ubuntu/Debian/Fedora containers with locked image IDs, read-only roots, no host mounts and no network; it does not claim full-system boot validation.",
+    "Desktop and iStoreOS evidence uses actual native targets through the existing strict SSH transports, not local fixtures.",
+    "No production package, service configuration or Skills installation was changed; only owned temporary query material was staged and removed.",
+    "Direct Docker Hub pull timed out; the Debian image was retrieved through the existing verified registry endpoint and locked by content ID."
+  ],
+  "nativeEnvironmentBindings": "Private files and complete raw output remain outside the source repository."
+}

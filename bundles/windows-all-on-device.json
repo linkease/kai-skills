@@ -36,6 +36,11 @@
       "treeDigest": "sha256:1c106af8a8bfa72b94fdbd8cacf05791ccf5ee78fbc586bb97432bc63eb4060e"
     },
     {
+      "id": "kai-system-information",
+      "version": "1.2.11",
+      "treeDigest": "sha256:d6db622a9182a8461cd6b0cb2a9bf61f16686e23a9f1a9d79c9850ac498cd2b1"
+    },
+    {
       "id": "kai-tool-bootstrap",
       "version": "1.2.11",
       "treeDigest": "sha256:edd9f85917675a1ec19674695e61b2313de0223c56fb9c40d43e87893563f6d0"

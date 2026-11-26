@@ -843,6 +843,40 @@
           "role": "primary"
         }
       ]
+    },
+    {
+      "id": "system-information",
+      "group": "systems",
+      "order": 80,
+      "title": {
+        "en": "System information",
+        "zh-CN": "系统信息"
+      },
+      "description": {
+        "en": "Observe target OS, package-manager programs and container-client or engine facts without changing them.",
+        "zh-CN": "只读查询目标系统、包管理器及容器客户端和引擎事实。"
+      },
+      "ownership": "managed",
+      "risk": "read-only",
+      "targets": {
+        "platforms": [
+          "ubuntu",
+          "debian",
+          "istoreos",
+          "macos",
+          "windows"
+        ]
+      },
+      "prompt": {
+        "en": "Show the current target system and available software-management and container tools.",
+        "zh-CN": "查看当前目标的系统信息及可用的软件管理、容器工具。"
+      },
+      "modules": [
+        {
+          "id": "kai-system-information",
+          "role": "primary"
+        }
+      ]
     }
   ]
 }

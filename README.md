@@ -8,6 +8,7 @@
 
 | 需求 | 独立 skill |
 | --- | --- |
+| 查询目标系统、包管理器与容器工具事实 | [`kai-system-information`](skills/kai-system-information) |
 | 搜索、查询、安装和使用软件 | [`kai-software`](skills/kai-software) |
 | 下载文件、Git、Docker 加速 | [`kai-download-acceleration`](skills/kai-download-acceleration) |
 | 使用 mise 安装和选择 SDK | [`kai-dev-environment`](skills/kai-dev-environment) |
@@ -30,8 +31,8 @@
 
 开发者可以改为“安装 development 业务集合”。需要系统全部能力时，明确说“安装远程控制 iStoreOS 的全部适用 skills”。单个通用 skill 可以先下载，执行任务前再识别目标系统；远控集合需要明确目标和执行方式。
 
-共同入口为 `kai-software`、`kai-dev-environment`、`kai-project-dependencies`、
-`kai-download-acceleration`、`kai-storage-files`、`kai-tool-bootstrap`。系统适配遵循目标设备事实，
+共同入口为 `kai-system-information`、`kai-software`、`kai-dev-environment`、`kai-project-dependencies`、
+`kai-download-acceleration`、`kai-storage-files`、`kai-tool-bootstrap`、`kai-project-run`。系统适配遵循目标设备事实，
 远控主机的系统不决定目标包管理器。Windows 需要 Git Bash；首次引导可用原生 PowerShell，WSL 作为独立 Linux 目标。
 
 历史多系统核心功能结果见[多系统完成情况](docs/verification/platform-completion-20261028.md)。
@@ -158,7 +159,7 @@ sh tools/verify-generated.sh
 sh tools/build-release.sh release
 ```
 
-默认构建 31 个独立 skill、2 个业务集合、10 个系统集合的 `.tar.gz` / `.zip`，共 86 个归档，以及来源和 SHA-256 清单。输出目录须不存在，避免混入旧版本。旧的 20 个 preset 兼容归档使用 `sh tools/build-release.sh --legacy OUTPUT`。
+默认构建 33 个独立 skill、2 个业务集合、10 个系统集合的 `.tar.gz` / `.zip`，共 90 个归档，以及来源和 SHA-256 清单。输出目录须不存在，避免混入旧版本。旧的 20 个 preset 兼容归档使用 `sh tools/build-release.sh --legacy OUTPUT`。
 
 独立归档解包后可直接复制 skill；业务/系统归档含离线安装器，复用上面的选择参数。Windows 从集合根目录 `install.ps1 -Action Plan` 开始。受管安装器记录共享归属，升级或卸载前发现用户修改会停止并保留内容。完整构建、验证和下载流程见 [`docs/RELEASING.md`](docs/RELEASING.md)。
 

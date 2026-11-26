@@ -8,6 +8,7 @@
     "kai-project-run",
     "kai-software",
     "kai-storage-files",
+    "kai-system-information",
     "kai-tool-bootstrap",
     "target-ssh-powershell-controller",
     "windows-service-eventlog",

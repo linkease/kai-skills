@@ -22,8 +22,8 @@
     "debian": "1.0.1",
     "transport.ssh": "1.1.1"
   },
-  "sourceDigest": "sha256:f5e91aff9c351b5cc666bf73d362076622cb4eae74816fc9eed63618efb04073",
-  "treeDigest": "sha256:e398230be8cb19d7642971fd43ff361f02c1c33ada44963006b50c1b5376e2c0",
+  "sourceDigest": "sha256:e30f01f23a729974186747c9e05bb61ed19931d3473c357544cf643e72e026cf",
+  "treeDigest": "sha256:deca443c9108379df11b82f21168fdb5f2e0977cfe3498c0afc0420ff4e30ce3",
   "resources": [],
   "skillAliases": {}
 }

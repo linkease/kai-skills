@@ -309,8 +309,8 @@
       "dependsOn": [
         "KA1"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "complete",
+      "verificationStatus": "passed",
       "requirements": [
         "R04",
         "R05",
@@ -324,33 +324,43 @@
         {
           "id": "KA2-T01",
           "assertion": "Ubuntu、Debian、iStoreOS opkg、iStoreOS apk、macOS、Windows 原生查询准确；RPM Linux 的 yum/dnf 分支使用真实隔离环境验证，不能因现有分发预设没有该发行版就误报不存在。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA2-20261126.json"
         },
         {
           "id": "KA2-T02",
           "assertion": "同机多包管理器、只有命令无可读数据库、包装脚本、同名别名、缺工具和权限拒绝均正确区分；不返回脚本自行选择的“推荐安装器”。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA2-20261126.json"
         },
         {
           "id": "KA2-T03",
           "assertion": "Ubuntu 控制端查询 iStoreOS/Windows 目标，事实和探测进程只来自目标。容器和 WSL 的内核来源不被当作完整宿主发行版事实；缓存跨目标、跨环境不得混用。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA2-20261126.json"
         },
         {
           "id": "KA2-T04",
           "assertion": "覆盖 Docker 无客户端、仅客户端、引擎停止、权限拒绝、远端 context、多引擎和 Podman 等兼容实现。目标不明确时只报告 endpoint，不擅自操作另一个引擎；发现 Docker 不导致普通安装自动选择容器方案。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA2-20261126.json"
         },
         {
           "id": "KA2-T05",
           "assertion": "查询前后配置、包数据库、服务状态和受保护文件不变；不刷新仓库、不拉镜像、不安装探测依赖。缺 jq/Python/Bash 的适用设备仍有原生读取路径，或明确报告不支持。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA2-20261126.json"
         },
         {
           "id": "KA2-T06",
           "assertion": "最小查询按 KA0 的固定目标预算有界结束；慢探针超时保留其他已采事实。相同事实集合通常只需一次调用；时效要求明确时重新查询，不以旧缓存冒充当前状态。",
-          "status": "not_run"
+          "status": "passed",
+          "evidence": "../verification/agent-capability-KA2-20261126.json"
         }
+      ],
+      "optimizations": 3,
+      "evidence": [
+        "../verification/agent-capability-KA2-20261126.json"
       ]
     },
     {
@@ -362,8 +372,8 @@
         "KA1",
         "KA2"
       ],
-      "implementationStatus": "not_started",
-      "verificationStatus": "not_run",
+      "implementationStatus": "in_progress",
+      "verificationStatus": "in_progress",
       "requirements": [
         "R02",
         "R05",

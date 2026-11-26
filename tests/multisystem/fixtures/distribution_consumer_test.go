@@ -20,7 +20,7 @@ func TestKaiMultisystemDistributionConsumer(t *testing.T) {
  }
  body,err:=os.ReadFile(os.Getenv("KAI_DISTRIBUTION_INPUT"));if err!=nil {t.Fatal(err)}
  if err=json.Unmarshal(body,&data);err!=nil {t.Fatal(err)}
- common:=[]string{"kai-software","kai-dev-environment","kai-project-dependencies","kai-download-acceleration","kai-storage-files","kai-tool-bootstrap"}
+ common:=[]string{"kai-software","kai-dev-environment","kai-project-dependencies","kai-download-acceleration","kai-storage-files","kai-tool-bootstrap","kai-system-information"}
  for _,root:=range data.Roots {
   t.Run(root.Platform+"/"+root.Mode+"/"+root.Consumer,func(t *testing.T) {
    store:=skill.New(skill.Options{HomeDir:t.TempDir(),CustomPaths:[]string{root.Path},DisableBuiltins:true,DisableDefaultRoots:true})
@@ -43,7 +43,14 @@ func TestKaiMultisystemDistributionConsumer(t *testing.T) {
     if len(primary)!=1 || primary[0]!="skill:"+test.Skill {t.Errorf("%q primary=%v want %s",test.Task,primary,test.Skill)}
    }
    runtime,_:=store.Read("kai-dev-environment")
-   if !strings.Contains(runtime.Body,filepath.Join(root.Path,"kai-dev-environment","scripts","runtime.sh")) {t.Error("SDK script path was not expanded to the installed bundle")}
+   if !strings.Contains(runtime.Body,"scripts/runtime.sh") {t.Error("SDK relative entry reference was lost")}
+   if runtime.Path!=filepath.Join(root.Path,"kai-dev-environment","SKILL.md") {t.Error("SDK resource base does not match the installed bundle")}
+   if _,err:=os.Stat(filepath.Join(filepath.Dir(runtime.Path),"scripts","runtime.sh"));err!=nil {t.Error("SDK resource is not available relative to its own skill",err)}
+   if strings.Contains(runtime.Body,"## Scripts") {t.Error("Explicit resources were eagerly injected")}
+   system,_:=store.Read("kai-system-information")
+   for _,entry:=range []string{"inspect.sh","inspect.ps1"} {
+    if _,err:=os.Stat(filepath.Join(filepath.Dir(system.Path),"scripts",entry));err!=nil {t.Error("system information adapter is missing",entry,err)}
+   }
    for _,value:=range listed {
     if root.Mode=="on-device" && strings.HasPrefix(value.Name,"target-") {t.Fatal("third-party Transport leaked into on-device composition")}
     if root.Platform!="istoreos" && strings.HasPrefix(value.Name,"istoreos-") {t.Fatal("iStore primary leaked into another target")}

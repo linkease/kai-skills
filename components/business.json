@@ -140,6 +140,9 @@
       "project native lock and reviewed sources",
       "persistent project cache/build space",
       "explicit SDK crypto policy if target firmware policy is incompatible"
+    ],
+    "kai-system-information": [
+      "POSIX sh and standard Unix utilities; native Windows PowerShell 5.1 or newer on Windows"
     ]
   }
 }
