@@ -40,6 +40,7 @@ exit $code
         skill='macos-launchd-logs' if platform=='macos' else 'istoreos-service-manager'
         paths=['scripts/inspect.sh', 'resources/runtime/kai-system-information/scripts/lib/receipt.sh', 'resources/runtime/kai-system-information/scripts/lib/probe.sh']
         if platform=='macos': paths.append('scripts/common.sh')
+        else: paths.append('scripts/redact-json.jq')
         script='''set -eu
 umask 077
 temporary=$(mktemp -d "${TMPDIR:-/tmp}/kai-readonly-KA3.XXXXXX")
@@ -93,7 +94,10 @@ def run(platform, config, output):
                 raise ValueError('native init source or explicit expansion metadata missing')
             if init.get('hasMore') and not any(e['code']=='FILE_WINDOW_LIMIT' for e in result['errors']):
                 raise ValueError('native source limitation was hidden')
-        record.update(status='passed',result=result)
+        # Preservation is independent of completeness: an explicitly partial
+        # native observation must never become a complete-operation pass.
+        record.update(preservationStatus='passed',result=result)
+        record['status'] = 'passed' if p.returncode == 0 and result['operationStatus'] == 'succeeded' else 'partial'
     except (ValueError,AttributeError) as error: record['validationError']=str(error)
     path=output/(platform+'.json');path.write_text(json.dumps(record,ensure_ascii=False,indent=2)+'\n');path.chmod(0o600)
     print(platform,record['status'],'native-exit='+str(p.returncode),flush=True)
