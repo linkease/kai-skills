@@ -1,6 +1,6 @@
 {
   "id": "istoreos-system-task-router",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-system-task-router",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
   "description": "按调用者明确选择的范围查询 iStoreOS 设备事实；历史 ID 保留，不再进行任务分流。",

@@ -1,6 +1,6 @@
 {
   "id": "kai-software",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/kai-software",
   "canonicalPath": "components/system-packs/common/skills/kai-software",
   "description": "按来源限定身份查询软件候选、登记版本和文件归属；对明确选择的软件执行安装或移除事务。",

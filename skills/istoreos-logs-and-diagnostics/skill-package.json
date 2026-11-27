@@ -1,6 +1,6 @@
 {
   "id": "istoreos-logs-and-diagnostics",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-logs-and-diagnostics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
   "description": "按显式范围读取 iStoreOS 服务、网络、存储或包登记事实；保留未知、拒绝与超时。",

@@ -1,6 +1,6 @@
 {
   "id": "istoreos-systools",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-systools",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
   "description": "查询明确的系统范围，或执行所选原生 systools 动作；返回原生退出结果。",

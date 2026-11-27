@@ -1,6 +1,6 @@
 {
   "id": "istoreos-app-diagnostics",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-app-diagnostics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-diagnostics",
   "description": "读取已记录的 iStore 安装日志、包数据库和目录信息；返回有范围与来源的事实及启发式分类。",

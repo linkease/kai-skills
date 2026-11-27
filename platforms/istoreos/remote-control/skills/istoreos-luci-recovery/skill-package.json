@@ -1,6 +1,6 @@
 {
   "id": "istoreos-luci-recovery",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-luci-recovery",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-luci-recovery",
   "description": "读取 LuCI 相关服务和文件归属；对明确服务或单个本地 opkg 包执行有界操作。",

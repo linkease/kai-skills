@@ -1,6 +1,6 @@
 {
   "id": "kai-project-dependencies",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/kai-project-dependencies",
   "canonicalPath": "components/system-packs/common/skills/kai-project-dependencies",
   "description": "在指定 SDK、管理器和项目中查询来源或执行依赖操作；保留锁格式和项目隔离。",

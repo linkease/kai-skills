@@ -1,6 +1,6 @@
 {
   "id": "istoreos-service-manager",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-service-manager",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
   "description": "读取 init、UCI、生成配置、procd、日志和文件归属；执行有明确前置状态与后置验证的单项服务操作。",

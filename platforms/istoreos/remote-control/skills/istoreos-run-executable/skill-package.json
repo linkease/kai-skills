@@ -1,6 +1,6 @@
 {
   "id": "istoreos-run-executable",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-run-executable",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
   "description": "分别检查本地文件、下载经过摘要校验的文件，或使用明确 runner 执行选定的本地程序副本。",

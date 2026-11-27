@@ -1,6 +1,6 @@
 {
   "id": "kai-storage-files",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/kai-storage-files",
   "canonicalPath": "components/system-packs/common/skills/kai-storage-files",
   "description": "在明确路径查询容量、空间占用和文件名；返回实际后端、范围、错误及持久性证据。",

@@ -1,6 +1,6 @@
 {
   "id": "kai-tool-bootstrap",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/kai-tool-bootstrap",
   "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
   "description": "查询或准备指定目标上的 Bash、完整 jq、mise 和内部客户端；返回实际路径与校验结果。",

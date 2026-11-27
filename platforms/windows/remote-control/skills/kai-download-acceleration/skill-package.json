@@ -1,6 +1,6 @@
 {
   "id": "kai-download-acceleration",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/kai-download-acceleration",
   "canonicalPath": "components/system-packs/common/skills/kai-download-acceleration",
   "description": "对明确文件、Git 或 Docker 目标执行有校验的下载操作，或查询现有网关计划与传输证据。",

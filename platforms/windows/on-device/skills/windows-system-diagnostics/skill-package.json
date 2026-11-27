@@ -1,6 +1,6 @@
 {
   "id": "windows-system-diagnostics",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/windows-system-diagnostics",
   "canonicalPath": "components/system-packs/windows/skills/windows-system-diagnostics",
   "description": "Read native Windows OS and bounded diagnostic facts, preserving native collection errors.",

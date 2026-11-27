@@ -1,6 +1,6 @@
 {
   "id": "windows-service-eventlog",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/windows-service-eventlog",
   "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
   "description": "Read native SCM registration and events for one service; apply an explicit action and verify actual SCM state.",

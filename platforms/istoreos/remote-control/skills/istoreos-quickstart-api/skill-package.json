@@ -1,6 +1,6 @@
 {
   "id": "istoreos-quickstart-api",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-quickstart-api",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-quickstart-api",
   "description": "Send one explicitly selected QuickStart API request through a bound LuCI transport; return its actual response envelope.",

@@ -1,6 +1,6 @@
 {
   "id": "istoreos-docker-basics",
-  "version": "1.2.12-rc.1",
+  "version": "1.2.12-rc.2",
   "path": "skills/istoreos-docker-basics",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
   "description": "只读查询 Docker 启动入口、各配置来源和运行时；分别呈现目录冲突与 API 可用性。",

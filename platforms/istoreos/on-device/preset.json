@@ -22,10 +22,10 @@
     "common": "1.1.8",
     "linux": "1.0.1",
     "openwrt": "1.0.1",
-    "istoreos": "2.0.5"
+    "istoreos": "2.0.6"
   },
-  "sourceDigest": "sha256:4fcbb2d120965b3ca87182419560fb5587ddac7b105b98d6ac849f2d63357484",
-  "treeDigest": "sha256:7ff02ea5e9acf075953e4c678c57f98b6d471b539dc8602b3cdbcf12afe464cd",
+  "sourceDigest": "sha256:1ed8afb218297710b75f0068dd1f1db83d94f35850d38491dfab2ec55d51b883",
+  "treeDigest": "sha256:5d999a5562a2c5f1a9c8b8f2cb9ac5a52b8944e38ccff9e48b49cab363542b56",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",
