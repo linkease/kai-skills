@@ -54,6 +54,16 @@ kai_error() {
   [ "$kai_status" = failed ] || kai_status=partial
 }
 
+# A standalone caller may name its target; an executor-bound call cannot relabel it.
+kai_require_bound_target() {
+  if [ -n "${ZSETUP_TASK_TARGET_ID:-}" ] && [ "$kai_target" != "$ZSETUP_TASK_TARGET_ID" ]; then
+    kai_target=$ZSETUP_TASK_TARGET_ID kai_status=failed kai_facts= kai_evidence=
+    kai_error TARGET_MISMATCH 'The query target does not match the executor target; no facts were collected.'
+    kai_emit_observation
+    return 2
+  fi
+}
+
 kai_emit_observation() { kai_emit_result true; }
 # Serialization only. The caller records effects; this function performs no
 # operation and never grants permissions. Observations always force empty effects.

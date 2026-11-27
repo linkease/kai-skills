@@ -1,6 +1,6 @@
 {
   "id": "macos-system-diagnostics",
-  "version": "1.2.11",
+  "version": "1.2.12-rc.1",
   "path": "skills/macos-system-diagnostics",
   "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
   "description": "Read bounded native macOS system, tool and optional Docker facts from the actual target.",
@@ -26,7 +26,7 @@
     {
       "id": "kai-system-information",
       "canonicalPath": "components/system-packs/common/skills/kai-system-information",
-      "sourceDigest": "sha256:6c151c9c250f94ed7569afa4d4110e9a59b5cf334f7b1c7d6810d4503d60e0a5"
+      "sourceDigest": "sha256:7b54bb42803c3bab3b8a819175550e067feb759d62c5ad62c2e5bdd0ac3de270"
     }
   ]
 }

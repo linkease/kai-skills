@@ -21,15 +21,15 @@
     "transport.luci-http"
   ],
   "componentVersions": {
-    "common": "1.1.7",
+    "common": "1.1.8-rc.1",
     "linux": "1.0.1",
     "openwrt": "1.0.1",
-    "istoreos": "2.0.4",
+    "istoreos": "2.0.5-rc.1",
     "transport.ssh": "1.1.1",
     "transport.luci-http": "1.0.1"
   },
-  "sourceDigest": "sha256:ecfc93a70d45a78a8dffe445ac11660a9474e14af0693fbcd2065e54dce4c3fc",
-  "treeDigest": "sha256:a39e07a1d705c9bdd2a1bace2c17f268f12b935489f647bd44f7240037745b76",
+  "sourceDigest": "sha256:88cafb0a46e5ede806245514cbf4f6010bc2e3bc4a15519f79fca4d9ee7db1a7",
+  "treeDigest": "sha256:54ac42f6806d5714852770b6fece34b740695f1d15cf6903f681cec50204dcf1",
   "resources": [
     "istoreos-download-acceleration",
     "istoreos-mise-runtime",

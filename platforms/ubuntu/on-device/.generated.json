@@ -17,13 +17,13 @@
     "ubuntu"
   ],
   "componentVersions": {
-    "common": "1.1.7",
+    "common": "1.1.8-rc.1",
     "linux": "1.0.1",
     "debian": "1.0.1",
     "ubuntu": "1.0.1"
   },
-  "sourceDigest": "sha256:857638a3f5311696067c87f0b64f4a5dba585e0cc8f7daf2238b19436793ad38",
-  "treeDigest": "sha256:6a71c726213ff2d65d3b2c4fce76a95c0687a3e5b8453edf01521392d7260aca",
+  "sourceDigest": "sha256:3bb5c8e9cdc79269994b60f42eee8a3479f4e4867e5c4400953361a95e65efee",
+  "treeDigest": "sha256:d10de3e831e1e2edc69b79dfa73d0f1361b04004be992ab57daf537977756a13",
   "resources": [],
   "skillAliases": {}
 }

@@ -1,6 +1,6 @@
 {
   "id": "istoreos-app-search",
-  "version": "1.2.11",
+  "version": "1.2.12-rc.1",
   "path": "skills/istoreos-app-search",
   "canonicalPath": "components/system-packs/istoreos/skills/istoreos-app-search",
   "description": "查询 iStore 聚合目录，返回有来源标识的应用候选、精确名称和摘要。",

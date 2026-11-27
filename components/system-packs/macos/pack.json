@@ -2,7 +2,7 @@
   "$schema": "../../../schemas/pack.schema.json",
   "schemaVersion": 1,
   "id": "macos",
-  "version": "1.0.1",
+  "version": "1.0.2-rc.1",
   "layer": "family",
   "extends": [
     "common"

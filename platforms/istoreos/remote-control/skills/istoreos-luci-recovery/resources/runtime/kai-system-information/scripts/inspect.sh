@@ -33,6 +33,7 @@ while [ "$#" -gt 0 ]; do
   esac
 done
 [ -n "$kai_target" ] && [ "${#kai_target}" -le 200 ] || kai_invalid 'A bound target ID is required.'
+kai_require_bound_target || exit 2
 case "$kai_deadline" in ''|*[!0-9]*) kai_invalid 'Deadline must be an integer from 1 to 30 seconds.' ;; esac
 [ "$kai_deadline" -ge 1 ] && [ "$kai_deadline" -le 30 ] || kai_invalid 'Deadline must be from 1 to 30 seconds.'
 case ",$kai_sections," in *,,*) kai_invalid 'Empty section.' ;; esac

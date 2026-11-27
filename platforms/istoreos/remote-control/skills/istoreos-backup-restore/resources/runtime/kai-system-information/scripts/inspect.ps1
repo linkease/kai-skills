@@ -71,6 +71,9 @@ function Invoke-Probe([string]$Executable,[string[]]$Arguments) {
 $selected = @($Sections | ForEach-Object { $_.Split(',') })
 if ($TargetId.Length -gt 200 -or @($selected | Where-Object { $_ -notin @('os','tools','docker') }).Count -gt 0) {
     $operationStatus='failed'; Add-Error 'INVALID_ARGUMENT' 'Select a valid target ID and explicit query sections.'
+} elseif ($env:ZSETUP_TASK_TARGET_ID -and $TargetId -cne $env:ZSETUP_TASK_TARGET_ID) {
+    $TargetId=$env:ZSETUP_TASK_TARGET_ID
+    $operationStatus='failed'; Add-Error 'TARGET_MISMATCH' 'The query target does not match the executor target; no facts were collected.'
 } elseif ([Environment]::OSVersion.Platform -ne [PlatformID]::Win32NT) {
     $operationStatus='failed'; Add-Error 'UNSUPPORTED_PLATFORM' 'This entry uses native Windows facilities; use inspect.sh on Unix.'
 } else {

@@ -11,7 +11,7 @@ if ! kai_use_jq full 2>/dev/null; then
 fi
 umask 077
 op_now=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
-op_target=unbound op_status=failed op_facts='{}' op_evidence='[]' op_errors='[]'
+op_target=${ZSETUP_TASK_TARGET_ID:-unbound} op_status=failed op_facts='{}' op_evidence='[]' op_errors='[]'
 op_requested='[]' op_completed='[]' op_unknown='[]' op_remaining='[]'
 op_verification='{"status":"not_run","checks":[]}'
 op_job= op_lock= op_lock_owned=0 op_emitted=0 op_request_digest= op_activation_temporary=
@@ -84,6 +84,10 @@ op_init() {
     local request=$1 state id prior state_mode
     [ -f "$request" ] && [ ! -L "$request" ] && [ "$(wc -c < "$request")" -le 8192 ] || op_fail INVALID_ARGUMENT 'Request must be a bounded regular JSON file.' 2
     op_request=$(cat -- "$request")
+    # jq's normal parser overwrites duplicate keys. Inspect key tokens before
+    # normalization, target selection, hashing or creation of operation state.
+    command -v awk >/dev/null 2>&1 && [ -f "$op_library_here/unique-keys.awk" ] || op_fail DEPENDENCY_UNAVAILABLE 'The existing request-key validator is unavailable; no operation was started.' 2
+    printf '%s' "$op_request" | LC_ALL=C awk -f "$op_library_here/unique-keys.awk" | jq -se 'any(.[]; .==[-1,"complete"]) and (group_by(.[0]) | all(.[]; length == (map(.[1]) | unique | length)))' >/dev/null || op_fail INVALID_ARGUMENT 'Request JSON must be valid and contain no duplicate object keys.' 2
     jq -e --arg operation "$op_name" 'type=="object" and (keys==["operation","parameters","schemaVersion","targetId"]) and .schemaVersion==1 and .operation==$operation and (.parameters|type=="object") and (.targetId|type=="string" and length>0 and length<=200)' <<< "$op_request" >/dev/null || op_fail INVALID_ARGUMENT 'An explicit versioned operation request is required.' 2
     op_target=$(jq -r .targetId <<< "$op_request")
     [ "$op_target" = "${ZSETUP_TASK_TARGET_ID:-local}" ] || op_fail TARGET_MISMATCH 'The request does not match the executor target.' 2

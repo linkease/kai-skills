@@ -17,11 +17,11 @@
     "macos"
   ],
   "componentVersions": {
-    "common": "1.1.7",
-    "macos": "1.0.1"
+    "common": "1.1.8-rc.1",
+    "macos": "1.0.2-rc.1"
   },
-  "sourceDigest": "sha256:e1744dd34fe83020e4829bf8b117ae91f9c1877258c98aa3f9fafd27fe8a55bb",
-  "treeDigest": "sha256:968f5a79dc922aeb124904ef6360b9338cf424665629f8b0e07a8a91a397dd36",
+  "sourceDigest": "sha256:5b5d193d4eaf666ad429dfbe2c5f85c49746b0e191a7dce539c28fae933f8a71",
+  "treeDigest": "sha256:ca477e8349fafb22e471c0fb6ba8b4c907ea8a5d76515b75df5c368ffac353e6",
   "resources": [],
   "skillAliases": {}
 }

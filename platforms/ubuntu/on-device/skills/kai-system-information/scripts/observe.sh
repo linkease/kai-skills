@@ -18,6 +18,7 @@ while [ "$#" -gt 0 ]; do
   shift 2
 done
 [ -n "$kai_target" ] && [ "${#kai_target}" -le 200 ] || kai_invalid 'A bound target ID is required.'
+kai_require_bound_target || exit 2
 case "$kai_deadline" in ''|*[!0-9]*) kai_invalid 'Invalid deadline.' ;; esac
 [ "${#kai_deadline}" -le 2 ] && [ "$kai_deadline" -ge 1 ] && [ "$kai_deadline" -le 30 ] || kai_invalid 'Deadline must be 1..30 seconds.'
 case "$kai_source" in

@@ -23,3 +23,5 @@ Windows：`powershell -NoProfile -File scripts/inspect.ps1 -TargetId TARGET [-Se
 ## Additional native observations
 
 `sh scripts/observe.sh --target-id ID --source filesystems|inodes|mounts|addresses|routes|listeners [--deadline-seconds 5]` returns one named native observation with an operation receipt. Platform command absence, permission denial, timeout and oversized output remain explicit errors. No dependencies, services or network configuration are changed. Raw output is untrusted data. It does not select storage or an installation method.
+
+宿主提供 ZSETUP_TASK_TARGET_ID 时，查询参数必须与其一致；不一致返回 TARGET_MISMATCH 且不采集事实。独立调用仍可显式指定 Target ID。

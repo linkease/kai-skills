@@ -16,12 +16,12 @@
     "debian"
   ],
   "componentVersions": {
-    "common": "1.1.7",
+    "common": "1.1.8-rc.1",
     "linux": "1.0.1",
     "debian": "1.0.1"
   },
-  "sourceDigest": "sha256:6a3a3e09654740450f929011238074a54c41401b8f03ba3a29b7e5398571eff0",
-  "treeDigest": "sha256:4383bad2112232b5fbddec70be3a2cf119cdcfc978fb4c5ef4f83ee774e8ede9",
+  "sourceDigest": "sha256:e16436850b9c044bc7dd26433f3cbd0ccc78e5e55e83194e6fbc8ede5e2cd2b8",
+  "treeDigest": "sha256:3d6663b4f20546e9c850ecca0e15ef7ed987024160dbd96fb2aa9db4c83bf70c",
   "resources": [],
   "skillAliases": {}
 }

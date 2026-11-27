@@ -41,6 +41,7 @@ while [ "$#" -gt 0 ]; do
   shift 2
 done
 [ -n "$kai_target" ] && [ "${#kai_target}" -le 200 ] || kai_invalid 'A bound target ID is required.'
+kai_require_bound_target || exit 2
 case "$kai_service" in ''|*[!A-Za-z0-9._+-]*|*..*|-*) kai_invalid 'An explicit service identifier is required.' ;; esac
 case "$kai_deadline:$kai_offset:$kai_length" in *[!0-9:]*) kai_invalid 'Bounds must be integers.' ;; esac
 [ -n "$kai_offset" ] && [ "${#kai_offset}" -le 8 ] && [ -n "$kai_length" ] && [ "${#kai_length}" -le 4 ] && [ -n "$kai_deadline" ] && [ "${#kai_deadline}" -le 2 ] || kai_invalid 'Invalid bounds.'

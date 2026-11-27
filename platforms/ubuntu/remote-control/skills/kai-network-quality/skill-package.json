@@ -1,6 +1,6 @@
 {
   "id": "kai-network-quality",
-  "version": "1.2.11",
+  "version": "1.2.12-rc.1",
   "path": "skills/kai-network-quality",
   "canonicalPath": "components/system-packs/linux/skills/kai-network-quality",
   "description": "用已有 FastNet 测量明确端点或网络 profile，返回有预算、来源和不健康事实的观察。",

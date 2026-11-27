@@ -1,6 +1,6 @@
 {
   "id": "kai-project-run",
-  "version": "1.2.11",
+  "version": "1.2.12-rc.1",
   "path": "skills/kai-project-run",
   "canonicalPath": "components/system-packs/common/skills/kai-project-run",
   "description": "Plan or execute an explicitly selected Node, Python or Go project transaction with exact SDK, source hashes, locks and expected output.",

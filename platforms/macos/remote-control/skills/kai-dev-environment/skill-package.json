@@ -1,6 +1,6 @@
 {
   "id": "kai-dev-environment",
-  "version": "1.2.11",
+  "version": "1.2.12-rc.1",
   "path": "skills/kai-dev-environment",
   "canonicalPath": "components/system-packs/common/skills/kai-dev-environment",
   "description": "查询、安装、验证和执行明确选择的 mise SDK 或 uv；保留精确版本、来源和原生错误。",
