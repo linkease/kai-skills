@@ -1,7 +1,11 @@
 {
   "schemaVersion": 1,
   "taskCards": 12,
-  "conditions": ["without-kai-skills", "with-new-capabilities", "capabilities-failed-or-unavailable"],
+  "conditions": [
+    "without-kai-skills",
+    "with-new-capabilities",
+    "capabilities-failed-or-unavailable"
+  ],
   "modelConfigurations": 2,
   "repetitions": 3,
   "minimumSessions": 216,
@@ -13,8 +17,28 @@
   "minimumEquivalentRawQueryRoundTrips": 3,
   "taskDeadlineIsNotProofOfNoEffects": true,
   "nativeEvidenceRequired": true,
-  "platforms": ["ubuntu", "debian", "istoreos-opkg", "istoreos-apk", "macos", "windows"],
-  "executionModes": ["on-device", "remote-control"],
+  "platforms": [
+    "ubuntu",
+    "debian",
+    "istoreos-opkg",
+    "istoreos-apk",
+    "macos",
+    "windows"
+  ],
+  "executionModes": [
+    "on-device",
+    "remote-control"
+  ],
   "modelSelection": "Pin two actually available model configurations and sampling settings before the first evaluation; missing access stays blocked.",
-  "evaluationData": "Sanitized fixtures and isolated operations only; no production conversations or credentials are submitted."
+  "evaluationData": "Sanitized fixtures and isolated operations only; no production conversations or credentials are submitted.",
+  "acceptanceLayers": {
+    "authorizedBy": "User authorized P1 through P6 sequential implementation on2026-11-27",
+    "engineering": "Deterministic operation/target/permission/effect/distribution checks remain mandatory. Independent engineering may proceed while model-quality defects remain open.",
+    "modelQuality": "Per-model, per-configuration semantic grades remain separate from runtime outcomes. Severe failures remain visible and affect recommendation eligibility; they are not automatically new script requirements.",
+    "resources": "Incomplete/blocked/skipped/resource-stopped cases are not passes and do not receive an inference grade without a complete final.",
+    "recommendation": "A configured/available model is not automatically recommended; only predeclared complete qualification evidence supports a recommendation. No model swap or permission change follows automatically.",
+    "coverage": "Original216-session and12-native-combination coverage remain pending until actually verified; routine small regressions do not replace final coverage.",
+    "history": "Preserve all original task cards, rubrics, failed transcripts, hashes, cost baseline and retained unknown charges. New protocol revisions get new evidence directories.",
+    "overallCompletion": "Engineering pass alone cannot close the complete product acceptance or original unverified coverage."
+  }
 }
