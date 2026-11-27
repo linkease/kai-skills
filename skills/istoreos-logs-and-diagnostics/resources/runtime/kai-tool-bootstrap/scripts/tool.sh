@@ -27,8 +27,8 @@ if [ "$platform" = windows ] && [ -n "$trusted_path" ] && command -v cygpath >/d
 fi
 work="${KAI_TOOL_WORK_DIR:-$HOME/.local/share/kai/bootstrap}"
 path=; version=; owner=unknown; status=missing; reason=; next=; commands='[]'; provider_result=null
-case "$tool" in bash) minimum=3.2.0 ;; zsetup) minimum=0.5.0 ;; mise) minimum=2025.1.0 ;; ks-cli) minimum=0.8.5 ;; esac
-if [ "$tool" = zsetup ] && { [ "$platform" = windows ] || [ "$platform" = macos ]; }; then minimum=0.4.0; fi
+case "$tool" in bash) minimum=3.2.0 ;; zsetup) minimum=0.6.4 ;; mise) minimum=2025.1.0 ;; ks-cli) minimum=0.8.5 ;; esac
+if [ "$tool" = zsetup ] && { [ "$platform" = windows ] || [ "$platform" = macos ]; }; then minimum=0.6.5; fi
 
 hash_file() {
     if command -v sha256sum >/dev/null 2>&1; then sha256sum "$1";

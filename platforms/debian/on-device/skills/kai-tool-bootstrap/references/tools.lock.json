@@ -1,23 +1,23 @@
 {
   "schemaVersion": 1,
   "zsetup": {
-    "version": "0.5.1",
+    "version": "0.6.4",
     "source": "https://fw.koolcenter.com/binary/zsetup/config.json",
     "artifacts": {
       "x86_64": {
-        "url": "https://fw.koolcenter.com/binary/zsetup/0.5.1/zsetup-linux-x86_64",
-        "sha256": "3df3166dada1f044b3d7d8fd944022f7d63f3a359ed9dbe1163d2a6aa3db1cf8",
-        "size": 952836
+        "url": "https://fw.koolcenter.com/binary/zsetup/0.6.4/zsetup-linux-x86_64",
+        "sha256": "9e87c8bf447cc14eb1a8d2ebfc5cfc2377bed4fcb99539c9175b644f5f10a237",
+        "size": 997436
       },
       "aarch64": {
-        "url": "https://fw.koolcenter.com/binary/zsetup/0.5.1/zsetup-linux-aarch64",
-        "sha256": "3defb708b33fa27bb40bc4c5fa7c48afcec70d982c40e7cf157bb82180e3a7d0",
-        "size": 1902848
+        "url": "https://fw.koolcenter.com/binary/zsetup/0.6.4/zsetup-linux-aarch64",
+        "sha256": "0f444546224cdb6c9bd94687118651dd956b041a96ae0326d221bb45b6260e46",
+        "size": 1992184
       },
       "armv7": {
-        "url": "https://fw.koolcenter.com/binary/zsetup/0.5.1/zsetup-linux-armv7",
-        "sha256": "327a329e58568215f11a5de60b38b89c4d330e5434090805a0ec8048b1a21cd1",
-        "size": 671024
+        "url": "https://fw.koolcenter.com/binary/zsetup/0.6.4/zsetup-linux-armv7",
+        "sha256": "fed34a7beab7bd247a456520a45c7b49ea8340f0d90eab68081e836b47dc25e8",
+        "size": 711340
       }
     }
   },

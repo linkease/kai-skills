@@ -25,7 +25,7 @@ case "$(uname -s)" in
         while IFS='=' read -r key value;do
             case "$key" in version) version=$value ;; url) url=$value ;; sha256) digest=$value ;; size) size=$value ;; arch) arch=$value ;; esac
         done < "$lock"
-        [ "$version" = 0.4.0 ] && [ "$arch" = aarch64 ] || exit 11
+        [ "$version" = 0.6.5 ] && [ "$arch" = aarch64 ] || exit 11
         ;;
     *) echo 'no verified native core bootstrap registered' >&2;exit 18 ;;
 esac

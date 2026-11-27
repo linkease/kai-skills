@@ -151,10 +151,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:33edc69a7fe9176cbc6e6aaf899e32b8c98e28c2c041f658a43c499ee3d0e532"
+      "treeDigest": "sha256:4f96913abe107813722bb4c19f1f0245a39eb15019f9aca86f3dc13d21fe06c0"
     },
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
@@ -195,10 +195,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:80d6860045eb47ddf670c1e5a4d51b479494869371a03576420c6b0183ae62c9"
+      "treeDigest": "sha256:a357db780366f0a78c496e6b8c8a0b1b6da2b457d892961167959f65bdcc5a9f"
     },
     {
       "id": "istoreos-docker-basics",
@@ -249,10 +249,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:cd41d04a95784dd9ae5e73a7d94a50f83c4c76c89b76ff20bccd0c1d3b2963aa"
+      "treeDigest": "sha256:1dc88e6d4fc443ad53eaccf9bebaa79ac1bb78ebde7d94659a8e738ca69d7493"
     },
     {
       "id": "istoreos-docker-data-root-migrate",
@@ -298,10 +298,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:5b5116936f86178e44f2d13ac2ff8757c76dc8c1864d02a1996dcdf116630aff"
+      "treeDigest": "sha256:288c28c52bc6df0e68e7b96b401a1f31c098a49958a68d0959d938e7f5e5af43"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
@@ -362,10 +362,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:0f3b046745d1a5c5744eb2866f56cce7de33a58b23f9cec6f853373b24da28e9"
+      "treeDigest": "sha256:1da6e52ef082eaee20cab0bea50f7f3b98a99ce0f966aace4a485b3d38c3e6bf"
     },
     {
       "id": "istoreos-logs-and-diagnostics",
@@ -411,10 +411,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:73f491fdda67c610bb200770e7c51cf89fd259b7613111bafc0f7f5d6bd1a131"
+      "treeDigest": "sha256:00fa9fac31307c35a6af6859f886e3640589126aa4a1762c88c2b34991ea7b6f"
     },
     {
       "id": "istoreos-luci-recovery",
@@ -460,10 +460,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:8079c0ae636b027c6d61bf3273a4509f94a2d7a115e592c74a333df758c0127a"
+      "treeDigest": "sha256:18efd4b0fe73dcf41a3e8918f1b8a8f27fd46d073185fb8ce7eccca19fe7516c"
     },
     {
       "id": "istoreos-quickstart-api",
@@ -543,10 +543,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:0439bd3bd69cee0658bb4db0f29bbb1a3c90b2e2c707a903bcd657cd4b105c2c"
+      "treeDigest": "sha256:c208fa2409b44930665cb98211d96c527bb0d5ee62658cd12b97542033465ad8"
     },
     {
       "id": "istoreos-service-manager",
@@ -583,10 +583,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:6bbfc6eb3c431754a695a4731bddd77b97f7e43d518f65ff6c625c29324ab0be"
+      "treeDigest": "sha256:9799d13d42fcbb2c2876bfce6a6119e284e0012e3df0ffd632f5fdb296919e62"
     },
     {
       "id": "istoreos-source-introspect",
@@ -627,10 +627,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:bfbf5fff196a50677f5f1fc2220d401219fd6f3c84d6c232f8a578d21853f8aa"
+      "treeDigest": "sha256:1ac7ca13dbb4675f85251125b7ee834cf9eef634c2bb9d26b819b69f0c3ed2e9"
     },
     {
       "id": "istoreos-system-task-router",
@@ -676,10 +676,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:51ec533a2a4f4797734eb60fe632f5fc52b617299c669bbffc8909fbb0b9bb03"
+      "treeDigest": "sha256:ac18ecdb31f6661362633177fb7344dea3df82f1ad0096e8e314d79dd20585fc"
     },
     {
       "id": "istoreos-systools",
@@ -725,10 +725,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:94b0efc6d7039471a95cf05c16a45aa9b122d5fbaae17ca6d2dcb78514cf2644"
+      "treeDigest": "sha256:fd9c0245fdca2488831e6710bef49b652235af076c4f7b29052eaf3f765e79bb"
     },
     {
       "id": "kai-dev-environment",
@@ -777,10 +777,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:44522a31c30202593c8ee282d0ba432d385a7436e0b3ac827162266e5ec40e1f"
+      "treeDigest": "sha256:4b6aa3df6a4d64355ff0581a1b9d4c7cf98448b1ed5448485b789e197bd24099"
     },
     {
       "id": "kai-download-acceleration",
@@ -831,10 +831,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:9a782b7ce8c019807024d05a0c923493d52f705aec517ca1972b2637acc07d6e"
+      "treeDigest": "sha256:c78f82fdb5f21969109a870a88685dc1a8dde525603ef875c782aae6c8b27903"
     },
     {
       "id": "kai-network-quality",
@@ -875,10 +875,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:6bd78cf9a1389866397bbb285a2d6999357c78052c4bb9f47bf6605ab8aff3b7"
+      "treeDigest": "sha256:6a684c1751afdf04142775bcc0670e4dbaeed2454b40e1c06361ed6fc268ae8a"
     },
     {
       "id": "kai-project-dependencies",
@@ -933,10 +933,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:e870c3b8fe2c9350ce3320b1bd166ee3b956804ac0ce358243f6ecf2adf81030"
+      "treeDigest": "sha256:1e8f8daf91a2cfda41088de25d3c9febf2546dd761d343bdc03bf338bac5565d"
     },
     {
       "id": "kai-project-run",
@@ -1012,10 +1012,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:ab086dda74fdff1aa9f25619ef948fbcdd4312102e1cab73a49f0a5b572a2476"
+      "treeDigest": "sha256:b9d882f80851b168e9c725ee56639a5c95a7151a1ce9814dfd885aa07ca4330b"
     },
     {
       "id": "kai-software",
@@ -1076,10 +1076,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:d0b1edeff9b48bd77a2094741eb50ee506cc4e86ac1439af7677e7f02d75b8cd"
+      "treeDigest": "sha256:35d31e3a3677784736c086f60b6acffda43be076d7af905e0d75766181e2363b"
     },
     {
       "id": "kai-storage-files",
@@ -1133,10 +1133,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:5c9f1ebc0a77c290ee6df05c74e987b4dffeb156f84a583e09e5e1bfd2f548b8"
+      "treeDigest": "sha256:d579d1761fd8a4b5608f7045482cc85dec7dc9f1591f4833e65eca1fd9ae713a"
     },
     {
       "id": "kai-system-information",
@@ -1224,10 +1224,10 @@
         {
           "id": "kai-tool-bootstrap",
           "canonicalPath": "components/system-packs/common/skills/kai-tool-bootstrap",
-          "sourceDigest": "sha256:284266927b13e8d56a2f73e3e648d7dbc48fa1803597c1d3ec0d1efa31a483a9"
+          "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:8dc4e0cbb8c40ee2547ccd985c99904a20da25cebac89c1450b213a30b0e1bf0"
+      "treeDigest": "sha256:8b4a6eb3382724e9c1f84030c4e630e1616b899003568554256824bf083a96bc"
     },
     {
       "id": "luci-http-controller",
