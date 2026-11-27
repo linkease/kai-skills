@@ -150,6 +150,15 @@ class ReadOnlyTests(unittest.TestCase):
             self.assertNotEqual(p.returncode, 0)
             self.assertEqual(value['operationStatus'], 'failed')
 
+    def test_invalid_section_reports_parameter_contract_without_querying(self):
+        before = self.fingerprint()
+        p, value = self.query('--service', 'dockerd', '--sections', 'initScript')
+        self.assertNotEqual(p.returncode, 0)
+        self.assertEqual(value['operationStatus'], 'failed')
+        self.assertIn('init,config,runtime,logs,ownership', value['errors'][0]['message'])
+        self.assertIn('--file PATH', value['errors'][0]['message'])
+        self.assertEqual(before, self.fingerprint())
+
     def test_file_queries_preserve_utf8_and_reject_binary_or_split_characters(self):
         path = self.file('/var/log/example.log', '服务故障：连接失败\n')
         p, result = self.query('--service', 'example', '--sections', 'logs')

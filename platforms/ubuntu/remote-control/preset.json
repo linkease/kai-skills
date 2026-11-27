@@ -24,8 +24,8 @@
     "ubuntu": "1.0.1",
     "transport.ssh": "1.1.1"
   },
-  "sourceDigest": "sha256:3e7d0404ce0d2a64afad8c5a47da6396a6e98808bb5089078e416cb69476da95",
-  "treeDigest": "sha256:b04319936d5f539957ad6968ae7786e494650014bf53b2e6e7bf9ea54bf2cbb8",
+  "sourceDigest": "sha256:aab1cd54db0ec6660f9831b5082e090583afe2439c3424a1e5fea526fdcaf004",
+  "treeDigest": "sha256:39afb5868db74888a81f4c3a2e3c7d4f41eaba34e1389a5503e5889cdc49635a",
   "resources": [],
   "skillAliases": {}
 }

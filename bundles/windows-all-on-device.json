@@ -38,7 +38,7 @@
     {
       "id": "kai-system-information",
       "version": "1.2.11",
-      "treeDigest": "sha256:dff8f4c19b921fd77b58f0a440006827620a7c72a93e44679c43e680b8b866a8"
+      "treeDigest": "sha256:7f6713f1cfa007200d0e3fe1b09f6e94b00b58ab7cfc760aca12a7793c62a884"
     },
     {
       "id": "kai-tool-bootstrap",
@@ -48,7 +48,7 @@
     {
       "id": "windows-service-eventlog",
       "version": "1.2.11",
-      "treeDigest": "sha256:7e8d04c9abb8d6f102adad7118f6d0e7be607ec3f10f47be6db31f43ed5f0feb"
+      "treeDigest": "sha256:497048f230554e65f173ac00dc54a7d18fd44daff50d06ab160638720bdd9fe6"
     },
     {
       "id": "windows-system-diagnostics",

@@ -6,12 +6,12 @@
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
+      "sourceDigest": "sha256:37f206787c9f973f17d9667a61832b8ad90f2bb6358bfedf484bae8368ca4a40"
     },
     {
       "id": "kai-system-information",
       "canonicalPath": "components/system-packs/common/skills/kai-system-information",
-      "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
+      "sourceDigest": "sha256:6c151c9c250f94ed7569afa4d4110e9a59b5cf334f7b1c7d6810d4503d60e0a5"
     },
     {
       "id": "kai-tool-bootstrap",

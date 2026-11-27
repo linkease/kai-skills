@@ -13,6 +13,8 @@ resource-discovery: explicit
 
 `sh scripts/inspect.sh --target-id ID --service NAME --sections init,config,runtime,logs,ownership` 读取所选范围。大文件可指定 `--file PATH --offset N --length N`；hasMore、未知、权限错误、超时和不可信原文保留。查询从不执行被检查的 init 脚本。
 
+`sections` 使用上列范围名，回执中的 `initScript` 等事实字段名不是范围名。`evidence[].factPaths` 是指向本回执 `facts` 的 JSON Pointer（例如 `/facts/service`），不是目标文件路径；文件位置由对应事实的 `path` 或证据 `source` 表达。相对脚本路径以本 Skill 所在目录为基准。
+
 
 原生日志可显式选择 `--sections logs --log-count N --log-pattern REGEX`（两个选择器均可单独使用，N 为最后 1–1000 条消息）。它们直接作为 logread 参数，不解释为 shell；回执记录 `logSelection` 和 `completeHistory:false`。未指定时保留未过滤日志查询；选择后仍受原有时间和字节上限约束，超限返回 unknown，不将部分日志报成完整历史或隐式按服务名过滤。
 

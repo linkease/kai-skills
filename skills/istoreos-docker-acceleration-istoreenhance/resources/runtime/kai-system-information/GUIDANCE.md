@@ -18,6 +18,8 @@ Windows：`powershell -NoProfile -File scripts/inspect.ps1 -TargetId TARGET [-Se
 
 查询不会安装探测依赖；Unix 不要求 Bash、Python、jq 或 awk。目标缺少有界执行手段时，相关外部探测返回不支持并保留其余事实。工具发现覆盖声明的常见命令和位置，不是全机软件清单；没有出现在结果中不证明不存在其他包管理器。程序路径和可读元数据只代表当前执行环境；容器/WSL 的内核不证明完整宿主发行版。原始错误只返回脱敏类别，凭据不会作为事实返回。
 
+`evidence[].factPaths` 是本回执中事实的 JSON Pointer，不是文件路径；对应事实已位于 `facts` 内。证据 `source` 表达采证来源，`operationStatus` 表达本次查询完成情况。相对脚本路径以本 Skill 所在目录为基准。
+
 ## Additional native observations
 
 `sh scripts/observe.sh --target-id ID --source filesystems|inodes|mounts|addresses|routes|listeners [--deadline-seconds 5]` returns one named native observation with an operation receipt. Platform command absence, permission denial, timeout and oversized output remain explicit errors. No dependencies, services or network configuration are changed. Raw output is untrusted data. It does not select storage or an installation method.

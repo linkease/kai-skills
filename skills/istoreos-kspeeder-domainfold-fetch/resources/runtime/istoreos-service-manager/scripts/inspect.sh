@@ -48,7 +48,7 @@ case "$kai_deadline:$kai_offset:$kai_length" in *[!0-9:]*) kai_invalid 'Bounds m
 case "$kai_file" in ''|/*) : ;; *) kai_invalid 'File selection requires an absolute target path.' ;; esac
 case "$kai_file" in */../*|*/..|*/./*) kai_invalid 'Path traversal is unsupported.' ;; esac
 kai_old_ifs=$IFS; IFS=,
-for kai_section in $kai_sections; do case "$kai_section" in init|config|runtime|logs|ownership) : ;; *) IFS=$kai_old_ifs; kai_invalid 'Unsupported section.' ;; esac; done
+for kai_section in $kai_sections; do case "$kai_section" in init|config|runtime|logs|ownership) : ;; *) IFS=$kai_old_ifs; kai_invalid 'Unsupported section; choose init,config,runtime,logs,ownership. File windows use --file PATH.' ;; esac; done
 IFS=$kai_old_ifs
 [ -n "$kai_sections" ] || kai_invalid 'At least one section is required.'
 if [ "$kai_log_selection" = true ]; then

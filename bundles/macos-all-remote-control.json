@@ -38,7 +38,7 @@
     {
       "id": "kai-system-information",
       "version": "1.2.11",
-      "treeDigest": "sha256:dff8f4c19b921fd77b58f0a440006827620a7c72a93e44679c43e680b8b866a8"
+      "treeDigest": "sha256:7f6713f1cfa007200d0e3fe1b09f6e94b00b58ab7cfc760aca12a7793c62a884"
     },
     {
       "id": "kai-tool-bootstrap",
@@ -48,12 +48,12 @@
     {
       "id": "macos-launchd-logs",
       "version": "1.2.11",
-      "treeDigest": "sha256:88322d86a39a1c0389f10da430df4ac2ac56152727c375183a7d0c60c1fb21ea"
+      "treeDigest": "sha256:9564eb3c87aec9bc0f3a93c08e677ded17d464aac0b6c1444ef89212c3daadce"
     },
     {
       "id": "macos-system-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:db843257a27e95ad227520493cab19f2eab2e4ba2e1397de80121fad48d68748"
+      "treeDigest": "sha256:3653b3ed2aa7ffb4f871ca856ef1c77e12159a97e1ae9071724a558f86a4c7f2"
     },
     {
       "id": "target-ssh-controller",
