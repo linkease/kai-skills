@@ -4,7 +4,7 @@
   "status": "failed",
   "implementationStatus": "in_progress",
   "optimizations": 3,
-  "stopReason": "Requested explicit jq preparation/native acquisition continuation is implemented and engineering-verified. Original C02/C11 model correctness gates remain uncleared; no new model/full216/native12 acceptance was run. KA9/KA10 remain unstarted.",
+  "stopReason": "renewed-round19-21-three-optimizations-exhausted-original-critical-factual-gates-failed",
   "verification": {
     "capabilityTests": {
       "status": "passed",
@@ -636,15 +636,15 @@
     "KA8-T01": {
       "status": "failed",
       "fixtureStatus": "passed",
-      "evidence": "All selected original fixture facts preserve source bytes;24 new admitted-request audits match. Actual native default query lacks oversized registration/log bodies, and no command-log continuation reference exists. Sensitive structured JSON requires an existing parser or explicitly returns unknown. Prior fixture-only pass is retained as historical evidence, not complete native coverage. Final-source native query also returns generatedConfiguration unknown because the existing JSON contains escapes and jq is absent: an explicit completeness regression, not native acceptance. Subsequent correction: target-user managed jq already existed outside PATH; current candidate discovers/reuses it and explicit length4096/log-count scope succeeds. This resolves the demonstrated parser lookup gap, not complete-default-history or model acceptance."
+      "evidence": "All selected original fixture facts preserve source bytes;24 new admitted-request audits match. Actual native default query lacks oversized registration/log bodies, and no command-log continuation reference exists. Sensitive structured JSON requires an existing parser or explicitly returns unknown. Prior fixture-only pass is retained as historical evidence, not complete native coverage. Final-source native query also returns generatedConfiguration unknown because the existing JSON contains escapes and jq is absent: an explicit completeness regression, not native acceptance. Subsequent correction: target-user managed jq already existed outside PATH; current candidate discovers/reuses it and explicit length4096/log-count scope succeeds. This resolves the demonstrated parser lookup gap, not complete-default-history or model acceptance. Current round19–21: see agent-capability-KA8-reader-profile-20261127.json; original gate remains uncleared. Selected native views and delivery audit pass; Pro C02/C11 core factual failures and one64KiB admission stop retained."
     },
     "KA8-T02": {
       "status": "failed",
-      "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained. Source removal and Pro still produce unfinished-handoff/digest/path assertions; neutral-label C02 passes core rubric without waiving original failures. Fixed complete evidence still produces unsupported state claims. New reader-control categorical incomplete-state assertion remains; qualified suspicions alone are ancillary, not automatic failures."
+      "evidence": "In the three-arm comparison and subsequent qualifications, complete C02 answers still infer half/unfinished migrations or invalid paths from names/digest differences despite accepted active state. All original rubrics retained. Source removal and Pro still produce unfinished-handoff/digest/path assertions; neutral-label C02 passes core rubric without waiving original failures. Fixed complete evidence still produces unsupported state claims. New reader-control categorical incomplete-state assertion remains; qualified suspicions alone are ancillary, not automatic failures. Current round19–21: see agent-capability-KA8-reader-profile-20261127.json; original gate remains uncleared. Selected native views and delivery audit pass; Pro C02/C11 core factual failures and one64KiB admission stop retained."
     },
     "KA8-T03": {
       "status": "failed",
-      "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims. Pro source-ablation C11 invents a read-only mount by a guard; neutral-label Flash C11 invents an outer wrapper. No corresponding runtime evidence is emitted by tools. New fixed-evidence cases still assert executed guard; reader controls retain two critical observed-chain omissions. Conditional binary-wrapper hypotheses alone are not counted as executed-guard claims."
+      "evidence": "Some opposite-evidence answers still place the current storage failure after an unobserved guard or retain an unexecuted guard-Check alternative. Correct direct-dockerd observations do not erase unsupported claims. Pro source-ablation C11 invents a read-only mount by a guard; neutral-label Flash C11 invents an outer wrapper. No corresponding runtime evidence is emitted by tools. New fixed-evidence cases still assert executed guard; reader controls retain two critical observed-chain omissions. Conditional binary-wrapper hypotheses alone are not counted as executed-guard claims. Current round19–21: see agent-capability-KA8-reader-profile-20261127.json; original gate remains uncleared. Selected native views and delivery audit pass; Pro C02/C11 core factual failures and one64KiB admission stop retained."
     },
     "KA8-T04": {
       "status": "passed",
@@ -656,7 +656,7 @@
     },
     "KA8-T06": {
       "status": "failed",
-      "evidence": "All three-arm unavailable-helper cases now reach complete finals through generic tools; the old false byte admission is fixed. Some complete explanations still make unsupported guard/API/field-scope assertions, so end-to-end acceptance remains unmet."
+      "evidence": "All three-arm unavailable-helper cases now reach complete finals through generic tools; the old false byte admission is fixed. Some complete explanations still make unsupported guard/API/field-scope assertions, so end-to-end acceptance remains unmet. Current round19–21: see agent-capability-KA8-reader-profile-20261127.json; original gate remains uncleared. Selected native views and delivery audit pass; Pro C02/C11 core factual failures and one64KiB admission stop retained."
     }
   },
   "iterations": [
@@ -1100,7 +1100,8 @@
     {
       "path": "build/verification/agent-capabilities-20261126/verify-round18-native-final-private.py",
       "sha256": "81207f2a9bff38e65e3e9b7f5ba4281fa6016c78862ab04289ae13ab10e934c0"
-    }
+    },
+    "agent-capability-KA8-reader-profile-20261127.json"
   ],
   "followups": [
     {
@@ -1304,11 +1305,104 @@
       "newPaidModelRequests": 0,
       "allEarlierResultsRetained": true,
       "nextMilestonesStarted": false
+    },
+    {
+      "authorizedBy": "User: 继续按节奏实施之前没完成的里程碑。",
+      "optimizationLimit": 3,
+      "optimizations": 3,
+      "status": "failed",
+      "taskTreeAndAcceptance": "agent-capability-KA8-reader-profile-20261127.md",
+      "iterations": [
+        {
+          "optimization": 1,
+          "round": 19,
+          "taskTree": [
+            "Repair service length forwarding even without file selection, with actual command-boundary red/green test.",
+            "Provide opt-in complete redacted JSON values alongside original attributed text; never emit a diagnosis.",
+            "Regenerate canonical distributions and compare frozen old/new interfaces on identical task documents."
+          ],
+          "acceptance": [
+            "Original query stays read-only; default format and receipt/probe/deadline bounds unchanged.",
+            "Malformed/incomplete/missing-parser/oversized views report explicit unknown or failure.",
+            "Original critical factual rubrics pass in all scheduled cases before repetition expansion."
+          ],
+          "engineeringStatus": "passed",
+          "verificationStatus": "failed",
+          "sessions": 8,
+          "completeFinals": 8,
+          "coreRubricPassed": 6,
+          "coreRubricFailed": 2,
+          "ungraded": 0,
+          "calls": 70,
+          "jsonValueRequests": 0,
+          "finding": "Both variants retain unsupported digest/active/legal-space inference in Flash C02. No candidate invoked optional jsonValues: actual parsed-view interpretation effect was not exercised. No conditional repetition expansion."
+        },
+        {
+          "optimization": 2,
+          "round": 20,
+          "taskTree": [
+            "Expose production read_file under identical path allowlist in all three original arms.",
+            "Retain old byte reader as explicit diagnostic only; preserve native snapshots/envelopes/line windows and optional capabilities.",
+            "Run four frozen qualification cases; retain one terminal admission failure and finish only the remaining independent scheduled case."
+          ],
+          "acceptance": [
+            "Real generic reader available without exposing shell/writers/profiles/network or arbitrary paths.",
+            "All original arms share generic-reader semantics; selection and order remain model decisions.",
+            "Complete every required case within unchanged actual64KiB body bound; grade only complete finals."
+          ],
+          "engineeringStatus": "passed",
+          "verificationStatus": "failed",
+          "sessions": 4,
+          "completeFinals": 3,
+          "coreRubricPassed": 3,
+          "coreRubricFailed": 0,
+          "ungraded": 1,
+          "calls": 32,
+          "jsonValueRequests": 1,
+          "finding": "Flash C11 stops before request admission at actual serialized64KiB bound. It is not a fee exhaustion or quality verdict. Other finals pass core rubric with ancillary unsupported inference recorded. No replay or conditional expansion."
+        },
+        {
+          "optimization": 3,
+          "round": 21,
+          "taskTree": [
+            "Qualify the authorized supported Pro profile with native thinking disabled alongside unchanged Qwen.",
+            "Freeze model settings, exact suite/source, original sampling and all resource/fee constraints; do not change product default.",
+            "Review original factual rubrics, preserve failures, audit admitted evidence and reconcile original budget."
+          ],
+          "acceptance": [
+            "Four complete qualification finals without raising4096 output/24call/180second/64KiB/CNY20 limits.",
+            "No categorical digest/active unfinished-state inference or invented executed guard on opposite evidence.",
+            "Conditional repetitions require all qualification cases pass; original failures remain in report."
+          ],
+          "engineeringStatus": "passed",
+          "verificationStatus": "failed",
+          "sessions": 4,
+          "completeFinals": 4,
+          "coreRubricPassed": 2,
+          "coreRubricFailed": 2,
+          "ungraded": 0,
+          "calls": 32,
+          "jsonValueRequests": 0,
+          "finding": "Pro completes with reported reasoningTokens0 but fails both core cases, including executed guard/digest-timeout claim despite native startup and own-daemon EROFS. Qwen passes both core rubrics; concerns retained. Weights and thinking changed jointly, so no isolated attribution to thinking or brand ranking. No expansion or fourth optimization."
+        }
+      ],
+      "diagnosticSessions": 16,
+      "completeFinals": 15,
+      "coreRubricPassed": 11,
+      "coreRubricFailed": 4,
+      "admissionUngraded": 1,
+      "actualModelCalls": 134,
+      "deliveryAuditSessions": 16,
+      "allEarlierResultsRetained": true,
+      "nextMilestonesStarted": false,
+      "evidence": "agent-capability-KA8-reader-profile-20261127.json"
     }
   ],
   "requiredDecision": {
-    "reason": "Requested jq/log engineering continuation is complete; original model correctness and full end-to-end gates remain uncleared.",
-    "decision": "Keep original gates and model decision authority. Further KA8 acceptance needs a renewed evaluation round; no automatic host business route or unrequested paid replay."
+    "reason": "Three optimizations exhausted with original critical correctness gates still failing. More scripts that supply a diagnosis would violate model decision authority.",
+    "recommended": "Keep original acceptance and choose another supported model configuration to qualify alongside Qwen; authorize a new bounded evaluation round after reviewing current evidence.",
+    "alternative": "Explicitly review supported-model/acceptance scope as a product decision; no silent waiver or count of old failed/blocked/skipped results as passing.",
+    "originalBudgetMustPersist": true
   },
   "sourceCommits": {
     "reasonix-kai": "e806b5b034db122c8a696ac17fa02d8836e4088f",

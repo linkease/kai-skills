@@ -93,9 +93,11 @@
         "agent-capability-KA8-controls-20261126.md",
         "agent-capability-KA8-controls-20261126.json",
         "agent-capability-KA8-jq-preparation-20261126.md",
-        "agent-capability-KA8-jq-preparation-20261126.json"
+        "agent-capability-KA8-jq-preparation-20261126.json",
+        "agent-capability-KA8-reader-profile-20261127.md",
+        "agent-capability-KA8-reader-profile-20261127.json"
       ],
-      "stopReason": "jq-native-engineering-passed-original-model-and-full-end-to-end-gates-not-cleared",
+      "stopReason": "Three optimizations exhausted with original critical correctness gates still failing. More scripts that supply a diagnosis would violate model decision authority.",
       "additionalRounds": [
         {
           "authorizedBy": "User: 同意，继续 (CNY20 proposal)",
@@ -161,6 +163,23 @@
           "originalModelGatesCleared": false,
           "evidence": "agent-capability-KA8-jq-preparation-20261126.md",
           "nextMilestonesStarted": false
+        },
+        {
+          "authorizedBy": "User: 继续按节奏实施之前没完成的里程碑。",
+          "optimizationLimit": 3,
+          "optimizations": 3,
+          "status": "failed",
+          "taskTreeAndAcceptance": "agent-capability-KA8-reader-profile-20261127.md",
+          "diagnosticSessions": 16,
+          "completeFinals": 15,
+          "coreRubricPassed": 11,
+          "coreRubricFailed": 4,
+          "admissionUngraded": 1,
+          "actualModelCalls": 134,
+          "deliveryAuditSessions": 16,
+          "allEarlierResultsRetained": true,
+          "nextMilestonesStarted": false,
+          "evidence": "agent-capability-KA8-reader-profile-20261127.json"
         }
       ]
     },

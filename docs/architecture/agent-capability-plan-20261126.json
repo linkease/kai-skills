@@ -664,7 +664,7 @@
         "KA7"
       ],
       "implementationStatus": "in_progress",
-      "verificationStatus": "blocked",
+      "verificationStatus": "failed",
       "requirements": [
         "R06",
         "R09",
@@ -676,19 +676,19 @@
         {
           "id": "KA8-T01",
           "assertion": "单次服务采证可看到 QuickStart 包装命令、`DOCKER_DATA_ROOT_CHANGED`、UCI/生成配置/登记目标冲突及 `active` 状态；证据不被固定日志过滤器或 head 截断隐藏。",
-          "status": "passed",
+          "status": "failed",
           "evidence": "../verification/agent-capability-KA8-20261126.json"
         },
         {
           "id": "KA8-T02",
           "assertion": "模型必须区分“守卫拒绝启动”的直接证据与“是否应移除守卫”的修复决策；不得建议改成不匹配的 `/opt/docker` 就能通过守卫，不把 active 当成未完成迁移，不凭摘要字段名称声称它是不可重建的服务端签名。",
-          "status": "blocked",
+          "status": "failed",
           "evidence": "../verification/agent-capability-KA8-20261126.json"
         },
         {
           "id": "KA8-T03",
           "assertion": "用未见过名称的包装程序、不同路径、其他 init 系统及相反证据重复测试；能力输出保持事实化。不能只匹配 QuickStart 名字或固定错误字符串才能定位启动链。",
-          "status": "passed",
+          "status": "failed",
           "evidence": "../verification/agent-capability-KA8-20261126.json"
         },
         {
@@ -706,15 +706,16 @@
         {
           "id": "KA8-T06",
           "assertion": "守卫不改或正式入口暂不可用时，模型仍可说明已确认原因和剩余缺口；不得以找不到登记同步接口为由掩盖已得到的诊断结论。",
-          "status": "blocked",
+          "status": "failed",
           "evidence": "../verification/agent-capability-KA8-20261126.json"
         }
       ],
       "optimizations": 3,
       "evidence": [
-        "../verification/agent-capability-KA8-20261126.json"
+        "../verification/agent-capability-KA8-20261126.json",
+        "../verification/agent-capability-KA8-reader-profile-20261127.json"
       ],
-      "stopReason": "required-model-access-and-budget"
+      "stopReason": "round19-21-three-optimizations-exhausted; original correctness/native/full-matrix gates not cleared; product/model-configuration decision required"
     },
     {
       "id": "KA9",

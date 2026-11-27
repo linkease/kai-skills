@@ -13,6 +13,7 @@ kai_deadline=5 kai_facts= kai_evidence= kai_errors= kai_evidence_index=0 kai_sta
 kai_root=${ISTOREOS_ROOT:-} kai_file= kai_offset=0 kai_length=2048 kai_tmp=
 kai_reader= kai_timer=
 kai_log_count=null kai_log_pattern= kai_log_pattern_set=false kai_log_selection=false
+kai_json_values=false
 kai_observed=$(date -u '+%Y-%m-%dT%H:%M:%SZ')
 kai_cleanup() {
   if [ -n "$kai_reader" ]; then kill -KILL "$kai_reader" 2>/dev/null || :; wait "$kai_reader" 2>/dev/null || :; fi
@@ -29,6 +30,8 @@ while [ "$#" -gt 0 ]; do
     --target-id) kai_target=$2 ;; --service) kai_service=$2 ;; --sections) kai_sections=$2 ;;
     --file) kai_file=$2 ;; --offset) kai_offset=$2 ;; --length) kai_length=$2 ;;
     --deadline-seconds) kai_deadline=$2 ;;
+    --json-values)
+      case "$2" in true|false) kai_json_values=$2 ;; *) kai_invalid 'JSON values selection must be true or false.' ;; esac ;;
     --log-count)
       case "$2" in [1-9]|[1-9][0-9]|[1-9][0-9][0-9]|1000) kai_log_count=$2 ;; *) kai_invalid 'Log message count must be between 1 and 1000.' ;; esac
       kai_log_selection=true ;;
@@ -97,6 +100,18 @@ kai_redact() {
     -e 's#([?&](token|password|secret|key|auth)=)[^&[:space:]]+#\1[REDACTED]#gI' \
     -e 's#((password|passwd|token|secret|api_key|apikey|authorization|private_key)["\x27]?[[:space:]]*[:=][[:space:]]*).*#\1[REDACTED]#gI' \
     -e 's#(option[[:space:]]+(password|passwd|token|secret|key|username)[[:space:]]+).*#\1[REDACTED]#gI'
+}
+
+# Optional parser output, never a service diagnosis. Original attributed text
+# stays available; the unchanged receipt limit may require a narrower query.
+kai_json_projection() {
+  [ "$kai_json_values" = true ] || return 0
+  if [ "$1" != true ]; then printf ',"jsonValueStatus":"incomplete-window"'; return 0; fi
+  kai_json_kind=$(printf '%s' "$kai_text" | LC_ALL=C awk '{text=text $0} END {sub(/^[[:space:]]*/,"",text);print substr(text,1,1)}')
+  case "$kai_json_kind" in '{'|'[') : ;; *) printf ',"jsonValueStatus":"non-json"'; return 0 ;; esac
+  kai_select_jq || return 1
+  kai_json_value=$(printf '%s' "$kai_text" | "$kai_json_tool" -cs 'if length==1 then .[0] else error("one document required") end' 2>/dev/null) || return 1
+  printf ',"jsonValue":%s' "$kai_json_value"
 }
 
 kai_text_file() {
@@ -175,7 +190,14 @@ kai_read_file() {
   fi
   kai_redaction_field=
   [ "$kai_text" = "$kai_probe_output" ] || kai_redaction_field=',"redacted":true'
-  kai_fact "$kai_name" "{\"path\":$(kai_json_string "$kai_path"),\"offset\":$kai_offset,\"limit\":$kai_length,\"hasMore\":$kai_more,\"untrusted\":true$kai_redaction_field,\"content\":$(kai_json_string "$kai_text")}" "$kai_path" observed
+  kai_complete=false
+  [ "$kai_more" != false ] || [ "$kai_offset" -ne 0 ] || kai_complete=true
+  if ! kai_json_fields=$(kai_json_projection "$kai_complete"); then
+    kai_fact "$kai_name" null "$kai_path" unknown
+    kai_error JSON_VALUE_UNAVAILABLE 'The complete source window could not be decoded as one JSON object or array using an existing compatible parser.'
+    return
+  fi
+  kai_fact "$kai_name" "{\"path\":$(kai_json_string "$kai_path"),\"offset\":$kai_offset,\"limit\":$kai_length,\"hasMore\":$kai_more,\"untrusted\":true$kai_redaction_field,\"content\":$(kai_json_string "$kai_text")$kai_json_fields}" "$kai_path" observed
 }
 kai_command_fact() {
   kai_name=$1 kai_source=$2; shift 2
@@ -189,7 +211,12 @@ kai_command_fact() {
     fi
     kai_redaction_field=
     [ "$kai_text" = "$kai_probe_output" ] || kai_redaction_field=',"redacted":true'
-    kai_fact "$kai_name" "{\"untrusted\":true$kai_redaction_field,\"output\":$(kai_json_string "$kai_text"),\"exitCode\":0}" "$kai_source" observed
+    if ! kai_json_fields=$(kai_json_projection true); then
+      kai_fact "$kai_name" null "$kai_source" unknown
+      kai_error JSON_VALUE_UNAVAILABLE 'The native response could not be decoded as one JSON object or array using an existing compatible parser.'
+      return
+    fi
+    kai_fact "$kai_name" "{\"untrusted\":true$kai_redaction_field,\"output\":$(kai_json_string "$kai_text"),\"exitCode\":0$kai_json_fields}" "$kai_source" observed
   else kai_probe_unknown "$kai_name" "$kai_source" NATIVE_QUERY_FAILED; fi
 }
 kai_fact service "$(kai_json_string "$kai_service")" 'explicit query parameter; not a health verdict' observed

@@ -13,6 +13,8 @@ resource-discovery: explicit
 
 `sh scripts/inspect.sh --target-id ID --service NAME --sections init,config,runtime,logs,ownership` 读取所选范围。大文件可指定 `--file PATH --offset N --length N`；hasMore、未知、权限错误、超时和不可信原文保留。查询从不执行被检查的 init 脚本。
 
+可选 `--json-values true` 为完整且已脱敏的 JSON 对象/数组附加同来源的 `jsonValue`，同时保留 content/output 原文和 untrusted 标记；其他文本及不完整窗口以 jsonValueStatus 区分，不补写字段含义或诊断。解析器缺失/JSON 无效返回 unknown；默认关闭，8KiB 回执上限不变，附加值可能需要缩小所选范围。
+
 原生日志可显式选择 `--sections logs --log-count N --log-pattern REGEX`（两个选择器均可单独使用，N 为最后 1–1000 条消息）。它们直接作为 logread 参数，不解释为 shell；回执记录 `logSelection` 和 `completeHistory:false`。未指定时保留未过滤日志查询；选择后仍受原有时间和字节上限约束，超限返回 unknown，不将部分日志报成完整历史或隐式按服务名过滤。
 
 脱敏后的来源标记 `redacted:true`。包含凭据特征或转义的结构化 JSON 使用已有完整 jq 按字段脱敏，保留同一对象中的其他事实；依次使用显式 `KAI_JQ_BIN`、PATH、目标用户的 `~/.local/bin/jq`，显式选择不兼容时不改用其他程序。缺少解析器或无法安全解析时返回 unknown 和 `REDACTION_UNAVAILABLE`，查询不安装依赖。
