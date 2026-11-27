@@ -6,6 +6,7 @@ kai_here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 kai_lib="$kai_here/../resources/runtime/kai-system-information/scripts/lib"
 # Canonical common pack and installed full system collections have different roots.
 [ -f "$kai_lib/receipt.sh" ] || kai_lib="$kai_here/../../../../common/skills/kai-system-information/scripts/lib"
+[ -f "$kai_lib/receipt.sh" ] || kai_lib="$kai_here/../../../../../system-packs/common/skills/kai-system-information/scripts/lib"
 . "$kai_lib/receipt.sh"
 . "$kai_lib/probe.sh"
 kai_operation=service.inspect kai_target= kai_service= kai_sections=init,config,runtime,logs

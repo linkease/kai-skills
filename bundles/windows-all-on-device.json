@@ -48,7 +48,7 @@
     {
       "id": "windows-service-eventlog",
       "version": "1.2.11",
-      "treeDigest": "sha256:6501f64194d3822984eb02026e99d1198fbba7623175d86a23b2de96cf40434f"
+      "treeDigest": "sha256:7e8d04c9abb8d6f102adad7118f6d0e7be607ec3f10f47be6db31f43ed5f0feb"
     },
     {
       "id": "windows-system-diagnostics",

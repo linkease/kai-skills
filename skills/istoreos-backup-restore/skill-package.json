@@ -22,12 +22,12 @@
     {
       "id": "istoreos-backup-restore",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
-      "sourceDigest": "sha256:86545602b47ef688ec4eeef166a00b503cb1c8a219a081ec03584599c30be4a1"
+      "sourceDigest": "sha256:d0d6dfe32d41a009c16b692dbdef3f5d3555b777febdb5066135ed6feda5e939"
     },
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+      "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
     },
     {
       "id": "kai-system-information",

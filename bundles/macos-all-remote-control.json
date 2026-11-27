@@ -48,12 +48,12 @@
     {
       "id": "macos-launchd-logs",
       "version": "1.2.11",
-      "treeDigest": "sha256:7f2c3ed2064d32727d555c998eee6e6d5de0480f19cfc6c9009717c4517ad7e0"
+      "treeDigest": "sha256:88322d86a39a1c0389f10da430df4ac2ac56152727c375183a7d0c60c1fb21ea"
     },
     {
       "id": "macos-system-diagnostics",
       "version": "1.2.11",
-      "treeDigest": "sha256:cb20702191a4d9609afcd0c83aa009af54ae1ccdc30c9e315a7c846f09a82d2e"
+      "treeDigest": "sha256:db843257a27e95ad227520493cab19f2eab2e4ba2e1397de80121fad48d68748"
     },
     {
       "id": "target-ssh-controller",

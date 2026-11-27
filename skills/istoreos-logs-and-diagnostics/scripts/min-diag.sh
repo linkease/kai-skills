@@ -3,6 +3,7 @@ set -eu
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 system_scripts="$here/../resources/runtime/kai-system-information/scripts"
 [ -f "$system_scripts/inspect.sh" ] || system_scripts="$here/../../../../common/skills/kai-system-information/scripts"
+[ -f "$system_scripts/inspect.sh" ] || system_scripts="$here/../../../../../system-packs/common/skills/kai-system-information/scripts"
 case "${1:-base}" in
   docker) exec sh "$here/../resources/runtime/istoreos-service-manager/scripts/inspect.sh" --target-id "${ZSETUP_TASK_TARGET_ID:-local}" --service dockerd ;;
   base) exec sh "$system_scripts/inspect.sh" --target-id "${ZSETUP_TASK_TARGET_ID:-local}" --sections os,tools ;;

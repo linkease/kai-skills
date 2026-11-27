@@ -23,3 +23,9 @@ Coordination evidence remains outside this repository under
 `build/verification/skills-p1-p6-20261127/` in the parent project. The frozen model
 evaluation continues against its original source revision; this dependency fix
 is prepared in a separate worktree.
+
+## Embedded layout follow-up
+
+The actual KaiPlus layout stores platform modules under `kaiplus-defaults/profiles/<platform>/skills` and common resources under `kaiplus-defaults/system-packs/common/skills`. Canonical-source and flattened-package paths do not cover this layout. Three new regressions fail before the fix: dependency resolution, executing the service query, and executing the storage observation. Sixteen existing shell/PowerShell entrypoints now also check the existing embedded common location, preserving their prior layouts and interfaces. No execution or diagnostic workflow is added.
+
+The storage compatibility entry intentionally returns native filesystem observations; it does not select a home directory. KaiPlus content tests were still asserting path selection and mandatory `system-primary` routing. Those stale expectations fail on the unchanged baseline as well and are replaced by assertions that observations remain read-only and suggestions remain optional. Historical failure evidence is retained outside this source repository.

@@ -5,6 +5,7 @@ umask 077
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 lib="$here/../../kai-system-information/scripts/lib"
 [ -f "$lib/receipt.sh" ] || lib="$here/../../../../common/skills/kai-system-information/scripts/lib"
+[ -f "$lib/receipt.sh" ] || lib="$here/../../../../../system-packs/common/skills/kai-system-information/scripts/lib"
 . "$lib/receipt.sh"
 . "$lib/probe.sh"
 kai_operation=backup.inspect kai_target=${ZSETUP_TASK_TARGET_ID:-local} kai_deadline=5

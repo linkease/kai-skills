@@ -4,6 +4,7 @@ set -eu
 here=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd -P)
 system_scripts="$here/../resources/runtime/kai-system-information/scripts"
 [ -f "$system_scripts/inspect.sh" ] || system_scripts="$here/../../../../common/skills/kai-system-information/scripts"
+[ -f "$system_scripts/inspect.sh" ] || system_scripts="$here/../../../../../system-packs/common/skills/kai-system-information/scripts"
 target=${ZSETUP_TASK_TARGET_ID:-local}
 case "${1:-auto}" in
   auto) exec sh "$system_scripts/inspect.sh" --target-id "$target" --sections os,tools ;;

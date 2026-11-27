@@ -21,7 +21,7 @@
     {
       "id": "windows-service-eventlog",
       "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
-      "sourceDigest": "sha256:dd3a8905818c31237c88b90088b42a323e1de4a4a2875700bf2eb3f85b4c5601"
+      "sourceDigest": "sha256:2793f21fcafb55312c4cf6c07adc4a3d1b74ef0493386a5113b6596634945890"
     },
     {
       "id": "kai-system-information",

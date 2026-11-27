@@ -8,6 +8,7 @@ validate_target "${1:-}" "${2:-}"
 shift 2
 kai_lib="$kai_here/../../kai-system-information/scripts/lib"
 [ -f "$kai_lib/receipt.sh" ] || kai_lib="$kai_here/../../../../common/skills/kai-system-information/scripts/lib"
+[ -f "$kai_lib/receipt.sh" ] || kai_lib="$kai_here/../../../../../system-packs/common/skills/kai-system-information/scripts/lib"
 . "$kai_lib/receipt.sh"
 . "$kai_lib/probe.sh"
 kai_operation=service.inspect kai_target=${ZSETUP_TASK_TARGET_ID:-local} kai_source=${1:-startup}

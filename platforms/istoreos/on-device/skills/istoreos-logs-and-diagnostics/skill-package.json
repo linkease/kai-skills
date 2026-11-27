@@ -22,7 +22,7 @@
     {
       "id": "istoreos-logs-and-diagnostics",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
-      "sourceDigest": "sha256:c02204a2cb0a549c697cc65c76e4c8f2abfaaf2afdd52e550fd793fca1d6ff25"
+      "sourceDigest": "sha256:8a1586a4e03a026c73d255fc7310eb70288cad6e2f87fef4e6d3aaf1ba607f20"
     },
     {
       "id": "istoreos-package-manager",
@@ -32,7 +32,7 @@
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+      "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
     },
     {
       "id": "kai-system-information",

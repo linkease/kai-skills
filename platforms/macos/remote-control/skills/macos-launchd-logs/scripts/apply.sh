@@ -8,6 +8,7 @@ case "$action" in kickstart) after=running ;; stop) after=stopped ;; *) printf '
 case "$before" in running|stopped) ;; *) printf '%s\n' 'an explicitly observed previous state is required' >&2; exit 2 ;; esac
 lib="$script_dir/../resources/runtime/kai-system-information/scripts/lib"
 [ -f "$lib/receipt.sh" ] || lib="$script_dir/../../../../common/skills/kai-system-information/scripts/lib"
+[ -f "$lib/receipt.sh" ] || lib="$script_dir/../../../../../system-packs/common/skills/kai-system-information/scripts/lib"
 . "$lib/receipt.sh"
 . "$lib/probe.sh"
 kai_operation=service.apply kai_target=${ZSETUP_TASK_TARGET_ID:-local} kai_deadline=30

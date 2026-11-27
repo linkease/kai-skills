@@ -11,6 +11,7 @@ $now=[DateTimeOffset]::UtcNow.ToString('yyyy-MM-ddTHH:mm:ssZ')
 $facts=[ordered]@{};$evidence=New-Object Collections.ArrayList;$errors=New-Object Collections.ArrayList;$operationStatus='failed'
 $library=Join-Path $PSScriptRoot '../resources/runtime/kai-system-information/scripts/lib/receipt.ps1'
 if(!(Test-Path -LiteralPath $library)){$library=Join-Path $PSScriptRoot '../../../../common/skills/kai-system-information/scripts/lib/receipt.ps1'}
+if(!(Test-Path -LiteralPath $library)){$library=Join-Path $PSScriptRoot '../../../../../system-packs/common/skills/kai-system-information/scripts/lib/receipt.ps1'}
 . $library
 $requested=@(@{id='service-command';kind='native-scm-action';target=($ServiceName+':'+$Action)})
 $effects=@{requested=$requested;completed=@();unknown=@();remaining=$requested}

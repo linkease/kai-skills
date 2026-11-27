@@ -21,7 +21,7 @@
     {
       "id": "macos-launchd-logs",
       "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
-      "sourceDigest": "sha256:36f914d0d71af66816beed14d9b4b3dc65bc81e5f97a2ff37d2e541e8a9c10ee"
+      "sourceDigest": "sha256:7026f1b1a1d6cca849c442da4b5db004af5bbf2bc609e6590f4a51b6ae097d46"
     },
     {
       "id": "kai-system-information",

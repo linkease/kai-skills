@@ -3,6 +3,7 @@
 op_library_here=$(CDPATH= cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd -P)
 op_bootstrap="$op_library_here/../resources/runtime/kai-tool-bootstrap/scripts/jq-env.sh"
 [ -f "$op_bootstrap" ] || op_bootstrap="$op_library_here/../../../../common/skills/kai-tool-bootstrap/scripts/jq-env.sh"
+[ -f "$op_bootstrap" ] || op_bootstrap="$op_library_here/../../../../../system-packs/common/skills/kai-tool-bootstrap/scripts/jq-env.sh"
 . "$op_bootstrap"
 if ! kai_use_jq full 2>/dev/null; then
     printf '{"schemaVersion":1,"operation":"%s","operationStatus":"failed","targetId":"unbound","readOnly":false,"observedAt":"%s","facts":{},"evidence":[],"effects":{"requested":[],"completed":[],"unknown":[],"remaining":[]},"verification":{"status":"not_run","checks":[]},"errors":[{"code":"DEPENDENCY_UNAVAILABLE","message":"An existing compatible Bash and full jq are required; no dependency was installed."}],"truncated":false}\n' "$op_name" "$(date -u '+%Y-%m-%dT%H:%M:%SZ')"

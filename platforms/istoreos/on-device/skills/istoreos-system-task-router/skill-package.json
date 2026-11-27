@@ -22,7 +22,7 @@
     {
       "id": "istoreos-system-task-router",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-      "sourceDigest": "sha256:9c12ed8b612127cbb4978dc31c99c4ee8379096d113967c0185bca99472b60ed"
+      "sourceDigest": "sha256:1c4087a0a8b8d1262acbb5e0a10ec48718bc53e108644a3c6e6021b2b6207799"
     },
     {
       "id": "istoreos-package-manager",
@@ -32,7 +32,7 @@
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+      "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
     },
     {
       "id": "kai-system-information",

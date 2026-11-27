@@ -6,7 +6,7 @@
     {
       "id": "macos-system-diagnostics",
       "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
-      "sourceDigest": "sha256:a5e9315197261a3b400a29e7405e552421cee8b83689955d2e054a6473ae595a"
+      "sourceDigest": "sha256:5402c5584aac011200e6dce07eef01397193b1fa518c0df3141ad7849e937a3c"
     },
     {
       "id": "kai-system-information",

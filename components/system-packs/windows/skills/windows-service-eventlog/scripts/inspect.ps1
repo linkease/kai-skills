@@ -12,6 +12,7 @@ $facts=[ordered]@{};$evidence=New-Object Collections.ArrayList;$errors=New-Objec
 $operationStatus='succeeded'
 $library=Join-Path $PSScriptRoot '../../kai-system-information/scripts/lib/receipt.ps1'
 if(!(Test-Path -LiteralPath $library)){$library=Join-Path $PSScriptRoot '../../../../common/skills/kai-system-information/scripts/lib/receipt.ps1'}
+if(!(Test-Path -LiteralPath $library)){$library=Join-Path $PSScriptRoot '../../../../../system-packs/common/skills/kai-system-information/scripts/lib/receipt.ps1'}
 . $library
 function Public-Text([string]$Text) {
     $Text=[regex]::Replace($Text,'(?i)(://)[^/@\s]+:[^/@\s]+@','$1[REDACTED]@')

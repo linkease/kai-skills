@@ -136,12 +136,12 @@
         {
           "id": "istoreos-backup-restore",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-backup-restore",
-          "sourceDigest": "sha256:86545602b47ef688ec4eeef166a00b503cb1c8a219a081ec03584599c30be4a1"
+          "sourceDigest": "sha256:d0d6dfe32d41a009c16b692dbdef3f5d3555b777febdb5066135ed6feda5e939"
         },
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -154,7 +154,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:4f96913abe107813722bb4c19f1f0245a39eb15019f9aca86f3dc13d21fe06c0"
+      "treeDigest": "sha256:7d535fc7cb8de27a5b8410cb67b9414bc576cfc289dd27763024faed1993423f"
     },
     {
       "id": "istoreos-docker-acceleration-istoreenhance",
@@ -185,7 +185,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -198,7 +198,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:a357db780366f0a78c496e6b8c8a0b1b6da2b457d892961167959f65bdcc5a9f"
+      "treeDigest": "sha256:0fcd1c14627e5c8e8ccb79052f7468e65cb1b40af868ca05ec3936ff1a3d30ba"
     },
     {
       "id": "istoreos-docker-basics",
@@ -224,12 +224,12 @@
         {
           "id": "istoreos-docker-basics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-docker-basics",
-          "sourceDigest": "sha256:669b18d36b43a026b32d1c45428c62e0d78274b8a60540037aa17399d3cfdebd"
+          "sourceDigest": "sha256:fd807287604d98a6c9e99daa7227cd7c1ebde49e4adbf0d5354c1a152221a650"
         },
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-dev-environment",
@@ -252,7 +252,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:1dc88e6d4fc443ad53eaccf9bebaa79ac1bb78ebde7d94659a8e738ca69d7493"
+      "treeDigest": "sha256:9aa723b6c0acdd5484ff9342dbdc258accda8823d5f4ffd38d070c9472c307b8"
     },
     {
       "id": "istoreos-docker-data-root-migrate",
@@ -283,12 +283,12 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "istoreos-storage-path",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-storage-path",
-          "sourceDigest": "sha256:d1d8a4a3f31eb118901c89e9548f42a9713c3536c0545a5cf41d909975b128a9"
+          "sourceDigest": "sha256:4f87bf03112c8bb76547207818b57138b976752985648c7d885f3f26eeb2b5f9"
         },
         {
           "id": "kai-system-information",
@@ -301,7 +301,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:288c28c52bc6df0e68e7b96b401a1f31c098a49958a68d0959d938e7f5e5af43"
+      "treeDigest": "sha256:a88018b38822d68a5698111a7eb591a4b48972bfd8c1a7761cbf94a6963417bd"
     },
     {
       "id": "istoreos-kspeeder-domainfold-fetch",
@@ -352,7 +352,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -365,7 +365,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:1da6e52ef082eaee20cab0bea50f7f3b98a99ce0f966aace4a485b3d38c3e6bf"
+      "treeDigest": "sha256:016a0c6f1fbfe1f6ca7d6c69af728c84d86e17ee13f2b5e16f3d1520876a27bf"
     },
     {
       "id": "istoreos-logs-and-diagnostics",
@@ -391,7 +391,7 @@
         {
           "id": "istoreos-logs-and-diagnostics",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-logs-and-diagnostics",
-          "sourceDigest": "sha256:c02204a2cb0a549c697cc65c76e4c8f2abfaaf2afdd52e550fd793fca1d6ff25"
+          "sourceDigest": "sha256:8a1586a4e03a026c73d255fc7310eb70288cad6e2f87fef4e6d3aaf1ba607f20"
         },
         {
           "id": "istoreos-package-manager",
@@ -401,7 +401,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -414,7 +414,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:00fa9fac31307c35a6af6859f886e3640589126aa4a1762c88c2b34991ea7b6f"
+      "treeDigest": "sha256:ae28cdcccdcb264b9c5b7289cc5f1ea453d53192fc59c7405926db2149720153"
     },
     {
       "id": "istoreos-luci-recovery",
@@ -450,7 +450,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -463,7 +463,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:18efd4b0fe73dcf41a3e8918f1b8a8f27fd46d073185fb8ce7eccca19fe7516c"
+      "treeDigest": "sha256:4f74255602a3c4d77f5dafb8d28a75f44ddb33d8a970648e0944907d1441594d"
     },
     {
       "id": "istoreos-quickstart-api",
@@ -523,12 +523,12 @@
         {
           "id": "istoreos-run-executable",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-run-executable",
-          "sourceDigest": "sha256:0799fc89eb615936e3ffb8496d5eec08284ebc55dcdef775160a4412e43147b3"
+          "sourceDigest": "sha256:12a141477120d9e9313121a574f8afccc74ac3e5cf216d944f2b884501ac98fb"
         },
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-download-acceleration",
@@ -546,7 +546,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:c208fa2409b44930665cb98211d96c527bb0d5ee62658cd12b97542033465ad8"
+      "treeDigest": "sha256:463172f272f67d28869842f179ce35f858fef168c5ed8207fc5b8a45a1d8314c"
     },
     {
       "id": "istoreos-service-manager",
@@ -573,7 +573,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -586,7 +586,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:9799d13d42fcbb2c2876bfce6a6119e284e0012e3df0ffd632f5fdb296919e62"
+      "treeDigest": "sha256:30050c618a7e807092902c52c05bcade6fb0e302ab05096e90ac56f422fd1bcc"
     },
     {
       "id": "istoreos-source-introspect",
@@ -617,7 +617,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -630,7 +630,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:1ac7ca13dbb4675f85251125b7ee834cf9eef634c2bb9d26b819b69f0c3ed2e9"
+      "treeDigest": "sha256:bf158e9dd94a67394d3642fbde4b84eb513453c2cf0a3757e8244ecd3519334a"
     },
     {
       "id": "istoreos-system-task-router",
@@ -656,7 +656,7 @@
         {
           "id": "istoreos-system-task-router",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-system-task-router",
-          "sourceDigest": "sha256:9c12ed8b612127cbb4978dc31c99c4ee8379096d113967c0185bca99472b60ed"
+          "sourceDigest": "sha256:1c4087a0a8b8d1262acbb5e0a10ec48718bc53e108644a3c6e6021b2b6207799"
         },
         {
           "id": "istoreos-package-manager",
@@ -666,7 +666,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -679,7 +679,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:ac18ecdb31f6661362633177fb7344dea3df82f1ad0096e8e314d79dd20585fc"
+      "treeDigest": "sha256:53396b11c0ed2a891897535abae93354b5ebb5c127ccbf5e164c8f79f557a389"
     },
     {
       "id": "istoreos-systools",
@@ -705,7 +705,7 @@
         {
           "id": "istoreos-systools",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
-          "sourceDigest": "sha256:c6348589d778fe7caecf554714d798775d65ff7502d76b067b48578906e4f449"
+          "sourceDigest": "sha256:a4705a33d8220da8caa4678466ccca9262e0cf0da1bf955abe67b0185a989d35"
         },
         {
           "id": "istoreos-package-manager",
@@ -715,7 +715,7 @@
         {
           "id": "istoreos-service-manager",
           "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-          "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+          "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
         },
         {
           "id": "kai-system-information",
@@ -728,7 +728,7 @@
           "sourceDigest": "sha256:b1057b996a2928c825df3818718d9251cc49b1707d853ccd5b0e2157568e9bf3"
         }
       ],
-      "treeDigest": "sha256:fd9c0245fdca2488831e6710bef49b652235af076c4f7b29052eaf3f765e79bb"
+      "treeDigest": "sha256:9a74eda0463c7c96edb8ea068b07af993dce3c5f6080dbc83a0c3fe70f805ed6"
     },
     {
       "id": "kai-dev-environment",
@@ -1281,7 +1281,7 @@
         {
           "id": "macos-launchd-logs",
           "canonicalPath": "components/system-packs/macos/skills/macos-launchd-logs",
-          "sourceDigest": "sha256:36f914d0d71af66816beed14d9b4b3dc65bc81e5f97a2ff37d2e541e8a9c10ee"
+          "sourceDigest": "sha256:7026f1b1a1d6cca849c442da4b5db004af5bbf2bc609e6590f4a51b6ae097d46"
         },
         {
           "id": "kai-system-information",
@@ -1289,7 +1289,7 @@
           "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
         }
       ],
-      "treeDigest": "sha256:7f2c3ed2064d32727d555c998eee6e6d5de0480f19cfc6c9009717c4517ad7e0"
+      "treeDigest": "sha256:88322d86a39a1c0389f10da430df4ac2ac56152727c375183a7d0c60c1fb21ea"
     },
     {
       "id": "macos-system-diagnostics",
@@ -1314,7 +1314,7 @@
         {
           "id": "macos-system-diagnostics",
           "canonicalPath": "components/system-packs/macos/skills/macos-system-diagnostics",
-          "sourceDigest": "sha256:a5e9315197261a3b400a29e7405e552421cee8b83689955d2e054a6473ae595a"
+          "sourceDigest": "sha256:5402c5584aac011200e6dce07eef01397193b1fa518c0df3141ad7849e937a3c"
         },
         {
           "id": "kai-system-information",
@@ -1322,7 +1322,7 @@
           "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
         }
       ],
-      "treeDigest": "sha256:cb20702191a4d9609afcd0c83aa009af54ae1ccdc30c9e315a7c846f09a82d2e"
+      "treeDigest": "sha256:db843257a27e95ad227520493cab19f2eab2e4ba2e1397de80121fad48d68748"
     },
     {
       "id": "target-ssh-controller",
@@ -1444,7 +1444,7 @@
         {
           "id": "windows-service-eventlog",
           "canonicalPath": "components/system-packs/windows/skills/windows-service-eventlog",
-          "sourceDigest": "sha256:dd3a8905818c31237c88b90088b42a323e1de4a4a2875700bf2eb3f85b4c5601"
+          "sourceDigest": "sha256:2793f21fcafb55312c4cf6c07adc4a3d1b74ef0493386a5113b6596634945890"
         },
         {
           "id": "kai-system-information",
@@ -1452,7 +1452,7 @@
           "sourceDigest": "sha256:146d8c8e29477f992267bcfadc373c67df3ce8680e4a622f1a73abb798abae50"
         }
       ],
-      "treeDigest": "sha256:6501f64194d3822984eb02026e99d1198fbba7623175d86a23b2de96cf40434f"
+      "treeDigest": "sha256:7e8d04c9abb8d6f102adad7118f6d0e7be607ec3f10f47be6db31f43ed5f0feb"
     },
     {
       "id": "windows-system-diagnostics",

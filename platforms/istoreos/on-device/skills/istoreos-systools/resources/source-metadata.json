@@ -6,7 +6,7 @@
     {
       "id": "istoreos-systools",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-systools",
-      "sourceDigest": "sha256:c6348589d778fe7caecf554714d798775d65ff7502d76b067b48578906e4f449"
+      "sourceDigest": "sha256:a4705a33d8220da8caa4678466ccca9262e0cf0da1bf955abe67b0185a989d35"
     },
     {
       "id": "istoreos-package-manager",
@@ -16,7 +16,7 @@
     {
       "id": "istoreos-service-manager",
       "canonicalPath": "components/system-packs/istoreos/skills/istoreos-service-manager",
-      "sourceDigest": "sha256:453de789b83f60436f8d32013271f599569d2c5af6f4af72acd1b18a51c797b5"
+      "sourceDigest": "sha256:d94e4aa1e88a6f243db041d6bce1950279b81bce81222d6752257408c43f5a36"
     },
     {
       "id": "kai-system-information",

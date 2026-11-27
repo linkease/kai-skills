@@ -7,6 +7,7 @@ expected=${3:-}
 case "$expected" in running|stopped) ;; *) printf '%s\n' 'an explicit expected state (running or stopped) is required' >&2; exit 2 ;; esac
 lib="$script_dir/../resources/runtime/kai-system-information/scripts/lib"
 [ -f "$lib/receipt.sh" ] || lib="$script_dir/../../../../common/skills/kai-system-information/scripts/lib"
+[ -f "$lib/receipt.sh" ] || lib="$script_dir/../../../../../system-packs/common/skills/kai-system-information/scripts/lib"
 . "$lib/receipt.sh"
 . "$lib/probe.sh"
 kai_operation=service.verify kai_target=${ZSETUP_TASK_TARGET_ID:-local} kai_deadline=5
