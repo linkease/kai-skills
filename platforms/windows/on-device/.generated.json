@@ -17,10 +17,10 @@
     "windows"
   ],
   "componentVersions": {
-    "common": "1.1.8-rc.1",
+    "common": "1.1.8",
     "windows": "1.0.1"
   },
-  "sourceDigest": "sha256:b19029e781637bbeaeb9098a0b33e4c955cfbc5282f9a80b30738f8c24e3638a",
+  "sourceDigest": "sha256:0990152e331dc1a015bca4ab954f94a9db97f410e567c3210ed8490473f8ff96",
   "treeDigest": "sha256:8e799e49a975897d5d6b5f7dd4c02c3bc2c4a12d009bbc1bc4c15849a8c2acff",
   "resources": [],
   "skillAliases": {}
