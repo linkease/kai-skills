@@ -98,10 +98,24 @@ class BootstrapTests(unittest.TestCase):
         self.assertEqual((r['status'], r['version']), ('reused', '2026.7.7'))
 
     def test_macos_reuses_compatible_existing_core(self):
-        executable = self.script('zsetup', 'echo "zsetup 0.4.0"')
+        executable = self.script('zsetup', 'echo "zsetup 0.6.5"')
         p, r = self.call('ensure', 'zsetup', KAI_PLATFORM='macos', KAI_TRUSTED_TOOL_PATH=str(executable))
         self.assertEqual(p.returncode, 0, r)
         self.assertEqual(r['status'], 'reused')
+
+    def test_legacy_cores_are_preserved_and_not_advertised_as_ready(self):
+        # Managed distributions use checksum-tree, absent from these releases.
+        for platform, version in [('ubuntu', '0.5.1'), ('macos', '0.4.0'),
+                                  ('windows', '0.4.0')]:
+            with self.subTest(platform=platform):
+                executable = self.script('zsetup', 'echo "zsetup ' + version + '"')
+                before = executable.read_bytes()
+                p, result = self.call('ensure', 'zsetup', KAI_PLATFORM=platform,
+                                      KAI_TRUSTED_TOOL_PATH=str(executable))
+                self.assertNotEqual(p.returncode, 0)
+                self.assertEqual(result['status'], 'conflict')
+                self.assertEqual(executable.read_bytes(), before)
+                self.assertFalse((self.work / 'staging').exists())
 
     def test_missing_macos_core_uses_pinned_bootstrap_without_stable_pointer(self):
         p,r=self.call('plan','zsetup',KAI_PLATFORM='macos',KAI_ZSETUP_BIN=str(self.work/'absent'))
@@ -125,7 +139,7 @@ class BootstrapTests(unittest.TestCase):
                         '-nodes','-days','1','-keyout',str(key),'-out',str(cert),
                         '-subj','/CN=localhost','-addext','subjectAltName=IP:127.0.0.1'],
                        check=True,stdout=subprocess.DEVNULL,stderr=subprocess.DEVNULL)
-        payload=b'#!/bin/sh\necho "zsetup 0.4.0"\n'
+        payload=b'#!/bin/sh\necho "zsetup 0.6.5"\n'
         class Handler(http.server.BaseHTTPRequestHandler):
             def log_message(self,*args):pass
             def do_GET(self):
@@ -138,7 +152,7 @@ class BootstrapTests(unittest.TestCase):
             self.script('uname','if [ "$1" = -s ];then echo Darwin;else echo arm64;fi')
             self.script('jq','touch "$KAI_TEST_JQ_CALLED";exit 7')
             lock=self.work/'macos.lock'
-            lock.write_text(f'version=0.4.0\narch=aarch64\nurl=https://127.0.0.1:{server.server_port}/core\nsha256={hashlib.sha256(payload).hexdigest()}\nsize={len(payload)}\n')
+            lock.write_text(f'version=0.6.5\narch=aarch64\nurl=https://127.0.0.1:{server.server_port}/core\nsha256={hashlib.sha256(payload).hexdigest()}\nsize={len(payload)}\n')
             marker=self.work/'jq-called'
             result=subprocess.run(['bash',str(SKILL/'scripts/bootstrap-core.sh'),'--print-path'],
                 env={**self.env,'KAI_BOOTSTRAP_MACOS_LOCK':str(lock),'KAI_TEST_JQ_CALLED':str(marker),'CURL_CA_BUNDLE':str(cert)},
@@ -191,7 +205,7 @@ printf '#!/bin/sh\\necho "2026.8.14 macos fixture"\\n' > "$KAI_TEST_FORMULA/opt/
 
     def test_linux_install_invokes_existing_zsetup_foreground_and_rechecks(self):
         destination = self.home / '.local/bin/ks-cli'
-        zsetup = self.script('zsetup', '''if [ "${1:-}" = --version ]; then echo 'zsetup 0.5.1'; exit; fi
+        zsetup = self.script('zsetup', '''if [ "${1:-}" = --version ]; then echo 'zsetup 0.6.4'; exit; fi
 printf '%s\\n' "$*" > "$KAI_TEST_LOG"
 mkdir -p "$HOME/.local/bin"
 printf '#!/bin/sh\\necho 0.8.5\\n' > "$HOME/.local/bin/ks-cli"
@@ -218,9 +232,9 @@ chmod 755 "$HOME/.local/bin/ks-cli"''')
         self.assertFalse(r['serviceOperations'])
 
     def test_owner_rescue_core_is_reused_only_after_frozen_hash_verification(self):
-        cache=self.work/'owner-cache';core=cache/'rescue/0.5.1/zsetup';core.parent.mkdir(parents=True)
-        core.write_text('#!/bin/sh\necho "zsetup 0.5.1"\n');core.chmod(0o700)
-        lock=self.work/'release.json';lock.write_text(json.dumps({'zsetup':{'version':'0.5.1','artifacts':{'x86_64':{
+        cache=self.work/'owner-cache';core=cache/'rescue/0.6.4/zsetup';core.parent.mkdir(parents=True)
+        core.write_text('#!/bin/sh\necho "zsetup 0.6.4"\n');core.chmod(0o700)
+        lock=self.work/'release.json';lock.write_text(json.dumps({'zsetup':{'version':'0.6.4','artifacts':{'x86_64':{
             'sha256':hashlib.sha256(core.read_bytes()).hexdigest()}}}}))
         self.script('uname','case "$1" in -s) echo Linux ;; -m) echo x86_64 ;; esac')
         env={'KAI_PLATFORM':'istoreos','KAI_ZSETUP_BIN':'','ZSETUP_ROOT':str(cache),'KAI_BOOTSTRAP_RELEASE_LOCK':str(lock)}
@@ -229,7 +243,7 @@ chmod 755 "$HOME/.local/bin/ks-cli"''')
         self.assertEqual(r['path'],str(core));self.assertEqual(r['owner'],'zsetup-bootstrap-cache')
         self.assertFalse((self.home/'.local/bin/zsetup').exists())
         marker=self.work/'unexpected'
-        core.write_text('#!/bin/sh\ntouch "'+str(marker)+'"\necho "zsetup 0.5.1"\n')
+        core.write_text('#!/bin/sh\ntouch "'+str(marker)+'"\necho "zsetup 0.6.4"\n')
         p,r=self.call('ensure','zsetup',**env)
         self.assertEqual(p.returncode,17,r);self.assertEqual(r['status'],'conflict')
         self.assertFalse(marker.exists(),'the modified cached program was executed before checking its digest')
@@ -237,7 +251,7 @@ chmod 755 "$HOME/.local/bin/ks-cli"''')
     def test_failed_installer_keeps_original_tool(self):
         path = self.script('ks-cli', 'echo 0.1.0')
         before = path.read_bytes()
-        zsetup = self.script('zsetup', 'if [ "${1:-}" = --version ]; then echo "zsetup 0.5.1"; exit; fi; exit 11')
+        zsetup = self.script('zsetup', 'if [ "${1:-}" = --version ]; then echo "zsetup 0.6.4"; exit; fi; exit 11')
         p, r = self.call('ensure', 'ks-cli', KAI_ZSETUP_BIN=str(zsetup))
         self.assertNotEqual(p.returncode, 0)
         self.assertEqual(path.read_bytes(), before)
@@ -248,7 +262,7 @@ chmod 755 "$HOME/.local/bin/ks-cli"''')
                         '-nodes', '-days', '1', '-keyout', str(key), '-out', str(cert),
                         '-subj', '/CN=localhost', '-addext', 'subjectAltName=IP:127.0.0.1'],
                        check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
-        payload = b'#!/bin/sh\necho "zsetup 0.5.1"\n'
+        payload = b'#!/bin/sh\necho "zsetup 0.6.4"\n'
         state = {'body': payload, 'delay': 0, 'hits': 0, 'started': threading.Event()}
         class Handler(http.server.BaseHTTPRequestHandler):
             def log_message(self, *args):
@@ -269,10 +283,10 @@ chmod 755 "$HOME/.local/bin/ks-cli"''')
                 with self.subTest(mode=mode):
                     home = self.work / ('home-' + mode); home.mkdir()
                     lock = self.work / ('lock-' + mode + '.json')
-                    expected = payload if mode != 'wrong-version' else payload.replace(b'0.5.1', b'0.4.0')
+                    expected = payload if mode != 'wrong-version' else payload.replace(b'0.6.4', b'0.4.0')
                     state.update(body=expected if mode != 'corrupt' else b'x' * len(payload), delay=2 if mode == 'cancel' else 0)
                     state['started'].clear(); before_hits = state['hits']
-                    lock.write_text(json.dumps({'zsetup': {'version': '0.5.1', 'artifacts': {'x86_64': {
+                    lock.write_text(json.dumps({'zsetup': {'version': '0.6.4', 'artifacts': {'x86_64': {
                         'url': f'https://127.0.0.1:{server.server_port}/core', 'sha256': hashlib.sha256(expected).hexdigest(), 'size': len(expected)}}}}))
                     env = {**self.env, 'HOME': str(home), 'KAI_BOOTSTRAP_RELEASE_LOCK': str(lock), 'CURL_CA_BUNDLE': str(cert)}
                     if mode == 'space': self.script('df', 'printf "Filesystem 1024-blocks Used Available Capacity Mounted\\nfixture 100 100 0 100%% /\\n"')
@@ -290,7 +304,7 @@ chmod 755 "$HOME/.local/bin/ks-cli"''')
                     destination = home / '.local/bin/zsetup'
                     if mode == 'success':
                         self.assertEqual(code, 0, stderr)
-                        self.assertEqual(subprocess.check_output([str(destination), '--version'], text=True).strip(), 'zsetup 0.5.1')
+                        self.assertEqual(subprocess.check_output([str(destination), '--version'], text=True).strip(), 'zsetup 0.6.4')
                     else:
                         self.assertNotEqual(code, 0, stderr)
                         self.assertFalse(destination.exists())
